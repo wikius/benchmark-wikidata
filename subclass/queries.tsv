@@ -1,0 +1,16 @@
+# A set of subclass closure queries, included because some are hard for Blazegraph.
+human-subclass	All subclasses of human (Q5)
+human-subclass-labels	All subclasses of human (Q5) with labels
+human-subclass-labels	All subclasses of human (Q5) with labels, label service for WDQS	WDQS	human-subclass-labels-WDQS
+protein-subclass	All subclasses of protein (Q8054)
+protein-subclass	All subclasses of protein (Q8054), 2nd try
+protein-subclass	All subclasses of protein (Q8054), 3rd try
+protein-subclass	All subclasses of protein (Q8054), 4th try
+protein-subclass-labels	All subclasses of protein (Q8054) with labels
+protein-subclass-labels	All subclasses of protein (Q8054) with labels, label service for WDQS	WDQS	protein-subclass-labels-WDQS
+chemical-subclass	All subclasses of chemical entity (Q43460564)
+concrete-subclass	All subclasses of concrete object (Q4406616)
+object-subclass	All subclasses of object (Q488383)
+entity-subclass	All subclasses of entity (Q35120) 
+entity-subclass-labels	All subclasses of entity (Q35120) with labels
+entity-subclass-labels	All subclasses of entity (Q35120) with labels, label service for WDQS	WDQS	entity-subclass-labels-WDQS

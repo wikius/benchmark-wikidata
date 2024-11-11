@@ -1,0 +1,4 @@
+SELECT DISTINCT ?s ?sLabel WHERE {
+  ?s wdt:P279* wd:Q35120 .
+  OPTIONAL { ?s rdfs:label ?sLabel . FILTER ( lang(?sLabel) = 'en' ) }
+}

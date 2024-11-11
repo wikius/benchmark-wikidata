@@ -1,0 +1,1 @@
+SELECT DISTINCT ?s WHERE { ?s wdt:P279* wd:Q8054 . }
