@@ -1,0 +1,5 @@
+SELECT DISTINCT ?first ?firstLabel WHERE {
+  { ?i wdt:P31 ?first.  } UNION { ?sub wdt:P279 ?first . } UNION { ?first wdt:P279 ?super . } UNION { ?first wdt:P31/wdt:P279* wd:Q16889133 . }
+  OPTIONAL { ?first rdfs:label ?firstLabel . FILTER ( lang(?firstLabel) = 'en' ) }
+}
+     

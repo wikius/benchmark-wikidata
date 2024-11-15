@@ -1,0 +1,7 @@
+SELECT DISTINCT (COUNT (DISTINCT ?first) AS ?count) ?sub ?subLabel WHERE {
+  { SELECT DISTINCT ?sub ?first WHERE {
+    ?sub wdt:P279 wd:Q16889133 .
+    ?first wdt:P31/wdt:P279* ?sub .
+  } }
+  OPTIONAL { ?sub rdfs:label ?subLabel . FILTER ( lang(?subLabel) = 'en' ) }
+}  GROUP BY ?sub ?subLabel

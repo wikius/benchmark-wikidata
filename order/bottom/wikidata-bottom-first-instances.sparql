@@ -1,0 +1,5 @@
+  SELECT DISTINCT ?first ?firstLabel WHERE {
+    { SELECT DISTINCT ?c WHERE { ?zero wdt:P31 ?c . } }
+    ?c wdt:P279* ?first .
+    OPTIONAL { ?first rdfs:label ?firstLabel . FILTER ( lang(?firstLabel) = 'en' ) }
+  }

@@ -1,0 +1,4 @@
+SELECT DISTINCT ?c ?cLabel WHERE {
+  { ?c wdt:P31 ?c . } UNION { ?c wdt:P31/wdt:P279+ ?c . }
+  OPTIONAL { ?c rdfs:label ?cLabel . FILTER ( lang(?cLabel) = 'en' ) }    
+}

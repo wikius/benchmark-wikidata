@@ -1,0 +1,4 @@
+SELECT DISTINCT ?sixth ?sixthLabel WHERE {
+  ?sixth wdt:P279* wd:Q24027515 .
+  OPTIONAL { ?sixth rdfs:label ?sixthLabel . FILTER ( lang(?sixthLabel) = 'en' ) }
+}

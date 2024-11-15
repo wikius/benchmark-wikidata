@@ -1,0 +1,17 @@
+  SELECT DISTINCT ?fifth ?fifthLabel WHERE { 
+  {  SELECT DISTINCT ?fourth WHERE { 
+    { SELECT DISTINCT ?third WHERE { 
+      { SELECT DISTINCT ?second WHERE { 
+        { SELECT DISTINCT ?first WHERE {
+          { SELECT DISTINCT ?c WHERE { ?zero wdt:P31 ?c . } }
+          ?c wdt:P279* ?first .
+          } }
+        ?first wdt:P31/wdt:P279* ?second .
+        } }
+       ?second wdt:P31/wdt:P279* ?third .
+     } }
+    ?third wdt:P31/wdt:P279* ?fourth .
+  } }
+    ?fourth wdt:P31/wdt:P279* ?fifth .
+    OPTIONAL { ?fifth rdfs:label ?fifthLabel . FILTER ( lang(?fifthLabel) = 'en' ) }
+}

@@ -1,0 +1,4 @@
+SELECT DISTINCT ?second ?secondLabel WHERE {
+  ?second wdt:P279*/wdt:P31/wdt:P279*/wdt:P31 wd:Q24017465 .
+  OPTIONAL { ?second rdfs:label ?secondLabel . FILTER ( lang(?secondLabel) = 'en' ) }
+}

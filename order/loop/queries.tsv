@@ -1,0 +1,6 @@
+# Queries that find instance loops in the Wikidata ontology
+wikidata-loop-instance	Instance loops with one instance link and subclass
+wikidata-loop-instance-no-filter	Instance loops with one instance link and subclass (not using filter)
+wikidata-loop-instance-subquery	Instance loops with one instance link and subclass (using subquery)
+wikidata-loop-double-instance	Instance loops with two instance links
+wikidata-loop-double-instance-full	Instance loops with two instance links and subclass

@@ -1,0 +1,7 @@
+SELECT DISTINCT ?c ?s WHERE { 
+  { SELECT DISTINCT ?c ?s WHERE { ?c wdt:P279+ ?s } }
+  { SELECT DISTINCT ?c ?s WHERE { 
+    { SELECT DISTINCT ?c ?ss WHERE { ?c wdt:P279+/wdt:P31 ?ss . } }
+    ?ss wdt:P279+ ?s .
+    } }
+}

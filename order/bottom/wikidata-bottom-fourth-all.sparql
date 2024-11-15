@@ -1,0 +1,16 @@
+
+  SELECT DISTINCT ?fourth ?fourthLabel WHERE { 
+    { SELECT DISTINCT ?third ?thirdLabel WHERE { 
+    { SELECT DISTINCT ?second ?secondLabel WHERE { 
+      { SELECT DISTINCT ?c WHERE {
+        { SELECT DISTINCT ?first WHERE {
+          { ?i wdt:P31 ?first.  } UNION { ?sub wdt:P279 ?first . } UNION { ?first wdt:P279 ?super . } UNION { ?first wdt:P31/wdt:P279* wd:Q16889133 . }
+          } }
+        ?first wdt:P31 ?c . } }
+      ?c wdt:P279* ?second .
+    } }
+    ?second wdt:P31/wdt:P279* ?third .
+  } }
+    ?third wdt:P31/wdt:P279* ?fourth .
+    OPTIONAL { ?fourth rdfs:label ?fourthLabel . FILTER ( lang(?fourthLabel) = 'en' ) }
+  }

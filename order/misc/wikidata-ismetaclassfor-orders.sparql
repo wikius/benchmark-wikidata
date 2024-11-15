@@ -1,0 +1,13 @@
+SELECT DISTINCT ?order ?orders ?meta ?metaLabel ?super ?superLabel WHERE {  
+  ?meta wdt:P8225 ?super .  # is metaclass for
+  OPTIONAL { 
+    VALUES (?base ?order) {(wd:Q104086571 1) (wd:Q24017414 2) (wd:Q24017465 3)
+           (wd:Q24027474 4) (wd:Q24027515 5) }
+    ?meta wdt:P279*/wdt:P31/wdt:P279* ?base . }
+  OPTIONAL { 
+    VALUES (?bases ?orders) {(wd:Q104086571 1) (wd:Q24017414 2) (wd:Q24017465 3)
+           (wd:Q24027474 4) (wd:Q24027515 5) }
+    ?super wdt:P279*/wdt:P31/wdt:P279* ?bases . }
+  OPTIONAL { ?meta rdfs:label ?metaLabel . FILTER ( lang(?metaLabel) = 'en' ) }
+  OPTIONAL { ?super rdfs:label ?superLabel . FILTER ( lang(?superLabel) = 'en' ) }
+}

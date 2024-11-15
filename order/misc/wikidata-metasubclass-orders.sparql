@@ -1,0 +1,11 @@
+SELECT DISTINCT ?meta ?metaLabel ?super ?superLabel ?morder ?sorder WHERE {
+  ?meta wdt:P2445 ?super .  # metasubclass of
+  OPTIONAL { ?meta wdt:P279*/wdt:P31/wdt:P279* ?mbase .   
+          VALUES (?mbase ?morder) {(wd:Q104086571 1) (wd:Q24017414 2) (wd:Q24017465 3) (wd:Q24027474 4) (wd:Q24027515 5) }
+           }
+  OPTIONAL { ?super wdt:P279*/wdt:P31/wdt:P279* ?sbase .   
+          VALUES (?sbase ?sorder) {(wd:Q104086571 1) (wd:Q24017414 2) (wd:Q24017465 3) (wd:Q24027474 4) (wd:Q24027515 5) }
+          }
+  OPTIONAL { ?meta rdfs:label ?metaLabel . FILTER ( lang(?metaLabel) = 'en' ) }
+  OPTIONAL { ?super rdfs:label ?superLabel . FILTER ( lang(?superLabel) = 'en' ) }
+}

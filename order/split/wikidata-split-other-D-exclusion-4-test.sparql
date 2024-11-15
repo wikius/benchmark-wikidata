@@ -1,0 +1,9 @@
+SELECT DISTINCT ?c ?cLabel ?s ?sLabel WHERE {
+  { SELECT DISTINCT ?cx ?s WHERE {
+    { SELECT DISTINCT ?cx ?s WHERE { ?cx wdt:P279+ ?s . } }
+    { SELECT DISTINCT ?cx ?s WHERE { ?cx wdt:P31/wdt:P279+ ?s . } }
+  } }
+  ?c wdt:P279 ?cx .
+  OPTIONAL { ?c rdfs:label ?cLabel . FILTER ( lang(?cLabel) = 'en' ) }    
+  OPTIONAL { ?s rdfs:label ?sLabel . FILTER ( lang(?sLabel) = 'en' ) }    
+}

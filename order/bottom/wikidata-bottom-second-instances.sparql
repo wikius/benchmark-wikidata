@@ -1,0 +1,8 @@
+  SELECT DISTINCT ?second ?secondLabel WHERE { 
+    { SELECT DISTINCT ?first WHERE {
+      { SELECT DISTINCT ?c WHERE { ?zero wdt:P31 ?c . } }
+      ?c wdt:P279* ?first .
+      } }
+    ?first wdt:P31/wdt:P279* ?second .
+    OPTIONAL { ?second rdfs:label ?secondLabel . FILTER ( lang(?secondLabel) = 'en' ) }
+   }

@@ -1,0 +1,4 @@
+SELECT DISTINCT ?fifth ?fifthLabel WHERE {
+  ?fifth wdt:P31 wd:Q24027515 .
+  OPTIONAL { ?fifth rdfs:label ?fifthLabel . FILTER ( lang(?fifthLabel) = 'en' ) }
+}
