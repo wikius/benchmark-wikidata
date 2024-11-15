@@ -1,0 +1,127 @@
+idefix queries> ./benchmark.py --directory=subclass/ --count
+
+Evaluating queries from subclass, counted,
+with caching disabled for QLever and Blazegraph
+
+# A set of subclass closure queries, included because some are hard for Blazegraph.
+
+QUERY: human-subclass All subclasses of human (Q5)
+Local  Elapsed=  156ms Result=2289 Time={'computeResult': '20ms', 'total': '21ms'} 
+QLever Elapsed= 1047ms Result=2294 Time={'computeResult': '46ms', 'total': '47ms'} 
+QLTest Elapsed=  900ms Result=2289 Time={'computeResult': '59ms', 'total': '60ms'} 
+WDQS   Elapsed=  375ms Result=2292
+VOS    Elapsed=  542ms Result=3282
+MDB    Elapsed=  611ms Result=3785
+
+QUERY: human-subclass-labels All subclasses of human (Q5) with labels
+Local  Elapsed=  436ms Result=2289 Time={'computeResult': '289ms', 'total': '290ms'} 
+QLever Elapsed= 1260ms Result=2294 Time={'computeResult': '571ms', 'total': '571ms'} 
+QLTest Elapsed= 1533ms Result=2289 Time={'computeResult': '854ms', 'total': '855ms'} 
+WDQS   Elapsed= 2231ms Result=2292
+VOS    Elapsed=  421ms Result=3282
+MDB    Elapsed=  610ms Result=3785
+
+QUERY: human-subclass-labels All subclasses of human (Q5) with labels, label service for WDQS
+Local  Elapsed=  421ms Result=2289 Time={'computeResult': '283ms', 'total': '284ms'} 
+QLever Elapsed= 1338ms Result=2294 Time={'computeResult': '535ms', 'total': '535ms'} 
+QLTest Elapsed= 1687ms Result=2289 Time={'computeResult': '882ms', 'total': '883ms'} 
+WDQS   Elapsed=  320ms Result=2292
+VOS    Elapsed=  422ms Result=3282
+MDB    Elapsed=  629ms Result=3785
+
+QUERY: protein-subclass All subclasses of protein (Q8054)
+Local  Elapsed=  349ms Result=799368 Time={'computeResult': '215ms', 'total': '215ms'} 
+QLever Elapsed= 1037ms Result=799369 Time={'computeResult': '238ms', 'total': '239ms'} 
+QLTest Elapsed= 1242ms Result=799368 Time={'computeResult': '443ms', 'total': '444ms'} 
+WDQS   Elapsed=52746ms Result=799369
+VOS    Elapsed= 2474ms Result=799018
+MDB    Elapsed= 1860ms Result=798645
+
+QUERY: protein-subclass All subclasses of protein (Q8054), 2nd try
+Local  Elapsed=  294ms Result=799368 Time={'computeResult': '216ms', 'total': '216ms'} 
+QLever Elapsed=  959ms Result=799369 Time={'computeResult': '246ms', 'total': '247ms'} 
+QLTest Elapsed= 1176ms Result=799368 Time={'computeResult': '487ms', 'total': '487ms'} 
+WDQS   Elapsed=26846ms Result=799369
+VOS    Elapsed= 4420ms Result=799018
+MDB    Elapsed= 3621ms Result=798645
+
+QUERY: protein-subclass All subclasses of protein (Q8054), 3rd try
+Local  Elapsed=  355ms Result=799368 Time={'computeResult': '215ms', 'total': '216ms'} 
+QLever Elapsed=  964ms Result=799369 Time={'computeResult': '276ms', 'total': '277ms'} 
+QLTest Elapsed= 1166ms Result=799368 Time={'computeResult': '466ms', 'total': '467ms'} 
+WDQS   Elapsed=38047ms Result=799369
+VOS    Elapsed= 3986ms Result=799018
+MDB    Elapsed= 1899ms Result=798645
+
+QUERY: protein-subclass All subclasses of protein (Q8054), 4th try
+Local  Elapsed=  322ms Result=799368 Time={'computeResult': '212ms', 'total': '213ms'} 
+QLever Elapsed=  959ms Result=799369 Time={'computeResult': '246ms', 'total': '246ms'} 
+QLTest Elapsed= 1132ms Result=799368 Time={'computeResult': '431ms', 'total': '432ms'} 
+WDQS   Elapsed=39599ms Result=799369
+VOS    Elapsed= 2466ms Result=799018
+MDB    Elapsed= 3299ms Result=798645
+
+QUERY: protein-subclass-labels All subclasses of protein (Q8054) with labels
+Local  Elapsed=  939ms Result=799368 Time={'computeResult': '789ms', 'total': '790ms'} 
+QLever Elapsed= 1768ms Result=799369 Time={'computeResult': '1078ms', 'total': '1078ms'} 
+QLTest Elapsed= 2754ms Result=799368 Time={'computeResult': '2059ms', 'total': '2060ms'} 
+WDQS   Elapsed=60056ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed= 2497ms Result=799018
+MDB    Elapsed= 4092ms Result=798645
+
+QUERY: protein-subclass-labels All subclasses of protein (Q8054) with labels, label service for WDQS
+Local  Elapsed=  967ms Result=799368 Time={'computeResult': '795ms', 'total': '796ms'} 
+QLever Elapsed= 1883ms Result=799369 Time={'computeResult': '1098ms', 'total': '1098ms'} 
+QLTest Elapsed= 2833ms Result=799368 Time={'computeResult': '2040ms', 'total': '2041ms'} 
+WDQS   Elapsed=31539ms Result=799369
+VOS    Elapsed= 2634ms Result=799018
+MDB    Elapsed= 5677ms Result=798645
+
+QUERY: chemical-subclass All subclasses of chemical entity (Q43460564)
+Local  Elapsed=  957ms Result=2320275 Time={'computeResult': '857ms', 'total': '858ms'} 
+QLever Elapsed= 1647ms Result=2320187 Time={'computeResult': '853ms', 'total': '854ms'} 
+QLTest Elapsed= 2112ms Result=2320275 Time={'computeResult': '1306ms', 'total': '1307ms'} 
+WDQS   Elapsed=60067ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed=11840ms ERROR Virtuoso 42000 Error TN...: Exceeded 1000000000 bytes in transitive temp memory.  use t_distinct, t_max or more T_MAX_memory options to limit the search or increase the pool
+MDB    Elapsed= 6228ms Result=2292937
+
+QUERY: concrete-subclass All subclasses of concrete object (Q4406616)
+Local  Elapsed= 1823ms Result=3771720 Time={'computeResult': '1662ms', 'total': '1662ms'} 
+QLever Elapsed= 2439ms Result=3771980 Time={'computeResult': '1610ms', 'total': '1611ms'} 
+QLTest Elapsed= 3076ms Result=3771720 Time={'computeResult': '2373ms', 'total': '2374ms'} 
+WDQS   Elapsed=60064ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed=30772ms ERROR Virtuoso 42000 Error TN...: Exceeded 1000000000 bytes in transitive temp memory.  use t_distinct, t_max or more T_MAX_memory options to limit the search or increase the pool
+MDB    Elapsed= 8834ms Result=3733766
+
+QUERY: object-subclass All subclasses of object (Q488383)
+Local  Elapsed= 2120ms Result=4090266 Time={'computeResult': '1958ms', 'total': '1959ms'} 
+QLever Elapsed= 2654ms Result=4090673 Time={'computeResult': '1950ms', 'total': '1950ms'} 
+QLTest Elapsed= 3340ms Result=4090266 Time={'computeResult': '2615ms', 'total': '2615ms'} 
+WDQS   Elapsed=60084ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed=11134ms ERROR Virtuoso 42000 Error TN...: Exceeded 1000000000 bytes in transitive temp memory.  use t_distinct, t_max or more T_MAX_memory options to limit the search or increase the pool
+MDB    Elapsed= 9575ms Result=4027093
+
+QUERY: entity-subclass All subclasses of entity (Q35120)
+Local  Elapsed= 2080ms Result=4146817 Time={'computeResult': '1956ms', 'total': '1957ms'} 
+QLever Elapsed= 2596ms Result=4147251 Time={'computeResult': '1882ms', 'total': '1882ms'} 
+QLTest Elapsed= 3456ms Result=4146817 Time={'computeResult': '2726ms', 'total': '2727ms'} 
+WDQS   Elapsed=60077ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed=14995ms ERROR Virtuoso 42000 Error TN...: Exceeded 1000000000 bytes in transitive temp memory.  use t_distinct, t_max or more T_MAX_memory options to limit the search or increase the pool
+MDB    Elapsed= 9876ms Result=4077136
+
+QUERY: entity-subclass-labels All subclasses of entity (Q35120) with labels
+Local  Elapsed= 3161ms Result=4146817 Time={'computeResult': '3034ms', 'total': '3035ms'} 
+QLever Elapsed= 4114ms Result=4147251 Time={'computeResult': '3397ms', 'total': '3397ms'} 
+QLTest Elapsed= 5531ms Result=4146817 Time={'computeResult': '4802ms', 'total': '4802ms'} 
+WDQS   Elapsed=60081ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed=14539ms ERROR Virtuoso 42000 Error TN...: Exceeded 1000000000 bytes in transitive temp memory.  use t_distinct, t_max or more T_MAX_memory options to limit the search or increase the pool
+MDB    Elapsed=28632ms Result=4077136
+
+QUERY: entity-subclass-labels All subclasses of entity (Q35120) with labels, label service for WDQS
+Local  Elapsed= 3191ms Result=4146817 Time={'computeResult': '3061ms', 'total': '3062ms'} 
+QLever Elapsed= 4146ms Result=4147251 Time={'computeResult': '3305ms', 'total': '3305ms'} 
+QLTest Elapsed= 5675ms Result=4146817 Time={'computeResult': '4855ms', 'total': '4855ms'} 
+WDQS   Elapsed=60063ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed=13339ms ERROR Virtuoso 42000 Error TN...: Exceeded 1000000000 bytes in transitive temp memory.  use t_distinct, t_max or more T_MAX_memory options to limit the search or increase the pool
+MDB    Elapsed=29575ms Result=4077136
+

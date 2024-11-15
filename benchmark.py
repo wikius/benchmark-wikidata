@@ -34,13 +34,14 @@ import time
 import subprocess
 import re
 import json
+import csv
 
 prefixes = '''PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 '''
 
-queries_directory = 'queries/'
+queries_directory = 'queries'
 queries_file = None
 
 def qlever_clear_cache(url):
@@ -65,7 +66,7 @@ def results_qlever(reply):
         result_count = None
     return f"{count} Time={time} {exception}"
 
-def qlever_eval(query, url='https://qlever.cs.uni-freiburg.de/api/wikidata/', no_caching=True):
+def qlever_eval(query, url, no_caching=True):
     if no_caching:
         qlever_clear_cache(url)
     reply = requests.get(url,
@@ -80,13 +81,6 @@ def qlever_eval(query, url='https://qlever.cs.uni-freiburg.de/api/wikidata/', no
     else:
         return results_qlever(reply)
 
-def qlever_eval_test(query, no_caching=True):
-    return qlever_eval(query, url='https://qlever.cs.uni-freiburg.de/api/wikidata-test/', no_caching=no_caching)
-
-def qlever_benchmark_eval(query, no_caching=True):
-#    return qlever_eval(query, url='http://localhost:7001')
-    return qlever_eval(query, url='http://getafix:7001', no_caching=no_caching)
-
 
 def results_csv(text):
     count = text.count("\n")-1
@@ -96,14 +90,14 @@ def results_csv(text):
         return f"Count={count:4}"
 
 
-def wdqs_eval(query, no_caching=True):
+def wdqs_eval(query, url, no_caching=True):
     # use the explain parameter to get timing information
     headers={"Accept": "text/csv", "user-agent": "pfps-benchmark/0.0.1"}
     if no_caching:
 # doesn't work        headers["cache-control"] = "no-cache"
         query = "#" + str(random.randint(1,1000000000)) + "\n" + query
     try:
-        reply = requests.get('https://query.wikidata.org/sparql',
+        reply = requests.get(url,
                              headers=headers,
                              params={"query": query, 
 #                                     "explain": "", # "explain": "details",
@@ -128,14 +122,13 @@ def wdqs_eval(query, no_caching=True):
 
 
 def generic_eval(query, url=None, no_caching=True):
-    headers={"Accept": "text/csv", "user-agent": "pfps-benchmark/0.0.1"}
+    headers={"Accept": "text/tab-separated-values", "user-agent": "pfps-benchmark/0.0.1"}
     reply = requests.get(url,
                          headers=headers,
                          params={"query": prefixes + query})
     return f"{results_csv(reply.text)}", reply.text
 
-def vos_eval(query, no_caching=True):
-    url = "https://wikidata.demo.openlinksw.com/sparql"
+def vos_eval(query, url, no_caching=True):
     count, text = generic_eval(query, url=url, no_caching=no_caching)
     err = re.search('Virtuoso \\d+ Error .*\n', text)
     if err:
@@ -151,8 +144,7 @@ def results_json(jtext):
     else:
         return f"Count={count:4}"
 
-def mdb_eval(query, no_caching=True):
-    url = "https://wikidata.imfd.cl/wikidata/sparql"
+def mdb_eval(query, url, no_caching=True):
     headers={"Content-Type": "application/sparql-query", "user-agent": "pfps-benchmark/0.0.1"}
     reply = requests.post(url,
                          headers=headers,
@@ -167,37 +159,53 @@ def mdb_eval(query, no_caching=True):
         return f"ERROR Status Code {reply.status_code}"
 
 engines = [
-    [ "Local", qlever_benchmark_eval],
-    [ "QLever",  qlever_eval],
-    [ "QLTest", qlever_eval_test],
-    [ "WDQS", wdqs_eval],
-    [ "VOS", vos_eval],
-    [ "MDB", mdb_eval],
+    [ "Local", qlever_eval, 'http://getafix:7001'],
+    [ "QLever",  qlever_eval, 'https://qlever.cs.uni-freiburg.de/api/wikidata/'],
+    [ "QLTest", qlever_eval,  'https://qlever.cs.uni-freiburg.de/api/wikidata-test/'],
+    [ "WDQS", wdqs_eval, 'https://query.wikidata.org/sparql'],
+    [ "ORB", wdqs_eval, 'https://query-direct.orbopengraph.com/bigdata/namespace/wdq/sparql'],
+    [ "VOS", vos_eval, "https://wikidata.demo.openlinksw.com/sparql" ],
+    [ "MDB", mdb_eval, "https://wikidata.imfd.cl/wikidata/sparql"],
 ]
 
-def add_counting(query, count):
-    return f"SELECT (COUNT (*) AS ?count) WHERE {{\n{query}}}\n" if count else query
+def modify_query(query, count, replace):
+    if count:
+        query = f"SELECT (COUNT (*) AS ?count) WHERE {{\n{query}}}\n"
+    if replace:
+        query = query.replace("REPLACE", replace)
+    return query
 
-def process(query_file_name, description, alternatives=None, no_caching=True, counting=False):
+def process(query_file_name, description, alternatives=None, no_caching=True, counting=False, replace=None):
     alternatives = alternatives if alternatives is not None else {}
     print("QUERY:", query_file_name, description.strip())
     with open(queries_directory + '/' + query_file_name + '.sparql', 'r') as query_file:
-        query = add_counting(query_file.read(), counting)
+        query = modify_query(query_file.read(), counting, replace)
 
-    for [engine, function] in engines:
+    for [engine, function, url] in engines:
         if engine in alternatives:
             with open(queries_directory + '/' + alternatives[engine] + '.sparql', 'r') as query_file:
-                query_for_engine = add_counting(query_file.read(), counting)
+                query_for_engine = modify_query(query_file.read(), counting, replace)
             start_time = time.time()
-            result = function(query_for_engine, no_caching=no_caching)
+            result = function(query_for_engine, url, no_caching=no_caching)
             end_time =time.time()
         else:
             start_time = time.time()
-            result = function(query, no_caching=no_caching)
+            result = function(query, url, no_caching=no_caching)
             end_time =time.time()
         print(f"{engine:6} Elapsed={int((end_time - start_time) * 1000):5}ms {result}")
 
     print()
+
+def parameterized(parameter, query_file_name, description, alternatives, no_caching, counting):
+    with open(queries_directory + '/' + parameter + '.sparql', 'r') as parameter_file:
+        parameter = parameter_file.read()
+    result = generic_eval(parameter, 'http://getafix:7001')
+    rows = result[1].splitlines()
+    for row in rows[1:]:
+        replace = row.split('\t')[0]
+        rdesc = description.replace("REPLACE", replace)
+        process(query_file_name, rdesc, alternatives=alternatives, no_caching=no_caching, counting=counting, replace=replace)
+
 
 
 parser = argparse.ArgumentParser()
@@ -210,16 +218,17 @@ parser.add_argument("-C", "--caching", action='store_true', help="Permit caching
 parser.add_argument("-c", "--count", action='store_true', help="Add enclosing SELECT to count results")
 args = parser.parse_args()
 
+if args.directory:
+    queries_directory = args.directory.rstrip('/')
+if args.engine:
+    engines = [ engine for engine in engines if engine[0] in args.engine ]
+
 if args.filename:
     process(args.filename, args.description, no_caching=not args.caching, counting=args.count)
 else:
-    if args.directory:
-        queries_directory = args.directory.rstrip('/')
     print(f"Evaluating queries from {queries_directory}{', counted,' if args.count else ''}")
     print(f"with caching {'allowed' if args.caching else 'disabled for QLever and Blazegraph'}\n")
     queries_file = open(queries_directory + '/queries.tsv', 'r')
-    if args.engine:
-        engines = [ engine for engine in engines if engine[0] in args.engine ]
     for line in queries_file:
         fields = line.rstrip().split('\t')
         if len(fields) < 2 or line.startswith("#"):
@@ -228,5 +237,10 @@ else:
         query_file_name = fields[0]
         description = fields[1]
         alternatives = {fields[i]: fields[i + 1] for i in range(2, len(fields), 2)}
-        process(query_file_name, description, alternatives, no_caching=not args.caching, counting=args.count)
+        if "PARAMETER" in alternatives:
+            parameter = alternatives["PARAMETER"]
+            del alternatives["PARAMETER"]
+            parameterized(parameter, query_file_name, description, alternatives, no_caching=not args.caching, counting=args.count)
+        else:
+            process(query_file_name, description, alternatives, no_caching=not args.caching, counting=args.count)
 
