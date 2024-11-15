@@ -1,0 +1,125 @@
+idefix benchmark-wikidata> ./benchmark.py --directory=instance/ --count
+Evaluating queries from instance, counted,
+with caching disabled for QLever and Blazegraph
+
+# A set of instance queries, included because some are hard for Blazegraph.
+
+QUERY: human-subclass All instances of human (Q5)
+Local  Elapsed= 1645ms Result=11463834 Time={'computeResult': '1564ms', 'total': '1564ms'} 
+QLever Elapsed= 1760ms Result=11570641 Time={'computeResult': '1076ms', 'total': '1076ms'} 
+QLTest Elapsed= 2450ms Result=11463834 Time={'computeResult': '1702ms', 'total': '1703ms'} 
+WDQS   Elapsed=60066ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed= 5416ms Result=11208642
+MDB    Elapsed=34197ms Result=11027460
+
+QUERY: human-subclass-labels All instances of human (Q5) with labels
+Local  Elapsed= 2907ms Result=11463834 Time={'computeResult': '2774ms', 'total': '2775ms'} 
+QLever Elapsed= 3516ms Result=11570641 Time={'computeResult': '2818ms', 'total': '2819ms'} 
+QLTest Elapsed= 5517ms Result=11463834 Time={'computeResult': '4774ms', 'total': '4775ms'} 
+WDQS   Elapsed=60061ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed= 5033ms Result=11208642
+MDB    Elapsed=60627ms ERROR Status Code 404
+
+QUERY: human-subclass-labels All instances of human (Q5) with labels, label service for WDQS
+Local  Elapsed= 2937ms Result=11463834 Time={'computeResult': '2819ms', 'total': '2820ms'} 
+QLever Elapsed= 3485ms Result=11570641 Time={'computeResult': '2789ms', 'total': '2790ms'} 
+QLTest Elapsed= 5652ms Result=11463834 Time={'computeResult': '4817ms', 'total': '4818ms'} 
+WDQS   Elapsed=60078ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed= 5162ms Result=11208642
+MDB    Elapsed=60603ms ERROR Status Code 404
+
+QUERY: protein-subclass All instances of protein (Q8054)
+Local  Elapsed=  448ms Result=1020817 Time={'computeResult': '325ms', 'total': '325ms'} 
+QLever Elapsed= 1014ms Result=1020873 Time={'computeResult': '316ms', 'total': '316ms'} 
+QLTest Elapsed= 1484ms Result=1020817 Time={'computeResult': '558ms', 'total': '559ms'} 
+WDQS   Elapsed=46030ms Result=1020891
+VOS    Elapsed= 2918ms Result=1021431
+MDB    Elapsed= 2708ms Result=1019193
+
+QUERY: protein-subclass All instances of protein (Q8054), 2nd try
+Local  Elapsed=  353ms Result=1020817 Time={'computeResult': '293ms', 'total': '294ms'} 
+QLever Elapsed=  999ms Result=1020873 Time={'computeResult': '320ms', 'total': '321ms'} 
+QLTest Elapsed= 1364ms Result=1020817 Time={'computeResult': '647ms', 'total': '648ms'} 
+WDQS   Elapsed=46716ms Result=1020891
+VOS    Elapsed= 6992ms Result=1021431
+MDB    Elapsed= 2400ms Result=1019193
+
+QUERY: protein-subclass All instances of protein (Q8054), 3rd try
+Local  Elapsed=  423ms Result=1020817 Time={'computeResult': '307ms', 'total': '308ms'} 
+QLever Elapsed=  992ms Result=1020873 Time={'computeResult': '304ms', 'total': '304ms'} 
+QLTest Elapsed= 1318ms Result=1020817 Time={'computeResult': '615ms', 'total': '616ms'} 
+WDQS   Elapsed=33690ms Result=1020891
+VOS    Elapsed= 2969ms Result=1021431
+MDB    Elapsed= 2456ms Result=1019193
+
+QUERY: protein-subclass All instances of protein (Q8054), 4th try
+Local  Elapsed=  512ms Result=1020817 Time={'computeResult': '301ms', 'total': '302ms'} 
+QLever Elapsed= 1228ms Result=1020873 Time={'computeResult': '335ms', 'total': '335ms'} 
+QLTest Elapsed= 1535ms Result=1020817 Time={'computeResult': '539ms', 'total': '540ms'} 
+WDQS   Elapsed=41883ms Result=1020891
+VOS    Elapsed= 2865ms Result=1021431
+MDB    Elapsed= 2559ms Result=1019193
+
+QUERY: protein-subclass-labels All instances of protein (Q8054) with labels
+Local  Elapsed= 1228ms Result=1020817 Time={'computeResult': '857ms', 'total': '858ms'} 
+QLever Elapsed= 2356ms Result=1020873 Time={'computeResult': '1194ms', 'total': '1195ms'} 
+QLTest Elapsed= 3481ms Result=1020817 Time={'computeResult': '2292ms', 'total': '2293ms'} 
+WDQS   Elapsed=60109ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed= 2866ms Result=1021431
+MDB    Elapsed=25842ms Result=1019193
+
+QUERY: protein-subclass-labels All instances of protein (Q8054) with labels, label service for WDQS
+Local  Elapsed= 1089ms Result=1020817 Time={'computeResult': '867ms', 'total': '868ms'} 
+QLever Elapsed= 2214ms Result=1020873 Time={'computeResult': '1161ms', 'total': '1162ms'} 
+QLTest Elapsed= 3519ms Result=1020817 Time={'computeResult': '2287ms', 'total': '2287ms'} 
+WDQS   Elapsed=60111ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed= 3377ms Result=1021431
+MDB    Elapsed= 5119ms Result=1019193
+
+QUERY: chemical-subclass All instances of chemical entity (Q43460564)
+Local  Elapsed= 1236ms Result=1164173 Time={'computeResult': '917ms', 'total': '917ms'} 
+QLever Elapsed= 2245ms Result=1164173 Time={'computeResult': '909ms', 'total': '909ms'} 
+QLTest Elapsed= 2764ms Result=1164173 Time={'computeResult': '1554ms', 'total': '1555ms'} 
+WDQS   Elapsed=60111ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed=12286ms ERROR Virtuoso 42000 Error TN...: Exceeded 1000000000 bytes in transitive temp memory.  use t_distinct, t_max or more T_MAX_memory options to limit the search or increase the pool
+MDB    Elapsed= 6655ms Result=1169543
+
+QUERY: concrete-subclass All instances of concrete object (Q4406616)
+Local  Elapsed= 4608ms Result=32856634 Time={'computeResult': '4429ms', 'total': '4430ms'} 
+QLever Elapsed= 5121ms Result=32994408 Time={'computeResult': '3986ms', 'total': '3986ms'} 
+QLTest Elapsed= 7065ms Result=32856634 Time={'computeResult': '6150ms', 'total': '6151ms'} 
+WDQS   Elapsed=58985ms EXCEPTION java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=1d875cdf-a935-45c1-a107-ca9fb728ea86,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=6967133,considered(left=0,right=0,joins=0)}
+VOS    Elapsed= 8702ms ERROR Virtuoso 42000 Error TN...: Exceeded 1000000000 bytes in transitive temp memory.  use t_distinct, t_max or more T_MAX_memory options to limit the search or increase the pool
+MDB    Elapsed=60726ms ERROR Status Code 404
+
+QUERY: object-subclass All instances of object (Q488383)
+Local  Elapsed=12184ms Result=108198667 Time={'computeResult': '11892ms', 'total': '11893ms'} 
+QLever Elapsed=12594ms Result=108418115 Time={'computeResult': '11473ms', 'total': '11474ms'} 
+QLTest Elapsed=17307ms Result=108198667 Time={'computeResult': '16199ms', 'total': '16200ms'} 
+WDQS   Elapsed=60109ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed=19454ms ERROR Virtuoso 42000 Error TN...: Exceeded 1000000000 bytes in transitive temp memory.  use t_distinct, t_max or more T_MAX_memory options to limit the search or increase the pool
+MDB    Elapsed=60723ms ERROR Status Code 404
+
+QUERY: entity-subclass All instances of entity (Q35120)
+Local  Elapsed=12189ms Result=110318246 Time={'computeResult': '11798ms', 'total': '11798ms'} 
+QLever Elapsed=16075ms Result=110538423 Time={'computeResult': '15088ms', 'total': '15089ms'} 
+QLTest Elapsed=17613ms Result=110318246 Time={'computeResult': '16002ms', 'total': '16003ms'} 
+WDQS   Elapsed=53762ms EXCEPTION java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=8633560b-a9ed-44a6-aeec-c7e538d1d047,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=java.lang.RuntimeException: De-serialization problem: addr=PhysicalAddress: 41943778, length: 13152 from store=null : cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=6894131,considered(left=0,right=0,joins=0)}
+VOS    Elapsed=17001ms ERROR Virtuoso 42000 Error TN...: Exceeded 1000000000 bytes in transitive temp memory.  use t_distinct, t_max or more T_MAX_memory options to limit the search or increase the pool
+MDB    Elapsed=60720ms ERROR Status Code 404
+
+QUERY: entity-subclass-labels All instances of entity (Q35120) with labels
+Local  Elapsed=27955ms Result=110318246 Time={'computeResult': '27577ms', 'total': '27578ms'} 
+QLever Elapsed=26009ms Result=110538423 Time={'computeResult': '24554ms', 'total': '24555ms'} 
+QLTest Elapsed=38605ms Result=110318246 Time={'computeResult': '37156ms', 'total': '37157ms'} 
+WDQS   Elapsed=40961ms EXCEPTION java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=c71fd994-317b-492f-9d3b-4a4d3925cfb1,bopId=12,partitionId=-1,sinkId=14,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Optional,joinVars=[s],outputDistinctJVs=true,size=7707266,considered(left=0,right=0,joins=0),joinSetSize=0}
+VOS    Elapsed=13413ms ERROR Virtuoso 42000 Error TN...: Exceeded 1000000000 bytes in transitive temp memory.  use t_distinct, t_max or more T_MAX_memory options to limit the search or increase the pool
+MDB    Elapsed=60729ms ERROR Status Code 404
+
+QUERY: entity-subclass-labels All instances of entity (Q35120) with labels, label service for WDQS
+Local  Elapsed=27234ms Result=110318246 Time={'computeResult': '26611ms', 'total': '26612ms'} 
+QLever Elapsed=26214ms Result=110538423 Time={'computeResult': '25175ms', 'total': '25175ms'} 
+QLTest Elapsed=38093ms Result=110318246 Time={'computeResult': '36237ms', 'total': '36238ms'} 
+WDQS   Elapsed=60211ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed=14438ms ERROR Virtuoso 42000 Error TN...: Exceeded 1000000000 bytes in transitive temp memory.  use t_distinct, t_max or more T_MAX_memory options to limit the search or increase the pool
+MDB    Elapsed=60724ms ERROR Status Code 404
