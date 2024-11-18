@@ -1,0 +1,16 @@
+		Queries for Benchmarking		
+
+Wikidata queries for benchmarking on various SPARQL engines.
+
+subclass/		Selected subclass queries
+
+subclass-parameter/	Parameterized subclass query for all classes with at least 100000 subclases
+
+instance/		Selected instance queries
+
+order/			Queries from investigations into class order in Wikidata
+
+results/		Results of various benchmarking runs
+  subclass.text			
+  subclass-count.text
+  subclass-count-cached.text

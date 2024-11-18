@@ -1,3 +1,5 @@
+On 12 Novembef 2024 
+
 idefix benchmark-wikidata> ./benchmark.py --directory=instance/ --count --caching
 Evaluating queries from instance, counted,
 with caching allowed
@@ -123,3 +125,4 @@ QLTest Elapsed=  615ms Result=110318246 Time={'computeResult': '3ms', 'total': '
 WDQS   Elapsed=60108ms EXCEPTION java.util.concurrent.TimeoutException
 VOS    Elapsed=33895ms Result=0   
 MDB    Elapsed=60826ms ERROR Status Code 404
+

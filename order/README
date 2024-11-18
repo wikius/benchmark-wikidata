@@ -2,7 +2,7 @@ This is a collection of queries that query aspects of the Wikidata ontology.
 
 Many of the queries were used in a research project to quantify problems in the Wikidata ontology related to class order.  A paper was written on this effort and will be avilable in arXiv soon.
 
-This is not a fair set of queries.  Many of the queries were constructed to get around resource limitations and bugs in QLever.
+This is not a fair set of queries.  Many of the queries were constructed to get around limitations in QLever.
 
 Many of the queries are hard, running for close to a minute in QLever and timing out in the WDQS.
 

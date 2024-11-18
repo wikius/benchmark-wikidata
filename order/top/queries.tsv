@@ -1,5 +1,5 @@
 # Find the classes of various orders
-# The last two are commented out as they cause what appears to be a memory leak in QLever
+# The last two queries cause a memory leak in some versions of QLever
 wikidata-top-sixth	All sixth-order classes
 wikidata-top-fifth-root	Roots of fifth-order classes
 wikidata-top-fifth	All fifth-order classes
@@ -10,5 +10,5 @@ wikidata-top-third	All third-order classes
 wikidata-top-second-root	Roots of second-order classes
 wikidata-top-second	All second-order classes
 wikidata-top-first-root	Roots of first-order classes
-#bug wikidata-top-first	All first-order classes, using a subquery to cut down on memory usage
-#bug wikidata-top-first-unoptimized	All first-order classes
+wikidata-top-first	All first-order classes, using a subquery to cut down on memory usage in older versions of QLever
+wikidata-top-first-unoptimized	All first-order classes

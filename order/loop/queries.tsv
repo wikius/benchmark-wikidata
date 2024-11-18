@@ -1,6 +1,10 @@
 # Queries that find instance loops in the Wikidata ontology
+wikidata-loop-instance-subclass	Instance loops with one instance link and non-trivial subclass
 wikidata-loop-instance	Instance loops with one instance link and subclass
-wikidata-loop-instance-no-filter	Instance loops with one instance link and subclass (not using filter)
-wikidata-loop-instance-subquery	Instance loops with one instance link and subclass (using subquery)
+wikidata-loop-instance-union	Instance loops with one instance link and subclass, using union to be acceptable to QLever 
+wikidata-loop-instance-filter	Instance loops with one instance link and subclass, using filter to get around a bug in old versions of QLever
+wikidata-loop-instance-subquery	Instance loops with one instance link and subclass, using a subquery
 wikidata-loop-double-instance	Instance loops with two instance links
 wikidata-loop-double-instance-full	Instance loops with two instance links and subclass
+wikidata-loop-double-instance-full-subquery	Instance loops with two instance links and subclass, using a subquery
+wikidata-loop-double-instance-direct	Instance loops with two instance links and subclass, no super

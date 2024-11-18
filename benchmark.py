@@ -7,10 +7,16 @@
 #   Lines with less than two fields and lines starting with # are just printed and otherwise ignored.
 # Evaluates the query on one or more engines.
 # Current engines are:
-#  QLever - QLever Wikidata query service at https://qlever.cs.uni-freiburg.de/api/wikidata/
+#  QLever - QLever Wikidata public query service at https://qlever.cs.uni-freiburg.de/api/wikidata/
 #  QLTest - QLever Wikidata test query service at https://qlever.cs.uni-freiburg.de/api/wikidata-test/
-#  Local - Local QLever query service at http://localhost:7001
-#  WDQS - Wikidata Query Serivce at https://query.wikidata.org/sparql
+#  QLocal - Local QLever Wikidata query service at http://getafix:7001
+#  WDQS - Blazegraph public Wikidata Query Service at https://query.wikidata.org/sparql
+#  ORB - Blazegraph public Wikidata Query Service at https://query-direct.orbopengraph.com/bigdata/namespace/wdq/sparql
+# local Blazegraph
+#  VOS - Virtuoso public Wikidata Query Service at ttps://wikidata.demo.openlinksw.com/sparql
+#  VLocal - Local Virtuoso query service at http://getafix:8890/sparql
+#  MDB - MilleniumDB public Wikidata Query Service at https://wikidata.imfd.cl/wikidata/sparql
+# local MilleniumDB
 # Positional arguments are a filename and description, which means to only run that query.
 # Option: -d --directory <directory name> use this directory
 # Option: -e --engine <engine> ...  only use these engines
@@ -47,17 +53,17 @@ queries_file = None
 def qlever_clear_cache(url):
     reply = requests.get(url, params={"cmd": "clear-cache"})
     if reply.status_code != 200:
-        print("Clear cache reply", reply)
+        print("Clear Cache Status Code", reply.status_code)
 
 def results_qlever(reply):
     replyj = reply.json()
     count = replyj["resultsize"]
     if count == 1:
-        result = re.findall(r'\d+',replyj["res"][0][0])
+        result = re.findall(r'[Q0-9]+',replyj["res"][0][0])
         if result:
             count = f"Result={result[0]:4}"
         else:
-            count = f"Count={count:4}"
+            count = f"Result={replyj["res"][0][0]:4}"
     else:
         count = f"Count={count:4}"
     time = replyj["time"]
@@ -74,10 +80,10 @@ def qlever_eval(query, url, no_caching=True):
                                   "Accept": "application/qlever-results+json",
                                   },
                          params={"query": prefixes + query})
-#    print(json.dumps(reply.json(), indent=4))
     if reply.status_code >= 500:
-        print("ERROR", reply.text)
-        return "ERROR"
+#        print("ERROR", reply.text)
+#        print(json.dumps(reply.json(), indent=4))
+        return f"ERROR Status Code {reply.status_code} {reply.json()['exception']}"
     else:
         return results_qlever(reply)
 
@@ -85,7 +91,8 @@ def qlever_eval(query, url, no_caching=True):
 def results_csv(text):
     count = text.count("\n")-1
     if count == 1:
-        return f"Result={text.split('\n')[1].strip():4}"
+        result = text.split('\n')[1].strip().split(',')[0]
+        return f"Result={result:4}"
     else:
         return f"Count={count:4}"
 
@@ -159,13 +166,15 @@ def mdb_eval(query, url, no_caching=True):
         return f"ERROR Status Code {reply.status_code}"
 
 engines = [
-    [ "Local", qlever_eval, 'http://getafix:7001'],
+    [ "QLocal", qlever_eval, 'http://getafix:7001'],
     [ "QLever",  qlever_eval, 'https://qlever.cs.uni-freiburg.de/api/wikidata/'],
     [ "QLTest", qlever_eval,  'https://qlever.cs.uni-freiburg.de/api/wikidata-test/'],
     [ "WDQS", wdqs_eval, 'https://query.wikidata.org/sparql'],
-    [ "ORB", wdqs_eval, 'https://query-direct.orbopengraph.com/bigdata/namespace/wdq/sparql'],
+#    [ "ORB", wdqs_eval, 'https://query-direct.orbopengraph.com/bigdata/namespace/wdq/sparql'],
     [ "VOS", vos_eval, "https://wikidata.demo.openlinksw.com/sparql" ],
+#    [ "VLocal", vos_eval, "http://getafix:8890/sparql" ],
     [ "MDB", mdb_eval, "https://wikidata.imfd.cl/wikidata/sparql"],
+#    [ "MLocal", mdb_eval, "http://getafix:4321/sparql"], 
 ]
 
 def modify_query(query, count, replace):
@@ -190,7 +199,10 @@ def process(query_file_name, description, alternatives=None, no_caching=True, co
             end_time =time.time()
         else:
             start_time = time.time()
-            result = function(query, url, no_caching=no_caching)
+            try:
+                result = function(query, url, no_caching=no_caching)
+            except Exception as e:
+                result = f"EXCEPTION {e}"
             end_time =time.time()
         print(f"{engine:6} Elapsed={int((end_time - start_time) * 1000):5}ms {result}")
 
