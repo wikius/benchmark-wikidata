@@ -1,10 +1,14 @@
 # Queries that find instance loops in the Wikidata ontology
-wikidata-loop-instance-subclass	Instance loops with one instance link and non-trivial subclass
-wikidata-loop-instance	Instance loops with one instance link and subclass
+wikidata-loop-instance	Instance loops with one instance link and subclass, not currently handled by QLever
+wikidata-loop-instance-subclass	Instance loops with one instance link and non-empty subclass
+wikidata-loop-instance-subclass-no-labels	Instance loops with one instance link and non-empty subclass (no labels)
+wikidata-loop-instance-subclass-filter-no-labels	Instance loops with one instance link and non-empty subclass (no labels), using filter to check out speed difference
 wikidata-loop-instance-union	Instance loops with one instance link and subclass, using union to be acceptable to QLever 
-wikidata-loop-instance-filter	Instance loops with one instance link and subclass, using filter to get around a bug in old versions of QLever
-wikidata-loop-instance-subquery	Instance loops with one instance link and subclass, using a subquery
-wikidata-loop-double-instance	Instance loops with two instance links
-wikidata-loop-double-instance-full	Instance loops with two instance links and subclass
-wikidata-loop-double-instance-full-subquery	Instance loops with two instance links and subclass, using a subquery
-wikidata-loop-double-instance-direct	Instance loops with two instance links and subclass, no super
+wikidata-loop-instance-filter-union	Instance loops with one instance link and subclass, using filter and union to get around a bug in old versions of QLever
+wikidata-loop-instance-subquery-filter-union	Instance loops with one instance link and subclass, as above but using a subquery for potential speed improvement
+wikidata-loop-instance-filter	Instance loops with one instance link and subclass, using filter to be acceptable to QLever
+wikidata-loop-instance-subquery-filter	Instance loops with one instance link and subclass, as above but using a subquery for potential speed improvement
+#wikidata-loop-double-instance	Instance loops with two instance links
+#wikidata-loop-double-instance-full	Instance loops with two instance links and subclass
+#wikidata-loop-double-instance-full-subquery	Instance loops with two instance links and subclass, using a subquery
+#wikidata-loop-double-instance-direct	Instance loops with two instance links and subclass, no super

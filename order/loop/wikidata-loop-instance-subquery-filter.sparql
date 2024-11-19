@@ -1,4 +1,4 @@
 SELECT DISTINCT ?c ?cLabel WHERE {
-  ?c wdt:P31/wdt:P279* ?s . FILTER (?c = ?s)
+  { SELECT DISTINCT ?C WHERE { ?c wdt:P31/wdt:P279* ?s . FILTER (?c = ?s) }
   OPTIONAL { c rdfs:label ?cLabel FILTER (LANG(?c) = "en") }
 }
