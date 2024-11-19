@@ -8,7 +8,7 @@ wikidata-loop-instance-filter-union	Instance loops with one instance link and su
 wikidata-loop-instance-subquery-filter-union	Instance loops with one instance link and subclass, as above but using a subquery for potential speed improvement
 wikidata-loop-instance-filter	Instance loops with one instance link and subclass, using filter to be acceptable to QLever
 wikidata-loop-instance-subquery-filter	Instance loops with one instance link and subclass, as above but using a subquery for potential speed improvement
-#wikidata-loop-double-instance	Instance loops with two instance links
-#wikidata-loop-double-instance-full	Instance loops with two instance links and subclass
-#wikidata-loop-double-instance-full-subquery	Instance loops with two instance links and subclass, using a subquery
-#wikidata-loop-double-instance-direct	Instance loops with two instance links and subclass, no super
+wikidata-loop-double-instance	Instance loops with two instance links
+wikidata-loop-double-instance-full	Instance loops with two instance links and subclass
+wikidata-loop-double-instance-full-subquery	Instance loops with two instance links and subclass, using a subquery
+wikidata-loop-double-instance-direct	Instance loops with two instance links and subclass, no super
