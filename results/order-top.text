@@ -1,0 +1,105 @@
+On 18 November 2024
+
+idefix queries> ./benchmark.py --directory order/top
+Evaluating queries from order/top
+with caching disabled for QLever and Blazegraph
+
+# Find the classes of various orders
+
+# The last two queries cause a memory leak in some versions of QLever
+
+QUERY: wikidata-top-sixth All sixth-order classes
+QLocal Elapsed=  882ms Result=Q24027515 Time={'computeResult': '265ms', 'total': '265ms'} 
+QLever Elapsed= 1510ms Result=Q24027515 Time={'computeResult': '546ms', 'total': '546ms'} 
+QLTest Elapsed= 2673ms Result=Q24027515 Time={'computeResult': '873ms', 'total': '875ms'} 
+WDQS   Elapsed=  167ms Result=http://www.wikidata.org/entity/Q24027515
+VOS    Elapsed= 1942ms Result=<http://www.wikidata.org/entity/Q24027515>	"fifth-order class"@en
+MDB    Elapsed=  581ms Result=http://www.wikidata.org/entity/Q24027515
+
+QUERY: wikidata-top-fifth-root Roots of fifth-order classes
+QLocal Elapsed=  354ms Result=Q24027474 Time={'computeResult': '262ms', 'total': '262ms'} 
+QLever Elapsed= 1325ms Result=Q24027474 Time={'computeResult': '513ms', 'total': '514ms'} 
+QLTest Elapsed= 1665ms Result=Q24027474 Time={'computeResult': '836ms', 'total': '838ms'} 
+WDQS   Elapsed=  322ms Result=http://www.wikidata.org/entity/Q24027474
+VOS    Elapsed=  418ms Result=<http://www.wikidata.org/entity/Q24027474>	"fourth-order class"@en
+MDB    Elapsed=  561ms Result=http://www.wikidata.org/entity/Q24027474
+
+QUERY: wikidata-top-fifth All fifth-order classes
+QLocal Elapsed=  419ms Result=Q24027474 Time={'computeResult': '269ms', 'total': '269ms'} 
+QLever Elapsed= 1340ms Result=Q24027474 Time={'computeResult': '544ms', 'total': '544ms'} 
+QLTest Elapsed= 1706ms Result=Q24027474 Time={'computeResult': '867ms', 'total': '867ms'} 
+WDQS   Elapsed=   89ms Result=http://www.wikidata.org/entity/Q24027474
+VOS    Elapsed=  403ms Result=<http://www.wikidata.org/entity/Q24027474>	"fourth-order class"@en
+MDB    Elapsed=  558ms Result=http://www.wikidata.org/entity/Q24027474
+
+QUERY: wikidata-top-fourth-root Roots of fourth-order classes
+QLocal Elapsed=  386ms Result=Q24017465 Time={'computeResult': '250ms', 'total': '250ms'} 
+QLever Elapsed= 1324ms Result=Q24017465 Time={'computeResult': '512ms', 'total': '513ms'} 
+QLTest Elapsed= 1692ms Result=Q24017465 Time={'computeResult': '853ms', 'total': '854ms'} 
+WDQS   Elapsed=   92ms Result=http://www.wikidata.org/entity/Q24017465
+VOS    Elapsed=  408ms Count=   2
+MDB    Elapsed=  590ms Count=   3
+
+QUERY: wikidata-top-fourth All fourth-order classes
+QLocal Elapsed=  517ms Result=Q24017465 Time={'computeResult': '266ms', 'total': '267ms'} 
+QLever Elapsed= 1328ms Result=Q24017465 Time={'computeResult': '527ms', 'total': '528ms'} 
+QLTest Elapsed= 1738ms Result=Q24017465 Time={'computeResult': '902ms', 'total': '902ms'} 
+WDQS   Elapsed=   84ms Result=http://www.wikidata.org/entity/Q24017465
+VOS    Elapsed=  393ms Count=   3
+MDB    Elapsed=  581ms Count=   4
+
+QUERY: wikidata-top-third-root Roots of third-order classes
+QLocal Elapsed=  368ms Count=  36 Time={'computeResult': '255ms', 'total': '255ms'} 
+QLever Elapsed= 1322ms Count=  36 Time={'computeResult': '529ms', 'total': '530ms'} 
+QLTest Elapsed= 1707ms Count=  36 Time={'computeResult': '814ms', 'total': '839ms'} 
+WDQS   Elapsed=  104ms Count=  36
+VOS    Elapsed=  427ms Count=  48
+MDB    Elapsed= 2137ms Count=  46
+
+QUERY: wikidata-top-third All third-order classes
+QLocal Elapsed=  389ms Count=3565 Time={'computeResult': '271ms', 'total': '279ms'} 
+QLever Elapsed= 1620ms Count=3568 Time={'computeResult': '576ms', 'total': '594ms'} 
+QLTest Elapsed= 2687ms Count=3568 Time={'computeResult': '914ms', 'total': '1659ms'} 
+WDQS   Elapsed= 1113ms Count=3568
+VOS    Elapsed= 1260ms Count=3197
+MDB    Elapsed= 1382ms Count=3185
+
+QUERY: wikidata-top-second-root Roots of second-order classes
+QLocal Elapsed= 1353ms Count=217189 Time={'computeResult': '616ms', 'total': '929ms'} 
+QLever Elapsed= 3542ms Count=217227 Time={'computeResult': '1020ms', 'total': '1652ms'} 
+QLTest Elapsed=10500ms Count=217227 Time={'computeResult': '1745ms', 'total': '9290ms'} 
+WDQS   Elapsed=13727ms Count=217238
+VOS    Elapsed= 5236ms Count=100000
+MDB    Elapsed=10823ms Count=206938
+
+QUERY: wikidata-top-second All second-order classes
+QLocal Elapsed=27950ms Count=2418598 Time={'computeResult': '22476ms', 'total': '24882ms'} 
+QLever Elapsed=27793ms Count=2418676 Time={'computeResult': '19193ms', 'total': '23742ms'} 
+QLTest Elapsed=50272ms Count=2418676 Time={'computeResult': '32600ms', 'total': '46831ms'} 
+WDQS   Elapsed=60344ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed=28287ms Count=100000
+MDB    Elapsed=60595ms ERROR Status Code 404
+
+QUERY: wikidata-top-first-root Roots of first-order classes
+QLocal Elapsed=53166ms Count=8899014 Time={'computeResult': '31550ms', 'total': '40194ms'} 
+QLever Elapsed=77184ms Count=8908867 Time={'computeResult': '44557ms', 'total': '65529ms'} 
+QLTest Elapsed=121474ms Count=8908867 Time={'computeResult': '45224ms', 'total': '106473ms'} 
+WDQS   Elapsed=60088ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed=33364ms Count=10893
+MDB    Elapsed=60794ms ERROR Status Code 404
+
+QUERY: wikidata-top-first All first-order classes, using a subquery to cut down on memory usage in older versions of QLever
+QLocal Elapsed=122171ms EXCEPTION ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+QLever Elapsed=80306ms Count=11806673 Time={'computeResult': '32569ms', 'total': '53888ms'} 
+QLTest Elapsed=131744ms Count=11806673 Time={'computeResult': '62963ms', 'total': '95566ms'} 
+WDQS   Elapsed=60083ms EXCEPTION java.util.concurrent.TimeoutException
+VOS    Elapsed=20627ms Count=100000
+MDB    Elapsed=60555ms ERROR Status Code 404
+
+QUERY: wikidata-top-first-unoptimized All first-order classes
+QLocal Elapsed=115158ms EXCEPTION ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+QLever Elapsed=114528ms Count=11806673 Time={'computeResult': '68520ms', 'total': '89570ms'} 
+QLTest Elapsed=201943ms Count=11806673 Time={'computeResult': '138365ms', 'total': '170705ms'} 
+WDQS   Elapsed=39715ms EXCEPTION java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=e22dd37b-c4f7-4314-ad78-87d8cdec5f1b,bopId=51,partitionId=-1,sinkId=52,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=java.lang.RuntimeException: De-serialization problem: addr=PhysicalAddress: 62914560, length: 40424 from store=null : cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[c],outputDistinctJVs=true,size=8801566,considered(left=0,right=0,joins=0)}
+VOS    Elapsed=31703ms Count=7597
+MDB    Elapsed=60630ms ERROR Status Code 404
