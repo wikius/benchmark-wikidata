@@ -1,0 +1,229 @@
+On 20 November 2024
+
+idefix queries> ./benchmark.py --directory order/split --engine QLocal --count
+Evaluating queries from order/split, counted,
+with caching disabled for QLever and Blazegraph
+
+# Queries that find pairs where the first is both an instance and a subclasses of the second
+
+QUERY: wikidata-split Split-order classes (without exclusion)
+QLocal Elapsed=  580ms ERROR Status Code 500 This query might have to evaluate the empty path, which is currently not supported. In file "/home/local/qlever/qlever-code/src/engine/TransitivePathImpl.h " at line 160
+
+QUERY: wikidata-split-case-self Split-order classes case self (without exclusion)
+QLocal Elapsed=   21ms ERROR Status Code 500 This query might have to evaluate the empty path, which is currently not supported. In file "/home/local/qlever/qlever-code/src/engine/TransitivePathImpl.h " at line 160
+
+QUERY: wikidata-split-case-self-union Split-order classes case self using union (without exclusion)
+QLocal Elapsed=29902ms Result=15   Time={'computeResult': '29853ms', 'total': '29853ms'} 
+
+QUERY: wikidata-split-case-self-union-filter Split-order classes case self using union and filter (without exclusion)
+QLocal Elapsed=412057ms Result=15   Time={'computeResult': '411666ms', 'total': '411666ms'} 
+
+QUERY: wikidata-split-unknown-1 Split-order classes (purpose unknown)
+QLocal Elapsed=411364ms Result=16   Time={'computeResult': '411100ms', 'total': '411101ms'} 
+
+QUERY: wikidata-split-other Split-order classes case other (without exclusion)
+QLocal Elapsed=326284ms ERROR Status Code 500 Tried to allocate 29.3 GB, but only 9.6 GB were available. Clear the cache or allow more memory for QLever during startup
+
+QUERY: wikidata-split-other-exclusions Split-order classes case other (with exclusion)
+QLocal Elapsed=322134ms ERROR Status Code 500 Tried to allocate 29.3 GB, but only 9.6 GB were available. Clear the cache or allow more memory for QLever during startup
+
+QUERY: wikidata-split-other-AB-part Split-order classes subcase AB (partial, without exclusion)
+QLocal Elapsed=94866ms Result=159576661 Time={'computeResult': '94834ms', 'total': '94835ms'} 
+
+QUERY: wikidata-split-other-AB Split-order classes subcase AB (without exclusion)
+QLocal Elapsed=  309ms ERROR Status Code 500 This query might have to evaluate the empty path, which is currently not supported. In file "/home/local/qlever/qlever-code/src/engine/TransitivePathImpl.h " at line 160
+
+QUERY: wikidata-split-other-AB-exclusion Split-order classes subcase AB exclusion
+QLocal Elapsed=232280ms ERROR Status Code 500 Tried to allocate 34.4 GB, but only 19.5 GB were available. Clear the cache or allow more memory for QLever during startup
+
+QUERY: wikidata-split-other-C Split-order classes subcase C (without exclusion)
+QLocal Elapsed=78013ms Result=67441465 Time={'computeResult': '77985ms', 'total': '77986ms'} 
+
+QUERY: wikidata-split-other-C-2 Split-order classes subcase C including labels (without exclusion)
+QLocal Elapsed=102034ms Result=67441465 Time={'computeResult': '101204ms', 'total': '101205ms'} 
+
+QUERY: wikidata-split-other-C-exclusion Split-order classes subcase C exclusion
+QLocal Elapsed=284157ms ERROR Status Code 500 Tried to allocate 34.4 GB, but only 21.7 GB were available. Clear the cache or allow more memory for QLever during startup
+
+QUERY: wikidata-split-other-C-exclusion-1 Split-order classes subcase C exclusion part 1
+QLocal Elapsed=282749ms ERROR Status Code 500 Tried to allocate 34.4 GB, but only 21.7 GB were available. Clear the cache or allow more memory for QLever during startup
+
+QUERY: wikidata-split-other-C-exclusion-1-optimized Split-order classes subcase C exclusion part 1 (optimized)
+QLocal Elapsed=325063ms ERROR Status Code 500 Tried to allocate 28.3 GB, but only 10.6 GB were available. Clear the cache or allow more memory for QLever during startup
+
+QUERY: wikidata-split-other-C-exclusion-2 Split-order classes subcase C exclusion part 2
+QLocal Elapsed=31487ms Result=5396286 Time={'computeResult': '31443ms', 'total': '31444ms'} 
+
+QUERY: wikidata-split-other-D-test Split-order classes subcase D test (without exclusion)
+QLocal Elapsed=119972ms Result=2538538 Time={'computeResult': '119530ms', 'total': '119531ms'} 
+
+QUERY: wikidata-split-other-D-partial-1 Split-order classes subcase D partial (without exclusion)
+QLocal Elapsed=227694ms Result=80449320 Time={'computeResult': '227380ms', 'total': '227380ms'} 
+
+QUERY: wikidata-split-other-D-partial-2 Split-order classes subcase D partial (without exclusion)
+QLocal Elapsed=348049ms ERROR Status Code 500 Tried to allocate 28.3 GB, but only 8.5 GB were available. Clear the cache or allow more memory for QLever during startup
+
+QUERY: wikidata-split-other-D-partial-3 Split-order classes subcase D partial (without exclusion)
+QLocal Elapsed=231049ms Result=80449320 Time={'computeResult': '231001ms', 'total': '231001ms'} 
+
+QUERY: wikidata-split-other-D Split-order classes subcase D (without exclusion)
+QLocal Elapsed=265697ms Result=12778386 Time={'computeResult': '265225ms', 'total': '265226ms'} 
+
+QUERY: wikidata-split-other-D-exclusion-1 Split-order classes subcase D exclusion 1
+QLocal Elapsed=270127ms Result=7833248 Time={'computeResult': '269124ms', 'total': '269125ms'} 
+
+QUERY: wikidata-split-other-D-exclusion-2 Split-order classes subcase D exclusion 2
+QLocal Elapsed=83149ms Result=965184 Time={'computeResult': '82045ms', 'total': '82045ms'} 
+
+QUERY: wikidata-split-other-D-exclusion-3 Split-order classes subcase D exclusion 3
+QLocal Elapsed=263174ms Result=11924925 Time={'computeResult': '262226ms', 'total': '262227ms'} 
+
+QUERY: wikidata-split-other-D-exclusion-4-test Split-order classes subcase D exclusion 4 test
+QLocal Elapsed=347556ms ERROR Status Code 500 Tried to allocate 28.3 GB, but only 8.4 GB were available. Clear the cache or allow more memory for QLever during startup
+
+QUERY: wikidata-split-other-D-exclusion-4 Split-order classes subcase D exclusion 4
+QLocal Elapsed=83247ms Result=6482517 Time={'computeResult': '83121ms', 'total': '83122ms'} 
+
+QUERY: wikidata-split-extra-1 Split-order extra query
+QLocal Elapsed=163003ms Result=12778386 Time={'computeResult': '162015ms', 'total': '162016ms'} 
+
+QUERY: wikidata-split-extra-2 Split-order extra query
+QLocal Elapsed=193656ms Result=7833248 Time={'computeResult': '192683ms', 'total': '192683ms'} 
+
+
+idefix queries> ./benchmark.py --directory order/split --engine VLocal --count
+Evaluating queries from order/split, counted,
+with caching disabled for QLever and Blazegraph
+
+# Queries that find pairs where the first is both an instance and a subclasses of the second
+
+QUERY: wikidata-split Split-order classes (without exclusion)
+VLocal Elapsed=  141ms ERROR Virtuoso 42000 Error The estimated execution time -1399205888 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-case-self Split-order classes case self (without exclusion)
+VLocal Elapsed=600692ms Count=   0
+
+QUERY: wikidata-split-case-self-union Split-order classes case self using union (without exclusion)
+VLocal Elapsed=  687ms ERROR Virtuoso 42000 Error The estimated execution time 32581 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-case-self-union-filter Split-order classes case self using union and filter (without exclusion)
+VLocal Elapsed=   11ms ERROR Virtuoso 42000 Error The estimated execution time 32581 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-unknown-1 Split-order classes (purpose unknown)
+VLocal Elapsed=   12ms ERROR Virtuoso 42000 Error The estimated execution time 114860 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other Split-order classes case other (without exclusion)
+VLocal Elapsed=    9ms ERROR Virtuoso 42000 Error The estimated execution time -1399205888 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-exclusions Split-order classes case other (with exclusion)
+VLocal Elapsed=   16ms ERROR Virtuoso 42000 Error The estimated execution time -1399205888 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-AB-part Split-order classes subcase AB (partial, without exclusion)
+VLocal Elapsed=600740ms Count=   0
+
+QUERY: wikidata-split-other-AB Split-order classes subcase AB (without exclusion)
+VLocal Elapsed=  570ms ERROR Virtuoso 42000 Error The estimated execution time 102154240 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-AB-exclusion Split-order classes subcase AB exclusion
+VLocal Elapsed=   17ms ERROR Virtuoso 42000 Error The estimated execution time 68132864 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-C Split-order classes subcase C (without exclusion)
+VLocal Elapsed=   13ms ERROR Virtuoso 42000 Error The estimated execution time -1401126912 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-C-2 Split-order classes subcase C including labels (without exclusion)
+VLocal Elapsed=   14ms ERROR Virtuoso 42000 Error The estimated execution time -1401059328 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-C-exclusion Split-order classes subcase C exclusion
+VLocal Elapsed=62615ms ERROR Virtuoso 42000 Error TN...: Exceeded 20000000000 bytes in transitive temp memory.  use t_distinct, t_max or more T_MAX_memory options to limit the search or increase the pool
+
+QUERY: wikidata-split-other-C-exclusion-1 Split-order classes subcase C exclusion part 1
+VLocal Elapsed=60442ms ERROR Virtuoso 42000 Error TN...: Exceeded 20000000000 bytes in transitive temp memory.  use t_distinct, t_max or more T_MAX_memory options to limit the search or increase the pool
+
+QUERY: wikidata-split-other-C-exclusion-1-optimized Split-order classes subcase C exclusion part 1 (optimized)
+VLocal Elapsed=   11ms ERROR Virtuoso 42000 Error The estimated execution time 18845 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-C-exclusion-2 Split-order classes subcase C exclusion part 2
+VLocal Elapsed=    6ms ERROR Virtuoso 42000 Error The estimated execution time 23940 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-D-test Split-order classes subcase D test (without exclusion)
+VLocal Elapsed=    8ms ERROR Virtuoso 42000 Error The estimated execution time 641927 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-D-partial-1 Split-order classes subcase D partial (without exclusion)
+VLocal Elapsed=    8ms ERROR Virtuoso 42000 Error The estimated execution time -1401126912 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-D-partial-2 Split-order classes subcase D partial (without exclusion)
+VLocal Elapsed=    6ms ERROR Virtuoso 42000 Error The estimated execution time -1399205888 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-D-partial-3 Split-order classes subcase D partial (without exclusion)
+VLocal Elapsed=    6ms ERROR Virtuoso 42000 Error The estimated execution time -1401126912 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-D Split-order classes subcase D (without exclusion)
+VLocal Elapsed=   11ms ERROR Virtuoso 37000 Error TR...: transitive start not given
+
+QUERY: wikidata-split-other-D-exclusion-1 Split-order classes subcase D exclusion 1
+VLocal Elapsed=   11ms ERROR Virtuoso 37000 Error TR...: transitive start not given
+
+QUERY: wikidata-split-other-D-exclusion-2 Split-order classes subcase D exclusion 2
+VLocal Elapsed=   11ms ERROR Virtuoso 37000 Error TR...: transitive start not given
+
+QUERY: wikidata-split-other-D-exclusion-3 Split-order classes subcase D exclusion 3
+VLocal Elapsed=   13ms ERROR Virtuoso 37000 Error TR...: transitive start not given
+
+QUERY: wikidata-split-other-D-exclusion-4-test Split-order classes subcase D exclusion 4 test
+VLocal Elapsed=   11ms ERROR Virtuoso 37000 Error TR...: transitive start not given
+
+QUERY: wikidata-split-other-D-exclusion-4 Split-order classes subcase D exclusion 4
+VLocal Elapsed=    9ms ERROR Virtuoso 42000 Error The estimated execution time 71645848 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-extra-1 Split-order extra query
+VLocal Elapsed=   12ms ERROR Virtuoso 37000 Error TR...: transitive start not given
+
+QUERY: wikidata-split-extra-2 Split-order extra query
+VLocal Elapsed=   11ms ERROR Virtuoso 37000 Error TR...: transitive start not given
+
+idefix queries> ./benchmark.py --directory order/split --engine MLocal --count
+Evaluating queries from order/split, counted,
+with caching disabled for QLever and Blazegraph
+
+# Queries that find pairs where the first is both an instance and a subclasses of the second
+
+QUERY: wikidata-split Split-order classes (without exclusion)
+MLocal Elapsed=600617ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-case-self Split-order classes case self (without exclusion)
+MLocal Elapsed=600664ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-case-self-union Split-order classes case self using union (without exclusion)
+MLocal Elapsed=600031ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-case-self-union-filter Split-order classes case self using union and filter (without exclusion)
+MLocal Elapsed=600040ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-unknown-1 Split-order classes (purpose unknown)
+MLocal Elapsed=601016ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-other Split-order classes case other (without exclusion)
+MLocal Elapsed=600035ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-exclusions Split-order classes case other (with exclusion)
+MLocal Elapsed=601029ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-AB-part Split-order classes subcase AB (partial, without exclusion)
+MLocal Elapsed=601025ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-AB Split-order classes subcase AB (without exclusion)
+MLocal Elapsed=601010ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-AB-exclusion Split-order classes subcase AB exclusion
+MLocal Elapsed=600024ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-C Split-order classes subcase C (without exclusion)
+MLocal Elapsed=600042ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-C-2 Split-order classes subcase C including labels (without exclusion)
+MLocal Elapsed=600030ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-C-exclusion Split-order classes subcase C exclusion
+MLocal Elapsed=601024ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+TERMINATED

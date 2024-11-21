@@ -1,0 +1,153 @@
+On 20 November 2024
+
+*** output flushed ***
+idefix queries> ./benchmark.py --directory order/bottom --count --engine QLocal
+Evaluating queries from order/bottom, counted,
+with caching disabled for QLever and Blazegraph
+
+# Queries that determine minimum class order based on instance chains
+
+# Two queries cause a memory leak in older verisons of QLever
+
+QUERY: wikidata-bottom-first-instances First-order classes based on instance
+QLocal Elapsed= 2759ms Result=117582 Time={'computeResult': '2408ms', 'total': '2409ms'} 
+
+QUERY: wikidata-bottom-first-all First-order classes based on all evidence
+QLocal Elapsed=35245ms Result=20210860 Time={'computeResult': '35086ms', 'total': '35087ms'} 
+
+QUERY: wikidata-bottom-second-instances Second-order classes based on instance
+QLocal Elapsed= 3075ms Result=13689 Time={'computeResult': '2710ms', 'total': '2712ms'} 
+
+QUERY: wikidata-bottom-second-all Second-order classes based on all evidence
+QLocal Elapsed=19429ms Result=62790 Time={'computeResult': '19249ms', 'total': '19250ms'} 
+
+QUERY: wikidata-bottom-third-instances Third-order classes based on instance
+QLocal Elapsed= 3226ms Result=3424 Time={'computeResult': '2800ms', 'total': '2801ms'} 
+
+QUERY: wikidata-bottom-third-all Third-order classes based on all evidence
+QLocal Elapsed=20215ms Result=8802 Time={'computeResult': '20042ms', 'total': '20043ms'} 
+
+QUERY: wikidata-bottom-fourth-instances Fourth-order classes based on instance
+QLocal Elapsed= 3130ms Result=1387 Time={'computeResult': '2623ms', 'total': '2624ms'} 
+
+QUERY: wikidata-bottom-fourth-all Fourth-order classes based on all evidence
+QLocal Elapsed=19605ms Result=2694 Time={'computeResult': '19214ms', 'total': '19214ms'} 
+
+QUERY: wikidata-bottom-fifth-instances Fifth-order classes based on instance
+QLocal Elapsed= 3021ms Result=688  Time={'computeResult': '2596ms', 'total': '2598ms'} 
+
+QUERY: wikidata-bottom-fifth-all Fifth-order classes based on all evidence
+QLocal Elapsed=19933ms Result=1063 Time={'computeResult': '19782ms', 'total': '19783ms'} 
+
+QUERY: wikidata-bottom-sixth-instances Sixth-order classes based on instance
+QLocal Elapsed= 3224ms Result=471  Time={'computeResult': '2799ms', 'total': '2799ms'} 
+
+QUERY: wikidata-bottom-sixth-all Sixth-order classes based on all evidence
+QLocal Elapsed=19353ms Result=607  Time={'computeResult': '19180ms', 'total': '19181ms'} 
+
+idefix queries> ./benchmark.py --directory order/bottom --count --engine MLocal
+Evaluating queries from order/bottom, counted,
+with caching disabled for QLever and Blazegraph
+
+# Queries that determine minimum class order based on instance chains
+
+# Two queries cause a memory leak in older verisons of QLever
+
+QUERY: wikidata-bottom-first-instances First-order classes based on instance
+MLocal Elapsed=600685ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-bottom-first-all First-order classes based on all evidence
+MLocal Elapsed=600034ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-bottom-second-instances Second-order classes based on instance
+MLocal Elapsed=600036ms ERROR EMPTY OUTPUT
+
+TERMINATED
+
+idefix queries> ./benchmark.py --directory order/bottom --count --engine VLocal
+Evaluating queries from order/bottom, counted,
+with caching disabled for QLever and Blazegraph
+
+# Queries that determine minimum class order based on instance chains
+
+# Two queries cause a memory leak in older verisons of QLever
+
+QUERY: wikidata-bottom-first-instances First-order classes based on instance
+VLocal Elapsed= 1138ms ERROR Virtuoso 42000 Error The estimated execution time 14965088 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-bottom-first-all First-order classes based on all evidence
+VLocal Elapsed=610691ms Count=  12
+
+QUERY: wikidata-bottom-second-instances Second-order classes based on instance
+VLocal Elapsed=   22ms ERROR Virtuoso 42000 Error The estimated execution time 15069102 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-bottom-second-all Second-order classes based on all evidence
+VLocal Elapsed=   12ms ERROR Virtuoso 42000 Error The estimated execution time 95972 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-bottom-third-instances Third-order classes based on instance
+VLocal Elapsed=   11ms ERROR Virtuoso 42000 Error The estimated execution time 15173138 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-bottom-third-all Third-order classes based on all evidence
+VLocal Elapsed=   10ms ERROR Virtuoso 42000 Error The estimated execution time 200010 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-bottom-fourth-instances Fourth-order classes based on instance
+VLocal Elapsed=    8ms ERROR Virtuoso 42000 Error The estimated execution time 15277178 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-bottom-fourth-all Fourth-order classes based on all evidence
+VLocal Elapsed=   10ms ERROR Virtuoso 42000 Error The estimated execution time 304048 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-bottom-fifth-instances Fifth-order classes based on instance
+VLocal Elapsed=   11ms ERROR Virtuoso 42000 Error The estimated execution time 15381216 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-bottom-fifth-all Fifth-order classes based on all evidence
+VLocal Elapsed=    9ms ERROR Virtuoso 42000 Error The estimated execution time 408087 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-bottom-sixth-instances Sixth-order classes based on instance
+VLocal Elapsed=   11ms ERROR Virtuoso 42000 Error The estimated execution time 15485255 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-bottom-sixth-all Sixth-order classes based on all evidence
+VLocal Elapsed=   12ms ERROR Virtuoso 42000 Error The estimated execution time 512125 (sec) exceeds the limit of 3000 (sec).
+
+idefix queries> ./benchmark.py --directory order/bottom --count --engine WDQS
+Evaluating queries from order/bottom, counted,
+with caching disabled for QLever and Blazegraph
+
+# Queries that determine minimum class order based on instance chains
+
+# Two queries cause a memory leak in older verisons of QLever
+
+QUERY: wikidata-bottom-first-instances First-order classes based on instance
+WDQS   Elapsed=60361ms EXCEPTION java.util.concurrent.TimeoutException
+
+QUERY: wikidata-bottom-first-all First-order classes based on all evidence
+WDQS   Elapsed=60135ms EXCEPTION java.util.concurrent.TimeoutException
+
+QUERY: wikidata-bottom-second-instances Second-order classes based on instance
+WDQS   Elapsed=60055ms EXCEPTION java.util.concurrent.TimeoutException
+
+QUERY: wikidata-bottom-second-all Second-order classes based on all evidence
+WDQS   Elapsed=60071ms EXCEPTION java.util.concurrent.TimeoutException
+
+QUERY: wikidata-bottom-third-instances Third-order classes based on instance
+WDQS   Elapsed=60071ms EXCEPTION java.util.concurrent.TimeoutException
+
+QUERY: wikidata-bottom-third-all Third-order classes based on all evidence
+WDQS   Elapsed=60277ms EXCEPTION java.util.concurrent.TimeoutException
+
+QUERY: wikidata-bottom-fourth-instances Fourth-order classes based on instance
+WDQS   Elapsed=60071ms EXCEPTION java.util.concurrent.TimeoutException
+
+QUERY: wikidata-bottom-fourth-all Fourth-order classes based on all evidence
+WDQS   Elapsed=60157ms EXCEPTION java.util.concurrent.TimeoutException
+
+QUERY: wikidata-bottom-fifth-instances Fifth-order classes based on instance
+WDQS   Elapsed=60084ms EXCEPTION java.util.concurrent.TimeoutException
+
+QUERY: wikidata-bottom-fifth-all Fifth-order classes based on all evidence
+WDQS   Elapsed=60076ms EXCEPTION java.util.concurrent.TimeoutException
+
+QUERY: wikidata-bottom-sixth-instances Sixth-order classes based on instance
+WDQS   Elapsed=60077ms EXCEPTION java.util.concurrent.TimeoutException
+
+QUERY: wikidata-bottom-sixth-all Sixth-order classes based on all evidence
+WDQS   Elapsed=60071ms EXCEPTION java.util.concurrent.TimeoutException
