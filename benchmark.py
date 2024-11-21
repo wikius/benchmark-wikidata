@@ -157,24 +157,27 @@ def mdb_eval(query, url, no_caching=True):
                          headers=headers,
                          data=query)
     if reply.status_code == 200:
-        try:
-            count = results_json(reply.json())
-        except Exception:
-            count = "ERROR UNABLE TO DECIPHER OUTPUT"
-        return count
+        if reply.text:
+            try:
+                result = results_json(reply.json())
+            except Exception:
+                return f"ERROR UNABLE TO DECIPHER OUTPUT {reply.text}"
+            return result
+        else:
+            return "ERROR EMPTY OUTPUT"
     else:
-        return f"ERROR Status Code {reply.status_code}"
+        return f"ERROR Status Code {reply.status_code} {reply.text}"
 
 engines = [
     [ "QLocal", qlever_eval, 'http://getafix:7001'],
     [ "QLever",  qlever_eval, 'https://qlever.cs.uni-freiburg.de/api/wikidata/'],
     [ "QLTest", qlever_eval,  'https://qlever.cs.uni-freiburg.de/api/wikidata-test/'],
     [ "WDQS", wdqs_eval, 'https://query.wikidata.org/sparql'],
-#    [ "ORB", wdqs_eval, 'https://query-direct.orbopengraph.com/bigdata/namespace/wdq/sparql'],
+    [ "ORB", wdqs_eval, 'https://query-direct.orbopengraph.com/bigdata/namespace/wdq/sparql'],
     [ "VOS", vos_eval, "https://wikidata.demo.openlinksw.com/sparql" ],
-#    [ "VLocal", vos_eval, "http://getafix:8890/sparql" ],
+    [ "VLocal", vos_eval, "http://getafix:8890/sparql" ],
     [ "MDB", mdb_eval, "https://wikidata.imfd.cl/wikidata/sparql"],
-#    [ "MLocal", mdb_eval, "http://getafix:4321/sparql"], 
+    [ "MLocal", mdb_eval, "http://getafix:1234/sparql"], 
 ]
 
 def modify_query(query, count, replace):

@@ -1,14 +1,14 @@
 # Queries that determine minimum class order based on instance chains
-# Two are commented out as they cause what appears to be a memory leak in QLever
+# Two queries cause a memory leak in older verisons of QLever
 wikidata-bottom-first-instances	First-order classes based on instance
 wikidata-bottom-first-all	First-order classes based on all evidence
 wikidata-bottom-second-instances	Second-order classes based on instance
 wikidata-bottom-second-all	Second-order classes based on all evidence
-#bug wikidata-bottom-third-instances	Third-order classes based on instance
+wikidata-bottom-third-instances	Third-order classes based on instance
 wikidata-bottom-third-all	Third-order classes based on all evidence
 wikidata-bottom-fourth-instances	Fourth-order classes based on instance
 wikidata-bottom-fourth-all	Fourth-order classes based on all evidence
 wikidata-bottom-fifth-instances	Fifth-order classes based on instance
 wikidata-bottom-fifth-all	Fifth-order classes based on all evidence
-#bug wikidata-bottom-sixth-instances	Sixth-order classes based on instance
+wikidata-bottom-sixth-instances	Sixth-order classes based on instance
 wikidata-bottom-sixth-all	Sixth-order classes based on all evidence
