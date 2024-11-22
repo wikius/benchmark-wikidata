@@ -1,0 +1,247 @@
+On 21 and 22 November 2024
+
+idefix queries> ./benchmark.py --directory order/top --engine MLocal --count
+Evaluating queries from order/top, counted,
+with caching disabled for QLever and Blazegraph
+
+# Find the classes of various orders
+
+# The last two queries cause a memory leak in some versions of QLever
+
+QUERY: wikidata-top-sixth All sixth-order classes
+MLocal Elapsed=   73ms Result=1   
+
+QUERY: wikidata-top-fifth-root Roots of fifth-order classes
+MLocal Elapsed=   10ms Result=1   
+
+QUERY: wikidata-top-fifth All fifth-order classes
+MLocal Elapsed=   14ms Result=1   
+
+QUERY: wikidata-top-fourth-root Roots of fourth-order classes
+MLocal Elapsed=   12ms Result=1   
+
+QUERY: wikidata-top-fourth All fourth-order classes
+MLocal Elapsed=   12ms Result=1   
+
+QUERY: wikidata-top-third-root Roots of third-order classes
+MLocal Elapsed=   30ms Result=36  
+
+QUERY: wikidata-top-third All third-order classes
+MLocal Elapsed=  605ms Result=3565
+
+QUERY: wikidata-top-second-root Roots of second-order classes
+MLocal Elapsed=12697ms Result=217189
+
+QUERY: wikidata-top-second All second-order classes
+MLocal Elapsed=185757ms Result=2418598
+
+QUERY: wikidata-top-first-root Roots of first-order classes
+MLocal Elapsed=419028ms Result=8898977
+
+QUERY: wikidata-top-first All first-order classes, using a subquery to cut down on memory usage in older versions of QLever
+MLocal Elapsed=600493ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-top-first-unoptimized All first-order classes
+MLocal Elapsed=600879ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+idefix queries> ./benchmark.py --directory order/loop --engine MLocal --count
+Evaluating queries from order/loop, counted,
+with caching disabled for QLever and Blazegraph
+
+# Queries that find instance loops in the Wikidata ontology
+
+QUERY: wikidata-loop-instance Instance loops with one instance link and subclass, not currently handled by QLever
+MLocal Elapsed=600674ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-loop-instance-subclass Instance loops with one instance link and non-empty subclass
+MLocal Elapsed=600027ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-loop-instance-subclass-no-labels Instance loops with one instance link and non-empty subclass (no labels)
+MLocal Elapsed=600021ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-loop-instance-subclass-filter-no-labels Instance loops with one instance link and non-empty subclass (no labels), using filter to check out speed difference
+MLocal Elapsed=600040ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-loop-instance-union Instance loops with one instance link and subclass, using union to be acceptable to QLever
+MLocal Elapsed=600040ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-loop-instance-filter-union Instance loops with one instance link and subclass, using filter and union to get around a bug in old versions of QLever
+MLocal Elapsed=600034ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-loop-instance-subquery-filter-union Instance loops with one instance link and subclass, as above but using a subquery for potential speed improvement
+MLocal Elapsed=600038ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-loop-instance-filter Instance loops with one instance link and subclass, using filter to be acceptable to QLever
+MLocal Elapsed=600034ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-loop-instance-subquery-filter Instance loops with one instance link and subclass, as above but using a subquery for potential speed improvement
+MLocal Elapsed=600020ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-loop-double-instance Instance loops with two instance links
+MLocal Elapsed=601039ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-loop-double-instance-full Instance loops with two instance links and subclass
+MLocal Elapsed=600039ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-loop-double-instance-full-subquery Instance loops with two instance links and subclass, using a subquery
+MLocal Elapsed=601318ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-loop-double-instance-direct Instance loops with two instance links and subclass, no super
+MLocal Elapsed=600743ms ERROR EMPTY OUTPUT
+
+idefix queries> ./benchmark.py --directory order/bottom --engine MLocal --count
+Evaluating queries from order/bottom, counted,
+with caching disabled for QLever and Blazegraph
+
+# Queries that determine minimum class order based on instance chains
+
+# Two queries cause a memory leak in older verisons of QLever
+
+QUERY: wikidata-bottom-first-instances First-order classes based on instance
+MLocal Elapsed=600467ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-bottom-first-all First-order classes based on all evidence
+MLocal Elapsed=600035ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-bottom-second-instances Second-order classes based on instance
+MLocal Elapsed=601033ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-bottom-second-all Second-order classes based on all evidence
+MLocal Elapsed=600056ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-bottom-third-instances Third-order classes based on instance
+MLocal Elapsed=601026ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-bottom-third-all Third-order classes based on all evidence
+MLocal Elapsed=600064ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-bottom-fourth-instances Fourth-order classes based on instance
+MLocal Elapsed=601003ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-bottom-fourth-all Fourth-order classes based on all evidence
+MLocal Elapsed=601047ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-bottom-fifth-instances Fifth-order classes based on instance
+MLocal Elapsed=601021ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-bottom-fifth-all Fifth-order classes based on all evidence
+MLocal Elapsed=601049ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-bottom-sixth-instances Sixth-order classes based on instance
+MLocal Elapsed=601014ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-bottom-sixth-all Sixth-order classes based on all evidence
+MLocal Elapsed=600050ms ERROR EMPTY OUTPUT
+
+idefix queries> ./benchmark.py --directory order/split --engine MLocal --count
+Evaluating queries from order/split, counted,
+with caching disabled for QLever and Blazegraph
+
+# Queries that find pairs where the first is both an instance and a subclasses of the second
+
+QUERY: wikidata-split Split-order classes (without exclusion)
+MLocal Elapsed=600503ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-case-self Split-order classes case self (without exclusion)
+MLocal Elapsed=600020ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-case-self-union Split-order classes case self using union (without exclusion)
+MLocal Elapsed=600051ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-case-self-union-filter Split-order classes case self using union and filter (without exclusion)
+MLocal Elapsed=601008ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-unknown-1 Split-order classes (purpose unknown)
+MLocal Elapsed=600065ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-other Split-order classes case other (without exclusion)
+MLocal Elapsed=601101ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-exclusions Split-order classes case other (with exclusion)
+MLocal Elapsed=600999ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-AB-part Split-order classes subcase AB (partial, without exclusion)
+MLocal Elapsed=600996ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-AB Split-order classes subcase AB (without exclusion)
+MLocal Elapsed=601100ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-AB-exclusion Split-order classes subcase AB exclusion
+MLocal Elapsed=600998ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-C Split-order classes subcase C (without exclusion)
+MLocal Elapsed=600998ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-C-2 Split-order classes subcase C including labels (without exclusion)
+MLocal Elapsed=601099ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-C-exclusion Split-order classes subcase C exclusion
+MLocal Elapsed=601003ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-C-exclusion-1 Split-order classes subcase C exclusion part 1
+MLocal Elapsed=600993ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-C-exclusion-1-optimized Split-order classes subcase C exclusion part 1 (optimized)
+MLocal Elapsed=601021ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-other-C-exclusion-2 Split-order classes subcase C exclusion part 2
+MLocal Elapsed=600150ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-other-D-test Split-order classes subcase D test (without exclusion)
+MLocal Elapsed=601001ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-D-partial-1 Split-order classes subcase D partial (without exclusion)
+MLocal Elapsed=600997ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-D-partial-2 Split-order classes subcase D partial (without exclusion)
+MLocal Elapsed=601098ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-other-D-partial-3 Split-order classes subcase D partial (without exclusion)
+MLocal Elapsed=600956ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-split-other-D Split-order classes subcase D (without exclusion)
+MLocal Elapsed=601093ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-other-D-exclusion-1 Split-order classes subcase D exclusion 1
+MLocal Elapsed=601022ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-other-D-exclusion-2 Split-order classes subcase D exclusion 2
+MLocal Elapsed=600941ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-other-D-exclusion-3 Split-order classes subcase D exclusion 3
+MLocal Elapsed=601090ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-other-D-exclusion-4-test Split-order classes subcase D exclusion 4 test
+MLocal Elapsed=602258ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-other-D-exclusion-4 Split-order classes subcase D exclusion 4
+MLocal Elapsed=600733ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-extra-1 Split-order extra query
+MLocal Elapsed=601035ms ERROR EMPTY OUTPUT
+
+QUERY: wikidata-split-extra-2 Split-order extra query
+MLocal Elapsed=601314ms ERROR EMPTY OUTPUT
+
+idefix queries> ./benchmark.py --directory order/misc --engine MLocal --count
+Evaluating queries from order/misc, counted,
+with caching disabled for QLever and Blazegraph
+
+# Miscellaneous queries
+
+QUERY: wikidata-classes All instances of class (Q16889133)
+MLocal Elapsed=215359ms Result=17720263
+
+QUERY: wikidata-class-counts Counts of instances of class (Q16889133) by direct subclass
+MLocal Elapsed=200245ms Result=173 
+
+QUERY: wikidata-human-class-instances Instances of human (Q5) that are classes
+MLocal Elapsed= 2167ms Result=14  
+
+
+
+QUERY: wikidata-ismetaclassfor-orders Class orders of classes in is metaclass for (P8225) relationships
+MLocal Elapsed=600046ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[
+
+QUERY: wikidata-metasubclass-orders Class orders of classes in metasubclass (P2445) relationships
+MLocal Elapsed=600036ms ERROR UNABLE TO DECIPHER OUTPUT {"head":{"vars":["count"]},"results":{"bindings":[

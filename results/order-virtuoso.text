@@ -1,0 +1,247 @@
+On 22 November 2024
+
+idefix queries> ./benchmark.py --directory order/top --engine VLocal --count
+Evaluating queries from order/top, counted,
+with caching disabled for QLever and Blazegraph
+
+# Find the classes of various orders
+
+# The last two queries cause a memory leak in some versions of QLever
+
+QUERY: wikidata-top-sixth All sixth-order classes
+VLocal Elapsed= 1004ms Result=1   
+
+QUERY: wikidata-top-fifth-root Roots of fifth-order classes
+VLocal Elapsed=  336ms Result=1   
+
+QUERY: wikidata-top-fifth All fifth-order classes
+VLocal Elapsed=   16ms Result=1   
+
+QUERY: wikidata-top-fourth-root Roots of fourth-order classes
+VLocal Elapsed=   36ms Result=1   
+
+QUERY: wikidata-top-fourth All fourth-order classes
+VLocal Elapsed=   11ms Result=1   
+
+QUERY: wikidata-top-third-root Roots of third-order classes
+VLocal Elapsed=  520ms Result=36  
+
+QUERY: wikidata-top-third All third-order classes
+VLocal Elapsed= 5754ms Result=3565
+
+QUERY: wikidata-top-second-root Roots of second-order classes
+VLocal Elapsed=37531ms Result=217189
+
+QUERY: wikidata-top-second All second-order classes
+VLocal Elapsed=463378ms Result=2418598
+
+QUERY: wikidata-top-first-root Roots of first-order classes
+VLocal Elapsed=   12ms ERROR Virtuoso 42000 Error The estimated execution time 10945 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-top-first All first-order classes, using a subquery to cut down on memory usage in older versions of QLever
+VLocal Elapsed=    8ms ERROR Virtuoso 42000 Error The estimated execution time 28543 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-top-first-unoptimized All first-order classes
+VLocal Elapsed=   11ms ERROR Virtuoso 42000 Error The estimated execution time 1194370 (sec) exceeds the limit of 3000 (sec).
+
+idefix queries> ./benchmark.py --directory order/loop --engine VLocal --count
+Evaluating queries from order/loop, counted,
+with caching disabled for QLever and Blazegraph
+
+# Queries that find instance loops in the Wikidata ontology
+
+QUERY: wikidata-loop-instance Instance loops with one instance link and subclass, not currently handled by QLever
+VLocal Elapsed= 1315ms ERROR Virtuoso 42000 Error The estimated execution time 29029 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-loop-instance-subclass Instance loops with one instance link and non-empty subclass
+VLocal Elapsed=    9ms ERROR Virtuoso 42000 Error The estimated execution time 29029 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-loop-instance-subclass-no-labels Instance loops with one instance link and non-empty subclass (no labels)
+VLocal Elapsed=600684ms Count=   0
+
+QUERY: wikidata-loop-instance-subclass-filter-no-labels Instance loops with one instance link and non-empty subclass (no labels), using filter to check out speed difference
+VLocal Elapsed=600701ms Count=   0
+
+QUERY: wikidata-loop-instance-union Instance loops with one instance link and subclass, using union to be acceptable to QLever
+VLocal Elapsed=   13ms ERROR Virtuoso 42000 Error The estimated execution time 30260 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-loop-instance-filter-union Instance loops with one instance link and subclass, using filter and union to get around a bug in old versions of QLever
+VLocal Elapsed=   10ms ERROR Virtuoso 42000 Error The estimated execution time 30260 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-loop-instance-subquery-filter-union Instance loops with one instance link and subclass, as above but using a subquery for potential speed improvement
+VLocal Elapsed=610680ms Count=  11
+
+QUERY: wikidata-loop-instance-filter Instance loops with one instance link and subclass, using filter to be acceptable to QLever
+VLocal Elapsed=   11ms ERROR Virtuoso 42000 Error The estimated execution time 10524 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-loop-instance-subquery-filter Instance loops with one instance link and subclass, as above but using a subquery for potential speed improvement
+VLocal Elapsed=600714ms Count=   0
+
+QUERY: wikidata-loop-double-instance Instance loops with two instance links
+VLocal Elapsed=10488ms Result=10  
+
+QUERY: wikidata-loop-double-instance-full Instance loops with two instance links and subclass
+VLocal Elapsed=   13ms ERROR Virtuoso 42000 Error The estimated execution time 788850688 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-loop-double-instance-full-subquery Instance loops with two instance links and subclass, using a subquery
+VLocal Elapsed=   11ms ERROR Virtuoso 42000 Error The estimated execution time 788858880 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-loop-double-instance-direct Instance loops with two instance links and subclass, no super
+VLocal Elapsed=   14ms ERROR Virtuoso 42000 Error The estimated execution time 1864102 (sec) exceeds the limit of 3000 (sec).
+
+idefix queries> ./benchmark.py --directory order/bottom --engine VLocal --count
+Evaluating queries from order/bottom, counted,
+with caching disabled for QLever and Blazegraph
+
+# Queries that determine minimum class order based on instance chains
+
+# Two queries cause a memory leak in older verisons of QLever
+
+QUERY: wikidata-bottom-first-instances First-order classes based on instance
+VLocal Elapsed= 3209ms EXCEPTION HTTPConnectionPool(host='getafix', port=8890): Max retries exceeded with url: /sparql?query=PREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+wd%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2F%3E%0ASELECT+%28COUNT+%28%2A%29+AS+%3Fcount%29+WHERE+%7B%0A++SELECT+DISTINCT+%3Ffirst+%3FfirstLabel+WHERE+%7B%0A++++%7B+SELECT+DISTINCT+%3Fc+WHERE+%7B+%3Fzero+wdt%3AP31+%3Fc+.+%7D+%7D%0A++++%3Fc+wdt%3AP279%2A+%3Ffirst+.%0A++++OPTIONAL+%7B+%3Ffirst+rdfs%3Alabel+%3FfirstLabel+.+FILTER+%28+lang%28%3FfirstLabel%29+%3D+%27en%27+%29+%7D%0A++%7D%0A%7D%0A (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f248dcd5400>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+QUERY: wikidata-bottom-first-all First-order classes based on all evidence
+VLocal Elapsed= 3127ms EXCEPTION HTTPConnectionPool(host='getafix', port=8890): Max retries exceeded with url: /sparql?query=PREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+wd%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2F%3E%0ASELECT+%28COUNT+%28%2A%29+AS+%3Fcount%29+WHERE+%7B%0ASELECT+DISTINCT+%3Ffirst+%3FfirstLabel+WHERE+%7B%0A++%7B+%3Fi+wdt%3AP31+%3Ffirst.++%7D+UNION+%7B+%3Fsub+wdt%3AP279+%3Ffirst+.+%7D+UNION+%7B+%3Ffirst+wdt%3AP279+%3Fsuper+.+%7D+UNION+%7B+%3Ffirst+wdt%3AP31%2Fwdt%3AP279%2A+wd%3AQ16889133+.+%7D%0A++OPTIONAL+%7B+%3Ffirst+rdfs%3Alabel+%3FfirstLabel+.+FILTER+%28+lang%28%3FfirstLabel%29+%3D+%27en%27+%29+%7D%0A%7D%0A+++++%7D%0A (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f248dcdd6d0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+QUERY: wikidata-bottom-second-instances Second-order classes based on instance
+VLocal Elapsed= 3198ms EXCEPTION HTTPConnectionPool(host='getafix', port=8890): Max retries exceeded with url: /sparql?query=PREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+wd%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2F%3E%0ASELECT+%28COUNT+%28%2A%29+AS+%3Fcount%29+WHERE+%7B%0A++SELECT+DISTINCT+%3Fsecond+%3FsecondLabel+WHERE+%7B+%0A++++%7B+SELECT+DISTINCT+%3Ffirst+WHERE+%7B%0A++++++%7B+SELECT+DISTINCT+%3Fc+WHERE+%7B+%3Fzero+wdt%3AP31+%3Fc+.+%7D+%7D%0A++++++%3Fc+wdt%3AP279%2A+%3Ffirst+.%0A++++++%7D+%7D%0A++++%3Ffirst+wdt%3AP31%2Fwdt%3AP279%2A+%3Fsecond+.%0A++++OPTIONAL+%7B+%3Fsecond+rdfs%3Alabel+%3FsecondLabel+.+FILTER+%28+lang%28%3FsecondLabel%29+%3D+%27en%27+%29+%7D%0A+++%7D%7D%0A (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f248de97c50>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+QUERY: wikidata-bottom-second-all Second-order classes based on all evidence
+VLocal Elapsed= 3199ms EXCEPTION HTTPConnectionPool(host='getafix', port=8890): Max retries exceeded with url: /sparql?query=PREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+wd%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2F%3E%0ASELECT+%28COUNT+%28%2A%29+AS+%3Fcount%29+WHERE+%7B%0A++SELECT+DISTINCT+%3Fsecond+%3FsecondLabel+WHERE+%7B+%0A++++%7B+SELECT+DISTINCT+%3Fc+WHERE+%7B%0A++++++%7B+SELECT+DISTINCT+%3Ffirst+WHERE+%7B%0A++++++++%7B+%3Fi+wdt%3AP31+%3Ffirst.++%7D+UNION+%7B+%3Fsub+wdt%3AP279+%3Ffirst+.+%7D+UNION+%7B+%3Ffirst+wdt%3AP279+%3Fsuper+.+%7D+UNION+%7B+%3Ffirst+wdt%3AP31%2Fwdt%3AP279%2A+wd%3AQ16889133+.+%7D%0A++++++++%7D+%7D%0A++++++%3Ffirst+wdt%3AP31+%3Fc+.+%7D+%7D%0A++++%3Fc+wdt%3AP279%2A+%3Fsecond+.%0A+++++OPTIONAL+%7B+%3Fsecond+rdfs%3Alabel+%3FsecondLabel+.+FILTER+%28+lang%28%3FsecondLabel%29+%3D+%27en%27+%29+%7D%0A++%7D%7D%0A (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f248dcd1220>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+QUERY: wikidata-bottom-third-instances Third-order classes based on instance
+VLocal Elapsed=  577ms ERROR Virtuoso 42000 Error The estimated execution time 14901234 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-bottom-third-all Third-order classes based on all evidence
+VLocal Elapsed=  630ms ERROR Virtuoso 42000 Error The estimated execution time 196426 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-bottom-fourth-instances Fourth-order classes based on instance
+VLocal Elapsed=   11ms ERROR Virtuoso 42000 Error The estimated execution time 15003409 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-bottom-fourth-all Fourth-order classes based on all evidence
+VLocal Elapsed=   12ms ERROR Virtuoso 42000 Error The estimated execution time 298600 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-bottom-fifth-instances Fifth-order classes based on instance
+VLocal Elapsed=   12ms ERROR Virtuoso 42000 Error The estimated execution time 15105583 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-bottom-fifth-all Fifth-order classes based on all evidence
+VLocal Elapsed=   12ms ERROR Virtuoso 42000 Error The estimated execution time 400774 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-bottom-sixth-instances Sixth-order classes based on instance
+VLocal Elapsed=   11ms ERROR Virtuoso 42000 Error The estimated execution time 15207757 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-bottom-sixth-all Sixth-order classes based on all evidence
+VLocal Elapsed=   14ms ERROR Virtuoso 42000 Error The estimated execution time 502948 (sec) exceeds the limit of 3000 (sec).
+
+idefix queries> ./benchmark.py --directory order/split --engine VLocal --count
+Evaluating queries from order/split, counted,
+with caching disabled for QLever and Blazegraph
+
+# Queries that find pairs where the first is both an instance and a subclasses of the second
+
+QUERY: wikidata-split Split-order classes (without exclusion)
+VLocal Elapsed=  588ms ERROR Virtuoso 42000 Error The estimated execution time -638042112 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-case-self Split-order classes case self (without exclusion)
+VLocal Elapsed=600787ms Count=   0
+
+QUERY: wikidata-split-case-self-union Split-order classes case self using union (without exclusion)
+VLocal Elapsed=  717ms ERROR Virtuoso 42000 Error The estimated execution time 29100 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-case-self-union-filter Split-order classes case self using union and filter (without exclusion)
+VLocal Elapsed=   19ms ERROR Virtuoso 42000 Error The estimated execution time 29100 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-unknown-1 Split-order classes (purpose unknown)
+VLocal Elapsed=   18ms ERROR Virtuoso 42000 Error The estimated execution time 102587 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other Split-order classes case other (without exclusion)
+VLocal Elapsed=   18ms ERROR Virtuoso 42000 Error The estimated execution time -638042112 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-exclusions Split-order classes case other (with exclusion)
+VLocal Elapsed=   29ms ERROR Virtuoso 42000 Error The estimated execution time -638042112 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-AB-part Split-order classes subcase AB (partial, without exclusion)
+VLocal Elapsed=600803ms Count=   0
+
+QUERY: wikidata-split-other-AB Split-order classes subcase AB (without exclusion)
+VLocal Elapsed=  619ms ERROR Virtuoso 42000 Error The estimated execution time 534740992 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-AB-exclusion Split-order classes subcase AB exclusion
+VLocal Elapsed=   14ms ERROR Virtuoso 42000 Error The estimated execution time -856644608 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-C Split-order classes subcase C (without exclusion)
+VLocal Elapsed=   13ms ERROR Virtuoso 42000 Error The estimated execution time -639756288 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-C-2 Split-order classes subcase C including labels (without exclusion)
+VLocal Elapsed=   12ms ERROR Virtuoso 42000 Error The estimated execution time -639698944 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-C-exclusion Split-order classes subcase C exclusion
+VLocal Elapsed=63133ms ERROR Virtuoso 42000 Error TN...: Exceeded 20000000000 bytes in transitive temp memory.  use t_distinct, t_max or more T_MAX_memory options to limit the search or increase the pool
+
+QUERY: wikidata-split-other-C-exclusion-1 Split-order classes subcase C exclusion part 1
+VLocal Elapsed=60724ms ERROR Virtuoso 42000 Error TN...: Exceeded 20000000000 bytes in transitive temp memory.  use t_distinct, t_max or more T_MAX_memory options to limit the search or increase the pool
+
+QUERY: wikidata-split-other-C-exclusion-1-optimized Split-order classes subcase C exclusion part 1 (optimized)
+VLocal Elapsed=   17ms ERROR Virtuoso 42000 Error The estimated execution time 16832 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-C-exclusion-2 Split-order classes subcase C exclusion part 2
+VLocal Elapsed=   11ms ERROR Virtuoso 42000 Error The estimated execution time 21381 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-D-test Split-order classes subcase D test (without exclusion)
+VLocal Elapsed=   10ms ERROR Virtuoso 42000 Error The estimated execution time 573363 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-D-partial-1 Split-order classes subcase D partial (without exclusion)
+VLocal Elapsed=   11ms ERROR Virtuoso 42000 Error The estimated execution time -639756288 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-D-partial-2 Split-order classes subcase D partial (without exclusion)
+VLocal Elapsed=   13ms ERROR Virtuoso 42000 Error The estimated execution time -638042112 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-D-partial-3 Split-order classes subcase D partial (without exclusion)
+VLocal Elapsed=   14ms ERROR Virtuoso 42000 Error The estimated execution time -639756288 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-other-D Split-order classes subcase D (without exclusion)
+VLocal Elapsed=   19ms ERROR Virtuoso 37000 Error TR...: transitive start not given
+
+QUERY: wikidata-split-other-D-exclusion-1 Split-order classes subcase D exclusion 1
+VLocal Elapsed=   20ms ERROR Virtuoso 37000 Error TR...: transitive start not given
+
+QUERY: wikidata-split-other-D-exclusion-2 Split-order classes subcase D exclusion 2
+VLocal Elapsed=   21ms ERROR Virtuoso 37000 Error TR...: transitive start not given
+
+QUERY: wikidata-split-other-D-exclusion-3 Split-order classes subcase D exclusion 3
+VLocal Elapsed=   20ms ERROR Virtuoso 37000 Error TR...: transitive start not given
+
+QUERY: wikidata-split-other-D-exclusion-4-test Split-order classes subcase D exclusion 4 test
+VLocal Elapsed=   13ms ERROR Virtuoso 37000 Error TR...: transitive start not given
+
+QUERY: wikidata-split-other-D-exclusion-4 Split-order classes subcase D exclusion 4
+VLocal Elapsed=    9ms ERROR Virtuoso 42000 Error The estimated execution time 63964464 (sec) exceeds the limit of 3000 (sec).
+
+QUERY: wikidata-split-extra-1 Split-order extra query
+VLocal Elapsed=   11ms ERROR Virtuoso 37000 Error TR...: transitive start not given
+
+QUERY: wikidata-split-extra-2 Split-order extra query
+VLocal Elapsed=   11ms ERROR Virtuoso 37000 Error TR...: transitive start not given
+
+idefix queries> ./benchmark.py --directory order/misc --engine VLocal --count
+Evaluating queries from order/misc, counted,
+with caching disabled for QLever and Blazegraph
+
+# Miscellaneous queries
+
+QUERY: wikidata-classes All instances of class (Q16889133)
+VLocal Elapsed=248705ms Result=17757714
+
+QUERY: wikidata-class-counts Counts of instances of class (Q16889133) by direct subclass
+VLocal Elapsed=545905ms Result=173 
+
+QUERY: wikidata-human-class-instances Instances of human (Q5) that are classes
+VLocal Elapsed=  922ms Result=14  
+
+
+
+QUERY: wikidata-ismetaclassfor-orders Class orders of classes in is metaclass for (P8225) relationships
+VLocal Elapsed=22424ms Result=990 
+
+QUERY: wikidata-metasubclass-orders Class orders of classes in metasubclass (P2445) relationships
+VLocal Elapsed=   96ms Result=26  
