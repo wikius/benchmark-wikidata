@@ -1,332 +1,155 @@
-17 November 2024, 11am
+On 21 November 2024
 
-idefix queries> ./benchmark.py --directory subclass --engine QLocal --engine QLever
+idefix queries> ./benchmark.py --directory subclass --engine QLocal --caching 
 Evaluating queries from subclass
-with caching disabled for QLever and Blazegraph
+with caching allowed
 
 # A set of subclass closure queries, included because some are hard for Blazegraph.
 
 QUERY: human-subclass All subclasses of human (Q5)
-QLocal Elapsed=  148ms Count=2289 Time={'computeResult': '24ms', 'total': '28ms'} 
-QLever Elapsed= 1137ms Count=2292 Time={'computeResult': '46ms', 'total': '55ms'} 
+QLocal Elapsed=  106ms Count=2289 Time={'computeResult': '22ms', 'total': '26ms'} 
 
 QUERY: human-subclass-labels All subclasses of human (Q5) with labels
-QLocal Elapsed=  376ms Count=2289 Time={'computeResult': '310ms', 'total': '314ms'} 
-QLever Elapsed= 1328ms Count=2292 Time={'computeResult': '480ms', 'total': '483ms'} 
+QLocal Elapsed=  297ms Count=2289 Time={'computeResult': '273ms', 'total': '276ms'} 
 
 QUERY: human-subclass-labels All subclasses of human (Q5) with labels, label service for WDQS
-QLocal Elapsed=  377ms Count=2289 Time={'computeResult': '251ms', 'total': '255ms'} 
-QLever Elapsed= 1414ms Count=2292 Time={'computeResult': '471ms', 'total': '475ms'} 
+QLocal Elapsed=   15ms Count=2289 Time={'computeResult': '3ms', 'total': '6ms'} 
 
 QUERY: protein-subclass All subclasses of protein (Q8054)
-QLocal Elapsed=  953ms Count=799368 Time={'computeResult': '200ms', 'total': '443ms'} 
-QLever Elapsed= 2297ms Count=799368 Time={'computeResult': '252ms', 'total': '896ms'} 
+QLocal Elapsed=  817ms Count=799368 Time={'computeResult': '213ms', 'total': '430ms'} 
 
 QUERY: protein-subclass All subclasses of protein (Q8054), 2nd try
-QLocal Elapsed=  837ms Count=799368 Time={'computeResult': '188ms', 'total': '427ms'} 
-QLever Elapsed= 2228ms Count=799368 Time={'computeResult': '252ms', 'total': '874ms'} 
+QLocal Elapsed=  658ms Count=799368 Time={'computeResult': '3ms', 'total': '226ms'} 
 
 QUERY: protein-subclass All subclasses of protein (Q8054), 3rd try
-QLocal Elapsed=  855ms Count=799368 Time={'computeResult': '190ms', 'total': '434ms'} 
-QLever Elapsed= 2286ms Count=799368 Time={'computeResult': '242ms', 'total': '882ms'} 
+QLocal Elapsed=  609ms Count=799368 Time={'computeResult': '4ms', 'total': '227ms'} 
 
 QUERY: protein-subclass All subclasses of protein (Q8054), 4th try
-QLocal Elapsed=  893ms Count=799368 Time={'computeResult': '195ms', 'total': '431ms'} 
-QLever Elapsed= 2229ms Count=799368 Time={'computeResult': '251ms', 'total': '884ms'} 
+QLocal Elapsed=  598ms Count=799368 Time={'computeResult': '2ms', 'total': '229ms'} 
 
 QUERY: protein-subclass-labels All subclasses of protein (Q8054) with labels
-QLocal Elapsed= 1386ms Count=799368 Time={'computeResult': '744ms', 'total': '990ms'} 
-QLever Elapsed= 3304ms Count=799368 Time={'computeResult': '1121ms', 'total': '1768ms'} 
+QLocal Elapsed=  914ms Count=799368 Time={'computeResult': '335ms', 'total': '558ms'} 
 
 QUERY: protein-subclass-labels All subclasses of protein (Q8054) with labels, label service for WDQS
-QLocal Elapsed= 1433ms Count=799368 Time={'computeResult': '757ms', 'total': '1000ms'} 
-QLever Elapsed= 3389ms Count=799368 Time={'computeResult': '1127ms', 'total': '1760ms'} 
+QLocal Elapsed=  644ms Count=799368 Time={'computeResult': '4ms', 'total': '241ms'} 
 
 QUERY: chemical-subclass All subclasses of chemical entity (Q43460564)
-QLocal Elapsed= 2638ms Count=2320275 Time={'computeResult': '823ms', 'total': '1526ms'} 
-QLever Elapsed= 4513ms Count=2320216 Time={'computeResult': '865ms', 'total': '2694ms'} 
+QLocal Elapsed= 2480ms Count=2320275 Time={'computeResult': '802ms', 'total': '1493ms'} 
 
 QUERY: concrete-subclass All subclasses of concrete object (Q4406616)
-QLocal Elapsed= 4607ms Count=3771720 Time={'computeResult': '1570ms', 'total': '2773ms'} 
-QLever Elapsed= 6949ms Count=3773651 Time={'computeResult': '1619ms', 'total': '4572ms'} 
+QLocal Elapsed= 4416ms Count=3771720 Time={'computeResult': '1578ms', 'total': '2741ms'} 
 
 QUERY: object-subclass All subclasses of object (Q488383)
-QLocal Elapsed= 5087ms Count=4090266 Time={'computeResult': '1906ms', 'total': '3234ms'} 
-QLever Elapsed= 7778ms Count=4092785 Time={'computeResult': '1898ms', 'total': '5244ms'} 
+QLocal Elapsed= 4957ms Count=4090266 Time={'computeResult': '1908ms', 'total': '3185ms'} 
 
 QUERY: entity-subclass All subclasses of entity (Q35120)
-QLocal Elapsed= 5211ms Count=4146817 Time={'computeResult': '1914ms', 'total': '3328ms'} 
-QLever Elapsed= 7885ms Count=4149424 Time={'computeResult': '1863ms', 'total': '5252ms'} 
+QLocal Elapsed= 5038ms Count=4146817 Time={'computeResult': '1939ms', 'total': '3248ms'} 
 
 QUERY: entity-subclass-labels All subclasses of entity (Q35120) with labels
-QLocal Elapsed=12794ms Count=4146817 Time={'computeResult': '2899ms', 'total': '6889ms'} 
-QLever Elapsed=16062ms Count=4149424 Time={'computeResult': '3116ms', 'total': '10618ms'} 
+QLocal Elapsed= 9255ms Count=4146817 Time={'computeResult': '800ms', 'total': '4773ms'} 
 
 QUERY: entity-subclass-labels All subclasses of entity (Q35120) with labels, label service for WDQS
-QLocal Elapsed=11566ms Count=4146817 Time={'computeResult': '2936ms', 'total': '7067ms'} 
-QLever Elapsed=17526ms Count=4149424 Time={'computeResult': '3032ms', 'total': '10448ms'} 
+QLocal Elapsed= 8427ms Count=4146817 Time={'computeResult': '4ms', 'total': '3999ms'} 
 
-idefix queries> ./benchmark.py --directory subclass --engine QLocal --engine QLever
-Evaluating queries from subclass
-with caching disabled for QLever and Blazegraph
-
-# A set of subclass closure queries, included because some are hard for Blazegraph.
-
-QUERY: human-subclass All subclasses of human (Q5)
-QLocal Elapsed=  204ms Count=2289 Time={'computeResult': '23ms', 'total': '27ms'} 
-QLever Elapsed=  942ms Count=2292 Time={'computeResult': '45ms', 'total': '51ms'} 
-
-QUERY: human-subclass-labels All subclasses of human (Q5) with labels
-QLocal Elapsed=  390ms Count=2289 Time={'computeResult': '263ms', 'total': '267ms'} 
-QLever Elapsed= 1252ms Count=2292 Time={'computeResult': '465ms', 'total': '468ms'} 
-
-QUERY: human-subclass-labels All subclasses of human (Q5) with labels, label service for WDQS
-QLocal Elapsed=  417ms Count=2289 Time={'computeResult': '272ms', 'total': '276ms'} 
-QLever Elapsed= 1253ms Count=2292 Time={'computeResult': '473ms', 'total': '477ms'} 
-
-QUERY: protein-subclass All subclasses of protein (Q8054)
-QLocal Elapsed=  895ms Count=799368 Time={'computeResult': '191ms', 'total': '429ms'} 
-QLever Elapsed= 2331ms Count=799368 Time={'computeResult': '247ms', 'total': '888ms'} 
-
-QUERY: protein-subclass All subclasses of protein (Q8054), 2nd try
-QLocal Elapsed=  913ms Count=799368 Time={'computeResult': '203ms', 'total': '448ms'} 
-QLever Elapsed= 2142ms Count=799368 Time={'computeResult': '250ms', 'total': '873ms'} 
-
-QUERY: protein-subclass All subclasses of protein (Q8054), 3rd try
-QLocal Elapsed=  940ms Count=799368 Time={'computeResult': '200ms', 'total': '442ms'} 
-QLever Elapsed= 2171ms Count=799368 Time={'computeResult': '254ms', 'total': '884ms'} 
-
-QUERY: protein-subclass All subclasses of protein (Q8054), 4th try
-QLocal Elapsed=  900ms Count=799368 Time={'computeResult': '201ms', 'total': '446ms'} 
-QLever Elapsed= 2234ms Count=799368 Time={'computeResult': '280ms', 'total': '927ms'} 
-
-QUERY: protein-subclass-labels All subclasses of protein (Q8054) with labels
-QLocal Elapsed= 1501ms Count=799368 Time={'computeResult': '763ms', 'total': '1008ms'} 
-QLever Elapsed= 3119ms Count=799368 Time={'computeResult': '1119ms', 'total': '1758ms'} 
-
-QUERY: protein-subclass-labels All subclasses of protein (Q8054) with labels, label service for WDQS
-QLocal Elapsed= 1525ms Count=799368 Time={'computeResult': '769ms', 'total': '1008ms'} 
-QLever Elapsed= 3622ms Count=799368 Time={'computeResult': '1087ms', 'total': '1739ms'} 
-
-QUERY: chemical-subclass All subclasses of chemical entity (Q43460564)
-QLocal Elapsed= 2623ms Count=2320275 Time={'computeResult': '813ms', 'total': '1506ms'} 
-QLever Elapsed= 4382ms Count=2320216 Time={'computeResult': '819ms', 'total': '2621ms'} 
-
-QUERY: concrete-subclass All subclasses of concrete object (Q4406616)
-QLocal Elapsed= 4388ms Count=3771720 Time={'computeResult': '1579ms', 'total': '2777ms'} 
-QLever Elapsed= 6897ms Count=3773651 Time={'computeResult': '1651ms', 'total': '4628ms'} 
-
-QUERY: object-subclass All subclasses of object (Q488383)
-QLocal Elapsed= 5114ms Count=4090266 Time={'computeResult': '1908ms', 'total': '3283ms'} 
-QLever Elapsed= 7546ms Count=4092785 Time={'computeResult': '1909ms', 'total': '5157ms'} 
-
-QUERY: entity-subclass All subclasses of entity (Q35120)
-QLocal Elapsed= 5052ms Count=4146817 Time={'computeResult': '1894ms', 'total': '3291ms'} 
-QLever Elapsed= 7592ms Count=4149424 Time={'computeResult': '1916ms', 'total': '5161ms'} 
-
-QUERY: entity-subclass-labels All subclasses of entity (Q35120) with labels
-QLocal Elapsed=11455ms Count=4146817 Time={'computeResult': '2886ms', 'total': '6918ms'} 
-QLever Elapsed=15513ms Count=4149424 Time={'computeResult': '3106ms', 'total': '10217ms'} 
-
-QUERY: entity-subclass-labels All subclasses of entity (Q35120) with labels, label service for WDQS
-QLocal Elapsed=11452ms Count=4146817 Time={'computeResult': '2899ms', 'total': '7005ms'} 
-QLever Elapsed=20812ms Count=4149424 Time={'computeResult': '3069ms', 'total': '14165ms'} 
-
-idefix queries> ./benchmark.py --directory subclass --engine QLocal --engine QLever --count
-Evaluating queries from subclass, counted,
-with caching disabled for QLever and Blazegraph
-
-# A set of subclass closure queries, included because some are hard for Blazegraph.
-
-QUERY: human-subclass All subclasses of human (Q5)
-QLocal Elapsed=  143ms Result=2289 Time={'computeResult': '23ms', 'total': '23ms'} 
-QLever Elapsed=  843ms Result=2292 Time={'computeResult': '46ms', 'total': '47ms'} 
-
-QUERY: human-subclass-labels All subclasses of human (Q5) with labels
-QLocal Elapsed=  383ms Result=2289 Time={'computeResult': '261ms', 'total': '262ms'} 
-QLever Elapsed= 1221ms Result=2292 Time={'computeResult': '490ms', 'total': '491ms'} 
-
-QUERY: human-subclass-labels All subclasses of human (Q5) with labels, label service for WDQS
-QLocal Elapsed=  337ms Result=2289 Time={'computeResult': '267ms', 'total': '268ms'} 
-QLever Elapsed= 1239ms Result=2292 Time={'computeResult': '471ms', 'total': '472ms'} 
-
-QUERY: protein-subclass All subclasses of protein (Q8054)
-QLocal Elapsed=  345ms Result=799368 Time={'computeResult': '207ms', 'total': '207ms'} 
-QLever Elapsed=  995ms Result=799368 Time={'computeResult': '241ms', 'total': '243ms'} 
-
-QUERY: protein-subclass All subclasses of protein (Q8054), 2nd try
-QLocal Elapsed=  299ms Result=799368 Time={'computeResult': '199ms', 'total': '200ms'} 
-QLever Elapsed=  933ms Result=799368 Time={'computeResult': '253ms', 'total': '254ms'} 
-
-QUERY: protein-subclass All subclasses of protein (Q8054), 3rd try
-QLocal Elapsed=  297ms Result=799368 Time={'computeResult': '193ms', 'total': '193ms'} 
-QLever Elapsed=  982ms Result=799368 Time={'computeResult': '252ms', 'total': '253ms'} 
-
-QUERY: protein-subclass All subclasses of protein (Q8054), 4th try
-QLocal Elapsed=  352ms Result=799368 Time={'computeResult': '201ms', 'total': '202ms'} 
-QLever Elapsed=  909ms Result=799368 Time={'computeResult': '236ms', 'total': '237ms'} 
-
-QUERY: protein-subclass-labels All subclasses of protein (Q8054) with labels
-QLocal Elapsed=  877ms Result=799368 Time={'computeResult': '753ms', 'total': '754ms'} 
-QLever Elapsed= 1797ms Result=799368 Time={'computeResult': '1098ms', 'total': '1099ms'} 
-
-QUERY: protein-subclass-labels All subclasses of protein (Q8054) with labels, label service for WDQS
-QLocal Elapsed=  891ms Result=799368 Time={'computeResult': '755ms', 'total': '756ms'} 
-QLever Elapsed= 1879ms Result=799368 Time={'computeResult': '1093ms', 'total': '1094ms'} 
-
-QUERY: chemical-subclass All subclasses of chemical entity (Q43460564)
-QLocal Elapsed=  951ms Result=2320275 Time={'computeResult': '822ms', 'total': '823ms'} 
-QLever Elapsed= 1672ms Result=2320216 Time={'computeResult': '883ms', 'total': '883ms'} 
-
-QUERY: concrete-subclass All subclasses of concrete object (Q4406616)
-QLocal Elapsed= 1617ms Result=3771720 Time={'computeResult': '1574ms', 'total': '1575ms'} 
-QLever Elapsed= 2332ms Result=3773651 Time={'computeResult': '1624ms', 'total': '1625ms'} 
-
-QUERY: object-subclass All subclasses of object (Q488383)
-QLocal Elapsed= 1994ms Result=4090266 Time={'computeResult': '1901ms', 'total': '1902ms'} 
-QLever Elapsed= 2620ms Result=4092785 Time={'computeResult': '1929ms', 'total': '1930ms'} 
-
-QUERY: entity-subclass All subclasses of entity (Q35120)
-QLocal Elapsed= 1960ms Result=4146817 Time={'computeResult': '1874ms', 'total': '1875ms'} 
-QLever Elapsed= 2651ms Result=4149424 Time={'computeResult': '1931ms', 'total': '1932ms'} 
-
-QUERY: entity-subclass-labels All subclasses of entity (Q35120) with labels
-QLocal Elapsed= 2967ms Result=4146817 Time={'computeResult': '2898ms', 'total': '2899ms'} 
-QLever Elapsed= 3785ms Result=4149424 Time={'computeResult': '3095ms', 'total': '3095ms'} 
-
-QUERY: entity-subclass-labels All subclasses of entity (Q35120) with labels, label service for WDQS
-QLocal Elapsed= 3051ms Result=4146817 Time={'computeResult': '2938ms', 'total': '2939ms'} 
-QLever Elapsed= 4022ms Result=4149424 Time={'computeResult': '3190ms', 'total': '3191ms'} 
-
-idefix queries> ./benchmark.py --directory subclass --engine QLocal --engine QLever --count --caching
+idefix queries> ./benchmark.py --directory subclass --engine QLocal --caching --count
 Evaluating queries from subclass, counted,
 with caching allowed
 
 # A set of subclass closure queries, included because some are hard for Blazegraph.
 
 QUERY: human-subclass All subclasses of human (Q5)
-QLocal Elapsed=   94ms Result=2289 Time={'computeResult': '12ms', 'total': '12ms'} 
-QLever Elapsed=  345ms Result=2292 Time={'computeResult': '5ms', 'total': '6ms'} 
+QLocal Elapsed=  174ms Result=2289 Time={'computeResult': '25ms', 'total': '25ms'} 
 
 QUERY: human-subclass-labels All subclasses of human (Q5) with labels
-QLocal Elapsed=   28ms Result=2289 Time={'computeResult': '8ms', 'total': '9ms'} 
-QLever Elapsed=  338ms Result=2292 Time={'computeResult': '8ms', 'total': '9ms'} 
+QLocal Elapsed=  289ms Result=2289 Time={'computeResult': '273ms', 'total': '273ms'} 
 
 QUERY: human-subclass-labels All subclasses of human (Q5) with labels, label service for WDQS
-QLocal Elapsed=   91ms Result=2289 Time={'computeResult': '1ms', 'total': '2ms'} 
-QLever Elapsed=  348ms Result=2292 Time={'computeResult': '5ms', 'total': '6ms'} 
+QLocal Elapsed=   12ms Result=2289 Time={'computeResult': '3ms', 'total': '3ms'} 
 
 QUERY: protein-subclass All subclasses of protein (Q8054)
-QLocal Elapsed=  207ms Result=799368 Time={'computeResult': '191ms', 'total': '191ms'} 
-QLever Elapsed=  573ms Result=799368 Time={'computeResult': '228ms', 'total': '229ms'} 
+QLocal Elapsed=  212ms Result=799368 Time={'computeResult': '196ms', 'total': '196ms'} 
 
 QUERY: protein-subclass All subclasses of protein (Q8054), 2nd try
-QLocal Elapsed=   97ms Result=799368 Time={'computeResult': '1ms', 'total': '1ms'} 
-QLever Elapsed=  336ms Result=799368 Time={'computeResult': '4ms', 'total': '4ms'} 
+QLocal Elapsed=   12ms Result=799368 Time={'computeResult': '2ms', 'total': '2ms'} 
 
 QUERY: protein-subclass All subclasses of protein (Q8054), 3rd try
-QLocal Elapsed=   20ms Result=799368 Time={'computeResult': '1ms', 'total': '1ms'} 
-QLever Elapsed=  342ms Result=799368 Time={'computeResult': '4ms', 'total': '4ms'} 
+QLocal Elapsed=   15ms Result=799368 Time={'computeResult': '2ms', 'total': '2ms'} 
 
 QUERY: protein-subclass All subclasses of protein (Q8054), 4th try
-QLocal Elapsed=  118ms Result=799368 Time={'computeResult': '1ms', 'total': '1ms'} 
-QLever Elapsed=  337ms Result=799368 Time={'computeResult': '3ms', 'total': '5ms'} 
+QLocal Elapsed=    9ms Result=799368 Time={'computeResult': '2ms', 'total': '2ms'} 
 
 QUERY: protein-subclass-labels All subclasses of protein (Q8054) with labels
-QLocal Elapsed=  338ms Result=799368 Time={'computeResult': '319ms', 'total': '320ms'} 
-QLever Elapsed=  844ms Result=799368 Time={'computeResult': '489ms', 'total': '490ms'} 
+QLocal Elapsed=  361ms Result=799368 Time={'computeResult': '333ms', 'total': '334ms'} 
 
 QUERY: protein-subclass-labels All subclasses of protein (Q8054) with labels, label service for WDQS
-QLocal Elapsed=  118ms Result=799368 Time={'computeResult': '1ms', 'total': '1ms'} 
-QLever Elapsed=  369ms Result=799368 Time={'computeResult': '5ms', 'total': '6ms'} 
+QLocal Elapsed=   14ms Result=799368 Time={'computeResult': '3ms', 'total': '3ms'} 
 
 QUERY: chemical-subclass All subclasses of chemical entity (Q43460564)
-QLocal Elapsed=  817ms Result=2320275 Time={'computeResult': '797ms', 'total': '798ms'} 
-QLever Elapsed= 1161ms Result=2320216 Time={'computeResult': '831ms', 'total': '832ms'} 
+QLocal Elapsed=  815ms Result=2320275 Time={'computeResult': '790ms', 'total': '791ms'} 
 
 QUERY: concrete-subclass All subclasses of concrete object (Q4406616)
-QLocal Elapsed= 1645ms Result=3771720 Time={'computeResult': '1540ms', 'total': '1541ms'} 
-QLever Elapsed= 1986ms Result=3773651 Time={'computeResult': '1615ms', 'total': '1615ms'} 
+QLocal Elapsed= 1591ms Result=3771720 Time={'computeResult': '1563ms', 'total': '1563ms'} 
 
 QUERY: object-subclass All subclasses of object (Q488383)
-QLocal Elapsed= 1921ms Result=4090266 Time={'computeResult': '1850ms', 'total': '1850ms'} 
-QLever Elapsed= 2225ms Result=4092785 Time={'computeResult': '1885ms', 'total': '1886ms'} 
+QLocal Elapsed= 1916ms Result=4090266 Time={'computeResult': '1893ms', 'total': '1893ms'} 
 
 QUERY: entity-subclass All subclasses of entity (Q35120)
-QLocal Elapsed=  139ms Result=4146817 Time={'computeResult': '30ms', 'total': '30ms'} 
-QLever Elapsed=  413ms Result=4149424 Time={'computeResult': '77ms', 'total': '77ms'} 
+QLocal Elapsed= 1983ms Result=4146817 Time={'computeResult': '1955ms', 'total': '1959ms'} 
 
 QUERY: entity-subclass-labels All subclasses of entity (Q35120) with labels
-QLocal Elapsed=   19ms Result=4146817 Time={'computeResult': '5ms', 'total': '5ms'} 
-QLever Elapsed=  344ms Result=4149424 Time={'computeResult': '5ms', 'total': '6ms'} 
+QLocal Elapsed=  854ms Result=4146817 Time={'computeResult': '829ms', 'total': '829ms'} 
 
 QUERY: entity-subclass-labels All subclasses of entity (Q35120) with labels, label service for WDQS
-QLocal Elapsed=  113ms Result=4146817 Time={'computeResult': '2ms', 'total': '3ms'} 
-QLever Elapsed=  347ms Result=4149424 Time={'computeResult': '5ms', 'total': '6ms'} 
+QLocal Elapsed=   14ms Result=4146817 Time={'computeResult': '3ms', 'total': '3ms'} 
 
-idefix queries> ./benchmark.py --directory subclass --engine QLocal --engine QLever --count --caching
-Evaluating queries from subclass, counted,
-with caching allowed
+idefix queries> ./benchmark.py --directory subclass --engine QLocal
+Evaluating queries from subclass
+with caching disabled for QLever and Blazegraph
 
 # A set of subclass closure queries, included because some are hard for Blazegraph.
 
 QUERY: human-subclass All subclasses of human (Q5)
-QLocal Elapsed=   61ms Result=2289 Time={'computeResult': '1ms', 'total': '1ms'} 
-QLever Elapsed=  356ms Result=2292 Time={'computeResult': '3ms', 'total': '12ms'} 
+QLocal Elapsed=   76ms Count=2289 Time={'computeResult': '21ms', 'total': '25ms'} 
 
 QUERY: human-subclass-labels All subclasses of human (Q5) with labels
-QLocal Elapsed=   21ms Result=2289 Time={'computeResult': '3ms', 'total': '4ms'} 
-QLever Elapsed=  368ms Result=2292 Time={'computeResult': '5ms', 'total': '6ms'} 
+QLocal Elapsed=  307ms Count=2289 Time={'computeResult': '280ms', 'total': '283ms'} 
 
 QUERY: human-subclass-labels All subclasses of human (Q5) with labels, label service for WDQS
-QLocal Elapsed=   19ms Result=2289 Time={'computeResult': '1ms', 'total': '1ms'} 
-QLever Elapsed=  355ms Result=2292 Time={'computeResult': '5ms', 'total': '6ms'} 
+QLocal Elapsed=  356ms Count=2289 Time={'computeResult': '286ms', 'total': '290ms'} 
 
 QUERY: protein-subclass All subclasses of protein (Q8054)
-QLocal Elapsed=  102ms Result=799368 Time={'computeResult': '1ms', 'total': '1ms'} 
-QLever Elapsed=  344ms Result=799368 Time={'computeResult': '4ms', 'total': '4ms'} 
+QLocal Elapsed=  847ms Count=799368 Time={'computeResult': '214ms', 'total': '435ms'} 
 
 QUERY: protein-subclass All subclasses of protein (Q8054), 2nd try
-QLocal Elapsed=   19ms Result=799368 Time={'computeResult': '1ms', 'total': '1ms'} 
-QLever Elapsed=  345ms Result=799368 Time={'computeResult': '3ms', 'total': '4ms'} 
+QLocal Elapsed=  892ms Count=799368 Time={'computeResult': '205ms', 'total': '430ms'} 
 
 QUERY: protein-subclass All subclasses of protein (Q8054), 3rd try
-QLocal Elapsed=  113ms Result=799368 Time={'computeResult': '1ms', 'total': '1ms'} 
-QLever Elapsed=  347ms Result=799368 Time={'computeResult': '3ms', 'total': '4ms'} 
+QLocal Elapsed=  829ms Count=799368 Time={'computeResult': '220ms', 'total': '445ms'} 
 
 QUERY: protein-subclass All subclasses of protein (Q8054), 4th try
-QLocal Elapsed=   11ms Result=799368 Time={'computeResult': '1ms', 'total': '1ms'} 
-QLever Elapsed=  343ms Result=799368 Time={'computeResult': '4ms', 'total': '4ms'} 
+QLocal Elapsed=  808ms Count=799368 Time={'computeResult': '211ms', 'total': '438ms'} 
 
 QUERY: protein-subclass-labels All subclasses of protein (Q8054) with labels
-QLocal Elapsed=   18ms Result=799368 Time={'computeResult': '1ms', 'total': '2ms'} 
-QLever Elapsed=  348ms Result=799368 Time={'computeResult': '5ms', 'total': '6ms'} 
+QLocal Elapsed= 1397ms Count=799368 Time={'computeResult': '801ms', 'total': '1025ms'} 
 
 QUERY: protein-subclass-labels All subclasses of protein (Q8054) with labels, label service for WDQS
-QLocal Elapsed=   54ms Result=799368 Time={'computeResult': '1ms', 'total': '1ms'} 
-QLever Elapsed=  348ms Result=799368 Time={'computeResult': '5ms', 'total': '6ms'} 
+QLocal Elapsed= 1468ms Count=799368 Time={'computeResult': '808ms', 'total': '1032ms'} 
 
 QUERY: chemical-subclass All subclasses of chemical entity (Q43460564)
-QLocal Elapsed=   17ms Result=2320275 Time={'computeResult': '1ms', 'total': '1ms'} 
-QLever Elapsed=  343ms Result=2320216 Time={'computeResult': '3ms', 'total': '4ms'} 
+QLocal Elapsed= 2547ms Count=2320275 Time={'computeResult': '856ms', 'total': '1510ms'} 
 
 QUERY: concrete-subclass All subclasses of concrete object (Q4406616)
-QLocal Elapsed=  102ms Result=3771720 Time={'computeResult': '1ms', 'total': '1ms'} 
-QLever Elapsed=  351ms Result=3773651 Time={'computeResult': '3ms', 'total': '4ms'} 
+QLocal Elapsed= 4547ms Count=3771720 Time={'computeResult': '1656ms', 'total': '2827ms'} 
 
 QUERY: object-subclass All subclasses of object (Q488383)
-QLocal Elapsed=   15ms Result=4090266 Time={'computeResult': '1ms', 'total': '1ms'} 
-QLever Elapsed=  336ms Result=4092785 Time={'computeResult': '4ms', 'total': '4ms'} 
+QLocal Elapsed= 5085ms Count=4090266 Time={'computeResult': '2015ms', 'total': '3271ms'} 
 
 QUERY: entity-subclass All subclasses of entity (Q35120)
-QLocal Elapsed=   11ms Result=4146817 Time={'computeResult': '0ms', 'total': '0ms'} 
-QLever Elapsed=  343ms Result=4149424 Time={'computeResult': '4ms', 'total': '4ms'} 
+QLocal Elapsed= 5152ms Count=4146817 Time={'computeResult': '2016ms', 'total': '3269ms'} 
 
 QUERY: entity-subclass-labels All subclasses of entity (Q35120) with labels
-QLocal Elapsed=   74ms Result=4146817 Time={'computeResult': '0ms', 'total': '1ms'} 
-QLever Elapsed=  353ms Result=4149424 Time={'computeResult': '5ms', 'total': '6ms'} 
+QLocal Elapsed=11452ms Count=4146817 Time={'computeResult': '3077ms', 'total': '6982ms'} 
 
 QUERY: entity-subclass-labels All subclasses of entity (Q35120) with labels, label service for WDQS
-QLocal Elapsed=   19ms Result=4146817 Time={'computeResult': '1ms', 'total': '2ms'} 
-QLever Elapsed=  339ms Result=4149424 Time={'computeResult': '5ms', 'total': '6ms'} 
+QLocal Elapsed=11551ms Count=4146817 Time={'computeResult': '3071ms', 'total': '6965ms'} 
 
