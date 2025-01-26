@@ -1,0 +1,13 @@
+#!/bin/tcsh
+
+./evaluate.py $1 $2
+
+foreach i (*.result)
+    sort $i > $i.sort
+end
+
+head *.sort
+
+echo ""
+echo "Word Counts"
+wc *.sort

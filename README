@@ -3,6 +3,8 @@
 Wikidata queries for benchmarking on various SPARQL engines.
 
 subclass/		Selected subclass queries
+	Status	run, initial analysis
+	Runs	
 
 subclass-parameter/	Parameterized subclass query for all classes with at least 100000 subclases
 
@@ -10,7 +12,204 @@ instance/		Selected instance queries
 
 order/			Queries from investigations into class order in Wikidata
 
+
+1/ hernandez/			Benchmark from Querying wikidata: Comparing sparql, relational and graph databases
+	Status	some queries actually created
+
+
+2/ wgpb/			Wikidata Graph Pattern Benchmark (WGPB) for RDF/SPARQL
+
+	./benchmark.py --engine=BLocal wgpb/bgps/wgpb.text | tee results/wgpb-blocal.tsv
+	./benchmark.py --engine=MLocal wgpb/bgps/wgpb.text | tee results/wgpb-mlocal.tsv
+	./benchmark.py --engine=QLocal wgpb/bgps/wgpb.text | tee results/wgpb-qlocal.tsv
+	./benchmark.py --engine=VLocal wgpb/bgps/wgpb.text | tee results/wgpb-vlocal.tsv
+	./stats.py results/wgpb-?local.tsv
+Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+MLocal          850      1      4      8     19   8956     29     29     0     0     0     0
+QLocal          850      1     10     14     20 135695    197    108     0     0     0     0
+BLocal          850     11     38     62    132 201926    637    470     2     0     1     1
+VLocal          850      1     21     60    144 600666    985    349     2     1     2     0
+Number of queries with different non-error, non-suspect results:   1
+
+	./benchmark.py --nodups --engine=BLocal wgpb/bgps/wgpb.text | tee results/wgpb-blocal-nodups.tsv
+	./benchmark.py --nodups --engine=MLocal wgpb/bgps/wgpb.text | tee results/wgpb-mlocal-nodups.tsv
+	./benchmark.py --nodups --engine=QLocal wgpb/bgps/wgpb.text | tee results/wgpb-qlocal-nodups.tsv
+	./benchmark.py --nodups --engine=VLocal wgpb/bgps/wgpb.text | tee results/wgpb-vlocal-nodups.tsv
+./stats.py results/wgpb-?local-nodups.tsv
+Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+MLocal/NODUPS   850      1      4      9     20   9026     30     30     0     0     0     0
+QLocal/NODUPS   850      1     11     14     20 129911    191    109     0     0     0     0
+BLocal/NODUPS   850     16     40     66    137 193935    629    471     2     0     1     1
+VLocal/NODUPS   850      1     14     48    137 600615    839    203     1     1     1     0
+Number of queries with different non-error, non-suspect results:   1
+
+	./benchmark.py --engine=QLever wgpb/bgps/wgpb.text | tee results/wgpb-qlever.tsv
+	./benchmark.py --engine=WDQS wgpb/bgps/wgpb.text | tee results/wgpb-wdqs.tsv
+	./benchmark.py --engine=MDB wgpb/bgps/wgpb.text | tee results/wgpb-mdb.tsv
+	./benchmark.py --engine=VOS wgpb/bgps/wgpb.text | tee results/wgpb-vos.tsv
+	./benchmark.py --engine=QLever wgpb/bgps/wgpb-10000.text | tee results/wgpb-10000-qlever.tsv
+	./benchmark.py --engine=QLever wgpb/bgps/wgpb-100000.text | tee results/wgpb-100000-qlever.tsv
+
+3/ wdbench/Queries/*.txt	WDBench
+	Parts	single_bgps.txt
+		multiple_bgps.txt
+		opts.txt
+		paths.txt
+		
+	wdbench-expand.py	expander for query cores	
+
+	./wdbench-expand.py wdbench/Queries/single_bgps.txt 10000000
+	different output for geographical points causes some divergences when not counting
+	./benchmark.py --count --engine=BLocal wdbench/Queries/single_bgps.text | tee results/single_bgps-blocal-counted.tsv
+	./benchmark.py --count --engine=MLocal wdbench/Queries/single_bgps.text | tee results/single_bgps-mlocal-counted.tsv
+	./benchmark.py --count --engine=QLocal wdbench/Queries/single_bgps.text | tee results/single_bgps-qlocal-counted.tsv
+	./benchmark.py --count --engine=VLocal wdbench/Queries/single_bgps.text | tee results/single_bgps-vlocal-counted.tsv
+	./stats.py results/single_bgps-?local-counted.tsv (with guess at cause of divergences)
+ROW*   1 Result=965       BLocal/COUNTED* Result=511       MLocal/COUNTED  Result=965       QLocal/COUNTED  Result=965       VLocal/COUNTED  Result=965       ?string
+ROW*   2 Result=300       BLocal/COUNTED* Result=224       MLocal/COUNTED  Result=300       QLocal/COUNTED  Result=300       VLocal/COUNTED  Result=300       ?string
+ROW*   7 Result=1806      BLocal/COUNTED* Result=1193      MLocal/COUNTED  Result=1806      QLocal/COUNTED  Result=1806      VLocal/COUNTED  Result=1806      ?string
+ROW*  14 Result=529       BLocal/COUNTED* Result=323       MLocal/COUNTED  Result=529       QLocal/COUNTED  Result=529       VLocal/COUNTED  Result=529       ?string
+ROW*  16 Result=237       BLocal/COUNTED* Result=153       MLocal/COUNTED  Result=237       QLocal/COUNTED  Result=237       VLocal/COUNTED  Result=237       ?string
+ROW*  18 Result=1642      BLocal/COUNTED* Result=1098      MLocal/COUNTED  Result=1642      QLocal/COUNTED  Result=1642      VLocal/COUNTED  Result=1642      ?string
+ROW*  21 Result=81        BLocal/COUNTED* Result=43        MLocal/COUNTED  Result=81        QLocal/COUNTED  Result=81        VLocal/COUNTED  Result=81        ?string
+ROW*  22 Result=1140      BLocal/COUNTED* Result=885       MLocal/COUNTED  Result=1140      QLocal/COUNTED  Result=1140      VLocal/COUNTED  Result=1140      ?string
+ROW*  23 Result=490       BLocal/COUNTED* Result=426       MLocal/COUNTED  Result=490       QLocal/COUNTED  Result=490       VLocal/COUNTED  Result=490       ?string
+ROW*  32 Result=1546      BLocal/COUNTED* Result=1176      MLocal/COUNTED  Result=1546      QLocal/COUNTED  Result=1546      VLocal/COUNTED  Result=1546      ?string
+ROW*  35 Result=958       BLocal/COUNTED* Result=660       MLocal/COUNTED  Result=958       QLocal/COUNTED  Result=958       VLocal/COUNTED  Result=958       ?string
+ROW*  98 Result=1503965   BLocal/COUNTED  Result=1503965   MLocal/COUNTED  Result=1503965   QLocal/COUNTED* Result=1503964   VLocal/COUNTED  Result=1503965   number
+ROW*  99 Result=708356    BLocal/COUNTED  Result=708356    MLocal/COUNTED  Result=708356    QLocal/COUNTED* Result=708354    VLocal/COUNTED  Result=708356    float
+ROW* 100 Result=1308343   BLocal/COUNTED  Result=1308343   MLocal/COUNTED  Result=1308343   QLocal/COUNTED* Result=1308340   VLocal/COUNTED  Result=1308343   number
+ROW* 101 Result=1580731   BLocal/COUNTED  Result=1580731   MLocal/COUNTED  Result=1580731   QLocal/COUNTED* Result=1580493   VLocal/COUNTED* Result=1580730   number   
+ROW* 215 Result=35642     BLocal/COUNTED* Result=35641     MLocal/COUNTED  Result=35642     QLocal/COUNTED  Result=35642     VLocal/COUNTED  Result=35642     ?string
+ROW* 277 Result=2955      BLocal/COUNTED* Result=2954      MLocal/COUNTED  Result=2955      QLocal/COUNTED  Result=2955      VLocal/COUNTED  Result=2955      ?
+ROW* 278 Result=2983339   BLocal/COUNTED* Result=2983338   MLocal/COUNTED  Result=2983339   QLocal/COUNTED  Result=2983339   VLocal/COUNTED  Result=2983339   ?
+ROW* 279 Result=486       BLocal/COUNTED* Result=485       MLocal/COUNTED  Result=486       QLocal/COUNTED  Result=486       VLocal/COUNTED  Result=486       ?
+	QLever and probably Virtuoso divergences are due to treatment of numbers.
+	The reason for Blazegraph divergences is unknown but appears to be mostly related to strings.
+
+Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+BLocal/COUNTED  280     15     34     42    554  26707   1633   1633    15     0     0    15
+MLocal/COUNTED  280      1      1      1      7    183     18     18     0     0     0     0
+QLocal/COUNTED  280      2      3      3      7    451      9      9     4     0     0     4
+VLocal/COUNTED  280      1      1      9     69   6088    115    115     1     0     0     1
+Number of queries with different non-error, non-suspect results:  19
+ 	QLever divergences appear to come from its treatment of xsd:float and xsd:double as floating point numbers.
+	Virtuoso divergences may come from treatment of xsd:float and xsd:double as floating point numbers.
+	The source of the Blazegraph divergences is unknown.
+	QLever and Virtuoso may have problems with some Unicode characters
+	Blazegraph <http://schema.org/description>	"aħmar tal-annimali li jittiekel bħala ikel"@mt
+	MilleniumDB <http://schema.org/description>	"aħmar tal-annimali li jittiekel bħala ikel"@mt
+	QLever <http://schema.org/description>	"aÄ§mar tal-annimali li jittiekel bÄ§ala ikel"@mt
+	Virtuoso <http://schema.org/description>	"\u017Eivo\u010Di\u0161n\u00E1 tk\u00E1\u0148 konzumovan\u00E1 jako potravina"@cs	
+
+
+	./wdbench-expand.py wdbench/Queries/multiple_bgps.txt 10000000
+TODO	./benchmark.py --count --engine=BLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-blocal-counted.tsv
+	./benchmark.py --count --engine=MLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-mlocal-counted.tsv
+	./benchmark.py --count --engine=QLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-qlocal-counted.tsv
+	./benchmark.py --count --engine=VLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-vlocal-counted.tsv
+	./stats.py results/multiple_bgps-?local-counted.tsv
+
+	./wdbench-expand.py wdbench/Queries/opts.txt 2000000
+TODO	./benchmark.py --count --engine=BLocal wdbench/Queries/opts.text | tee results/opts-blocal-counted.tsv
+TODO	./benchmark.py --count --engine=MLocal wdbench/Queries/opts.text | tee results/opts-mlocal-counted.tsv
+TODO	./benchmark.py --count --engine=QLocal wdbench/Queries/opts.text | tee results/opts-qlocal-counted.tsv
+TODO	./benchmark.py --count --engine=VLocal wdbench/Queries/opts.text | tee results/opts-vlocal-counted.tsv
+
+	./wdbench-expand.py wdbench/Queries/paths.txt 10000000
+	./benchmark.py --engine=BLocal wdbench/Queries/paths.text | tee results/paths-blocal.tsv
+	./benchmark.py --engine=MLocal wdbench/Queries/paths.text | tee results/paths-mlocal.tsv
+	./benchmark.py --engine=QLocal wdbench/Queries/paths.text | tee results/paths-qlocal.tsv
+	./benchmark.py --engine=VLocal wdbench/Queries/paths.text | tee results/paths-vlocal.tsv
+	./stats.py results/paths-?local.tsv
+Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+BLocal          660     15     90    252   3844 773863  25509   8701    35    12    33     2
+MLocal          660      1      2     29    668 601934   7355   2697    22     4     5    17
+QLocal          660      0      5     36    632 389312   2524   1914    29     0    29     0
+VLocal          660      0     12    135   2261 652597   5763   3323   473     2    51   422
+Number of queries with different non-error, non-suspect results: 324
+	./benchmark.py --count --engine=BLocal wdbench/Queries/paths.text | tee results/paths-blocal-counted.tsv
+	./benchmark.py --count --engine=MLocal wdbench/Queries/paths.text | tee results/paths-mlocal-counted.tsv
+	./benchmark.py --count --engine=QLocal wdbench/Queries/paths.text | tee results/paths-qlocal-counted.tsv
+	./benchmark.py --count --engine=VLocal wdbench/Queries/paths.text | tee results/paths-vlocal-counted.tsv
+	./stats.py results/paths-?local-counted.tsv
+Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+BLocal/COUNTED  660      9     88    239   4509 714782  23492   7806    34    15    30     4
+MLocal/COUNTED  660      1      2      7    161 601466   6352   1941    24     4     5    19
+QLocal/COUNTED  660      0      4      9     62 397866   2050   1038    32     0    29     3
+VLocal/COUNTED  660      1      3     11     89 664885   5146   2452   417     3    52   365
+Number of queries with different non-error, non-suspect results: 390
+	./benchmark.py --nodups --engine=BLocal wdbench/Queries/paths.text | tee results/paths-blocal-nodups.tsv
+	./benchmark.py --nodups --engine=MLocal wdbench/Queries/paths.text | tee results/paths-mlocal-nodups.tsv
+	./benchmark.py --nodups --engine=QLocal wdbench/Queries/paths.text | tee results/paths-qlocal-nodups.tsv
+	./benchmark.py --nodups --engine=VLocal wdbench/Queries/paths.text | tee results/paths-vlocal-nodups.tsv
+	./stats.py results/paths-?local-nodups.tsv
+Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+BLocal/NODUPS   660     17    100    331   6996 630614  26627   9816    73    12    33    40
+MLocal/NODUPS   660      1      3     30    779 602388   8485   3195     6     4     5     1
+QLocal/NODUPS   660      0      6     36    579 600914   7567   2980    36     2    35     1
+VLocal/NODUPS   660      1     11    113   2020 656202   6094   3356   163     2    52   111
+Number of queries with different non-error, non-suspect results:  55
+
+	./wdbench-expand.py wdbench/Queries/c2rpqs.txt 10000000
+
+
+    results issues (partial)
+      MilleniumDB reports fewer result for about 18 queries
+      Virtuoso reports extra results for many queries
+
+4/ qlever/wikidata-queries.tsv	Wikidata queries gathered from WDQS
+	./benchmark.py --engine=MDB qlever/wikidata-queries.tsv | tee results/qlever-mdb.tsv
+	./benchmark.py --engine=VOS qlever/wikidata-queries.tsv | tee results/qlever-vos.tsv
+	./benchmark.py --engine=WDQS qlever/wikidata-queries.tsv | tee results/qlever-wdqs.tsv
+	./benchmark.py --engine=QLever qlever/wikidata-queries.tsv | tee results/qlever-qlever.tsv
+	./benchmark.py --engine=VLocal qlever/wikidata-queries.tsv | tee results/qlever-vlocal.tsv
+
+	./benchmark.py --engine=BLocal qlever/wikidata-queries.tsv | tee results/qlever-blocal.tsv
+	./benchmark.py --engine=MLocal qlever/wikidata-queries.tsv | tee results/qlever-mlocal.tsv
+	./benchmark.py --engine=QLocal qlever/wikidata-queries.tsv | tee results/qlever-qlocal.tsv
+	./benchmark.py --engine=QLocal qlever/wikidata-queries.tsv | tee results/qlever-qlocal-fast.tsv (ON FAST DISK) 
+	./stats.py results/qlever-?local.tsv
+Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+QLocal          298      3     33    126    632 274348   4900   2444    15     0     3    12
+BLocal          298     16     90    486   5754 600024  12364   8094    47     1    27    20
+VLocal          298      1     64    479   3345 600694  14787   6400    45     3    15    30
+MLocal          298      2     43    807  26751 601456  95300  15674    51    38    38    13
+Number of queries with different non-error, non-suspect results:  68
+
+	./benchmark.py --engine=BLocal --count qlever/wikidata-queries.tsv | tee results/qlever-blocal-counted.tsv
+	./benchmark.py --engine=MLocal --count qlever/wikidata-queries.tsv | tee results/qlever-mlocal-counted.tsv
+	./benchmark.py --engine=QLocal --count qlever/wikidata-queries.tsv | tee results/qlever-qlocal-counted.tsv
+	./benchmark.py --engine=VLocal --count qlever/wikidata-queries.tsv | tee results/qlever-vlocal-counted.tsv
+	./stats.py results/qlever-?local-counted.tsv
+Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+BLocal/COUNTED  298     12     91    486   6706 600027  28532   9278    43     6    29    14
+MLocal/COUNTED  298      2     36    722  24927 604184  93174  15449    49    38    38    11
+QLocal/COUNTED  298      2     29    100    503 270079   4156   1938    15     0     3    12
+VLocal/COUNTED  298      1     49    377   2661 600725  14254   5956    40     3    14    26
+Number of queries with different non-error, non-suspect results:  60
+
+	./benchmark.py --engine=BLocal --nodups qlever/wikidata-queries.tsv | tee results/qlever-blocal-nodups.tsv
+	./benchmark.py --engine=MLocal --nodups qlever/wikidata-queries.tsv | tee results/qlever-mlocal-nodups.tsv
+	./benchmark.py --engine=QLocal --nodups qlever/wikidata-queries.tsv | tee results/qlever-qlocal-nodups.tsv
+	./benchmark.py --engine=VLocal --nodups qlever/wikidata-queries.tsv | tee results/qlever-vlocal-nodups.tsv
+	./stats.py results/qlever-?local-nodups.tsv
+Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+BLocal/NODUPS   298     19     90    474   5564 600026  12102   7943    46     1    27    19
+MLocal/NODUPS   298      3     33    762  23103 601633  94438  15307    50    38    38    12
+QLocal/NODUPS   298      3     32    126    640 264240   5054   2603    16     0     3    13
+VLocal/NODUPS   298      1     70    498   3447 600707  14650   6465    35     3    14    21
+Number of queries with different non-error, non-suspect results:  61
+
+	./benchmark.py --engine=QLocal --nocache qlever/wikidata-queries.tsv | tee results/qlever-qlocal-nocache.tsv
+	./benchmark.py --engine=BLocal --nocache qlever/wikidata-queries.tsv | tee results/qlever-blocal-nocache.tsv
+
+
 results/		Results of various benchmarking runs
   subclass.text			
   subclass-count.text
   subclass-count-cached.text
+  ...
+
+
+

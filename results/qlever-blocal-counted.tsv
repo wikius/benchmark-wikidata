@@ -1,0 +1,298 @@
+1	BLocal	COUNTED	    608	      	Result=199 	200		
+2	BLocal	COUNTED	     46	      	Result=9 	200		
+3	BLocal	COUNTED	   3751	      	Result=14763 	200		
+4	BLocal	COUNTED	    277	      	Result=50 	200		
+5	BLocal	COUNTED	    704	      	Result=32963 	200		
+6	BLocal	COUNTED	   3225	      	Result=1 	200		
+7	BLocal	COUNTED	    465	      	Result=516 	200		
+8	BLocal	COUNTED	   1417	      	Result=527 	200		
+9	BLocal	COUNTED	   1823	      	Result=0 	200		
+10	BLocal	COUNTED	   1230	      	Result=0 	200		
+11	BLocal	COUNTED	     97	      	Result=200 	200		
+12	BLocal	COUNTED	  12271	      	Result=200 	200		
+13	BLocal	COUNTED	  45210	      	Result=10 	200		
+14	BLocal	COUNTED	    387	      	Result=31 	200		
+15	BLocal	COUNTED	  67124	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=0b512128-065c-4b25-9a38-a748f793c5d4,bopId=9,partitionId=-1,sinkId=7,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+16	BLocal	COUNTED	     46	      	Result=352 	200		
+17	BLocal	COUNTED	     38	      	Result=222 	200		
+18	BLocal	COUNTED	     39	      	Result=10 	200		
+19	BLocal	COUNTED	  45784	      	Result=3 	200		
+20	BLocal	COUNTED	     55	      	Result=1 	200		
+21	BLocal	COUNTED	    303	      	Result=972 	200		
+22	BLocal	COUNTED	    100	      	Result=62 	200		
+23	BLocal	COUNTED	    102	      	Result=18 	200		
+24	BLocal	COUNTED	   1264	      	Result=130 	200		
+25	BLocal	COUNTED	   2155	      	Result=12224 	200		
+26	BLocal	COUNTED	   9523	      	Result=24 	200		
+27	BLocal	COUNTED	    859	      	Result=14571 	200		
+28	BLocal	COUNTED	    224	      	Result=198 	200		
+29	BLocal	COUNTED	  66583	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=9ab47c9e-232a-4be8-91fb-747b5e18d37f,bopId=46,partitionId=-1,sinkId=44,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+30	BLocal	COUNTED	    127	      	Result=3 	200		
+31	BLocal	COUNTED	   1003	      	Result=285 	200		
+32	BLocal	COUNTED	   1026	      	Result=0 	200		
+33	BLocal	COUNTED	  10275	      	Result=300 	200		
+34	BLocal	COUNTED	   6498	      	Result=40882 	200		
+35	BLocal	COUNTED	  23903	      	Result=0 	200		
+36	BLocal	COUNTED	    326	      	Result=1350 	200		
+37	BLocal	COUNTED	   1095	      	Result=98 	200		
+38	BLocal	COUNTED	  21688	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=163be5b9-647f-41a8-8101-94a758a89ebe,bopId=67,partitionId=-1,sinkId=68,altSinkId=66}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+39	BLocal	COUNTED	    222	      	Result=0 	200		
+40	BLocal	COUNTED	  60916	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=ca684f40-648a-4727-88e0-dbcb50294c4d,bopId=55,partitionId=-1,sinkId=58,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+41	BLocal	COUNTED	 600027	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+42	BLocal	COUNTED	     39	      	Result=0 	200		
+43	BLocal	COUNTED	    149	      	Result=1027 	200		
+44	BLocal	COUNTED	     71	      	Result=456 	200		
+45	BLocal	COUNTED	   1507	      	Result=481 	200		
+46	BLocal	COUNTED	     54	      	Result=61 	200		
+47	BLocal	COUNTED	    587	      	Result=3140 	200		
+48	BLocal	COUNTED	    565	      	Result=3097 	200		
+49	BLocal	COUNTED	    112	      	Result=205 	200		
+50	BLocal	COUNTED	     30	      	Result=0 	200		
+51	BLocal	COUNTED	  14176	      	Result=49108 	200		
+52	BLocal	COUNTED	   5653	      	Result=220544 	200		
+53	BLocal	COUNTED	   9593	      	Result=0 	200		
+54	BLocal	COUNTED	    182	      	Result=10 	200		
+55	BLocal	COUNTED	  60609	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=c718eaea-c8f6-44f2-b468-d8e2cc1b9338,bopId=14,partitionId=-1,sinkId=12,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+56	BLocal	COUNTED	    485	      	Result=21614 	200		
+57	BLocal	COUNTED	 600026	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+58	BLocal	COUNTED	    122	      	Result=194 	200		
+59	BLocal	COUNTED	  28257	      	Result=298 	200		
+60	BLocal	COUNTED	  66339	      	Result=27 	200		
+61	BLocal	COUNTED	  89869	      	Result=100 	200		
+62	BLocal	COUNTED	    121	      	Result=186 	200		
+63	BLocal	COUNTED	  44230	      	Result=240 	200		
+64	BLocal	COUNTED	  12980	      	Result=27141 	200		
+65	BLocal	COUNTED	   7315	      	Result=392969 	200		
+66	BLocal	COUNTED	    573	      	Result=100 	200		
+67	BLocal	COUNTED	  16681	      	Result=89829 	200		
+68	BLocal	COUNTED	   3009	      	Result=100 	200		
+69	BLocal	COUNTED	    484	      	Result=123 	200		
+70	BLocal	COUNTED	  48909	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=858667a7-641d-4b42-a5d6-2f5e720ea306,bopId=15,partitionId=-1,sinkId=19,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+71	BLocal	COUNTED	     52	      	Result=12 	200		
+72	BLocal	COUNTED	     48	      	Result=55 	200		
+73	BLocal	COUNTED	     32	      	Result=43 	200		
+74	BLocal	COUNTED	    132	      	Result=66 	200		
+75	BLocal	COUNTED	  22430	      	Result=100 	200		
+76	BLocal	COUNTED	     41	      	Result=11 	200		
+77	BLocal	COUNTED	    974	      	Result=1835 	200		
+78	BLocal	COUNTED	   2757	      	Result=50 	200		
+79	BLocal	COUNTED	   4643	      	Result=2799 	200		
+80	BLocal	COUNTED	   1719	      	Result=89 	200		
+81	BLocal	COUNTED	   1430	      	Result=10 	200		
+82	BLocal	COUNTED	 335253	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=15f10e69-d585-49c0-bf99-a0742dabc7b1,bopId=21,partitionId=-1,sinkId=23,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[bridge, watercourse],outputDistinctJVs=true,size=22991385,considered(left=0,right=0,joins=0)}	
+83	BLocal	COUNTED	  11665	      	Result=47 	200		
+84	BLocal	COUNTED	    570	      	Result=2506 	200		
+85	BLocal	COUNTED	    420	      	Result=2506 	200		
+86	BLocal	COUNTED	   2634	      	Result=63 	200		
+87	BLocal	COUNTED	    208	      	Result=29 	200		
+88	BLocal	COUNTED	  60080	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=0bf25f14-39f0-4040-b077-879cbe087f67,bopId=17,partitionId=-1,sinkId=20,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+89	BLocal	COUNTED	   8060	      	Result=93915 	200		
+90	BLocal	COUNTED	   3690	      	Result=45 	200		
+91	BLocal	COUNTED	   8376	      	Result=39347 	200		
+92	BLocal	COUNTED	    276	      	Result=342 	200		
+93	BLocal	COUNTED	    113	      	Result=125 	200		
+94	BLocal	COUNTED	  66239	      	Result=16 	200		
+95	BLocal	COUNTED	   2210	      	Result=50 	200		
+96	BLocal	COUNTED	    158	      	Result=168 	200		
+97	BLocal	COUNTED	   8036	      	Result=42556 	200		
+98	BLocal	COUNTED	  75981	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=38fb304d-df75-400e-a145-ac102b5187e1,bopId=23,partitionId=-1,sinkId=21,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+99	BLocal	COUNTED	   5360	      	Result=14822 	200		
+100	BLocal	COUNTED	   2324	      	Result=2 	200		
+101	BLocal	COUNTED	   1155	      	Result=10 	200		
+102	BLocal	COUNTED	     77	      	Result=12 	200		
+103	BLocal	COUNTED	    340	      	Result=3105 	200		
+104	BLocal	COUNTED	   6504	      	Result=100 	200		
+105	BLocal	COUNTED	 600019	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+106	BLocal	COUNTED	     39	      	Result=55 	200		
+107	BLocal	COUNTED	    218	      	Result=910 	200		
+108	BLocal	COUNTED	     43	      	Result=2 	200		
+109	BLocal	COUNTED	     37	      	Result=2 	200		
+110	BLocal	COUNTED	     43	      	Result=12 	200		
+111	BLocal	COUNTED	     35	      	Result=0 	200		
+112	BLocal	COUNTED	    348	      	Result=2 	200		
+113	BLocal	COUNTED	   4258	      	Result=40275 	200		
+114	BLocal	COUNTED	    177	      	Result=218 	200		
+115	BLocal	COUNTED	 535559	      	Result=100 	200		
+116	BLocal	COUNTED	   9802	      	Result=13137 	200		
+117	BLocal	COUNTED	    129	      	Result=173 	200		
+118	BLocal	COUNTED	     67	      	Result=2 	200		
+119	BLocal	COUNTED	     75	      	Result=725 	200		
+120	BLocal	COUNTED	   1268	      	Result=99 	200		
+121	BLocal	COUNTED	   3799	      	Result=11120 	200		
+122	BLocal	COUNTED	     58	      	Result=0 	200		
+123	BLocal	COUNTED	   2290	      	Result=10853 	200		
+124	BLocal	COUNTED	    221	      	Result=1249 	200		
+125	BLocal	COUNTED	    101	      	Result=1 	200		
+126	BLocal	COUNTED	    764	      	Result=0 	200		
+127	BLocal	COUNTED	     77	      	Result=55 	200		
+128	BLocal	COUNTED	     41	      	Result=9 	200		
+129	BLocal	COUNTED	   1321	      	Result=11 	200		
+130	BLocal	COUNTED	    310	      	Result=1351 	200		
+131	BLocal	COUNTED	     72	      	Result=6 	200		
+132	BLocal	COUNTED	    357	      	Result=25079 	200		
+133	BLocal	COUNTED	     12	      	None 	400	ERROR java.util.concurrent.ExecutionException: org.openrdf.query.MalformedQueryException: Multiple prefix declarations for prefix 'pr'	
+134	BLocal	COUNTED	     48	      	Result=718 	200		
+135	BLocal	COUNTED	     35	      	Result=0 	200		
+136	BLocal	COUNTED	    186	      	Result=0 	200		
+137	BLocal	COUNTED	   4582	      	Result=7480 	200		
+138	BLocal	COUNTED	    339	      	Result=4 	200		
+139	BLocal	COUNTED	    316	      	Result=0 	200		
+140	BLocal	COUNTED	    848	      	Result=113 	200		
+141	BLocal	COUNTED	    122	      	Result=4738 	200		
+142	BLocal	COUNTED	   4080	      	Result=11502 	200		
+143	BLocal	COUNTED	   1882	      	Result=2454 	200		
+144	BLocal	COUNTED	  20934	      	Result=10000000 	200		
+145	BLocal	COUNTED	     68	      	Result=7 	200		
+146	BLocal	COUNTED	     48	      	Result=2 	200		
+147	BLocal	COUNTED	    431	      	Result=14585 	200		
+148	BLocal	COUNTED	     58	      	Result=122 	200		
+149	BLocal	COUNTED	  14368	      	Result=10 	200		
+150	BLocal	COUNTED	    198	      	Result=100 	200		
+151	BLocal	COUNTED	     39	      	Result=2 	200		
+152	BLocal	COUNTED	     32	      	Result=2 	200		
+153	BLocal	COUNTED	    421	      	Result=646 	200		
+154	BLocal	COUNTED	    212	      	Result=1249 	200		
+155	BLocal	COUNTED	     35	      	Result=25 	200		
+156	BLocal	COUNTED	     65	      	Result=83 	200		
+157	BLocal	COUNTED	     71	      	Result=118 	200		
+158	BLocal	COUNTED	     46	      	Result=1 	200		
+159	BLocal	COUNTED	     34	      	Result=0 	200		
+160	BLocal	COUNTED	   7818	      	Result=942057 	200		
+161	BLocal	COUNTED	   2247	      	Result=5842 	200		
+162	BLocal	COUNTED	   2348	      	Result=2841 	200		
+163	BLocal	COUNTED	    487	      	Result=212 	200		
+164	BLocal	COUNTED	    183	      	Result=1 	200		
+165	BLocal	COUNTED	     59	      	Result=0 	200		
+166	BLocal	COUNTED	  22928	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=3ec4c24f-9e89-4712-81b7-0072f7d8a76b,bopId=82,partitionId=-1,sinkId=83,altSinkId=81}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+167	BLocal	COUNTED	   2278	      	Result=20 	200		
+168	BLocal	COUNTED	    369	      	Result=65 	200		
+169	BLocal	COUNTED	     54	      	Result=88 	200		
+170	BLocal	COUNTED	    205	      	Result=777 	200		
+171	BLocal	COUNTED	     84	      	Result=421 	200		
+172	BLocal	COUNTED	   7546	      	Result=10 	200		
+173	BLocal	COUNTED	  21429	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=be4a6313-13f1-4bf3-addd-207a4c3bd973,bopId=21,partitionId=-1,sinkId=22,altSinkId=20}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+174	BLocal	COUNTED	 600026	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+175	BLocal	COUNTED	   9208	      	Result=50254 	200		
+176	BLocal	COUNTED	     32	      	Result=5 	200		
+177	BLocal	COUNTED	    513	      	Result=0 	200		
+178	BLocal	COUNTED	    103	      	Result=4 	200		
+179	BLocal	COUNTED	 433687	      	Result=194385 	200		
+180	BLocal	COUNTED	 194415	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=09706038-933c-45cb-8f24-db0ce4e36ccf,bopId=12,partitionId=-1,sinkId=14,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+181	BLocal	COUNTED	    221	      	Result=10 	200		
+182	BLocal	COUNTED	  41723	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=9356adf1-7458-4107-9b39-6c5e8b1b836f,bopId=7,partitionId=-1,sinkId=9,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[pmid, doi],outputDistinctJVs=false,selectVars=[pmid, doi],size=2635325,considered(left=0,right=0,joins=0)}	
+183	BLocal	COUNTED	 225579	      	Result=1 	200		
+184	BLocal	COUNTED	     64	      	Result=64 	200		
+185	BLocal	COUNTED	     22	      	Result=188 	200		
+186	BLocal	COUNTED	     97	      	Result=100 	200		
+187	BLocal	COUNTED	 600013	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+188	BLocal	COUNTED	  21613	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=47c97ece-169e-452c-9945-70e89f9352fd,bopId=32,partitionId=-1,sinkId=35,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+189	BLocal	COUNTED	     52	      	Result=18 	200		
+190	BLocal	COUNTED	    147	      	Result=100 	200		
+191	BLocal	COUNTED	    299	      	Result=1860 	200		
+192	BLocal	COUNTED	     79	      	Result=96 	200		
+193	BLocal	COUNTED	  74058	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=38e6ce9f-d48b-4027-bad0-22a1c159ee97,bopId=23,partitionId=-1,sinkId=21,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+194	BLocal	COUNTED	    245	      	Result=1335 	200		
+195	BLocal	COUNTED	  17878	      	Result=10 	200		
+196	BLocal	COUNTED	     93	      	Result=56 	200		
+197	BLocal	COUNTED	     55	      	Result=41 	200		
+198	BLocal	COUNTED	     38	      	Result=24 	200		
+199	BLocal	COUNTED	    956	      	Result=2063 	200		
+200	BLocal	COUNTED	    122	      	Result=311 	200		
+201	BLocal	COUNTED	     44	      	Result=12 	200		
+202	BLocal	COUNTED	    103	      	Result=119 	200		
+203	BLocal	COUNTED	  31102	      	Result=2748 	200		
+204	BLocal	COUNTED	   1097	      	Result=1368 	200		
+205	BLocal	COUNTED	    332	      	Result=1472 	200		
+206	BLocal	COUNTED	  28999	      	Result=50 	200		
+207	BLocal	COUNTED	    286	      	Result=594 	200		
+208	BLocal	COUNTED	    115	      	Result=885 	200		
+209	BLocal	COUNTED	   2133	      	Result=2804 	200		
+210	BLocal	COUNTED	   4894	      	Result=0 	200		
+211	BLocal	COUNTED	     62	      	Result=32 	200		
+212	BLocal	COUNTED	    117	      	Result=0 	200		
+213	BLocal	COUNTED	     64	      	Result=19 	200		
+214	BLocal	COUNTED	   1343	      	Result=193 	200		
+215	BLocal	COUNTED	     49	      	Result=16 	200		
+216	BLocal	COUNTED	   3566	      	Result=31723 	200		
+217	BLocal	COUNTED	     67	      	Result=8 	200		
+218	BLocal	COUNTED	     48	      	Result=162 	200		
+219	BLocal	COUNTED	   1060	      	Result=36 	200		
+220	BLocal	COUNTED	 600020	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+221	BLocal	COUNTED	    636	      	Result=62 	200		
+222	BLocal	COUNTED	    285	      	Result=1147 	200		
+223	BLocal	COUNTED	 573629	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=9f566902-cd09-4bf0-96c5-59c4e50e7d4a,bopId=10,partitionId=-1,sinkId=12,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[character],outputDistinctJVs=true,size=31939371,considered(left=0,right=0,joins=0)}	
+224	BLocal	COUNTED	    155	      	Result=950 	200		
+225	BLocal	COUNTED	   7721	      	Result=88 	200		
+226	BLocal	COUNTED	  28242	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=9df9173b-f16c-48b5-8eef-7dd712901802,bopId=29,partitionId=-1,sinkId=27,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+227	BLocal	COUNTED	  10758	      	Result=0 	200		
+228	BLocal	COUNTED	   1000	      	Result=2594 	200		
+229	BLocal	COUNTED	 358730	      	Result=117158 	200		
+230	BLocal	COUNTED	    152	      	Result=140 	200		
+231	BLocal	COUNTED	    375	      	Result=0 	200		
+232	BLocal	COUNTED	  10474	      	Result=280797 	200		
+233	BLocal	COUNTED	    107	      	Result=162 	200		
+234	BLocal	COUNTED	     77	      	Result=176 	200		
+235	BLocal	COUNTED	     58	      	Result=0 	200		
+236	BLocal	COUNTED	    270	      	Result=0 	200		
+237	BLocal	COUNTED	     75	      	Result=24 	200		
+238	BLocal	COUNTED	    308	      	Result=3434 	200		
+239	BLocal	COUNTED	    170	      	Result=100 	200		
+240	BLocal	COUNTED	    729	      	Result=628 	200		
+241	BLocal	COUNTED	  29216	      	Result=708596 	200		
+242	BLocal	COUNTED	   7593	      	Result=28991 	200		
+243	BLocal	COUNTED	     52	      	Result=18 	200		
+244	BLocal	COUNTED	    182	      	Result=136 	200		
+245	BLocal	COUNTED	     42	      	Result=40 	200		
+246	BLocal	COUNTED	    197	      	Result=47 	200		
+247	BLocal	COUNTED	   3905	      	Result=27291 	200		
+248	BLocal	COUNTED	  21487	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=c16f6fe8-d210-4a3c-b9cf-c6c454369056,bopId=40,partitionId=-1,sinkId=43,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+249	BLocal	COUNTED	    107	      	Result=10 	200		
+250	BLocal	COUNTED	   3405	      	Result=1 	200		
+251	BLocal	COUNTED	   6273	      	Result=325 	200		
+252	BLocal	COUNTED	    203	      	Result=298 	200		
+253	BLocal	COUNTED	 171931	      	Result=22 	200		
+254	BLocal	COUNTED	   3727	      	Result=782 	200		
+255	BLocal	COUNTED	     82	      	Result=1192 	200		
+256	BLocal	COUNTED	     85	      	Result=128 	200		
+257	BLocal	COUNTED	     33	      	Result=121 	200		
+258	BLocal	COUNTED	  14640	      	Result=12132 	200		
+259	BLocal	COUNTED	     50	      	Result=10 	200		
+260	BLocal	COUNTED	  14025	      	Result=107485 	200		
+261	BLocal	COUNTED	   1592	      	Result=359 	200		
+262	BLocal	COUNTED	    233	      	Result=42 	200		
+263	BLocal	COUNTED	    110	      	Result=1336 	200		
+264	BLocal	COUNTED	   4343	      	Result=100 	200		
+265	BLocal	COUNTED	   4530	      	Result=100 	200		
+266	BLocal	COUNTED	     53	      	Result=10 	200		
+267	BLocal	COUNTED	     38	      	Result=10 	200		
+268	BLocal	COUNTED	     34	      	Result=38 	200		
+269	BLocal	COUNTED	    992	      	Result=1007 	200		
+270	BLocal	COUNTED	  51415	      	Result=2127628 	200		
+271	BLocal	COUNTED	  45935	      	Result=2127628 	200		
+272	BLocal	COUNTED	   3235	      	Result=5073 	200		
+273	BLocal	COUNTED	  12392	      	Result=329 	200		
+274	BLocal	COUNTED	    110	      	Result=500 	200		
+275	BLocal	COUNTED	     27	      	Result=75 	200		
+276	BLocal	COUNTED	     88	      	Result=465 	200		
+277	BLocal	COUNTED	     45	      	Result=100 	200		
+278	BLocal	COUNTED	    293	      	Result=598 	200		
+279	BLocal	COUNTED	   1189	      	Result=4113 	200		
+280	BLocal	COUNTED	     31	      	Result=1 	200		
+281	BLocal	COUNTED	     30	      	Result=45 	200		
+282	BLocal	COUNTED	     65	      	Result=468 	200		
+283	BLocal	COUNTED	     46	      	Result=24 	200		
+284	BLocal	COUNTED	  68943	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=b40f26e4-c6e6-49ff-88a6-bc0249da6de2,bopId=47,partitionId=-1,sinkId=48,altSinkId=46}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+285	BLocal	COUNTED	   3257	      	Result=19451 	200		
+286	BLocal	COUNTED	   4881	      	Result=1156 	200		
+287	BLocal	COUNTED	  43463	      	Result=3050936 	200		
+288	BLocal	COUNTED	  21706	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=10fa4c25-d202-4d83-874b-91dda2f1c446,bopId=13,partitionId=-1,sinkId=11,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+289	BLocal	COUNTED	   1148	      	Result=40914 	200		
+290	BLocal	COUNTED	  27709	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=485b46cb-2714-4ad6-801f-7a85ea04e489,bopId=7,partitionId=-1,sinkId=11,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+291	BLocal	COUNTED	    647	      	Result=7431 	200		
+292	BLocal	COUNTED	    481	      	Result=229775 	200		
+293	BLocal	COUNTED	    243	      	Result=1351 	200		
+294	BLocal	COUNTED	    756	      	Result=47427 	200		
+295	BLocal	COUNTED	     45	      	Result=0 	200		
+296	BLocal	COUNTED	   1222	      	Result=47427 	200		
+297	BLocal	COUNTED	 112092	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=31a1a5f0-e96e-4268-b4d1-88aeb97ace3a,bopId=9,partitionId=-1,sinkId=7,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	
+298	BLocal	COUNTED	   2664	      	Result=12 	200		
