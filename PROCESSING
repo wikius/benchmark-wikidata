@@ -1,17 +1,6 @@
-		Queries for Benchmarking		
+		PROCESSING
 
-Wikidata queries for benchmarking on various SPARQL engines.
-
-subclass/		Selected subclass queries
-	Status	run, initial analysis
-	Runs	
-
-subclass-parameter/	Parameterized subclass query for all classes with at least 100000 subclases
-
-instance/		Selected instance queries
-
-order/			Queries from investigations into class order in Wikidata
-
+Processing Wikidata queries for benchmarking various SPARQL engines and results
 
 1/ hernandez/			Benchmark from Querying wikidata: Comparing sparql, relational and graph databases
 	Status	some queries actually created
@@ -104,7 +93,7 @@ Number of queries with different non-error, non-suspect results:  19
 	Virtuoso <http://schema.org/description>	"\u017Eivo\u010Di\u0161n\u00E1 tk\u00E1\u0148 konzumovan\u00E1 jako potravina"@cs	
 
 	./wdbench-expand.py wdbench/Queries/multiple_bgps.txt 10000000
-TODO	./benchmark.py --count --engine=BLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-blocal-counted.tsv
+IP	./benchmark.py --count --engine=BLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-blocal-counted.tsv
 	./benchmark.py --count --engine=MLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-mlocal-counted.tsv
 	./benchmark.py --count --engine=QLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-qlocal-counted.tsv
 	./benchmark.py --count --engine=VLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-vlocal-counted.tsv
@@ -281,9 +270,6 @@ Number of queries with different non-error, non-suspect results:  51
 	./wdbench-expand.py wdbench/Queries/c2rpqs.txt 10000000
 
 
-    results issues (partial)
-      MilleniumDB reports fewer result for about 18 queries
-      Virtuoso reports extra results for many queries
 
 4/ qlever/wikidata-queries.tsv	Wikidata queries gathered from WDQS
 	./benchmark.py --engine=MDB qlever/wikidata-queries.tsv | tee results/qlever-mdb.tsv
@@ -521,15 +507,17 @@ QLocal/NODUPS   298      3     32    126    640 264240   5054   2603    16     0
 VLocal/NODUPS   298      1     70    498   3447 600707  14650   6465    35     3    14    21
 Number of queries with different non-error, non-suspect results:  61
 
-	./benchmark.py --engine=QLocal --nocache qlever/wikidata-queries.tsv | tee results/qlever-qlocal-nocache.tsv
-	./benchmark.py --engine=BLocal --nocache qlever/wikidata-queries.tsv | tee results/qlever-blocal-nocache.tsv
 
+subclass/		Selected subclass queries
+	Status	run, initial analysis
+	Runs	
 
-results/		Results of various benchmarking runs
-  subclass.text			
-  subclass-count.text
-  subclass-count-cached.text
-  ...
+subclass-parameter/	Parameterized subclass query for all classes with at least 100000 subclases
+
+instance/		Selected instance queries
+
+order/			Queries from investigations into class order in Wikidata
+
 
 
 
