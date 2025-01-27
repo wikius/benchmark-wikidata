@@ -93,11 +93,27 @@ Number of queries with different non-error, non-suspect results:  19
 	Virtuoso <http://schema.org/description>	"\u017Eivo\u010Di\u0161n\u00E1 tk\u00E1\u0148 konzumovan\u00E1 jako potravina"@cs	
 
 	./wdbench-expand.py wdbench/Queries/multiple_bgps.txt 10000000
-IP	./benchmark.py --count --engine=BLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-blocal-counted.tsv
+	./benchmark.py --count --engine=BLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-blocal-counted.tsv
 	./benchmark.py --count --engine=MLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-mlocal-counted.tsv
 	./benchmark.py --count --engine=QLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-qlocal-counted.tsv
 	./benchmark.py --count --engine=VLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-vlocal-counted.tsv
 	./stats.py results/multiple_bgps-?local-counted.tsv
+./stats.py -v results/multiple_bgps-*-counted.*
+ROW* 144 Result=5453900   BLocal/COUNTED* Result=5453899   MLocal/COUNTED  Result=5453900   QLocal/COUNTED* Result=5453602   VLocal/COUNTED  Result=5453900   
+ROW* 166 Result=7415      BLocal/COUNTED  Result=7415      MLocal/COUNTED  Result=7415      QLocal/COUNTED* Result=7414      VLocal/COUNTED  Result=7415      
+ROW* 395 Result=2496939   BLocal/COUNTED* Result=2496932   MLocal/COUNTED  Result=2496939   QLocal/COUNTED* Result=2496658   VLocal/COUNTED  Result=2496939   
+ROW* 435 Result=3548021   BLocal/COUNTED* Result=3548020   MLocal/COUNTED  Result=3548021   QLocal/COUNTED* Result=3547804   VLocal/COUNTED  Result=3548021   
+ROW* 439 Result=3554375   BLocal/COUNTED* Result=3554374   MLocal/COUNTED  Result=3554375   QLocal/COUNTED* Result=3554158   VLocal/COUNTED  Result=3554375   
+ROW* 446 Result=1657131   BLocal/COUNTED  Result=1657131   MLocal/COUNTED  Result=1657131   QLocal/COUNTED* Result=1657130   VLocal/COUNTED  Result=1657131   
+ROW* 447 Result=1580719   BLocal/COUNTED* Result=1580710   MLocal/COUNTED  Result=1580719   QLocal/COUNTED* Result=1580438   VLocal/COUNTED  Result=1580719   
+ROW* 585 Result=1681986   BLocal/COUNTED  Result=1681986   MLocal/COUNTED  Result=1681986   QLocal/COUNTED* Result=1681592   VLocal/COUNTED  Result=1681986   
+
+Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+BLocal/COUNTED  681     17   1274  14621  18177 600030  18127  14039    16     4    11     5
+MLocal/COUNTED  681      1     68    157    458 471789   1302    678     0     0     0     0
+QLocal/COUNTED  681      2     27     83    110 600005   4368    936    14     3     6     8
+VLocal/COUNTED  681      1     63     70    126 600696   4137    742     4     4     4     0
+Number of queries with different non-error, non-suspect results:   8
 
 	./wdbench-expand.py wdbench/Queries/opts.txt 2000000
 TODO	./benchmark.py --count --engine=BLocal wdbench/Queries/opts.text | tee results/opts-blocal-counted.tsv
@@ -271,18 +287,18 @@ Number of queries with different non-error, non-suspect results:  51
 
 
 
-4/ qlever/wikidata-queries.tsv	Wikidata queries gathered from WDQS
-	./benchmark.py --engine=MDB qlever/wikidata-queries.tsv | tee results/qlever-mdb.tsv
-	./benchmark.py --engine=VOS qlever/wikidata-queries.tsv | tee results/qlever-vos.tsv
-	./benchmark.py --engine=WDQS qlever/wikidata-queries.tsv | tee results/qlever-wdqs.tsv
-	./benchmark.py --engine=QLever qlever/wikidata-queries.tsv | tee results/qlever-qlever.tsv
-	./benchmark.py --engine=VLocal qlever/wikidata-queries.tsv | tee results/qlever-vlocal.tsv
+4/ wdqs/wikidata-queries.tsv	Wikidata queries gathered from WDQS
+	./benchmark.py --engine=MDB wdqs/wikidata-queries.tsv | tee results/wdqs-mdb.tsv
+	./benchmark.py --engine=VOS wdqs/wikidata-queries.tsv | tee results/wdqs-vos.tsv
+	./benchmark.py --engine=WDQS wdqs/wikidata-queries.tsv | tee results/wdqs-wdqs.tsv
+	./benchmark.py --engine=QLever wdqs/wikidata-queries.tsv | tee results/wdqs-qlever.tsv
+	./benchmark.py --engine=VLocal wdqs/wikidata-queries.tsv | tee results/wdqs-vlocal.tsv
 
-	./benchmark.py --engine=BLocal qlever/wikidata-queries.tsv | tee results/qlever-blocal.tsv
-	./benchmark.py --engine=MLocal qlever/wikidata-queries.tsv | tee results/qlever-mlocal.tsv
-	./benchmark.py --engine=QLocal qlever/wikidata-queries.tsv | tee results/qlever-qlocal.tsv
-	./benchmark.py --engine=QLocal qlever/wikidata-queries.tsv | tee results/qlever-qlocal-fast.tsv (ON FAST DISK) 
-./stats.py -v results/qlever-?local.tsv
+	./benchmark.py --engine=BLocal wdqs/wikidata-queries.tsv | tee results/wdqs-blocal.tsv
+	./benchmark.py --engine=MLocal wdqs/wikidata-queries.tsv | tee results/wdqs-mlocal.tsv
+	./benchmark.py --engine=QLocal wdqs/wikidata-queries.tsv | tee results/wdqs-qlocal.tsv
+	./benchmark.py --engine=QLocal wdqs/wikidata-queries.tsv | tee results/wdqs-qlocal-fast.tsv (ON FAST DISK) 
+./stats.py -v results/wdqs-?local.tsv
 ROW*   5 Count= 32963     BLocal  Count= 32963     MLocal  Count= 32963     QLocal  Count= 32963     VLocal* Count= 33209     
 ROW*   6 Result=11463628  BLocal  Result=11463628  MLocal* Result=11463627  QLocal  Result=11463628  VLocal  Result=11463628  
 ROW*   9 Count= 21253     BLocal* Count= 0         MLocal  Count= 21253     QLocal  Count= 21253     VLocal  Count= 21253     
@@ -359,11 +375,11 @@ QLocal          298      3     33    126    632 274348   4900   2444    15     0
 VLocal          298      1     64    479   3345 600694  14787   6400    45     3    15    30
 Number of queries with different non-error, non-suspect results:  68
 
-	./benchmark.py --engine=BLocal --count qlever/wikidata-queries.tsv | tee results/qlever-blocal-counted.tsv
-	./benchmark.py --engine=MLocal --count qlever/wikidata-queries.tsv | tee results/qlever-mlocal-counted.tsv
-	./benchmark.py --engine=QLocal --count qlever/wikidata-queries.tsv | tee results/qlever-qlocal-counted.tsv
-	./benchmark.py --engine=VLocal --count qlever/wikidata-queries.tsv | tee results/qlever-vlocal-counted.tsv
-	./stats.py -v results/qlever-?local-counted.tsv
+	./benchmark.py --engine=BLocal --count wdqs/wikidata-queries.tsv | tee results/wdqs-blocal-counted.tsv
+	./benchmark.py --engine=MLocal --count wdqs/wikidata-queries.tsv | tee results/wdqs-mlocal-counted.tsv
+	./benchmark.py --engine=QLocal --count wdqs/wikidata-queries.tsv | tee results/wdqs-qlocal-counted.tsv
+	./benchmark.py --engine=VLocal --count wdqs/wikidata-queries.tsv | tee results/wdqs-vlocal-counted.tsv
+	./stats.py -v results/wdqs-?local-counted.tsv
 244 Multiple modes >1
 ROW*   5 Result=32963     BLocal/COUNTED  Result=32963     MLocal/COUNTED  Result=32963     QLocal/COUNTED  Result=32963     VLocal/COUNTED* Result=33209     
 ROW*   9 Result=21253     BLocal/COUNTED* Result=0         MLocal/COUNTED  Result=21253     QLocal/COUNTED  Result=21253     VLocal/COUNTED  Result=21253     
@@ -433,11 +449,11 @@ QLocal/COUNTED  298      2     29    100    503 270079   4156   1938    15     0
 VLocal/COUNTED  298      1     49    377   2661 600725  14254   5956    40     3    14    26
 Number of queries with different non-error, non-suspect results:  60
 
-	./benchmark.py --engine=BLocal --nodups qlever/wikidata-queries.tsv | tee results/qlever-blocal-nodups.tsv
-	./benchmark.py --engine=MLocal --nodups qlever/wikidata-queries.tsv | tee results/qlever-mlocal-nodups.tsv
-	./benchmark.py --engine=QLocal --nodups qlever/wikidata-queries.tsv | tee results/qlever-qlocal-nodups.tsv
-	./benchmark.py --engine=VLocal --nodups qlever/wikidata-queries.tsv | tee results/qlever-vlocal-nodups.tsv
-	./stats.py -v results/qlever-?local-nodups.tsv
+	./benchmark.py --engine=BLocal --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-blocal-nodups.tsv
+	./benchmark.py --engine=MLocal --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-mlocal-nodups.tsv
+	./benchmark.py --engine=QLocal --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-qlocal-nodups.tsv
+	./benchmark.py --engine=VLocal --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-vlocal-nodups.tsv
+	./stats.py -v results/wdqs-?local-nodups.tsv
 ROW*   6 Result=11463628  BLocal/NODUPS  Result=11463628  MLocal/NODUPS* Result=11463627  QLocal/NODUPS  Result=11463628  VLocal/NODUPS  Result=11463628  
 ROW*   9 Count= 21253     BLocal/NODUPS* Count= 0         MLocal/NODUPS  Count= 21253     QLocal/NODUPS  Count= 21253     VLocal/NODUPS  Count= 21253     
 ROW*  10 Count= 35648     BLocal/NODUPS* Count= 0         MLocal/NODUPS  Count= 35648     QLocal/NODUPS  Count= 35648     VLocal/NODUPS  Count= 35648     
