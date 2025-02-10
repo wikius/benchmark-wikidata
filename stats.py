@@ -34,9 +34,12 @@ truncated_time = 60000
 data = dict()    
 
 # process a row of input by putting it into the data dictionary
+i = 0
 def process_row(row):
     row_index = int(row[0])
     row_entry = data.get(row_index, None)
+    global i
+    i += 1
     if row_entry is None:
         row_entry = data[row_index] = dict()
     if len(row) >= 8:
@@ -81,8 +84,6 @@ def process_query(index, query):
             if value > count:
                 mode, count = key, value
             elif value == count:
-                if count > 1:
-                    print(index, "Multiple modes >1")
                 mode = None
         real_result = mode if count > 1 else None
         identical = real_result is not None and count == len(real_results)
@@ -147,7 +148,6 @@ def print_rows(print_all):
                 flag = " " if row['correct'] else flag
                 print(f"{engine}{flag} {str(row['result']):16}", end= ' ')
         print("")
-    print("")
 
 if args.verbose > 0:
     print_rows(args.verbose > 1)
@@ -161,7 +161,7 @@ for entry in data.values():
 
 stats = compute_stats(data, engines)
 
-print("Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence")
+print("Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence")
 for engine, stats in stats.items():
-    print(f"{engine:14} {stats[0]:>4} {stats[1]:>6} {int(stats[2][0]):>6} {int(stats[2][1]):>6} {int(stats[2][2]):>6} {stats[3]:>6} {stats[4]:>6} {stats[5]:>6} {stats[6]:>5} {stats[7]:>5} {stats[8]:>5} {stats[9]:>5}")
+    print(f"{engine:18} {stats[0]:>4} {stats[1]:>6} {int(stats[2][0]):>6} {int(stats[2][1]):>6} {int(stats[2][2]):>6} {stats[3]:>6} {stats[4]:>6} {stats[5]:>6} {stats[6]:>5} {stats[7]:>5} {stats[8]:>5} {stats[9]:>5}")
 print(f"Number of queries with different non-error, non-suspect results: {difference_count:3}")

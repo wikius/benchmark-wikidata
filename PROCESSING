@@ -2,538 +2,646 @@
 
 Processing Wikidata queries for benchmarking various SPARQL engines and results
 
+
 1/ hernandez/			Benchmark from Querying wikidata: Comparing sparql, relational and graph databases
-	Status	some queries actually created
+	Not currently being done
 
 
 2/ wgpb/			Wikidata Graph Pattern Benchmark (WGPB) for RDF/SPARQL
 
-	./benchmark.py --engine=BLocal wgpb/bgps/wgpb.text | tee results/wgpb-blocal.tsv
-	./benchmark.py --engine=MLocal wgpb/bgps/wgpb.text | tee results/wgpb-mlocal.tsv
-	./benchmark.py --engine=QLocal wgpb/bgps/wgpb.text | tee results/wgpb-qlocal.tsv
-	./benchmark.py --engine=VLocal wgpb/bgps/wgpb.text | tee results/wgpb-vlocal.tsv
-	./stats.py -v results/wgpb-?local.tsv
-ROW* 350 Count= 867       BLocal* Count= 803       MLocal  Count= 867       QLocal  Count= 867       VLocal  Count= 867       
+	./benchmark.py --engine=Blazegraph wgpb/bgps/wgpb.text | tee results/wgpb-norm-blazegraph.tsv
+	./benchmark.py --engine=MilleniumDB wgpb/bgps/wgpb.text | tee results/wgpb-norm-milleniumdb.tsv
+	./benchmark.py --engine=QLever wgpb/bgps/wgpb.text | tee results/wgpb-norm-qlever.tsv
+	./benchmark.py --engine=Virtuoso wgpb/bgps/wgpb.text | tee results/wgpb-norm-virtuoso.tsv
+	./stats.py -v results/wgpb-norm-*.tsv
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          850     10     37     63    132 205404    644    473     2     0     2     0
+MilleniumDB         850      1      3      8     20   9083     29     29     0     0     0     0
+QLever              850      0      6      8     13 130735    183    100     0     0     0     0
+Virtuoso            850      1     21     61    147 600727    989    353     2     1     2     0
+Number of queries with different non-error, non-suspect results:   0
+	Blazegraph can have an error even with code 200.  A backtrace shows up at the end of the output.
+	QLever's mean is affected by two slow queries, one taking 16 seconds and one taking about 130 seconds.  QLever is slow on these two queries when run as part of the benchmark but much faster when the queries are run outside of the benchmark.  QLever appears to be performing work during the entire processing time of the two queries.
+	
+	./benchmark.py --nodups --engine=Blazegraph wgpb/bgps/wgpb.text | tee results/wgpb-nodups-blazegraph.tsv
+	./benchmark.py --nodups --engine=MilleniumDB wgpb/bgps/wgpb.text | teeresults/wgpb-nodups-milleniumdb.tsv
+	./benchmark.py --nodups --engine=QLever wgpb/bgps/wgpb.text | tee results/wgpb-nodups-qlever.tsv
+	./benchmark.py --nodups --engine=Virtuoso wgpb/bgps/wgpb.text | tee results/wgpb-nodups-virtuoso.tsv
+	./stats.py -v results/wgpb-nodups-*.tsv
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/NODUPS   850     12     39     63    134 190392    626    473     2     0     2     0
+MilleniumDB/NODUPS  850      1      4      9     20   9153     30     30     0     0     0     0
+QLever/NODUPS       850      1     10     14     20 129050    190    109     0     0     0     0
+Virtuoso/NODUPS     850      1     15     48    137 600616    839    203     1     1     1     0
+Number of queries with different non-error, non-suspect results:   0
+	Same as above
 
-Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-MLocal          850      1      4      8     19   8956     29     29     0     0     0     0
-QLocal          850      1     10     14     20 135695    197    108     0     0     0     0
-BLocal          850     11     38     62    132 201926    637    470     2     0     1     1
-VLocal          850      1     21     60    144 600666    985    349     2     1     2     0
-Number of queries with different non-error, non-suspect results:   1
-
-	./benchmark.py --nodups --engine=BLocal wgpb/bgps/wgpb.text | tee results/wgpb-blocal-nodups.tsv
-	./benchmark.py --nodups --engine=MLocal wgpb/bgps/wgpb.text | tee results/wgpb-mlocal-nodups.tsv
-	./benchmark.py --nodups --engine=QLocal wgpb/bgps/wgpb.text | tee results/wgpb-qlocal-nodups.tsv
-	./benchmark.py --nodups --engine=VLocal wgpb/bgps/wgpb.text | tee results/wgpb-vlocal-nodups.tsv
-	./stats.py -v results/wgpb-?local-nodups.tsv
-ROW* 350 Count= 867       BLocal/NODUPS* Count= 803       MLocal/NODUPS  Count= 867       QLocal/NODUPS  Count= 867       VLocal/NODUPS  Count= 867       
-
-Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-MLocal/NODUPS   850      1      4      9     20   9026     30     30     0     0     0     0
-QLocal/NODUPS   850      1     11     14     20 129911    191    109     0     0     0     0
-BLocal/NODUPS   850     16     40     66    137 193935    629    471     2     0     1     1
-VLocal/NODUPS   850      1     14     48    137 600615    839    203     1     1     1     0
-Number of queries with different non-error, non-suspect results:   1
-
-	./benchmark.py --engine=QLever wgpb/bgps/wgpb.text | tee results/wgpb-qlever.tsv
-	./benchmark.py --engine=WDQS wgpb/bgps/wgpb.text | tee results/wgpb-wdqs.tsv
-	./benchmark.py --engine=MDB wgpb/bgps/wgpb.text | tee results/wgpb-mdb.tsv
-	./benchmark.py --engine=VOS wgpb/bgps/wgpb.text | tee results/wgpb-vos.tsv
-	./benchmark.py --engine=QLever wgpb/bgps/wgpb-10000.text | tee results/wgpb-10000-qlever.tsv
-	./benchmark.py --engine=QLever wgpb/bgps/wgpb-100000.text | tee results/wgpb-100000-qlever.tsv
 
 3/ wdbench/Queries/*.txt	WDBench
-	Parts	single_bgps.txt
-		multiple_bgps.txt
-		opts.txt
-		paths.txt
-		
+	Parts	single_bgps.txt multiple_bgps.txt opts.txt paths.txt c2rpqs.txt
 	wdbench-expand.py	expander for query cores	
 
 	./wdbench-expand.py wdbench/Queries/single_bgps.txt 10000000
-	different output for geographical points causes some divergences when not counting
-	./benchmark.py --count --engine=BLocal wdbench/Queries/single_bgps.text | tee results/single_bgps-blocal-counted.tsv
-	./benchmark.py --count --engine=MLocal wdbench/Queries/single_bgps.text | tee results/single_bgps-mlocal-counted.tsv
-	./benchmark.py --count --engine=QLocal wdbench/Queries/single_bgps.text | tee results/single_bgps-qlocal-counted.tsv
-	./benchmark.py --count --engine=VLocal wdbench/Queries/single_bgps.text | tee results/single_bgps-vlocal-counted.tsv
-	./stats.py -v results/single_bgps-?local-counted.tsv (with guess at cause of divergences)
-ROW*   1 Result=965       BLocal/COUNTED* Result=511       MLocal/COUNTED  Result=965       QLocal/COUNTED  Result=965       VLocal/COUNTED  Result=965       ?string
-ROW*   2 Result=300       BLocal/COUNTED* Result=224       MLocal/COUNTED  Result=300       QLocal/COUNTED  Result=300       VLocal/COUNTED  Result=300       ?string
-ROW*   7 Result=1806      BLocal/COUNTED* Result=1193      MLocal/COUNTED  Result=1806      QLocal/COUNTED  Result=1806      VLocal/COUNTED  Result=1806      ?string
-ROW*  14 Result=529       BLocal/COUNTED* Result=323       MLocal/COUNTED  Result=529       QLocal/COUNTED  Result=529       VLocal/COUNTED  Result=529       ?string
-ROW*  16 Result=237       BLocal/COUNTED* Result=153       MLocal/COUNTED  Result=237       QLocal/COUNTED  Result=237       VLocal/COUNTED  Result=237       ?string
-ROW*  18 Result=1642      BLocal/COUNTED* Result=1098      MLocal/COUNTED  Result=1642      QLocal/COUNTED  Result=1642      VLocal/COUNTED  Result=1642      ?string
-ROW*  21 Result=81        BLocal/COUNTED* Result=43        MLocal/COUNTED  Result=81        QLocal/COUNTED  Result=81        VLocal/COUNTED  Result=81        ?string
-ROW*  22 Result=1140      BLocal/COUNTED* Result=885       MLocal/COUNTED  Result=1140      QLocal/COUNTED  Result=1140      VLocal/COUNTED  Result=1140      ?string
-ROW*  23 Result=490       BLocal/COUNTED* Result=426       MLocal/COUNTED  Result=490       QLocal/COUNTED  Result=490       VLocal/COUNTED  Result=490       ?string
-ROW*  32 Result=1546      BLocal/COUNTED* Result=1176      MLocal/COUNTED  Result=1546      QLocal/COUNTED  Result=1546      VLocal/COUNTED  Result=1546      ?string
-ROW*  35 Result=958       BLocal/COUNTED* Result=660       MLocal/COUNTED  Result=958       QLocal/COUNTED  Result=958       VLocal/COUNTED  Result=958       ?string
-ROW*  98 Result=1503965   BLocal/COUNTED  Result=1503965   MLocal/COUNTED  Result=1503965   QLocal/COUNTED* Result=1503964   VLocal/COUNTED  Result=1503965   number
-ROW*  99 Result=708356    BLocal/COUNTED  Result=708356    MLocal/COUNTED  Result=708356    QLocal/COUNTED* Result=708354    VLocal/COUNTED  Result=708356    float
-ROW* 100 Result=1308343   BLocal/COUNTED  Result=1308343   MLocal/COUNTED  Result=1308343   QLocal/COUNTED* Result=1308340   VLocal/COUNTED  Result=1308343   number
-ROW* 101 Result=1580731   BLocal/COUNTED  Result=1580731   MLocal/COUNTED  Result=1580731   QLocal/COUNTED* Result=1580493   VLocal/COUNTED* Result=1580730   number   
-ROW* 215 Result=35642     BLocal/COUNTED* Result=35641     MLocal/COUNTED  Result=35642     QLocal/COUNTED  Result=35642     VLocal/COUNTED  Result=35642     ?string
-ROW* 277 Result=2955      BLocal/COUNTED* Result=2954      MLocal/COUNTED  Result=2955      QLocal/COUNTED  Result=2955      VLocal/COUNTED  Result=2955      ?
-ROW* 278 Result=2983339   BLocal/COUNTED* Result=2983338   MLocal/COUNTED  Result=2983339   QLocal/COUNTED  Result=2983339   VLocal/COUNTED  Result=2983339   ?
-ROW* 279 Result=486       BLocal/COUNTED* Result=485       MLocal/COUNTED  Result=486       QLocal/COUNTED  Result=486       VLocal/COUNTED  Result=486       ?
+	./benchmark.py --engine=Blazegraph wdbench/Queries/single_bgps.text | tee results/single_bgps-norm-blazegraph.tsv
+	./benchmark.py --engine=MilleniumDB wdbench/Queries/single_bgps.text | tee results/single_bgps-norm-milleniumdb.tsv
+	./benchmark.py --engine=QLever wdbench/Queries/single_bgps.text | tee results/single_bgps-norm-qlever.tsv
+	./benchmark.py --engine=Virtuoso wdbench/Queries/single_bgps.text | tee results/single_bgps-norm-virtuoso.tsv
+	./stats.py -v results/single_bgps-norm-*.tsv
+ROW*   1 Count= 965       Blazegraph* Count= 511       MilleniumDB  Count= 965       QLever  Count= 965       Virtuoso  Count= 965       Name triples
+ROW*   2 Count= 300       Blazegraph* Count= 224       MilleniumDB  Count= 300       QLever  Count= 300       Virtuoso  Count= 300       Name triples
+ROW*   7 Count= 1806      Blazegraph* Count= 1193      MilleniumDB  Count= 1806      QLever  Count= 1806      Virtuoso  Count= 1806      Name triples
+ROW*   8 None             Blazegraph  Result=Point(2.176944444 41.3825) MilleniumDB  Result=Point(2.1769444444444 41.3825) QLever  Result=POINT(2.176944 41.382500) Virtuoso  Result=POINT(2.1769444444444 41.3825) 
+ROW*  10 None             Blazegraph  Result=Point(94.25 66.416666666) MilleniumDB  Result=Point(94.25 66.416666666667) QLever  Result=POINT(94.250000 66.416667) Virtuoso  Result=POINT(94.25 66.416666666667) 
+ROW*  13 None             Blazegraph  Result=Point(-121.872777777 37.304166666) MilleniumDB  Result=Point(-121.87277777778 37.304166666667) QLever  Result=POINT(-121.872778 37.304167) Virtuoso  Result=POINT(-121.87277777778 37.304166666667) 
+ROW*  14 Count= 529       Blazegraph* Count= 323       MilleniumDB  Count= 529       QLever  Count= 529       Virtuoso  Count= 529       Name triples
+ROW*  16 Count= 237       Blazegraph* Count= 153       MilleniumDB  Count= 237       QLever  Count= 237       Virtuoso  Count= 237       Name triples
+ROW*  18 Count= 1642      Blazegraph* Count= 1098      MilleniumDB  Count= 1642      QLever  Count= 1642      Virtuoso  Count= 1642      Name triples
+ROW*  19 None             Blazegraph  Result=330.0     MilleniumDB  Result=330.0     QLever  Result=330       Virtuoso  Result=330       Numbers
+ROW*  21 Count= 81        Blazegraph* Count= 43        MilleniumDB  Count= 81        QLever  Count= 81        Virtuoso  Count= 81        Name triples
+ROW*  22 Count= 1140      Blazegraph* Count= 885       MilleniumDB  Count= 1140      QLever  Count= 1140      Virtuoso  Count= 1140      Name triples
+ROW*  23 Count= 490       Blazegraph* Count= 426       MilleniumDB  Count= 490       QLever  Count= 490       Virtuoso  Count= 490       Name triples
+ROW*  32 Count= 1546      Blazegraph* Count= 1176      MilleniumDB  Count= 1546      QLever  Count= 1546      Virtuoso  Count= 1546      Name triples
+ROW*  33 None             Blazegraph  Result=Point(13.383333333 52.516666666) MilleniumDB  Result=Point(13.383333333333 52.516666666667) QLever  Result=POINT(13.383333 52.516667) Virtuoso  Result=POINT(13.383333333333 52.516666666667) 
+ROW*  35 Count= 958       Blazegraph* Count= 660       MilleniumDB  Count= 958       QLever  Count= 958       Virtuoso  Count= 958       Name triples
+ROW*  38 Result=Point(-0.3058 51.5111) Blazegraph  Result=Point(-0.3058 51.5111) MilleniumDB  Result=Point(-0.3058 51.5111) QLever* Result=POINT(-0.305800 51.511100) Virtuoso* Result=POINT(-0.3058 51.5111) 
+ROW*  98 Count= 1503965   Blazegraph  Count= 1503965   MilleniumDB  Count= 1503965   QLever* Count= 1503964   Virtuoso* Count= 1048576   Numbers
+ROW*  99 Count= 708356    Blazegraph  Count= 708356    MilleniumDB  Count= 708356    QLever* Count= 708354    Virtuoso  Count= 708356    Numbers
+ROW* 100 Count= 1308343   Blazegraph  Count= 1308343   MilleniumDB  Count= 1308343   QLever* Count= 1308340   Virtuoso* Count= 1048576   Numbers
+ROW* 101 Count= 1580731   Blazegraph  Count= 1580731   MilleniumDB  Count= 1580731   QLever* Count= 1580493   Virtuoso* Count= 1048576   Numbers
+ROW* 215 Count= 35642     Blazegraph* Count= 35641     MilleniumDB  Count= 35642     QLever  Count= 35642     Virtuoso  Count= 35642     ?
+ROW* 277 Count= 2955      Blazegraph* Count= 2954      MilleniumDB  Count= 2955      QLever  Count= 2955      Virtuoso  Count= 2955      ?
+ROW* 278 Count= 2983339   Blazegraph* Count= 2983338   MilleniumDB  Count= 2983339   QLever  Count= 2983339   Virtuoso* Count= 1048576   ?
+ROW* 279 Count= 486       Blazegraph* Count= 485       MilleniumDB  Count= 486       QLever  Count= 486       Virtuoso  Count= 486       ?
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          280      8     27     39    484 235474   3103   2073    15     0     0    15
+MilleniumDB         280      1      1      3    135  29631    770    770     0     0     0     0
+QLever              280      2      3      7    136  44364    769    769     5     0     0     5
+Virtuoso            280      1      8    122   2016  48371   1725   1725    51     0     0    51
+Number of queries with different non-error, non-suspect results:  25
+	Different output for GeoSPARQL points causes some differences between outputs.
+	Some QLever and probably one Virtuoso divergences are due to treatment of numbers.
+	Blazegraph does not load schema.org/name or skos:prefLabel triples, resulting in some divergences.
+	Four Blazegraph divergences remain unexplained.
 
-Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-BLocal/COUNTED  280     15     34     42    554  26707   1633   1633    15     0     0    15
-MLocal/COUNTED  280      1      1      1      7    183     18     18     0     0     0     0
-QLocal/COUNTED  280      2      3      3      7    451      9      9     4     0     0     4
-VLocal/COUNTED  280      1      1      9     69   6088    115    115     1     0     0     1
+	./wdbench-expand.py wdbench/Queries/single_bgps.txt 10000000
+	./benchmark.py --count --engine=Blazegraph wdbench/Queries/single_bgps.text | tee results/single_bgps-counted-blazegraph.tsv
+	./benchmark.py --count --engine=MilleniumDB wdbench/Queries/single_bgps.text | tee results/single_bgps-counted-milleniumdb.tsv
+	./benchmark.py --count --engine=QLever wdbench/Queries/single_bgps.text | tee results/single_bgps-counted-qlever.tsv
+	./benchmark.py --count --engine=Virtuoso wdbench/Queries/single_bgps.text | tee results/single_bgps-counted-virtuoso.tsv
+	./stats.py -v results/single_bgps-counted-*.tsv
+ROW*   1 Result=965       Blazegraph/COUNTED* Result=511       MilleniumDB/COUNTED  Result=965       QLever/COUNTED  Result=965       Virtuoso/COUNTED  Result=965       Name triples
+ROW*   2 Result=300       Blazegraph/COUNTED* Result=224       MilleniumDB/COUNTED  Result=300       QLever/COUNTED  Result=300       Virtuoso/COUNTED  Result=300       Name triples
+ROW*   7 Result=1806      Blazegraph/COUNTED* Result=1193      MilleniumDB/COUNTED  Result=1806      QLever/COUNTED  Result=1806      Virtuoso/COUNTED  Result=1806      Name triples
+ROW*  14 Result=529       Blazegraph/COUNTED* Result=323       MilleniumDB/COUNTED  Result=529       QLever/COUNTED  Result=529       Virtuoso/COUNTED  Result=529       Name triples
+ROW*  16 Result=237       Blazegraph/COUNTED* Result=153       MilleniumDB/COUNTED  Result=237       QLever/COUNTED  Result=237       Virtuoso/COUNTED  Result=237       Name triples
+ROW*  18 Result=1642      Blazegraph/COUNTED* Result=1098      MilleniumDB/COUNTED  Result=1642      QLever/COUNTED  Result=1642      Virtuoso/COUNTED  Result=1642      Name triples
+ROW*  21 Result=81        Blazegraph/COUNTED* Result=43        MilleniumDB/COUNTED  Result=81        QLever/COUNTED  Result=81        Virtuoso/COUNTED  Result=81        Name triples
+ROW*  22 Result=1140      Blazegraph/COUNTED* Result=885       MilleniumDB/COUNTED  Result=1140      QLever/COUNTED  Result=1140      Virtuoso/COUNTED  Result=1140      Name triples
+ROW*  23 Result=490       Blazegraph/COUNTED* Result=426       MilleniumDB/COUNTED  Result=490       QLever/COUNTED  Result=490       Virtuoso/COUNTED  Result=490       Name triples
+ROW*  32 Result=1546      Blazegraph/COUNTED* Result=1176      MilleniumDB/COUNTED  Result=1546      QLever/COUNTED  Result=1546      Virtuoso/COUNTED  Result=1546      Name triples
+ROW*  35 Result=958       Blazegraph/COUNTED* Result=660       MilleniumDB/COUNTED  Result=958       QLever/COUNTED  Result=958       Virtuoso/COUNTED  Result=958       Name triples
+ROW*  98 Result=1503965   Blazegraph/COUNTED  Result=1503965   MilleniumDB/COUNTED  Result=1503965   QLever/COUNTED* Result=1503964   Virtuoso/COUNTED  Result=1503965   Numbers
+ROW*  99 Result=708356    Blazegraph/COUNTED  Result=708356    MilleniumDB/COUNTED  Result=708356    QLever/COUNTED* Result=708354    Virtuoso/COUNTED  Result=708356    Numbers
+ROW* 100 Result=1308343   Blazegraph/COUNTED  Result=1308343   MilleniumDB/COUNTED  Result=1308343   QLever/COUNTED* Result=1308340   Virtuoso/COUNTED  Result=1308343   Numbers
+ROW* 101 Result=1580731   Blazegraph/COUNTED  Result=1580731   MilleniumDB/COUNTED  Result=1580731   QLever/COUNTED* Result=1580493   Virtuoso/COUNTED* Result=1580730   Numbers?
+ROW* 215 Result=35642     Blazegraph/COUNTED* Result=35641     MilleniumDB/COUNTED  Result=35642     QLever/COUNTED  Result=35642     Virtuoso/COUNTED  Result=35642     ?
+ROW* 277 Result=2955      Blazegraph/COUNTED* Result=2954      MilleniumDB/COUNTED  Result=2955      QLever/COUNTED  Result=2955      Virtuoso/COUNTED  Result=2955      ?
+ROW* 278 Result=2983339   Blazegraph/COUNTED* Result=2983338   MilleniumDB/COUNTED  Result=2983339   QLever/COUNTED  Result=2983339   Virtuoso/COUNTED  Result=2983339   ?
+ROW* 279 Result=486       Blazegraph/COUNTED* Result=485       MilleniumDB/COUNTED  Result=486       QLever/COUNTED  Result=486       Virtuoso/COUNTED  Result=486       ?
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/COUNTED  280      9     33     43    542  25653   1619   1619    15     0     0    15
+MilleniumDB/COUNTED 280      1      1      1      7    182     17     17     0     0     0     0
+QLever/COUNTED      280      1      2      3      7    485      9      9     4     0     0     4
+Virtuoso/COUNTED    280      1      1      9     70   5998    117    117     1     0     0     1
 Number of queries with different non-error, non-suspect results:  19
-	QLever and probably Virtuoso divergences are due to treatment of numbers.
-	The reason for Blazegraph divergences is unknown but appears to be mostly related to strings.
-	QLever and Virtuoso may have problems with some Unicode characters
-	Blazegraph <http://schema.org/description>	"aħmar tal-annimali li jittiekel bħala ikel"@mt
-	MilleniumDB <http://schema.org/description>	"aħmar tal-annimali li jittiekel bħala ikel"@mt
-	QLever <http://schema.org/description>	"aÄ§mar tal-annimali li jittiekel bÄ§ala ikel"@mt
-	Virtuoso <http://schema.org/description>	"\u017Eivo\u010Di\u0161n\u00E1 tk\u00E1\u0148 konzumovan\u00E1 jako potravina"@cs	
+	AS ABOVE, except GeoSPARQL differences do not show up.
+	The Virtuoso divergence is probably related to numbers.
 
 	./wdbench-expand.py wdbench/Queries/multiple_bgps.txt 10000000
-	./benchmark.py --count --engine=BLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-blocal-counted.tsv
-	./benchmark.py --count --engine=MLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-mlocal-counted.tsv
-	./benchmark.py --count --engine=QLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-qlocal-counted.tsv
-	./benchmark.py --count --engine=VLocal wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-vlocal-counted.tsv
-	./stats.py results/multiple_bgps-?local-counted.tsv
-./stats.py -v results/multiple_bgps-*-counted.*
-ROW* 144 Result=5453900   BLocal/COUNTED* Result=5453899   MLocal/COUNTED  Result=5453900   QLocal/COUNTED* Result=5453602   VLocal/COUNTED  Result=5453900   
-ROW* 166 Result=7415      BLocal/COUNTED  Result=7415      MLocal/COUNTED  Result=7415      QLocal/COUNTED* Result=7414      VLocal/COUNTED  Result=7415      
-ROW* 395 Result=2496939   BLocal/COUNTED* Result=2496932   MLocal/COUNTED  Result=2496939   QLocal/COUNTED* Result=2496658   VLocal/COUNTED  Result=2496939   
-ROW* 435 Result=3548021   BLocal/COUNTED* Result=3548020   MLocal/COUNTED  Result=3548021   QLocal/COUNTED* Result=3547804   VLocal/COUNTED  Result=3548021   
-ROW* 439 Result=3554375   BLocal/COUNTED* Result=3554374   MLocal/COUNTED  Result=3554375   QLocal/COUNTED* Result=3554158   VLocal/COUNTED  Result=3554375   
-ROW* 446 Result=1657131   BLocal/COUNTED  Result=1657131   MLocal/COUNTED  Result=1657131   QLocal/COUNTED* Result=1657130   VLocal/COUNTED  Result=1657131   
-ROW* 447 Result=1580719   BLocal/COUNTED* Result=1580710   MLocal/COUNTED  Result=1580719   QLocal/COUNTED* Result=1580438   VLocal/COUNTED  Result=1580719   
-ROW* 585 Result=1681986   BLocal/COUNTED  Result=1681986   MLocal/COUNTED  Result=1681986   QLocal/COUNTED* Result=1681592   VLocal/COUNTED  Result=1681986   
-
-Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-BLocal/COUNTED  681     17   1274  14621  18177 600030  18127  14039    16     4    11     5
-MLocal/COUNTED  681      1     68    157    458 471789   1302    678     0     0     0     0
-QLocal/COUNTED  681      2     27     83    110 600005   4368    936    14     3     6     8
-VLocal/COUNTED  681      1     63     70    126 600696   4137    742     4     4     4     0
+	./benchmark.py --engine=Blazegraph wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-norm-blazegraph.tsv
+	./benchmark.py --engine=MilleniumDB wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-norm-milleniumdb.tsv
+	./benchmark.py --engine=QLever wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-norm-qlever.tsv
+	./benchmark.py --engine=Virtuoso wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-norm-virtuoso.tsv
+	./stats.py -v results/multiple_bgps-norm-*.tsv
+ROW* 144 None             Blazegraph  Count= 5453899   MilleniumDB  Count= 5453900   QLever  Count= 5453602   Virtuoso  Count= 1048576   geosparql datatype
+ROW* 166 Count= 7415      Blazegraph  Count= 7415      MilleniumDB  Count= 7415      QLever* Count= 7414      Virtuoso  Count= 7415      geosparql datatype
+ROW* 395 None             Blazegraph  Count= 2496932   MilleniumDB  Count= 2496939   QLever  Count= 2496658   Virtuoso  Count= 1048576   geosparql datatype
+ROW* 435 None             Blazegraph  Count= 3548020   MilleniumDB  Count= 3548021   QLever  Count= 3547804   Virtuoso  Count= 1048576   geosparql datatype
+ROW* 439 None             Blazegraph  Count= 3554374   MilleniumDB  Count= 3554375   QLever  Count= 3554158   Virtuoso  Count= 1048576   geosparql datatype
+ROW* 446 Count= 1657131   Blazegraph  Count= 1657131   MilleniumDB  Count= 1657131   QLever* Count= 1657130   Virtuoso* Count= 1048576   geosparql datatype
+ROW* 447 None             Blazegraph  Count= 1580710   MilleniumDB  Count= 1580719   QLever  Count= 1580438   Virtuoso  Count= 1048576   geosparql datatype
+ROW* 585 Count= 1681986   Blazegraph  Count= 1681986   MilleniumDB  Count= 1681986   QLever* Count= 1681592   Virtuoso* Count= 1048576   geosparql datatype
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          681     11   1150   6823   9471 176377   9653   9076    10     0    10     0
+MilleniumDB         681      1    161   3272   6295 485873   5069   4395     0     0     0     0
+QLever              681      2    168   4142   7106 600006   8619   5220     9     3     6     3
+Virtuoso            681      1    170   3370   5160 600684   7665   4046   460     4    71   389
 Number of queries with different non-error, non-suspect results:   8
+	Virtuoso hits its limit of 2^20 results in very many answers.  As the problems with Virtuoso affect over half of the queries, the timing information for it are not useful.
+        Differences in implementing a GeoSPARQL datatype cause differences in some results, including the QLever divergences.
+	QLever and Virtuoso run out of time on a few queries.
+	Blazegraph runs out of memory on ten queries, mostly when transmitting results.
+	Virtuoso refuses to run many queries because it estimates that they will take too long.  Often these estimates are extremely large.
+	Blazegraph is the slowest even though it is heavily multi-threaded on some queries.
 
-	./wdbench-expand.py wdbench/Queries/opts.txt 2000000
-TODO	./benchmark.py --count --engine=BLocal wdbench/Queries/opts.text | tee results/opts-blocal-counted.tsv
-TODO	./benchmark.py --count --engine=MLocal wdbench/Queries/opts.text | tee results/opts-mlocal-counted.tsv
-TODO	./benchmark.py --count --engine=QLocal wdbench/Queries/opts.text | tee results/opts-qlocal-counted.tsv
-TODO	./benchmark.py --count --engine=VLocal wdbench/Queries/opts.text | tee results/opts-vlocal-counted.tsv
+	./wdbench-expand.py wdbench/Queries/multiple_bgps.txt 10000000
+	./benchmark.py --count --engine=Blazegraph wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-counted-blazegraph.tsv
+	./benchmark.py --count --engine=MilleniumDB wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-counted-milleniumdb.tsv
+	./benchmark.py --count --engine=QLever wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-counted-qlever.tsv
+	./benchmark.py --count --engine=Virtuoso wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-counted-virtuoso.tsv
+	./stats.py -v results/multiple_bgps-[bmv]local-counted.* results/multiple_bgps-qlocat-counted.* (with guess at cause of divergences)
+ROW* 144 Result=5453900   Blazegraph/COUNTED* Result=5453899   MilleniumDB/COUNTED  Result=5453900   QLever/COUNTED* Result=5453602   Virtuoso/COUNTED  Result=5453900   geosparql datatype
+ROW* 166 Result=7415      Blazegraph/COUNTED  Result=7415      MilleniumDB/COUNTED  Result=7415      QLever/COUNTED* Result=7414      Virtuoso/COUNTED  Result=7415      geosparql datatype
+ROW* 395 Result=2496939   Blazegraph/COUNTED* Result=2496932   MilleniumDB/COUNTED  Result=2496939   QLever/COUNTED* Result=2496658   Virtuoso/COUNTED  Result=2496939   geosparql datatype
+ROW* 435 Result=3548021   Blazegraph/COUNTED* Result=3548020   MilleniumDB/COUNTED  Result=3548021   QLever/COUNTED* Result=3547804   Virtuoso/COUNTED  Result=3548021   geosparql datatype
+ROW* 439 Result=3554375   Blazegraph/COUNTED* Result=3554374   MilleniumDB/COUNTED  Result=3554375   QLever/COUNTED* Result=3554158   Virtuoso/COUNTED  Result=3554375   geosparql datatype
+ROW* 446 Result=1657131   Blazegraph/COUNTED  Result=1657131   MilleniumDB/COUNTED  Result=1657131   QLever/COUNTED* Result=1657130   Virtuoso/COUNTED  Result=1657131   geosparql datatype
+ROW* 447 Result=1580719   Blazegraph/COUNTED* Result=1580710   MilleniumDB/COUNTED  Result=1580719   QLever/COUNTED* Result=1580438   Virtuoso/COUNTED  Result=1580719   geosparql datatype
+ROW* 585 Result=1681986   Blazegraph/COUNTED  Result=1681986   MilleniumDB/COUNTED  Result=1681986   QLever/COUNTED* Result=1681592   Virtuoso/COUNTED  Result=1681986   geosparql datatype
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/COUNTED  681     19   1261  14763  18355 600030  18111  14043    16     4    11     5
+MilleniumDB/COUNTED 681      1     69    158    457 469402   1296    676     0     0     0     0
+QLever/COUNTED      681      2     33     81    112 600005   4297    937    14     3     6     8
+Virtuoso/COUNTED    681      1     60     66    119 600722   4149    762     4     4     4     0
+Number of queries with different non-error, non-suspect results:   8
+	AS ABOVE, except no extreme Virtuoso problems
+	Blazegraph is much slower than on the as-is queries for some unknown reason
+
+	./wdbench-expand.py wdbench/Queries/opts.txt 10000000
+TODO	./benchmark.py --engine=Blazegraph wdbench/Queries/opts.text | tee results/opts-norm-blazegraph.tsv
+TODO	./benchmark.py --engine=MilleniumDB wdbench/Queries/opts.text | tee results/opts-norm-milleniumdb.tsv
+	./benchmark.py --engine=QLever wdbench/Queries/opts.text | tee results/opts-norm-qlever.tsv
+TODO	./benchmark.py --engine=Virtuoso wdbench/Queries/opts.text | tee results/opts-norm-virtuoso.tsv
+TODO	./stats.py -v results/opts-norm-*.tsv
+
+TODO	./benchmark.py --count --engine=Blazegraph wdbench/Queries/opts.text | tee results/opts-counted-blazegraph.tsv
+TODO	./benchmark.py --count --engine=MilleniumDB wdbench/Queries/opts.text | tee results/opts-counted-milleniumdb.tsv
+TODO	./benchmark.py --count --engine=QLever wdbench/Queries/opts.text | tee results/opts-counted-qlever.tsv
+TODO	./benchmark.py --count --engine=Virtuoso wdbench/Queries/opts.text | tee results/opts-counted-virtuoso.tsv
+
+TODO	./benchmark.py --nodups --engine=Blazegraph wdbench/Queries/opts.text | tee results/opts-nodups-blazegraph.tsv
+TODO	./benchmark.py --nodups --engine=MilleniumDB wdbench/Queries/opts.text | tee results/opts-nodups-milleniumdb.tsv
+TODO	./benchmark.py --nodups --engine=QLever wdbench/Queries/opts.text | tee results/opts-nodups-qlever.tsv
+TODO	./benchmark.py --nodups --engine=Virtuoso wdbench/Queries/opts.text | tee results/opts-nodups-virtuoso.tsv
 
 	./wdbench-expand.py wdbench/Queries/paths.txt 10000000
-	./benchmark.py --engine=BLocal wdbench/Queries/paths.text | tee results/paths-blocal.tsv
-	./benchmark.py --engine=MLocal wdbench/Queries/paths.text | tee results/paths-mlocal.tsv
-	./benchmark.py --engine=QLocal wdbench/Queries/paths.text | tee results/paths-qlocal.tsv
-	./benchmark.py --engine=VLocal wdbench/Queries/paths.text | tee results/paths-vlocal.tsv
-	./stats.py results/paths-?local.tsv
-Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-BLocal          660     15     90    252   3844 773863  25509   8701    35    12    33     2
-MLocal          660      1      2     29    668 601934   7355   2697    22     4     5    17
-QLocal          660      0      5     36    632 389312   2524   1914    29     0    29     0
-VLocal          660      0     12    135   2261 652597   5763   3323   473     2    51   422
-Number of queries with different non-error, non-suspect results: 324
-	./stats.py -v results/paths-[bmq]local.tsv
-ROW* 121 Count= 4126738   BLocal  Count= 4126738   MLocal* Count= 4125785   QLocal  Count= 4126738   
-ROW* 130 Count= 74693     BLocal  Count= 74693     MLocal* Count= 67000     QLocal  Count= 74693     
-ROW* 135 Count= 3318928   BLocal  Count= 3318928   MLocal* Count= 3317304   QLocal  Count= 3318928   
-ROW* 140 Count= 1061284   BLocal  Count= 1061284   MLocal* Count= 1061276   QLocal  Count= 1061284   
-ROW* 142 None             BLocal  Count= 363659    MLocal  Count= 178579    QLocal! None             
-ROW* 149 Count= 59351     BLocal  Count= 59351     MLocal* Count= 50817     QLocal  Count= 59351     
-ROW* 150 Count= 57758     BLocal  Count= 57758     MLocal* Count= 51359     QLocal  Count= 57758     
-ROW* 151 None             BLocal  Count= 2044803   MLocal  Count= 2044799   QLocal  Count= 2044798   
-ROW* 154 Count= 663202    BLocal* Count= 663211    MLocal  Count= 663202    QLocal  Count= 663202    
-ROW* 155 Count= 781567    BLocal* Count= 781576    MLocal  Count= 781567    QLocal  Count= 781567    
-ROW* 196 Count= 2168454   BLocal  Count= 2168454   MLocal* Count= 1343642   QLocal  Count= 2168454   
-ROW* 211 Count= 877255    BLocal  Count= 877255    MLocal* Count= 877170    QLocal  Count= 877255    
-ROW* 215 Count= 1137604   BLocal  Count= 1137604   MLocal* Count= 1137598   QLocal  Count= 1137604   
-ROW* 307 None             BLocal  Count= 435906    MLocal  Count= 108       QLocal  Count= 10000000  
-ROW* 319 None             BLocal  Count= 10000000  MLocal  Count= 9334235   QLocal! None             
-ROW* 321 Count= 2947000   BLocal  Count= 2947000   MLocal* Count= 2945578   QLocal  Count= 2947000   
-ROW* 357 Count= 2417361   BLocal  Count= 2417361   MLocal* Count= 2404778   QLocal  Count= 2417361   
-ROW* 363 None             BLocal  Count= 3554374   MLocal  Count= 3554375   QLocal  Count= 3554158   
-ROW* 364 None             BLocal  Count= 2812308   MLocal  Count= 2812246   QLocal  Count= 2812304   
-ROW* 624 Count= 559287    BLocal  Count= 559287    MLocal* Count= 559231    QLocal  Count= 559287    
-ROW* 625 Count= 45755     BLocal  Count= 45755     MLocal* Count= 31719     QLocal  Count= 45755     
-ROW* 627 Count= 43162     BLocal  Count= 43162     MLocal* Count= 42865     QLocal  Count= 43162     
-ROW* 629 Count= 55        BLocal  Count= 55        MLocal* Count= 53        QLocal  Count= 55        
-ROW* 646 Count= 1137604   BLocal  Count= 1137604   MLocal* Count= 1137598   QLocal  Count= 1137604   
-ROW* 648 Count= 1492786   BLocal  Count= 1492786   MLocal* Count= 1492725   QLocal  Count= 1492786   
-ROW* 650 None             BLocal  Count= 337245    MLocal  Count= 224744    QLocal! None             
+	./benchmark.py --engine=Blazegraph wdbench/Queries/paths.text | tee results/paths-norm-blazegraph.tsv
+	./benchmark.py --engine=MilleniumDB wdbench/Queries/paths.text | tee results/paths-norm-milleniumdb.tsv
+	./benchmark.py --engine=QLever wdbench/Queries/paths.text | tee results/paths-norm-qlever.tsv
+	./benchmark.py --engine=Virtuoso wdbench/Queries/paths.text | tee results/paths-norm-virtuoso.tsv	
+	./stats.py results/paths-norm-*.tsv
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          660     11     95    256   3803 729483  25277   8665    35    12    33     2
+MilleniumDB         660      1      2     29    661 602220   7281   2638    22     4     5    17
+QLever              660      0      5     32    395 387872   2070   1467    32     0    29     3
+Virtuoso            660      0     11    135   2224 652395   5730   3308   473     2    51   422
+Number of queries with different non-error, non-suspect results: 325
+	./stats.py -v results/paths-norm-[bmq]*.tsv
+ROW*  63 Count= 3         Blazegraph  Count= 3         MilleniumDB  Count= 3         QLever* Count= 0         QLever bug in tab-separated-values output
+ROW*  97 Count=10         Blazegraph  Count=10         MilleniumDB  Count=10         QLever* Count= 0         QLever bug in tab-separated-values output
+ROW*  98 Count=10         Blazegraph  Count=10         MilleniumDB  Count=10         QLever* Count= 0         QLever bug in tab-separated-values output
+ROW* 121 Count= 4126738   Blazegraph  Count= 4126738   MilleniumDB* Count= 4125785   QLever  Count= 4126738   MilleniumDB bug in alternatives
+ROW* 130 Count= 74693     Blazegraph  Count= 74693     MilleniumDB* Count= 67000     QLever  Count= 74693     MilleniumDB bug in alternatives
+ROW* 135 Count= 3318928   Blazegraph  Count= 3318928   MilleniumDB* Count= 3317304   QLever  Count= 3318928   MilleniumDB bug in alternatives
+ROW* 140 Count= 1061284   Blazegraph  Count= 1061284   MilleniumDB* Count= 1061276   QLever  Count= 1061284   MilleniumDB bug in alternatives
+ROW* 142 None             Blazegraph  Count= 363659    MilleniumDB  Count= 178579    QLever! None             Empty path
+ROW* 149 Count= 59351     Blazegraph  Count= 59351     MilleniumDB* Count= 50817     QLever  Count= 59351     MilleniumDB bug in alternatives
+ROW* 150 Count= 57758     Blazegraph  Count= 57758     MilleniumDB* Count= 51359     QLever  Count= 57758     MilleniumDB bug in alternatives
+ROW* 151 None             Blazegraph  Count= 2044803   MilleniumDB  Count= 2044799   QLever  Count= 2044798   Alternatives
+ROW* 154 Count= 663202    Blazegraph* Count= 663211    MilleniumDB  Count= 663202    QLever  Count= 663202    ?
+ROW* 155 Count= 781567    Blazegraph* Count= 781576    MilleniumDB  Count= 781567    QLever  Count= 781567    ?
+ROW* 196 Count= 2168454   Blazegraph  Count= 2168454   MilleniumDB* Count= 1343642   QLever  Count= 2168454   MilleniumDB bug in alternatives
+ROW* 211 Count= 877255    Blazegraph  Count= 877255    MilleniumDB* Count= 877170    QLever  Count= 877255    MilleniumDB bug in alternatives
+ROW* 215 Count= 1137604   Blazegraph  Count= 1137604   MilleniumDB* Count= 1137598   QLever  Count= 1137604   MilleniumDB bug in alternatives
+ROW* 307 None             Blazegraph  Count= 435906    MilleniumDB  Count= 108       QLever  Count= 10000000  ?
+ROW* 319 None             Blazegraph  Count= 10000000  MilleniumDB  Count= 9334235   QLever! None             Empty Path
+ROW* 321 Count= 2947000   Blazegraph  Count= 2947000   MilleniumDB* Count= 2945578   QLever  Count= 2947000   MilleniumDB bug in alternatives
+ROW* 357 Count= 2417361   Blazegraph  Count= 2417361   MilleniumDB* Count= 2404778   QLever  Count= 2417361   MilleniumDB bug in alternatives
+ROW* 363 None             Blazegraph  Count= 3554374   MilleniumDB  Count= 3554375   QLever  Count= 3554158   Points
+ROW* 364 None             Blazegraph  Count= 2812308   MilleniumDB  Count= 2812246   QLever  Count= 2812304   Numbers
+ROW* 624 Count= 559287    Blazegraph  Count= 559287    MilleniumDB* Count= 559231    QLever  Count= 559287    MilleniumDB bug in alternatives
+ROW* 625 Count= 45755     Blazegraph  Count= 45755     MilleniumDB* Count= 31719     QLever  Count= 45755     MilleniumDB bug in alternatives
+ROW* 627 Count= 43162     Blazegraph  Count= 43162     MilleniumDB* Count= 42865     QLever  Count= 43162     MilleniumDB bug in alternatives
+ROW* 629 Count= 55        Blazegraph  Count= 55        MilleniumDB* Count= 53        QLever  Count= 55        MilleniumDB bug in alternatives
+ROW* 646 Count= 1137604   Blazegraph  Count= 1137604   MilleniumDB* Count= 1137598   QLever  Count= 1137604   MilleniumDB bug in alternatives
+ROW* 648 Count= 1492786   Blazegraph  Count= 1492786   MilleniumDB* Count= 1492725   QLever  Count= 1492786   MilleniumDB bug in alternatives
+ROW* 650 None             Blazegraph  Count= 337245    MilleniumDB  Count= 224744    QLever! None             
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          660     11     95    256   3803 729483  25277   8665    35    12    33     2
+MilleniumDB         660      1      2     29    661 602220   7281   2638    22     4     5    17
+QLever              660      0      5     32    395 387872   2070   1467    32     0    29     3
+Number of queries with different non-error, non-suspect results:  29
+	QLever refuses to evaluate some of the queries because of empty path concerns even though some or all of these queries do not have to evaluate the empty path.
+	QLever refuses to evaluate a few queries because they use an IRI not present in the Wikidata dump.
+	QLever runs out of memory on a few queries.
+	QLever and MilliumDB refuse to evaluate one query becuase it contains a negation inside a path.
+	Virtuoso produces different answers for over half the queries because of its incorrect treatment of transitive paths.
+	Virtuoso has very high execution time estimates for a few queries.
+	Virtuoso exceeds internal transitive temp memory for some queries and refuses to evaluate some others due to lack of starting point.
+	MilleniumDB produces different answers for some queries that contain path alternatives.
+	Blazegraph divergences on a couple of queries for unknown reasons.
+	Several queries involve the empty path, which QLever refuses to evaluate and the other three engines produce different answers for.
+	A few queries return GeoSPARQL values or numbers, which are handled differently in different engines.
 
-Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-BLocal          660     15     90    252   3844 773863  25509   8701    35    12    33     2
-MLocal          660      1      2     29    668 601934   7355   2697    22     4     5    17
-QLocal          660      0      5     36    632 389312   2524   1914    29     0    29     0
-Number of queries with different non-error, non-suspect results:  26
-
-	./benchmark.py --count --engine=BLocal wdbench/Queries/paths.text | tee results/paths-blocal-counted.tsv
-	./benchmark.py --count --engine=MLocal wdbench/Queries/paths.text | tee results/paths-mlocal-counted.tsv
-	./benchmark.py --count --engine=QLocal wdbench/Queries/paths.text | tee results/paths-qlocal-counted.tsv
-	./benchmark.py --count --engine=VLocal wdbench/Queries/paths.text | tee results/paths-vlocal-counted.tsv
-	./stats.py results/paths-?local-counted.tsv
-Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-BLocal/COUNTED  660      9     88    239   4509 714782  23492   7806    34    15    30     4
-MLocal/COUNTED  660      1      2      7    161 601466   6352   1941    24     4     5    19
-QLocal/COUNTED  660      0      4      9     62 397866   2050   1038    32     0    29     3
-VLocal/COUNTED  660      1      3     11     89 664885   5146   2452   417     3    52   365
+	./benchmark.py --count --engine=Blazegraph wdbench/Queries/paths.text | tee results/paths-counted-blazegraph.tsv
+	./benchmark.py --count --engine=MilleniumDB wdbench/Queries/paths.text | tee results/paths-counted-milleniumdb.tsv
+	./benchmark.py --count --engine=QLever wdbench/Queries/paths.text | tee results/paths-counted-qlever.tsv
+	./benchmark.py --count --engine=Virtuoso wdbench/Queries/paths.text | tee results/paths-counted-virtuoso.tsv
+	./stats.py results/paths-counted-*.tsv
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/COUNTED  660     14     90    268   4769 654743  23206   7910    34    15    30     4
+MilleniumDB/COUNTED 660      1      2      7    162 601491   6341   1938    24     4     5    19
+QLever/COUNTED      660      0      2      6     59 376559   1622   1037    32     0    29     3
+Virtuoso/COUNTED    660      1      3     10     87 662366   5128   2445   417     3    52   365
 Number of queries with different non-error, non-suspect results: 390
-	./stats.py -v results/paths-[bmq]local-counted.tsv
-ROW* 121 Result=4126738   BLocal/COUNTED  Result=4126738   MLocal/COUNTED* Result=4125785   QLocal/COUNTED  Result=4126738   
-ROW* 130 Result=74693     BLocal/COUNTED  Result=74693     MLocal/COUNTED* Result=67000     QLocal/COUNTED  Result=74693     
-ROW* 135 Result=3318928   BLocal/COUNTED  Result=3318928   MLocal/COUNTED* Result=3317304   QLocal/COUNTED  Result=3318928   
-ROW* 140 Result=1061284   BLocal/COUNTED  Result=1061284   MLocal/COUNTED* Result=1061276   QLocal/COUNTED  Result=1061284   
-ROW* 142 None             BLocal/COUNTED  Result=365766    MLocal/COUNTED  Result=178579    QLocal/COUNTED! None             
-ROW* 147 Result=5859      BLocal/COUNTED* Result=7300      MLocal/COUNTED  Result=5859      QLocal/COUNTED  Result=5859      
-ROW* 149 Result=59351     BLocal/COUNTED  Result=59351     MLocal/COUNTED* Result=50817     QLocal/COUNTED  Result=59351     
-ROW* 150 Result=57758     BLocal/COUNTED  Result=57758     MLocal/COUNTED* Result=51359     QLocal/COUNTED  Result=57758     
-ROW* 151 None             BLocal/COUNTED  Result=2044803   MLocal/COUNTED  Result=2044799   QLocal/COUNTED  Result=2044798   
-ROW* 154 Result=663202    BLocal/COUNTED* Result=663211    MLocal/COUNTED  Result=663202    QLocal/COUNTED  Result=663202    
-ROW* 155 Result=781567    BLocal/COUNTED* Result=781576    MLocal/COUNTED  Result=781567    QLocal/COUNTED  Result=781567    
-ROW* 196 Result=2168454   BLocal/COUNTED  Result=2168454   MLocal/COUNTED* Result=1343642   QLocal/COUNTED  Result=2168454   
-ROW* 211 Result=877255    BLocal/COUNTED  Result=877255    MLocal/COUNTED* Result=877170    QLocal/COUNTED  Result=877255    
-ROW* 215 Result=1137604   BLocal/COUNTED  Result=1137604   MLocal/COUNTED* Result=1137598   QLocal/COUNTED  Result=1137604   
-ROW* 307 None             BLocal/COUNTED  Result=435906    MLocal/COUNTED  Result=108       QLocal/COUNTED  Result=10000000  
-ROW* 319 None             BLocal/COUNTED  Result=10000000  MLocal/COUNTED  Result=9334235   QLocal/COUNTED! None             
-ROW* 321 Result=2947000   BLocal/COUNTED  Result=2947000   MLocal/COUNTED* Result=2945578   QLocal/COUNTED  Result=2947000   
-ROW* 357 Result=2417361   BLocal/COUNTED  Result=2417361   MLocal/COUNTED* Result=2404778   QLocal/COUNTED  Result=2417361   
-ROW* 363 None             BLocal/COUNTED  Result=3554374   MLocal/COUNTED  Result=3554375   QLocal/COUNTED  Result=3554158   
-ROW* 364 None             BLocal/COUNTED  Result=2812308   MLocal/COUNTED  Result=2812246   QLocal/COUNTED  Result=2812304   
-ROW* 624 Result=559287    BLocal/COUNTED  Result=559287    MLocal/COUNTED* Result=559231    QLocal/COUNTED  Result=559287    
-ROW* 625 Result=45755     BLocal/COUNTED  Result=45755     MLocal/COUNTED* Result=31719     QLocal/COUNTED  Result=45755     
-ROW* 627 Result=43162     BLocal/COUNTED  Result=43162     MLocal/COUNTED* Result=42865     QLocal/COUNTED  Result=43162     
-ROW* 629 Result=55        BLocal/COUNTED  Result=55        MLocal/COUNTED* Result=53        QLocal/COUNTED  Result=55        
-ROW* 646 Result=1137604   BLocal/COUNTED  Result=1137604   MLocal/COUNTED* Result=1137598   QLocal/COUNTED  Result=1137604   
-ROW* 648 Result=1492786   BLocal/COUNTED  Result=1492786   MLocal/COUNTED* Result=1492725   QLocal/COUNTED  Result=1492786   
-ROW* 650 None             BLocal/COUNTED  Result=337245    MLocal/COUNTED  Result=224744    QLocal/COUNTED! None             
-
-Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-BLocal/COUNTED  660      9     88    239   4509 714782  23492   7806    33    15    30     3
-MLocal/COUNTED  660      1      2      7    161 601466   6352   1941    22     4     5    17
-QLocal/COUNTED  660      0      4      9     62 397866   2050   1038    29     0    29     0
+	./stats.py -v results/paths-counted-[bmq]*.tsv
+ROW* 121 Result=4126738   Blazegraph/COUNTED  Result=4126738   MilleniumDB/COUNTED* Result=4125785   QLever/COUNTED  Result=4126738   as above
+ROW* 130 Result=74693     Blazegraph/COUNTED  Result=74693     MilleniumDB/COUNTED* Result=67000     QLever/COUNTED  Result=74693     as above
+ROW* 135 Result=3318928   Blazegraph/COUNTED  Result=3318928   MilleniumDB/COUNTED* Result=3317304   QLever/COUNTED  Result=3318928   as above
+ROW* 140 Result=1061284   Blazegraph/COUNTED  Result=1061284   MilleniumDB/COUNTED* Result=1061276   QLever/COUNTED  Result=1061284   as above
+ROW* 142 None             Blazegraph/COUNTED  Result=365773    MilleniumDB/COUNTED  Result=178579    QLever/COUNTED! None             as above
+ROW* 147 Result=5859      Blazegraph/COUNTED* Result=7300      MilleniumDB/COUNTED  Result=5859      QLever/COUNTED  Result=5859      ?
+ROW* 149 Result=59351     Blazegraph/COUNTED  Result=59351     MilleniumDB/COUNTED* Result=50817     QLever/COUNTED  Result=59351     as above
+ROW* 150 Result=57758     Blazegraph/COUNTED  Result=57758     MilleniumDB/COUNTED* Result=51359     QLever/COUNTED  Result=57758     as above
+ROW* 151 None             Blazegraph/COUNTED  Result=2044803   MilleniumDB/COUNTED  Result=2044799   QLever/COUNTED  Result=2044798   as above
+ROW* 154 Result=663202    Blazegraph/COUNTED* Result=663211    MilleniumDB/COUNTED  Result=663202    QLever/COUNTED  Result=663202    as above
+ROW* 155 Result=781567    Blazegraph/COUNTED* Result=781576    MilleniumDB/COUNTED  Result=781567    QLever/COUNTED  Result=781567    as above
+ROW* 196 Result=2168454   Blazegraph/COUNTED  Result=2168454   MilleniumDB/COUNTED* Result=1343642   QLever/COUNTED  Result=2168454   as above
+ROW* 211 Result=877255    Blazegraph/COUNTED  Result=877255    MilleniumDB/COUNTED* Result=877170    QLever/COUNTED  Result=877255    as above
+ROW* 215 Result=1137604   Blazegraph/COUNTED  Result=1137604   MilleniumDB/COUNTED* Result=1137598   QLever/COUNTED  Result=1137604   as above
+ROW* 307 None             Blazegraph/COUNTED  Result=435906    MilleniumDB/COUNTED  Result=108       QLever/COUNTED  Result=10000000  as above
+ROW* 319 None             Blazegraph/COUNTED  Result=10000000  MilleniumDB/COUNTED  Result=9334235   QLever/COUNTED! None             as above
+ROW* 321 Result=2947000   Blazegraph/COUNTED  Result=2947000   MilleniumDB/COUNTED* Result=2945578   QLever/COUNTED  Result=2947000   as above
+ROW* 357 Result=2417361   Blazegraph/COUNTED  Result=2417361   MilleniumDB/COUNTED* Result=2404778   QLever/COUNTED  Result=2417361   as above
+ROW* 363 None             Blazegraph/COUNTED  Result=3554374   MilleniumDB/COUNTED  Result=3554375   QLever/COUNTED  Result=3554158   as above
+ROW* 364 None             Blazegraph/COUNTED  Result=2812308   MilleniumDB/COUNTED  Result=2812246   QLever/COUNTED  Result=2812304   as above
+ROW* 624 Result=559287    Blazegraph/COUNTED  Result=559287    MilleniumDB/COUNTED* Result=559231    QLever/COUNTED  Result=559287    as above
+ROW* 625 Result=45755     Blazegraph/COUNTED  Result=45755     MilleniumDB/COUNTED* Result=31719     QLever/COUNTED  Result=45755     as above
+ROW* 627 Result=43162     Blazegraph/COUNTED  Result=43162     MilleniumDB/COUNTED* Result=42865     QLever/COUNTED  Result=43162     as above
+ROW* 629 Result=55        Blazegraph/COUNTED  Result=55        MilleniumDB/COUNTED* Result=53        QLever/COUNTED  Result=55        as above
+ROW* 646 Result=1137604   Blazegraph/COUNTED  Result=1137604   MilleniumDB/COUNTED* Result=1137598   QLever/COUNTED  Result=1137604   as above
+ROW* 648 Result=1492786   Blazegraph/COUNTED  Result=1492786   MilleniumDB/COUNTED* Result=1492725   QLever/COUNTED  Result=1492786   as above
+ROW* 650 None             Blazegraph/COUNTED  Result=337245    MilleniumDB/COUNTED  Result=224744    QLever/COUNTED! None             as above
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/COUNTED  660     14     90    268   4769 654743  23206   7910    33    15    30     3
+MilleniumDB/COUNTED 660      1      2      7    162 601491   6341   1938    22     4     5    17
+QLever/COUNTED      660      0      2      6     59 376559   1622   1037    29     0    29     0
 Number of queries with different non-error, non-suspect results:  27
+	No difference from above
 
-	./benchmark.py --nodups --engine=BLocal wdbench/Queries/paths.text | tee results/paths-blocal-nodups.tsv
-	./benchmark.py --nodups --engine=MLocal wdbench/Queries/paths.text | tee results/paths-mlocal-nodups.tsv
-	./benchmark.py --nodups --engine=QLocal wdbench/Queries/paths.text | tee results/paths-qlocal-nodups.tsv
-	./benchmark.py --nodups --engine=VLocal wdbench/Queries/paths.text | tee results/paths-vlocal-nodups.tsv
-	./stats.py results/paths-?local-nodups.tsv
-Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-BLocal/NODUPS   660     17    100    331   6996 630614  26627   9816    73    12    33    40
-MLocal/NODUPS   660      1      3     30    779 602388   8485   3195     6     4     5     1
-QLocal/NODUPS   660      0      6     36    579 600914   7567   2980    36     2    35     1
-VLocal/NODUPS   660      1     11    113   2020 656202   6094   3356   163     2    52   111
-Number of queries with different non-error, non-suspect results:  55
-	./stats.py -v results/paths-[bmq]local-nodups.tsv
-ROW*  63 Result=          BLocal/NODUPS* Count= 3         MLocal/NODUPS  Result=          QLocal/NODUPS  Result=          
-ROW* 119 Count= 10000000  BLocal/NODUPS* Count= 4747683   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 120 Count= 4078466   BLocal/NODUPS* Count= 4071157   MLocal/NODUPS  Count= 4078466   QLocal/NODUPS  Count= 4078466   
-ROW* 121 Count= 4125785   BLocal/NODUPS* Count= 2020540   MLocal/NODUPS  Count= 4125785   QLocal/NODUPS  Count= 4125785   
-ROW* 124 Count= 10000000  BLocal/NODUPS* Count= 6485834   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 135 Count= 3317304   BLocal/NODUPS* Count= 2998776   MLocal/NODUPS  Count= 3317304   QLocal/NODUPS  Count= 3317304   
-ROW* 136 Count= 4875760   BLocal/NODUPS* Count= 3669107   MLocal/NODUPS  Count= 4875760   QLocal/NODUPS  Count= 4875760   
-ROW* 142 None             BLocal/NODUPS  Count= 267643    MLocal/NODUPS  Count= 176503    QLocal/NODUPS! None             
-ROW* 144 Count= 10000000  BLocal/NODUPS* Count= 7238128   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 151 Count= 2044799   BLocal/NODUPS  Count= 2044799   MLocal/NODUPS  Count= 2044799   QLocal/NODUPS* Count= 2044794   
-ROW* 156 Count= 10000000  BLocal/NODUPS* Count= 4153904   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 186 Count= 10000000  BLocal/NODUPS* Count= 6324622   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 197 None             BLocal/NODUPS  Count= 5836588   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS! None             
-ROW* 212 Count= 10000000  BLocal/NODUPS* Count= 2323303   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 214 Count= 1292603   BLocal/NODUPS* Count= 986326    MLocal/NODUPS  Count= 1292603   QLocal/NODUPS  Count= 1292603   
-ROW* 228 Count= 4875760   BLocal/NODUPS* Count= 4645437   MLocal/NODUPS  Count= 4875760   QLocal/NODUPS  Count= 4875760   
-ROW* 232 Count= 10000000  BLocal/NODUPS* Count= 7711856   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 307 Count= 435906    BLocal/NODUPS  Count= 435906    MLocal/NODUPS* Count= 108       QLocal/NODUPS  Count= 435906    
-ROW* 308 None             BLocal/NODUPS  Count= 2271711   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS! None             
-ROW* 317 Count= 10000000  BLocal/NODUPS* Count= 4175064   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 319 None             BLocal/NODUPS  Count= 4635756   MLocal/NODUPS  Count= 9334235   QLocal/NODUPS! None             
-ROW* 347 Count= 3881360   BLocal/NODUPS* Count= 2653767   MLocal/NODUPS  Count= 3881360   QLocal/NODUPS  Count= 3881360   
-ROW* 349 Count= 3886978   BLocal/NODUPS* Count= 2867902   MLocal/NODUPS  Count= 3886978   QLocal/NODUPS  Count= 3886978   
-ROW* 352 None             BLocal/NODUPS  Count= 4057200   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS! None             
-ROW* 358 Count= 10000000  BLocal/NODUPS* Count= 6963656   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 363 None             BLocal/NODUPS  Count= 2061977   MLocal/NODUPS  Count= 3554277   QLocal/NODUPS  Count= 3553985   
-ROW* 364 None             BLocal/NODUPS  Count= 1993326   MLocal/NODUPS  Count= 2812246   QLocal/NODUPS  Count= 2812242   
-ROW* 422 Count= 10000000  BLocal/NODUPS* Count= 8729480   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 488 Count= 10000000  BLocal/NODUPS* Count= 9022401   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 491 Count= 7787072   BLocal/NODUPS* Count= 5536320   MLocal/NODUPS  Count= 7787072   QLocal/NODUPS  Count= 7787072   
-ROW* 514 Count= 7492877   BLocal/NODUPS* Count= 6150714   MLocal/NODUPS  Count= 7492877   QLocal/NODUPS  Count= 7492877   
-ROW* 515 Count= 10000000  BLocal/NODUPS* Count= 7923395   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 522 Count= 10000000  BLocal/NODUPS* Count= 4622006   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 540 Count= 10000000  BLocal/NODUPS* Count= 8215548   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 545 Count= 10000000  BLocal/NODUPS* Count= 6071646   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 557 Count= 10000000  BLocal/NODUPS* Count= 7454290   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 570 Count= 10000000  BLocal/NODUPS* Count= 6347488   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 573 Count= 7904174   BLocal/NODUPS* Count= 5257214   MLocal/NODUPS  Count= 7904174   QLocal/NODUPS  Count= 7904174   
-ROW* 582 Count= 5889159   BLocal/NODUPS* Count= 5008727   MLocal/NODUPS  Count= 5889159   QLocal/NODUPS  Count= 5889159   
-ROW* 584 Count= 7302960   BLocal/NODUPS* Count= 4705541   MLocal/NODUPS  Count= 7302960   QLocal/NODUPS  Count= 7302960   
-ROW* 585 Count= 6455803   BLocal/NODUPS* Count= 5588212   MLocal/NODUPS  Count= 6455803   QLocal/NODUPS  Count= 6455803   
-ROW* 605 Count= 6451586   BLocal/NODUPS* Count= 5531615   MLocal/NODUPS  Count= 6451586   QLocal/NODUPS  Count= 6451586   
-ROW* 621 Count= 10000000  BLocal/NODUPS* Count= 6512823   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 623 Count= 10000000  BLocal/NODUPS* Count= 4612736   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 630 Count= 10000000  BLocal/NODUPS* Count= 8629440   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 633 None             BLocal/NODUPS  Count= 4753894   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS! None             
-ROW* 635 Count= 10000000  BLocal/NODUPS* Count= 5070875   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 647 Count= 10000000  BLocal/NODUPS* Count= 2236822   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-ROW* 650 None             BLocal/NODUPS  Count= 337245    MLocal/NODUPS  Count= 224744    QLocal/NODUPS! None             
-ROW* 654 Count= 3886015   BLocal/NODUPS* Count= 3886014   MLocal/NODUPS  Count= 3886015   QLocal/NODUPS  Count= 3886015   
-ROW* 660 Count= 10000000  BLocal/NODUPS* Count= 2700001   MLocal/NODUPS  Count= 10000000  QLocal/NODUPS  Count= 10000000  
-
-Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-BLocal/NODUPS   660     17    100    331   6996 630614  26627   9816    73    12    33    40
-MLocal/NODUPS   660      1      3     30    779 602388   8485   3195     6     4     5     1
-QLocal/NODUPS   660      0      6     36    579 600914   7567   2980    36     2    35     1
-Number of queries with different non-error, non-suspect results:  51
+	./benchmark.py --nodups --engine=Blazegraph wdbench/Queries/paths.text | tee results/paths-nodups-blazegraph.tsv
+	./benchmark.py --nodups --engine=MilleniumDB wdbench/Queries/paths.text | tee results/paths-nodups-milleniumdb.tsv
+	./benchmark.py --nodups --engine=QLever wdbench/Queries/paths.text | tee results/paths-nodups-qlever.tsv
+	./benchmark.py --nodups --engine=Virtuoso wdbench/Queries/paths.text | tee results/paths-nodups-virtuoso.tsv
+	./stats.py results/paths-nodups-*.tsv
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Virtuoso/NODUPS     660      1     11    114   2008 654737   6081   3338   163     2    52   111
+QLever/NODUPS       660      0      3     27    356 600878   7069   2616    38     2    35     3
+MilleniumDB/NODUPS  660      1      3     32    888 602286   8457   3151     6     4     5     1
+Blazegraph/NODUPS   660     19     98    327   6953 707903  26716   9759    78    12    77     1
+Number of queries with different non-error, non-suspect results:  12
+./stats.py -v results/paths-nodups-[bmq]*.tsv
+ROW*  63 None             Blazegraph/NODUPS  Count= 3         MilleniumDB/NODUPS  Result=          QLever/NODUPS  Count= 0         QLever bug in tab-separated-values output
+ROW*  97 Result=          Blazegraph/NODUPS  Result=          MilleniumDB/NODUPS  Result=          QLever/NODUPS* Count= 0         QLever bug in tab-separated-values output
+ROW*  98 Result=          Blazegraph/NODUPS  Result=          MilleniumDB/NODUPS  Result=          QLever/NODUPS* Count= 0         QLever bug in tab-separated-values output
+ROW* 142 None             Blazegraph/NODUPS  Count= 267643    MilleniumDB/NODUPS  Count= 176503    QLever/NODUPS! None             Empty path
+ROW* 151 Count= 2044799   Blazegraph/NODUPS  Count= 2044799   MilleniumDB/NODUPS  Count= 2044799   QLever/NODUPS* Count= 2044794   Alternatives
+ROW* 307 Count= 435906    Blazegraph/NODUPS  Count= 435906    MilleniumDB/NODUPS* Count= 108       QLever/NODUPS  Count= 435906    ?
+ROW* 363 None             Blazegraph/NODUPS! Count= 2065284   MilleniumDB/NODUPS  Count= 3554277   QLever/NODUPS  Count= 3553985   Points
+ROW* 364 None             Blazegraph/NODUPS! Count= 2021879   MilleniumDB/NODUPS  Count= 2812246   QLever/NODUPS  Count= 2812242   Numbers
+ROW* 650 None             Blazegraph/NODUPS  Count= 337245    MilleniumDB/NODUPS  Count= 224744    QLever/NODUPS! None             Alternatives
+ROW* 654 Count= 3886015   Blazegraph/NODUPS* Count= 3886014   MilleniumDB/NODUPS  Count= 3886015   QLever/NODUPS  Count= 3886015   ?
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/NODUPS   660     19     98    327   6953 707903  26716   9759    78    12    77     1
+MilleniumDB/NODUPS  660      1      3     32    888 602286   8457   3151     6     4     5     1
+QLever/NODUPS       660      0      3     27    356 600878   7069   2616    38     2    35     3
+Number of queries with different non-error, non-suspect results:  10
+	No difference from above
 
 	./wdbench-expand.py wdbench/Queries/c2rpqs.txt 10000000
+	./benchmark.py --engine=Blazegraph wdbench/Queries/c2rpqs.text | tee results/c2rpqs-norm-blazegraph.tsv
+	./benchmark.py --engine=MilleniumDB wdbench/Queries/c2rpqs.text | tee results/c2rpqs-norm-milleniumdb.tsv
+	./benchmark.py --engine=QLever wdbench/Queries/c2rpqs.text | tee results/c2rpqs-norm-qlever.tsv
+	./benchmark.py --engine=Virtuoso wdbench/Queries/c2rpqs.text | tee results/c2rpqs-norm-virtuoso.tsv
+	./stats.py results/c2rpqs-norm-*.tsv
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          539     36    112   5354  56620 864181  96114  20266    90    54    69    21
+MilleniumDB         539      1     20   2786  30732 601075  85019  16870    62    58    58     4
+QLever              539      1      7     69   2213 594223   4942   2525    13     0     5     8
+Virtuoso            539      1     48    610   3950 602763  18509   5996   347     9    29   318
+Number of queries with different non-error, non-suspect results: 239
+	./stats.py -v results/c2rpqs-norm-[bmq]*.tsv
+ROW*  91 Count= 43162     Blazegraph  Count= 43162     MilleniumDB* Count= 42865     QLever  Count= 43162     Alternatives
+ROW* 123 Count= 16        Blazegraph* Count= 23        MilleniumDB  Count= 16        QLever  Count= 16        
+ROW* 125 Count= 248       Blazegraph* Count= 925       MilleniumDB  Count= 248       QLever  Count= 248       
+ROW* 127 None             Blazegraph  Count= 15        MilleniumDB! Count= 0         QLever  Count= 13        ?
+ROW* 129 Count= 234       Blazegraph* Count= 997       MilleniumDB  Count= 234       QLever  Count= 234       
+ROW* 132 Count= 243       Blazegraph* Count= 1087      MilleniumDB  Count= 243       QLever  Count= 243       
+ROW* 133 Count= 278       Blazegraph* Count= 1233      MilleniumDB  Count= 278       QLever  Count= 278       
+ROW* 169 Count= 31047     Blazegraph  Count= 31047     MilleniumDB  Count= 31047     QLever* Count= 31044     
+ROW* 172 Count= 30667     Blazegraph  Count= 30667     MilleniumDB  Count= 30667     QLever* Count= 30664     
+ROW* 195 Count= 210       Blazegraph* Count= 5230      MilleniumDB  Count= 210       QLever  Count= 210       
+ROW* 203 Count= 873454    Blazegraph  Count= 873454    MilleniumDB  Count= 873454    QLever* Count= 873448    
+ROW* 206 None             Blazegraph  Count= 3334      MilleniumDB! Count= 8         QLever  Count= 292       
+ROW* 207 None             Blazegraph  Count= 7554      MilleniumDB! Count= 13        QLever  Count= 256       
+ROW* 208 None             Blazegraph  Count= 367       MilleniumDB! Count= 4         QLever  Count= 180       
+ROW* 209 None             Blazegraph  Count= 1633      MilleniumDB! Count= 8         QLever  Count= 79        
+ROW* 210 Count= 71        Blazegraph* Count= 773       MilleniumDB  Count= 71        QLever  Count= 71        
+ROW* 211 Count= 208       Blazegraph* Count= 1844      MilleniumDB  Count= 208       QLever  Count= 208       
+ROW* 212 None             Blazegraph  Count= 3721      MilleniumDB! Count= 4         QLever  Count= 440       
+ROW* 213 Count= 229       Blazegraph* Count= 11127     MilleniumDB  Count= 229       QLever  Count= 229       
+ROW* 214 Count= 46        Blazegraph* Count= 446       MilleniumDB  Count= 46        QLever  Count= 46        
+ROW* 217 Count= 188       Blazegraph* Count= 4797      MilleniumDB  Count= 188       QLever  Count= 188       
+ROW* 219 Count= 40        Blazegraph* Count= 168       MilleniumDB  Count= 40        QLever  Count= 40        
+ROW* 226 Count= 229       Blazegraph* Count= 1432      MilleniumDB  Count= 229       QLever  Count= 229       
+ROW* 257 Count= 46329     Blazegraph  Count= 46329     MilleniumDB  Count= 46329     QLever* Count= 46326     
+ROW* 278 Count= 87        Blazegraph* Count= 450       MilleniumDB  Count= 87        QLever  Count= 87        
+ROW* 292 Count= 4513      Blazegraph* Count= 3047915   MilleniumDB  Count= 4513      QLever  Count= 4513      
+ROW* 297 None             Blazegraph  Count= 27787     MilleniumDB! Count= 43        QLever  Count= 166       
+ROW* 299 None             Blazegraph  Count= 429361    MilleniumDB! Count= 2386      QLever  Count= 2451      
+ROW* 301 None             Blazegraph  Count= 28571     MilleniumDB! Count= 150       QLever  Count= 165       
+ROW* 306 None             Blazegraph  Count= 1837766   MilleniumDB  Count= 1837768   QLever  Count= 1837712   
+ROW* 307 None             Blazegraph  Count= 957383    MilleniumDB  Count= 957387    QLever  Count= 957145    
+ROW* 319 Count= 155237    Blazegraph  Count= 155237    MilleniumDB  Count= 155237    QLever* Count= 155234    
+ROW* 334 Count= 3070      Blazegraph* Count= 14409     MilleniumDB  Count= 3070      QLever  Count= 3070      
+ROW* 429 Count= 2         Blazegraph* Count= 4         MilleniumDB  Count= 2         QLever  Count= 2         
+ROW* 447 Count= 2750      Blazegraph* Count= 2841      MilleniumDB  Count= 2750      QLever  Count= 2750      
+ROW* 470 Count= 40        Blazegraph* Count= 421       MilleniumDB  Count= 40        QLever  Count= 40        
+ROW* 472 Count= 56        Blazegraph* Count= 339       MilleniumDB  Count= 56        QLever  Count= 56        
+ROW* 490 None             Blazegraph  Count= 10000000  MilleniumDB! Count= 42962     QLever  Count= 321306    
+ROW* 502 Count= 6632111   Blazegraph  Count= 6632111   MilleniumDB* Count= 6632003   QLever  Count= 6632111   
+ROW* 508 Count= 31510     Blazegraph  Count= 31510     MilleniumDB  Count= 31510     QLever* Count= 31501     
+ROW* 511 Count= 1525      Blazegraph  Count= 1525      MilleniumDB  Count= 1525      QLever* Count= 1524      
+ROW* 514 Count= 520986    Blazegraph  Count= 520986    MilleniumDB  Count= 520986    QLever* Count= 520861    
+ROW* 515 None             Blazegraph  Count= 126816    MilleniumDB  Count= 126818    QLever  Count= 126796    
+ROW* 516 None             Blazegraph  Count= 5846102   MilleniumDB  Count= 5846114   QLever  Count= 5845659   
+ROW* 518 Count= 17        Blazegraph* Count= 185       MilleniumDB  Count= 17        QLever  Count= 17        
+ROW* 521 None             Blazegraph  Count= 35171     MilleniumDB  Count= 35172     QLever  Count= 35165     
+ROW* 526 Count= 1424010   Blazegraph  Count= 1424010   MilleniumDB* Count= 1408397   QLever  Count= 1424010   
+ROW* 528 Count= 49475     Blazegraph  Count= 49475     MilleniumDB* Count= 16095     QLever  Count= 49475     
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          539     36    112   5354  56620 864181  96114  20266    90    54    69    21
+MilleniumDB         539      1     20   2786  30732 601075  85019  16870    62    58    58     4
+QLever              539      1      7     69   2213 594223   4942   2525    13     0     5     8
+Number of queries with different non-error, non-suspect results:  48
 
+	QLever is over three times faster than Virtuoso, which is about five times faster than Blazegraph and MilleniumDB.
+	Blazegraph and MilleniumDB and time out on many queries.
+
+	Blazegraph runs out of memory on some queries.
+	MilleniumDB crashed twice, but restarting near the crash allowed it to continue.
+	Virtuoso runs out of internal memory several times and refuses to execute some queries because of excessive estimated execution times
+	QLever refuses to evaluate a few queries because of empty path issue or unused vocabulary and runs out of space on a couple more.
+
+	Virtuoso diverged on over half the results when duplicates were not removed, mostly because of duplicates in transitive closures.
+	With duplicates removed ...?
+TODO analyze divergences
+
+
+
+TODO	./benchmark.py --count --engine=Blazegraph wdbench/Queries/c2rpqs.text | tee results/c2rpqs-counted-blazegraph.tsv
+TODO	./benchmark.py --count --engine=MilleniumDB wdbench/Queries/c2rpqs.text | tee results/c2rpqs-counted-milleniumdb.tsv
+	./benchmark.py --count --engine=QLever wdbench/Queries/c2rpqs.text | tee results/c2rpqs-counted-qlever.tsv
+IP	./benchmark.py --count --engine=Virtuoso wdbench/Queries/c2rpqs.text | tee results/c2rpqs-counted-virtuoso.tsv
+
+TODO	./benchmark.py --nodups --engine=Blazegraph wdbench/Queries/c2rpqs.text | tee results/c2rpqs-nodups-blazegraph.tsv
+TODO	./benchmark.py --nodups --engine=MilleniumDB wdbench/Queries/c2rpqs.text | tee results/c2rpqs-nodups-milleniumdb.tsv
+TODO	./benchmark.py --nodups --engine=QLever wdbench/Queries/c2rpqs.text | tee results/c2rpqs-nodups-qlever.tsv
+TODO	./benchmark.py --nodups --engine=Virtuoso wdbench/Queries/c2rpqs.text | tee results/c2rpqs-nodups-virtuoso.tsv
 
 
 4/ wdqs/wikidata-queries.tsv	Wikidata queries gathered from WDQS
-	./benchmark.py --engine=MDB wdqs/wikidata-queries.tsv | tee results/wdqs-mdb.tsv
-	./benchmark.py --engine=VOS wdqs/wikidata-queries.tsv | tee results/wdqs-vos.tsv
-	./benchmark.py --engine=WDQS wdqs/wikidata-queries.tsv | tee results/wdqs-wdqs.tsv
-	./benchmark.py --engine=QLever wdqs/wikidata-queries.tsv | tee results/wdqs-qlever.tsv
-	./benchmark.py --engine=VLocal wdqs/wikidata-queries.tsv | tee results/wdqs-vlocal.tsv
 
-	./benchmark.py --engine=BLocal wdqs/wikidata-queries.tsv | tee results/wdqs-blocal.tsv
-	./benchmark.py --engine=MLocal wdqs/wikidata-queries.tsv | tee results/wdqs-mlocal.tsv
-	./benchmark.py --engine=QLocal wdqs/wikidata-queries.tsv | tee results/wdqs-qlocal.tsv
-	./benchmark.py --engine=QLocal wdqs/wikidata-queries.tsv | tee results/wdqs-qlocal-fast.tsv (ON FAST DISK) 
-./stats.py -v results/wdqs-?local.tsv
-ROW*   5 Count= 32963     BLocal  Count= 32963     MLocal  Count= 32963     QLocal  Count= 32963     VLocal* Count= 33209     
-ROW*   6 Result=11463628  BLocal  Result=11463628  MLocal* Result=11463627  QLocal  Result=11463628  VLocal  Result=11463628  
-ROW*   9 Count= 21253     BLocal* Count= 0         MLocal  Count= 21253     QLocal  Count= 21253     VLocal  Count= 21253     
-ROW*  10 Count= 35648     BLocal* Count= 0         MLocal  Count= 35648     QLocal  Count= 35648     VLocal  Count= 35648     
-ROW*  15 Count= 9026700   BLocal* Count= 2251079   MLocal  Count= 9026700   QLocal  Count= 9026700   VLocal* Count= 1048576   
-ROW*  26 Count= 24        BLocal  Count= 24        MLocal  Count= 24        QLocal  Count= 24        VLocal* Count= 68        
-ROW*  35 Count= 100       BLocal* Count= 0         MLocal  Count= 100       QLocal  Count= 100       VLocal  Count= 100       
-ROW*  36 Count= 1350      BLocal  Count= 1350      MLocal  Count= 1350      QLocal* Count= 1354      VLocal  Count= 1350      
-ROW*  37 Count= 98        BLocal  Count= 98        MLocal  Count= 98        QLocal  Count= 98        VLocal* Count= 94        
-ROW*  41 Count= 100       BLocal! None             MLocal* Count= 0         QLocal  Count= 100       VLocal  Count= 100       
-ROW*  45 Count= 481       BLocal  Count= 481       MLocal  Count= 481       QLocal  Count= 481       VLocal* Count= 484       
-ROW*  53 Count= 50        BLocal* Count= 0         MLocal  Count= 50        QLocal  Count= 50        VLocal  Count= 50        
-ROW*  56 Count= 21615     BLocal* Count= 21614     MLocal  Count= 21615     QLocal* Count= 21613     VLocal  Count= 21615     
-ROW*  59 Count= 298       BLocal  Count= 298       MLocal! Count= 38        QLocal* Count= 297       VLocal  Count= 298       
-ROW*  60 Count= 27        BLocal  Count= 27        MLocal* Count= 0         QLocal  Count= 27        VLocal  Count= 27        
-ROW*  63 Count= 240       BLocal  Count= 240       MLocal* Count= 0         QLocal  Count= 240       VLocal  Count= 240       
-ROW*  67 Count= 89829     BLocal  Count= 89829     MLocal  Count= 89829     QLocal* Count= 89809     VLocal  Count= 89829     
-ROW*  79 Count= 2799      BLocal  Count= 2799      MLocal* Count= 0         QLocal  Count= 2799      VLocal* Count= 7130      
-ROW*  80 Count= 89        BLocal  Count= 89        MLocal  Count= 89        QLocal  Count= 89        VLocal* Count= 95        
-ROW*  82 None             BLocal! None             MLocal! None             QLocal  Count= 85        VLocal  Count= 82        
-ROW*  84 Count= 2506      BLocal  Count= 2506      MLocal  Count= 2506      QLocal* Count= 2487      VLocal* Count= 2581      
-ROW*  85 Count= 2506      BLocal  Count= 2506      MLocal  Count= 2506      QLocal* Count= 2487      VLocal* Count= 2581      
-ROW*  88 Count= 48        BLocal! None             MLocal* Count= 0         QLocal  Count= 48        VLocal  Count= 48        
-ROW*  89 Count= 93917     BLocal* Count= 93915     MLocal  Count= 93917     QLocal* Count= 93894     VLocal  Count= 93917     
-ROW*  93 Count= 125       BLocal  Count= 125       MLocal* Count= 0         QLocal  Count= 125       VLocal  Count= 125       
-ROW*  94 Count= 16        BLocal  Count= 16        MLocal* Count= 0         QLocal  Count= 16        VLocal  Count= 16        
-ROW*  97 Count= 42556     BLocal  Count= 42556     MLocal* Count= 42558     QLocal  Count= 42556     VLocal! None             
-ROW*  98 Count= 3146      BLocal! None             MLocal* Count= 0         QLocal  Count= 3146      VLocal  Count= 3146      
-ROW* 121 Count= 11120     BLocal  Count= 11120     MLocal  Count= 11120     QLocal* Count= 11119     VLocal  Count= 11120     
-ROW* 122 Count= 0         BLocal  Count= 0         MLocal  Count= 0         QLocal* Count= 1237      VLocal  Count= 0         
-ROW* 140 Count= 113       BLocal  Count= 113       MLocal  Count= 113       QLocal  Count= 113       VLocal* Count= 2943      
-ROW* 141 Count= 4738      BLocal  Count= 4738      MLocal  Count= 4738      QLocal  Count= 4738      VLocal* Count= 4882      
-ROW* 143 Count= 2454      BLocal  Count= 2454      MLocal  Count= 2454      QLocal  Count= 2454      VLocal* Count= 2697      
-ROW* 173 None             BLocal! None             MLocal! None             QLocal  Count= 2979      VLocal  Count= 3060      
-ROW* 177 Count= 3393      BLocal* Count= 0         MLocal  Count= 3393      QLocal  Count= 3393      VLocal  Count= 3393      
-ROW* 181 Count= 10        BLocal  Count= 10        MLocal  Count= 10        QLocal  Count= 10        VLocal* Count= 14        
-ROW* 182 Count= 23177695  BLocal* Count= 2826971   MLocal  Count= 23177695  QLocal  Count= 23177695  VLocal* Count= 1048576   
-ROW* 183 Result=75814668  BLocal! None             MLocal* Result=0         QLocal  Result=75814668  VLocal  Result=75814668  
-ROW* 190 Count= 100       BLocal* Count= 5674      MLocal  Count= 100       QLocal  Count= 100       VLocal  Count= 100       
-ROW* 199 Count= 2063      BLocal  Count= 2063      MLocal  Count= 2063      QLocal  Count= 2063      VLocal* Count= 13530     
-ROW* 205 Count= 1472      BLocal  Count= 1472      MLocal  Count= 1472      QLocal* Count= 1470      VLocal  Count= 1472      
-ROW* 209 Count= 0         BLocal* Count= 2804      MLocal  Count= 0         QLocal  Count= 0         VLocal* Count= 5677      
-ROW* 210 None             BLocal  Count= 0         MLocal! None             QLocal  Count= 2835      VLocal  Count= 2889      
-ROW* 214 Count= 193       BLocal  Count= 193       MLocal  Count= 193       QLocal* Count= 0         VLocal* Count= 194       
-ROW* 220 None             BLocal! None             MLocal! None             QLocal  Count= 85        VLocal  Count= 1437      
-ROW* 221 Count= 62        BLocal  Count= 62        MLocal  Count= 62        QLocal  Count= 62        VLocal* Count= 63        
-ROW* 222 Count= 1147      BLocal  Count= 1147      MLocal  Count= 1147      QLocal  Count= 1147      VLocal* Count= 7541      
-ROW* 226 None             BLocal! None             MLocal! Count= 0         QLocal  Count= 773078    VLocal  Count= 773084    
-ROW* 227 Count= 32038     BLocal* Count= 0         MLocal  Count= 32038     QLocal  Count= 32038     VLocal  Count= 32038     
-ROW* 229 Count= 117158    BLocal  Count= 117158    MLocal* Count= 117085    QLocal  Count= 117158    VLocal  Count= 117158    
-ROW* 235 Count= 176       BLocal* Count= 0         MLocal  Count= 176       QLocal  Count= 176       VLocal  Count= 176       
-ROW* 236 Count= 42535     BLocal* Count= 0         MLocal  Count= 42535     QLocal  Count= 42535     VLocal  Count= 42535     
-ROW* 238 Count= 3434      BLocal  Count= 3434      MLocal! None             QLocal  Count= 3434      VLocal* Count= 3443      
-ROW* 244 None             BLocal  Count= 136       MLocal  Count= 0         QLocal  Count= 0         VLocal  Count= 136       
-ROW* 247 Count= 27291     BLocal  Count= 27291     MLocal  Count= 27291     QLocal* Count= 27289     VLocal  Count= 27291     
-ROW* 252 Count= 298       BLocal  Count= 298       MLocal  Count= 298       QLocal  Count= 298       VLocal* Count= 1222      
-ROW* 253 Count= 22        BLocal  Count= 22        MLocal! Count= 13        QLocal  Count= 22        VLocal* Count= 167       
-ROW* 261 Count= 359       BLocal  Count= 359       MLocal! None             QLocal  Count= 359       VLocal* Count= 337       
-ROW* 265 Count= 100       BLocal  Count= 100       MLocal* Count= 0         QLocal  Count= 100       VLocal  Count= 100       
-ROW* 270 Count= 2127631   BLocal* Count= 2127628   MLocal  Count= 2127631   QLocal  Count= 2127631   VLocal* Count= 1048576   
-ROW* 271 Count= 2127631   BLocal* Count= 2127628   MLocal  Count= 2127631   QLocal  Count= 2127631   VLocal* Count= 1048576   
-ROW* 273 Count= 329       BLocal  Count= 329       MLocal  Count= 329       QLocal  Count= 329       VLocal* Count= 367       
-ROW* 278 Count= 598       BLocal  Count= 598       MLocal! None             QLocal  Count= 598       VLocal* Count= 650       
-ROW* 284 Count= 241561    BLocal! None             MLocal  Count= 241561    QLocal  Count= 241561    VLocal* Count= 328109    
-ROW* 288 Count= 1807698   BLocal* Count= 1060197   MLocal  Count= 1807698   QLocal  Count= 1807698   VLocal! None             
-ROW* 290 Count= 42620343  BLocal* Count= 1141098   MLocal  Count= 42620343  QLocal  Count= 42620343  VLocal* Count= 1048576   
-ROW* 292 Count= 238251    BLocal* Count= 229775    MLocal  Count= 238251    QLocal  Count= 238251    VLocal  Count= 238251    
-ROW* 297 Count= 1825      BLocal* Count= 666       MLocal! Count= 28        QLocal  Count= 1825      VLocal  Count= 1825      
+	./benchmark.py --engine=Blazegraph wdqs/wikidata-queries.tsv | tee results/wdqs-norm-blazegraph.tsv
+	./benchmark.py --engine=MilleniumDB wdqs/wikidata-queries.tsv | tee results/wdqs-norm-milleniumdb.tsv
+	./benchmark.py --engine=QLever wdqs/wikidata-queries.tsv | tee results/wdqs-norm-qlever.tsv
+	./benchmark.py --engine=Virtuoso wdqs/wikidata-queries.tsv | tee results/wdqs-norm-virtuoso.tsvo
+	./stats.py -v results/wdqs-norm-*.tsv
+ROW*   5 Count= 32963     Blazegraph  Count= 32963     MilleniumDB  Count= 32963     QLever  Count= 32963     Virtuoso* Count= 33209     Virtuoso bug in transitive closure
+ROW*   6 Result=11463628  Blazegraph  Result=11463628  MilleniumDB* Result=11463627  QLever  Result=11463628  Virtuoso  Result=11463628  MilleniumDB bug with embedded queries
+ROW*   9 Count= 21253     Blazegraph* Count= 0         MilleniumDB  Count= 21253     QLever  Count= 21253     Virtuoso  Count= 21253     Blazegraph loading removes sitelinks 
+ROW*  10 Count= 35648     Blazegraph* Count= 0         MilleniumDB  Count= 35648     QLever  Count= 35648     Virtuoso  Count= 35648     Blazegraph loading removes sitelinks 
+ROW*  26 Count= 24        Blazegraph  Count= 24        MilleniumDB  Count= 24        QLever  Count= 24        Virtuoso* Count= 70        Virtuoso bug in transitive closure
+ROW*  35 Count= 100       Blazegraph* Count= 0         MilleniumDB  Count= 100       QLever  Count= 100       Virtuoso  Count= 100       Blazegraph loading removes sitelinks 
+ROW*  36 Count= 1350      Blazegraph  Count= 1350      MilleniumDB  Count= 1350      QLever* Count= 1354      Virtuoso  Count= 1350      ?
+ROW*  37 Count= 98        Blazegraph  Count= 98        MilleniumDB  Count= 98        QLever  Count= 98        Virtuoso* Count= 94        ?
+ROW*  41 Count= 100       Blazegraph! None             MilleniumDB* Count= 0         QLever  Count= 100       Virtuoso  Count= 100       MilleniumDB bug with embedded queries
+ROW*  45 Count= 481       Blazegraph  Count= 481       MilleniumDB  Count= 481       QLever  Count= 481       Virtuoso* Count= 484       Virtuoso bug in transitive closure
+ROW*  53 Count= 50        Blazegraph* Count= 0         MilleniumDB  Count= 50        QLever  Count= 50        Virtuoso  Count= 50        Blazegraph loading removes statements
+ROW*  56 Count= 21615     Blazegraph* Count= 21614     MilleniumDB  Count= 21615     QLever* Count= 21613     Virtuoso  Count= 21615     GeoSPARQL
+ROW*  59 Count= 298       Blazegraph  Count= 298       MilleniumDB! Count= 37        QLever* Count= 297       Virtuoso  Count= 298       GeoSPARQL
+ROW*  60 Count= 27        Blazegraph  Count= 27        MilleniumDB* Count= 0         QLever  Count= 27        Virtuoso  Count= 27        MilleniumDB bug with embedded queries
+ROW*  63 Count= 240       Blazegraph  Count= 240       MilleniumDB* Count= 0         QLever  Count= 240       Virtuoso  Count= 240       MilleniumDB bug with embedded queries
+ROW*  67 Count= 89829     Blazegraph  Count= 89829     MilleniumDB  Count= 89829     QLever* Count= 89809     Virtuoso  Count= 89829     GeoSPARQL
+ROW*  79 Count= 2799      Blazegraph  Count= 2799      MilleniumDB* Count= 0         QLever  Count= 2799      Virtuoso* Count= 7130      MilleniumDB bug with embedded queries
+ROW*  80 Count= 89        Blazegraph  Count= 89        MilleniumDB  Count= 89        QLever  Count= 89        Virtuoso* Count= 95        Virtuoso bug in transitive closure
+ROW*  82 None             Blazegraph! None             MilleniumDB! None             QLever  Count= 85        Virtuoso  Count= 82        GeoSPARQL
+ROW*  84 Count= 2506      Blazegraph  Count= 2506      MilleniumDB  Count= 2506      QLever* Count= 2487      Virtuoso* Count= 2581      GeoSPARQL
+ROW*  85 Count= 2506      Blazegraph  Count= 2506      MilleniumDB  Count= 2506      QLever* Count= 2487      Virtuoso* Count= 2581      GeoSPARQL
+ROW*  88 Count= 48        Blazegraph! None             MilleniumDB* Count= 0         QLever  Count= 48        Virtuoso  Count= 48        MilleniumDB bug with embedded queries
+ROW*  89 Count= 93917     Blazegraph* Count= 93915     MilleniumDB  Count= 93917     QLever* Count= 93894     Virtuoso  Count= 93917     GeoSPARQL
+ROW*  93 Count= 125       Blazegraph  Count= 125       MilleniumDB* Count= 0         QLever  Count= 125       Virtuoso  Count= 125       MilleniumDB bug with embedded queries
+ROW*  94 Count= 16        Blazegraph  Count= 16        MilleniumDB* Count= 0         QLever  Count= 16        Virtuoso  Count= 16        MilleniumDB bug with embedded queries
+ROW*  97 Count= 42556     Blazegraph  Count= 42556     MilleniumDB* Count= 42558     QLever  Count= 42556     Virtuoso! None             GeoSPARQL
+ROW*  98 Count= 3146      Blazegraph! None             MilleniumDB* Count= 0         QLever  Count= 3146      Virtuoso  Count= 3146      MilleniumDB bug with embedded queries
+ROW* 121 Count= 11120     Blazegraph  Count= 11120     MilleniumDB  Count= 11120     QLever* Count= 11119     Virtuoso  Count= 11120     GeoSPARQL
+ROW* 122 Count= 0         Blazegraph  Count= 0         MilleniumDB  Count= 0         QLever* Count= 1237      Virtuoso  Count= 0         QLever bug with unbound variables
+ROW* 140 Count= 113       Blazegraph  Count= 113       MilleniumDB  Count= 113       QLever  Count= 113       Virtuoso* Count= 2943      filter on aggregated variable
+ROW* 141 Count= 4738      Blazegraph  Count= 4738      MilleniumDB  Count= 4738      QLever  Count= 4738      Virtuoso* Count= 4882      Virtuoso bug in transitive closure
+ROW* 143 Count= 2454      Blazegraph  Count= 2454      MilleniumDB  Count= 2454      QLever  Count= 2454      Virtuoso* Count= 2697      Virtuoso bug in transitive closure
+ROW* 173 None             Blazegraph! None             MilleniumDB! None             QLever  Count= 2979      Virtuoso  Count= 3060      Virtuoso bug in transitive closure
+ROW* 177 Count= 3393      Blazegraph* Count= 0         MilleniumDB  Count= 3393      QLever  Count= 3393      Virtuoso  Count= 3393      Blazegraph loading removes sitelinks 
+ROW* 181 Count= 10        Blazegraph  Count= 10        MilleniumDB  Count= 10        QLever  Count= 10        Virtuoso* Count= 17        Virtuoso bug in transitive closure
+ROW* 183 Result=75814668  Blazegraph! None             MilleniumDB* Result=0         QLever  Result=75814668  Virtuoso  Result=75814668  unknown bug in MilleniumDB
+ROW* 199 Count= 2063      Blazegraph  Count= 2063      MilleniumDB  Count= 2063      QLever  Count= 2063      Virtuoso* Count= 13530     Virtuoso bug in transitive closure
+ROW* 205 Count= 1472      Blazegraph  Count= 1472      MilleniumDB  Count= 1472      QLever* Count= 1470      Virtuoso  Count= 1472      GeoSPARQL
+ROW* 209 Count= 0         Blazegraph* Count= 2804      MilleniumDB  Count= 0         QLever  Count= 0         Virtuoso* Count= 5677      Incorrect datetime values in query
+ROW* 210 None             Blazegraph  Count= 0         MilleniumDB! None             QLever  Count= 2835      Virtuoso  Count= 2889      Virtuoso bug in transitive closure
+ROW* 214 Count= 193       Blazegraph  Count= 193       MilleniumDB  Count= 193       QLever* Count= 0         Virtuoso* Count= 194       unknown QLever bug
+ROW* 220 None             Blazegraph! None             MilleniumDB! None             QLever  Count= 85        Virtuoso  Count= 1437      Virtuoso bug in transitive closure
+ROW* 221 Count= 62        Blazegraph  Count= 62        MilleniumDB  Count= 62        QLever  Count= 62        Virtuoso* Count= 63        Virtuoso bug in transitive closure
+ROW* 222 Count= 1147      Blazegraph  Count= 1147      MilleniumDB  Count= 1147      QLever  Count= 1147      Virtuoso* Count= 7541      Virtuoso bug in transitive closure
+ROW* 226 None             Blazegraph! None             MilleniumDB! Count= 0         QLever  Count= 773078    Virtuoso  Count= 773084    ?
+ROW* 227 Count= 32038     Blazegraph* Count= 0         MilleniumDB  Count= 32038     QLever  Count= 32038     Virtuoso  Count= 32038     Blazegraph loading removes sitelinks 
+ROW* 229 Count= 117158    Blazegraph  Count= 117158    MilleniumDB* Count= 117085    QLever  Count= 117158    Virtuoso  Count= 117158    MilleniumDB bug in alternatives
+ROW* 235 Count= 176       Blazegraph* Count= 0         MilleniumDB  Count= 176       QLever  Count= 176       Virtuoso  Count= 176       Blazegraph loading removes sitelinks 
+ROW* 236 Count= 42535     Blazegraph* Count= 0         MilleniumDB  Count= 42535     QLever  Count= 42535     Virtuoso  Count= 42535     Blazegraph loading removes sitelinks 
+ROW* 238 Count= 3434      Blazegraph  Count= 3434      MilleniumDB! None             QLever  Count= 3434      Virtuoso* Count= 3443      Virtuoso bug in transitive closure
+ROW* 244 None             Blazegraph  Count= 136       MilleniumDB  Count= 0         QLever  Count= 0         Virtuoso  Count= 136       Incorrect datetime values in query
+ROW* 247 Count= 27291     Blazegraph  Count= 27291     MilleniumDB  Count= 27291     QLever* Count= 27289     Virtuoso  Count= 27291     GeoSPARQL
+ROW* 252 Count= 298       Blazegraph  Count= 298       MilleniumDB  Count= 298       QLever  Count= 298       Virtuoso* Count= 1222      Virtuoso bug in transitive closure
+ROW* 253 Count= 22        Blazegraph  Count= 22        MilleniumDB! Count= 13        QLever  Count= 22        Virtuoso* Count= 167       Virtuoso bug in transitive closure
+ROW* 261 Count= 359       Blazegraph  Count= 359       MilleniumDB! None             QLever  Count= 359       Virtuoso* Count= 337       Virtuoso bug in transitive closure
+ROW* 265 Count= 100       Blazegraph  Count= 100       MilleniumDB* Count= 0         QLever  Count= 100       Virtuoso  Count= 100       MilleniumDB bug with embedded queries
+ROW* 270 Count= 2127631   Blazegraph* Count= 2127628   MilleniumDB  Count= 2127631   QLever  Count= 2127631   Virtuoso* Count= 1048576   Virtuoso bug in transitive closure
+ROW* 271 Count= 2127631   Blazegraph* Count= 2127628   MilleniumDB  Count= 2127631   QLever  Count= 2127631   Virtuoso* Count= 1048576   Virtuoso bug in transitive closure
+ROW* 273 Count= 329       Blazegraph  Count= 329       MilleniumDB  Count= 329       QLever  Count= 329       Virtuoso* Count= 367       Virtuoso bug in transitive closure
+ROW* 278 Count= 598       Blazegraph  Count= 598       MilleniumDB! None             QLever  Count= 598       Virtuoso* Count= 650       Virtuoso bug in transitive closure
+ROW* 284 Count= 241561    Blazegraph! None             MilleniumDB  Count= 241561    QLever  Count= 241561    Virtuoso* Count= 328109    Virtuoso bug in transitive closure
+ROW* 290 None             Blazegraph! Count= 1183048   MilleniumDB  Count= 29644213  QLever  Count= 42620343  Virtuoso  Count= 1048576   ?
+ROW* 292 Count= 238251    Blazegraph* Count= 229775    MilleniumDB  Count= 238251    QLever  Count= 238251    Virtuoso  Count= 238251    ?
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          298     11     88    511   6155 600018  12560   8253    46     1    32    14
+MilleniumDB         298      2     41    788  26321 601000  95797  15571    51    38    38    13
+QLever              298      3     32    123    583 273346   4596   2295    15     0     3    12
+Virtuoso            298      1     65    449   3230 600719  14623   6317    44     3    15    29
+Number of queries with different non-error, non-suspect results:  63
+	SEE ALSO ../existing.text
+	errors - Blazegraph memory 30, syntax 1; MilleniumDB crashed on two different queries; Qlever memory 3
+		 Virtuoso repeated crashes 1, estimated execution time 4, transitive 1, syntax 3, internal 1, transitive memory 1, unknown 2
+	Most of the Virtuoso divergences are due to invalid duplicates in transitive closure results.
+	Most of the Millenium DB divergences appear to be due to a bug in embedded queries.
+	Some divergences are due to different handling and reporting of GeoSPARQL values.
+	Some divergences are due to the Blazegraph loading process removing some statements.
+	Two divergenes are due to invalid literals in the queries.
+	A few divergences are due to other or unknown causes.
 
-Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-BLocal          298     16     90    486   5754 600024  12364   8094    47     1    27    20
-MLocal          298      2     43    807  26751 601456  95300  15674    51    38    38    13
-QLocal          298      3     33    126    632 274348   4900   2444    15     0     3    12
-VLocal          298      1     64    479   3345 600694  14787   6400    45     3    15    30
-Number of queries with different non-error, non-suspect results:  68
-
-	./benchmark.py --engine=BLocal --count wdqs/wikidata-queries.tsv | tee results/wdqs-blocal-counted.tsv
-	./benchmark.py --engine=MLocal --count wdqs/wikidata-queries.tsv | tee results/wdqs-mlocal-counted.tsv
-	./benchmark.py --engine=QLocal --count wdqs/wikidata-queries.tsv | tee results/wdqs-qlocal-counted.tsv
-	./benchmark.py --engine=VLocal --count wdqs/wikidata-queries.tsv | tee results/wdqs-vlocal-counted.tsv
-	./stats.py -v results/wdqs-?local-counted.tsv
-244 Multiple modes >1
-ROW*   5 Result=32963     BLocal/COUNTED  Result=32963     MLocal/COUNTED  Result=32963     QLocal/COUNTED  Result=32963     VLocal/COUNTED* Result=33209     
-ROW*   9 Result=21253     BLocal/COUNTED* Result=0         MLocal/COUNTED  Result=21253     QLocal/COUNTED  Result=21253     VLocal/COUNTED  Result=21253     
-ROW*  10 Result=35648     BLocal/COUNTED* Result=0         MLocal/COUNTED  Result=35648     QLocal/COUNTED  Result=35648     VLocal/COUNTED  Result=35648     
-ROW*  26 Result=24        BLocal/COUNTED  Result=24        MLocal/COUNTED  Result=24        QLocal/COUNTED  Result=24        VLocal/COUNTED* Result=69        
-ROW*  35 Result=100       BLocal/COUNTED* Result=0         MLocal/COUNTED  Result=100       QLocal/COUNTED  Result=100       VLocal/COUNTED  Result=100       
-ROW*  36 Result=1350      BLocal/COUNTED  Result=1350      MLocal/COUNTED  Result=1350      QLocal/COUNTED* Result=1354      VLocal/COUNTED  Result=1350      
-ROW*  37 Result=98        BLocal/COUNTED  Result=98        MLocal/COUNTED  Result=98        QLocal/COUNTED  Result=98        VLocal/COUNTED* Result=94        
-ROW*  41 Result=100       BLocal/COUNTED! None             MLocal/COUNTED* Result=0         QLocal/COUNTED  Result=100       VLocal/COUNTED  Result=100       
-ROW*  45 Result=481       BLocal/COUNTED  Result=481       MLocal/COUNTED  Result=481       QLocal/COUNTED  Result=481       VLocal/COUNTED* Result=484       
-ROW*  53 Result=50        BLocal/COUNTED* Result=0         MLocal/COUNTED  Result=50        QLocal/COUNTED  Result=50        VLocal/COUNTED  Result=50        
-ROW*  56 Result=21615     BLocal/COUNTED* Result=21614     MLocal/COUNTED  Result=21615     QLocal/COUNTED* Result=21613     VLocal/COUNTED  Result=21615     
-ROW*  59 Result=298       BLocal/COUNTED  Result=298       MLocal/COUNTED! Count= 0         QLocal/COUNTED* Result=297       VLocal/COUNTED  Result=298       
-ROW*  60 Result=27        BLocal/COUNTED  Result=27        MLocal/COUNTED* Result=0         QLocal/COUNTED  Result=27        VLocal/COUNTED  Result=27        
-ROW*  63 Result=240       BLocal/COUNTED  Result=240       MLocal/COUNTED* Result=0         QLocal/COUNTED  Result=240       VLocal/COUNTED  Result=240       
-ROW*  67 Result=89829     BLocal/COUNTED  Result=89829     MLocal/COUNTED  Result=89829     QLocal/COUNTED* Result=89809     VLocal/COUNTED  Result=89829     
-ROW*  79 Result=2799      BLocal/COUNTED  Result=2799      MLocal/COUNTED* Result=0         QLocal/COUNTED  Result=2799      VLocal/COUNTED* Result=7130      
-ROW*  80 Result=89        BLocal/COUNTED  Result=89        MLocal/COUNTED  Result=89        QLocal/COUNTED  Result=89        VLocal/COUNTED* Result=95        
-ROW*  82 None             BLocal/COUNTED! None             MLocal/COUNTED! None             QLocal/COUNTED  Result=85        VLocal/COUNTED  Result=82        
-ROW*  84 Result=2506      BLocal/COUNTED  Result=2506      MLocal/COUNTED  Result=2506      QLocal/COUNTED* Result=2487      VLocal/COUNTED* Result=2581      
-ROW*  85 Result=2506      BLocal/COUNTED  Result=2506      MLocal/COUNTED  Result=2506      QLocal/COUNTED* Result=2487      VLocal/COUNTED* Result=2581      
-ROW*  88 Result=48        BLocal/COUNTED! None             MLocal/COUNTED* Result=0         QLocal/COUNTED  Result=48        VLocal/COUNTED  Result=48        
-ROW*  89 Result=93917     BLocal/COUNTED* Result=93915     MLocal/COUNTED  Result=93917     QLocal/COUNTED* Result=93894     VLocal/COUNTED  Result=93917     
-ROW*  93 Result=125       BLocal/COUNTED  Result=125       MLocal/COUNTED* Result=0         QLocal/COUNTED  Result=125       VLocal/COUNTED  Result=125       
-ROW*  94 Result=16        BLocal/COUNTED  Result=16        MLocal/COUNTED* Result=0         QLocal/COUNTED  Result=16        VLocal/COUNTED  Result=16        
-ROW*  97 Result=42556     BLocal/COUNTED  Result=42556     MLocal/COUNTED* Result=42558     QLocal/COUNTED  Result=42556     VLocal/COUNTED! None             
-ROW*  98 Result=3146      BLocal/COUNTED! None             MLocal/COUNTED* Result=0         QLocal/COUNTED  Result=3146      VLocal/COUNTED  Result=3146      
-ROW* 121 Result=11120     BLocal/COUNTED  Result=11120     MLocal/COUNTED  Result=11120     QLocal/COUNTED* Result=11119     VLocal/COUNTED  Result=11120     
-ROW* 122 Result=0         BLocal/COUNTED  Result=0         MLocal/COUNTED  Result=0         QLocal/COUNTED* Result=1237      VLocal/COUNTED  Result=0         
-ROW* 140 Result=113       BLocal/COUNTED  Result=113       MLocal/COUNTED  Result=113       QLocal/COUNTED  Result=113       VLocal/COUNTED* Result=2943      
-ROW* 141 Result=4738      BLocal/COUNTED  Result=4738      MLocal/COUNTED  Result=4738      QLocal/COUNTED  Result=4738      VLocal/COUNTED* Result=4882      
-ROW* 143 Result=2454      BLocal/COUNTED  Result=2454      MLocal/COUNTED  Result=2454      QLocal/COUNTED  Result=2454      VLocal/COUNTED* Result=2697      
-ROW* 173 None             BLocal/COUNTED! None             MLocal/COUNTED! None             QLocal/COUNTED  Result=2979      VLocal/COUNTED  Result=3060      
-ROW* 177 Result=3393      BLocal/COUNTED* Result=0         MLocal/COUNTED  Result=3393      QLocal/COUNTED  Result=3393      VLocal/COUNTED  Result=3393      
-ROW* 181 Result=10        BLocal/COUNTED  Result=10        MLocal/COUNTED  Result=10        QLocal/COUNTED  Result=10        VLocal/COUNTED* Result=14        
-ROW* 199 Result=2063      BLocal/COUNTED  Result=2063      MLocal/COUNTED  Result=2063      QLocal/COUNTED  Result=2063      VLocal/COUNTED* Result=13530     
-ROW* 205 Result=1472      BLocal/COUNTED  Result=1472      MLocal/COUNTED  Result=1472      QLocal/COUNTED* Result=1470      VLocal/COUNTED  Result=1472      
-ROW* 209 Result=0         BLocal/COUNTED* Result=2804      MLocal/COUNTED  Result=0         QLocal/COUNTED  Result=0         VLocal/COUNTED* Result=5677      
-ROW* 210 None             BLocal/COUNTED  Result=0         MLocal/COUNTED! None             QLocal/COUNTED  Result=2835      VLocal/COUNTED  Result=2889      
-ROW* 214 Result=193       BLocal/COUNTED  Result=193       MLocal/COUNTED  Result=193       QLocal/COUNTED* Result=0         VLocal/COUNTED* Result=194       
-ROW* 220 None             BLocal/COUNTED! None             MLocal/COUNTED! None             QLocal/COUNTED  Result=85        VLocal/COUNTED  Result=1437      
-ROW* 221 Result=62        BLocal/COUNTED  Result=62        MLocal/COUNTED  Result=62        QLocal/COUNTED  Result=62        VLocal/COUNTED* Result=63        
-ROW* 222 Result=1147      BLocal/COUNTED  Result=1147      MLocal/COUNTED  Result=1147      QLocal/COUNTED  Result=1147      VLocal/COUNTED* Result=7541      
-ROW* 226 None             BLocal/COUNTED! None             MLocal/COUNTED! None             QLocal/COUNTED  Result=773078    VLocal/COUNTED  Result=773084    
-ROW* 227 Result=32038     BLocal/COUNTED* Result=0         MLocal/COUNTED  Result=32038     QLocal/COUNTED  Result=32038     VLocal/COUNTED  Result=32038     
-ROW* 229 Result=117158    BLocal/COUNTED  Result=117158    MLocal/COUNTED* Result=117085    QLocal/COUNTED  Result=117158    VLocal/COUNTED  Result=117158    
-ROW* 235 Result=176       BLocal/COUNTED* Result=0         MLocal/COUNTED  Result=176       QLocal/COUNTED  Result=176       VLocal/COUNTED  Result=176       
-ROW* 236 Result=42535     BLocal/COUNTED* Result=0         MLocal/COUNTED  Result=42535     QLocal/COUNTED  Result=42535     VLocal/COUNTED  Result=42535     
-ROW* 238 Result=3434      BLocal/COUNTED  Result=3434      MLocal/COUNTED! None             QLocal/COUNTED  Result=3434      VLocal/COUNTED* Result=3443      
-ROW* 244 None             BLocal/COUNTED  Result=136       MLocal/COUNTED  Result=0         QLocal/COUNTED  Result=0         VLocal/COUNTED  Result=136       
-ROW* 247 Result=27291     BLocal/COUNTED  Result=27291     MLocal/COUNTED  Result=27291     QLocal/COUNTED* Result=27289     VLocal/COUNTED  Result=27291     
-ROW* 252 Result=298       BLocal/COUNTED  Result=298       MLocal/COUNTED  Result=298       QLocal/COUNTED  Result=298       VLocal/COUNTED* Result=1222      
-ROW* 253 Result=22        BLocal/COUNTED  Result=22        MLocal/COUNTED! Count= 0         QLocal/COUNTED  Result=22        VLocal/COUNTED* Result=167       
-ROW* 261 Result=359       BLocal/COUNTED  Result=359       MLocal/COUNTED! None             QLocal/COUNTED  Result=359       VLocal/COUNTED* Result=337       
-ROW* 265 Result=100       BLocal/COUNTED  Result=100       MLocal/COUNTED* Result=0         QLocal/COUNTED  Result=100       VLocal/COUNTED  Result=100       
-ROW* 270 Result=2127631   BLocal/COUNTED* Result=2127628   MLocal/COUNTED  Result=2127631   QLocal/COUNTED  Result=2127631   VLocal/COUNTED* Result=3277675   
-ROW* 271 Result=2127631   BLocal/COUNTED* Result=2127628   MLocal/COUNTED  Result=2127631   QLocal/COUNTED  Result=2127631   VLocal/COUNTED* Result=3277675   
-ROW* 273 Result=329       BLocal/COUNTED  Result=329       MLocal/COUNTED  Result=329       QLocal/COUNTED  Result=329       VLocal/COUNTED* Result=367       
-ROW* 278 Result=598       BLocal/COUNTED  Result=598       MLocal/COUNTED! None             QLocal/COUNTED  Result=598       VLocal/COUNTED* Result=650       
-ROW* 284 Result=241561    BLocal/COUNTED! None             MLocal/COUNTED  Result=241561    QLocal/COUNTED  Result=241561    VLocal/COUNTED* Result=328109    
-ROW* 292 Result=238251    BLocal/COUNTED* Result=229775    MLocal/COUNTED  Result=238251    QLocal/COUNTED  Result=238251    VLocal/COUNTED  Result=238251    
-
-Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-BLocal/COUNTED  298     12     91    486   6706 600027  28532   9278    43     6    29    14
-MLocal/COUNTED  298      2     36    722  24927 604184  93174  15449    49    38    38    11
-QLocal/COUNTED  298      2     29    100    503 270079   4156   1938    15     0     3    12
-VLocal/COUNTED  298      1     49    377   2661 600725  14254   5956    40     3    14    26
+	./benchmark.py --engine=Blazegraph --count wdqs/wikidata-queries.tsv | tee results/wdqs-counted-blazegraph.tsv
+	./benchmark.py --engine=MilleniumDB --count wdqs/wikidata-queries.tsv | tee results/wdqs-counted-milleniumdb.tsv
+	./benchmark.py --engine=QLever --count wdqs/wikidata-queries.tsv | tee results/wdqs-counted-qlever.tsv
+	./benchmark.py --engine=Virtuoso --count wdqs/wikidata-queries.tsv | tee results/wdqs-counted-virtuoso.tsv
+	./stats.py -v results/wdqs-counted-*.tsv
+ROW*   5 Result=32963     Blazegraph/COUNTED  Result=32963     MilleniumDB/COUNTED  Result=32963     QLever/COUNTED  Result=32963     Virtuoso/COUNTED* Result=33209     
+ROW*   9 Result=21253     Blazegraph/COUNTED* Result=0         MilleniumDB/COUNTED  Result=21253     QLever/COUNTED  Result=21253     Virtuoso/COUNTED  Result=21253     
+ROW*  10 Result=35648     Blazegraph/COUNTED* Result=0         MilleniumDB/COUNTED  Result=35648     QLever/COUNTED  Result=35648     Virtuoso/COUNTED  Result=35648     
+ROW*  26 Result=24        Blazegraph/COUNTED  Result=24        MilleniumDB/COUNTED  Result=24        QLever/COUNTED  Result=24        Virtuoso/COUNTED* Result=70        
+ROW*  35 Result=100       Blazegraph/COUNTED* Result=0         MilleniumDB/COUNTED  Result=100       QLever/COUNTED  Result=100       Virtuoso/COUNTED  Result=100       
+ROW*  36 Result=1350      Blazegraph/COUNTED  Result=1350      MilleniumDB/COUNTED  Result=1350      QLever/COUNTED* Result=1354      Virtuoso/COUNTED  Result=1350      
+ROW*  37 Result=98        Blazegraph/COUNTED  Result=98        MilleniumDB/COUNTED  Result=98        QLever/COUNTED  Result=98        Virtuoso/COUNTED* Result=94        
+ROW*  41 Result=100       Blazegraph/COUNTED! None             MilleniumDB/COUNTED* Result=0         QLever/COUNTED  Result=100       Virtuoso/COUNTED  Result=100       
+ROW*  45 Result=481       Blazegraph/COUNTED  Result=481       MilleniumDB/COUNTED  Result=481       QLever/COUNTED  Result=481       Virtuoso/COUNTED* Result=484       
+ROW*  53 Result=50        Blazegraph/COUNTED* Result=0         MilleniumDB/COUNTED  Result=50        QLever/COUNTED  Result=50        Virtuoso/COUNTED  Result=50        
+ROW*  56 Result=21615     Blazegraph/COUNTED* Result=21614     MilleniumDB/COUNTED  Result=21615     QLever/COUNTED* Result=21613     Virtuoso/COUNTED  Result=21615     
+ROW*  59 Result=298       Blazegraph/COUNTED  Result=298       MilleniumDB/COUNTED! Count= 0         QLever/COUNTED* Result=297       Virtuoso/COUNTED  Result=298       
+ROW*  60 Result=27        Blazegraph/COUNTED  Result=27        MilleniumDB/COUNTED* Result=0         QLever/COUNTED  Result=27        Virtuoso/COUNTED  Result=27        
+ROW*  63 Result=240       Blazegraph/COUNTED  Result=240       MilleniumDB/COUNTED* Result=0         QLever/COUNTED  Result=240       Virtuoso/COUNTED  Result=240       
+ROW*  67 Result=89829     Blazegraph/COUNTED  Result=89829     MilleniumDB/COUNTED  Result=89829     QLever/COUNTED* Result=89809     Virtuoso/COUNTED  Result=89829     
+ROW*  79 Result=2799      Blazegraph/COUNTED  Result=2799      MilleniumDB/COUNTED* Result=0         QLever/COUNTED  Result=2799      Virtuoso/COUNTED* Result=7130      
+ROW*  80 Result=89        Blazegraph/COUNTED  Result=89        MilleniumDB/COUNTED  Result=89        QLever/COUNTED  Result=89        Virtuoso/COUNTED* Result=95        
+ROW*  82 None             Blazegraph/COUNTED! None             MilleniumDB/COUNTED! None             QLever/COUNTED  Result=85        Virtuoso/COUNTED  Result=82        
+ROW*  84 Result=2506      Blazegraph/COUNTED  Result=2506      MilleniumDB/COUNTED  Result=2506      QLever/COUNTED* Result=2487      Virtuoso/COUNTED* Result=2581      
+ROW*  85 Result=2506      Blazegraph/COUNTED  Result=2506      MilleniumDB/COUNTED  Result=2506      QLever/COUNTED* Result=2487      Virtuoso/COUNTED* Result=2581      
+ROW*  88 Result=48        Blazegraph/COUNTED! None             MilleniumDB/COUNTED* Result=0         QLever/COUNTED  Result=48        Virtuoso/COUNTED  Result=48        
+ROW*  89 Result=93917     Blazegraph/COUNTED* Result=93915     MilleniumDB/COUNTED  Result=93917     QLever/COUNTED* Result=93894     Virtuoso/COUNTED  Result=93917     
+ROW*  93 Result=125       Blazegraph/COUNTED  Result=125       MilleniumDB/COUNTED* Result=0         QLever/COUNTED  Result=125       Virtuoso/COUNTED  Result=125       
+ROW*  94 Result=16        Blazegraph/COUNTED  Result=16        MilleniumDB/COUNTED* Result=0         QLever/COUNTED  Result=16        Virtuoso/COUNTED  Result=16        
+ROW*  97 Result=42556     Blazegraph/COUNTED  Result=42556     MilleniumDB/COUNTED* Result=42558     QLever/COUNTED  Result=42556     Virtuoso/COUNTED! Count= 6         
+ROW*  98 Result=3146      Blazegraph/COUNTED! None             MilleniumDB/COUNTED* Result=0         QLever/COUNTED  Result=3146      Virtuoso/COUNTED  Result=3146      
+ROW* 121 Result=11120     Blazegraph/COUNTED  Result=11120     MilleniumDB/COUNTED  Result=11120     QLever/COUNTED* Result=11119     Virtuoso/COUNTED  Result=11120     
+ROW* 122 Result=0         Blazegraph/COUNTED  Result=0         MilleniumDB/COUNTED  Result=0         QLever/COUNTED* Result=1237      Virtuoso/COUNTED  Result=0         
+ROW* 140 Result=113       Blazegraph/COUNTED  Result=113       MilleniumDB/COUNTED  Result=113       QLever/COUNTED  Result=113       Virtuoso/COUNTED* Result=2943      
+ROW* 141 Result=4738      Blazegraph/COUNTED  Result=4738      MilleniumDB/COUNTED  Result=4738      QLever/COUNTED  Result=4738      Virtuoso/COUNTED* Result=4882      
+ROW* 143 Result=2454      Blazegraph/COUNTED  Result=2454      MilleniumDB/COUNTED  Result=2454      QLever/COUNTED  Result=2454      Virtuoso/COUNTED* Result=2697      
+ROW* 173 None             Blazegraph/COUNTED! None             MilleniumDB/COUNTED! None             QLever/COUNTED  Result=2979      Virtuoso/COUNTED  Result=3060      
+ROW* 177 Result=3393      Blazegraph/COUNTED* Result=0         MilleniumDB/COUNTED  Result=3393      QLever/COUNTED  Result=3393      Virtuoso/COUNTED  Result=3393      
+ROW* 181 Result=10        Blazegraph/COUNTED  Result=10        MilleniumDB/COUNTED  Result=10        QLever/COUNTED  Result=10        Virtuoso/COUNTED* Result=17        
+ROW* 199 Result=2063      Blazegraph/COUNTED  Result=2063      MilleniumDB/COUNTED  Result=2063      QLever/COUNTED  Result=2063      Virtuoso/COUNTED* Result=13530     
+ROW* 205 Result=1472      Blazegraph/COUNTED  Result=1472      MilleniumDB/COUNTED  Result=1472      QLever/COUNTED* Result=1470      Virtuoso/COUNTED  Result=1472      
+ROW* 209 Result=0         Blazegraph/COUNTED* Result=2804      MilleniumDB/COUNTED  Result=0         QLever/COUNTED  Result=0         Virtuoso/COUNTED* Result=5677      
+ROW* 210 None             Blazegraph/COUNTED  Result=0         MilleniumDB/COUNTED! None             QLever/COUNTED  Result=2835      Virtuoso/COUNTED  Result=2889      
+ROW* 214 Result=193       Blazegraph/COUNTED  Result=193       MilleniumDB/COUNTED  Result=193       QLever/COUNTED* Result=0         Virtuoso/COUNTED* Result=194       
+ROW* 220 None             Blazegraph/COUNTED! None             MilleniumDB/COUNTED! None             QLever/COUNTED  Result=85        Virtuoso/COUNTED  Result=1437      
+ROW* 221 Result=62        Blazegraph/COUNTED  Result=62        MilleniumDB/COUNTED  Result=62        QLever/COUNTED  Result=62        Virtuoso/COUNTED* Result=63        
+ROW* 222 Result=1147      Blazegraph/COUNTED  Result=1147      MilleniumDB/COUNTED  Result=1147      QLever/COUNTED  Result=1147      Virtuoso/COUNTED* Result=7541      
+ROW* 226 None             Blazegraph/COUNTED! None             MilleniumDB/COUNTED! None             QLever/COUNTED  Result=773078    Virtuoso/COUNTED  Result=773084    
+ROW* 227 Result=32038     Blazegraph/COUNTED* Result=0         MilleniumDB/COUNTED  Result=32038     QLever/COUNTED  Result=32038     Virtuoso/COUNTED  Result=32038     
+ROW* 229 Result=117158    Blazegraph/COUNTED  Result=117158    MilleniumDB/COUNTED* Result=117085    QLever/COUNTED  Result=117158    Virtuoso/COUNTED  Result=117158    
+ROW* 235 Result=176       Blazegraph/COUNTED* Result=0         MilleniumDB/COUNTED  Result=176       QLever/COUNTED  Result=176       Virtuoso/COUNTED  Result=176       
+ROW* 236 Result=42535     Blazegraph/COUNTED* Result=0         MilleniumDB/COUNTED  Result=42535     QLever/COUNTED  Result=42535     Virtuoso/COUNTED  Result=42535     
+ROW* 238 Result=3434      Blazegraph/COUNTED  Result=3434      MilleniumDB/COUNTED! None             QLever/COUNTED  Result=3434      Virtuoso/COUNTED* Result=3443      
+ROW* 244 None             Blazegraph/COUNTED  Result=136       MilleniumDB/COUNTED  Result=0         QLever/COUNTED  Result=0         Virtuoso/COUNTED  Result=136       
+ROW* 247 Result=27291     Blazegraph/COUNTED  Result=27291     MilleniumDB/COUNTED  Result=27291     QLever/COUNTED* Result=27289     Virtuoso/COUNTED  Result=27291     
+ROW* 252 Result=298       Blazegraph/COUNTED  Result=298       MilleniumDB/COUNTED  Result=298       QLever/COUNTED  Result=298       Virtuoso/COUNTED* Result=1222      
+ROW* 253 Result=22        Blazegraph/COUNTED  Result=22        MilleniumDB/COUNTED! Count= 0         QLever/COUNTED  Result=22        Virtuoso/COUNTED* Result=167       
+ROW* 261 Result=359       Blazegraph/COUNTED  Result=359       MilleniumDB/COUNTED! None             QLever/COUNTED  Result=359       Virtuoso/COUNTED* Result=337       
+ROW* 265 Result=100       Blazegraph/COUNTED  Result=100       MilleniumDB/COUNTED* Result=0         QLever/COUNTED  Result=100       Virtuoso/COUNTED  Result=100       
+ROW* 270 Result=2127631   Blazegraph/COUNTED* Result=2127628   MilleniumDB/COUNTED  Result=2127631   QLever/COUNTED  Result=2127631   Virtuoso/COUNTED* Result=3277675   
+ROW* 271 Result=2127631   Blazegraph/COUNTED* Result=2127628   MilleniumDB/COUNTED  Result=2127631   QLever/COUNTED  Result=2127631   Virtuoso/COUNTED* Result=3277675   
+ROW* 273 Result=329       Blazegraph/COUNTED  Result=329       MilleniumDB/COUNTED  Result=329       QLever/COUNTED  Result=329       Virtuoso/COUNTED* Result=367       
+ROW* 278 Result=598       Blazegraph/COUNTED  Result=598       MilleniumDB/COUNTED! None             QLever/COUNTED  Result=598       Virtuoso/COUNTED* Result=650       
+ROW* 284 Result=241561    Blazegraph/COUNTED! None             MilleniumDB/COUNTED  Result=241561    QLever/COUNTED  Result=241561    Virtuoso/COUNTED* Result=328109    
+ROW* 292 Result=238251    Blazegraph/COUNTED* Result=229775    MilleniumDB/COUNTED  Result=238251    QLever/COUNTED  Result=238251    Virtuoso/COUNTED  Result=238251    
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/COUNTED  298     18     97    465   6803 600037  28682   9363    43     6    29    14
+MilleniumDB/COUNTED 298      2     40    644  24784 600966  93509  15453    49    38    38    11
+QLever/COUNTED      298      1     20     77    453 301322   4248   1913    15     0     3    12
+Virtuoso/COUNTED    298      1     49    368   2643 600727  14181   5962    40     3    14    26
 Number of queries with different non-error, non-suspect results:  60
+	SEE ABOVE
 
-	./benchmark.py --engine=BLocal --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-blocal-nodups.tsv
-	./benchmark.py --engine=MLocal --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-mlocal-nodups.tsv
-	./benchmark.py --engine=QLocal --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-qlocal-nodups.tsv
-	./benchmark.py --engine=VLocal --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-vlocal-nodups.tsv
-	./stats.py -v results/wdqs-?local-nodups.tsv
-ROW*   6 Result=11463628  BLocal/NODUPS  Result=11463628  MLocal/NODUPS* Result=11463627  QLocal/NODUPS  Result=11463628  VLocal/NODUPS  Result=11463628  
-ROW*   9 Count= 21253     BLocal/NODUPS* Count= 0         MLocal/NODUPS  Count= 21253     QLocal/NODUPS  Count= 21253     VLocal/NODUPS  Count= 21253     
-ROW*  10 Count= 35648     BLocal/NODUPS* Count= 0         MLocal/NODUPS  Count= 35648     QLocal/NODUPS  Count= 35648     VLocal/NODUPS  Count= 35648     
-ROW*  15 Count= 9024511   BLocal/NODUPS* Count= 1278341   MLocal/NODUPS  Count= 9024511   QLocal/NODUPS  Count= 9024511   VLocal/NODUPS* Count= 1048576   
-ROW*  26 Count= 24        BLocal/NODUPS  Count= 24        MLocal/NODUPS  Count= 24        QLocal/NODUPS  Count= 24        VLocal/NODUPS* Count= 68        
-ROW*  35 Count= 100       BLocal/NODUPS* Count= 0         MLocal/NODUPS  Count= 100       QLocal/NODUPS  Count= 100       VLocal/NODUPS  Count= 100       
-ROW*  36 Count= 1350      BLocal/NODUPS  Count= 1350      MLocal/NODUPS  Count= 1350      QLocal/NODUPS* Count= 1354      VLocal/NODUPS  Count= 1350      
-ROW*  37 Count= 98        BLocal/NODUPS  Count= 98        MLocal/NODUPS  Count= 98        QLocal/NODUPS  Count= 98        VLocal/NODUPS* Count= 94        
-ROW*  41 Count= 100       BLocal/NODUPS! None             MLocal/NODUPS* Count= 0         QLocal/NODUPS  Count= 100       VLocal/NODUPS  Count= 100       
-ROW*  45 Count= 481       BLocal/NODUPS  Count= 481       MLocal/NODUPS  Count= 481       QLocal/NODUPS  Count= 481       VLocal/NODUPS* Count= 484       
-ROW*  53 Count= 50        BLocal/NODUPS* Count= 0         MLocal/NODUPS  Count= 50        QLocal/NODUPS  Count= 50        VLocal/NODUPS  Count= 50        
-ROW*  56 Count= 21615     BLocal/NODUPS* Count= 21614     MLocal/NODUPS  Count= 21615     QLocal/NODUPS* Count= 21613     VLocal/NODUPS  Count= 21615     
-ROW*  59 Count= 298       BLocal/NODUPS  Count= 298       MLocal/NODUPS! Count= 38        QLocal/NODUPS* Count= 297       VLocal/NODUPS  Count= 298       
-ROW*  60 Count= 27        BLocal/NODUPS  Count= 27        MLocal/NODUPS* Count= 0         QLocal/NODUPS  Count= 27        VLocal/NODUPS  Count= 27        
-ROW*  63 Count= 240       BLocal/NODUPS  Count= 240       MLocal/NODUPS* Count= 0         QLocal/NODUPS  Count= 240       VLocal/NODUPS  Count= 240       
-ROW*  67 Count= 89829     BLocal/NODUPS  Count= 89829     MLocal/NODUPS  Count= 89829     QLocal/NODUPS* Count= 89809     VLocal/NODUPS  Count= 89829     
-ROW*  79 Count= 2611      BLocal/NODUPS  Count= 2611      MLocal/NODUPS* Count= 0         QLocal/NODUPS  Count= 2611      VLocal/NODUPS  Count= 2611      
-ROW*  82 None             BLocal/NODUPS! None             MLocal/NODUPS! None             QLocal/NODUPS  Count= 85        VLocal/NODUPS  Count= 82        
-ROW*  84 Count= 2506      BLocal/NODUPS  Count= 2506      MLocal/NODUPS  Count= 2506      QLocal/NODUPS* Count= 2487      VLocal/NODUPS* Count= 2581      
-ROW*  85 Count= 2506      BLocal/NODUPS  Count= 2506      MLocal/NODUPS  Count= 2506      QLocal/NODUPS* Count= 2487      VLocal/NODUPS* Count= 2581      
-ROW*  88 Count= 48        BLocal/NODUPS! None             MLocal/NODUPS* Count= 0         QLocal/NODUPS  Count= 48        VLocal/NODUPS  Count= 48        
-ROW*  89 Count= 93891     BLocal/NODUPS* Count= 93889     MLocal/NODUPS  Count= 93891     QLocal/NODUPS* Count= 93868     VLocal/NODUPS  Count= 93891     
-ROW*  93 Count= 125       BLocal/NODUPS  Count= 125       MLocal/NODUPS* Count= 0         QLocal/NODUPS  Count= 125       VLocal/NODUPS  Count= 125       
-ROW*  94 Count= 16        BLocal/NODUPS  Count= 16        MLocal/NODUPS* Count= 0         QLocal/NODUPS  Count= 16        VLocal/NODUPS  Count= 16        
-ROW*  97 Count= 42554     BLocal/NODUPS  Count= 42554     MLocal/NODUPS* Count= 42556     QLocal/NODUPS  Count= 42554     VLocal/NODUPS! None             
-ROW*  98 Count= 3146      BLocal/NODUPS! None             MLocal/NODUPS* Count= 0         QLocal/NODUPS  Count= 3146      VLocal/NODUPS  Count= 3146      
-ROW* 121 Count= 11120     BLocal/NODUPS  Count= 11120     MLocal/NODUPS  Count= 11120     QLocal/NODUPS* Count= 11119     VLocal/NODUPS  Count= 11120     
-ROW* 122 Count= 0         BLocal/NODUPS  Count= 0         MLocal/NODUPS  Count= 0         QLocal/NODUPS* Count= 1237      VLocal/NODUPS  Count= 0         
-ROW* 140 Count= 113       BLocal/NODUPS  Count= 113       MLocal/NODUPS  Count= 113       QLocal/NODUPS  Count= 113       VLocal/NODUPS* Count= 112       
-ROW* 143 Count= 2454      BLocal/NODUPS  Count= 2454      MLocal/NODUPS  Count= 2454      QLocal/NODUPS  Count= 2454      VLocal/NODUPS* Count= 2681      
-ROW* 144 None             BLocal/NODUPS  Count= 1782702   MLocal/NODUPS! Count= 7989488   QLocal/NODUPS  Count= 10000000  VLocal/NODUPS  Count= 1048576   
-ROW* 173 None             BLocal/NODUPS! None             MLocal/NODUPS! None             QLocal/NODUPS  Count= 2979      VLocal/NODUPS  Count= 3060      
-ROW* 177 Count= 3393      BLocal/NODUPS* Count= 0         MLocal/NODUPS  Count= 3393      QLocal/NODUPS  Count= 3393      VLocal/NODUPS  Count= 3393      
-ROW* 181 Count= 10        BLocal/NODUPS  Count= 10        MLocal/NODUPS  Count= 10        QLocal/NODUPS  Count= 10        VLocal/NODUPS* Count= 17        
-ROW* 182 Count= 23177695  BLocal/NODUPS* Count= 2832433   MLocal/NODUPS  Count= 23177695  QLocal/NODUPS  Count= 23177695  VLocal/NODUPS* Count= 1048576   
-ROW* 183 Result=75814668  BLocal/NODUPS! None             MLocal/NODUPS* Result=0         QLocal/NODUPS  Result=75814668  VLocal/NODUPS  Result=75814668  
-ROW* 190 Count= 100       BLocal/NODUPS* Count= 5674      MLocal/NODUPS  Count= 100       QLocal/NODUPS  Count= 100       VLocal/NODUPS  Count= 100       
-ROW* 205 Count= 1472      BLocal/NODUPS  Count= 1472      MLocal/NODUPS  Count= 1472      QLocal/NODUPS* Count= 1470      VLocal/NODUPS  Count= 1472      
-ROW* 207 Count= 580       BLocal/NODUPS  Count= 580       MLocal/NODUPS  Count= 580       QLocal/NODUPS* Count= 579       VLocal/NODUPS* Count= 585       
-ROW* 209 Count= 0         BLocal/NODUPS* Count= 2804      MLocal/NODUPS  Count= 0         QLocal/NODUPS  Count= 0         VLocal/NODUPS* Count= 5677      
-ROW* 210 None             BLocal/NODUPS  Count= 0         MLocal/NODUPS! None             QLocal/NODUPS  Count= 2835      VLocal/NODUPS  Count= 2889      
-ROW* 214 Count= 134       BLocal/NODUPS  Count= 134       MLocal/NODUPS  Count= 134       QLocal/NODUPS* Count= 0         VLocal/NODUPS* Count= 135       
-ROW* 220 None             BLocal/NODUPS! None             MLocal/NODUPS! None             QLocal/NODUPS  Count= 85        VLocal/NODUPS  Count= 1437      
-ROW* 222 Count= 1146      BLocal/NODUPS  Count= 1146      MLocal/NODUPS  Count= 1146      QLocal/NODUPS  Count= 1146      VLocal/NODUPS* Count= 1278      
-ROW* 226 None             BLocal/NODUPS! None             MLocal/NODUPS! Count= 0         QLocal/NODUPS  Count= 773078    VLocal/NODUPS  Count= 773084    
-ROW* 227 Count= 32038     BLocal/NODUPS* Count= 0         MLocal/NODUPS  Count= 32038     QLocal/NODUPS  Count= 32038     VLocal/NODUPS  Count= 32038     
-ROW* 229 Count= 112161    BLocal/NODUPS  Count= 112161    MLocal/NODUPS  Count= 112161    QLocal/NODUPS  Count= 112161    VLocal/NODUPS* Count= 112750    
-ROW* 235 Count= 176       BLocal/NODUPS* Count= 0         MLocal/NODUPS  Count= 176       QLocal/NODUPS  Count= 176       VLocal/NODUPS  Count= 176       
-ROW* 236 Count= 42535     BLocal/NODUPS* Count= 0         MLocal/NODUPS  Count= 42535     QLocal/NODUPS  Count= 42535     VLocal/NODUPS  Count= 42535     
-ROW* 238 Count= 3434      BLocal/NODUPS  Count= 3434      MLocal/NODUPS! None             QLocal/NODUPS  Count= 3434      VLocal/NODUPS* Count= 3443      
-ROW* 244 None             BLocal/NODUPS  Count= 113       MLocal/NODUPS  Count= 0         QLocal/NODUPS  Count= 0         VLocal/NODUPS  Count= 113       
-ROW* 247 Count= 27291     BLocal/NODUPS  Count= 27291     MLocal/NODUPS  Count= 27291     QLocal/NODUPS* Count= 27289     VLocal/NODUPS  Count= 27291     
-ROW* 253 Count= 22        BLocal/NODUPS  Count= 22        MLocal/NODUPS! Count= 13        QLocal/NODUPS  Count= 22        VLocal/NODUPS* Count= 167       
-ROW* 261 Count= 359       BLocal/NODUPS  Count= 359       MLocal/NODUPS! None             QLocal/NODUPS  Count= 359       VLocal/NODUPS* Count= 337       
-ROW* 265 Count= 100       BLocal/NODUPS  Count= 100       MLocal/NODUPS* Count= 0         QLocal/NODUPS  Count= 100       VLocal/NODUPS  Count= 100       
-ROW* 270 Count= 2070194   BLocal/NODUPS* Count= 2070192   MLocal/NODUPS  Count= 2070194   QLocal/NODUPS  Count= 2070194   VLocal/NODUPS* Count= 1048576   
-ROW* 271 Count= 2070194   BLocal/NODUPS* Count= 2070192   MLocal/NODUPS  Count= 2070194   QLocal/NODUPS  Count= 2070194   VLocal/NODUPS* Count= 1048576   
-ROW* 288 Count= 1807698   BLocal/NODUPS* Count= 1117518   MLocal/NODUPS  Count= 1807698   QLocal/NODUPS  Count= 1807698   VLocal/NODUPS! None             
-ROW* 290 None             BLocal/NODUPS  Count= 1133589   MLocal/NODUPS  Count= 31074161  QLocal/NODUPS  Count= 42620343  VLocal/NODUPS  Count= 1048576   
-ROW* 292 Count= 201578    BLocal/NODUPS* Count= 193257    MLocal/NODUPS  Count= 201578    QLocal/NODUPS  Count= 201578    VLocal/NODUPS  Count= 201578    
-ROW* 297 Count= 1825      BLocal/NODUPS* Count= 666       MLocal/NODUPS! Count= 28        QLocal/NODUPS  Count= 1825      VLocal/NODUPS  Count= 1825      
+	./benchmark.py --engine=Blazegraph --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-nodups-blazegraph.tsv
+	./benchmark.py --engine=MilleniumDB --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-nodups-milleniumdb.tsv
+	./benchmark.py --engine=QLever --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-nodups-qlever.tsv
+	./benchmark.py --engine=Virtuoso --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-nodups-virtuoso.tsv
+TODO	./stats.py -v results/wdqs-nodups-*.tsv
+ROW*   6 Result=11463628  Blazegraph/NODUPS  Result=11463628  MilleniumDB/NODUPS* Result=11463627  QLever/NODUPS  Result=11463628  Virtuoso/NODUPS  Result=11463628  
+ROW*   9 Count= 21253     Blazegraph/NODUPS* Count= 0         MilleniumDB/NODUPS  Count= 21253     QLever/NODUPS  Count= 21253     Virtuoso/NODUPS  Count= 21253     
+ROW*  10 Count= 35648     Blazegraph/NODUPS* Count= 0         MilleniumDB/NODUPS  Count= 35648     QLever/NODUPS  Count= 35648     Virtuoso/NODUPS  Count= 35648     
+ROW*  26 Count= 24        Blazegraph/NODUPS  Count= 24        MilleniumDB/NODUPS  Count= 24        QLever/NODUPS  Count= 24        Virtuoso/NODUPS* Count= 68        
+ROW*  35 Count= 100       Blazegraph/NODUPS* Count= 0         MilleniumDB/NODUPS  Count= 100       QLever/NODUPS  Count= 100       Virtuoso/NODUPS  Count= 100       
+ROW*  36 Count= 1350      Blazegraph/NODUPS  Count= 1350      MilleniumDB/NODUPS  Count= 1350      QLever/NODUPS* Count= 1354      Virtuoso/NODUPS  Count= 1350      
+ROW*  41 Count= 100       Blazegraph/NODUPS! None             MilleniumDB/NODUPS* Count= 0         QLever/NODUPS  Count= 100       Virtuoso/NODUPS  Count= 100       
+ROW*  45 Count= 481       Blazegraph/NODUPS  Count= 481       MilleniumDB/NODUPS  Count= 481       QLever/NODUPS  Count= 481       Virtuoso/NODUPS* Count= 484       
+ROW*  53 Count= 50        Blazegraph/NODUPS* Count= 0         MilleniumDB/NODUPS  Count= 50        QLever/NODUPS  Count= 50        Virtuoso/NODUPS  Count= 50        
+ROW*  56 Count= 21615     Blazegraph/NODUPS* Count= 21614     MilleniumDB/NODUPS  Count= 21615     QLever/NODUPS* Count= 21613     Virtuoso/NODUPS  Count= 21615     
+ROW*  59 Count= 298       Blazegraph/NODUPS  Count= 298       MilleniumDB/NODUPS! Count= 37        QLever/NODUPS* Count= 297       Virtuoso/NODUPS  Count= 298       
+ROW*  60 Count= 27        Blazegraph/NODUPS  Count= 27        MilleniumDB/NODUPS* Count= 0         QLever/NODUPS  Count= 27        Virtuoso/NODUPS  Count= 27        
+ROW*  63 Count= 240       Blazegraph/NODUPS  Count= 240       MilleniumDB/NODUPS* Count= 0         QLever/NODUPS  Count= 240       Virtuoso/NODUPS  Count= 240       
+ROW*  67 Count= 89829     Blazegraph/NODUPS  Count= 89829     MilleniumDB/NODUPS  Count= 89829     QLever/NODUPS* Count= 89809     Virtuoso/NODUPS  Count= 89829     
+ROW*  79 Count= 2611      Blazegraph/NODUPS  Count= 2611      MilleniumDB/NODUPS* Count= 0         QLever/NODUPS  Count= 2611      Virtuoso/NODUPS  Count= 2611      
+ROW*  82 None             Blazegraph/NODUPS! None             MilleniumDB/NODUPS! None             QLever/NODUPS  Count= 85        Virtuoso/NODUPS  Count= 82        
+ROW*  84 Count= 2506      Blazegraph/NODUPS  Count= 2506      MilleniumDB/NODUPS  Count= 2506      QLever/NODUPS* Count= 2487      Virtuoso/NODUPS* Count= 2581      
+ROW*  85 Count= 2506      Blazegraph/NODUPS  Count= 2506      MilleniumDB/NODUPS  Count= 2506      QLever/NODUPS* Count= 2487      Virtuoso/NODUPS* Count= 2581      
+ROW*  88 Count= 48        Blazegraph/NODUPS! None             MilleniumDB/NODUPS* Count= 0         QLever/NODUPS  Count= 48        Virtuoso/NODUPS  Count= 48        
+ROW*  89 Count= 93891     Blazegraph/NODUPS* Count= 93889     MilleniumDB/NODUPS  Count= 93891     QLever/NODUPS* Count= 93868     Virtuoso/NODUPS  Count= 93891     
+ROW*  93 Count= 125       Blazegraph/NODUPS  Count= 125       MilleniumDB/NODUPS* Count= 0         QLever/NODUPS  Count= 125       Virtuoso/NODUPS  Count= 125       
+ROW*  94 Count= 16        Blazegraph/NODUPS  Count= 16        MilleniumDB/NODUPS* Count= 0         QLever/NODUPS  Count= 16        Virtuoso/NODUPS  Count= 16        
+ROW*  97 Count= 42554     Blazegraph/NODUPS  Count= 42554     MilleniumDB/NODUPS* Count= 42556     QLever/NODUPS  Count= 42554     Virtuoso/NODUPS! Count= 6         
+ROW*  98 Count= 3146      Blazegraph/NODUPS! None             MilleniumDB/NODUPS* Count= 0         QLever/NODUPS  Count= 3146      Virtuoso/NODUPS  Count= 3146      
+ROW* 121 Count= 11120     Blazegraph/NODUPS  Count= 11120     MilleniumDB/NODUPS  Count= 11120     QLever/NODUPS* Count= 11119     Virtuoso/NODUPS  Count= 11120     
+ROW* 122 Count= 0         Blazegraph/NODUPS  Count= 0         MilleniumDB/NODUPS  Count= 0         QLever/NODUPS* Count= 1237      Virtuoso/NODUPS  Count= 0         
+ROW* 140 Count= 113       Blazegraph/NODUPS  Count= 113       MilleniumDB/NODUPS  Count= 113       QLever/NODUPS  Count= 113       Virtuoso/NODUPS* Count= 112       
+ROW* 143 Count= 2454      Blazegraph/NODUPS  Count= 2454      MilleniumDB/NODUPS  Count= 2454      QLever/NODUPS  Count= 2454      Virtuoso/NODUPS* Count= 2681      
+ROW* 173 None             Blazegraph/NODUPS! None             MilleniumDB/NODUPS! None             QLever/NODUPS  Count= 2979      Virtuoso/NODUPS  Count= 3060      
+ROW* 177 Count= 3393      Blazegraph/NODUPS* Count= 0         MilleniumDB/NODUPS  Count= 3393      QLever/NODUPS  Count= 3393      Virtuoso/NODUPS  Count= 3393      
+ROW* 183 Result=75814668  Blazegraph/NODUPS! None             MilleniumDB/NODUPS* Result=0         QLever/NODUPS  Result=75814668  Virtuoso/NODUPS  Result=75814668  
+ROW* 205 Count= 1472      Blazegraph/NODUPS  Count= 1472      MilleniumDB/NODUPS  Count= 1472      QLever/NODUPS* Count= 1470      Virtuoso/NODUPS  Count= 1472      
+ROW* 207 Count= 580       Blazegraph/NODUPS  Count= 580       MilleniumDB/NODUPS  Count= 580       QLever/NODUPS* Count= 579       Virtuoso/NODUPS* Count= 585       
+ROW* 209 Count= 0         Blazegraph/NODUPS* Count= 2804      MilleniumDB/NODUPS  Count= 0         QLever/NODUPS  Count= 0         Virtuoso/NODUPS* Count= 5677      
+ROW* 210 None             Blazegraph/NODUPS  Count= 0         MilleniumDB/NODUPS! None             QLever/NODUPS  Count= 2835      Virtuoso/NODUPS  Count= 2889      
+ROW* 214 Count= 134       Blazegraph/NODUPS  Count= 134       MilleniumDB/NODUPS  Count= 134       QLever/NODUPS* Count= 0         Virtuoso/NODUPS* Count= 135       
+ROW* 220 None             Blazegraph/NODUPS! None             MilleniumDB/NODUPS! None             QLever/NODUPS  Count= 85        Virtuoso/NODUPS  Count= 1437      
+ROW* 222 Count= 1146      Blazegraph/NODUPS  Count= 1146      MilleniumDB/NODUPS  Count= 1146      QLever/NODUPS  Count= 1146      Virtuoso/NODUPS* Count= 1278      
+ROW* 226 None             Blazegraph/NODUPS! None             MilleniumDB/NODUPS! Count= 0         QLever/NODUPS  Count= 773078    Virtuoso/NODUPS  Count= 773084    
+ROW* 227 Count= 32038     Blazegraph/NODUPS* Count= 0         MilleniumDB/NODUPS  Count= 32038     QLever/NODUPS  Count= 32038     Virtuoso/NODUPS  Count= 32038     
+ROW* 229 Count= 112161    Blazegraph/NODUPS  Count= 112161    MilleniumDB/NODUPS  Count= 112161    QLever/NODUPS  Count= 112161    Virtuoso/NODUPS* Count= 112750    
+ROW* 235 Count= 176       Blazegraph/NODUPS* Count= 0         MilleniumDB/NODUPS  Count= 176       QLever/NODUPS  Count= 176       Virtuoso/NODUPS  Count= 176       
+ROW* 236 Count= 42535     Blazegraph/NODUPS* Count= 0         MilleniumDB/NODUPS  Count= 42535     QLever/NODUPS  Count= 42535     Virtuoso/NODUPS  Count= 42535     
+ROW* 238 Count= 3434      Blazegraph/NODUPS  Count= 3434      MilleniumDB/NODUPS! None             QLever/NODUPS  Count= 3434      Virtuoso/NODUPS* Count= 3443      
+ROW* 244 None             Blazegraph/NODUPS  Count= 113       MilleniumDB/NODUPS  Count= 0         QLever/NODUPS  Count= 0         Virtuoso/NODUPS  Count= 113       
+ROW* 247 Count= 27291     Blazegraph/NODUPS  Count= 27291     MilleniumDB/NODUPS  Count= 27291     QLever/NODUPS* Count= 27289     Virtuoso/NODUPS  Count= 27291     
+ROW* 253 Count= 22        Blazegraph/NODUPS  Count= 22        MilleniumDB/NODUPS! Count= 13        QLever/NODUPS  Count= 22        Virtuoso/NODUPS* Count= 167       
+ROW* 261 Count= 359       Blazegraph/NODUPS  Count= 359       MilleniumDB/NODUPS! None             QLever/NODUPS  Count= 359       Virtuoso/NODUPS* Count= 309       
+ROW* 265 Count= 100       Blazegraph/NODUPS  Count= 100       MilleniumDB/NODUPS* Count= 0         QLever/NODUPS  Count= 100       Virtuoso/NODUPS  Count= 100       
+ROW* 270 Count= 2070194   Blazegraph/NODUPS* Count= 2070192   MilleniumDB/NODUPS  Count= 2070194   QLever/NODUPS  Count= 2070194   Virtuoso/NODUPS* Count= 1048576   
+ROW* 271 Count= 2070194   Blazegraph/NODUPS* Count= 2070192   MilleniumDB/NODUPS  Count= 2070194   QLever/NODUPS  Count= 2070194   Virtuoso/NODUPS* Count= 1048576   
+ROW* 292 Count= 201578    Blazegraph/NODUPS* Count= 193257    MilleniumDB/NODUPS  Count= 201578    QLever/NODUPS  Count= 201578    Virtuoso/NODUPS  Count= 201578    
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/NODUPS   298     12     83    469   5333 600023  12220   7975    47     1    33    14
+MilleniumDB/NODUPS  298      2     38    792  26302 600975  95403  15523    50    38    38    12
+QLever/NODUPS       298      3     25    105    570 301438   4805   2467    16     0     3    13
+Virtuoso/NODUPS     298      1     68    493   3473 600720  14212   6233    35     3    14    21
+Number of queries with different non-error, non-suspect results:  52
+	SEE ABOVE
 
-Engine         Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-BLocal/NODUPS   298     19     90    474   5564 600026  12102   7943    46     1    27    19
-MLocal/NODUPS   298      3     33    762  23103 601633  94438  15307    50    38    38    12
-QLocal/NODUPS   298      3     32    126    640 264240   5054   2603    16     0     3    13
-VLocal/NODUPS   298      1     70    498   3447 600707  14650   6465    35     3    14    21
-Number of queries with different non-error, non-suspect results:  61
+5/ subclass-parameter/	Parameterized subclass query for all classes with at least 100000 subclases
 
 
 subclass/		Selected subclass queries
 	Status	run, initial analysis
 	Runs	
 
-subclass-parameter/	Parameterized subclass query for all classes with at least 100000 subclases
 
 instance/		Selected instance queries
 
 order/			Queries from investigations into class order in Wikidata
-
-
-
-

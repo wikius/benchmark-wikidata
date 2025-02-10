@@ -3,7 +3,7 @@
 
 # TODO handle different versions of strings being output  <string> vs "<string>@lt"
 
-# ./benchmark.py [<filename>] --description --engine --directory --caching --count
+# ./benchmark.py [<filename>] --description --engine --directory --count
 
 # Content output lines contain tab-separated fields
 #  RESULT or numeric index
@@ -27,24 +27,14 @@
 
 # Evaluates the query on one or more engines.  Note that local engines are not started.
 # Current engines are:
-#  QLever - QLever Wikidata public query service at https://qlever.cs.uni-freiburg.de/api/wikidata/
-#  QLTest - QLever Wikidata test query service at https://qlever.cs.uni-freiburg.de/api/wikidata-test/
-#  QLocal - Local QLever Wikidata query service at http://getafix:7001
-#  WDQS - Blazegraph public Wikidata Query Service at https://query.wikidata.org/sparql
-#  ORB - Blazegraph public Wikidata Query Service at https://query-direct.orbopengraph.com/bigdata/namespace/wdq/sparql
-#  Blocal - local Blazegraph query service at http://getafix:9999/bigdata/sparql
-#  VOS - Virtuoso public Wikidata Query Service at ttps://wikidata.demo.openlinksw.com/sparql
-#  VLocal - Local Virtuoso query service at http://getafix:8890/sparql
-#  MDB - MilleniumDB public Wikidata Query Service at https://wikidata.imfd.cl/wikidata/sparql
-#  MLjson - local MilleniumDB at http://getafix:1234/sparql with JSON output
-#  MLocal - local MilleniumDB at http://getafix:1234/sparql with TSV output
+#  QLever - Local QLever Wikidata query service at http://getafix:7001
+#  Blazegraph - local Blazegraph query service at http://getafix:9999/bigdata/sparql
+#  Virtuoso - Local Virtuoso query service at http://getafix:8890/sparql
+#  MilleniumDB - local MilleniumDB at http://getafix:1234/sparql
 
 # Positional arguments are a filename and description, which means to only run that query.
 # Option: -d --directory <directory name> use this directory
 # Option: -e --engine <engine> ...  only use these engines
-# Option: -c --clear-cache clear the cache for each query (only for QLever currently)
-
-# TODO: convert to control file to yaml?
 
 # This benchmark harness was converted from a benchmark harness used to investigate class order in Wikidata.
 # This benchmark harness is still under development
@@ -92,38 +82,6 @@ def unbox(field):
                 return match.group(1) if match and len(match.groups()) >= 1 else field
     return field
 
-def results_qlever(reply):
-    try:
-        replyj = reply.json()
-    except Exception:
-        return None, reply.status_code, "ERROR CANNOT DECIPHER JSON OUTPUT", "", ""
-    count = replyj["resultsize"]
-    if count == 1:
-        if len(replyj["res"][0]) > 0:
-            result = unbox(replyj["res"][0][0])
-        else:
-            result = " "
-        count = f"Result={result}"
-    else:
-        count = f"Count= {count}"
-    exception = replyj.get("exception", "")
-    if exception:
-        count = None
-    time = replyj["time"]
-    stime = time["total"][0:-2] if isinstance(time["total"],str) else time["total"]
-    return count, reply.status_code, exception, stime, time
-
-def qlever_eval(query, url, no_caching=True):
-    if no_caching:
-        qlever_clear_cache(url)
-    reply = requests.get(url,
-                         headers={"Content-type": "sparql-query",
-                                  "Accept": "application/qlever-results+json",
-                                  },
-                         params={"query": prefixes + query})
-    return results_qlever(reply)
-
-
 def results_csv(text, separator=','):
     count = text.count("\n")-1
     if count == 1:
@@ -136,18 +94,56 @@ def results_csv(text, separator=','):
     else:
         return f"Count= {count}"
 
+def basic_eval(query, url, result_format="text/tab-separated-values"):
+    headers={"Accept": result_format, "Content-type": "application/sparql-query", "user-agent": "pfps-benchmark/0.0.1"}
+    start_time = time.time()
+    reply = requests.get(url,
+                         headers=headers,
+                         params={"query": prefixes + query})
+    end_time = time.time()
+    etime = int((end_time - start_time) * 1000)
+    reply.encoding = 'utf-8'
+    return reply, etime
 
-def wdqs_eval(query, url, no_caching=True):
-    headers={"Accept": "text/csv", "user-agent": "pfps-benchmark/0.0.1"}
-    if no_caching:
-        query = "#" + str(random.randint(1,1000000000)) + "\n" + query
+def generic_eval(query, url=None, separator='	'):
+##    qlever_clear_cache(url)
+    reply, etime = basic_eval(query, url)
+    if reply.status_code < 400:
+        if reply.text:
+            return etime, results_csv(reply.text, separator=separator), reply.status_code, "", "", ""
+        else:
+            return etime, None, reply.status_code, "ERROR EMPTY OUTPUT", "", ""
+    else:
+        error_text = reply.text.split('\n')
+        error_text = error_text[min(1,len(error_text)-1)]
+        return etime, None, reply.status_code, error_text, "", ""
+
+def virtuoso_eval(query, url):
+    reply, etime = basic_eval(query, url)
+    count = results_csv(reply.text, separator='	')
+    if reply.status_code == 200:
+        return etime, count, reply.status_code, "", "", ""
+    else:
+        err = re.search('Virtuoso \\d+ Error .*\n', reply.text)
+        return etime, count, reply.status_code, err.group(0).strip() if err else "", "", ""
+
+def mdb_eval(query, url):
+    return generic_eval(query, url, result_format="text/csv")
+
+def blazegraph_eval(query, url):
+    headers={"Accept": "text/tab-separated-values", "user-agent": "pfps-benchmark/0.0.1"}
     try:
+        start_time = time.time()
         reply = requests.get(url,
                              headers=headers,
                              params={"query": query, "timeout": "600"},
                          )
+        end_time = time.time()
     except Exception:
-        return None, None, "ERROR Exception reading response", "", ""
+        end_time = time.time()
+        etime = int((end_time - start_time) * 1000)
+        return etime, None, None, "ERROR Exception reading response", "", ""
+    etime = int((end_time - start_time) * 1000)
     if reply.status_code == 429:
         print("RETRY AFTER", reply.headers["retry-after"])
         sys.exit()
@@ -163,87 +159,29 @@ def wdqs_eval(query, url, no_caching=True):
         timeout = re.search("java.util.concurrent.TimeoutException", reply.text)
         if timeout:
             exception = "ERROR TIMEOUT DURING RESULT GENERATION"
-        count = results_csv(reply.text)
-    return count, reply.status_code, exception, "", ""
-
-
-def generic_eval(query, url=None, no_caching=True):
-    headers={"Accept": "text/tab-separated-values", "Content-type": "application/sparql-query", "user-agent": "pfps-benchmark/0.0.1"}
-    reply = requests.get(url,
-                         headers=headers,
-                         params={"query": prefixes + query})
-    if reply.status_code < 400:
-        if reply.text:
-            return results_csv(reply.text, separator='	'), reply.status_code, "", "", ""
         else:
-            return None, reply.status_code, "ERROR EMPTY OUTPUT", "", ""
-    else:
-        return None, reply.status_code, reply.text, "", ""
-
-
-def virtuoso_eval(query, url, no_caching=True):
-    count, code, text, _, _ = generic_eval(query, url=url, no_caching=no_caching)
-    if code == 200:
-        return count, code, "", "", ""
-    else:
-        err = re.search('Virtuoso \\d+ Error .*\n', text)
-        return count, code, err.group(0).strip() if err else "", "", ""
-
-def results_json(jtext):
-    if isinstance(jtext,str):
-        count = len(re.findall(',{"', jtext))
-        return f"Count = {count:4}", "DEDUCED FROM UNPARSABLE JSON"
-    else:
-        count = len(jtext["results"]["bindings"])
-        if count == 1:
-            if jtext["head"]["vars"]:
-                row = jtext["results"]["bindings"][0]
-                result = row[jtext["head"]["vars"][0]]["value"]
-            else:
-                result = " "
-            iden = re.search("([^/]+)$", result)
-            return f"Result={iden.group(1) if iden is not None else result:4}", ""
-        else:
-            return f"Count= {count}", ""
-
-def mdb_eval(query, url, no_caching=True):
-    headers={"Content-Type": "application/sparql-query", "user-agent": "pfps-benchmark/0.0.1"}
-    reply = requests.post(url, headers=headers, data=query)
-    if reply.status_code < 400:
-        if reply.text:
-            try:
-                result, excptn = results_json(reply.json())
-            except Exception:
-                result = None
-                excptn = f"ERROR UNABLE TO DECIPHER OUTPUT {reply.text[0:200].split('\n')[0]}"
-        else:
-            result = None
-            excptn = "ERROR EMPTY OUTPUT"
-    else:
-        result = None
-        # 404 error message somehow causes problems
-        excptn = reply.text.split('\n')[0] if reply.status_code != 404 else "NOT FOUND"
-    return result, reply.status_code, excptn, "", ""
-
+            err = re.search("java.util.concurrent.ExecutionException", reply.text)
+            if err:
+                if re.search("MemoryManagerOutOfMemory", reply.text):
+                    exception = "ERROR MEMORY EXCEPTION"
+                else:
+                    exception = "ERROR EXECUTION EXCEPTION"
+        count = results_csv(reply.text, separator='	')
+    return etime, count, reply.status_code, exception, "", ""
 
 engines = [
-    [ "QLever",  qlever_eval, 'https://qlever.cs.uni-freiburg.de/api/wikidata/', True],
-    [ "QLTest", qlever_eval,  'https://qlever.cs.uni-freiburg.de/api/wikidata-test/', True],
-    [ "QLocal", qlever_eval, 'http://getafix:7001', True],
-    [ "VOS", virtuoso_eval, "https://wikidata.demo.openlinksw.com/sparql", False],
-    [ "VLocal", virtuoso_eval, "http://getafix:8890/sparql", False],
-    [ "MDB", mdb_eval, "https://wikidata.imfd.cl/wikidata/sparql", False],
-    [ "MLjson", mdb_eval, "http://getafix:1234/sparql", False], 
-    [ "MLocal", generic_eval, "http://getafix:1234/sparql", False], 
-    [ "WDQS", wdqs_eval, 'https://query.wikidata.org/sparql', True],
-    [ "ORB", wdqs_eval, 'https://query-direct.orbopengraph.com/bigdata/namespace/wdq/sparql', True],
-    [ "BLocal", wdqs_eval, "http://getafix:9999/bigdata/sparql", True], 
+    [ "Blazegraph", blazegraph_eval, "http://getafix:9999/bigdata/sparql"], 
+    [ "MilleniumDB", generic_eval, "http://getafix:1234/sparql"], 
+    [ "QLever", generic_eval, 'http://getafix:7001'],
+    [ "Virtuoso", virtuoso_eval, "http://getafix:8890/sparql"],
+    [ "WDQS", blazegraph_eval, 'https://query.wikidata.org/sparql'], 
+    [ "MDB", generic_eval, "https://wikidata.imfd.cl/wikidata/sparql"],
+    [ "QWDS",  generic_eval, 'https://qlever.cs.uni-freiburg.de/api/wikidata/'],
+    [ "VOS", virtuoso_eval, "https://wikidata.demo.openlinksw.com/sparql"],
 ]
 
-def options(no_caching, nocachable, counting, distinct):
+def options(counting, distinct):
     options = []
-    if no_caching and nocachable:
-        options.append("NOCACHE")
     if counting:
         options.append("COUNTED")
     if distinct:
@@ -263,51 +201,48 @@ def modify_query(query, count, replace):
 def print_result(index, engine, opts, etime, itime, count, code, err, message):
     print(f"{index+1}	{engine}	{opts}	{etime:>7}	{itime:>6}	{count} 	{code}	{err}	{message if args.verbose else ''}", flush=True)
 
-def process_query(index, query, no_caching=True, counting=False, replace=None, description=""):
+def process_query(index, query, counting=False, replace=None, description=""):
     if args.verbose and description:
         print("QUERY", description)
     query = modify_query(query, counting, replace)
-    for [engine, function, url, nocachable] in engines:
-        opts = options(no_caching, nocachable, counting, args.nodups)
+    for [engine, function, url] in engines:
+        opts = options(counting, args.nodups)
         if query:
-            start_time = time.time()
-            count, code, err, itime, dtime = function(query, url, no_caching=no_caching)
-            end_time = time.time()
+            etime, count, code, err, itime, dtime = function(query, url)
         else:
             print_result(index, engine, opts, max_time, "", None, 500, "SKIPPED - CAUSES CRASH", "")
             return
-        etime = int((end_time - start_time) * 1000)
         print_result(index, engine, opts, etime, itime, count, code, err, dtime)
 
-def process(directory, query_file_name, description, alternatives=None, no_caching=True, counting=False, replace=None, index=None):
+def process(directory, query_file_name, description, alternatives=None, counting=False, replace=None, index=None):
     alternatives = alternatives if alternatives is not None else {}
     if args.verbose:
         print("QUERY", query_file_name, description.strip())
     with open(directory + '/' + query_file_name + '.sparql', 'r') as query_file:
         query = modify_query(query_file.read(), counting, replace)
 
-    for [engine, function, url, nocachable] in engines:
+    for [engine, function, url] in engines:
         if engine in alternatives:
             with open(queries_directory + '/' + alternatives[engine] + '.sparql', 'r') as query_file:
                 query_for_engine = modify_query(query_file.read(), counting, replace)
             start_time = time.time()
-            count, code, errr, itime, dtime = function(query_for_engine, url, no_caching=no_caching)
+            count, code, errr, itime, dtime = function(query_for_engine, url)
             end_time =time.time()
         else:
             start_time = time.time()
             try:
-                count, code, errr, itime, dtime = function(query, url, no_caching=no_caching)
+                count, code, errr, itime, dtime = function(query, url)
             except Exception as e:
                 result = f"EXCEPTION {e}"
             end_time =time.time()
         etime = int((end_time - start_time) * 1000)
-        opts = options(no_caching, nocachable, counting, args.distinct)
+        opts = options(counting, args.distinct)
         print_result(index, engine, opts, etime, itime, count, code, err, query_file_name)
 
     if args.verbose:
         print()
 
-def parameterized(parameter, query_file_name, description, alternatives, no_caching, counting):
+def parameterized(parameter, query_file_name, description, alternatives):
     print("PARAMETERIZED", parameter)
     with open(queries_directory + '/' + parameter + '.sparql', 'r') as parameter_file:
         parameter = parameter_file.read()
@@ -316,9 +251,9 @@ def parameterized(parameter, query_file_name, description, alternatives, no_cach
     for index,row in enumerate(rows[1:]):
         replace = row.split('\t')[0]
         rdesc = description.replace("REPLACE", replace)
-        process(query_file_name, rdesc, alternatives=alternatives, no_caching=no_caching, counting=counting, replace=replace, index=idx)
+        process(query_file_name, rdesc, alternatives=alternatives, counting=counting, replace=replace, index=idx)
 
-def process_queries_file(filename, description, no_caching, counting, skip=0):
+def process_queries_file(filename, description, counting, skip=0):
     if args.verbose and description:
         print(description)
     with open(filename, 'r') as file:
@@ -328,7 +263,7 @@ def process_queries_file(filename, description, no_caching, counting, skip=0):
             line = line.split('\t')
             query = line[-1].strip()
             qdescription = line[0] if len(line) >= 2 else ""
-            process_query(index, query, no_caching, counting, description=qdescription)
+            process_query(index, query, counting, description=qdescription)
 
 def process_control_file(control_file, skip=0):
     index = -1
@@ -347,9 +282,9 @@ def process_control_file(control_file, skip=0):
         if "PARAMETER" in alternatives:
             parameter = alternatives["PARAMETER"]
             del alternatives["PARAMETER"]
-            parameterized(parameter, query_file_name, description, alternatives, no_caching=args.nocache, counting=args.count)
+            parameterized(parameter, query_file_name, description, alternatives, counting=args.count)
         else:
-            process(filename, query_file_name, description, alternatives, no_caching=args.nocache, counting=args.count)
+            process(filename, query_file_name, description, alternatives, counting=args.count)
 
 
 parser = argparse.ArgumentParser()
@@ -358,7 +293,6 @@ parser.add_argument("-D", "--description", action='store', default="", help="Des
 parser.add_argument("-e", "--engine", action='append', type=str, choices=[engine[0] for engine in engines],
                     help="System to use (can be repeated)")
 parser.add_argument("-d", "--directory", action='store', type=str, help="Directory with queries")
-parser.add_argument("-C", "--nocache", action='store_true', help="Overcome caching (only changes QLever and Blazegraph)")
 parser.add_argument("-c", "--count", action='store_true', help="Add enclosing SELECT to count results")
 parser.add_argument("-v", "--verbose", action='store_true', help="Verbose output")
 parser.add_argument("-P", "--nodups", action='store_true', help="Add DISTINCT to query to eliminate duplicates")
@@ -383,14 +317,12 @@ except Exception:
 if control_file is not None:
     if args.verbose: 
         print(f"Evaluating queries from {queries_directory}{', counted,' if args.count else ''}")
-        print(f"with caching {'allowed' if not args.nocache else 'disabled for QLever and Blazegraph'}\n")
         print(args.description)
     process_control_file(control_file, skip=skip)
 else:
     if args.verbose: 
         print(f"Evaluating queries in {queries_directory}{', counted,' if args.count else ''}")
-        print(f"with caching {'allowed' if not args.nocache else 'disabled for QLever and Blazegraph'}\n")
-    process_queries_file(filename, args.description, no_caching=args.nocache, counting=args.count, skip=skip)
+    process_queries_file(filename, args.description, counting=args.count, skip=skip)
 
 
 

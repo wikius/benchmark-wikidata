@@ -1,13 +1,22 @@
 #!/bin/tcsh
 
+rm *.result *.sort
+
 ./evaluate.py $1 $2
+
+#head -n10 *.result
+cat MilleniumDB.result
+echo ''
+wc *.result
+exit
 
 foreach i (*.result)
     sort $i > $i.sort
 end
 
-head *.sort
+head -n5 *.sort
 
 echo ""
 echo "Word Counts"
 wc *.sort
+rm *.sort
