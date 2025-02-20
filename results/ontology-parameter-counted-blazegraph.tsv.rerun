@@ -1,0 +1,232 @@
+1	Blazegraph	COUNTED	   1725	      	Result=99707 	200		olefinic compound
+2	Blazegraph	COUNTED	   1926	      	Result=93859 	200		relation
+3	Blazegraph	COUNTED	   1235	      	Result=101253 	200		unsaturated compound
+4	Blazegraph	COUNTED	   2539	      	Result=99252 	200		physical process
+5	Blazegraph	COUNTED	   2710	      	Result=99293 	200		physicochemical process
+6	Blazegraph	COUNTED	   2212	      	Result=102060 	200		appliance
+7	Blazegraph	COUNTED	   2605	      	Result=100483 	200		physical phenomenon
+8	Blazegraph	COUNTED	    971	      	Result=98840 	200		local politician
+9	Blazegraph	COUNTED	   2198	      	Result=105057 	200		occurrence
+10	Blazegraph	COUNTED	   1774	      	Result=80763 	200		converter
+11	Blazegraph	COUNTED	   2513	      	Result=112211 	200		physical tool
+12	Blazegraph	COUNTED	   2528	      	Result=115735 	200		tool
+13	Blazegraph	COUNTED	   1322	      	Result=108349 	200		public office
+14	Blazegraph	COUNTED	   1121	      	Result=109186 	200		politician
+15	Blazegraph	COUNTED	   1088	      	Result=119796 	200		terpenoids
+16	Blazegraph	COUNTED	   1088	      	Result=120005 	200		isoprenoid
+17	Blazegraph	COUNTED	   3486	      	Result=121381 	200		equipment
+18	Blazegraph	COUNTED	   3760	      	Result=157070 	200		phenomenon
+19	Blazegraph	COUNTED	   1841	      	Result=120761 	200		activity
+20	Blazegraph	COUNTED	   3770	      	Result=161031 	200		observable entity
+21	Blazegraph	COUNTED	   1552	      	Result=127235 	200		professional
+22	Blazegraph	COUNTED	   2675	      	Result=134333 	200		goods
+23	Blazegraph	COUNTED	   1669	      	Result=137515 	200		position
+24	Blazegraph	COUNTED	   2110	      	Result=138586 	200		role
+25	Blazegraph	COUNTED	   2343	      	Result=139631 	200		role
+26	Blazegraph	COUNTED	   2132	      	Result=141424 	200		realizable entity
+27	Blazegraph	COUNTED	   2167	      	Result=141427 	200		specifically dependent continuant
+28	Blazegraph	COUNTED	   3476	      	Result=139498 	200		goods and services
+29	Blazegraph	COUNTED	   1620	      	Result=133934 	200		worker
+30	Blazegraph	COUNTED	   1776	      	Result=135579 	200		person with an activity
+31	Blazegraph	COUNTED	   2086	      	Result=150745 	200		cyclic compound
+32	Blazegraph	COUNTED	   3346	      	Result=150266 	200		artificial physical object
+33	Blazegraph	COUNTED	   1996	      	Result=155673 	200		person
+34	Blazegraph	COUNTED	   2050	      	Result=155807 	200		individual
+35	Blazegraph	COUNTED	   2280	      	Result=167679 	200		organism
+36	Blazegraph	COUNTED	   2212	      	Result=169488 	200		legal person
+37	Blazegraph	COUNTED	   4325	      	Result=191979 	200		property
+38	Blazegraph	COUNTED	   4267	      	Result=181636 	200		process
+39	Blazegraph	COUNTED	   4412	      	Result=195193 	200		sequence
+40	Blazegraph	COUNTED	   2600	      	Result=186091 	200		person or organization
+41	Blazegraph	COUNTED	   5847	      	Result=204899 	200		occurrent
+42	Blazegraph	COUNTED	   1641	      	Result=92955 	200		work
+43	Blazegraph	COUNTED	   5278	      	Result=236015 	200		class
+44	Blazegraph	COUNTED	   5277	      	Result=236548 	200		class
+45	Blazegraph	COUNTED	   4168	      	Result=198059 	200		agent
+46	Blazegraph	COUNTED	   3706	      	Result=268569 	200		physical anatomical entity
+47	Blazegraph	COUNTED	   3676	      	Result=268890 	200		anatomical entity
+48	Blazegraph	COUNTED	   6367	      	Result=289571 	200		artificial object
+49	Blazegraph	COUNTED	  11262	      	Result=350244 	200		abstract entity
+50	Blazegraph	COUNTED	   9430	      	Result=358098 	200		spatio-temporal entity
+51	Blazegraph	COUNTED	   6057	      	Result=799367 	200		protein
+52	Blazegraph	COUNTED	   6261	      	Result=799373 	200		polypeptide
+53	Blazegraph	COUNTED	   5971	      	Result=799784 	200		peptide
+54	Blazegraph	COUNTED	   6431	      	Result=802521 	200		carboxamides
+55	Blazegraph	COUNTED	   6334	      	Result=810647 	200		amides
+56	Blazegraph	COUNTED	   6962	      	Result=862624 	200		gene product
+57	Blazegraph	COUNTED	   6768	      	Result=863014 	200		biopolymer
+58	Blazegraph	COUNTED	   7129	      	Result=863399 	200		polymer
+59	Blazegraph	COUNTED	  11875	      	Result=863672 	200		biological macromolecule
+60	Blazegraph	COUNTED	  11949	      	Result=863989 	200		macromolecule
+61	Blazegraph	COUNTED	  17655	      	Result=864656 	200		molecule
+62	Blazegraph	COUNTED	   6957	      	Result=869229 	200		mixture
+63	Blazegraph	COUNTED	   7194	      	Result=879521 	200		nitrogen compound
+64	Blazegraph	COUNTED	   7220	      	Result=879566 	200		pnictogen compound
+65	Blazegraph	COUNTED	   7699	      	Result=902186 	200		carbonyl compound
+66	Blazegraph	COUNTED	   6965	      	Result=910804 	200		oxo compound
+67	Blazegraph	COUNTED	   7784	      	Result=932388 	200		material
+68	Blazegraph	COUNTED	   7363	      	Result=946009 	200		protein-coding gene
+69	Blazegraph	COUNTED	  11779	      	Result=1008547 	200		gene
+70	Blazegraph	COUNTED	  11339	      	Result=1008565 	200		biological region
+71	Blazegraph	COUNTED	  11281	      	Result=1008607 	200		biomolecular structure
+72	Blazegraph	COUNTED	  11472	      	Result=1008609 	200		macromolecular conformation
+73	Blazegraph	COUNTED	  11884	      	Result=1008798 	200		zone
+74	Blazegraph	COUNTED	   8928	      	Result=1025299 	200		organooxygen compound
+75	Blazegraph	COUNTED	   9332	      	Result=1025798 	200		organic oxygen compound
+76	Blazegraph	COUNTED	  11555	      	Result=1030883 	200		physical structure
+77	Blazegraph	COUNTED	  14289	      	Result=1035594 	200		oxygen compound
+78	Blazegraph	COUNTED	  14864	      	Result=1035595 	200		oxygen molecular entity
+79	Blazegraph	COUNTED	  12101	      	Result=1055334 	200		physical system
+80	Blazegraph	COUNTED	  12553	      	Result=1095095 	200		biological structure
+81	Blazegraph	COUNTED	  14819	      	Result=1098568 	200		product
+82	Blazegraph	COUNTED	  30308	      	Result=1104406 	200		molecular entity
+83	Blazegraph	COUNTED	  30470	      	Result=1104552 	200		composite particle
+84	Blazegraph	COUNTED	  32009	      	Result=1104638 	200		massive quantum particle
+85	Blazegraph	COUNTED	  31046	      	Result=1104639 	200		massive particle
+86	Blazegraph	COUNTED	  30806	      	Result=1104737 	200		quantum particle
+87	Blazegraph	COUNTED	  30426	      	Result=1104884 	200		particle
+88	Blazegraph	COUNTED	  12990	      	Result=1106478 	200		natural physical object
+89	Blazegraph	COUNTED	  12612	      	Result=1108284 	200		natural object
+90	Blazegraph	COUNTED	  14689	      	Result=1123778 	200		biomolecule
+91	Blazegraph	COUNTED	  13225	      	Result=1129483 	200		system
+92	Blazegraph	COUNTED	  13780	      	Result=1135329 	200		structure
+93	Blazegraph	COUNTED	  21315	      	Result=1160378 	200		organic compound
+94	Blazegraph	COUNTED	  21788	      	Result=1160509 	200		carbon compound
+95	Blazegraph	COUNTED	  26876	      	Result=1431942 	200		collective entity
+96	Blazegraph	COUNTED	  49004	      	Result=2300345 	200		chemical compound
+97	Blazegraph	COUNTED	  48638	      	Result=2300346 	200		chemical component
+98	Blazegraph	COUNTED	  49045	      	Result=2302253 	200		pure substance
+99	Blazegraph	COUNTED	  54843	      	Result=2318882 	200		chemical substance
+100	Blazegraph	COUNTED	  66278	      	Result=2320274 	200		chemical entity
+101	Blazegraph	COUNTED	  50850	      	Result=2332084 	200		component
+102	Blazegraph	COUNTED	  59927	      	Result=2371875 	200		substance
+103	Blazegraph	COUNTED	  65005	      	Result=2373268 	200		ordinary matter
+104	Blazegraph	COUNTED	  66083	      	Result=2373310 	200		baryonic matter
+105	Blazegraph	COUNTED	  66260	      	Result=2373342 	200		common matter
+106	Blazegraph	COUNTED	  65593	      	Result=2373400 	200		matter
+107	Blazegraph	COUNTED	  65551	      	Result=2373593 	200		physical substance
+108	Blazegraph	COUNTED	  65067	      	Result=2373598 	200		substance
+109	Blazegraph	COUNTED	  50732	      	Result=2522750 	200		physical object
+110	Blazegraph	COUNTED	  51659	      	Result=2538912 	200		material entity
+111	Blazegraph	COUNTED	  56133	      	Result=2604380 	200		independent continuant
+112	Blazegraph	COUNTED	  58644	      	Result=2612115 	200		continuant
+113	Blazegraph	COUNTED	  61083	      	Result=3357767 	200		part
+114	Blazegraph	COUNTED	  92828	      	Result=3771719 	200		concrete object
+115	Blazegraph	COUNTED	 121313	      	Result=4090265 	200		object
+116	Blazegraph	COUNTED	 187275	      	Result=4146816 	200		entity
+117	Blazegraph	COUNTED	   1864	      	Result=1906 	200		olefinic compound
+118	Blazegraph	COUNTED	   5808	      	Result=2110968 	200		relation
+119	Blazegraph	COUNTED	   1188	      	Result=1909 	200		unsaturated compound
+120	Blazegraph	COUNTED	   2838	      	Result=580165 	200		physical process
+121	Blazegraph	COUNTED	   2705	      	Result=580168 	200		physicochemical process
+122	Blazegraph	COUNTED	   2543	      	Result=400952 	200		appliance
+123	Blazegraph	COUNTED	   2724	      	Result=594625 	200		physical phenomenon
+124	Blazegraph	COUNTED	    886	      	Result=4756 	200		local politician
+125	Blazegraph	COUNTED	   7858	      	Result=3256299 	200		occurrence
+126	Blazegraph	COUNTED	   1920	      	Result=264305 	200		converter
+127	Blazegraph	COUNTED	   2891	      	Result=498363 	200		physical tool
+128	Blazegraph	COUNTED	   2965	      	Result=502992 	200		tool
+129	Blazegraph	COUNTED	   1218	      	Result=59525 	200		public office
+130	Blazegraph	COUNTED	    981	      	Result=9754 	200		politician
+131	Blazegraph	COUNTED	    980	      	Result=59 	200		terpenoids
+132	Blazegraph	COUNTED	   1008	      	Result=59 	200		isoprenoid
+133	Blazegraph	COUNTED	   4172	      	Result=592143 	200		equipment
+134	Blazegraph	COUNTED	   6698	      	Result=3057872 	200		phenomenon
+135	Blazegraph	COUNTED	   6222	      	Result=2574679 	200		activity
+136	Blazegraph	COUNTED	   9145	      	Result=3940266 	200		observable entity
+137	Blazegraph	COUNTED	   1379	      	Result=11709 	200		professional
+138	Blazegraph	COUNTED	   7292	      	Result=2663707 	200		goods
+139	Blazegraph	COUNTED	   1731	      	Result=226950 	200		position
+140	Blazegraph	COUNTED	   2042	      	Result=228122 	200		role
+141	Blazegraph	COUNTED	   2098	      	Result=229514 	200		role
+142	Blazegraph	COUNTED	   2114	      	Result=229704 	200		realizable entity
+143	Blazegraph	COUNTED	   2172	      	Result=229704 	200		specifically dependent continuant
+144	Blazegraph	COUNTED	   7906	      	Result=2733666 	200		goods and services
+145	Blazegraph	COUNTED	   1447	      	Result=14162 	200		worker
+146	Blazegraph	COUNTED	   1571	      	Result=14462 	200		person with an activity
+147	Blazegraph	COUNTED	   1871	      	Result=1976 	200		cyclic compound
+148	Blazegraph	COUNTED	  13211	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=a4f3fb49-0b13-4c04-972b-21caf5dd2f6f,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=4314929,considered(left=0,right=0,joins=0)}	artificial physical object
+149	Blazegraph	COUNTED	  17793	      	Result=11483854 	200		person
+150	Blazegraph	COUNTED	  18294	      	Result=11506409 	200		individual
+151	Blazegraph	COUNTED	  18294	      	Result=11554647 	200		organism
+152	Blazegraph	COUNTED	  23055	      	Result=12926996 	200		legal person
+153	Blazegraph	COUNTED	  14561	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=1dc84197-bc66-4cf0-976b-40a0f3e0eff1,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=5468413,considered(left=0,right=0,joins=0)}	property
+154	Blazegraph	COUNTED	   9607	      	Result=2860648 	200		process
+155	Blazegraph	COUNTED	  14653	      	Result=4090789 	200		sequence
+156	Blazegraph	COUNTED	  13294	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=d3d34bc2-535a-44da-9b60-22e7b90c3b75,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=4154653,considered(left=0,right=0,joins=0)}	person or organization
+157	Blazegraph	COUNTED	  13954	      	Result=4319381 	200		occurrent
+158	Blazegraph	COUNTED	  14348	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=171529bc-48f6-4a41-b0a8-59a505cb79c3,bopId=14,partitionId=-1,sinkId=15,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	work
+159	Blazegraph	COUNTED	  15025	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=05bef4bb-b879-49a7-979d-7e6a2bf85dd4,bopId=13,partitionId=-1,sinkId=14,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	class
+160	Blazegraph	COUNTED	  15696	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=0ac266be-c060-4937-ba8b-46a06313b121,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=5990088,considered(left=0,right=0,joins=0)}	class
+161	Blazegraph	COUNTED	  13930	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=719598e0-7a0a-4a9d-8090-9edd422f5b73,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=4480341,considered(left=0,right=0,joins=0)}	agent
+162	Blazegraph	COUNTED	  18366	      	Result=11586416 	200		physical anatomical entity
+163	Blazegraph	COUNTED	  18510	      	Result=11586667 	200		anatomical entity
+164	Blazegraph	COUNTED	  14465	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=4bbe3e49-4cd7-4540-b525-042adf517f23,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=5407192,considered(left=0,right=0,joins=0)}	artificial object
+165	Blazegraph	COUNTED	  16471	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=ad595e09-a1e6-44fd-ae84-f3d7adc980e5,bopId=13,partitionId=-1,sinkId=14,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	abstract entity
+166	Blazegraph	COUNTED	  15069	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=f0416e44-bbdc-4683-bccc-796a42a11d1d,bopId=13,partitionId=-1,sinkId=14,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	spatio-temporal entity
+167	Blazegraph	COUNTED	   5928	      	Result=1020817 	200		protein
+168	Blazegraph	COUNTED	   6012	      	Result=1020829 	200		polypeptide
+169	Blazegraph	COUNTED	   6252	      	Result=1020889 	200		peptide
+170	Blazegraph	COUNTED	   6821	      	Result=1020896 	200		carboxamides
+171	Blazegraph	COUNTED	   6447	      	Result=1020901 	200		amides
+172	Blazegraph	COUNTED	   6647	      	Result=1136896 	200		gene product
+173	Blazegraph	COUNTED	   6745	      	Result=1141454 	200		biopolymer
+174	Blazegraph	COUNTED	   6962	      	Result=1141650 	200		polymer
+175	Blazegraph	COUNTED	  11532	      	Result=1141529 	200		biological macromolecule
+176	Blazegraph	COUNTED	  12055	      	Result=1141737 	200		macromolecule
+177	Blazegraph	COUNTED	  16714	      	Result=1142015 	200		molecule
+178	Blazegraph	COUNTED	   7404	      	Result=1146442 	200		mixture
+179	Blazegraph	COUNTED	   7162	      	Result=1022825 	200		nitrogen compound
+180	Blazegraph	COUNTED	   7486	      	Result=1022825 	200		pnictogen compound
+181	Blazegraph	COUNTED	   7175	      	Result=1020929 	200		carbonyl compound
+182	Blazegraph	COUNTED	   7490	      	Result=1020938 	200		oxo compound
+183	Blazegraph	COUNTED	   8041	      	Result=1227158 	200		material
+184	Blazegraph	COUNTED	   7008	      	Result=18865 	200		protein-coding gene
+185	Blazegraph	COUNTED	  11491	      	Result=1266631 	200		gene
+186	Blazegraph	COUNTED	  12051	      	Result=1266634 	200		biological region
+187	Blazegraph	COUNTED	  11748	      	Result=1267767 	200		biomolecular structure
+188	Blazegraph	COUNTED	  11359	      	Result=1267768 	200		macromolecular conformation
+189	Blazegraph	COUNTED	  11476	      	Result=1328168 	200		zone
+190	Blazegraph	COUNTED	   8928	      	Result=1021110 	200		organooxygen compound
+191	Blazegraph	COUNTED	   8854	      	Result=1021120 	200		organic oxygen compound
+192	Blazegraph	COUNTED	  16683	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=e1f36675-fc2b-46bd-a2c7-e5f596588621,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=5696786,considered(left=0,right=0,joins=0)}	physical structure
+193	Blazegraph	COUNTED	  14125	      	Result=1023258 	200		oxygen compound
+194	Blazegraph	COUNTED	  14829	      	Result=1023258 	200		oxygen molecular entity
+195	Blazegraph	COUNTED	  16867	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=af228dc6-fa41-484e-8936-468a9176a176,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=5970948,considered(left=0,right=0,joins=0)}	physical system
+196	Blazegraph	COUNTED	  12934	      	Result=1299758 	200		biological structure
+197	Blazegraph	COUNTED	  18540	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=e68daa98-f090-46c1-ad66-14f8afcd3c0c,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=7818862,considered(left=0,right=0,joins=0)}	product
+198	Blazegraph	COUNTED	  30348	      	Result=1144257 	200		molecular entity
+199	Blazegraph	COUNTED	  30897	      	Result=1144271 	200		composite particle
+200	Blazegraph	COUNTED	  30619	      	Result=1144278 	200		massive quantum particle
+201	Blazegraph	COUNTED	  31480	      	Result=1144278 	200		massive particle
+202	Blazegraph	COUNTED	  30680	      	Result=1144297 	200		quantum particle
+203	Blazegraph	COUNTED	  30283	      	Result=1144335 	200		particle
+204	Blazegraph	COUNTED	  20600	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=2e6b71c2-3dee-4d99-b595-cb40f57548b8,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=java.lang.RuntimeException: De-serialization problem: addr=PhysicalAddress: 72351749, length: 12373 from store=null : cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=9041511,considered(left=0,right=0,joins=0)}	natural physical object
+205	Blazegraph	COUNTED	  19316	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=7e466838-0522-4507-80eb-0f38c9a15f2c,bopId=14,partitionId=-1,sinkId=15,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	natural object
+206	Blazegraph	COUNTED	  13779	      	Result=1141616 	200		biomolecule
+207	Blazegraph	COUNTED	  14776	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=0f7a6500-d52c-465f-8753-7bbeab7f9d62,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=4722306,considered(left=0,right=0,joins=0)}	system
+208	Blazegraph	COUNTED	  13949	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=6f5049f8-4520-432b-ae32-c720bb8f1d36,bopId=13,partitionId=-1,sinkId=14,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	structure
+209	Blazegraph	COUNTED	  20920	      	Result=1139181 	200		organic compound
+210	Blazegraph	COUNTED	  21597	      	Result=1139181 	200		carbon compound
+211	Blazegraph	COUNTED	  16433	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=ab5843f5-3eb9-498e-8ccd-ad0d8af901c4,bopId=14,partitionId=-1,sinkId=15,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	collective entity
+212	Blazegraph	COUNTED	  47285	      	Result=1153323 	200		chemical compound
+213	Blazegraph	COUNTED	  47540	      	Result=1153323 	200		chemical component
+214	Blazegraph	COUNTED	  47635	      	Result=1153508 	200		pure substance
+215	Blazegraph	COUNTED	  53610	      	Result=1163916 	200		chemical substance
+216	Blazegraph	COUNTED	  62221	      	Result=1164173 	200		chemical entity
+217	Blazegraph	COUNTED	  48494	      	Result=1576536 	200		component
+218	Blazegraph	COUNTED	  61211	      	Result=1245792 	200		substance
+219	Blazegraph	COUNTED	  64699	      	Result=1246052 	200		ordinary matter
+220	Blazegraph	COUNTED	  64993	      	Result=1246053 	200		baryonic matter
+221	Blazegraph	COUNTED	  65054	      	Result=1246058 	200		common matter
+222	Blazegraph	COUNTED	  63872	      	Result=1246083 	200		matter
+223	Blazegraph	COUNTED	  65688	      	Result=1246105 	200		physical substance
+224	Blazegraph	COUNTED	  65107	      	Result=1246115 	200		substance
+225	Blazegraph	COUNTED	  16924	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=cb1e8833-7a3d-492e-b7cd-514a1d5d9533,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=7077744,considered(left=0,right=0,joins=0)}	physical object
+226	Blazegraph	COUNTED	  15714	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=22db53aa-6097-4195-b21f-b3d7389db964,bopId=14,partitionId=-1,sinkId=15,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	material entity
+227	Blazegraph	COUNTED	  15695	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=a616e60d-afa4-4b36-941d-a296afbf49b3,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=6326043,considered(left=0,right=0,joins=0)}	independent continuant
+228	Blazegraph	COUNTED	  15611	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=7f999554-6113-4555-a3e4-b26c29868967,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=6233369,considered(left=0,right=0,joins=0)}	continuant
+229	Blazegraph	COUNTED	  21187	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=f4ff8435-8747-4aef-b465-fc01e8caf607,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=9190195,considered(left=0,right=0,joins=0)}	part
+230	Blazegraph	COUNTED	  16451	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=0bb96a9d-4d20-4721-989e-8b65adc0dd45,bopId=14,partitionId=-1,sinkId=15,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	concrete object
+231	Blazegraph	COUNTED	  16494	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=a4722149-ecba-41c2-8277-f58d1ff329fe,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=6935136,considered(left=0,right=0,joins=0)}	object
+232	Blazegraph	COUNTED	  18056	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=8e74004d-f914-4f2e-932b-258724182dda,bopId=11,partitionId=-1,sinkId=13,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=7963492,considered(left=0,right=0,joins=0)}	entity

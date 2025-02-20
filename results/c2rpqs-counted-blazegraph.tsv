@@ -1,0 +1,539 @@
+1	Blazegraph	COUNTED	   4510	      	Result=2567878 	200		
+2	Blazegraph	COUNTED	    146	      	Result=25976 	200		
+3	Blazegraph	COUNTED	    150	      	Result=14 	200		
+4	Blazegraph	COUNTED	    144	      	Result=25976 	200		
+5	Blazegraph	COUNTED	    112	      	Result=25976 	200		
+6	Blazegraph	COUNTED	     74	      	Result=0 	200		
+7	Blazegraph	COUNTED	    167	      	Result=6 	200		
+8	Blazegraph	COUNTED	   2426	      	Result=1215614 	200		
+9	Blazegraph	COUNTED	    139	      	Result=117 	200		
+10	Blazegraph	COUNTED	   2386	      	Result=1215614 	200		
+11	Blazegraph	COUNTED	   2344	      	Result=1215614 	200		
+12	Blazegraph	COUNTED	 185136	      	Result=0 	200		
+13	Blazegraph	COUNTED	   3304	      	Result=1215614 	200		
+14	Blazegraph	COUNTED	    285	      	Result=146011 	200		
+15	Blazegraph	COUNTED	    931	      	Result=270119 	200		
+16	Blazegraph	COUNTED	    115	      	Result=25976 	200		
+17	Blazegraph	COUNTED	     82	      	Result=164 	200		
+18	Blazegraph	COUNTED	    289	      	Result=24395 	200		
+19	Blazegraph	COUNTED	    109	      	Result=25976 	200		
+20	Blazegraph	COUNTED	    110	      	Result=25976 	200		
+21	Blazegraph	COUNTED	     93	      	Result=25976 	200		
+22	Blazegraph	COUNTED	   2452	      	Result=1215614 	200		
+23	Blazegraph	COUNTED	   2803	      	Result=1356624 	200		
+24	Blazegraph	COUNTED	   2289	      	Result=1215614 	200		
+25	Blazegraph	COUNTED	   1821	      	Result=1215614 	200		
+26	Blazegraph	COUNTED	   4245	      	Result=2951005 	200		
+27	Blazegraph	COUNTED	    114	      	Result=25976 	200		
+28	Blazegraph	COUNTED	   1061	      	Result=664464 	200		
+29	Blazegraph	COUNTED	    275	      	Result=146011 	200		
+30	Blazegraph	COUNTED	    190	      	Result=53496 	200		
+31	Blazegraph	COUNTED	    226	      	Result=111628 	200		
+32	Blazegraph	COUNTED	    495	      	Result=277258 	200		
+33	Blazegraph	COUNTED	    104	      	Result=25976 	200		
+34	Blazegraph	COUNTED	    183	      	Result=96746 	200		
+35	Blazegraph	COUNTED	   1253	      	Result=836927 	200		
+36	Blazegraph	COUNTED	    108	      	Result=25976 	200		
+37	Blazegraph	COUNTED	     92	      	Result=25976 	200		
+38	Blazegraph	COUNTED	   2243	      	Result=1215614 	200		
+39	Blazegraph	COUNTED	    125	      	Result=25976 	200		
+40	Blazegraph	COUNTED	    101	      	Result=25976 	200		
+41	Blazegraph	COUNTED	    122	      	Result=22021 	200		
+42	Blazegraph	COUNTED	    133	      	Result=33589 	200		
+43	Blazegraph	COUNTED	    164	      	Result=77830 	200		
+44	Blazegraph	COUNTED	   2795	      	Result=1215614 	200		
+45	Blazegraph	COUNTED	    355	      	Result=146011 	200		
+46	Blazegraph	COUNTED	    439	      	Result=270119 	200		
+47	Blazegraph	COUNTED	   1413	      	Result=215869 	200		
+48	Blazegraph	COUNTED	    134	      	Result=7 	200		
+49	Blazegraph	COUNTED	  12063	      	Result=7834281 	200		
+50	Blazegraph	COUNTED	    400	      	Result=217484 	200		
+51	Blazegraph	COUNTED	    150	      	Result=1 	200		
+52	Blazegraph	COUNTED	    101	      	Result=25976 	200		
+53	Blazegraph	COUNTED	    185	      	Result=53496 	200		
+54	Blazegraph	COUNTED	   1789	      	Result=1215614 	200		
+55	Blazegraph	COUNTED	    150	      	Result=2 	200		
+56	Blazegraph	COUNTED	    151	      	Result=2 	200		
+57	Blazegraph	COUNTED	    164	      	Result=9 	200		
+58	Blazegraph	COUNTED	     97	      	Result=25976 	200		
+59	Blazegraph	COUNTED	   1616	      	Result=1088751 	200		
+60	Blazegraph	COUNTED	    154	      	Result=36416 	200		
+61	Blazegraph	COUNTED	     96	      	Result=14231 	200		
+62	Blazegraph	COUNTED	    142	      	Result=7 	200		
+63	Blazegraph	COUNTED	     94	      	Result=25976 	200		
+64	Blazegraph	COUNTED	   1008	      	Result=664464 	200		
+65	Blazegraph	COUNTED	    189	      	Result=53496 	200		
+66	Blazegraph	COUNTED	    100	      	Result=22021 	200		
+67	Blazegraph	COUNTED	    147	      	Result=14231 	200		
+68	Blazegraph	COUNTED	     80	      	Result=25976 	200		
+69	Blazegraph	COUNTED	     46	      	Result=0 	200		
+70	Blazegraph	COUNTED	    132	      	Result=6 	200		
+71	Blazegraph	COUNTED	    107	      	Result=25976 	200		
+72	Blazegraph	COUNTED	     98	      	Result=25976 	200		
+73	Blazegraph	COUNTED	     85	      	Result=14231 	200		
+74	Blazegraph	COUNTED	    136	      	Result=3 	200		
+75	Blazegraph	COUNTED	    108	      	Result=25976 	200		
+76	Blazegraph	COUNTED	    244	      	Result=139386 	200		
+77	Blazegraph	COUNTED	    685	      	Result=433779 	200		
+78	Blazegraph	COUNTED	    764	      	Result=486372 	200		
+79	Blazegraph	COUNTED	    243	      	Result=119890 	200		
+80	Blazegraph	COUNTED	    122	      	Result=31970 	200		
+81	Blazegraph	COUNTED	     52	      	Result=0 	200		
+82	Blazegraph	COUNTED	    193	      	Result=95490 	200		
+83	Blazegraph	COUNTED	   1814	      	Result=1215614 	200		
+84	Blazegraph	COUNTED	    119	      	Result=21527 	200		
+85	Blazegraph	COUNTED	    122	      	Result=36648 	200		
+86	Blazegraph	COUNTED	  15112	      	Result=10000000 	200		
+87	Blazegraph	COUNTED	    176	      	Result=53496 	200		
+88	Blazegraph	COUNTED	    153	      	Result=44847 	200		
+89	Blazegraph	COUNTED	     29	      	Result=0 	200		
+90	Blazegraph	COUNTED	    705	      	Result=54508 	200		
+91	Blazegraph	COUNTED	    114	      	Result=43162 	200		
+92	Blazegraph	COUNTED	   2250	      	Result=1215614 	200		
+93	Blazegraph	COUNTED	    114	      	Result=25976 	200		
+94	Blazegraph	COUNTED	    114	      	Result=25976 	200		
+95	Blazegraph	COUNTED	    147	      	Result=27 	200		
+96	Blazegraph	COUNTED	     95	      	Result=25976 	200		
+97	Blazegraph	COUNTED	     95	      	Result=25976 	200		
+98	Blazegraph	COUNTED	    116	      	Result=85 	200		
+99	Blazegraph	COUNTED	    166	      	Result=43 	200		
+100	Blazegraph	COUNTED	    125	      	Result=7 	200		
+101	Blazegraph	COUNTED	   1515	      	Result=985955 	200		
+102	Blazegraph	COUNTED	    159	      	Result=1 	200		
+103	Blazegraph	COUNTED	    107	      	Result=25976 	200		
+104	Blazegraph	COUNTED	   1820	      	Result=1215614 	200		
+105	Blazegraph	COUNTED	  15599	      	Result=10000000 	200		
+106	Blazegraph	COUNTED	   4501	      	Result=192 	200		
+107	Blazegraph	COUNTED	  66946	      	Result=1239203 	200		
+108	Blazegraph	COUNTED	     78	      	Result=55 	200		
+109	Blazegraph	COUNTED	     88	      	Result=174 	200		
+110	Blazegraph	COUNTED	     66	      	Result=363 	200		
+111	Blazegraph	COUNTED	     72	      	Result=155 	200		
+112	Blazegraph	COUNTED	     76	      	Result=61 	200		
+113	Blazegraph	COUNTED	    101	      	Result=421 	200		
+114	Blazegraph	COUNTED	     68	      	Result=121 	200		
+115	Blazegraph	COUNTED	     63	      	Result=66 	200		
+116	Blazegraph	COUNTED	     86	      	Result=235 	200		
+117	Blazegraph	COUNTED	     88	      	Result=196 	200		
+118	Blazegraph	COUNTED	     54	      	Result=111 	200		
+119	Blazegraph	COUNTED	     74	      	Result=87 	200		
+120	Blazegraph	COUNTED	  31506	      	Result=899074 	200		
+121	Blazegraph	COUNTED	  18612	      	Result=3197267 	200		
+122	Blazegraph	COUNTED	    249	      	Result=43 	200		
+123	Blazegraph	COUNTED	    955	      	Result=16 	200		
+124	Blazegraph	COUNTED	    300	      	Result=0 	200		
+125	Blazegraph	COUNTED	  13745	      	Result=654 	200		
+126	Blazegraph	COUNTED	    971	      	Result=24951 	200		
+127	Blazegraph	COUNTED	    960	      	Result=13 	200		
+128	Blazegraph	COUNTED	    832	      	Result=10 	200		
+129	Blazegraph	COUNTED	  11676	      	Result=889 	200		
+130	Blazegraph	COUNTED	    862	      	Result=10 	200		
+131	Blazegraph	COUNTED	   1434	      	Result=11 	200		
+132	Blazegraph	COUNTED	  11138	      	Result=956 	200		
+133	Blazegraph	COUNTED	  10328	      	Result=1325 	200		
+134	Blazegraph	COUNTED	 673808	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+135	Blazegraph	COUNTED	 706377	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+136	Blazegraph	COUNTED	  85713	      	Result=251712 	200		
+137	Blazegraph	COUNTED	 137510	      	Result=185120 	200		
+138	Blazegraph	COUNTED	  15737	      	Result=10000000 	200		
+139	Blazegraph	COUNTED	  61775	      	Result=261 	200		
+140	Blazegraph	COUNTED	 136613	      	Result=158 	200		
+141	Blazegraph	COUNTED	   9546	      	Result=959088 	200		
+142	Blazegraph	COUNTED	    166	      	Result=1823 	200		
+143	Blazegraph	COUNTED	 600020	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+144	Blazegraph	COUNTED	   4893	      	Result=212292 	200		
+145	Blazegraph	COUNTED	 790266	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+146	Blazegraph	COUNTED	 639406	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+147	Blazegraph	COUNTED	     30	      	Result=0 	200		
+148	Blazegraph	COUNTED	  64224	      	Result=6706646 	200		
+149	Blazegraph	COUNTED	  17656	      	Result=10000000 	200		
+150	Blazegraph	COUNTED	  27667	      	Result=10000000 	200		
+151	Blazegraph	COUNTED	  18464	      	Result=10000000 	200		
+152	Blazegraph	COUNTED	     47	      	Result=0 	200		
+153	Blazegraph	COUNTED	   1283	      	Result=38673 	200		
+154	Blazegraph	COUNTED	   2411	      	Result=323550 	200		
+155	Blazegraph	COUNTED	    211	      	Result=4504 	200		
+156	Blazegraph	COUNTED	  19838	      	Result=1568165 	200		
+157	Blazegraph	COUNTED	    261	      	Result=30092 	200		
+158	Blazegraph	COUNTED	 719085	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+159	Blazegraph	COUNTED	  49297	      	Result=10000000 	200		
+160	Blazegraph	COUNTED	  14441	      	Result=1486518 	200		
+161	Blazegraph	COUNTED	  25947	      	Result=10000000 	200		
+162	Blazegraph	COUNTED	  46167	      	Result=1272824 	200		
+163	Blazegraph	COUNTED	 600022	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+164	Blazegraph	COUNTED	 600014	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+165	Blazegraph	COUNTED	  19820	      	Result=693840 	200		
+166	Blazegraph	COUNTED	    260	      	Result=30456 	200		
+167	Blazegraph	COUNTED	    133	      	Result=6258 	200		
+168	Blazegraph	COUNTED	    136	      	Result=415 	200		
+169	Blazegraph	COUNTED	    243	      	Result=31047 	200		
+170	Blazegraph	COUNTED	  58431	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=697119ad-212d-4d87-8cb3-260314b92e18,bopId=29,partitionId=-1,sinkId=30,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[],outputDistinctJVs=false,size=10000000,considered(left=1,right=7420601,joins=7420601)}	
+171	Blazegraph	COUNTED	    259	      	Result=37001 	200		
+172	Blazegraph	COUNTED	    210	      	Result=30667 	200		
+173	Blazegraph	COUNTED	  40731	      	Result=8064656 	200		
+174	Blazegraph	COUNTED	  17009	      	Result=10000000 	200		
+175	Blazegraph	COUNTED	  17959	      	Result=10000000 	200		
+176	Blazegraph	COUNTED	     80	      	Result=1287 	200		
+177	Blazegraph	COUNTED	  21371	      	Result=10000000 	200		
+178	Blazegraph	COUNTED	  27336	      	Result=10000000 	200		
+179	Blazegraph	COUNTED	  32748	      	Result=10000000 	200		
+180	Blazegraph	COUNTED	  13585	      	Result=5958216 	200		
+181	Blazegraph	COUNTED	 673951	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+182	Blazegraph	COUNTED	 112211	      	Result=1976 	200		
+183	Blazegraph	COUNTED	  23492	      	Result=10000000 	200		
+184	Blazegraph	COUNTED	  22687	      	Result=10000000 	200		
+185	Blazegraph	COUNTED	 619783	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+186	Blazegraph	COUNTED	  83952	      	Result=1110 	200		
+187	Blazegraph	COUNTED	  24052	      	Result=245561 	200		
+188	Blazegraph	COUNTED	    116	      	Result=116 	200		
+189	Blazegraph	COUNTED	 735758	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+190	Blazegraph	COUNTED	 600028	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+191	Blazegraph	COUNTED	  59339	      	Result=104 	200		
+192	Blazegraph	COUNTED	 600020	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+193	Blazegraph	COUNTED	   4162	      	Result=3292 	200		
+194	Blazegraph	COUNTED	 600029	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+195	Blazegraph	COUNTED	 286655	      	Result=5778 	200		
+196	Blazegraph	COUNTED	    375	      	Result=19268 	200		
+197	Blazegraph	COUNTED	 600026	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+198	Blazegraph	COUNTED	 600025	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+199	Blazegraph	COUNTED	  77429	      	Result=1 	200		
+200	Blazegraph	COUNTED	 600028	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+201	Blazegraph	COUNTED	 602702	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+202	Blazegraph	COUNTED	 600024	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+203	Blazegraph	COUNTED	  56190	      	Result=873454 	200		
+204	Blazegraph	COUNTED	    350	      	Result=37264 	200		
+205	Blazegraph	COUNTED	   5116	      	Result=78 	200		
+206	Blazegraph	COUNTED	 139570	      	Result=1457 	200		
+207	Blazegraph	COUNTED	 187372	      	Result=2335 	200		
+208	Blazegraph	COUNTED	  85352	      	Result=411 	200		
+209	Blazegraph	COUNTED	  92744	      	Result=545 	200		
+210	Blazegraph	COUNTED	  74131	      	Result=539 	200		
+211	Blazegraph	COUNTED	  47941	      	Result=674 	200		
+212	Blazegraph	COUNTED	 111646	      	Result=1130 	200		
+213	Blazegraph	COUNTED	  63683	      	Result=2977 	200		
+214	Blazegraph	COUNTED	  56283	      	Result=343 	200		
+215	Blazegraph	COUNTED	 347694	      	Result=17564 	200		
+216	Blazegraph	COUNTED	  33811	      	Result=167 	200		
+217	Blazegraph	COUNTED	  88829	      	Result=1364 	200		
+218	Blazegraph	COUNTED	 600022	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+219	Blazegraph	COUNTED	  32730	      	Result=225 	200		
+220	Blazegraph	COUNTED	 600024	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+221	Blazegraph	COUNTED	  50799	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=b7330410-d372-492f-b4a5-b026021bb796,bopId=23,partitionId=-1,sinkId=24,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[x4],outputDistinctJVs=true,size=21341437,considered(left=0,right=0,joins=0)}	
+222	Blazegraph	COUNTED	  17893	      	Result=12196 	200		
+223	Blazegraph	COUNTED	 550548	      	Result=80860 	200		
+224	Blazegraph	COUNTED	  76194	      	Result=7931 	200		
+225	Blazegraph	COUNTED	  25075	      	Result=10000000 	200		
+226	Blazegraph	COUNTED	  19136	      	Result=3664 	200		
+227	Blazegraph	COUNTED	  19055	      	Result=10000000 	200		
+228	Blazegraph	COUNTED	 128570	      	Result=31 	200		
+229	Blazegraph	COUNTED	  17176	      	Result=10000000 	200		
+230	Blazegraph	COUNTED	  66213	      	Result=10863 	200		
+231	Blazegraph	COUNTED	  12857	      	Result=4 	200		
+232	Blazegraph	COUNTED	  41581	      	Result=10000000 	200		
+233	Blazegraph	COUNTED	 450062	      	Result=24 	200		
+234	Blazegraph	COUNTED	     94	      	Result=9 	200		
+235	Blazegraph	COUNTED	 600018	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+236	Blazegraph	COUNTED	 600037	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+237	Blazegraph	COUNTED	   4992	      	Result=21 	200		
+238	Blazegraph	COUNTED	   3158	      	Result=21 	200		
+239	Blazegraph	COUNTED	     61	      	Result=51 	200		
+240	Blazegraph	COUNTED	 624854	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+241	Blazegraph	COUNTED	  75454	      	Result=2612137 	200		
+242	Blazegraph	COUNTED	     45	      	Result=0 	200		
+243	Blazegraph	COUNTED	   6513	      	Result=4000870 	200		
+244	Blazegraph	COUNTED	 401531	      	Result=1153 	200		
+245	Blazegraph	COUNTED	 630142	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+246	Blazegraph	COUNTED	  14136	      	Result=5 	200		
+247	Blazegraph	COUNTED	  58696	      	Result=10000000 	200		
+248	Blazegraph	COUNTED	  97907	      	Result=8 	200		
+249	Blazegraph	COUNTED	 723979	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+250	Blazegraph	COUNTED	     57	      	Result=78 	200		
+251	Blazegraph	COUNTED	  59279	      	Result=107659 	200		
+252	Blazegraph	COUNTED	  30576	      	Result=564502 	200		
+253	Blazegraph	COUNTED	  16098	      	Result=10000000 	200		
+254	Blazegraph	COUNTED	    324	      	Result=2094 	200		
+255	Blazegraph	COUNTED	   1059	      	Result=151 	200		
+256	Blazegraph	COUNTED	  33406	      	Result=94013 	200		
+257	Blazegraph	COUNTED	  19597	      	Result=46329 	200		
+258	Blazegraph	COUNTED	  23259	      	Result=91260 	200		
+259	Blazegraph	COUNTED	   9957	      	Result=5240 	200		
+260	Blazegraph	COUNTED	  15413	      	Result=10000000 	200		
+261	Blazegraph	COUNTED	  60084	      	Result=0 	200		
+262	Blazegraph	COUNTED	 600019	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+263	Blazegraph	COUNTED	 600023	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+264	Blazegraph	COUNTED	 112383	      	Result=10000000 	200		
+265	Blazegraph	COUNTED	  63293	      	Result=10000000 	200		
+266	Blazegraph	COUNTED	 154914	      	Result=10000000 	200		
+267	Blazegraph	COUNTED	  52588	      	Result=10000000 	200		
+268	Blazegraph	COUNTED	    370	      	Result=49 	200		
+269	Blazegraph	COUNTED	  36434	      	Result=10000000 	200		
+270	Blazegraph	COUNTED	 174940	      	Result=226231 	200		
+271	Blazegraph	COUNTED	  33779	      	Result=10000000 	200		
+272	Blazegraph	COUNTED	 641413	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+273	Blazegraph	COUNTED	    149	      	Result=2891 	200		
+274	Blazegraph	COUNTED	    536	      	Result=3090 	200		
+275	Blazegraph	COUNTED	 600028	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+276	Blazegraph	COUNTED	 600013	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+277	Blazegraph	COUNTED	    444	      	Result=25 	200		
+278	Blazegraph	COUNTED	 394852	      	Result=1392 	200		
+279	Blazegraph	COUNTED	 113298	      	Result=7772720 	200		
+280	Blazegraph	COUNTED	    330	      	Result=36046 	200		
+281	Blazegraph	COUNTED	  48496	      	Result=10000000 	200		
+282	Blazegraph	COUNTED	  67910	      	Result=6855728 	200		
+283	Blazegraph	COUNTED	 374891	      	Result=6404 	200		
+284	Blazegraph	COUNTED	  74485	      	Result=956937 	200		
+285	Blazegraph	COUNTED	 600015	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+286	Blazegraph	COUNTED	 600021	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+287	Blazegraph	COUNTED	 213470	      	Result=523 	200		
+288	Blazegraph	COUNTED	     76	      	Result=48 	200		
+289	Blazegraph	COUNTED	 237269	      	Result=8846 	200		
+290	Blazegraph	COUNTED	 226033	      	Result=10000000 	200		
+291	Blazegraph	COUNTED	 634512	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+292	Blazegraph	COUNTED	 101697	      	Result=579466 	200		
+293	Blazegraph	COUNTED	  17500	      	Result=10000000 	200		
+294	Blazegraph	COUNTED	  38618	      	Result=10000000 	200		
+295	Blazegraph	COUNTED	  62281	      	Result=10000000 	200		
+296	Blazegraph	COUNTED	 243830	      	Result=3574 	200		
+297	Blazegraph	COUNTED	 116236	      	Result=9457 	200		
+298	Blazegraph	COUNTED	 333692	      	Result=49975 	200		
+299	Blazegraph	COUNTED	 156343	      	Result=132545 	200		
+300	Blazegraph	COUNTED	 600027	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+301	Blazegraph	COUNTED	 100013	      	Result=9445 	200		
+302	Blazegraph	COUNTED	  40361	      	Result=947537 	200		
+303	Blazegraph	COUNTED	  70239	      	Result=10000000 	200		
+304	Blazegraph	COUNTED	  83690	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=5be7a73e-5db4-4a7f-9afa-07224e7bcd1e,bopId=21,partitionId=-1,sinkId=22,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[--pp-anon-824c0e79-29f1-4cd2-b3ac-26af6b215b46, x4],outputDistinctJVs=true,size=4538843,considered(left=0,right=0,joins=0)}	
+305	Blazegraph	COUNTED	   2631	      	Result=550220 	200		
+306	Blazegraph	COUNTED	  37844	      	Result=1837766 	200		
+307	Blazegraph	COUNTED	  39193	      	Result=957383 	200		
+308	Blazegraph	COUNTED	  70817	      	Result=10000000 	200		
+309	Blazegraph	COUNTED	  17622	      	Result=10000000 	200		
+310	Blazegraph	COUNTED	     58	      	Result=0 	200		
+311	Blazegraph	COUNTED	  23014	      	Result=10000000 	200		
+312	Blazegraph	COUNTED	  21728	      	Result=10000000 	200		
+313	Blazegraph	COUNTED	  17599	      	Result=10000000 	200		
+314	Blazegraph	COUNTED	  15986	      	Result=10000000 	200		
+315	Blazegraph	COUNTED	 630856	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+316	Blazegraph	COUNTED	  67614	      	Result=14 	200		
+317	Blazegraph	COUNTED	  16932	      	Result=14 	200		
+318	Blazegraph	COUNTED	   6489	      	Result=152861 	200		
+319	Blazegraph	COUNTED	   4247	      	Result=155237 	200		
+320	Blazegraph	COUNTED	 696532	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+321	Blazegraph	COUNTED	  52336	      	Result=10000000 	200		
+322	Blazegraph	COUNTED	 128533	      	Result=0 	200		
+323	Blazegraph	COUNTED	  50796	      	Result=1327883 	200		
+324	Blazegraph	COUNTED	     57	      	Result=0 	200		
+325	Blazegraph	COUNTED	  16021	      	Result=10000000 	200		
+326	Blazegraph	COUNTED	  15208	      	Result=10000000 	200		
+327	Blazegraph	COUNTED	     58	      	Result=0 	200		
+328	Blazegraph	COUNTED	  15257	      	Result=10000000 	200		
+329	Blazegraph	COUNTED	  55409	      	Result=413 	200		
+330	Blazegraph	COUNTED	     50	      	Result=0 	200		
+331	Blazegraph	COUNTED	  98937	      	Result=10000000 	200		
+332	Blazegraph	COUNTED	   5736	      	Result=2902222 	200		
+333	Blazegraph	COUNTED	  39252	      	Result=42150 	200		
+334	Blazegraph	COUNTED	 162175	      	Result=12134 	200		
+335	Blazegraph	COUNTED	 489006	      	Result=28 	200		
+336	Blazegraph	COUNTED	   2109	      	Result=12 	200		
+337	Blazegraph	COUNTED	 155046	      	Result=1116 	200		
+338	Blazegraph	COUNTED	  21273	      	Result=10000000 	200		
+339	Blazegraph	COUNTED	 647042	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+340	Blazegraph	COUNTED	  60668	      	Result=10000000 	200		
+341	Blazegraph	COUNTED	  18166	      	Result=10000000 	200		
+342	Blazegraph	COUNTED	  18099	      	Result=10000000 	200		
+343	Blazegraph	COUNTED	    314	      	Result=12575 	200		
+344	Blazegraph	COUNTED	    140	      	Result=2033 	200		
+345	Blazegraph	COUNTED	    239	      	Result=6338 	200		
+346	Blazegraph	COUNTED	  22623	      	Result=10000000 	200		
+347	Blazegraph	COUNTED	  58563	      	Result=346683 	200		
+348	Blazegraph	COUNTED	  38894	      	Result=50839 	200		
+349	Blazegraph	COUNTED	  57335	      	Result=585798 	200		
+350	Blazegraph	COUNTED	  38469	      	Result=63854 	200		
+351	Blazegraph	COUNTED	     93	      	Result=2 	200		
+352	Blazegraph	COUNTED	     65	      	Result=1 	200		
+353	Blazegraph	COUNTED	     68	      	Result=2 	200		
+354	Blazegraph	COUNTED	     58	      	Result=1 	200		
+355	Blazegraph	COUNTED	     68	      	Result=1 	200		
+356	Blazegraph	COUNTED	     91	      	Result=1 	200		
+357	Blazegraph	COUNTED	     76	      	Result=1 	200		
+358	Blazegraph	COUNTED	     59	      	Result=1 	200		
+359	Blazegraph	COUNTED	     67	      	Result=1 	200		
+360	Blazegraph	COUNTED	     92	      	Result=1 	200		
+361	Blazegraph	COUNTED	     92	      	Result=1 	200		
+362	Blazegraph	COUNTED	     94	      	Result=1 	200		
+363	Blazegraph	COUNTED	     66	      	Result=1 	200		
+364	Blazegraph	COUNTED	     58	      	Result=1 	200		
+365	Blazegraph	COUNTED	     68	      	Result=1 	200		
+366	Blazegraph	COUNTED	     89	      	Result=2 	200		
+367	Blazegraph	COUNTED	     77	      	Result=1 	200		
+368	Blazegraph	COUNTED	     78	      	Result=1 	200		
+369	Blazegraph	COUNTED	     90	      	Result=1 	200		
+370	Blazegraph	COUNTED	     45	      	Result=0 	200		
+371	Blazegraph	COUNTED	     90	      	Result=1 	200		
+372	Blazegraph	COUNTED	     79	      	Result=1 	200		
+373	Blazegraph	COUNTED	     67	      	Result=1 	200		
+374	Blazegraph	COUNTED	     42	      	Result=1 	200		
+375	Blazegraph	COUNTED	     64	      	Result=1 	200		
+376	Blazegraph	COUNTED	     69	      	Result=1 	200		
+377	Blazegraph	COUNTED	     79	      	Result=1 	200		
+378	Blazegraph	COUNTED	     47	      	Result=1 	200		
+379	Blazegraph	COUNTED	     78	      	Result=1 	200		
+380	Blazegraph	COUNTED	     82	      	Result=1 	200		
+381	Blazegraph	COUNTED	     75	      	Result=1 	200		
+382	Blazegraph	COUNTED	     57	      	Result=1 	200		
+383	Blazegraph	COUNTED	     90	      	Result=1 	200		
+384	Blazegraph	COUNTED	     88	      	Result=1 	200		
+385	Blazegraph	COUNTED	     67	      	Result=1 	200		
+386	Blazegraph	COUNTED	     90	      	Result=1 	200		
+387	Blazegraph	COUNTED	     88	      	Result=1 	200		
+388	Blazegraph	COUNTED	     68	      	Result=1 	200		
+389	Blazegraph	COUNTED	     77	      	Result=1 	200		
+390	Blazegraph	COUNTED	     58	      	Result=1 	200		
+391	Blazegraph	COUNTED	     80	      	Result=1 	200		
+392	Blazegraph	COUNTED	     66	      	Result=1 	200		
+393	Blazegraph	COUNTED	     80	      	Result=1 	200		
+394	Blazegraph	COUNTED	     79	      	Result=1 	200		
+395	Blazegraph	COUNTED	     58	      	Result=1 	200		
+396	Blazegraph	COUNTED	     68	      	Result=1 	200		
+397	Blazegraph	COUNTED	     91	      	Result=1 	200		
+398	Blazegraph	COUNTED	     96	      	Result=1 	200		
+399	Blazegraph	COUNTED	     78	      	Result=1 	200		
+400	Blazegraph	COUNTED	     78	      	Result=1 	200		
+401	Blazegraph	COUNTED	     28	      	Result=1 	200		
+402	Blazegraph	COUNTED	     49	      	Result=1 	200		
+403	Blazegraph	COUNTED	     58	      	Result=1 	200		
+404	Blazegraph	COUNTED	     49	      	Result=1 	200		
+405	Blazegraph	COUNTED	     90	      	Result=1 	200		
+406	Blazegraph	COUNTED	     99	      	Result=1 	200		
+407	Blazegraph	COUNTED	     98	      	Result=1 	200		
+408	Blazegraph	COUNTED	     55	      	Result=1 	200		
+409	Blazegraph	COUNTED	     81	      	Result=1 	200		
+410	Blazegraph	COUNTED	     37	      	Result=1 	200		
+411	Blazegraph	COUNTED	     90	      	Result=1 	200		
+412	Blazegraph	COUNTED	     86	      	Result=1 	200		
+413	Blazegraph	COUNTED	     79	      	Result=1 	200		
+414	Blazegraph	COUNTED	     79	      	Result=1 	200		
+415	Blazegraph	COUNTED	     78	      	Result=1 	200		
+416	Blazegraph	COUNTED	     58	      	Result=1 	200		
+417	Blazegraph	COUNTED	     46	      	Result=1 	200		
+418	Blazegraph	COUNTED	     79	      	Result=1 	200		
+419	Blazegraph	COUNTED	     68	      	Result=3 	200		
+420	Blazegraph	COUNTED	     81	      	Result=1 	200		
+421	Blazegraph	COUNTED	     47	      	Result=1 	200		
+422	Blazegraph	COUNTED	     79	      	Result=1 	200		
+423	Blazegraph	COUNTED	     73	      	Result=1 	200		
+424	Blazegraph	COUNTED	     82	      	Result=1 	200		
+425	Blazegraph	COUNTED	     69	      	Result=1 	200		
+426	Blazegraph	COUNTED	     89	      	Result=1 	200		
+427	Blazegraph	COUNTED	 142915	      	Result=0 	200		
+428	Blazegraph	COUNTED	  18513	      	Result=10000000 	200		
+429	Blazegraph	COUNTED	 136029	      	Result=14 	200		
+430	Blazegraph	COUNTED	  15727	      	Result=10000000 	200		
+431	Blazegraph	COUNTED	 632489	      	None 	500	ERROR java.util.concurrent.TimeoutException	RESTARTED DUE TO UNUSUAL BEHAVIOR
+432	Blazegraph	COUNTED	 178635	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=f4458253-dce1-42b8-a48f-ae816cadc55a,bopId=11,partitionId=-1,sinkId=12,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[x1],outputDistinctJVs=true,size=33566396,considered(left=0,right=0,joins=0)}	
+433	Blazegraph	COUNTED	 117789	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=0cf62a2b-6c47-405b-bea1-96331d50a93b,bopId=13,partitionId=-1,sinkId=14,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[x3],outputDistinctJVs=true,size=27922191,considered(left=0,right=0,joins=0)}	
+434	Blazegraph	COUNTED	  65172	      	Result=1395566 	200		
+435	Blazegraph	COUNTED	  25194	      	Result=1040231 	200		
+436	Blazegraph	COUNTED	  16222	      	Result=10000000 	200		
+437	Blazegraph	COUNTED	  77880	      	Result=239951 	200		
+438	Blazegraph	COUNTED	  17376	      	Result=10000000 	200		
+439	Blazegraph	COUNTED	  59192	      	Result=2 	200		
+440	Blazegraph	COUNTED	   1747	      	Result=821 	200		
+441	Blazegraph	COUNTED	  15573	      	Result=0 	200		
+442	Blazegraph	COUNTED	    554	      	Result=3 	200		
+443	Blazegraph	COUNTED	  18723	      	Result=10000000 	200		
+444	Blazegraph	COUNTED	  85900	      	Result=66 	200		
+445	Blazegraph	COUNTED	 619867	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+446	Blazegraph	COUNTED	  70834	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=a935b71c-f332-4f19-b9fa-64ba911122b9,bopId=25,partitionId=-1,sinkId=26,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[--pp-anon-3b1d59e3-4590-42a6-8fa4-f7bd533ca5be],outputDistinctJVs=true,size=14510146,considered(left=0,right=0,joins=0)}	
+447	Blazegraph	COUNTED	 646169	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+448	Blazegraph	COUNTED	  96659	      	Result=67 	200		
+449	Blazegraph	COUNTED	  25652	      	Result=3665577 	200		
+450	Blazegraph	COUNTED	 247712	      	Result=264428 	200		
+451	Blazegraph	COUNTED	  14095	      	Result=10000000 	200		
+452	Blazegraph	COUNTED	  14262	      	Result=10000000 	200		
+453	Blazegraph	COUNTED	  13071	      	Result=10000000 	200		
+454	Blazegraph	COUNTED	  13308	      	Result=10000000 	200		
+455	Blazegraph	COUNTED	  13860	      	Result=10000000 	200		
+456	Blazegraph	COUNTED	 186877	      	Result=56 	200		
+457	Blazegraph	COUNTED	  56054	      	Result=2 	200		
+458	Blazegraph	COUNTED	   2237	      	Result=20 	200		
+459	Blazegraph	COUNTED	 600032	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+460	Blazegraph	COUNTED	  31959	      	Result=10000000 	200		
+461	Blazegraph	COUNTED	 600027	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+462	Blazegraph	COUNTED	 656470	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+463	Blazegraph	COUNTED	    442	      	Result=41593 	200		
+464	Blazegraph	COUNTED	    303	      	Result=54698 	200		
+465	Blazegraph	COUNTED	 600023	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+466	Blazegraph	COUNTED	     61	      	Result=3 	200		
+467	Blazegraph	COUNTED	 610959	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+468	Blazegraph	COUNTED	   2263	      	Result=355642 	200		
+469	Blazegraph	COUNTED	  55127	      	Result=10000000 	200		
+470	Blazegraph	COUNTED	  13408	      	Result=1040 	200		
+471	Blazegraph	COUNTED	 600498	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+472	Blazegraph	COUNTED	  89365	      	Result=152 	200		
+473	Blazegraph	COUNTED	 458905	      	Result=139 	200		
+474	Blazegraph	COUNTED	  17462	      	Result=10000000 	200		
+475	Blazegraph	COUNTED	   6320	      	Result=3349420 	200		
+476	Blazegraph	COUNTED	 600026	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+477	Blazegraph	COUNTED	  18930	      	Result=10000000 	200		
+478	Blazegraph	COUNTED	  16623	      	Result=10000000 	200		
+479	Blazegraph	COUNTED	  14166	      	Result=10000000 	200		
+480	Blazegraph	COUNTED	  26356	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=06bdb74e-911e-4498-b7cb-0990bb1104d2,bopId=9,partitionId=-1,sinkId=10,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[x2],outputDistinctJVs=true,size=42779555,considered(left=0,right=0,joins=0)}	
+481	Blazegraph	COUNTED	    203	      	Result=25727 	200		
+482	Blazegraph	COUNTED	  61926	      	Result=1259320 	200		
+483	Blazegraph	COUNTED	  17196	      	Result=10000000 	200		
+484	Blazegraph	COUNTED	    491	      	Result=0 	200		
+485	Blazegraph	COUNTED	    410	      	Result=0 	200		
+486	Blazegraph	COUNTED	  15192	      	Result=10000000 	200		
+487	Blazegraph	COUNTED	  14414	      	Result=10000000 	200		
+488	Blazegraph	COUNTED	   1564	      	Result=140 	200		
+489	Blazegraph	COUNTED	     55	      	Result=11 	200		
+490	Blazegraph	COUNTED	 281813	      	Result=4666206 	200		
+491	Blazegraph	COUNTED	    669	      	Result=83 	200		
+492	Blazegraph	COUNTED	  25842	      	Result=3145 	200		
+493	Blazegraph	COUNTED	  73713	      	Result=875 	200		
+494	Blazegraph	COUNTED	 282782	      	Result=8678 	200		
+495	Blazegraph	COUNTED	  15633	      	Result=10000000 	200		
+496	Blazegraph	COUNTED	  17919	      	Result=10000000 	200		
+497	Blazegraph	COUNTED	  26829	      	Result=396490 	200		
+498	Blazegraph	COUNTED	  15426	      	Result=10000000 	200		
+499	Blazegraph	COUNTED	 600025	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+500	Blazegraph	COUNTED	    134	      	Result=0 	200		
+501	Blazegraph	COUNTED	   4274	      	Result=135453 	200		
+502	Blazegraph	COUNTED	  79434	      	Result=6632111 	200		
+503	Blazegraph	COUNTED	  38245	      	Result=6557982 	200		
+504	Blazegraph	COUNTED	 600020	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+505	Blazegraph	COUNTED	  22828	      	Result=734137 	200		
+506	Blazegraph	COUNTED	  43464	      	Result=1 	200		
+507	Blazegraph	COUNTED	  40827	      	Result=3016 	200		
+508	Blazegraph	COUNTED	    206	      	Result=31510 	200		
+509	Blazegraph	COUNTED	 139172	      	Result=130 	200		
+510	Blazegraph	COUNTED	   2204	      	Result=0 	200		
+511	Blazegraph	COUNTED	    116	      	Result=1525 	200		
+512	Blazegraph	COUNTED	 600020	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+513	Blazegraph	COUNTED	 550229	      	Result=1273 	200		
+514	Blazegraph	COUNTED	   3754	      	Result=520986 	200		
+515	Blazegraph	COUNTED	  23222	      	Result=126816 	200		
+516	Blazegraph	COUNTED	  47838	      	Result=5846102 	200		
+517	Blazegraph	COUNTED	 600026	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+518	Blazegraph	COUNTED	  16621	      	Result=425 	200		
+519	Blazegraph	COUNTED	 600020	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+520	Blazegraph	COUNTED	 600030	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+521	Blazegraph	COUNTED	    568	      	Result=35171 	200		
+522	Blazegraph	COUNTED	  21831	      	Result=10000000 	200		
+523	Blazegraph	COUNTED	    107	      	Result=1851 	200		
+524	Blazegraph	COUNTED	  17836	      	Result=10000000 	200		
+525	Blazegraph	COUNTED	  16159	      	Result=10000000 	200		
+526	Blazegraph	COUNTED	  85267	      	Result=1424010 	200		
+527	Blazegraph	COUNTED	   3125	      	Result=39385 	200		
+528	Blazegraph	COUNTED	 212072	      	Result=49475 	200		
+529	Blazegraph	COUNTED	  14129	      	Result=10000000 	200		
+530	Blazegraph	COUNTED	 241976	      	Result=621 	200		
+531	Blazegraph	COUNTED	 240515	      	Result=364 	200		
+532	Blazegraph	COUNTED	  13610	      	Result=10000000 	200		
+533	Blazegraph	COUNTED	 680688	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+534	Blazegraph	COUNTED	     97	      	Result=25 	200		
+535	Blazegraph	COUNTED	     30	      	Result=0 	200		
+536	Blazegraph	COUNTED	  39901	      	Result=10000000 	200		
+537	Blazegraph	COUNTED	 135574	      	Result=347 	200		
+538	Blazegraph	COUNTED	 600026	      	None 	500	ERROR java.util.concurrent.TimeoutException	
+539	Blazegraph	COUNTED	 414846	      	Result=3314886 	200		

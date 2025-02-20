@@ -1,0 +1,6 @@
+# Genes
+gene_identifiers	gene_identifiers LABEL	QUERY	gene
+gene_orthologs	gene_orthologs LABEL	QUERY	gene
+gene_proteins	gene_proteins LABEL	QUERY	gene
+gene_transcripts	gene_transcripts LABEL	QUERY	gene
+gene_variants	gene_variants LABEL	QUERY	gene

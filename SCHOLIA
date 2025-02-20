@@ -1,0 +1,21 @@
+#!/bin/csh -x
+
+/home/local/scripts/qrun
+/home/local/scripts/current
+./benchmark.py --engine=QLever --directory=scholia/$1  | tee results/scholia-$1-qlever.tsv
+/home/local/scripts/qstop
+
+/home/local/scripts/vrun
+/home/local/scripts/current
+./benchmark.py --engine=Virtuoso --directory=scholia/$1  | tee results/scholia-$1-virtuoso.tsv
+/home/local/scripts/vstop
+
+/home/local/scripts/brun
+/home/local/scripts/current
+./benchmark.py --engine=Blazegraph --directory=scholia/$1  | tee results/scholia-$1-blazegraph.tsv
+/home/local/scripts/bstop
+
+/home/local/scripts/mrun
+/home/local/scripts/current
+./benchmark.py --engine=MilleniumDB --directory=scholia/$1  | tee results/scholia-$1-milleniumdb.tsv
+/home/local/scripts/mstop

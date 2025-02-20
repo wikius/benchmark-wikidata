@@ -1,0 +1,35 @@
+1	QWDS		   2060	      	Count= 500 	200		software_authors Q102537983
+2	QWDS		   2028	      	Count= 500 	200		software_authors Q1026367
+3	QWDS		   1878	      	Count= 8 	200		software_authors Q1036510
+4	QWDS		   1862	      	Count= 12 	200		software_authors Q105099901
+5	QWDS		   1890	      	Result=1 	200		software_authors Q106313302
+6	QWDS		   1888	      	Count= 94 	200		software_coused Q102537983
+7	QWDS		   1862	      	Count= 155 	200		software_coused Q1026367
+8	QWDS		   1884	      	Count= 6 	200		software_coused Q1036510
+9	QWDS		   1886	      	Count= 24 	200		software_coused Q105099901
+10	QWDS		    340	      	Count= 0 	200		software_coused Q106313302
+11	QWDS		  18806	      	None 	500	    "exception": "Tried to allocate 423.8 MB, but only 373.5 MB were available. Clear the cache or allow more memory for QLever during startup",	software_data Q102537983
+12	QWDS		   7299	      	None 	500	    "exception": "Tried to allocate 19 MB, but only 18.3 MB were available. Clear the cache or allow more memory for QLever during startup",	software_data Q1026367
+13	QWDS		   6540	      	None 	500	    "exception": "Tried to allocate 423.8 MB, but only 42 MB were available. Clear the cache or allow more memory for QLever during startup",	software_data Q1036510
+14	QWDS		   9521	      	None 	500	    "exception": "Tried to allocate 856.8 MB, but only 344.8 MB were available. Clear the cache or allow more memory for QLever during startup",	software_data Q105099901
+15	QWDS		  23219	      	None 	500	    "exception": "Tried to allocate 856.8 MB, but only 330.7 MB were available. Clear the cache or allow more memory for QLever during startup",	software_data Q106313302
+16	QWDS		    892	      	Result=0 	200		software_dependent-software Q102537983
+17	QWDS		    322	      	Count= 73 	200		software_dependent-software Q1026367
+18	QWDS		    334	      	Result=0 	200		software_dependent-software Q1036510
+19	QWDS		    333	      	Count= 4 	200		software_dependent-software Q105099901
+20	QWDS		    337	      	Result=0 	200		software_dependent-software Q106313302
+21	QWDS		    541	      	Count= 500 	200		software_recent-works Q102537983
+22	QWDS		    529	      	Count= 500 	200		software_recent-works Q1026367
+23	QWDS		    332	      	Count= 2 	200		software_recent-works Q1036510
+24	QWDS		    341	      	Count= 4 	200		software_recent-works Q105099901
+25	QWDS		    326	      	Count= 0 	200		software_recent-works Q106313302
+26	QWDS		    665	      	Count= 0 	200		software_software-dependencies Q102537983
+27	QWDS		    496	      	Count= 53 	200		software_software-dependencies Q1026367
+28	QWDS		    407	      	Count= 5 	200		software_software-dependencies Q1036510
+29	QWDS		    394	      	Count= 13 	200		software_software-dependencies Q105099901
+30	QWDS		    416	      	Count= 3 	200		software_software-dependencies Q106313302
+31	QWDS		    419	      	Count= 100 	200		software_topics Q102537983
+32	QWDS		    424	      	Count= 100 	200		software_topics Q1026367
+33	QWDS		    324	      	Count= 8 	200		software_topics Q1036510
+34	QWDS		    336	      	Count= 27 	200		software_topics Q105099901
+35	QWDS		    332	      	Result=1 	200		software_topics Q106313302

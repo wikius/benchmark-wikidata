@@ -1,4 +1,6 @@
 #!/bin/python
+## CHECK OLD USES as REPLACE is no longer replaced
+
 # Control program to run benchmarks.
 
 # TODO handle different versions of strings being output  <string> vs "<string>@lt"
@@ -16,21 +18,30 @@
 #  error message, either from engine or from this program
 #  diagnostic information from engine, if available (e.g., timing from QLever), only in verbose mode
 
-# There are three options for benchmarks:
-# 1/ Benchmarks are files in a directory (default queries).
-#  Read lines from control file (queries.tsv) in the directory with fields separated by tabs.
-#   Each line contains the name of a file in the directory (without trailing .sparql) and a description.
-#   Lines can also have paired extra fields containing a ???
-#   Lines with less than two fields and lines starting with # are just printed and otherwise ignored.
-# 2/ Benchmarks are lines in a file
+# There are four options for benchmarks:
+# 1/ Queries are lines in a file
 #  Read lines from the file in the directory and evaluate each query
+# 2/ Queries are files in a directory (default current directory).
+#   Read lines from control file (queries.tsv) in the directory with fields separated by tabs.
+#   The first two fields are the name of a file in the directory (without trailing .sparql) and a description.
+#   Lines can also have paired extra fields containing an engine and a different query file to use for that engine
+# 2a/ If the line does not have a QUERY field or a VALUES field, just run the query
+# 2b/ If the line does have a QUERY field the value is the name of a query file (without .sparql again)
+#    Run the parameter query.
+#    For each result of the parameter query, replace {{ q }} in the query with value of the first variable and run the resultant query
+# 2c/ If the line does have a REPLACE field the value is the name of a TSV file.
+#    For each value line of the TSV file replace each column label in the query with the value in the column and run the resultant query
 
 # Evaluates the query on one or more engines.  Note that local engines are not started.
 # Current engines are:
 #  QLever - Local QLever Wikidata query service at http://getafix:7001
 #  Blazegraph - local Blazegraph query service at http://getafix:9999/bigdata/sparql
-#  Virtuoso - Local Virtuoso query service at http://getafix:8890/sparql
+#  Virtuoso - local Virtuoso query service at http://getafix:8890/sparql
 #  MilleniumDB - local MilleniumDB at http://getafix:1234/sparql
+#  WDQS - Wikidata Query Service running Blazegraph at https://query.wikidata.org/sparql
+#  MDB - MilleniumDB Wikidata Query Service at https://wikidata.imfd.cl/wikidata/sparql
+#  QWDS - QLever Wikidata Query Service" at https://qlever.cs.uni-freiburg.de/api/wikidata/
+#  VOS - Virtuoso Wikidata Query Service " at https://wikidata.demo.openlinksw.com/sparq,
 
 # Positional arguments are a filename and description, which means to only run that query.
 # Option: -d --directory <directory name> use this directory
@@ -56,8 +67,6 @@ prefixes = '''PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 '''
-queries_directory = 'queries'
-queries_file = None
 
 max_time = 600000
 
@@ -106,7 +115,7 @@ def basic_eval(query, url, result_format="text/tab-separated-values"):
     return reply, etime
 
 def generic_eval(query, url=None, separator='	'):
-##    qlever_clear_cache(url)
+##    qlever_clear_cache(url) ## comment out for most runs
     reply, etime = basic_eval(query, url)
     if reply.status_code < 400:
         if reply.text:
@@ -170,14 +179,14 @@ def blazegraph_eval(query, url):
     return etime, count, reply.status_code, exception, "", ""
 
 engines = [
-    [ "Blazegraph", blazegraph_eval, "http://getafix:9999/bigdata/sparql"], 
     [ "MilleniumDB", generic_eval, "http://getafix:1234/sparql"], 
     [ "QLever", generic_eval, 'http://getafix:7001'],
     [ "Virtuoso", virtuoso_eval, "http://getafix:8890/sparql"],
-    [ "WDQS", blazegraph_eval, 'https://query.wikidata.org/sparql'], 
+    [ "Blazegraph", blazegraph_eval, "http://getafix:9999/bigdata/sparql"], 
     [ "MDB", generic_eval, "https://wikidata.imfd.cl/wikidata/sparql"],
     [ "QWDS",  generic_eval, 'https://qlever.cs.uni-freiburg.de/api/wikidata/'],
     [ "VOS", virtuoso_eval, "https://wikidata.demo.openlinksw.com/sparql"],
+    [ "WDQS", blazegraph_eval, 'https://query.wikidata.org/sparql'], 
 ]
 
 def options(counting, distinct):
@@ -188,18 +197,19 @@ def options(counting, distinct):
         options.append("NODUPS")
     return ','.join(options)
 
-def modify_query(query, count, replace):
+def modify_query(query, count, replace=None):
     if args.nodups and not re.search(r"distinct", query, flags=re.IGNORECASE):
         query = re.sub(r"select", "SELECT DISTINCT", query, count=1, flags=re.IGNORECASE)
     if count:
         query = re.sub(r"select", "SELECT (COUNT (*) AS ?benchmark_count) WHERE { SELECT", query, count=1, flags=re.IGNORECASE) + " }"
     if replace:
-        query = query.replace("REPLACE", replace)
+        for l, r in replace:
+            query = re.sub(l, r, query)
+#    print("QUERY START\n", query, "\nQUERY END")
     return query
 
-
 def print_result(index, engine, opts, etime, itime, count, code, err, message):
-    print(f"{index+1}	{engine}	{opts}	{etime:>7}	{itime:>6}	{count} 	{code}	{err}	{message if args.verbose else ''}", flush=True)
+    print(f"{index+1}	{engine}	{opts}	{etime:>7}	{itime:>6}	{count} 	{code}	{err}	{message}", flush=True)
 
 def process_query(index, query, counting=False, replace=None, description=""):
     if args.verbose and description:
@@ -214,45 +224,6 @@ def process_query(index, query, counting=False, replace=None, description=""):
             return
         print_result(index, engine, opts, etime, itime, count, code, err, dtime)
 
-def process(directory, query_file_name, description, alternatives=None, counting=False, replace=None, index=None):
-    alternatives = alternatives if alternatives is not None else {}
-    if args.verbose:
-        print("QUERY", query_file_name, description.strip())
-    with open(directory + '/' + query_file_name + '.sparql', 'r') as query_file:
-        query = modify_query(query_file.read(), counting, replace)
-
-    for [engine, function, url] in engines:
-        if engine in alternatives:
-            with open(queries_directory + '/' + alternatives[engine] + '.sparql', 'r') as query_file:
-                query_for_engine = modify_query(query_file.read(), counting, replace)
-            start_time = time.time()
-            count, code, errr, itime, dtime = function(query_for_engine, url)
-            end_time =time.time()
-        else:
-            start_time = time.time()
-            try:
-                count, code, errr, itime, dtime = function(query, url)
-            except Exception as e:
-                result = f"EXCEPTION {e}"
-            end_time =time.time()
-        etime = int((end_time - start_time) * 1000)
-        opts = options(counting, args.distinct)
-        print_result(index, engine, opts, etime, itime, count, code, err, query_file_name)
-
-    if args.verbose:
-        print()
-
-def parameterized(parameter, query_file_name, description, alternatives):
-    print("PARAMETERIZED", parameter)
-    with open(queries_directory + '/' + parameter + '.sparql', 'r') as parameter_file:
-        parameter = parameter_file.read()
-    result, code, text, _, _ = generic_eval(parameter, 'http://getafix:7001')  ## pfps ????
-    rows = result[1].splitlines()
-    for index,row in enumerate(rows[1:]):
-        replace = row.split('\t')[0]
-        rdesc = description.replace("REPLACE", replace)
-        process(query_file_name, rdesc, alternatives=alternatives, counting=counting, replace=replace, index=idx)
-
 def process_queries_file(filename, description, counting, skip=0):
     if args.verbose and description:
         print(description)
@@ -265,9 +236,78 @@ def process_queries_file(filename, description, counting, skip=0):
             qdescription = line[0] if len(line) >= 2 else ""
             process_query(index, query, counting, description=qdescription)
 
-def process_control_file(control_file, skip=0):
+def process(directory, query_file_name, description, alternatives=None, counting=False, replace=None, index=0):
+    alternatives = alternatives if alternatives is not None else {}
+    if args.verbose:
+        print("QUERY", query_file_name, description.strip())
+    with open(directory + '/' + query_file_name + '.sparql', 'r') as query_file:
+        query = modify_query(query_file.read(), counting, replace)
+###    print("\nQUERY START")
+###    print(query, end='')
+###    print("\nQUERY END")
+
+    for [engine, function, url] in engines:
+        if engine in alternatives:
+            with open(directory + '/' + alternatives[engine] + '.sparql', 'r') as query_file:
+                query_for_engine = modify_query(query_file.read(), counting, replace)
+            etime, count, code, err, itime, dtime = function(query_for_engine, url)
+        else:
+            try:
+                etime, count, code, err, itime, dtime = function(query, url)
+            except Exception as e:
+                err = f"EXCEPTION {e}"
+                etime = itime = dtime = 0
+                count = code = None
+        opts = options(counting, args.nodups)
+        print_result(index, engine, opts, etime, itime, count, code, err, description)
+
+    if args.verbose:
+        print()
+
+def query_values(parameter_file_name, directory):
+    try:  # see if there are values stored
+        with open(directory + '/' + parameter_file_name + '.tsv', 'r') as values_file:
+            rows = values_file.read().splitlines()
+    except Exception:
+        with open(directory + '/' + parameter_file_name + '.sparql', 'r') as parameter_file:
+            parameter = parameter_file.read()
+            reply, _ = basic_eval(parameter, 'https://qlever.cs.uni-freiburg.de/api/wikidata/')
+            try:
+                with open(directory + '/' + parameter_file_name + '.tsv', 'w') as values_file:
+                    values_file.write(reply.text)
+            except Exception:
+                pass
+            rows = reply.text.splitlines()
+    return rows
+
+def parameterized_query(parameter, directory, query_file_name, description, alternatives, counting=False, index=0):
+    rows = query_values(parameter, directory)
+    with open(directory + '/' + parameter + '.sparql', 'r') as parameter_file:
+        parameter = parameter_file.read()
+    reply, _ = basic_eval(parameter, 'https://qlever.cs.uni-freiburg.de/api/wikidata/')
+    rows = reply.text.splitlines()
+
+    for row in rows[1:]:
+        replace = unbox(row.split('\t')[0])
+        label = row.split('\t')[1] if len(row.split('\t')) > 1 else replace
+        rdesc = description.replace("LABEL", unbox(label))
+        process(directory, query_file_name, rdesc, alternatives=alternatives, counting=counting, replace=[["{{ *q *}}", replace]], index=index)
+        index += 1
+    return index-1
+
+def parameterized_values(parameter, directory, query_file_name, description, alternatives, counting=False, index=0):
+    with open(directory + '/' + parameter + '.tsv', 'r') as parameter_file:
+        tsv = [ row for row in csv.reader(parameter_file, delimiter="\t") ]
+    columns = tsv[0]
+    for row in tsv[1:]:
+        rdesc = description.replace(columns[0], row[0])
+        process(directory, query_file_name, rdesc, alternatives=alternatives, counting=counting, replace=list(zip(columns, row)), index=index)
+        index += 1
+    return index-1
+
+def process_control_file(directory, control_file, skip=0):
     index = -1
-    for line in enumerate(control_file):
+    for line in control_file:
         fields = line.rstrip().split('\t')
         if len(fields) < 2 or line.startswith("#"):
             if args.verbose:
@@ -279,20 +319,24 @@ def process_control_file(control_file, skip=0):
         query_file_name = fields[0]
         description = fields[1]
         alternatives = {fields[i]: fields[i + 1] for i in range(2, len(fields), 2)}
-        if "PARAMETER" in alternatives:
-            parameter = alternatives["PARAMETER"]
-            del alternatives["PARAMETER"]
-            parameterized(parameter, query_file_name, description, alternatives, counting=args.count)
+        if "QUERY" in alternatives:
+            parameter = alternatives["QUERY"]
+            del alternatives["QUERY"]
+            index = parameterized_query(parameter, directory, query_file_name, description, alternatives, counting=args.count, index=index)
+        elif "VALUES" in alternatives:
+            parameter = alternatives["VALUES"]
+            del alternatives["VALUES"]
+            index = parameterized_values(parameter, directory, query_file_name, description, alternatives, counting=args.count, index=index)
         else:
-            process(filename, query_file_name, description, alternatives, counting=args.count)
+            process(directory, query_file_name, description, alternatives, counting=args.count, index=index)
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("filename", nargs="?", default=None, help="Name of file or directory containing queries")
+parser.add_argument("filename", nargs="?", default=None, help="Name of file containing queries")
 parser.add_argument("-D", "--description", action='store', default="", help="Description")
 parser.add_argument("-e", "--engine", action='append', type=str, choices=[engine[0] for engine in engines],
                     help="System to use (can be repeated)")
-parser.add_argument("-d", "--directory", action='store', type=str, help="Directory with queries")
+parser.add_argument("-d", "--directory", action='store', type=str, help="Directory with multiple queries")
 parser.add_argument("-c", "--count", action='store_true', help="Add enclosing SELECT to count results")
 parser.add_argument("-v", "--verbose", action='store_true', help="Verbose output")
 parser.add_argument("-P", "--nodups", action='store_true', help="Add DISTINCT to query to eliminate duplicates")
@@ -306,22 +350,30 @@ if args.skip:
     skip = args.skip
     print(f"SKIPPING {skip} queries")
 
-filename = "."
+if args.directory:
+    directory = args.directory.rstrip('/') + '/'
+else:
+    directory = ""
+
 if args.filename:
-    filename = args.filename.rstrip('/')
-try:
-    control_file = open(filename + '/queries.tsv', 'r')
-except Exception:
+    filename = directory + args.filename
     control_file = None
+else:
+    filename = 'queries.tsv'
+    try:
+        control_file = open(directory + 'queries.tsv', 'r')
+    except Exception:
+        control_file = None
 
 if control_file is not None:
     if args.verbose: 
-        print(f"Evaluating queries from {queries_directory}{', counted,' if args.count else ''}")
-        print(args.description)
-    process_control_file(control_file, skip=skip)
+        print(f"Evaluating queries from {directory}")
+        if args.description:
+            print(args.description)
+    process_control_file(directory, control_file, skip=skip)
 else:
     if args.verbose: 
-        print(f"Evaluating queries in {queries_directory}{', counted,' if args.count else ''}")
+        print(f"Evaluating queries in {filename}")
     process_queries_file(filename, args.description, counting=args.count, skip=skip)
 
 

@@ -1,0 +1,44 @@
+1	QWDS		    588	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang=\"en\"><head><link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crosso'",	author_academic-tree Richard Feynman
+2	QWDS		    412	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang=\"en\"><head><link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crosso'",	author_academic-tree Linus Pauling
+3	QWDS		    382	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	author_associated-images Richard Feynman
+4	QWDS		    512	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	author_associated-images Linus Pauling
+5	QWDS		    427	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{?citing_workwdt:p50target:}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	author_citations-by-year Richard Feynman
+6	QWDS		    412	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{?citing_workwdt:p50target:}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	author_citations-by-year Linus Pauling
+7	QWDS		    456	      	None 	500	    "exception": "Assertion `_joinVar == findJoinVar(*_right, _rightJoinCol)` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/Join.cpp \" at line 139",	author_coauthor-map Richard Feynman
+8	QWDS		    427	      	None 	500	    "exception": "Assertion `_joinVar == findJoinVar(*_right, _rightJoinCol)` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/Join.cpp \" at line 139",	author_coauthor-map Linus Pauling
+9	QWDS		   1842	      	Count= 36 	200		author_coauthors Richard Feynman
+10	QWDS		   1810	      	Count= 42 	200		author_coauthors Linus Pauling
+11	QWDS		    494	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_events Richard Feynman
+12	QWDS		    734	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_events Linus Pauling
+13	QWDS		    496	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_list-of-publications Richard Feynman
+14	QWDS		    505	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_list-of-publications Linus Pauling
+15	QWDS		    417	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_list-of-retracted-articles Richard Feynman
+16	QWDS		   1431	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_list-of-retracted-articles Linus Pauling
+17	QWDS		   2358	      	Count= 76 	200		author_most-cited-works Richard Feynman
+18	QWDS		   2330	      	Count= 271 	200		author_most-cited-works Linus Pauling
+19	QWDS		   1325	      	Count= 500 	200		author_most-citing-authors Richard Feynman
+20	QWDS		   1317	      	Count= 500 	200		author_most-citing-authors Linus Pauling
+21	QWDS		    496	      	None 	500	    "exception": "Assertion `_joinVar == findJoinVar(*_right, _rightJoinCol)` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/Join.cpp \" at line 139",	author_other-locations Richard Feynman
+22	QWDS		    495	      	None 	500	    "exception": "Assertion `_joinVar == findJoinVar(*_right, _rightJoinCol)` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/Join.cpp \" at line 139",	author_other-locations Linus Pauling
+23	QWDS		    512	      	Count= 12 	200		author_pages-per-year Richard Feynman
+24	QWDS		    526	      	Count= 34 	200		author_pages-per-year Linus Pauling
+25	QWDS		    389	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	author_publications-per-year Richard Feynman
+26	QWDS		    511	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	author_publications-per-year Linus Pauling
+27	QWDS		    494	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	author_retracted-articles-per-year Richard Feynman
+28	QWDS		    499	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	author_retracted-articles-per-year Linus Pauling
+29	QWDS		   3023	      	Count= 0 	200		author_review-statistics Richard Feynman
+30	QWDS		   2955	      	Count= 0 	200		author_review-statistics Linus Pauling
+31	QWDS		    587	      	None 	500	    "exception": "Assertion `_joinVar == findJoinVar(*_right, _rightJoinCol)` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/Join.cpp \" at line 139",	author_timeline Richard Feynman
+32	QWDS		    693	      	None 	500	    "exception": "Assertion `_joinVar == findJoinVar(*_right, _rightJoinCol)` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/Join.cpp \" at line 139",	author_timeline Linus Pauling
+33	QWDS		   1126	      	Count= 200 	200		author_topic-scores Richard Feynman
+34	QWDS		   1012	      	Count= 200 	200		author_topic-scores Linus Pauling
+35	QWDS		   1123	      	Count= 30 	200		author_topics-works-matrix Richard Feynman
+36	QWDS		   1210	      	Count= 124 	200		author_topics-works-matrix Linus Pauling
+37	QWDS		   2051	      	Count= 19 	200		author_topics Richard Feynman
+38	QWDS		   2033	      	Count= 73 	200		author_topics Linus Pauling
+39	QWDS		    893	      	Count= 0 	200		author_use Richard Feynman
+40	QWDS		   1014	      	Count= 0 	200		author_use Linus Pauling
+41	QWDS		    574	      	Count= 16 	200		author_venue-statistics-chart Richard Feynman
+42	QWDS		    586	      	Count= 62 	200		author_venue-statistics-chart Linus Pauling
+43	QWDS		   3073	      	Count= 16 	200		author_venue-statistics Richard Feynman
+44	QWDS		   2983	      	Count= 62 	200		author_venue-statistics Linus Pauling

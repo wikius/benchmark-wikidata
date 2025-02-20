@@ -2,6 +2,5 @@
 wikidata-classes	All instances of class (Q16889133)
 wikidata-class-counts	Counts of instances of class (Q16889133) by direct subclass
 wikidata-human-class-instances	Instances of human (Q5) that are classes
-
 wikidata-ismetaclassfor-orders	Class orders of classes in is metaclass for (P8225) relationships
 wikidata-metasubclass-orders	Class orders of classes in metasubclass (P2445) relationships

@@ -1,0 +1,18 @@
+1	Blazegraph		    440	      	Count= 0 	200		chemical-element_allotropes Q1038
+2	Blazegraph		    238	      	Count= 0 	200		chemical-element_allotropes Q104567
+3	Blazegraph		     44	      	Count= 0 	200		chemical-element_allotropes Q1046
+4	Blazegraph		     37	      	Count= 0 	200		chemical-element_allotropes Q1053
+5	Blazegraph		     37	      	Count= 0 	200		chemical-element_allotropes Q1054
+6	Blazegraph		    136	      	Count= 4 	200		chemical-element_data Q1038
+7	Blazegraph		    288	      	Count= 0 	200		chemical-element_data Q104567
+8	Blazegraph		    107	      	Count= 4 	200		chemical-element_data Q1046
+9	Blazegraph		    283	      	Count= 4 	200		chemical-element_data Q1053
+10	Blazegraph		    400	      	Count= 4 	200		chemical-element_data Q1054
+11	Blazegraph		    313	      	Count= 31 	200		chemical-element_isotopes Q1038
+12	Blazegraph		     32	      	Count= 0 	200		chemical-element_isotopes Q104567
+13	Blazegraph		     91	      	Count= 35 	200		chemical-element_isotopes Q1046
+14	Blazegraph		     87	      	Count= 30 	200		chemical-element_isotopes Q1053
+15	Blazegraph		     81	      	Count= 37 	200		chemical-element_isotopes Q1054
+16	Blazegraph		 600034	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical-element_recent-literature Q1038
+17	Blazegraph		 600031	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical-element_recent-literature Q104567
+18	Blazegraph		 600026	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical-element_recent-literature Q1046

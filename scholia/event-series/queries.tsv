@@ -1,0 +1,10 @@
+event-series_acceptance-rate	event-series_acceptance-rate LABEL	QUERY	event-series
+event-series_events	event-series_events LABEL	QUERY	event-series
+event-series_map	event-series_map LABEL	QUERY	event-series
+event-series_number-of-participants	event-series_number-of-participants LABEL	QUERY	event-series
+event-series_people	event-series_people LABEL	QUERY	event-series
+event-series_proceedings-publications	event-series_proceedings-publications LABEL	QUERY	event-series
+event-series_recent-publications	event-series_recent-publications LABEL	QUERY	event-series
+event-series_timeline	event-series_timeline LABEL	QUERY	event-series
+event-series_top-topics-through-time	event-series_top-topics-through-time LABEL	QUERY	event-series
+event-series_topics	event-series_topics LABEL	QUERY	event-series

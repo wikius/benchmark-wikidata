@@ -1,0 +1,6 @@
+chemical-class_class-hierarchy	chemical-class_class-hierarchy LABEL	QUERY	chemical-class
+chemical-class_found-in-taxon	chemical-class_found-in-taxon LABEL	QUERY	chemical-class
+chemical-class_identifiers	chemical-class_identifiers LABEL	QUERY	chemical-class
+chemical-class_publications-per-year	chemical-class_publications-per-year LABEL	QUERY	chemical-class
+chemical-class_recent-literature	chemical-class_recent-literature LABEL	QUERY	chemical-class
+chemical-class_related-chemicals	chemical-class_related-chemicals LABEL	QUERY	chemical-class

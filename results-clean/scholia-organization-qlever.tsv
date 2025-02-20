@@ -1,0 +1,60 @@
+1	QLever		    711	      	Count= 0 	200		organization_advisor-graph Q115723010
+2	QLever		   8989	      	Count= 371 	200		organization_advisor-graph Q13371
+3	QLever		     10	      	Count= 0 	200		organization_advisor-graph Q14389813
+4	QLever		      7	      	Count= 0 	200		organization_advisor-graph Q14389831
+5	QLever		      9	      	Count= 0 	200		organization_advisor-graph Q14389838
+6	QLever		    276	      	Count= 0 	200		organization_awards Q115723010
+7	QLever		     53	      	Count= 2586 	200		organization_awards Q13371
+8	QLever		     12	      	Count= 30 	200		organization_awards Q14389813
+9	QLever		     10	      	Count= 7 	200		organization_awards Q14389831
+10	QLever		      8	      	Count= 10 	200		organization_awards Q14389838
+11	QLever		      3	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{?workwdt:p31?publication_type.}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	organization_co-author-graph Q115723010
+12	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{?workwdt:p31?publication_type.}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	organization_co-author-graph Q13371
+13	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{?workwdt:p31?publication_type.}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	organization_co-author-graph Q14389813
+14	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{?workwdt:p31?publication_type.}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	organization_co-author-graph Q14389831
+15	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{?workwdt:p31?publication_type.}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	organization_co-author-graph Q14389838
+16	QLever		  30182	      	Count= 7 	200		organization_co-author-normalized-citations Q115723010
+17	QLever		  47428	      	None 	500	    "exception": "Tried to allocate 85.2 GB, but only 12.9 GB were available. Clear the cache or allow more memory for QLever during startup",	organization_co-author-normalized-citations Q13371
+18	QLever		  30099	      	Count= 25 	200		organization_co-author-normalized-citations Q14389813
+19	QLever		      9	      	Count= 0 	200		organization_co-author-normalized-citations Q14389831
+20	QLever		     26	      	Count= 25 	200		organization_co-author-normalized-citations Q14389838
+21	QLever		    727	      	Result=86 	200		organization_employees-and-affiliated Q115723010
+22	QLever		     77	      	Count= 11288 	200		organization_employees-and-affiliated Q13371
+23	QLever		      7	      	Count= 195 	200		organization_employees-and-affiliated Q14389813
+24	QLever		      5	      	Count= 105 	200		organization_employees-and-affiliated Q14389831
+25	QLever		      5	      	Count= 39 	200		organization_employees-and-affiliated Q14389838
+26	QLever		     10	      	Result=1 	200		organization_gender-distribution Q115723010
+27	QLever		     20	      	Count= 8 	200		organization_gender-distribution Q13371
+28	QLever		     11	      	Count= 2 	200		organization_gender-distribution Q14389813
+29	QLever		      8	      	Count= 2 	200		organization_gender-distribution Q14389831
+30	QLever		      8	      	Count= 2 	200		organization_gender-distribution Q14389838
+31	QLever		     30	      	Count= 7 	200		organization_most-cited-papers Q115723010
+32	QLever		    660	      	Count= 20 	200		organization_most-cited-papers Q13371
+33	QLever		     20	      	Count= 2 	200		organization_most-cited-papers Q14389813
+34	QLever		      4	      	Count= 0 	200		organization_most-cited-papers Q14389831
+35	QLever		     16	      	Count= 2 	200		organization_most-cited-papers Q14389838
+36	QLever		     17	      	Count= 4 	200		organization_page-production Q115723010
+37	QLever		   3001	      	Count= 8208 	200		organization_page-production Q13371
+38	QLever		     16	      	Count= 5 	200		organization_page-production Q14389813
+39	QLever		      5	      	Count= 0 	200		organization_page-production Q14389831
+40	QLever		     12	      	Count= 5 	200		organization_page-production Q14389838
+41	QLever		     21	      	Count= 75 	200		organization_recent-citations Q115723010
+42	QLever		   8729	      	Count= 200 	200		organization_recent-citations Q13371
+43	QLever		    141	      	Count= 200 	200		organization_recent-citations Q14389813
+44	QLever		    110	      	Count= 200 	200		organization_recent-citations Q14389831
+45	QLever		    106	      	Count= 200 	200		organization_recent-citations Q14389838
+46	QLever		    146	      	Count= 86 	200		organization_recent-literature Q115723010
+47	QLever		    654	      	Count= 200 	200		organization_recent-literature Q13371
+48	QLever		     14	      	Count= 200 	200		organization_recent-literature Q14389813
+49	QLever		     11	      	Count= 200 	200		organization_recent-literature Q14389831
+50	QLever		      7	      	Count= 200 	200		organization_recent-literature Q14389838
+51	QLever		    793	      	Count= 121 	200		organization_topics Q115723010
+52	QLever		   1029	      	Count= 500 	200		organization_topics Q13371
+53	QLever		    856	      	Count= 500 	200		organization_topics Q14389813
+54	QLever		    848	      	Count= 500 	200		organization_topics Q14389831
+55	QLever		    834	      	Count= 500 	200		organization_topics Q14389838
+56	QLever		    742	      	Result=1 	200		organization_uses Q115723010
+57	QLever		    812	      	Count= 500 	200		organization_uses Q13371
+58	QLever		    794	      	Count= 19 	200		organization_uses Q14389813
+59	QLever		    760	      	Count= 11 	200		organization_uses Q14389831
+60	QLever		    784	      	Count= 12 	200		organization_uses Q14389838

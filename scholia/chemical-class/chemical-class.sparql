@@ -1,0 +1,7 @@
+SELECT DISTINCT ?c WHERE { 
+  ?c wdt:P31/wdt:P279* wd:Q17339814 .
+  ?c ?IDdir ?id .
+  ?IDpred wikibase:directClaim ?IDdir ;
+            wdt:P31 wd:Q19833835 .
+} 
+LIMIT 5

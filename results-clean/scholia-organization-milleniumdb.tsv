@@ -1,0 +1,60 @@
+1	MilleniumDB		    667	      	Count= 0 	200		organization_advisor-graph Q115723010
+2	MilleniumDB		   9561	      	Count= 371 	200		organization_advisor-graph Q13371
+3	MilleniumDB		    380	      	Count= 0 	200		organization_advisor-graph Q14389813
+4	MilleniumDB		    225	      	Count= 0 	200		organization_advisor-graph Q14389831
+5	MilleniumDB		    223	      	Count= 0 	200		organization_advisor-graph Q14389838
+6	MilleniumDB		  62571	      	Count= 0 	200		organization_awards Q115723010
+7	MilleniumDB		 600566	      	None 	200	ERROR EMPTY OUTPUT	organization_awards Q13371
+8	MilleniumDB		 600027	      	None 	200	ERROR EMPTY OUTPUT	organization_awards Q14389813
+9	MilleniumDB		 600028	      	None 	200	ERROR EMPTY OUTPUT	organization_awards Q14389831
+10	MilleniumDB		 563005	      	Count= 10 	200		organization_awards Q14389838
+11	MilleniumDB		     18	      	Count= 0 	200		organization_co-author-graph Q115723010
+12	MilleniumDB		 600373	      	None 	200	ERROR EMPTY OUTPUT	organization_co-author-graph Q13371
+13	MilleniumDB		   1281	      	Count= 258 	200		organization_co-author-graph Q14389813
+14	MilleniumDB		    156	      	Count= 222 	200		organization_co-author-graph Q14389831
+15	MilleniumDB		    101	      	Count= 20 	200		organization_co-author-graph Q14389838
+16	MilleniumDB		 600670	      	None 	200	ERROR EMPTY OUTPUT	organization_co-author-normalized-citations Q115723010
+17	MilleniumDB		 600035	      	None 	200	ERROR EMPTY OUTPUT	organization_co-author-normalized-citations Q13371
+18	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	organization_co-author-normalized-citations Q14389813
+19	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	organization_co-author-normalized-citations Q14389831
+20	MilleniumDB		 600032	      	None 	200	ERROR EMPTY OUTPUT	organization_co-author-normalized-citations Q14389838
+21	MilleniumDB		     12	      	Result=86 	200		organization_employees-and-affiliated Q115723010
+22	MilleniumDB		   3826	      	Count= 11288 	200		organization_employees-and-affiliated Q13371
+23	MilleniumDB		     42	      	Count= 195 	200		organization_employees-and-affiliated Q14389813
+24	MilleniumDB		     12	      	Count= 105 	200		organization_employees-and-affiliated Q14389831
+25	MilleniumDB		      7	      	Count= 39 	200		organization_employees-and-affiliated Q14389838
+26	MilleniumDB		      7	      	Result=1 	200		organization_gender-distribution Q115723010
+27	MilleniumDB		     53	      	Count= 8 	200		organization_gender-distribution Q13371
+28	MilleniumDB		      7	      	Count= 2 	200		organization_gender-distribution Q14389813
+29	MilleniumDB		      5	      	Count= 2 	200		organization_gender-distribution Q14389831
+30	MilleniumDB		      5	      	Count= 2 	200		organization_gender-distribution Q14389838
+31	MilleniumDB		     24	      	Count= 7 	200		organization_most-cited-papers Q115723010
+32	MilleniumDB		  21931	      	Count= 20 	200		organization_most-cited-papers Q13371
+33	MilleniumDB		     16	      	Count= 2 	200		organization_most-cited-papers Q14389813
+34	MilleniumDB		      6	      	Count= 0 	200		organization_most-cited-papers Q14389831
+35	MilleniumDB		      6	      	Count= 2 	200		organization_most-cited-papers Q14389838
+36	MilleniumDB		 600477	      	None 	200	ERROR EMPTY OUTPUT	organization_page-production Q115723010
+37	MilleniumDB		 600032	      	None 	200	ERROR EMPTY OUTPUT	organization_page-production Q13371
+38	MilleniumDB		 600036	      	None 	200	ERROR EMPTY OUTPUT	organization_page-production Q14389813
+39	MilleniumDB		 600034	      	None 	200	ERROR EMPTY OUTPUT	organization_page-production Q14389831
+40	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	organization_page-production Q14389838
+41	MilleniumDB		     28	      	Count= 75 	200		organization_recent-citations Q115723010
+42	MilleniumDB		 281597	      	Count= 200 	200		organization_recent-citations Q13371
+43	MilleniumDB		    618	      	Count= 200 	200		organization_recent-citations Q14389813
+44	MilleniumDB		     51	      	Count= 200 	200		organization_recent-citations Q14389831
+45	MilleniumDB		     78	      	Count= 200 	200		organization_recent-citations Q14389838
+46	MilleniumDB		     16	      	Count= 86 	200		organization_recent-literature Q115723010
+47	MilleniumDB		  10489	      	Count= 200 	200		organization_recent-literature Q13371
+48	MilleniumDB		    204	      	Count= 200 	200		organization_recent-literature Q14389813
+49	MilleniumDB		     57	      	Count= 200 	200		organization_recent-literature Q14389831
+50	MilleniumDB		     19	      	Count= 200 	200		organization_recent-literature Q14389838
+51	MilleniumDB		 600431	      	None 	200	ERROR EMPTY OUTPUT	organization_topics Q115723010
+52	MilleniumDB		 600036	      	None 	200	ERROR EMPTY OUTPUT	organization_topics Q13371
+53	MilleniumDB		 600037	      	None 	200	ERROR EMPTY OUTPUT	organization_topics Q14389813
+54	MilleniumDB		 600035	      	None 	200	ERROR EMPTY OUTPUT	organization_topics Q14389831
+55	MilleniumDB		 600037	      	None 	200	ERROR EMPTY OUTPUT	organization_topics Q14389838
+56	MilleniumDB		 167648	      	Result=1 	200		organization_uses Q115723010
+57	MilleniumDB		 600907	      	None 	200	ERROR EMPTY OUTPUT	organization_uses Q13371
+58	MilleniumDB		 600035	      	None 	200	ERROR EMPTY OUTPUT	organization_uses Q14389813
+59	MilleniumDB		 600037	      	None 	200	ERROR EMPTY OUTPUT	organization_uses Q14389831
+60	MilleniumDB		 600035	      	None 	200	ERROR EMPTY OUTPUT	organization_uses Q14389838

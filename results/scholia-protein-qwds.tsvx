@@ -1,0 +1,25 @@
+1	QWDS		   2016	      	Count= 15 	200		protein_cofunctional-proteins Q101244282
+2	QWDS		  15275	      	None 	500	    "exception": "Tried to allocate 6.6 GB, but only 2.2 GB were available. Clear the cache or allow more memory for QLever during startup",	protein_cofunctional-proteins Q1024612
+3	QWDS		  37373	      	Count= 500 	200		protein_cofunctional-proteins Q1026649
+4	QWDS		  17614	      	None 	500	    "exception": "Tried to allocate 6.6 GB, but only 2.2 GB were available. Clear the cache or allow more memory for QLever during startup",	protein_cofunctional-proteins Q1032902
+5	QWDS		   2560	      	Result=1 	200		protein_cofunctional-proteins Q104586124
+6	QWDS		   1589	      	Count= 0 	200		protein_cointeracting-proteins Q101244282
+7	QWDS		   1023	      	Count= 0 	200		protein_cointeracting-proteins Q1024612
+8	QWDS		   1095	      	Count= 0 	200		protein_cointeracting-proteins Q1026649
+9	QWDS		   1086	      	Count= 0 	200		protein_cointeracting-proteins Q1032902
+10	QWDS		   1141	      	Count= 0 	200		protein_cointeracting-proteins Q104586124
+11	QWDS		    509	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	protein_participates-in Q101244282
+12	QWDS		    513	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	protein_participates-in Q1024612
+13	QWDS		    404	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	protein_participates-in Q1026649
+14	QWDS		    522	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	protein_participates-in Q1032902
+15	QWDS		    555	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	protein_participates-in Q104586124
+16	QWDS		    429	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	protein_publications-per-year Q101244282
+17	QWDS		    422	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	protein_publications-per-year Q1024612
+18	QWDS		    472	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	protein_publications-per-year Q1026649
+19	QWDS		    425	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	protein_publications-per-year Q1032902
+20	QWDS		    424	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	protein_publications-per-year Q104586124
+21	QWDS		    535	      	None 	500	    "exception": "Assertion `_joinVar == findJoinVar(*_right, _rightJoinCol)` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/Join.cpp \" at line 139",	protein_similar-proteins Q101244282
+22	QWDS		    610	      	None 	500	    "exception": "Assertion `_joinVar == findJoinVar(*_right, _rightJoinCol)` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/Join.cpp \" at line 139",	protein_similar-proteins Q1024612
+23	QWDS		    530	      	None 	500	    "exception": "Assertion `_joinVar == findJoinVar(*_right, _rightJoinCol)` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/Join.cpp \" at line 139",	protein_similar-proteins Q1026649
+24	QWDS		    444	      	None 	500	    "exception": "Assertion `_joinVar == findJoinVar(*_right, _rightJoinCol)` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/Join.cpp \" at line 139",	protein_similar-proteins Q1032902
+25	QWDS		    519	      	None 	500	    "exception": "Assertion `_joinVar == findJoinVar(*_right, _rightJoinCol)` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/Join.cpp \" at line 139",	protein_similar-proteins Q104586124

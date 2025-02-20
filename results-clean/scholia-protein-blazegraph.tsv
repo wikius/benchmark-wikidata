@@ -1,0 +1,25 @@
+1	Blazegraph		    274	      	Count= 15 	200		protein_cofunctional-proteins Q101244282
+2	Blazegraph		  68725	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=32d7abeb-cfb5-45c8-a642-b0a6167d6541,bopId=37,partitionId=-1,sinkId=39,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Optional,joinVars=[protein],outputDistinctJVs=true,size=5716908,considered(left=0,right=0,joins=0),joinSetSize=0}	protein_cofunctional-proteins Q1024612
+3	Blazegraph		  63050	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=b9082d02-245f-4888-800a-5fdaba638d00,bopId=34,partitionId=-1,sinkId=32,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	protein_cofunctional-proteins Q1026649
+4	Blazegraph		  79845	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=72c778db-4f97-4ad5-b0b8-1b735fcad98d,bopId=37,partitionId=-1,sinkId=39,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Optional,joinVars=[protein],outputDistinctJVs=true,size=6117787,considered(left=0,right=0,joins=0),joinSetSize=0}	protein_cofunctional-proteins Q1032902
+5	Blazegraph		     76	      	Result=1 	200		protein_cofunctional-proteins Q104586124
+6	Blazegraph		     58	      	Count= 0 	200		protein_cointeracting-proteins Q101244282
+7	Blazegraph		     54	      	Count= 0 	200		protein_cointeracting-proteins Q1024612
+8	Blazegraph		     48	      	Count= 0 	200		protein_cointeracting-proteins Q1026649
+9	Blazegraph		     47	      	Count= 0 	200		protein_cointeracting-proteins Q1032902
+10	Blazegraph		     51	      	Count= 0 	200		protein_cointeracting-proteins Q104586124
+11	Blazegraph		     36	      	Count= 0 	200		protein_participates-in Q101244282
+12	Blazegraph		  55994	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=029516c4-b6eb-4b07-b610-34afeab1415d,bopId=40,partitionId=-1,sinkId=41,altSinkId=39}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	protein_participates-in Q1024612
+13	Blazegraph		     38	      	Count= 0 	200		protein_participates-in Q1026649
+14	Blazegraph		     35	      	Count= 0 	200		protein_participates-in Q1032902
+15	Blazegraph		     29	      	Count= 0 	200		protein_participates-in Q104586124
+16	Blazegraph		    297	      	Count= 0 	200		protein_publications-per-year Q101244282
+17	Blazegraph		    202	      	Count= 3 	200		protein_publications-per-year Q1024612
+18	Blazegraph		    184	      	Count= 0 	200		protein_publications-per-year Q1026649
+19	Blazegraph		    352	      	Count= 37 	200		protein_publications-per-year Q1032902
+20	Blazegraph		    181	      	Count= 0 	200		protein_publications-per-year Q104586124
+21	Blazegraph		    181	      	Count= 500 	200		protein_similar-proteins Q101244282
+22	Blazegraph		 600020	      	None 	500	ERROR java.util.concurrent.TimeoutException	protein_similar-proteins Q1024612
+23	Blazegraph		  68385	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=bf7a3c80-d61b-4f73-80fd-5f75ce8ddbe8,bopId=72,partitionId=-1,sinkId=70,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	protein_similar-proteins Q1026649
+24	Blazegraph		 600027	      	None 	500	ERROR java.util.concurrent.TimeoutException	protein_similar-proteins Q1032902
+25	Blazegraph		    443	      	Count= 500 	200		protein_similar-proteins Q104586124

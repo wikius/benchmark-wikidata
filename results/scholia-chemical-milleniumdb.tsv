@@ -1,0 +1,50 @@
+1	MilleniumDB		     15	      	Count= 2 	200		chemical_biological-processes Q100146813
+2	MilleniumDB		      5	      	Result=Q100156056 	200		chemical_biological-processes Q100146817
+3	MilleniumDB		      6	      	Count= 3 	200		chemical_biological-processes Q100146821
+4	MilleniumDB		      6	      	Count= 2 	200		chemical_biological-processes Q100146822
+5	MilleniumDB		      5	      	Count= 2 	200		chemical_biological-processes Q100146823
+6	MilleniumDB		      7	      	Count= 0 	200		chemical_found-in-matrix-np Q100146813
+7	MilleniumDB		      6	      	Count= 0 	200		chemical_found-in-matrix-np Q100146817
+8	MilleniumDB		      4	      	Count= 0 	200		chemical_found-in-matrix-np Q100146821
+9	MilleniumDB		      4	      	Count= 0 	200		chemical_found-in-matrix-np Q100146822
+10	MilleniumDB		      3	      	Count= 0 	200		chemical_found-in-matrix-np Q100146823
+11	MilleniumDB		 228786	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146813
+12	MilleniumDB		 168304	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146817
+13	MilleniumDB		 166487	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146821
+14	MilleniumDB		 166826	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146822
+15	MilleniumDB		 168199	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146823
+16	MilleniumDB		     13	      	Count= 0 	200		chemical_identifiers Q100146813
+17	MilleniumDB		      5	      	Count= 0 	200		chemical_identifiers Q100146817
+18	MilleniumDB		      5	      	Count= 0 	200		chemical_identifiers Q100146821
+19	MilleniumDB		      4	      	Count= 0 	200		chemical_identifiers Q100146822
+20	MilleniumDB		      4	      	Count= 0 	200		chemical_identifiers Q100146823
+21	MilleniumDB		     14	      	Count= 0 	200		chemical_physchem-properties Q100146813
+22	MilleniumDB		      6	      	Count= 0 	200		chemical_physchem-properties Q100146817
+23	MilleniumDB		      6	      	Count= 0 	200		chemical_physchem-properties Q100146821
+24	MilleniumDB		      6	      	Count= 0 	200		chemical_physchem-properties Q100146822
+25	MilleniumDB		      6	      	Count= 0 	200		chemical_physchem-properties Q100146823
+26	MilleniumDB		 600865	      	None 	200	ERROR EMPTY OUTPUT	chemical_publications-per-year Q100146813
+27	MilleniumDB		 600032	      	None 	200	ERROR EMPTY OUTPUT	chemical_publications-per-year Q100146817
+28	MilleniumDB		 600038	      	None 	200	ERROR EMPTY OUTPUT	chemical_publications-per-year Q100146821
+29	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	chemical_publications-per-year Q100146822
+30	MilleniumDB		 600036	      	None 	200	ERROR EMPTY OUTPUT	chemical_publications-per-year Q100146823
+31	MilleniumDB		 600663	      	None 	200	ERROR EMPTY OUTPUT	chemical_recent-literature Q100146813
+32	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	chemical_recent-literature Q100146817
+33	MilleniumDB		 600031	      	None 	200	ERROR EMPTY OUTPUT	chemical_recent-literature Q100146821
+34	MilleniumDB		 600034	      	None 	200	ERROR EMPTY OUTPUT	chemical_recent-literature Q100146822
+35	MilleniumDB		 600037	      	None 	200	ERROR EMPTY OUTPUT	chemical_recent-literature Q100146823
+36	MilleniumDB		      9	      	None 	400	Bad query semantic: `The prefix 'mwapi' is not defined`.	chemical_related Q100146813
+37	MilleniumDB		      2	      	None 	400	Bad query semantic: `The prefix 'mwapi' is not defined`.	chemical_related Q100146817
+38	MilleniumDB		      2	      	None 	400	Bad query semantic: `The prefix 'mwapi' is not defined`.	chemical_related Q100146821
+39	MilleniumDB		      2	      	None 	400	Bad query semantic: `The prefix 'mwapi' is not defined`.	chemical_related Q100146822
+40	MilleniumDB		      2	      	None 	400	Bad query semantic: `The prefix 'mwapi' is not defined`.	chemical_related Q100146823
+41	MilleniumDB		      8	      	Count= 0 	200		chemical_relates Q100146813
+42	MilleniumDB		      3	      	Count= 0 	200		chemical_relates Q100146817
+43	MilleniumDB		      2	      	Count= 0 	200		chemical_relates Q100146821
+44	MilleniumDB		      1	      	Count= 0 	200		chemical_relates Q100146822
+45	MilleniumDB		      2	      	Count= 0 	200		chemical_relates Q100146823
+46	MilleniumDB		     10	      	Count= 0 	200		chemical_structural-identifiers Q100146813
+47	MilleniumDB		      4	      	Count= 0 	200		chemical_structural-identifiers Q100146817
+48	MilleniumDB		      4	      	Count= 0 	200		chemical_structural-identifiers Q100146821
+49	MilleniumDB		      4	      	Count= 0 	200		chemical_structural-identifiers Q100146822
+50	MilleniumDB		      4	      	Count= 0 	200		chemical_structural-identifiers Q100146823

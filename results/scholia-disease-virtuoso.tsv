@@ -1,0 +1,15 @@
+1	Virtuoso		   1923	      	Count= 58 	500	Virtuoso 42000 Error The estimated execution time 0 (sec) exceeds the limit of 3000 (sec).	disease_clinical-trials Q1001150
+2	Virtuoso		      4	      	Count= 58 	500	Virtuoso 42000 Error The estimated execution time 0 (sec) exceeds the limit of 3000 (sec).	disease_clinical-trials Q1016605
+3	Virtuoso		      3	      	Count= 58 	500	Virtuoso 42000 Error The estimated execution time 0 (sec) exceeds the limit of 3000 (sec).	disease_clinical-trials Q101896
+4	Virtuoso		      3	      	Count= 58 	500	Virtuoso 42000 Error The estimated execution time 0 (sec) exceeds the limit of 3000 (sec).	disease_clinical-trials Q1022718
+5	Virtuoso		      3	      	Count= 58 	500	Virtuoso 42000 Error The estimated execution time 0 (sec) exceeds the limit of 3000 (sec).	disease_clinical-trials Q1023604
+6	Virtuoso		   1469	      	Count= 74 	500	Virtuoso 22003 Error SR586: Incomplete RDF box as argument 0 for year().	disease_publications-per-year Q1001150
+7	Virtuoso		     18	      	Count= 74 	500	Virtuoso 22003 Error SR586: Incomplete RDF box as argument 0 for year().	disease_publications-per-year Q1016605
+8	Virtuoso		     18	      	Count= 74 	500	Virtuoso 22003 Error SR586: Incomplete RDF box as argument 0 for year().	disease_publications-per-year Q101896
+9	Virtuoso		     17	      	Count= 74 	500	Virtuoso 22003 Error SR586: Incomplete RDF box as argument 0 for year().	disease_publications-per-year Q1022718
+10	Virtuoso		     17	      	Count= 74 	500	Virtuoso 22003 Error SR586: Incomplete RDF box as argument 0 for year().	disease_publications-per-year Q1023604
+11	Virtuoso		     36	      	Count= 0 	200		disease_related-diseases Q1001150
+12	Virtuoso		      5	      	Count= 0 	200		disease_related-diseases Q1016605
+13	Virtuoso		   1053	      	Count= 69 	200		disease_related-diseases Q101896
+14	Virtuoso		   2758	      	Count= 361 	200		disease_related-diseases Q1022718
+15	Virtuoso		     37	      	Result=1 	200		disease_related-diseases Q1023604

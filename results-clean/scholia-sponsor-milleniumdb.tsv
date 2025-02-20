@@ -1,0 +1,25 @@
+1	MilleniumDB		 600179	      	None 	200	ERROR EMPTY OUTPUT	sponsor_authors-on-sponsored-works Q26879561
+2	MilleniumDB		 600036	      	None 	200	ERROR EMPTY OUTPUT	sponsor_authors-on-sponsored-works Q2904256
+3	MilleniumDB		 600034	      	None 	200	ERROR EMPTY OUTPUT	sponsor_authors-on-sponsored-works Q4272261
+4	MilleniumDB		 600036	      	None 	200	ERROR EMPTY OUTPUT	sponsor_authors-on-sponsored-works Q4801497
+5	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	sponsor_authors-on-sponsored-works Q746879
+6	MilleniumDB		 600171	      	None 	200	ERROR EMPTY OUTPUT	sponsor_co-sponsors Q26879561
+7	MilleniumDB		 600032	      	None 	200	ERROR EMPTY OUTPUT	sponsor_co-sponsors Q2904256
+8	MilleniumDB		 600030	      	None 	200	ERROR EMPTY OUTPUT	sponsor_co-sponsors Q4272261
+9	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	sponsor_co-sponsors Q4801497
+10	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	sponsor_co-sponsors Q746879
+11	MilleniumDB		      7	      	Result=2009-08-01T00:00:00Z 	200		sponsor_project-budgets Q26879561
+12	MilleniumDB		      8	      	Count= 50 	200		sponsor_project-budgets Q2904256
+13	MilleniumDB		      4	      	Count= 34 	200		sponsor_project-budgets Q4272261
+14	MilleniumDB		      3	      	Count= 7 	200		sponsor_project-budgets Q4801497
+15	MilleniumDB		      2	      	Count= 16 	200		sponsor_project-budgets Q746879
+16	MilleniumDB		     15	      	Count= 9 	200		sponsor_recently-published-sponsored-works Q26879561
+17	MilleniumDB		     54	      	Count= 100 	200		sponsor_recently-published-sponsored-works Q2904256
+18	MilleniumDB		     50	      	Count= 119 	200		sponsor_recently-published-sponsored-works Q4272261
+19	MilleniumDB		     49	      	Count= 119 	200		sponsor_recently-published-sponsored-works Q4801497
+20	MilleniumDB		     24	      	Count= 46 	200		sponsor_recently-published-sponsored-works Q746879
+21	MilleniumDB		     14	      	Count= 21 	200		sponsor_topics-of-sponsored-works Q26879561
+22	MilleniumDB		     34	      	Count= 167 	200		sponsor_topics-of-sponsored-works Q2904256
+23	MilleniumDB		     29	      	Count= 141 	200		sponsor_topics-of-sponsored-works Q4272261
+24	MilleniumDB		     14	      	Count= 58 	200		sponsor_topics-of-sponsored-works Q4801497
+25	MilleniumDB		     14	      	Count= 63 	200		sponsor_topics-of-sponsored-works Q746879

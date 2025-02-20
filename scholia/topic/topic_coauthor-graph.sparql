@@ -1,0 +1,70 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX cc: <http://creativecommons.org/ns#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX pqn: <http://www.wikidata.org/prop/qualifier/value-normalized/>
+PREFIX pqv: <http://www.wikidata.org/prop/qualifier/value/>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX prn: <http://www.wikidata.org/prop/reference/value-normalized/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX prv: <http://www.wikidata.org/prop/reference/value/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX psn: <http://www.wikidata.org/prop/statement/value-normalized/>
+PREFIX psv: <http://www.wikidata.org/prop/statement/value/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdata: <http://www.wikidata.org/wiki/Special:EntityData/>
+PREFIX wdno: <http://www.wikidata.org/prop/novalue/>
+PREFIX wdref: <http://www.wikidata.org/reference/>
+PREFIX wds: <http://www.wikidata.org/entity/statement/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wdtn: <http://www.wikidata.org/prop/direct-normalized/>
+PREFIX wdv: <http://www.wikidata.org/value/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+#defaultView:Graph
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+
+SELECT ?author1 ?author1Label ?rgb ?author2 ?author2Label
+WHERE {
+#  
+  {
+  # Limit the number of coauthors
+  SELECT DISTINCT ?author2 ?author1  (COUNT(?work) AS ?count2)  WHERE {
+    {
+  # Find works with the topic
+  SELECT ?work WHERE {
+    ?work wdt:P921 / (wdt:P31* / wdt:P279* | wdt:P361+ | wdt:P1269+) target: .
+  }
+}   {
+  # Limit the number of authors
+  SELECT (COUNT(?work) AS ?count1) ?author1 WHERE {
+    {
+  # Find works with the topic
+  SELECT ?work WHERE {
+    ?work wdt:P921 / (wdt:P31* / wdt:P279* | wdt:P361+ | wdt:P1269+) target: .
+  }
+}   ?work wdt:P50 ?author1 .
+  }
+  GROUP BY ?author1
+  ORDER BY DESC(?count1)
+  LIMIT 25
+}   ?work wdt:P50 ?author1 , ?author2 .
+    FILTER (?author1 != ?author2) 
+  }
+  GROUP BY ?author2 ?author1 
+  ORDER BY DESC(?count2)
+  LIMIT 250
+} OPTIONAL { ?author1 wdt:P21 ?gender1 . }
+  BIND( IF(?gender1 = wd:Q6581097, "3182BD", "E6550D") AS ?rgb)
+  OPTIONAL { ?author2 rdfs:label ?author2Label .  FILTER ( lang(?author2Label) = 'en' ) }
+  OPTIONAL { ?author1 rdfs:label ?author1Label .  FILTER ( lang(?author1Label) = 'en' ) }
+}

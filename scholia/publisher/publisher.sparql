@@ -1,0 +1,7 @@
+SELECT DISTINCT ?c WHERE {
+  ?c wdt:P31/wdt:P279* wd:Q479716 .
+  ?venue wdt:P123 ?c .
+  ?venue wdt:P31 / wdt:P279* wd:Q1002697 .
+  ?venue wdt:P571 ?datetime.
+} 
+LIMIT 5

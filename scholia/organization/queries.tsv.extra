@@ -1,0 +1,12 @@
+organization_advisor-graph	organization_advisor-graph LABEL	QUERY	organization
+organization_awards	organization_awards LABEL	QUERY	organization
+organization_co-author-graph	organization_co-author-graph LABEL	QUERY	organization
+organization_co-author-normalized-citations	organization_co-author-normalized-citations LABEL	QUERY	organization
+organization_employees-and-affiliated	organization_employees-and-affiliated LABEL	QUERY	organization
+organization_gender-distribution	organization_gender-distribution LABEL	QUERY	organization
+organization_most-cited-papers	organization_most-cited-papers LABEL	QUERY	organization
+organization_page-production	organization_page-production LABEL	QUERY	organization
+organization_recent-citations	organization_recent-citations LABEL	QUERY	organization
+organization_recent-literature	organization_recent-literature LABEL	QUERY	organization
+organization_topics	organization_topics LABEL	QUERY	organization
+organization_uses	organization_uses LABEL	QUERY	organization

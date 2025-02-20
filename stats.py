@@ -52,6 +52,7 @@ def process_row(row):
         print(f"WARNING: repeating data for {row_index} {engine_index}")
     timeout = int(time) >= maxtime
     err = bool((error_message != "") or (result.strip() == "None") or int(code) >= 400 or timeout)
+    if err and args.error: time = maxtime
     row_entry[engine_index] = { "time": int(time), "result": result.strip(), "code": int(code) if code != "None" else "500",
                                 "error_message": error_message, "timeout": timeout,
                                 "error": err }
@@ -119,9 +120,56 @@ def compute_stats(data, engines):
         stats[engine] = compute_engine_stats(data, engine)
     return stats
 
+
+def print_rows(print_all, timings):
+    engines = set()
+    for entry in data.values():
+        for engine in entry.keys():
+            if engine != 'identical' and engine != 'result': engines.add(engine)
+    engines = list(engines)
+    engines.sort()
+    field_size = 19 + ( 7 if timings else 0 )
+    if args.mediawiki:
+        print('{| class="wikitable"')
+        print("! ROW !! Mode !!", " !! ".join([f'colspan="{2 if timings else 1}" | {engine}' for engine in engines]))
+    else:
+        print("ROW  Mode Result           ", " ".join([f"{engine:{field_size}}" for engine in engines]))
+    for row, entry in data.items():
+        if not print_all and entry['identical']: 
+            continue
+        identical = ' ' if entry['identical'] else '*'
+        if args.mediawiki:
+            print(f"|-\n| {row:3}{identical} || {str(entry['result'])[0:18]}", end='')
+        else:
+            print(f"{row:3}{identical} {str(entry['result'])[0:18]:18}", end=' ')
+        for engine in engines:
+            if engine in entry:
+                row = entry[engine]
+                flag = "!" if row['error'] else " "
+                flag = "*" if row['diverge'] else flag
+                flag = " " if row['correct'] else flag
+                if args.mediawiki:
+                    if timings: print(f' || style="text-align:right;" | {row['time']}', end=' || ')
+                    print(f"{flag}{str(row['result'][0:18])}", end= '')
+                else:
+                    if timings: print(f"{row['time']:7}", end='')
+                    print(f"{flag}{str(row['result'][0:18]):18}", end= ' ')
+            else:
+                if args.mediawiki:
+                    print(" || || " if timings else " || ", end='')
+                else:
+                    if timings: print("       ", end='')
+                    print("                   ", end=' ')
+        print("")
+    if args.mediawiki:
+        print("|}")
+
 parser = argparse.ArgumentParser()
 parser.add_argument("files", nargs="+", help="Name of file containing query results")
 parser.add_argument("-v", "--verbose", action='count', default=0, help="Show query information")
+parser.add_argument("-t", "--timings", action='store_true', help="Show timings for all queries with no errors")
+parser.add_argument("-m", "--mediawiki", action='store_true', help="Output in mediawiki format")
+parser.add_argument("-e", "--error", action='store_true', help="Use maxtime for any errors")
 args = parser.parse_args()
 
 for filename in args.files:
@@ -134,24 +182,6 @@ difference_count = 0
 for index, entry in data.items():
     difference_count += process_query(index, entry)
 
-
-def print_rows(print_all):
-    for row, entry in data.items():
-        if not print_all and entry['identical']: 
-            continue
-        identical = ' ' if entry['identical'] else '*'
-        print(f"ROW{identical} {row:3} {str(entry['result']):16}", end=' ')
-        for engine, row in entry.items():
-            if isinstance(row, dict):
-                flag = "!" if row['error'] else " "
-                flag = "*" if row['diverge'] else flag
-                flag = " " if row['correct'] else flag
-                print(f"{engine}{flag} {str(row['result']):16}", end= ' ')
-        print("")
-
-if args.verbose > 0:
-    print_rows(args.verbose > 1)
-
 engines = []
 for entry in data.values():
     for engine, row in entry.items():
@@ -161,7 +191,19 @@ for entry in data.values():
 
 stats = compute_stats(data, engines)
 
-print("Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence")
+if args.mediawiki:
+    print('{| class="wikitable" style="text-align: right;" \n! ENGINE !! Count !! min !! q1 !! q2 !! q3 !! max !! mean !! tmean !! wrong !! timeout !! error !! diverge')
+else:
+    print("ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence")
+
 for engine, stats in stats.items():
-    print(f"{engine:18} {stats[0]:>4} {stats[1]:>6} {int(stats[2][0]):>6} {int(stats[2][1]):>6} {int(stats[2][2]):>6} {stats[3]:>6} {stats[4]:>6} {stats[5]:>6} {stats[6]:>5} {stats[7]:>5} {stats[8]:>5} {stats[9]:>5}")
-print(f"Number of queries with different non-error, non-suspect results: {difference_count:3}")
+    if args.mediawiki:
+        print(f'|-\n| style="text-align: right;" | {engine} || {stats[0]} || {stats[1]} || {int(stats[2][0])} || {int(stats[2][1])} || {int(stats[2][2])} || {stats[3]} || {stats[4]} || {stats[5]} || {stats[6]} || {stats[7]} || {stats[8]-stats[7]} || {stats[9]}')
+    else:
+        print(f"{engine:18} {stats[0]:>4} {stats[1]:>6} {int(stats[2][0]):>6} {int(stats[2][1]):>6} {int(stats[2][2]):>6} {stats[3]:>6} {stats[4]:>6} {stats[5]:>6} {stats[6]:>5} {stats[7]:>5} {stats[8]-stats[7]:>5} {stats[9]:>5}")
+if args.mediawiki: print("|}\n")
+#print(f"Number of queries with different non-error, non-suspect results: {difference_count:3}")
+
+
+if args.verbose > 0:
+    print_rows(args.verbose > 1, args.timings > 0)

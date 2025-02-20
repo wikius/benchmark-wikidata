@@ -1,0 +1,13 @@
+SELECT DISTINCT ?c WHERE { 
+  ?c wdt:P31/wdt:P279* wd:Q16521 .
+    # Find works for the specific queried topic
+	?work wdt:P921 ?c .
+    # Find co-occuring topics
+    ?work wdt:P921 ?taxon .
+    # Filter for taxa
+    ?taxon wdt:P105 ?taxonrank .
+    # Avoid listing the queried topic itself
+    FILTER (?c != ?taxon
+
+} 
+LIMIT 5

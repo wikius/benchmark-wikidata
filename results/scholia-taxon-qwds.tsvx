@@ -1,0 +1,35 @@
+1	QWDS		   1958	      	Count= 46 	200		taxon_co-occurring-taxa Q1000017
+2	QWDS		   1935	      	Count= 6 	200		taxon_co-occurring-taxa Q1000266
+3	QWDS		   1914	      	Count= 5 	200		taxon_co-occurring-taxa Q1000270
+4	QWDS		   1897	      	Result=1 	200		taxon_co-occurring-taxa Q1000274
+5	QWDS		   1975	      	Result=1 	200		taxon_co-occurring-taxa Q100032077
+6	QWDS		    345	      	Count= 0 	200		taxon_genome Q1000017
+7	QWDS		    323	      	Count= 0 	200		taxon_genome Q1000266
+8	QWDS		    336	      	Count= 0 	200		taxon_genome Q1000270
+9	QWDS		    321	      	Count= 0 	200		taxon_genome Q1000274
+10	QWDS		    328	      	Count= 0 	200		taxon_genome Q100032077
+11	QWDS		    497	      	Count= 22 	200		taxon_identifiers Q1000017
+12	QWDS		    455	      	Count= 23 	200		taxon_identifiers Q1000266
+13	QWDS		    453	      	Count= 20 	200		taxon_identifiers Q1000270
+14	QWDS		    474	      	Count= 20 	200		taxon_identifiers Q1000274
+15	QWDS		    444	      	Count= 7 	200		taxon_identifiers Q100032077
+16	QWDS		    561	      	Count= 0 	200		taxon_metabolome Q1000017
+17	QWDS		    340	      	Count= 0 	200		taxon_metabolome Q1000266
+18	QWDS		    359	      	Count= 0 	200		taxon_metabolome Q1000270
+19	QWDS		    351	      	Count= 0 	200		taxon_metabolome Q1000274
+20	QWDS		    351	      	Count= 0 	200		taxon_metabolome Q100032077
+21	QWDS		    381	      	Count= 26 	200		taxon_parent-taxa Q1000017
+22	QWDS		    343	      	Count= 33 	200		taxon_parent-taxa Q1000266
+23	QWDS		    344	      	Count= 33 	200		taxon_parent-taxa Q1000270
+24	QWDS		    343	      	Count= 31 	200		taxon_parent-taxa Q1000274
+25	QWDS		    340	      	Count= 20 	200		taxon_parent-taxa Q100032077
+26	QWDS		    334	      	Count= 0 	200		taxon_proteome Q1000017
+27	QWDS		    314	      	Count= 0 	200		taxon_proteome Q1000266
+28	QWDS		    304	      	Count= 0 	200		taxon_proteome Q1000270
+29	QWDS		    316	      	Count= 0 	200		taxon_proteome Q1000274
+30	QWDS		    323	      	Count= 0 	200		taxon_proteome Q100032077
+31	QWDS		    373	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang=\"en\"><head><link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crosso'",	taxon_tree Q1000017
+32	QWDS		    373	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang=\"en\"><head><link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crosso'",	taxon_tree Q1000266
+33	QWDS		    368	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang=\"en\"><head><link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crosso'",	taxon_tree Q1000270
+34	QWDS		    367	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang=\"en\"><head><link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crosso'",	taxon_tree Q1000274
+35	QWDS		    373	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang=\"en\"><head><link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crosso'",	taxon_tree Q100032077

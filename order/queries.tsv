@@ -1,0 +1,77 @@
+# Find the classes of various orders
+# The last two queries cause a memory leak in some versions of QLever
+top/wikidata-top-sixth	All sixth-order classes
+top/wikidata-top-fifth-root	Roots of fifth-order classes
+top/wikidata-top-fifth	All fifth-order classes
+top/wikidata-top-fourth-root	Roots of fourth-order classes
+top/wikidata-top-fourth	All fourth-order classes
+top/wikidata-top-third-root	Roots of third-order classes
+top/wikidata-top-third	All third-order classes
+top/wikidata-top-second-root	Roots of second-order classes
+top/wikidata-top-second	All second-order classes
+top/wikidata-top-first-root	Roots of first-order classes
+top/wikidata-top-first	All first-order classes, using a subquery to cut down on memory usage in older versions of QLever
+top/wikidata-top-first-unoptimized	All first-order classes
+# Queries that find instance loops in the Wikidata ontology
+loop/wikidata-loop-instance	Instance loops with one instance link and subclass, not currently handled by QLever
+loop/wikidata-loop-instance-subclass	Instance loops with one instance link and non-empty subclass
+loop/wikidata-loop-instance-subclass-no-labels	Instance loops with one instance link and non-empty subclass (no labels)
+loop/wikidata-loop-instance-subclass-filter-no-labels	Instance loops with one instance link and non-empty subclass (no labels), using filter to check out speed difference
+loop/wikidata-loop-instance-union	Instance loops with one instance link and subclass, using union to be acceptable to QLever 
+loop/wikidata-loop-instance-filter-union	Instance loops with one instance link and subclass, using filter and union to get around a bug in old versions of QLever
+loop/wikidata-loop-instance-subquery-filter-union	Instance loops with one instance link and subclass, as above but using a subquery for potential speed improvement
+loop/wikidata-loop-instance-filter	Instance loops with one instance link and subclass, using filter to be acceptable to QLever
+loop/wikidata-loop-instance-subquery-filter	Instance loops with one instance link and subclass, as above but using a subquery for potential speed improvement
+loop/wikidata-loop-double-instance	Instance loops with two instance links
+loop/wikidata-loop-double-instance-full	Instance loops with two instance links and subclass
+loop/wikidata-loop-double-instance-full-subquery	Instance loops with two instance links and subclass, using a subquery
+loop/wikidata-loop-double-instance-direct	Instance loops with two instance links and subclass, no super
+# Queries that determine minimum class order based on instance chains
+# Two queries cause a memory leak in older verisons of QLever
+bottom/wikidata-bottom-first-instances	First-order classes based on instance
+bottom/wikidata-bottom-first-all	First-order classes based on all evidence
+bottom/wikidata-bottom-second-instances	Second-order classes based on instance
+bottom/wikidata-bottom-second-all	Second-order classes based on all evidence
+bottom/wikidata-bottom-third-instances	Third-order classes based on instance
+bottom/wikidata-bottom-third-all	Third-order classes based on all evidence
+bottom/wikidata-bottom-fourth-instances	Fourth-order classes based on instance
+bottom/wikidata-bottom-fourth-all	Fourth-order classes based on all evidence
+bottom/wikidata-bottom-fifth-instances	Fifth-order classes based on instance
+bottom/wikidata-bottom-fifth-all	Fifth-order classes based on all evidence
+bottom/wikidata-bottom-sixth-instances	Sixth-order classes based on instance
+bottom/wikidata-bottom-sixth-all	Sixth-order classes based on all evidence
+# Queries that find pairs where the first is both an instance and a subclasses of the second
+split/wikidata-split	Split-order classes (without exclusion)
+split/wikidata-split-case-self	Split-order classes case self (without exclusion)
+split/wikidata-split-case-self-union	Split-order classes case self using union (without exclusion)
+split/wikidata-split-case-self-union-filter	Split-order classes case self using union and filter (without exclusion)
+split/wikidata-split-unknown-1	Split-order classes (purpose unknown)
+split/wikidata-split-other	Split-order classes case other (without exclusion)
+split/wikidata-split-other-exclusions	Split-order classes case other (with exclusion)
+split/wikidata-split-other-AB-part	Split-order classes subcase AB (partial, without exclusion)
+split/wikidata-split-other-AB	Split-order classes subcase AB (without exclusion)
+split/wikidata-split-other-AB-exclusion	Split-order classes subcase AB exclusion
+split/wikidata-split-other-C	Split-order classes subcase C (without exclusion)
+split/wikidata-split-other-C-2	Split-order classes subcase C including labels (without exclusion)
+split/wikidata-split-other-C-exclusion	Split-order classes subcase C exclusion
+split/wikidata-split-other-C-exclusion-1	Split-order classes subcase C exclusion part 1
+split/wikidata-split-other-C-exclusion-1-optimized	Split-order classes subcase C exclusion part 1 (optimized)
+split/wikidata-split-other-C-exclusion-2	Split-order classes subcase C exclusion part 2
+split/wikidata-split-other-D-test	Split-order classes subcase D test (without exclusion)
+split/wikidata-split-other-D-partial-1	Split-order classes subcase D partial (without exclusion)
+split/wikidata-split-other-D-partial-2	Split-order classes subcase D partial (without exclusion)
+split/wikidata-split-other-D-partial-3	Split-order classes subcase D partial (without exclusion)
+split/wikidata-split-other-D	Split-order classes subcase D (without exclusion)
+split/wikidata-split-other-D-exclusion-1	Split-order classes subcase D exclusion 1
+split/wikidata-split-other-D-exclusion-2	Split-order classes subcase D exclusion 2
+split/wikidata-split-other-D-exclusion-3	Split-order classes subcase D exclusion 3
+split/wikidata-split-other-D-exclusion-4-test	Split-order classes subcase D exclusion 4 test
+split/wikidata-split-other-D-exclusion-4	Split-order classes subcase D exclusion 4
+split/wikidata-split-extra-1	Split-order extra query
+split/wikidata-split-extra-2	Split-order extra query
+# Miscellaneous queries
+misc/wikidata-classes	All instances of class (Q16889133)
+misc/wikidata-class-counts	Counts of instances of class (Q16889133) by direct subclass
+misc/wikidata-human-class-instances	Instances of human (Q5) that are classes
+misc/wikidata-ismetaclassfor-orders	Class orders of classes in is metaclass for (P8225) relationships
+misc/wikidata-metasubclass-orders	Class orders of classes in metasubclass (P2445) relationships

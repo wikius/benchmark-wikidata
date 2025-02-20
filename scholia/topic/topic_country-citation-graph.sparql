@@ -1,0 +1,64 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX cc: <http://creativecommons.org/ns#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX pqn: <http://www.wikidata.org/prop/qualifier/value-normalized/>
+PREFIX pqv: <http://www.wikidata.org/prop/qualifier/value/>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX prn: <http://www.wikidata.org/prop/reference/value-normalized/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX prv: <http://www.wikidata.org/prop/reference/value/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX psn: <http://www.wikidata.org/prop/statement/value-normalized/>
+PREFIX psv: <http://www.wikidata.org/prop/statement/value/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdata: <http://www.wikidata.org/wiki/Special:EntityData/>
+PREFIX wdno: <http://www.wikidata.org/prop/novalue/>
+PREFIX wdref: <http://www.wikidata.org/reference/>
+PREFIX wds: <http://www.wikidata.org/entity/statement/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wdtn: <http://www.wikidata.org/prop/direct-normalized/>
+PREFIX wdv: <http://www.wikidata.org/value/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}> 
+
+#defaultView:Graph
+SELECT DISTINCT ?citing_country ?citing_countryLabel ?citing_flag ?cited_country ?cited_countryLabel ?cited_flag
+WHERE {
+  {
+  SELECT DISTINCT ?cited_country ?citing_country (COUNT(?citing_country) AS ?count)
+                                  WHERE {
+    ?citing_work wdt:P50 ?citing_author . 
+    ?citing_work wdt:P921 target: .
+    ?cited_work wdt:P921 target: .
+    ?citing_work wdt:P2860 ?cited_work . 
+    ?cited_work wdt:P50 ?cited_author .  
+    FILTER (?citing_work != ?cited_work)
+    FILTER NOT EXISTS {
+      ?citing_work wdt:P50 ?author .
+      ?citing_work wdt:P2860 ?cited_work .
+      ?cited_work  wdt:P50 ?author .
+    }
+    ?citing_author (wdt:P108|wdt:P1416) ?citing_organization . 
+    ?cited_author (wdt:P108|wdt:P1416) ?cited_organization . 
+    ?cited_organization wdt:P17 ?cited_country.
+    ?citing_organization wdt:P17 ?citing_country.
+    FILTER (?citing_country != ?cited_country)
+  }
+  GROUP BY ?cited_country ?citing_country
+  ORDER BY DESC(?count)
+  LIMIT 42 # Adjust number of connections to display
+} ?cited_country wdt:P41 ?cited_flag . 
+  ?citing_country wdt:P41 ?citing_flag . 
+ OPTIONAL { ?cited_country rdfs:label ?cited_countryLabel .  FILTER ( lang(?cited_countryLabel) = 'en' ) }
+  OPTIONAL { ?citing_country rdfs:label ?citing_countryLabel .  FILTER ( lang(?citing_countryLabel) = 'en' ) }        
+ }

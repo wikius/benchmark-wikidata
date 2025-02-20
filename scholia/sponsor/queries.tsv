@@ -1,0 +1,5 @@
+sponsor_authors-on-sponsored-works	sponsor_authors-on-sponsored-works LABEL	QUERY	sponsor
+sponsor_co-sponsors	sponsor_co-sponsors LABEL	QUERY	sponsor
+sponsor_project-budgets	sponsor_project-budgets LABEL	QUERY	sponsor
+sponsor_recently-published-sponsored-works	sponsor_recently-published-sponsored-works LABEL	QUERY	sponsor
+sponsor_topics-of-sponsored-works	sponsor_topics-of-sponsored-works LABEL	QUERY	sponsor

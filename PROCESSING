@@ -1,6 +1,35 @@
 		PROCESSING
 
-Processing Wikidata queries for benchmarking various SPARQL engines and results
+Benchmarks are run using the benchmark.py program in this directory and
+analyzed using the stats.py program in this directory.  
+
+The benchmark program evaluates here a sequence of queries on a single
+engine.  The queries can be lines in a single file.  The queries can also be
+files mentioned in a control file.  In the latter case, the queries can be
+parameterized based on values in another file or on the results of a query.
+
+The statistics program outputs for each engine the number of queries run and
+in milliseconds the minimum, first quartile, second quartile (median), third
+quartile, maximum, mean, and mean with all times capped at 60 seconds.
+It also outputs the number of wrong results, which are then broken down into
+timeouts, errors, and divergences from the single mode.
+
+Along with timings and error statistics the statistics program can show the
+results on each query where was disagreement between the engines.  Each line
+in this output contains an index number; a flag, which is '*' if there are
+different non-error answer extracts; the single mode of the answer abstracts
+if there is one; and entries for each engine.  An answer extract 'Result='
+shows the value of the first variable if there is only one result; 'Count='
+shows the number of results otherwise.  An engine entry has the elapsed time
+in milliseconds, if timings were requested; a flag, which is '!' if an error
+was detected, '*' if the non-error answer extract differs from the mode, and
+' ' otherwise; and the answer abstract.
+
+In some cases this output has been manually marked up with the reason for
+the difference.  This was sometimes done by running the query against the
+Wikidata services of the various engines and examining the results.
+
+Most of the information here is also available in reports on the benchmarking, 
 
 
 1/ hernandez/			Benchmark from Querying wikidata: Comparing sparql, relational and graph databases
@@ -21,8 +50,10 @@ QLever              850      0      6      8     13 130735    183    100     0  
 Virtuoso            850      1     21     61    147 600727    989    353     2     1     2     0
 Number of queries with different non-error, non-suspect results:   0
 	Blazegraph can have an error even with code 200.  A backtrace shows up at the end of the output.
-	QLever's mean is affected by two slow queries, one taking 16 seconds and one taking about 130 seconds.  QLever is slow on these two queries when run as part of the benchmark but much faster when the queries are run outside of the benchmark.  QLever appears to be performing work during the entire processing time of the two queries.
-	
+	QLever's mean is affected by two slow queries, one taking 16 seconds and one taking about 130 seconds.
+	QLever is slow on these two queries when run as part of the benchmark but much faster when the queries are run outside of the benchmark.
+	A newer version of QLever has eliminated the slowdown.
+
 	./benchmark.py --nodups --engine=Blazegraph wgpb/bgps/wgpb.text | tee results/wgpb-nodups-blazegraph.tsv
 	./benchmark.py --nodups --engine=MilleniumDB wgpb/bgps/wgpb.text | teeresults/wgpb-nodups-milleniumdb.tsv
 	./benchmark.py --nodups --engine=QLever wgpb/bgps/wgpb.text | tee results/wgpb-nodups-qlever.tsv
@@ -50,9 +81,9 @@ Number of queries with different non-error, non-suspect results:   0
 ROW*   1 Count= 965       Blazegraph* Count= 511       MilleniumDB  Count= 965       QLever  Count= 965       Virtuoso  Count= 965       Name triples
 ROW*   2 Count= 300       Blazegraph* Count= 224       MilleniumDB  Count= 300       QLever  Count= 300       Virtuoso  Count= 300       Name triples
 ROW*   7 Count= 1806      Blazegraph* Count= 1193      MilleniumDB  Count= 1806      QLever  Count= 1806      Virtuoso  Count= 1806      Name triples
-ROW*   8 None             Blazegraph  Result=Point(2.176944444 41.3825) MilleniumDB  Result=Point(2.1769444444444 41.3825) QLever  Result=POINT(2.176944 41.382500) Virtuoso  Result=POINT(2.1769444444444 41.3825) 
-ROW*  10 None             Blazegraph  Result=Point(94.25 66.416666666) MilleniumDB  Result=Point(94.25 66.416666666667) QLever  Result=POINT(94.250000 66.416667) Virtuoso  Result=POINT(94.25 66.416666666667) 
-ROW*  13 None             Blazegraph  Result=Point(-121.872777777 37.304166666) MilleniumDB  Result=Point(-121.87277777778 37.304166666667) QLever  Result=POINT(-121.872778 37.304167) Virtuoso  Result=POINT(-121.87277777778 37.304166666667) 
+ROW*   8 None             Blazegraph  Result=Point(2.176944444 41.3825) MilleniumDB  Result=Point(2.1769444444444 41.3825) QLever  Result=POINT(2.176944 41.382500) Virtuoso  Result=POINT(2.1769444444444 41.3825) GeoSPARQL
+ROW*  10 None             Blazegraph  Result=Point(94.25 66.416666666) MilleniumDB  Result=Point(94.25 66.416666666667) QLever  Result=POINT(94.250000 66.416667) Virtuoso  Result=POINT(94.25 66.416666666667) GeoSPARQL
+ROW*  13 None             Blazegraph  Result=Point(-121.872777777 37.304166666) MilleniumDB  Result=Point(-121.87277777778 37.304166666667) QLever  Result=POINT(-121.872778 37.304167) Virtuoso  Result=POINT(-121.87277777778 37.304166666667) GeoSPARQL
 ROW*  14 Count= 529       Blazegraph* Count= 323       MilleniumDB  Count= 529       QLever  Count= 529       Virtuoso  Count= 529       Name triples
 ROW*  16 Count= 237       Blazegraph* Count= 153       MilleniumDB  Count= 237       QLever  Count= 237       Virtuoso  Count= 237       Name triples
 ROW*  18 Count= 1642      Blazegraph* Count= 1098      MilleniumDB  Count= 1642      QLever  Count= 1642      Virtuoso  Count= 1642      Name triples
@@ -61,9 +92,9 @@ ROW*  21 Count= 81        Blazegraph* Count= 43        MilleniumDB  Count= 81   
 ROW*  22 Count= 1140      Blazegraph* Count= 885       MilleniumDB  Count= 1140      QLever  Count= 1140      Virtuoso  Count= 1140      Name triples
 ROW*  23 Count= 490       Blazegraph* Count= 426       MilleniumDB  Count= 490       QLever  Count= 490       Virtuoso  Count= 490       Name triples
 ROW*  32 Count= 1546      Blazegraph* Count= 1176      MilleniumDB  Count= 1546      QLever  Count= 1546      Virtuoso  Count= 1546      Name triples
-ROW*  33 None             Blazegraph  Result=Point(13.383333333 52.516666666) MilleniumDB  Result=Point(13.383333333333 52.516666666667) QLever  Result=POINT(13.383333 52.516667) Virtuoso  Result=POINT(13.383333333333 52.516666666667) 
+ROW*  33 None             Blazegraph  Result=Point(13.383333333 52.516666666) MilleniumDB  Result=Point(13.383333333333 52.516666666667) QLever  Result=POINT(13.383333 52.516667) Virtuoso  Result=POINT(13.383333333333 52.516666666667) GeoSPARQL
 ROW*  35 Count= 958       Blazegraph* Count= 660       MilleniumDB  Count= 958       QLever  Count= 958       Virtuoso  Count= 958       Name triples
-ROW*  38 Result=Point(-0.3058 51.5111) Blazegraph  Result=Point(-0.3058 51.5111) MilleniumDB  Result=Point(-0.3058 51.5111) QLever* Result=POINT(-0.305800 51.511100) Virtuoso* Result=POINT(-0.3058 51.5111) 
+ROW*  38 Result=Point(-0.3058 51.5111) Blazegraph  Result=Point(-0.3058 51.5111) MilleniumDB  Result=Point(-0.3058 51.5111) QLever* Result=POINT(-0.305800 51.511100) Virtuoso* Result=POINT(-0.3058 51.5111) GeoSPARQL
 ROW*  98 Count= 1503965   Blazegraph  Count= 1503965   MilleniumDB  Count= 1503965   QLever* Count= 1503964   Virtuoso* Count= 1048576   Numbers
 ROW*  99 Count= 708356    Blazegraph  Count= 708356    MilleniumDB  Count= 708356    QLever* Count= 708354    Virtuoso  Count= 708356    Numbers
 ROW* 100 Count= 1308343   Blazegraph  Count= 1308343   MilleniumDB  Count= 1308343   QLever* Count= 1308340   Virtuoso* Count= 1048576   Numbers
@@ -123,14 +154,14 @@ Number of queries with different non-error, non-suspect results:  19
 	./benchmark.py --engine=QLever wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-norm-qlever.tsv
 	./benchmark.py --engine=Virtuoso wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-norm-virtuoso.tsv
 	./stats.py -v results/multiple_bgps-norm-*.tsv
-ROW* 144 None             Blazegraph  Count= 5453899   MilleniumDB  Count= 5453900   QLever  Count= 5453602   Virtuoso  Count= 1048576   geosparql datatype
-ROW* 166 Count= 7415      Blazegraph  Count= 7415      MilleniumDB  Count= 7415      QLever* Count= 7414      Virtuoso  Count= 7415      geosparql datatype
-ROW* 395 None             Blazegraph  Count= 2496932   MilleniumDB  Count= 2496939   QLever  Count= 2496658   Virtuoso  Count= 1048576   geosparql datatype
-ROW* 435 None             Blazegraph  Count= 3548020   MilleniumDB  Count= 3548021   QLever  Count= 3547804   Virtuoso  Count= 1048576   geosparql datatype
-ROW* 439 None             Blazegraph  Count= 3554374   MilleniumDB  Count= 3554375   QLever  Count= 3554158   Virtuoso  Count= 1048576   geosparql datatype
-ROW* 446 Count= 1657131   Blazegraph  Count= 1657131   MilleniumDB  Count= 1657131   QLever* Count= 1657130   Virtuoso* Count= 1048576   geosparql datatype
-ROW* 447 None             Blazegraph  Count= 1580710   MilleniumDB  Count= 1580719   QLever  Count= 1580438   Virtuoso  Count= 1048576   geosparql datatype
-ROW* 585 Count= 1681986   Blazegraph  Count= 1681986   MilleniumDB  Count= 1681986   QLever* Count= 1681592   Virtuoso* Count= 1048576   geosparql datatype
+ROW* 144 None             Blazegraph  Count= 5453899   MilleniumDB  Count= 5453900   QLever  Count= 5453602   Virtuoso  Count= 1048576   GeoSPARQL
+ROW* 166 Count= 7415      Blazegraph  Count= 7415      MilleniumDB  Count= 7415      QLever* Count= 7414      Virtuoso  Count= 7415      GeoSPARQL
+ROW* 395 None             Blazegraph  Count= 2496932   MilleniumDB  Count= 2496939   QLever  Count= 2496658   Virtuoso  Count= 1048576   GeoSPARQL
+ROW* 435 None             Blazegraph  Count= 3548020   MilleniumDB  Count= 3548021   QLever  Count= 3547804   Virtuoso  Count= 1048576   GeoSPARQL
+ROW* 439 None             Blazegraph  Count= 3554374   MilleniumDB  Count= 3554375   QLever  Count= 3554158   Virtuoso  Count= 1048576   GeoSPARQL
+ROW* 446 Count= 1657131   Blazegraph  Count= 1657131   MilleniumDB  Count= 1657131   QLever* Count= 1657130   Virtuoso* Count= 1048576   GeoSPARQL
+ROW* 447 None             Blazegraph  Count= 1580710   MilleniumDB  Count= 1580719   QLever  Count= 1580438   Virtuoso  Count= 1048576   GeoSPARQL
+ROW* 585 Count= 1681986   Blazegraph  Count= 1681986   MilleniumDB  Count= 1681986   QLever* Count= 1681592   Virtuoso* Count= 1048576   GeoSPARQL
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
 Blazegraph          681     11   1150   6823   9471 176377   9653   9076    10     0    10     0
 MilleniumDB         681      1    161   3272   6295 485873   5069   4395     0     0     0     0
@@ -138,7 +169,7 @@ QLever              681      2    168   4142   7106 600006   8619   5220     9  
 Virtuoso            681      1    170   3370   5160 600684   7665   4046   460     4    71   389
 Number of queries with different non-error, non-suspect results:   8
 	Virtuoso hits its limit of 2^20 results in very many answers.  As the problems with Virtuoso affect over half of the queries, the timing information for it are not useful.
-        Differences in implementing a GeoSPARQL datatype cause differences in some results, including the QLever divergences.
+        Differences in implementing a GeoSPARQL cause differences in some results, including the QLever divergences.
 	QLever and Virtuoso run out of time on a few queries.
 	Blazegraph runs out of memory on ten queries, mostly when transmitting results.
 	Virtuoso refuses to run many queries because it estimates that they will take too long.  Often these estimates are extremely large.
@@ -150,14 +181,14 @@ Number of queries with different non-error, non-suspect results:   8
 	./benchmark.py --count --engine=QLever wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-counted-qlever.tsv
 	./benchmark.py --count --engine=Virtuoso wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-counted-virtuoso.tsv
 	./stats.py -v results/multiple_bgps-[bmv]local-counted.* results/multiple_bgps-qlocat-counted.* (with guess at cause of divergences)
-ROW* 144 Result=5453900   Blazegraph/COUNTED* Result=5453899   MilleniumDB/COUNTED  Result=5453900   QLever/COUNTED* Result=5453602   Virtuoso/COUNTED  Result=5453900   geosparql datatype
-ROW* 166 Result=7415      Blazegraph/COUNTED  Result=7415      MilleniumDB/COUNTED  Result=7415      QLever/COUNTED* Result=7414      Virtuoso/COUNTED  Result=7415      geosparql datatype
-ROW* 395 Result=2496939   Blazegraph/COUNTED* Result=2496932   MilleniumDB/COUNTED  Result=2496939   QLever/COUNTED* Result=2496658   Virtuoso/COUNTED  Result=2496939   geosparql datatype
-ROW* 435 Result=3548021   Blazegraph/COUNTED* Result=3548020   MilleniumDB/COUNTED  Result=3548021   QLever/COUNTED* Result=3547804   Virtuoso/COUNTED  Result=3548021   geosparql datatype
-ROW* 439 Result=3554375   Blazegraph/COUNTED* Result=3554374   MilleniumDB/COUNTED  Result=3554375   QLever/COUNTED* Result=3554158   Virtuoso/COUNTED  Result=3554375   geosparql datatype
-ROW* 446 Result=1657131   Blazegraph/COUNTED  Result=1657131   MilleniumDB/COUNTED  Result=1657131   QLever/COUNTED* Result=1657130   Virtuoso/COUNTED  Result=1657131   geosparql datatype
-ROW* 447 Result=1580719   Blazegraph/COUNTED* Result=1580710   MilleniumDB/COUNTED  Result=1580719   QLever/COUNTED* Result=1580438   Virtuoso/COUNTED  Result=1580719   geosparql datatype
-ROW* 585 Result=1681986   Blazegraph/COUNTED  Result=1681986   MilleniumDB/COUNTED  Result=1681986   QLever/COUNTED* Result=1681592   Virtuoso/COUNTED  Result=1681986   geosparql datatype
+ROW* 144 Result=5453900   Blazegraph/COUNTED* Result=5453899   MilleniumDB/COUNTED  Result=5453900   QLever/COUNTED* Result=5453602   Virtuoso/COUNTED  Result=5453900   GeoSPARQL
+ROW* 166 Result=7415      Blazegraph/COUNTED  Result=7415      MilleniumDB/COUNTED  Result=7415      QLever/COUNTED* Result=7414      Virtuoso/COUNTED  Result=7415      GeoSPARQL
+ROW* 395 Result=2496939   Blazegraph/COUNTED* Result=2496932   MilleniumDB/COUNTED  Result=2496939   QLever/COUNTED* Result=2496658   Virtuoso/COUNTED  Result=2496939   GeoSPARQL
+ROW* 435 Result=3548021   Blazegraph/COUNTED* Result=3548020   MilleniumDB/COUNTED  Result=3548021   QLever/COUNTED* Result=3547804   Virtuoso/COUNTED  Result=3548021   GeoSPARQL
+ROW* 439 Result=3554375   Blazegraph/COUNTED* Result=3554374   MilleniumDB/COUNTED  Result=3554375   QLever/COUNTED* Result=3554158   Virtuoso/COUNTED  Result=3554375   GeoSPARQL
+ROW* 446 Result=1657131   Blazegraph/COUNTED  Result=1657131   MilleniumDB/COUNTED  Result=1657131   QLever/COUNTED* Result=1657130   Virtuoso/COUNTED  Result=1657131   GeoSPARQL
+ROW* 447 Result=1580719   Blazegraph/COUNTED* Result=1580710   MilleniumDB/COUNTED  Result=1580719   QLever/COUNTED* Result=1580438   Virtuoso/COUNTED  Result=1580719   GeoSPARQL
+ROW* 585 Result=1681986   Blazegraph/COUNTED  Result=1681986   MilleniumDB/COUNTED  Result=1681986   QLever/COUNTED* Result=1681592   Virtuoso/COUNTED  Result=1681986   GeoSPARQL
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
 Blazegraph/COUNTED  681     19   1261  14763  18355 600030  18111  14043    16     4    11     5
 MilleniumDB/COUNTED 681      1     69    158    457 469402   1296    676     0     0     0     0
@@ -242,6 +273,7 @@ Number of queries with different non-error, non-suspect results:  29
 	Blazegraph divergences on a couple of queries for unknown reasons.
 	Several queries involve the empty path, which QLever refuses to evaluate and the other three engines produce different answers for.
 	A few queries return GeoSPARQL values or numbers, which are handled differently in different engines.
+	A newer version of QLever has eliminated the bug in tab-separated-values output.
 
 	./benchmark.py --count --engine=Blazegraph wdbench/Queries/paths.text | tee results/paths-counted-blazegraph.tsv
 	./benchmark.py --count --engine=MilleniumDB wdbench/Queries/paths.text | tee results/paths-counted-milleniumdb.tsv
@@ -332,82 +364,192 @@ Virtuoso            539      1     48    610   3950 602763  18509   5996   347  
 Number of queries with different non-error, non-suspect results: 239
 	./stats.py -v results/c2rpqs-norm-[bmq]*.tsv
 ROW*  91 Count= 43162     Blazegraph  Count= 43162     MilleniumDB* Count= 42865     QLever  Count= 43162     Alternatives
-ROW* 123 Count= 16        Blazegraph* Count= 23        MilleniumDB  Count= 16        QLever  Count= 16        
-ROW* 125 Count= 248       Blazegraph* Count= 925       MilleniumDB  Count= 248       QLever  Count= 248       
-ROW* 127 None             Blazegraph  Count= 15        MilleniumDB! Count= 0         QLever  Count= 13        ?
-ROW* 129 Count= 234       Blazegraph* Count= 997       MilleniumDB  Count= 234       QLever  Count= 234       
-ROW* 132 Count= 243       Blazegraph* Count= 1087      MilleniumDB  Count= 243       QLever  Count= 243       
-ROW* 133 Count= 278       Blazegraph* Count= 1233      MilleniumDB  Count= 278       QLever  Count= 278       
-ROW* 169 Count= 31047     Blazegraph  Count= 31047     MilleniumDB  Count= 31047     QLever* Count= 31044     
-ROW* 172 Count= 30667     Blazegraph  Count= 30667     MilleniumDB  Count= 30667     QLever* Count= 30664     
-ROW* 195 Count= 210       Blazegraph* Count= 5230      MilleniumDB  Count= 210       QLever  Count= 210       
-ROW* 203 Count= 873454    Blazegraph  Count= 873454    MilleniumDB  Count= 873454    QLever* Count= 873448    
-ROW* 206 None             Blazegraph  Count= 3334      MilleniumDB! Count= 8         QLever  Count= 292       
-ROW* 207 None             Blazegraph  Count= 7554      MilleniumDB! Count= 13        QLever  Count= 256       
-ROW* 208 None             Blazegraph  Count= 367       MilleniumDB! Count= 4         QLever  Count= 180       
-ROW* 209 None             Blazegraph  Count= 1633      MilleniumDB! Count= 8         QLever  Count= 79        
-ROW* 210 Count= 71        Blazegraph* Count= 773       MilleniumDB  Count= 71        QLever  Count= 71        
-ROW* 211 Count= 208       Blazegraph* Count= 1844      MilleniumDB  Count= 208       QLever  Count= 208       
-ROW* 212 None             Blazegraph  Count= 3721      MilleniumDB! Count= 4         QLever  Count= 440       
-ROW* 213 Count= 229       Blazegraph* Count= 11127     MilleniumDB  Count= 229       QLever  Count= 229       
-ROW* 214 Count= 46        Blazegraph* Count= 446       MilleniumDB  Count= 46        QLever  Count= 46        
-ROW* 217 Count= 188       Blazegraph* Count= 4797      MilleniumDB  Count= 188       QLever  Count= 188       
-ROW* 219 Count= 40        Blazegraph* Count= 168       MilleniumDB  Count= 40        QLever  Count= 40        
-ROW* 226 Count= 229       Blazegraph* Count= 1432      MilleniumDB  Count= 229       QLever  Count= 229       
-ROW* 257 Count= 46329     Blazegraph  Count= 46329     MilleniumDB  Count= 46329     QLever* Count= 46326     
-ROW* 278 Count= 87        Blazegraph* Count= 450       MilleniumDB  Count= 87        QLever  Count= 87        
-ROW* 292 Count= 4513      Blazegraph* Count= 3047915   MilleniumDB  Count= 4513      QLever  Count= 4513      
-ROW* 297 None             Blazegraph  Count= 27787     MilleniumDB! Count= 43        QLever  Count= 166       
-ROW* 299 None             Blazegraph  Count= 429361    MilleniumDB! Count= 2386      QLever  Count= 2451      
-ROW* 301 None             Blazegraph  Count= 28571     MilleniumDB! Count= 150       QLever  Count= 165       
-ROW* 306 None             Blazegraph  Count= 1837766   MilleniumDB  Count= 1837768   QLever  Count= 1837712   
-ROW* 307 None             Blazegraph  Count= 957383    MilleniumDB  Count= 957387    QLever  Count= 957145    
-ROW* 319 Count= 155237    Blazegraph  Count= 155237    MilleniumDB  Count= 155237    QLever* Count= 155234    
-ROW* 334 Count= 3070      Blazegraph* Count= 14409     MilleniumDB  Count= 3070      QLever  Count= 3070      
-ROW* 429 Count= 2         Blazegraph* Count= 4         MilleniumDB  Count= 2         QLever  Count= 2         
-ROW* 447 Count= 2750      Blazegraph* Count= 2841      MilleniumDB  Count= 2750      QLever  Count= 2750      
-ROW* 470 Count= 40        Blazegraph* Count= 421       MilleniumDB  Count= 40        QLever  Count= 40        
-ROW* 472 Count= 56        Blazegraph* Count= 339       MilleniumDB  Count= 56        QLever  Count= 56        
-ROW* 490 None             Blazegraph  Count= 10000000  MilleniumDB! Count= 42962     QLever  Count= 321306    
-ROW* 502 Count= 6632111   Blazegraph  Count= 6632111   MilleniumDB* Count= 6632003   QLever  Count= 6632111   
-ROW* 508 Count= 31510     Blazegraph  Count= 31510     MilleniumDB  Count= 31510     QLever* Count= 31501     
-ROW* 511 Count= 1525      Blazegraph  Count= 1525      MilleniumDB  Count= 1525      QLever* Count= 1524      
-ROW* 514 Count= 520986    Blazegraph  Count= 520986    MilleniumDB  Count= 520986    QLever* Count= 520861    
-ROW* 515 None             Blazegraph  Count= 126816    MilleniumDB  Count= 126818    QLever  Count= 126796    
-ROW* 516 None             Blazegraph  Count= 5846102   MilleniumDB  Count= 5846114   QLever  Count= 5845659   
-ROW* 518 Count= 17        Blazegraph* Count= 185       MilleniumDB  Count= 17        QLever  Count= 17        
-ROW* 521 None             Blazegraph  Count= 35171     MilleniumDB  Count= 35172     QLever  Count= 35165     
-ROW* 526 Count= 1424010   Blazegraph  Count= 1424010   MilleniumDB* Count= 1408397   QLever  Count= 1424010   
-ROW* 528 Count= 49475     Blazegraph  Count= 49475     MilleniumDB* Count= 16095     QLever  Count= 49475     
+ROW* 123 Count= 16        Blazegraph* Count= 23        MilleniumDB  Count= 16        QLever  Count= 16        Blazegraph extra duplicates
+ROW* 125 Count= 248       Blazegraph* Count= 925       MilleniumDB  Count= 248       QLever  Count= 248       Blazegraph extra duplicates
+ROW* 127 None             Blazegraph  Count= 15        MilleniumDB! Count= 0         QLever  Count= 13        Blazegraph extra duplicates
+ROW* 129 Count= 234       Blazegraph* Count= 997       MilleniumDB  Count= 234       QLever  Count= 234       Blazegraph extra duplicates
+ROW* 132 Count= 243       Blazegraph* Count= 1087      MilleniumDB  Count= 243       QLever  Count= 243       Blazegraph extra duplicates
+ROW* 133 Count= 278       Blazegraph* Count= 1233      MilleniumDB  Count= 278       QLever  Count= 278       Blazegraph extra duplicates
+ROW* 169 Count= 31047     Blazegraph  Count= 31047     MilleniumDB  Count= 31047     QLever* Count= 31044     GeoSPARQL
+ROW* 172 Count= 30667     Blazegraph  Count= 30667     MilleniumDB  Count= 30667     QLever* Count= 30664     GeoSPARQL
+ROW* 195 Count= 210       Blazegraph* Count= 5230      MilleniumDB  Count= 210       QLever  Count= 210       Blazegraph extra duplicates
+ROW* 203 Count= 873454    Blazegraph  Count= 873454    MilleniumDB  Count= 873454    QLever* Count= 873448    GeoSPARQL
+ROW* 206 None             Blazegraph  Count= 3334      MilleniumDB! Count= 8         QLever  Count= 292       Blazegraph extra duplicates
+ROW* 207 None             Blazegraph  Count= 7554      MilleniumDB! Count= 13        QLever  Count= 256       Blazegraph extra duplicates
+ROW* 208 None             Blazegraph  Count= 367       MilleniumDB! Count= 4         QLever  Count= 180       Blazegraph extra duplicates
+ROW* 209 None             Blazegraph  Count= 1633      MilleniumDB! Count= 8         QLever  Count= 79        Blazegraph extra duplicates
+ROW* 210 Count= 71        Blazegraph* Count= 773       MilleniumDB  Count= 71        QLever  Count= 71        Blazegraph extra duplicates
+ROW* 211 Count= 208       Blazegraph* Count= 1844      MilleniumDB  Count= 208       QLever  Count= 208       Blazegraph extra duplicates
+ROW* 212 None             Blazegraph  Count= 3721      MilleniumDB! Count= 4         QLever  Count= 440       Blazegraph extra duplicates
+ROW* 213 Count= 229       Blazegraph* Count= 11127     MilleniumDB  Count= 229       QLever  Count= 229       Blazegraph extra duplicates
+ROW* 214 Count= 46        Blazegraph* Count= 446       MilleniumDB  Count= 46        QLever  Count= 46        Blazegraph extra duplicates
+ROW* 217 Count= 188       Blazegraph* Count= 4797      MilleniumDB  Count= 188       QLever  Count= 188       Blazegraph extra duplicates
+ROW* 219 Count= 40        Blazegraph* Count= 168       MilleniumDB  Count= 40        QLever  Count= 40        Blazegraph extra duplicates
+ROW* 226 Count= 229       Blazegraph* Count= 1432      MilleniumDB  Count= 229       QLever  Count= 229       Blazegraph extra duplicates
+ROW* 257 Count= 46329     Blazegraph  Count= 46329     MilleniumDB  Count= 46329     QLever* Count= 46326     GeoSPARQL
+ROW* 278 Count= 87        Blazegraph* Count= 450       MilleniumDB  Count= 87        QLever  Count= 87        Blazegraph extra duplicates
+ROW* 292 Count= 4513      Blazegraph* Count= 3047915   MilleniumDB  Count= 4513      QLever  Count= 4513      Blazegraph extra duplicates
+ROW* 297 None             Blazegraph  Count= 27787     MilleniumDB! Count= 43        QLever  Count= 166       Blazegraph extra duplicates
+ROW* 299 None             Blazegraph  Count= 429361    MilleniumDB! Count= 2386      QLever  Count= 2451      Blazegraph extra duplicates
+ROW* 301 None             Blazegraph  Count= 28571     MilleniumDB! Count= 150       QLever  Count= 165       Blazegraph extra duplicates
+ROW* 306 None             Blazegraph  Count= 1837766   MilleniumDB  Count= 1837768   QLever  Count= 1837712   GeoSPARQL
+ROW* 307 None             Blazegraph  Count= 957383    MilleniumDB  Count= 957387    QLever  Count= 957145    GeoSPARQL
+ROW* 319 Count= 155237    Blazegraph  Count= 155237    MilleniumDB  Count= 155237    QLever* Count= 155234    GeoSPARQL
+ROW* 334 Count= 3070      Blazegraph* Count= 14409     MilleniumDB  Count= 3070      QLever  Count= 3070      Blazegraph extra duplicates
+ROW* 429 Count= 2         Blazegraph* Count= 4         MilleniumDB  Count= 2         QLever  Count= 2         Blazegraph extra duplicates
+ROW* 447 Count= 2750      Blazegraph* Count= 2841      MilleniumDB  Count= 2750      QLever  Count= 2750      Blazegraph extra duplicates
+ROW* 470 Count= 40        Blazegraph* Count= 421       MilleniumDB  Count= 40        QLever  Count= 40        Blazegraph extra duplicates
+ROW* 472 Count= 56        Blazegraph* Count= 339       MilleniumDB  Count= 56        QLever  Count= 56        Blazegraph extra duplicates
+ROW* 490 None             Blazegraph  Count= 10000000  MilleniumDB! Count= 42962     QLever  Count= 321306    Blazegraph extra duplicates
+ROW* 502 Count= 6632111   Blazegraph  Count= 6632111   MilleniumDB* Count= 6632003   QLever  Count= 6632111   Alternatives
+ROW* 508 Count= 31510     Blazegraph  Count= 31510     MilleniumDB  Count= 31510     QLever* Count= 31501     GeoSPARQL
+ROW* 511 Count= 1525      Blazegraph  Count= 1525      MilleniumDB  Count= 1525      QLever* Count= 1524      GeoSPARQL
+ROW* 514 Count= 520986    Blazegraph  Count= 520986    MilleniumDB  Count= 520986    QLever* Count= 520861    GeoSPARQL
+ROW* 515 None             Blazegraph  Count= 126816    MilleniumDB  Count= 126818    QLever  Count= 126796    GeoSPARQL
+ROW* 516 None             Blazegraph  Count= 5846102   MilleniumDB  Count= 5846114   QLever  Count= 5845659   GeoSPARQL
+ROW* 518 Count= 17        Blazegraph* Count= 185       MilleniumDB  Count= 17        QLever  Count= 17        GeoSPARQL
+ROW* 521 None             Blazegraph  Count= 35171     MilleniumDB  Count= 35172     QLever  Count= 35165     GeoSPARQL
+ROW* 526 Count= 1424010   Blazegraph  Count= 1424010   MilleniumDB* Count= 1408397   QLever  Count= 1424010   Alternatives
+ROW* 528 Count= 49475     Blazegraph  Count= 49475     MilleniumDB* Count= 16095     QLever  Count= 49475     Alternatives
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
 Blazegraph          539     36    112   5354  56620 864181  96114  20266    90    54    69    21
 MilleniumDB         539      1     20   2786  30732 601075  85019  16870    62    58    58     4
 QLever              539      1      7     69   2213 594223   4942   2525    13     0     5     8
 Number of queries with different non-error, non-suspect results:  48
-
 	QLever is over three times faster than Virtuoso, which is about five times faster than Blazegraph and MilleniumDB.
-	Blazegraph and MilleniumDB and time out on many queries.
-
+	Blazegraph and MilleniumDB and time out on many queries.  Virtuoso times out on a few queries.
+	With duplicates removed, QLever times out on a few queries and slows down to only slightly faster than Virtuoso,
+	but Virtuoso is only producing partial results for a significant number of queries.
 	Blazegraph runs out of memory on some queries.
 	MilleniumDB crashed twice, but restarting near the crash allowed it to continue.
 	Virtuoso runs out of internal memory several times and refuses to execute some queries because of excessive estimated execution times
 	QLever refuses to evaluate a few queries because of empty path issue or unused vocabulary and runs out of space on a couple more.
+	With duplicates removed, QLever runs out of memory on some queries and Blazegraph runs out of on many queries---often when returning the results.
+	Blazegraph diverges for some queries due to producing extra duplicates for some unknown reason.  
+	On many of these queries Blazegraph produces different answers when only counts are returned.
+	MilleniumDB diverges for a few queries because of its non-standard treatment of alternatives in path expressions.
+	QLever diverges for several queries because of its internal representation of GeoSPARQL literals.
+	Virtuoso diverged on over half the results when duplicates were not removed,
+	mostly because of duplicates in transitive closures but also because of reaching its maximum of 2^20 results.
+	With duplicated removed, Virtuoso also diverged on some queries for unknown reasons.
+	Because of the large number of partial results, the timings from Virtuoso may not be useful.
 
-	Virtuoso diverged on over half the results when duplicates were not removed, mostly because of duplicates in transitive closures.
-	With duplicates removed ...?
-TODO analyze divergences
-
-
-
-TODO	./benchmark.py --count --engine=Blazegraph wdbench/Queries/c2rpqs.text | tee results/c2rpqs-counted-blazegraph.tsv
-TODO	./benchmark.py --count --engine=MilleniumDB wdbench/Queries/c2rpqs.text | tee results/c2rpqs-counted-milleniumdb.tsv
+	./benchmark.py --count --engine=Blazegraph wdbench/Queries/c2rpqs.text | tee results/c2rpqs-counted-blazegraph.tsv
+	./benchmark.py --count --engine=MilleniumDB wdbench/Queries/c2rpqs.text | tee results/c2rpqs-counted-milleniumdb.tsv
 	./benchmark.py --count --engine=QLever wdbench/Queries/c2rpqs.text | tee results/c2rpqs-counted-qlever.tsv
-IP	./benchmark.py --count --engine=Virtuoso wdbench/Queries/c2rpqs.text | tee results/c2rpqs-counted-virtuoso.tsv
+	./benchmark.py --count --engine=Virtuoso wdbench/Queries/c2rpqs.text | tee results/c2rpqs-counted-virtuoso.tsv
+	./stats.py results/c2rpqs-counted-*.tsv
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/COUNTED  539     28    114   6513  63293 790266  97506  22373    89    56    63    26
+MilleniumDB/COUNTED 539      1      3    164  15223 600998  79876  13541    59    56    56     3
+QLever/COUNTED      539      1      4     29    242 550507   3015   1460    12     0     4     8
+Virtuoso/COUNTED    539      1      4     70    998 606907  17478   4682   265     9    25   240
+Number of queries with different non-error, non-suspect results: 288
+	./stats.py -v results/c2rpqs-counted-[bmq]*.tsv
+ROW*  91 Result=43162     Blazegraph/COUNTED  Result=43162     MilleniumDB/COUNTED* Result=42865     QLever/COUNTED  Result=43162     ditto
+ROW* 125 Result=248       Blazegraph/COUNTED* Result=654       MilleniumDB/COUNTED  Result=248       QLever/COUNTED  Result=248       ditto
+ROW* 129 Result=234       Blazegraph/COUNTED* Result=889       MilleniumDB/COUNTED  Result=234       QLever/COUNTED  Result=234       ditto
+ROW* 132 Result=243       Blazegraph/COUNTED* Result=956       MilleniumDB/COUNTED  Result=243       QLever/COUNTED  Result=243       ditto
+ROW* 133 Result=278       Blazegraph/COUNTED* Result=1325      MilleniumDB/COUNTED  Result=278       QLever/COUNTED  Result=278       ditto
+ROW* 140 Result=79        Blazegraph/COUNTED* Result=158       MilleniumDB/COUNTED  Result=79        QLever/COUNTED  Result=79        Blazegraph extra duplicates
+ROW* 169 Result=31047     Blazegraph/COUNTED  Result=31047     MilleniumDB/COUNTED  Result=31047     QLever/COUNTED* Result=31044     ditto
+ROW* 172 Result=30667     Blazegraph/COUNTED  Result=30667     MilleniumDB/COUNTED  Result=30667     QLever/COUNTED* Result=30664     ditto
+ROW* 195 Result=210       Blazegraph/COUNTED* Result=5778      MilleniumDB/COUNTED  Result=210       QLever/COUNTED  Result=210       ditto
+ROW* 203 Result=873454    Blazegraph/COUNTED  Result=873454    MilleniumDB/COUNTED  Result=873454    QLever/COUNTED* Result=873448    ditto
+ROW* 206 None             Blazegraph/COUNTED  Result=1457      MilleniumDB/COUNTED! Count= 0         QLever/COUNTED  Result=292       ditto
+ROW* 207 None             Blazegraph/COUNTED  Result=2335      MilleniumDB/COUNTED! Count= 0         QLever/COUNTED  Result=256       ditto
+ROW* 208 None             Blazegraph/COUNTED  Result=411       MilleniumDB/COUNTED! Count= 0         QLever/COUNTED  Result=180       ditto
+ROW* 209 None             Blazegraph/COUNTED  Result=545       MilleniumDB/COUNTED! Count= 0         QLever/COUNTED  Result=79        ditto
+ROW* 210 Result=71        Blazegraph/COUNTED* Result=539       MilleniumDB/COUNTED  Result=71        QLever/COUNTED  Result=71        ditto
+ROW* 211 Result=208       Blazegraph/COUNTED* Result=674       MilleniumDB/COUNTED  Result=208       QLever/COUNTED  Result=208       ditto
+ROW* 212 None             Blazegraph/COUNTED  Result=1130      MilleniumDB/COUNTED! Count= 0         QLever/COUNTED  Result=440       ditto
+ROW* 213 Result=229       Blazegraph/COUNTED* Result=2977      MilleniumDB/COUNTED  Result=229       QLever/COUNTED  Result=229       ditto
+ROW* 214 Result=46        Blazegraph/COUNTED* Result=343       MilleniumDB/COUNTED  Result=46        QLever/COUNTED  Result=46        ditto
+ROW* 215 None             Blazegraph/COUNTED  Result=17564     MilleniumDB/COUNTED! Count= 0         QLever/COUNTED  Result=1944      ditto
+ROW* 217 Result=188       Blazegraph/COUNTED* Result=1364      MilleniumDB/COUNTED  Result=188       QLever/COUNTED  Result=188       ditto
+ROW* 219 Result=40        Blazegraph/COUNTED* Result=225       MilleniumDB/COUNTED  Result=40        QLever/COUNTED  Result=40        ditto
+ROW* 223 Result=622       Blazegraph/COUNTED* Result=80860     MilleniumDB/COUNTED  Result=622       QLever/COUNTED  Result=622       Blazegraph extra duplicates
+ROW* 226 Result=229       Blazegraph/COUNTED* Result=3664      MilleniumDB/COUNTED  Result=229       QLever/COUNTED  Result=229       ditto
+ROW* 231 Result=2         Blazegraph/COUNTED* Result=4         MilleniumDB/COUNTED  Result=2         QLever/COUNTED  Result=2         Blazegraph extra duplicates
+ROW* 257 Result=46329     Blazegraph/COUNTED  Result=46329     MilleniumDB/COUNTED  Result=46329     QLever/COUNTED* Result=46326     ditto
+ROW* 278 Result=87        Blazegraph/COUNTED* Result=1392      MilleniumDB/COUNTED  Result=87        QLever/COUNTED  Result=87        ditto
+ROW* 292 Result=4513      Blazegraph/COUNTED* Result=579466    MilleniumDB/COUNTED  Result=4513      QLever/COUNTED  Result=4513      ditto
+ROW* 297 None             Blazegraph/COUNTED  Result=9457      MilleniumDB/COUNTED! Count= 0         QLever/COUNTED  Result=166       ditto
+ROW* 298 None             Blazegraph/COUNTED  Result=49975     MilleniumDB/COUNTED! Count= 0         QLever/COUNTED  Result=849       Blazegraph extra duplicates
+ROW* 299 Result=2451      Blazegraph/COUNTED* Result=132545    MilleniumDB/COUNTED  Result=2451      QLever/COUNTED  Result=2451      ditto
+ROW* 301 None             Blazegraph/COUNTED  Result=9445      MilleniumDB/COUNTED! Count= 0         QLever/COUNTED  Result=165       ditto
+ROW* 306 None             Blazegraph/COUNTED  Result=1837766   MilleniumDB/COUNTED  Result=1837768   QLever/COUNTED  Result=1837712   ditto
+ROW* 307 None             Blazegraph/COUNTED  Result=957383    MilleniumDB/COUNTED  Result=957387    QLever/COUNTED  Result=957145    ditto
+ROW* 319 Result=155237    Blazegraph/COUNTED  Result=155237    MilleniumDB/COUNTED  Result=155237    QLever/COUNTED* Result=155234    ditto
+ROW* 334 Result=3070      Blazegraph/COUNTED* Result=12134     MilleniumDB/COUNTED  Result=3070      QLever/COUNTED  Result=3070      ditto
+ROW* 429 Result=2         Blazegraph/COUNTED* Result=14        MilleniumDB/COUNTED  Result=2         QLever/COUNTED  Result=2         ditto
+ROW* 437 Result=12629     Blazegraph/COUNTED* Result=239951    MilleniumDB/COUNTED  Result=12629     QLever/COUNTED  Result=12629     Blazegraph extra duplicates
+ROW* 439 Result=1         Blazegraph/COUNTED* Result=2         MilleniumDB/COUNTED  Result=1         QLever/COUNTED  Result=1         Blazegraph extra duplicates
+ROW* 457 Result=1         Blazegraph/COUNTED* Result=2         MilleniumDB/COUNTED  Result=1         QLever/COUNTED  Result=1         Blazegraph extra duplicates
+ROW* 470 Result=40        Blazegraph/COUNTED* Result=1040      MilleniumDB/COUNTED  Result=40        QLever/COUNTED  Result=40        ditto
+ROW* 472 Result=56        Blazegraph/COUNTED* Result=152       MilleniumDB/COUNTED  Result=56        QLever/COUNTED  Result=56        ditto
+ROW* 473 Result=43        Blazegraph/COUNTED* Result=139       MilleniumDB/COUNTED  Result=43        QLever/COUNTED  Result=43        Blazegraph extra duplicates
+ROW* 490 None             Blazegraph/COUNTED  Result=4666206   MilleniumDB/COUNTED! Count= 0         QLever/COUNTED  Result=321306    ditto
+ROW* 502 Result=6632111   Blazegraph/COUNTED  Result=6632111   MilleniumDB/COUNTED* Result=6632003   QLever/COUNTED  Result=6632111   ditto
+ROW* 508 Result=31510     Blazegraph/COUNTED  Result=31510     MilleniumDB/COUNTED  Result=31510     QLever/COUNTED* Result=31501     ditto
+ROW* 511 Result=1525      Blazegraph/COUNTED  Result=1525      MilleniumDB/COUNTED  Result=1525      QLever/COUNTED* Result=1524      ditto
+ROW* 513 None             Blazegraph/COUNTED  Result=1273      MilleniumDB/COUNTED! Count= 0         QLever/COUNTED  Result=19        Blazegraph extra duplicates
+ROW* 514 Result=520986    Blazegraph/COUNTED  Result=520986    MilleniumDB/COUNTED  Result=520986    QLever/COUNTED* Result=520861    ditto
+ROW* 515 None             Blazegraph/COUNTED  Result=126816    MilleniumDB/COUNTED  Result=126818    QLever/COUNTED  Result=126796    ditto
+ROW* 516 None             Blazegraph/COUNTED  Result=5846102   MilleniumDB/COUNTED  Result=5846114   QLever/COUNTED  Result=5845659   ditto
+ROW* 518 Result=17        Blazegraph/COUNTED* Result=425       MilleniumDB/COUNTED  Result=17        QLever/COUNTED  Result=17        ditto
+ROW* 521 None             Blazegraph/COUNTED  Result=35171     MilleniumDB/COUNTED  Result=35172     QLever/COUNTED  Result=35165     ditto
+ROW* 526 Result=1424010   Blazegraph/COUNTED  Result=1424010   MilleniumDB/COUNTED* Result=1408397   QLever/COUNTED  Result=1424010   ditto
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/COUNTED  539     28    114   6513  63293 790266  97506  22373    90    56    63    27
+MilleniumDB/COUNTED 539      1      3    164  15223 600998  79876  13541    59    56    56     3
+QLever/COUNTED      539      1      4     29    242 550507   3015   1460    12     0     4     8
+Number of queries with different non-error, non-suspect results:  54
+	See above,
 
-TODO	./benchmark.py --nodups --engine=Blazegraph wdbench/Queries/c2rpqs.text | tee results/c2rpqs-nodups-blazegraph.tsv
-TODO	./benchmark.py --nodups --engine=MilleniumDB wdbench/Queries/c2rpqs.text | tee results/c2rpqs-nodups-milleniumdb.tsv
-TODO	./benchmark.py --nodups --engine=QLever wdbench/Queries/c2rpqs.text | tee results/c2rpqs-nodups-qlever.tsv
-TODO	./benchmark.py --nodups --engine=Virtuoso wdbench/Queries/c2rpqs.text | tee results/c2rpqs-nodups-virtuoso.tsv
+	./benchmark.py --nodups --engine=Blazegraph wdbench/Queries/c2rpqs.text | tee results/c2rpqs-nodups-blazegraph.tsv
+	./benchmark.py --nodups --engine=MilleniumDB wdbench/Queries/c2rpqs.text | tee results/c2rpqs-nodups-milleniumdb.tsv
+	./benchmark.py --nodups --engine=QLever wdbench/Queries/c2rpqs.text | tee results/c2rpqs-nodups-qlever.tsv
+	./benchmark.py --nodups --engine=Virtuoso wdbench/Queries/c2rpqs.text | tee results/c2rpqs-nodups-virtuoso.tsv
+TODO	./stats.py -v results/c2rpqs-nodups-*.tsv
+ROW* 133 Count= 278       Blazegraph/NODUPS  Count= 278       MilleniumDB/NODUPS  Count= 278       QLever/NODUPS  Count= 278       Virtuoso/NODUPS* Count= 21101     ??
+ROW* 145 Count= 680       Blazegraph/NODUPS! Count= 395       MilleniumDB/NODUPS  Count= 680       QLever/NODUPS  Count= 680       Virtuoso/NODUPS* Result=Q16195062 ??
+ROW* 146 Count= 386       Blazegraph/NODUPS! None             MilleniumDB/NODUPS  Count= 386       QLever/NODUPS  Count= 386       Virtuoso/NODUPS* Count= 0         ??
+ROW* 169 Count= 26061     Blazegraph/NODUPS  Count= 26061     MilleniumDB/NODUPS  Count= 26061     QLever/NODUPS* Count= 26058     Virtuoso/NODUPS  Count= 26061     ditto
+ROW* 172 Count= 25740     Blazegraph/NODUPS  Count= 25740     MilleniumDB/NODUPS  Count= 25740     QLever/NODUPS* Count= 25737     Virtuoso/NODUPS  Count= 25740     ditto
+ROW* 185 None             Blazegraph/NODUPS! None             MilleniumDB/NODUPS! Count= 63        QLever/NODUPS  Count= 1606      Virtuoso/NODUPS  Count= 2         
+ROW* 199 Result=Q2968376  Blazegraph/NODUPS  Result=Q2968376  MilleniumDB/NODUPS  Result=Q2968376  QLever/NODUPS  Result=Q2968376  Virtuoso/NODUPS* Count= 0         ??
+ROW* 203 Count= 712008    Blazegraph/NODUPS  Count= 712008    MilleniumDB/NODUPS  Count= 712008    QLever/NODUPS* Count= 712005    Virtuoso/NODUPS  Count= 712008    ditto
+ROW* 214 Count= 46        Blazegraph/NODUPS  Count= 46        MilleniumDB/NODUPS  Count= 46        QLever/NODUPS  Count= 46        Virtuoso/NODUPS* Count= 0         ??
+ROW* 215 None             Blazegraph/NODUPS! Count= 515       MilleniumDB/NODUPS! Count= 18        QLever/NODUPS  Count= 1944      Virtuoso/NODUPS  Count= 6         ??
+ROW* 233 Count= 24        Blazegraph/NODUPS  Count= 24        MilleniumDB/NODUPS! Count= 24        QLever/NODUPS  Count= 24        Virtuoso/NODUPS* Result=Q17097924 ??
+ROW* 257 Count= 43099     Blazegraph/NODUPS  Count= 43099     MilleniumDB/NODUPS  Count= 43099     QLever/NODUPS* Count= 43096     Virtuoso/NODUPS  Count= 43099     ditto
+ROW* 266 Count= 10000000  Blazegraph/NODUPS* Count= 2473100   MilleniumDB/NODUPS  Count= 10000000  QLever/NODUPS  Count= 10000000  Virtuoso/NODUPS* Count= 1048576   ??
+ROW* 286 Count= 340       Blazegraph/NODUPS! None             MilleniumDB/NODUPS  Count= 340       QLever/NODUPS  Count= 340       Virtuoso/NODUPS* Count= 0         ??
+ROW* 287 Count= 523       Blazegraph/NODUPS  Count= 523       MilleniumDB/NODUPS  Count= 523       QLever/NODUPS  Count= 523       Virtuoso/NODUPS* Count= 0         ??
+ROW* 305 Count= 300744    Blazegraph/NODUPS  Count= 300744    MilleniumDB/NODUPS  Count= 300744    QLever/NODUPS  Count= 300744    Virtuoso/NODUPS* Count= 300725    ??
+ROW* 306 None             Blazegraph/NODUPS! Count= 1531543   MilleniumDB/NODUPS  Count= 1602041   QLever/NODUPS  Count= 1601997   Virtuoso/NODUPS  Count= 1048576   ditto
+ROW* 307 Count= 812211    Blazegraph/NODUPS* Count= 812208    MilleniumDB/NODUPS  Count= 812211    QLever/NODUPS* Count= 812006    Virtuoso/NODUPS  Count= 812211    ditto
+ROW* 319 Count= 143579    Blazegraph/NODUPS  Count= 143579    MilleniumDB/NODUPS  Count= 143579    QLever/NODUPS* Count= 143576    Virtuoso/NODUPS  Count= 143579    ditto
+ROW* 339 None             Blazegraph/NODUPS! None             MilleniumDB/NODUPS! Count= 15        QLever/NODUPS  Count= 35        Virtuoso/NODUPS  Count= 0         ??
+ROW* 472 Count= 56        Blazegraph/NODUPS  Count= 56        MilleniumDB/NODUPS  Count= 56        QLever/NODUPS  Count= 56        Virtuoso/NODUPS* Result=Q26825329 ??
+ROW* 473 Count= 43        Blazegraph/NODUPS! None             MilleniumDB/NODUPS  Count= 43        QLever/NODUPS  Count= 43        Virtuoso/NODUPS* Count= 4         ??
+ROW* 508 Count= 30549     Blazegraph/NODUPS  Count= 30549     MilleniumDB/NODUPS  Count= 30549     QLever/NODUPS* Count= 30540     Virtuoso/NODUPS  Count= 30549     ditto
+ROW* 511 Count= 1525      Blazegraph/NODUPS  Count= 1525      MilleniumDB/NODUPS  Count= 1525      QLever/NODUPS* Count= 1524      Virtuoso/NODUPS  Count= 1525      ditto
+ROW* 512 None             Blazegraph/NODUPS! None             MilleniumDB/NODUPS! Count= 87        QLever/NODUPS  Count= 4995      Virtuoso/NODUPS  Count= 4997      ??
+ROW* 514 Count= 520986    Blazegraph/NODUPS  Count= 520986    MilleniumDB/NODUPS  Count= 520986    QLever/NODUPS* Count= 520861    Virtuoso/NODUPS  Count= 520986    ditto
+ROW* 515 Count= 111149    Blazegraph/NODUPS* Count= 111147    MilleniumDB/NODUPS  Count= 111149    QLever/NODUPS* Count= 111128    Virtuoso/NODUPS  Count= 111149    ditto
+ROW* 516 None             Blazegraph/NODUPS! Count= 1869033   MilleniumDB/NODUPS  Count= 5516539   QLever/NODUPS  Count= 5516140   Virtuoso/NODUPS  Count= 1048576   ??
+ROW* 519 None             Blazegraph/NODUPS! None             MilleniumDB/NODUPS! Count= 92        QLever/NODUPS  Count= 4995      Virtuoso/NODUPS  Count= 4997      ??
+ROW* 521 Count= 30220     Blazegraph/NODUPS* Count= 30219     MilleniumDB/NODUPS  Count= 30220     QLever/NODUPS* Count= 30214     Virtuoso/NODUPS  Count= 30220     ditto
+ROW* 538 Count= 243       Blazegraph/NODUPS! None             MilleniumDB/NODUPS  Count= 243       QLever/NODUPS  Count= 243       Virtuoso/NODUPS* Count= 0         ??
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/NODUPS   539     36    130   9275  54705 834953  96895  21618   156    53   152     4
+MilleniumDB/NODUPS  539      1     21   3257  29271 601059  84226  16941    58    58    58     0
+QLever/NODUPS       539      1     19    114    839 603136  14934   5138    58     4    47    11
+Virtuoso/NODUPS     539      1     50    600   3944 603393  19643   5982   139     9    28   111
+Number of queries with different non-error, non-suspect results:  31
+	See above.
 
 
 4/ wdqs/wikidata-queries.tsv	Wikidata queries gathered from WDQS
@@ -573,7 +715,7 @@ Number of queries with different non-error, non-suspect results:  60
 	./benchmark.py --engine=MilleniumDB --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-nodups-milleniumdb.tsv
 	./benchmark.py --engine=QLever --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-nodups-qlever.tsv
 	./benchmark.py --engine=Virtuoso --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-nodups-virtuoso.tsv
-TODO	./stats.py -v results/wdqs-nodups-*.tsv
+	./stats.py -v results/wdqs-nodups-*.tsv
 ROW*   6 Result=11463628  Blazegraph/NODUPS  Result=11463628  MilleniumDB/NODUPS* Result=11463627  QLever/NODUPS  Result=11463628  Virtuoso/NODUPS  Result=11463628  
 ROW*   9 Count= 21253     Blazegraph/NODUPS* Count= 0         MilleniumDB/NODUPS  Count= 21253     QLever/NODUPS  Count= 21253     Virtuoso/NODUPS  Count= 21253     
 ROW*  10 Count= 35648     Blazegraph/NODUPS* Count= 0         MilleniumDB/NODUPS  Count= 35648     QLever/NODUPS  Count= 35648     Virtuoso/NODUPS  Count= 35648     
@@ -634,14 +776,532 @@ Virtuoso/NODUPS     298      1     68    493   3473 600720  14212   6233    35  
 Number of queries with different non-error, non-suspect results:  52
 	SEE ABOVE
 
-5/ subclass-parameter/	Parameterized subclass query for all classes with at least 100000 subclases
+
+5/ ontology/queries.tsv	Several subclass and instance queries
+	All the queries have the DISTINCT keyword.
+
+	./benchmark.py --engine=Blazegraph --directory=ontology | tee results/ontology-norm-blazegraph.tsv
+	./benchmark.py --engine=MilleniumDB --directory=ontology | tee results/ontology-norm-milleniumdb.tsv
+	./benchmark.py --engine=QLever --directory=ontology | tee results/ontology-norm-qlever.tsv
+	./benchmark.py --engine=Virtuoso --directory=ontology | tee results/ontology-norm-virtuoso.tsv
+	./stats.py -v results/ontology-norm-*.tsv
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           24    146   6211  15666  53325 368424  45704  23084     5     0     5     0
+MilleniumDB          24    210    725   6391  35353 601746  48141  18629     1     1     1     0
+QLever               24     29    141    518   4145 116553   8302   5946     0     0     0     0
+Virtuoso             24      7   2686   4154  34961 123452  24544  19844    12     0     0    12
+Number of queries with different non-error, non-suspect results:   0
+	QLever is the fastest by a factor of three over Virtuoso.
+	Virtuoso is second-fastest on the as-is queries but hits its result limit of 2^20 for many of the queries so the performance numbers are not useful.
+	Blazegraph is slow and runs out of memory on some of the queries.
+	MilleniumDB is also slow and crashed twice on the last query before timing out on it.
+
+	./benchmark.py --engine=Blazegraph --count --directory=ontology | tee results/ontology-counted-blazegraph.tsv
+	./benchmark.py --engine=MilleniumDB --count --directory=ontology | tee results/ontology-counted-milleniumdb.tsv
+	./benchmark.py --engine=QLever --count --directory=ontology | tee results/ontology-counted-qlever.tsv
+	./benchmark.py --engine=Virtuoso --count --directory=ontology | tee results/ontology-counted-virtuoso.tsv
+	./stats.py -v results/ontology-counted-*.tsv
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/COUNTED   24    270   5953  15219  52467 349989  43846  22720     5     0     5     0
+MilleniumDB/COUNTED  24     61    503   2445  16728 601000  45457  14954     1     1     1     0
+QLever/COUNTED       24      0     13    462   3196  17509   2470   2470     0     0     0     0
+Virtuoso/COUNTED     24      5    471    890  43407 602879  89094  17694     2     2     2     0
+Number of queries with different non-error, non-suspect results:   0
+	See above.
+	When the results are counted, Virtuoso does not hit this limit, but is the slowest engine and times out on two queries.
 
 
-subclass/		Selected subclass queries
-	Status	run, initial analysis
-	Runs	
+6/ ontology-parameter/queries.tsv	Parameterized subclass and instance query for classes with at least 100000 subclases
+	The queries all have the DISTINCT keyword.  They do not retrieve labels of items.
+	The queries are all simple and as-is return large result sets - they are only run in counting mode so as to
+	not include the cost of sending the large answsers and to not have Virtuoso hit its results limit.
+
+	./benchmark.py --engine=Blazegraph --count --directory=ontology-parameter | tee results/ontology-parameter-counted-blazegraph.tsv
+	./benchmark.py --engine=MilleniumDB --count --directory=ontology-parameter | tee results/ontology-parameter-counted-milleniumdb.tsv
+	./benchmark.py --engine=QLever --count --directory=ontology-parameter | tee results/ontology-parameter-counted-qlever.tsv
+	./benchmark.py --engine=Virtuoso --count --directory=ontology-parameter | tee results/ontology-parameter-counted-virtuoso.tsv
+	./stats.py -v results/ontology-parameter-counted-*.tsv
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/COUNTED  232    825   3461  11394  18741 195472  18136  16729    26     0    26     0
+MilleniumDB/COUNTED 232     34    109    666   1765  72886   3152   3039     0     0     0     0
+QLever/COUNTED      232     22     75    553   1322  13839   1069   1069     0     0     0     0
+Virtuoso/COUNTED    232     65    499    984   4353 477692   8577   5106     0     0     0     0
+Number of queries with different non-error, non-suspect results:   0
+	QLever is the fastest by a factor of three over MilleniumDB.
+	MilleniumDB is faster than Virtuoso.
+	Blazegraph is by far the slowest, and runs out of memory on many of the harder queries as well.
 
 
-instance/		Selected instance queries
+7/ order/*/queries.tsv		Queries from investigations into class order in Wikidata
+	This is a group of queries that were attempted during an effort to investigate class order in Wikidata.
+	The queries mostly use P31 and P279 in complex path expressions to find out different aspects and problems with class order.
+	Some of the queries are quite complex and many of them are hard and many touch large portions of the Wikidata ontology.
+	As the queries were developed using a earlier version of QLever they are biased towards QLever.
 
-order/			Queries from investigations into class order in Wikidata
+	./benchmark.py --engine=Blazegraph --directory=order | tee results/order-norm-blazegraph.tsv
+	./benchmark.py --engine=MilleniumDB --directory=order | tee results/order-norm-milleniumdb.tsv
+	./benchmark.py --engine=QLever --directory=order | tee results/order-norm-qlever.tsv
+	./benchmark.py --engine=Virtuoso --directory=order | tee results/order-norm-virtuoso.tsv
+TODO	./stats.py -v results/order-norm-*.tsv
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           70     30  22363  36521 202811 600031 149062  38623    58     8    58     0
+MilleniumDB          70      2 600015 600031 600052 601509 493729  51677    55    55    55     0
+QLever               70      1     22  19475 176808 496691 108059  26751    15     0    15     0
+Virtuoso             70      0      1      2    853 600762  64585  10218    58     7    55     3
+Number of queries with different non-error, non-suspect results:   0
+	Even though the queries are biased towards QLever the results indicate that QLever is much more capable on these kinds of queries than the other engines.
+	QLever produces answers for 55 of the 70 queries including all the queries where any engine produces answers.
+	QLever refuses to execute four queries due to empty path issues and runs out of memory on eleven more.
+	QLever produces answers for 55 of the 70 queries, refusing to execute four queries due to empty path issues and running out of memory on eleven more.
+	MilleniumDB runs out of time on 55 of the queries, only producing dependable answers for 15.
+	Virtuoso times out on 7 queries, refuses to execute 39 more due to too-large estimated execution times,
+	refuses to execute 7 because of transitive path issues, and runs out of internal memory on two.
+	On three other queries Virtuoso hits its limit of 2^20 results and thus returns dependable answers for only 12 queries.
+	Blazegraph times out on 8 queries and runs out of memory on 50 more, returning dependable answers for only the same 12 queries as Virtuoso does.
+	Because of the large number of errors on these queries, the timing statistics are not very useful.
+	Looking at the queries where dependable answers are returned, QLever is much faster than the other engines overall on the these queries.
+
+	./benchmark.py --count --engine=Blazegraph --directory=order | tee results/order-counted-blazegraph.tsv
+	./benchmark.py --count --engine=MilleniumDB --directory=order | tee results/order-counted-milleniumdb.tsv
+	./benchmark.py --count --engine=QLever --directory=order | tee results/order-counted-qlever.tsv
+	./benchmark.py --count --engine=Virtuoso --directory=order | tee results/order-counted-virtuoso.tsv
+	./stats.py -v results/order-counted-*.tsv
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/COUNTED   70     30  22581  39823 189420 600028 148991  39082    58     8    58     0
+MilleniumDB/COUNTED  70      2 600017 600031 600040 601598 493149  51644    55    55    55     0
+QLever/COUNTED       70      1     15  20512 249896 511402 121390  28396    16     0    16     0
+Virtuoso/COUNTED     70      1      2      3    833 610660  80233  11368    55     7    55     0
+Number of queries with different non-error, non-suspect results:   0
+	When duplicates are removed, QLever is slower and times out on one more query and Virtuoso does not run into its results limit.
+
+
+8/ Scholia
+
+Issues with QLever (and MilleniumDB)
+  QLever has problems with unions of transitive closures in paths
+	This query might have to evaluate the empty path
+		complex_articles-by-year
+		complex_articles-recent
+  QLever requires services to use application/sparql-results+json content type, not text/html
+	Error while executing a SERVICE request
+		author_academic-tree	gas#service
+		taxon_tree	gas#service
+		wikiproject_co-occurring-wikiprojects bd:sample
+		wikiproject_topics	bd:sample
+  QLever does not implement negation in property paths.  Also MilleniumDB
+	Not supported: \"!\" inside a property path
+		author_associated-images
+  QLever does not implement EXISTS (This is coming very soon.)
+	Built-in function \"exists
+	Built-in function \"notexists
+		Topic country citation graph
+		author_citations-by-year
+		organization_co-author-graph
+  QLever bug 
+ 	Assertion `subresult->idTable().numColumns() == inWidth` failed
+		Topic author scores for human
+	REGEX function must be a string literal
+		chemical_relates
+
+Non-standard constructs patched
+  Removed xsd:date in a way that should not affect timings
+		author_events  
+		author_list-of-publications
+		author_list-of-retracted-articles
+		series_in-series
+		series_works
+		venue_articles-citing-retracted-articles
+		venue_cited-venues.sparql
+		project_recent-articles
+		sponsor_recently-published-sponsored-works
+		organization_recent-citations
+		event_future-events
+		event_past-events
+		event_recent-publications
+		event_upcoming-deadlines.sparql
+		chemical_recent-literature
+		chemical-element_recent-literature.sparql
+		ontology_recent-works.sparql
+		pathway_citing-articles.sparql
+		pathway_recent-articles.sparql~
+		dataset_citations.sparql
+		software_data.sparql
+		software_recent-works.sparql
+		use_recent-work-using-the-used.sparql
+		podcast_recent-episodes.sparql
+		podcast-episode_data
+		organization_recent-literature
+		award_recent-publications-by-recipients.sparql
+ 		chemical-class_recent-literature.sparql
+		venue_recently-published-works.sparql
+		work-index_recently-retracted-works.sparql
+		work_citations.sparql
+		work_cited-works.sparql
+		work_data.sparql
+
+Non-standard constructs not changed
+  Mediawiki API calls - they use mwapi: in a non-standard way
+	Prefix mwapi was not registered
+		chemical_related
+  geof:distance
+	Not part of SPARQL 1.1
+		event_related-events-timelocation
+
+
+Several queries had illegal syntax.  These were fixed before translating them to standard SPARQL.
+  AS variable reuse
+	an AS clause
+		series_in-series
+		event-series_events
+
+grep exception results/scholia-*-qlever.tsv | cut -f 8 | sort | uniq
+
+
+categories identified
+
+DONE	author
+?	award
+IP	catalogue
+IP*	chemical-class
+IP	chemical-element
+	chemical-index
+IP	chemical
+DONE	clinical_trial
+IP	complex
+IP	country
+IP	dataset
+DONE	disease
+IP	event-series
+IP	event
+DONE	gene
+IP	ontology
+IP	organization
+IP	pathway
+IP	podcast-episode
+IP	podcast-season
+IP	podcast
+IP	project
+IP	property
+DONE	protein
+DONE	publisher
+DONE	series
+IP	software
+IP	sponsor
+IP	taxon
+DONE	topic
+IP	use
+IP	venue
+IP	wikiproject
+IP*	work
+
+
+PARTIAL	convert scholia parameterized Blazegraph queries to standard parameterized SPARQL
+MOSTLY	figure out what values to send in to queries
+DONE	extend harness appropriately
+
+check out topic - Virtuoso crashed
+
+OK cl	all done and no non-standard queries
+OK n...	all done with some non-standard queries
+REDO	needs to be recone
+IP	in progress
+TODO	needs to be benchmarked
+SETUP	needs to be set tup
+
+
+
+OK cl	./SCHOLIA topic
+	./stats.py -v -t results/scholia-topic-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           90     35   3855  48096 600022 684556 242863  35862    46    33    13     0
+MilleniumDB          90      8  52809 600035 600914 602663 395266  47977    55    55     0     0
+QLever               90      1    128    438   1239 110719   3047   2483    11     0    11     0
+Virtuoso             90      5     94    456   1756 599999  36885   6674    20     0    10    10
+ROW  Mode Result            Blazegraph                 MilleniumDB                QLever                     Virtuoso                  
+  1* None                600039!None                601002!None                    98 Count= 85             3418 Count= 86          
+  2* None                600019!None                600035!None                    93 Count= 81             1432 Count= 74          
+  4* None                600019!None                600035!None                    97 Count= 76              818 Count= 79          
+ 16* Count= 201           88300 Count= 201           39689 Count= 201           11087 Count= 201            1173*Count= 209         
+ 17* Count= 201           36418 Count= 201           52559 Count= 201            1294 Count= 201             658*Count= 202         
+ 18* Count= 200           12006 Count= 200            2653 Count= 200             861 Count= 200             866*Count= 201         
+ 19* Count= 200            1975 Count= 200             549 Count= 200             245 Count= 200             202*Count= 44          
+ 21* None                 90837 Count= 7585         601369!Count= 3              2315 Count= 7583          14537 Count= 2561        
+ 22* Count= 273           69750 Count= 273          602663!Count= 4              8833 Count= 273              18*Count= 3           
+ 23* None                 20667 Count= 15460        601138!Count= 3              1232 Count= 15458           100 Count= 83          
+ 24* Count= 1602           2373 Count= 1602         600325!Count= 4               980 Count= 1602              5*Count= 0           
+ 25* None                  3681 Count= 2160         601064!Count= 3               967 Count= 2159            168 Count= 188         
+ 29* Count= 400            3024 Count= 400            4837 Count= 400             528 Count= 400              15*Count= 80          
+ 31* None                600021!None                601673!None                 10579 Count= 60             2048 Count= 250         
+ 33* None                600034!None                600156!None                   131 Count= 250             134 Count= 145         
+ 34* None                600028!None                600909!None                   137 Count= 250              60 Count= 161         
+ 36* Count= 142            2450 Count= 142          126524 Count= 142            1261 Count= 142            7711*Count= 140         
+ 38* Count= 94             2959 Count= 94           103820 Count= 94              166 Count= 94              631*Count= 93          
+ 48* None                600024!None                600946!None                   729 Count= 500             239 Count= 436         
+ 49* None                600020!None                600043!None                   343 Count= 500              14 Count= 13          
+ 56* None                 44732!None                600009!None                   298 Count= 1122           1153 Count= 2000        
+ 57* None                 49976!None                600029!None                   113 Count= 2000            291 Count= 1157        
+ 58* None                 48584!None                600092!None                   114 Count= 1946             69 Count= 235         
+ 59* None                 46558!None                600983!None                   161 Count= 2000             20 Count= 47          
+ 60* None                 47608!None                600053!None                   157 Count= 1835            334 Count= 1152        
+ 69* None                600020!None                600753!None                   213 Count= 500              13 Count= 13          
+ 74* Count= 200            4997 Count= 200            8262 Count= 200             369 Count= 200              10*Count= 174         
+ 76* None                600023!None                601343!None                  3601 Count= 334776         3784 Count= 19170       
+ 77* None                600028!None                602657!None                 11193 Count= 128984          173 Count= 2034        
+ 78* None                237027 Count= 28745        601132!None                  1046 Count= 28736            96 Count= 603         
+ 79* None                 13209 Count= 6128         600708!None                   834 Count= 6127              8 Count= 21          
+ 80* None                 10528 Count= 4973         600052!None                   836 Count= 4969            179 Count= 1091        
+	MilleniumDB crashed at two points and the run had to be restarted just before the crash.
+	Virtuoso crashed on repeatedly on one query template so synthetic data was added manually with near-maximum times
+
+OK 1	./SCHOLIA author
+	./stats.py -v -t results/scholia-author-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          110     23     44     75    143  87730   8530   8070    15     0    15     0
+MilleniumDB         110      1     16     70  28010 601308 100981  16039    39    16    10    13
+QLever              110      1      3     12     51  71203   3816   3547    20     0    20     0
+Virtuoso            110      2      8     61    518   6545    484    484    27     0    27     0
+ROW  Mode Result            Blazegraph                 MilleniumDB                QLever                     Virtuoso                  
+ 16* Count= 56              207 Count= 56           147399*Count= 15             2153 Count= 56             2016 Count= 56          
+ 17* Count= 72              146 Count= 72            28085*Count= 20               48 Count= 72              386 Count= 72          
+ 18* Count= 10               70 Count= 10            27986*Count= 0                23 Count= 10              122 Count= 10          
+ 20* Count= 150             196 Count= 150           27151*Count= 39               17 Count= 150             861 Count= 150         
+ 26* Result=1939-01-01T      65 Result=1939-01-01T   23182*Result=Q127050        1042 Result=1939-01-01T    1089 Result=1939-01-01T 
+ 56* Count= 12              143 Count= 12               34*Count= 11               27 Count= 12              170!Count= 71          
+ 57* Count= 34               73 Count= 34               74*Count= 33               23 Count= 34               22!Count= 71          
+ 59* Count= 5                66 Count= 5                12*Result=1740             14 Count= 5                16!Count= 71          
+ 65* None                    85 Count= 64           600034!None                    15 Count= 62               14!Count= 84          
+101* Count= 15            60789!None                 11171*Count= 0                 3 Count= 15               33 Count= 15          
+102* Count= 62            60832!None                 10870*Count= 0                 3 Count= 62              116 Count= 62          
+103* Count= 13            61755!None                 11080*Count= 0                 3 Count= 13               64 Count= 13          
+104* Result=1             60435!None                 11014*Count= 0                 3 Result=1                 3 Result=1           
+105* Count= 53            60195!None                 10986*Count= 0                 3 Count= 53              108 Count= 53          
+	MilleniumDB crashed at one point and the run had to be restarted just before the crash.
+
+OK cl	./SCHOLIA series
+	./stats.py -v -t results/scholia-series-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           25     39     45     58    178  10067   1957   1957     0     0     0     0
+MilleniumDB          25      4      5     10    877 600120  75142  12173     6     2     0     4
+QLever               25      2      4      8    355   2215    241    241     0     0     0     0
+Virtuoso             25      3      6     56    204   2102    229    229     0     0     0     0
+ROW  Mode Result            Blazegraph                 MilleniumDB                QLever                     Virtuoso                  
+  9* Result=2020-01-01T      45 Result=2020-01-01T       5*Result=1                 4 Result=2020-01-01T      25 Result=2020-01-01T 
+ 11* Result=2017          10067 Result=2017            917*Count= 0                15 Result=2017            582 Result=2017        
+ 12* Count= 9              9310 Count= 9               823*Count= 0                12 Count= 9               184 Count= 9           
+ 15* Count= 2              9346 Count= 2               837*Count= 0                 8 Count= 2                62 Count= 2           
+
+REDO patch QM 6 hours	./SCHOLIA venue
+	./stats.py -v -t results/scholia-venue-*.tsv
+ROW  MODE RESULT          Blazegraph                 MilleniumDB                QLever                     Virtuoso                  
+  4* Count= 7            8851 Count= 7               138*Count= 6               110 Count= 7                32!Count= 76          
+  5* Count= 5            3768 Count= 5               162*Count= 3               119 Count= 5                32!Count= 76          
+ 21* Count= 50           7383 Count= 50             7328*Count= 0                62 Count= 50             9017 Count= 50          
+ 22* Count= 50           6268 Count= 50             2710*Count= 0                28 Count= 50             1595 Count= 50          
+ 23* Count= 50           6230 Count= 50             1802*Count= 0                25 Count= 50             1265 Count= 50          
+ 24* Count= 50           6760 Count= 50             1441*Count= 0                26 Count= 50             1754 Count= 50          
+ 25* Count= 50           6457 Count= 50             1038*Count= 0                25 Count= 50             1516 Count= 50          
+Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          115     25    153   2378  45162 600027  93225  17288    18    13    18     0
+MilleniumDB         115      2     12    740 600031 600982 165520  19994    52    30    45     7
+QLever              115      1      5     62    773   2950    381    381    15     0    15     0
+Virtuoso            115     10     56    364   3384  29791   3578   3578     7     0     7     0
+Number of queries with different non-error, non-suspect results:   7
+
+OK cl	./SCHOLIA protein
+	./stats.py -v results/scholia-protein-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           25     29     49    184  59522 600027  61545  16743     7     2     5     0
+MilleniumDB          25      4    417 600028 600035 600693 335765  36114    13    13     0     0
+QLever               25      4      9    409  32123  52147  12470  12470     4     0     4     0
+Virtuoso             25      1      2      4     14   1450    113    113    20     0    20     0
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+ 12* None               !None                Result=biological   Count= 92917480    !Count= 52          
+
+OK cl	./SCHOLIA gene
+	./stats.py -v results/scholia-gene-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           25     28     34     40     57    259     51     51     0     0     0     0
+MilleniumDB          25      2      3      4      5     26      6      6     0     0     0     0
+QLever               25      2      3      8      9    531     40     40     0     0     0     0
+Virtuoso             25      5     19     41     87   3033    255    255     0     0     0     0
+
+OK cl	./SCHOLIA clinical_trial
+	./stats.py -v results/scholia-clinical_trial-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           10     67     87    559    943   1731    599    599     0     0     0     0
+MilleniumDB          10   2500   2538  80107  84131  84322  50646  37020     1     0     0     1
+QLever               10      7  10754  42338  67899  68955  38817  34797     5     0     5     0
+Virtuoso             10     27     43    636   1260   3189    854    854     4     0     0     4
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+  6* Count= 327          Count= 327          Count= 327         !None               *Count= 328         
+  7* Count= 339          Count= 339          Count= 339         !None               *Count= 340         
+  8* Count= 499          Count= 499          Count= 499         !None               *Count= 500         
+  9* Count= 500          Count= 500         *Count= 499         !None                Count= 500         
+ 10* Count= 499          Count= 499          Count= 499         !None               *Count= 500         
+
+OK cl	./SCHOLIA publisher
+	./stats.py -v results/scholia-publisher-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           30     37     47     71    100   3143    189    189     0     0     0     0
+MilleniumDB          30      4      5     20     45 600147  44192   8019     3     1     0     2
+QLever               30      3      6      9     48   3461    235    235     0     0     0     0
+Virtuoso             30      2      7     37    311   2430    300    300     2     0     0     2
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+  2* Count= 2            Count= 2           *Result=6032         Count= 2            Count= 2           
+  5* Count= 22           Count= 22          *Count= 0            Count= 22           Count= 22          
+ 26* Result=1979-01-01T  Result=1979-01-01T  Result=1979-01-01T  Result=1979-01-01T *Count= 2           
+ 29* Count= 3            Count= 3            Count= 3            Count= 3           *Count= 2           
+
+OK cl	./SCHOLIA project
+	./stats.py -v results/scholia-project-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           40     27     50     89    214 600033  75112   7609     5     5     0     0
+MilleniumDB          40      2      4      8 248659 600637 142057  15021     7     7     0     0
+QLever               40      3      6     11     27  13024    392    392     0     0     0     0
+Virtuoso             40      2      4     15    112   4236    257    257    16     0    15     1
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+ 25* Count= 10           Count= 10           Count= 10           Count= 10          *Count= 9           
+
+OK cl	./SCHOLIA sponsor
+	./stats.py -v results/scholia-sponsor-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           25     45    114    143    216    407    164    164     0     0     0     0
+MilleniumDB          25      2     14     49 600033 600179 240037  24012    10    10     0     0
+QLever               25      4      6     48    770   3699    492    492     0     0     0     0
+Virtuoso             25      9     70    433   1102  11977   1196   1196     5     0     0     5
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+ 16* Count= 9            Count= 9            Count= 9            Count= 9           *Count= 5           
+ 17* Count= 100          Count= 100          Count= 100          Count= 100         *Count= 0           
+ 18* Count= 119          Count= 119          Count= 119          Count= 119         *Count= 0           
+ 19* Count= 119          Count= 119          Count= 119          Count= 119         *Count= 0           
+ 20* Count= 46           Count= 46           Count= 46           Count= 46          *Count= 0           
+
+OK cl	./SCHOLIA organization
+	./stats.py -v results/scholia-organization-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           60     57    113   4567  71716 600026  69557  19905    23     5    13     5
+MilleniumDB          60      5     31   6693 600034 600907 248815  27835    23    23     0     0
+QLever               60      1      8     20    755  47428   2344   2344     6     0     6     0
+Virtuoso             60      1      6     28    427 601760  13863   2905    17     1    16     0
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+ 21* Result=86          *Count= 0            Result=86           Result=86           Result=86          
+ 22* Count= 11288       *Count= 0            Count= 11288        Count= 11288        Count= 11288       
+ 23* Count= 195         *Count= 0            Count= 195          Count= 195          Count= 195         
+ 24* Count= 105         *Count= 0            Count= 105          Count= 105          Count= 105         
+ 25* Count= 39          *Count= 0            Count= 39           Count= 39           Count= 39          
+
+
+OK 10	./SCHOLIA event
+	./stats.py -v results/scholia-event-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           75     24     59    182  56386 600024  65332  19981    21     5    16     0
+MilleniumDB          75      2     10 600028 600037 601053 331551  35216    47    38     5     4
+QLever               75      2      6     83    806  55678   4910   4910    14     0    10     4
+Virtuoso             75      1      6    159   1576  22869   1162   1162     5     0     5     0
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+ 21* None               !None                Count= 0            Count= 10000        Count= 22          
+ 22* None               !None                Count= 0            Count= 10000        Count= 226         
+ 23* Count= 64           Count= 64          *Count= 0            Count= 64           Count= 64          
+ 24* Count= 60           Count= 60          *Count= 0            Count= 60           Count= 60          
+ 25* Count= 23           Count= 23          *Count= 0            Count= 23           Count= 23          
+ 56* Count= 2            Count= 2            Count= 2           *Count= 0            Count= 2           
+ 57* Count= 2            Count= 2            Count= 2           *Count= 0            Count= 2           
+ 58* Count= 2            Count= 2            Count= 2           *Count= 0            Count= 2           
+ 60* Count= 2            Count= 2           *Result=2023-11-07T *Result=2023-07-20T  Count= 2           
+
+OK cl	./SCHOLIA disease
+	./stats.py -v results/scholia-disease-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           15     54    173    376  16665  55311   8729   8729     5     0     5     0
+MilleniumDB          15      6     26 600032 600347 601093 374721  40009     8     8     0     0
+QLever               15     14     17     75  64200  87380  23237  20091     5     0     5     0
+Virtuoso             15      3      4     18   1053   2758    490    490    10     0    10     0
+
+OK 7	./SCHOLIA chemical
+	./stats.py -v results/scholia-chemical-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           50     27     39     51    356 600026  60300   6298     5     5     0     0
+MilleniumDB          50      1      4      6 168225 600865 138011  18003    15    10     5     0
+QLever               50      1      4     30   2001 450301  66816  12445    15     0    15     0
+Virtuoso             50      1      2     16    113  29872   2525   2525    20     0    20     0
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+ 31* None               !None               !None                Result=2021-03-23T  Count= 0           
+ 32* None               !None               !None                Count= 4            Count= 3           
+ 33* None               !None               !None                Count= 2            Result=2012-10-24T 
+ 34* None               !None               !None                Result=2021-03-23T  Count= 0           
+ 35* None               !None               !None                Result=2021-03-23T  Count= 0           
+
+IP cl	./SCHOLIA chemical-element
+TODO	./stats.py -v results/scholia-chemical-element-*.tsv
+
+TODO cl	./SCHOLIA ontology
+TODO	./stats.py -v results/scholia-ontology-*.tsv
+
+TODO cl	./SCHOLIA pathway
+TODO	./stats.py -v results/scholia-pathway-*.tsv
+
+TODO cl	./SCHOLIA taxon
+TODO	./stats.py -v results/scholia-taxon-*.tsv
+
+TODO cl	./SCHOLIA dataset
+TODO	./stats.py -v results/scholia-dataset-*.tsv
+
+TODO cl	./SCHOLIA software
+TODO	./stats.py -v results/scholia-software-*.tsv
+
+TODO cl	./SCHOLIA use
+TODO	./stats.py -v results/scholia-use-*.tsv
+
+TODO cl	./SCHOLIA complex
+TODO	./stats.py -v results/scholia-complex-*.tsv
+
+TODO cl	./SCHOLIA podcast
+TODO	./stats.py -v results/scholia-podcast-*.tsv
+
+TODO cl	./SCHOLIA podcast-season
+TODO	./stats.py -v results/scholia-podcast-season-*.tsv
+           
+TODO cl	./SCHOLIA podcast-episode
+TODO	./stats.py -v results/scholia-podcast-episode-*.tsv
+
+TODO 4,12	./SCHOLIA wikiproject
+TODO	./stats.py -v results/scholia-wikiproject-*.tsv
+
+TODO 5	./SCHOLIA country
+./stats.py TODO	./stats.py -v results/scholia-country-*.tsv
+           
+TODO 5	./SCHOLIA event-series
+TODO	./stats.py -v results/scholia-event-series-*.tsv
+
+TODO 5	./SCHOLIA property
+TODO	./stats.py -v results/scholia-property-*.tsv
+
+TODO	./SCHOLIA catalogue
+TODO	./stats.py -v results/scholia-catalogue-*.tsv
+           
+SETUP	./SCHOLIA work
+TODO	./stats.py -v results/scholia-work-*.tsv
+
+SETUP	./SCHOLIA chemical-class
+TODO	./stats.py -v results/scholia-chemical-class-*.tsv
+
+
+
+cut -f 8 results/scholia-*-qlever.tsv | grep -v allocate | sort | uniq
+
+cp results/scholia-XX-* results-clean/
+
+
+echo "'''Author:'''"  > stats-clean.text ; ./stats.py -me results-clean/scholia-author-*.tsv >> stats-clean.text
+echo "\n'''Chemical:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-chemical-*.tsv >> stats-clean.text
+echo "\n'''Clinical_trial:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-clinical_trial-*.tsv >> stats-clean.text
+echo "\n'''Disease:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-disease-*.tsv >> stats-clean.text
+echo "\n'''Event:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-event-*.tsv >> stats-clean.text
+echo "\n'''Gene:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-gene-*.tsv >> stats-clean.text
+echo "\n'''Organization:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-organization-*.tsv >> stats-clean.text
+echo "\n'''Project:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-project-*.tsv >> stats-clean.text
+echo "\n'''Protein:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-protein-*.tsv >> stats-clean.text
+echo "\n'''Publisher:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-publisher-*.tsv >> stats-clean.text
+echo "\n'''Series:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-series-*.tsv >> stats-clean.text
+echo "\n'''Sponsor:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-sponsor-*.tsv >> stats-clean.text
+echo "\n'''Topic:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-topic-*.tsv >> stats-clean.text

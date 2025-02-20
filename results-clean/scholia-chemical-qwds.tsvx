@@ -1,0 +1,50 @@
+1	QWDS		    328	      	Count= 2 	200		chemical_biological-processes Q100146813
+2	QWDS		    332	      	Result=Q100156056 	200		chemical_biological-processes Q100146817
+3	QWDS		    333	      	Count= 3 	200		chemical_biological-processes Q100146821
+4	QWDS		    332	      	Count= 2 	200		chemical_biological-processes Q100146822
+5	QWDS		    325	      	Count= 2 	200		chemical_biological-processes Q100146823
+6	QWDS		    370	      	Count= 0 	200		chemical_found-in-matrix-np Q100146813
+7	QWDS		    395	      	Count= 0 	200		chemical_found-in-matrix-np Q100146817
+8	QWDS		    334	      	Count= 0 	200		chemical_found-in-matrix-np Q100146821
+9	QWDS		    344	      	Count= 0 	200		chemical_found-in-matrix-np Q100146822
+10	QWDS		    336	      	Count= 0 	200		chemical_found-in-matrix-np Q100146823
+11	QWDS		  15873	      	None 	500	    "exception": "Tried to allocate 6 GB, but only 3.6 GB were available. Clear the cache or allow more memory for QLever during startup",	chemical_found-in-taxon Q100146813
+12	QWDS		  15341	      	None 	500	    "exception": "Tried to allocate 6 GB, but only 5 GB were available. Clear the cache or allow more memory for QLever during startup",	chemical_found-in-taxon Q100146817
+13	QWDS		  16190	      	None 	500	    "exception": "Tried to allocate 6 GB, but only 5 GB were available. Clear the cache or allow more memory for QLever during startup",	chemical_found-in-taxon Q100146821
+14	QWDS		  15024	      	None 	500	    "exception": "Tried to allocate 6 GB, but only 5 GB were available. Clear the cache or allow more memory for QLever during startup",	chemical_found-in-taxon Q100146822
+15	QWDS		  14987	      	None 	500	    "exception": "Tried to allocate 6 GB, but only 5 GB were available. Clear the cache or allow more memory for QLever during startup",	chemical_found-in-taxon Q100146823
+16	QWDS		    865	      	Count= 0 	200		chemical_identifiers Q100146813
+17	QWDS		    392	      	Count= 0 	200		chemical_identifiers Q100146817
+18	QWDS		    427	      	Count= 0 	200		chemical_identifiers Q100146821
+19	QWDS		    372	      	Count= 0 	200		chemical_identifiers Q100146822
+20	QWDS		    357	      	Count= 0 	200		chemical_identifiers Q100146823
+21	QWDS		  15026	      	None 	500	    "exception": "Tried to allocate 6 GB, but only 3.6 GB were available. Clear the cache or allow more memory for QLever during startup",	chemical_physchem-properties Q100146813
+22	QWDS		  15037	      	None 	500	    "exception": "Tried to allocate 6 GB, but only 5 GB were available. Clear the cache or allow more memory for QLever during startup",	chemical_physchem-properties Q100146817
+23	QWDS		  15265	      	None 	500	    "exception": "Tried to allocate 6 GB, but only 5 GB were available. Clear the cache or allow more memory for QLever during startup",	chemical_physchem-properties Q100146821
+24	QWDS		  15036	      	None 	500	    "exception": "Tried to allocate 6 GB, but only 5 GB were available. Clear the cache or allow more memory for QLever during startup",	chemical_physchem-properties Q100146822
+25	QWDS		  15503	      	None 	500	    "exception": "Tried to allocate 6 GB, but only 5 GB were available. Clear the cache or allow more memory for QLever during startup",	chemical_physchem-properties Q100146823
+26	QWDS		   1098	      	Count= 4 	200		chemical_publications-per-year Q100146813
+27	QWDS		    422	      	Count= 5 	200		chemical_publications-per-year Q100146817
+28	QWDS		    402	      	Count= 2 	200		chemical_publications-per-year Q100146821
+29	QWDS		    401	      	Result=2017 	200		chemical_publications-per-year Q100146822
+30	QWDS		    424	      	Result=2017 	200		chemical_publications-per-year Q100146823
+31	QWDS		  13374	      	Count= 6 	200		chemical_recent-literature Q100146813
+32	QWDS		   3481	      	Count= 8 	200		chemical_recent-literature Q100146817
+33	QWDS		   3365	      	Count= 2 	200		chemical_recent-literature Q100146821
+34	QWDS		   2801	      	Result=2021-03-23T00:00:00Z 	200		chemical_recent-literature Q100146822
+35	QWDS		   3708	      	Result=2021-03-23T00:00:00Z 	200		chemical_recent-literature Q100146823
+36	QWDS		    309	      	None 	400	    "exception": "Invalid SPARQL query: Prefix mwapi was not registered using a PREFIX declaration",	chemical_related Q100146813
+37	QWDS		    316	      	None 	400	    "exception": "Invalid SPARQL query: Prefix mwapi was not registered using a PREFIX declaration",	chemical_related Q100146817
+38	QWDS		    343	      	None 	400	    "exception": "Invalid SPARQL query: Prefix mwapi was not registered using a PREFIX declaration",	chemical_related Q100146821
+39	QWDS		    329	      	None 	400	    "exception": "Invalid SPARQL query: Prefix mwapi was not registered using a PREFIX declaration",	chemical_related Q100146822
+40	QWDS		    335	      	None 	400	    "exception": "Invalid SPARQL query: Prefix mwapi was not registered using a PREFIX declaration",	chemical_related Q100146823
+41	QWDS		    332	      	None 	400	    "exception": "Invalid SPARQL query: The second argument to the REGEX function must be a string literal (which contains the regular expression)",	chemical_relates Q100146813
+42	QWDS		    336	      	None 	400	    "exception": "Invalid SPARQL query: The second argument to the REGEX function must be a string literal (which contains the regular expression)",	chemical_relates Q100146817
+43	QWDS		    329	      	None 	400	    "exception": "Invalid SPARQL query: The second argument to the REGEX function must be a string literal (which contains the regular expression)",	chemical_relates Q100146821
+44	QWDS		    340	      	None 	400	    "exception": "Invalid SPARQL query: The second argument to the REGEX function must be a string literal (which contains the regular expression)",	chemical_relates Q100146822
+45	QWDS		    327	      	None 	400	    "exception": "Invalid SPARQL query: The second argument to the REGEX function must be a string literal (which contains the regular expression)",	chemical_relates Q100146823
+46	QWDS		    347	      	Count= 0 	200		chemical_structural-identifiers Q100146813
+47	QWDS		    334	      	Count= 0 	200		chemical_structural-identifiers Q100146817
+48	QWDS		    375	      	Count= 0 	200		chemical_structural-identifiers Q100146821
+49	QWDS		    358	      	Count= 0 	200		chemical_structural-identifiers Q100146822
+50	QWDS		    356	      	Count= 0 	200		chemical_structural-identifiers Q100146823

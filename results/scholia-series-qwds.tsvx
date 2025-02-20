@@ -1,0 +1,25 @@
+1	QWDS		   3213	      	Count= 2 	200		series_authors Q100146423
+2	QWDS		   3335	      	Count= 7 	200		series_authors Q100865575
+3	QWDS		   3379	      	Result=1 	200		series_authors Q101541688
+4	QWDS		   3289	      	Result=1 	200		series_authors Q101985322
+5	QWDS		   3276	      	Count= 4 	200		series_authors Q102293105
+6	QWDS		    433	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	series_in-series Q100146423
+7	QWDS		    511	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	series_in-series Q100865575
+8	QWDS		    418	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	series_in-series Q101541688
+9	QWDS		    414	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	series_in-series Q101985322
+10	QWDS		    615	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	series_in-series Q102293105
+11	QWDS		   1024	      	Result=2017 	200		series_organizations Q100146423
+12	QWDS		    829	      	Count= 9 	200		series_organizations Q100865575
+13	QWDS		   1010	      	Count= 0 	200		series_organizations Q101541688
+14	QWDS		   1048	      	Count= 0 	200		series_organizations Q101985322
+15	QWDS		   1265	      	Count= 2 	200		series_organizations Q102293105
+16	QWDS		    887	      	Count= 5 	200		series_topics Q100146423
+17	QWDS		    899	      	Count= 21 	200		series_topics Q100865575
+18	QWDS		    903	      	Count= 0 	200		series_topics Q101541688
+19	QWDS		   1310	      	Count= 3 	200		series_topics Q101985322
+20	QWDS		    903	      	Count= 0 	200		series_topics Q102293105
+21	QWDS		    498	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	series_works Q100146423
+22	QWDS		    557	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	series_works Q100865575
+23	QWDS		    509	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	series_works Q101541688
+24	QWDS		    427	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	series_works Q101985322
+25	QWDS		    411	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	series_works Q102293105

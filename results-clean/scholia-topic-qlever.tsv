@@ -1,0 +1,90 @@
+1	QLever		     98	      	Count= 85 	200		Topic author awards for human
+2	QLever		     93	      	Count= 81 	200		Topic author awards for protein
+3	QLever		     28	      	Count= 8 	200		Topic author awards for building
+4	QLever		     97	      	Count= 76 	200		Topic author awards for lake
+5	QLever		     43	      	Count= 51 	200		Topic author awards for mountain
+6	QLever		   3098	      	Count= 200 	200		Topic author scores graph for human
+7	QLever		   6028	      	Count= 200 	200		Topic author scores graph for protein
+8	QLever		    361	      	Count= 200 	200		Topic author scores graph for building
+9	QLever		    377	      	Count= 200 	200		Topic author scores graph for lake
+10	QLever		    175	      	Count= 200 	200		Topic author scores graph for mountain
+11	QLever		      6	      	None 	500	    "exception": "Assertion `subresult->idTable().numColumns() == inWidth` failed. Please report this to the developers. In file \"/home/local/qlever/qlever-code/src/engine/GroupBy.cpp \" at line 411",	Topic author scores for human
+12	QLever		      5	      	None 	500	    "exception": "Assertion `subresult->idTable().numColumns() == inWidth` failed. Please report this to the developers. In file \"/home/local/qlever/qlever-code/src/engine/GroupBy.cpp \" at line 411",	Topic author scores for protein
+13	QLever		      4	      	None 	500	    "exception": "Assertion `subresult->idTable().numColumns() == inWidth` failed. Please report this to the developers. In file \"/home/local/qlever/qlever-code/src/engine/GroupBy.cpp \" at line 411",	Topic author scores for building
+14	QLever		      5	      	None 	500	    "exception": "Assertion `subresult->idTable().numColumns() == inWidth` failed. Please report this to the developers. In file \"/home/local/qlever/qlever-code/src/engine/GroupBy.cpp \" at line 411",	Topic author scores for lake
+15	QLever		      5	      	None 	500	    "exception": "Assertion `subresult->idTable().numColumns() == inWidth` failed. Please report this to the developers. In file \"/home/local/qlever/qlever-code/src/engine/GroupBy.cpp \" at line 411",	Topic author scores for mountain
+16	QLever		  11087	      	Count= 201 	200		Topic authors for human
+17	QLever		   1294	      	Count= 201 	200		Topic authors for protein
+18	QLever		    861	      	Count= 200 	200		Topic authors for building
+19	QLever		    245	      	Count= 200 	200		Topic authors for lake
+20	QLever		    344	      	Count= 200 	200		Topic authors for mountain
+21	QLever		   2315	      	Count= 7583 	200		Topic co-occuring map for human
+22	QLever		   8833	      	Count= 273 	200		Topic co-occuring map for protein
+23	QLever		   1232	      	Count= 15458 	200		Topic co-occuring map for building
+24	QLever		    980	      	Count= 1602 	200		Topic co-occuring map for lake
+25	QLever		    967	      	Count= 2159 	200		Topic co-occuring map for mountain
+26	QLever		  33540	      	Count= 400 	200		Topic co-occuring for human
+27	QLever		 110719	      	None 	500	    "exception": "Tried to allocate 34.4 GB, but only 32.2 GB were available. Clear the cache or allow more memory for QLever during startup",	Topic co-occuring for protein
+28	QLever		   4645	      	Count= 400 	200		Topic co-occuring for building
+29	QLever		    528	      	Count= 400 	200		Topic co-occuring for lake
+30	QLever		    500	      	Count= 400 	200		Topic co-occuring for mountain
+31	QLever		  10579	      	Count= 60 	200		Topic co-author graph for human
+32	QLever		   1732	      	Count= 250 	200		Topic co-author graph for protein
+33	QLever		    131	      	Count= 250 	200		Topic co-author graph for building
+34	QLever		    137	      	Count= 250 	200		Topic co-author graph for lake
+35	QLever		    122	      	Count= 250 	200		Topic co-author graph for mountain
+36	QLever		   1261	      	Count= 142 	200		Topic context for human
+37	QLever		    159	      	Count= 66 	200		Topic context for protein
+38	QLever		    166	      	Count= 94 	200		Topic context for building
+39	QLever		    184	      	Count= 38 	200		Topic context for lake
+40	QLever		    177	      	Count= 88 	200		Topic context for mountain
+41	QLever		      2	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"notexists{?citing_workwdt:p50?author.?citing_workwdt:p2860?cited_work.?cited_workwdt:p50?author.}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	Topic country citation graph for human
+42	QLever		      2	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"notexists{?citing_workwdt:p50?author.?citing_workwdt:p2860?cited_work.?cited_workwdt:p50?author.}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	Topic country citation graph for protein
+43	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"notexists{?citing_workwdt:p50?author.?citing_workwdt:p2860?cited_work.?cited_workwdt:p50?author.}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	Topic country citation graph for building
+44	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"notexists{?citing_workwdt:p50?author.?citing_workwdt:p2860?cited_work.?cited_workwdt:p50?author.}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	Topic country citation graph for lake
+45	QLever		      2	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"notexists{?citing_workwdt:p50?author.?citing_workwdt:p2860?cited_work.?cited_workwdt:p50?author.}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	Topic country citation graph for mountain
+46	QLever		   5116	      	Count= 500 	200		Topic earliest published workd for human
+47	QLever		   4520	      	Count= 500 	200		Topic earliest published workd for protein
+48	QLever		    729	      	Count= 500 	200		Topic earliest published workd for building
+49	QLever		    343	      	Count= 500 	200		Topic earliest published workd for lake
+50	QLever		    312	      	Count= 500 	200		Topic earliest published workd for mountain
+51	QLever		   3026	      	Count= 200 	200		Topic most cited authors for human
+52	QLever		   5358	      	Count= 200 	200		Topic most cited authors for protein
+53	QLever		   1070	      	Count= 200 	200		Topic most cited authors for building
+54	QLever		   1180	      	Count= 200 	200		Topic most cited authors for lake
+55	QLever		   1028	      	Count= 200 	200		Topic most cited authors for mountain
+56	QLever		    298	      	Count= 1122 	200		Topic organization map for human
+57	QLever		    113	      	Count= 2000 	200		Topic organization map for protein
+58	QLever		    114	      	Count= 1946 	200		Topic organization map for building
+59	QLever		    161	      	Count= 2000 	200		Topic organization map for lake
+60	QLever		    157	      	Count= 1835 	200		Topic organization map for mountain
+61	QLever		    937	      	Count= 0 	200		Topic publications per year for human
+62	QLever		    704	      	Count= 0 	200		Topic publications per year for protein
+63	QLever		    277	      	Count= 0 	200		Topic publications per year for building
+64	QLever		    220	      	Count= 0 	200		Topic publications per year for lake
+65	QLever		    187	      	Count= 0 	200		Topic publications per year for mountain
+66	QLever		   5964	      	Count= 500 	200		Topic recently published works for human
+67	QLever		   4359	      	Count= 500 	200		Topic recently published works for protein
+68	QLever		    677	      	Count= 500 	200		Topic recently published works for building
+69	QLever		    213	      	Count= 500 	200		Topic recently published works for lake
+70	QLever		    172	      	Count= 500 	200		Topic recently published works for mountain
+71	QLever		   3371	      	Count= 200 	200		Topic top cited for human
+72	QLever		   7276	      	Count= 200 	200		Topic top cited for protein
+73	QLever		    505	      	Count= 200 	200		Topic top cited for building
+74	QLever		    369	      	Count= 200 	200		Topic top cited for lake
+75	QLever		    234	      	Count= 200 	200		Topic top cited for mountain
+76	QLever		   3601	      	Count= 334776 	200		Topic topics for human
+77	QLever		  11193	      	Count= 128984 	200		Topic topics for protein
+78	QLever		   1046	      	Count= 28736 	200		Topic topics for building
+79	QLever		    834	      	Count= 6127 	200		Topic topics for lake
+80	QLever		    836	      	Count= 4969 	200		Topic topics for mountain
+81	QLever		    755	      	Count= 2 	200		Topic uses for human
+82	QLever		    799	      	Count= 12 	200		Topic uses for protein
+83	QLever		      8	      	Count= 0 	200		Topic uses for building
+84	QLever		    752	      	Count= 32 	200		Topic uses for lake
+85	QLever		    753	      	Count= 5 	200		Topic uses for mountain
+86	QLever		    622	      	Count= 200 	200		Topic venues for human
+87	QLever		    613	      	Count= 200 	200		Topic venues for protein
+88	QLever		    118	      	Count= 200 	200		Topic venues for building
+89	QLever		     95	      	Count= 200 	200		Topic venues for lake
+90	QLever		     83	      	Count= 200 	200		Topic venues for mountain

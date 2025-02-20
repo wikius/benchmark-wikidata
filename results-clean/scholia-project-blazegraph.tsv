@@ -1,0 +1,40 @@
+1	Blazegraph		    935	      	Count= 260 	200		project_citations-per-budget Q100701370
+2	Blazegraph		    156	      	Count= 260 	200		project_citations-per-budget Q102154782
+3	Blazegraph		    116	      	Count= 260 	200		project_citations-per-budget Q1023994
+4	Blazegraph		    109	      	Count= 260 	200		project_citations-per-budget Q104438297
+5	Blazegraph		     98	      	Count= 260 	200		project_citations-per-budget Q104438298
+6	Blazegraph		     49	      	Count= 0 	200		project_partners Q100701370
+7	Blazegraph		     41	      	Count= 0 	200		project_partners Q102154782
+8	Blazegraph		     39	      	Count= 0 	200		project_partners Q1023994
+9	Blazegraph		     80	      	Result=Q7095072 	200		project_partners Q104438297
+10	Blazegraph		     73	      	Result=Q7095072 	200		project_partners Q104438298
+11	Blazegraph		 600022	      	None 	500	ERROR java.util.concurrent.TimeoutException	project_prolific-authors Q100701370
+12	Blazegraph		 600031	      	None 	500	ERROR java.util.concurrent.TimeoutException	project_prolific-authors Q102154782
+13	Blazegraph		 600019	      	None 	500	ERROR java.util.concurrent.TimeoutException	project_prolific-authors Q1023994
+14	Blazegraph		 600033	      	None 	500	ERROR java.util.concurrent.TimeoutException	project_prolific-authors Q104438297
+15	Blazegraph		 600015	      	None 	500	ERROR java.util.concurrent.TimeoutException	project_prolific-authors Q104438298
+16	Blazegraph		    300	      	Count= 0 	200		project_publications-per-year Q100701370
+17	Blazegraph		    211	      	Count= 0 	200		project_publications-per-year Q102154782
+18	Blazegraph		    226	      	Count= 0 	200		project_publications-per-year Q1023994
+19	Blazegraph		    216	      	Count= 0 	200		project_publications-per-year Q104438297
+20	Blazegraph		    239	      	Result=2020 	200		project_publications-per-year Q104438298
+21	Blazegraph		    127	      	Count= 0 	200		project_recent-articles Q100701370
+22	Blazegraph		    125	      	Count= 0 	200		project_recent-articles Q102154782
+23	Blazegraph		    123	      	Count= 0 	200		project_recent-articles Q1023994
+24	Blazegraph		    168	      	Count= 9 	200		project_recent-articles Q104438297
+25	Blazegraph		    169	      	Count= 10 	200		project_recent-articles Q104438298
+26	Blazegraph		     36	      	Count= 3 	200		project_statistics Q100701370
+27	Blazegraph		     30	      	Count= 3 	200		project_statistics Q102154782
+28	Blazegraph		     30	      	Count= 3 	200		project_statistics Q1023994
+29	Blazegraph		     27	      	Count= 3 	200		project_statistics Q104438297
+30	Blazegraph		     29	      	Count= 3 	200		project_statistics Q104438298
+31	Blazegraph		     74	      	Count= 0 	200		project_timeline Q100701370
+32	Blazegraph		     50	      	Result=2014-01-01T00:00:00Z 	200		project_timeline Q102154782
+33	Blazegraph		     46	      	Count= 0 	200		project_timeline Q1023994
+34	Blazegraph		     72	      	Result=2015-02-01T00:00:00Z 	200		project_timeline Q104438297
+35	Blazegraph		     68	      	Result=2013-11-01T00:00:00Z 	200		project_timeline Q104438298
+36	Blazegraph		     66	      	Count= 2 	200		project_topic-scores Q100701370
+37	Blazegraph		     68	      	Result=20 	200		project_topic-scores Q102154782
+38	Blazegraph		     72	      	Result=20 	200		project_topic-scores Q1023994
+39	Blazegraph		     50	      	Result=20 	200		project_topic-scores Q104438297
+40	Blazegraph		     50	      	Result=20 	200		project_topic-scores Q104438298

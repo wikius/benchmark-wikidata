@@ -1,0 +1,15 @@
+1	QWDS		  50401	      	Count= 4 	200		podcast-episode_data Q100326679
+2	QWDS		  49465	      	Count= 4 	200		podcast-episode_data Q104713141
+3	QWDS		  46533	      	Count= 3 	200		podcast-episode_data Q104713445
+4	QWDS		  45573	      	Count= 3 	200		podcast-episode_data Q104713455
+5	QWDS		  44650	      	Count= 3 	200		podcast-episode_data Q104820002
+6	QWDS		    347	      	Count= 2 	200		podcast-episode_guests Q100326679
+7	QWDS		    337	      	Count= 2 	200		podcast-episode_guests Q104713141
+8	QWDS		    338	      	Result=Q42687823 	200		podcast-episode_guests Q104713445
+9	QWDS		    325	      	Result=Q42687823 	200		podcast-episode_guests Q104713455
+10	QWDS		    398	      	Result=Q96196490 	200		podcast-episode_guests Q104820002
+11	QWDS		    379	      	Count= 0 	200		podcast-episode_listings Q100326679
+12	QWDS		    367	      	Count= 0 	200		podcast-episode_listings Q104713141
+13	QWDS		    376	      	Result=P11976 	200		podcast-episode_listings Q104713445
+14	QWDS		    364	      	Count= 0 	200		podcast-episode_listings Q104713455
+15	QWDS		    362	      	Count= 0 	200		podcast-episode_listings Q104820002

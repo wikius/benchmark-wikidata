@@ -1,0 +1,45 @@
+1	QLever		    288	      	Count= 2 	200		chemical_biological-processes Q100146813
+2	QLever		      5	      	Result=Q100156056 	200		chemical_biological-processes Q100146817
+3	QLever		      4	      	Count= 3 	200		chemical_biological-processes Q100146821
+4	QLever		      3	      	Count= 2 	200		chemical_biological-processes Q100146822
+5	QLever		      3	      	Count= 2 	200		chemical_biological-processes Q100146823
+6	QLever		     70	      	Count= 0 	200		chemical_found-in-matrix-np Q100146813
+7	QLever		      9	      	Count= 0 	200		chemical_found-in-matrix-np Q100146817
+8	QLever		      7	      	Count= 0 	200		chemical_found-in-matrix-np Q100146821
+9	QLever		      8	      	Count= 0 	200		chemical_found-in-matrix-np Q100146822
+10	QLever		      7	      	Count= 0 	200		chemical_found-in-matrix-np Q100146823
+11	QLever		 231034	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146813
+12	QLever		 244842	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146817
+13	QLever		 235246	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146821
+14	QLever		 239007	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146822
+15	QLever		 235497	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146823
+16	QLever		     44	      	Count= 0 	200		chemical_identifiers Q100146813
+17	QLever		     31	      	Count= 0 	200		chemical_identifiers Q100146817
+18	QLever		     31	      	Count= 0 	200		chemical_identifiers Q100146821
+19	QLever		     29	      	Count= 0 	200		chemical_identifiers Q100146822
+20	QLever		     29	      	Count= 0 	200		chemical_identifiers Q100146823
+21	QLever		 450301	      	None 	500	    "exception": "Tried to allocate 16.8 GB, but only 12.4 GB were available. Clear the cache or allow more memory for QLever during startup",	chemical_physchem-properties Q100146813
+22	QLever		 436022	      	None 	500	    "exception": "Tried to allocate 16.8 GB, but only 14.4 GB were available. Clear the cache or allow more memory for QLever during startup",	chemical_physchem-properties Q100146817
+23	QLever		 415005	      	None 	500	    "exception": "Tried to allocate 16.8 GB, but only 14.4 GB were available. Clear the cache or allow more memory for QLever during startup",	chemical_physchem-properties Q100146821
+24	QLever		 416105	      	None 	500	    "exception": "Tried to allocate 16.8 GB, but only 14.4 GB were available. Clear the cache or allow more memory for QLever during startup",	chemical_physchem-properties Q100146822
+25	QLever		 415474	      	None 	500	    "exception": "Tried to allocate 16.8 GB, but only 14.4 GB were available. Clear the cache or allow more memory for QLever during startup",	chemical_physchem-properties Q100146823
+26	QLever		    572	      	Result=2017 	200		chemical_publications-per-year Q100146813
+27	QLever		     66	      	Count= 3 	200		chemical_publications-per-year Q100146817
+28	QLever		     77	      	Count= 2 	200		chemical_publications-per-year Q100146821
+29	QLever		    269	      	Result=2017 	200		chemical_publications-per-year Q100146822
+30	QLever		     54	      	Result=2017 	200		chemical_publications-per-year Q100146823
+31	QLever		  12748	      	Result=2021-03-23T00:00:00Z 	200		chemical_recent-literature Q100146813
+32	QLever		   2239	      	Count= 4 	200		chemical_recent-literature Q100146817
+33	QLever		   1922	      	Count= 2 	200		chemical_recent-literature Q100146821
+34	QLever		   1847	      	Result=2021-03-23T00:00:00Z 	200		chemical_recent-literature Q100146822
+35	QLever		   1850	      	Result=2021-03-23T00:00:00Z 	200		chemical_recent-literature Q100146823
+41	QLever		      5	      	None 	400	    "exception": "Invalid SPARQL query: The second argument to the REGEX function must be a string literal (which contains the regular expression)",	chemical_relates Q100146813
+42	QLever		      2	      	None 	400	    "exception": "Invalid SPARQL query: The second argument to the REGEX function must be a string literal (which contains the regular expression)",	chemical_relates Q100146817
+43	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: The second argument to the REGEX function must be a string literal (which contains the regular expression)",	chemical_relates Q100146821
+44	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: The second argument to the REGEX function must be a string literal (which contains the regular expression)",	chemical_relates Q100146822
+45	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: The second argument to the REGEX function must be a string literal (which contains the regular expression)",	chemical_relates Q100146823
+46	QLever		     15	      	Count= 0 	200		chemical_structural-identifiers Q100146813
+47	QLever		      9	      	Count= 0 	200		chemical_structural-identifiers Q100146817
+48	QLever		      8	      	Count= 0 	200		chemical_structural-identifiers Q100146821
+49	QLever		      8	      	Count= 0 	200		chemical_structural-identifiers Q100146822
+50	QLever		      8	      	Count= 0 	200		chemical_structural-identifiers Q100146823

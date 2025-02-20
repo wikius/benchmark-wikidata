@@ -1,0 +1,5 @@
+use_authors-of-works-using-the-resource	use_authors-of-works-using-the-resource LABEL	QUERY	use
+use_co-used	use_co-used LABEL	QUERY	use
+use_recent-work-using-the-used	use_recent-work-using-the-used LABEL	QUERY	use
+use_topics-of-works-using-the-resource	use_topics-of-works-using-the-resource LABEL	QUERY	use
+use_usage-over-time	use_usage-over-time LABEL	QUERY	use

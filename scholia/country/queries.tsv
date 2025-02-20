@@ -1,0 +1,5 @@
+country_authors	country_authors LABEL	QUERY	country
+country_co-organizations	country_co-organizations LABEL	QUERY	country
+country_locations-as-topics	country_locations-as-topics LABEL	QUERY	country
+country_narrative-locations	country_narrative-locations LABEL	QUERY	country
+country_organizations	country_organizations LABEL	QUERY	country

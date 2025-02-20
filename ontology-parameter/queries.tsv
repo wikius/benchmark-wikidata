@@ -1,0 +1,3 @@
+# Subclasses and instances of classes with at least 100000 subclasses (limited to 100 smallest?)
+subclass	Subclasses of REPLACE	QUERY	parameter
+instance	Instances of REPLACE	QUERY	parameter

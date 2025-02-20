@@ -1,0 +1,4 @@
+dataset_citations	dataset_citations LABEL	QUERY	dataset
+dataset_identifiers	dataset_identifiers LABEL	QUERY	dataset
+dataset_list-of-authors	dataset_list-of-authors LABEL	QUERY	dataset
+dataset_topic-scores	dataset_topic-scores LABEL	QUERY	dataset

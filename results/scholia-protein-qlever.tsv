@@ -1,0 +1,25 @@
+1	QLever		   1061	      	Count= 15 	200		protein_cofunctional-proteins Q101244282
+2	QLever		  45763	      	None 	500	    "exception": "Tried to allocate 26.2 GB, but only 22.5 GB were available. Clear the cache or allow more memory for QLever during startup",	protein_cofunctional-proteins Q1024612
+3	QLever		  38441	      	Count= 500 	200		protein_cofunctional-proteins Q1026649
+4	QLever		  46451	      	None 	500	    "exception": "Tried to allocate 26.2 GB, but only 22.5 GB were available. Clear the cache or allow more memory for QLever during startup",	protein_cofunctional-proteins Q1032902
+5	QLever		   1064	      	Result=1 	200		protein_cofunctional-proteins Q104586124
+6	QLever		     18	      	Count= 0 	200		protein_cointeracting-proteins Q101244282
+7	QLever		     10	      	Count= 0 	200		protein_cointeracting-proteins Q1024612
+8	QLever		      9	      	Count= 0 	200		protein_cointeracting-proteins Q1026649
+9	QLever		      9	      	Count= 0 	200		protein_cointeracting-proteins Q1032902
+10	QLever		      9	      	Count= 0 	200		protein_cointeracting-proteins Q104586124
+11	QLever		    519	      	Count= 0 	200		protein_participates-in Q101244282
+12	QLever		  46709	      	Count= 92917480 	200		protein_participates-in Q1024612
+13	QLever		      6	      	Count= 0 	200		protein_participates-in Q1026649
+14	QLever		      4	      	Count= 0 	200		protein_participates-in Q1032902
+15	QLever		      4	      	Count= 0 	200		protein_participates-in Q104586124
+16	QLever		    409	      	Count= 0 	200		protein_publications-per-year Q101244282
+17	QLever		     21	      	Count= 3 	200		protein_publications-per-year Q1024612
+18	QLever		    184	      	Count= 0 	200		protein_publications-per-year Q1026649
+19	QLever		     51	      	Count= 37 	200		protein_publications-per-year Q1032902
+20	QLever		     18	      	Count= 0 	200		protein_publications-per-year Q104586124
+21	QLever		   1182	      	Count= 500 	200		protein_similar-proteins Q101244282
+22	QLever		  52147	      	None 	500	    "exception": "Tried to allocate 26.2 GB, but only 22.2 GB were available. Clear the cache or allow more memory for QLever during startup",	protein_similar-proteins Q1024612
+23	QLever		  25806	      	Count= 500 	200		protein_similar-proteins Q1026649
+24	QLever		  50384	      	None 	500	    "exception": "Tried to allocate 26.2 GB, but only 22.2 GB were available. Clear the cache or allow more memory for QLever during startup",	protein_similar-proteins Q1032902
+25	QLever		   1495	      	Count= 500 	200		protein_similar-proteins Q104586124

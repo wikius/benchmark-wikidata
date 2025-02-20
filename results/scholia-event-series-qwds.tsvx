@@ -1,0 +1,50 @@
+1	QWDS		   1441	      	Count= 2 	200		event-series_acceptance-rate Q105695391
+2	QWDS		    334	      	Count= 0 	200		event-series_acceptance-rate Q105699590
+3	QWDS		    371	      	Count= 0 	200		event-series_acceptance-rate Q109379759
+4	QWDS		    350	      	Count= 0 	200		event-series_acceptance-rate Q130426964
+5	QWDS		   1467	      	Count= 8 	200		event-series_acceptance-rate Q18353514
+6	QWDS		  19881	      	None 	500	    "exception": "Tried to allocate 1.4 GB, but only 738.5 MB were available. Clear the cache or allow more memory for QLever during startup",	event-series_events Q105695391
+7	QWDS		  18274	      	None 	500	    "exception": "Tried to allocate 3.3 GB, but only 2.2 GB were available. Clear the cache or allow more memory for QLever during startup",	event-series_events Q105699590
+8	QWDS		  19413	      	None 	500	    "exception": "Tried to allocate 1.4 GB, but only 753.4 MB were available. Clear the cache or allow more memory for QLever during startup",	event-series_events Q109379759
+9	QWDS		  17616	      	None 	500	    "exception": "Tried to allocate 3.3 GB, but only 2.2 GB were available. Clear the cache or allow more memory for QLever during startup",	event-series_events Q130426964
+10	QWDS		  15682	      	None 	500	    "exception": "Tried to allocate 3.3 GB, but only 2.2 GB were available. Clear the cache or allow more memory for QLever during startup",	event-series_events Q18353514
+11	QWDS		    887	      	Count= 5 	200		event-series_map Q105695391
+12	QWDS		    344	      	Result=Q61983755 	200		event-series_map Q105699590
+13	QWDS		    342	      	Count= 5 	200		event-series_map Q109379759
+14	QWDS		    355	      	Count= 31 	200		event-series_map Q130426964
+15	QWDS		    441	      	Count= 32 	200		event-series_map Q18353514
+16	QWDS		    557	      	Result=2007 	200		event-series_number-of-participants Q105695391
+17	QWDS		    314	      	Result=2019 	200		event-series_number-of-participants Q105699590
+18	QWDS		    325	      	Result=2024 	200		event-series_number-of-participants Q109379759
+19	QWDS		    327	      	Count= 5 	200		event-series_number-of-participants Q130426964
+20	QWDS		    329	      	Count= 2 	200		event-series_number-of-participants Q18353514
+21	QWDS		  63207	      	None 	500	    "exception": "Tried to allocate 2.9 GB, but only 771.5 MB were available. Clear the cache or allow more memory for QLever during startup",	event-series_people Q105695391
+22	QWDS		  62588	      	None 	500	    "exception": "Tried to allocate 2.9 GB, but only 2.1 GB were available. Clear the cache or allow more memory for QLever during startup",	event-series_people Q105699590
+23	QWDS		  14961	      	None 	500	    "exception": "Tried to allocate 17.2 GB, but only 1.6 GB were available. Clear the cache or allow more memory for QLever during startup",	event-series_people Q109379759
+24	QWDS		  13723	      	None 	500	    "exception": "Tried to allocate 17.2 GB, but only 1.6 GB were available. Clear the cache or allow more memory for QLever during startup",	event-series_people Q130426964
+25	QWDS		  13121	      	None 	500	    "exception": "Tried to allocate 3.3 GB, but only 2.2 GB were available. Clear the cache or allow more memory for QLever during startup",	event-series_people Q18353514
+26	QWDS		   6232	      	Count= 62 	200		event-series_proceedings-publications Q105695391
+27	QWDS		    370	      	Count= 42 	200		event-series_proceedings-publications Q105699590
+28	QWDS		    380	      	Count= 36 	200		event-series_proceedings-publications Q109379759
+29	QWDS		    377	      	Count= 70 	200		event-series_proceedings-publications Q130426964
+30	QWDS		    396	      	Count= 101 	200		event-series_proceedings-publications Q18353514
+31	QWDS		    968	      	Count= 500 	200		event-series_recent-publications Q105695391
+32	QWDS		    481	      	Count= 446 	200		event-series_recent-publications Q105699590
+33	QWDS		    550	      	Count= 500 	200		event-series_recent-publications Q109379759
+34	QWDS		    727	      	Count= 500 	200		event-series_recent-publications Q130426964
+35	QWDS		    604	      	Count= 500 	200		event-series_recent-publications Q18353514
+36	QWDS		    428	      	Count= 4 	200		event-series_timeline Q105695391
+37	QWDS		    349	      	Count= 4 	200		event-series_timeline Q105699590
+38	QWDS		    358	      	Count= 8 	200		event-series_timeline Q109379759
+39	QWDS		    358	      	Count= 31 	200		event-series_timeline Q130426964
+40	QWDS		    492	      	Count= 36 	200		event-series_timeline Q18353514
+41	QWDS		    368	      	Count= 5 	200		event-series_top-topics-through-time Q105695391
+42	QWDS		    368	      	Count= 6 	200		event-series_top-topics-through-time Q105699590
+43	QWDS		    450	      	Count= 12 	200		event-series_top-topics-through-time Q109379759
+44	QWDS		    384	      	Count= 15 	200		event-series_top-topics-through-time Q130426964
+45	QWDS		    373	      	Count= 20 	200		event-series_top-topics-through-time Q18353514
+46	QWDS		   5822	      	Count= 200 	200		event-series_topics Q105695391
+47	QWDS		   5161	      	Count= 200 	200		event-series_topics Q105699590
+48	QWDS		   5347	      	Count= 200 	200		event-series_topics Q109379759
+49	QWDS		   6112	      	Count= 200 	200		event-series_topics Q130426964
+50	QWDS		   5449	      	Count= 200 	200		event-series_topics Q18353514

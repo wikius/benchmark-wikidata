@@ -1,0 +1,6 @@
+SELECT DISTINCT ?c (COUNT(DISTINCT ?author) AS ?count) WHERE {
+  ?c wdt:P31/wdt:P279* wd:Q5633421 .
+  ?work wdt:P50 ?author ;
+        wdt:P1433 ?c .
+} GROUP BY ?c ORDER BY DESC(?count)
+LIMIT 5

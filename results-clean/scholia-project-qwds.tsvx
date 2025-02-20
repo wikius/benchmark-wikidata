@@ -1,0 +1,40 @@
+1	QWDS		   1684	      	Count= 260 	200		project_citations-per-budget Q100701370
+2	QWDS		    710	      	Count= 260 	200		project_citations-per-budget Q102154782
+3	QWDS		    518	      	Count= 260 	200		project_citations-per-budget Q1023994
+4	QWDS		    422	      	Count= 260 	200		project_citations-per-budget Q104438297
+5	QWDS		    693	      	Count= 260 	200		project_citations-per-budget Q104438298
+6	QWDS		    819	      	Count= 0 	200		project_partners Q100701370
+7	QWDS		    348	      	Count= 0 	200		project_partners Q102154782
+8	QWDS		    332	      	Count= 0 	200		project_partners Q1023994
+9	QWDS		    353	      	Result=Q7095072 	200		project_partners Q104438297
+10	QWDS		    536	      	Result=Q7095072 	200		project_partners Q104438298
+11	QWDS		   1227	      	Count= 0 	200		project_prolific-authors Q100701370
+12	QWDS		    369	      	Count= 0 	200		project_prolific-authors Q102154782
+13	QWDS		    448	      	Count= 0 	200		project_prolific-authors Q1023994
+14	QWDS		    397	      	Count= 0 	200		project_prolific-authors Q104438297
+15	QWDS		    495	      	Count= 0 	200		project_prolific-authors Q104438298
+16	QWDS		    525	      	Count= 0 	200		project_publications-per-year Q100701370
+17	QWDS		    496	      	Count= 0 	200		project_publications-per-year Q102154782
+18	QWDS		    511	      	Count= 0 	200		project_publications-per-year Q1023994
+19	QWDS		    511	      	Count= 0 	200		project_publications-per-year Q104438297
+20	QWDS		    511	      	Result=2020 	200		project_publications-per-year Q104438298
+21	QWDS		    487	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	project_recent-articles Q100701370
+22	QWDS		    519	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	project_recent-articles Q102154782
+23	QWDS		    606	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	project_recent-articles Q1023994
+24	QWDS		    511	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	project_recent-articles Q104438297
+25	QWDS		    416	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	project_recent-articles Q104438298
+26	QWDS		    510	      	Count= 3 	200		project_statistics Q100701370
+27	QWDS		    511	      	Count= 3 	200		project_statistics Q102154782
+28	QWDS		    511	      	Count= 3 	200		project_statistics Q1023994
+29	QWDS		    510	      	Count= 3 	200		project_statistics Q104438297
+30	QWDS		    512	      	Count= 3 	200		project_statistics Q104438298
+31	QWDS		    707	      	Count= 0 	200		project_timeline Q100701370
+32	QWDS		    512	      	Result=2014-01-01T00:00:00Z 	200		project_timeline Q102154782
+33	QWDS		    455	      	Count= 0 	200		project_timeline Q1023994
+34	QWDS		    418	      	Result=2015-02-01T00:00:00Z 	200		project_timeline Q104438297
+35	QWDS		    455	      	Result=2013-11-01T00:00:00Z 	200		project_timeline Q104438298
+36	QWDS		    535	      	Count= 2 	200		project_topic-scores Q100701370
+37	QWDS		    343	      	Result=20 	200		project_topic-scores Q102154782
+38	QWDS		    383	      	Result=20 	200		project_topic-scores Q1023994
+39	QWDS		    481	      	Result=20 	200		project_topic-scores Q104438297
+40	QWDS		    339	      	Result=20 	200		project_topic-scores Q104438298

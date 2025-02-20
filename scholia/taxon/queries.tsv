@@ -1,0 +1,7 @@
+taxon_co-occurring-taxa	taxon_co-occurring-taxa LABEL	QUERY	taxon
+taxon_genome	taxon_genome LABEL	QUERY	taxon
+taxon_identifiers	taxon_identifiers LABEL	QUERY	taxon
+taxon_metabolome	taxon_metabolome LABEL	QUERY	taxon
+taxon_parent-taxa	taxon_parent-taxa LABEL	QUERY	taxon
+taxon_proteome	taxon_proteome LABEL	QUERY	taxon
+taxon_tree	taxon_tree LABEL	QUERY	taxon

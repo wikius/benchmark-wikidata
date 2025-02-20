@@ -1,0 +1,4 @@
+chemical-element_allotropes	chemical-element_allotropes LABEL	QUERY	chemical-element
+chemical-element_data	chemical-element_data LABEL	QUERY	chemical-element
+chemical-element_isotopes	chemical-element_isotopes LABEL	QUERY	chemical-element
+chemical-element_recent-literature	chemical-element_recent-literature LABEL	QUERY	chemical-element

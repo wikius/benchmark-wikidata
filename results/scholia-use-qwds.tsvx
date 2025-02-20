@@ -1,0 +1,15 @@
+1	QWDS		    329	      	Count= 11 	200		use_authors-of-works-using-the-resource Q30337044
+2	QWDS		    323	      	Count= 3 	200		use_authors-of-works-using-the-resource Q45342146
+3	QWDS		    325	      	Result=1 	200		use_authors-of-works-using-the-resource Q47459391
+4	QWDS		    341	      	Count= 9 	200		use_co-used Q30337044
+5	QWDS		    324	      	Count= 0 	200		use_co-used Q45342146
+6	QWDS		    333	      	Result=1 	200		use_co-used Q47459391
+7	QWDS		    344	      	Count= 9 	200		use_recent-work-using-the-used Q30337044
+8	QWDS		    329	      	Count= 2 	200		use_recent-work-using-the-used Q45342146
+9	QWDS		    338	      	Result=2017-07-29T00:00:00Z 	200		use_recent-work-using-the-used Q47459391
+10	QWDS		    324	      	Count= 12 	200		use_topics-of-works-using-the-resource Q30337044
+11	QWDS		    336	      	Count= 3 	200		use_topics-of-works-using-the-resource Q45342146
+12	QWDS		    334	      	Count= 2 	200		use_topics-of-works-using-the-resource Q47459391
+13	QWDS		    334	      	Count= 4 	200		use_usage-over-time Q30337044
+14	QWDS		    321	      	Count= 2 	200		use_usage-over-time Q45342146
+15	QWDS		    324	      	Result=2017 	200		use_usage-over-time Q47459391

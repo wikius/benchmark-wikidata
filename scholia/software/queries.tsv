@@ -1,0 +1,7 @@
+software_authors	software_authors LABEL	QUERY	software
+software_coused	software_coused LABEL	QUERY	software
+software_data	software_data LABEL	QUERY	software
+software_dependent-software	software_dependent-software LABEL	QUERY	software
+software_recent-works	software_recent-works LABEL	QUERY	software
+software_software-dependencies	software_software-dependencies LABEL	QUERY	software
+software_topics	software_topics LABEL	QUERY	software

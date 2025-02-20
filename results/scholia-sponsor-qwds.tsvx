@@ -1,0 +1,25 @@
+1	QWDS		   1626	      	Count= 21 	200		sponsor_authors-on-sponsored-works Q26879561
+2	QWDS		   1946	      	Count= 396 	200		sponsor_authors-on-sponsored-works Q2904256
+3	QWDS		   1940	      	Count= 511 	200		sponsor_authors-on-sponsored-works Q4272261
+4	QWDS		   1740	      	Count= 62 	200		sponsor_authors-on-sponsored-works Q4801497
+5	QWDS		   1637	      	Count= 159 	200		sponsor_authors-on-sponsored-works Q746879
+6	QWDS		   1517	      	Count= 12 	200		sponsor_co-sponsors Q26879561
+7	QWDS		   1632	      	Count= 81 	200		sponsor_co-sponsors Q2904256
+8	QWDS		   1636	      	Count= 69 	200		sponsor_co-sponsors Q4272261
+9	QWDS		   1636	      	Count= 42 	200		sponsor_co-sponsors Q4801497
+10	QWDS		   1640	      	Count= 39 	200		sponsor_co-sponsors Q746879
+11	QWDS		    390	      	Result=2009-08-01T00:00:00Z 	200		sponsor_project-budgets Q26879561
+12	QWDS		    505	      	Count= 50 	200		sponsor_project-budgets Q2904256
+13	QWDS		    507	      	Count= 34 	200		sponsor_project-budgets Q4272261
+14	QWDS		    408	      	Count= 7 	200		sponsor_project-budgets Q4801497
+15	QWDS		    329	      	Count= 16 	200		sponsor_project-budgets Q746879
+16	QWDS		    614	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	sponsor_recently-published-sponsored-works Q26879561
+17	QWDS		    525	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	sponsor_recently-published-sponsored-works Q2904256
+18	QWDS		    399	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	sponsor_recently-published-sponsored-works Q4272261
+19	QWDS		    608	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	sponsor_recently-published-sponsored-works Q4801497
+20	QWDS		    367	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	sponsor_recently-published-sponsored-works Q746879
+21	QWDS		    528	      	Count= 21 	200		sponsor_topics-of-sponsored-works Q26879561
+22	QWDS		    408	      	Count= 172 	200		sponsor_topics-of-sponsored-works Q2904256
+23	QWDS		    481	      	Count= 143 	200		sponsor_topics-of-sponsored-works Q4272261
+24	QWDS		    354	      	Count= 58 	200		sponsor_topics-of-sponsored-works Q4801497
+25	QWDS		    463	      	Count= 63 	200		sponsor_topics-of-sponsored-works Q746879

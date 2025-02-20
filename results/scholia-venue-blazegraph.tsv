@@ -1,0 +1,115 @@
+1	Blazegraph		  17841	      	Count= 15 	200		venue_articles-by-intention 254115
+2	Blazegraph		   9235	      	Count= 5 	200		venue_articles-by-intention 140573
+3	Blazegraph		   2976	      	Count= 0 	200		venue_articles-by-intention 105826
+4	Blazegraph		   8851	      	Count= 7 	200		venue_articles-by-intention 96574
+5	Blazegraph		   3768	      	Count= 5 	200		venue_articles-by-intention 72143
+6	Blazegraph		 109537	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=4cb27b4d-a4b1-4eb9-a1f9-2cbb0e76079f,bopId=6,partitionId=-1,sinkId=11,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[retracted_work],outputDistinctJVs=true,size=4695931,considered(left=0,right=0,joins=0)}	venue_articles-citing-retracted-articles 254115
+7	Blazegraph		  95447	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=8b61ce19-0325-4cf9-964c-4797a7d15ffe,bopId=6,partitionId=-1,sinkId=11,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[retracted_work],outputDistinctJVs=true,size=4447381,considered(left=0,right=0,joins=0)}	venue_articles-citing-retracted-articles 140573
+8	Blazegraph		  15936	      	Count= 776 	200		venue_articles-citing-retracted-articles 105826
+9	Blazegraph		  84726	      	Count= 1909 	200		venue_articles-citing-retracted-articles 96574
+10	Blazegraph		   2378	      	Count= 643 	200		venue_articles-citing-retracted-articles 72143
+11	Blazegraph		  10178	      	Count= 500 	200		venue_author-awards 254115
+12	Blazegraph		   3602	      	Count= 500 	200		venue_author-awards 140573
+13	Blazegraph		   3265	      	Count= 500 	200		venue_author-awards 105826
+14	Blazegraph		   5969	      	Count= 500 	200		venue_author-awards 96574
+15	Blazegraph		   4252	      	Count= 500 	200		venue_author-awards 72143
+16	Blazegraph		   2283	      	Count= 11 	200		venue_author-gender-distribution 254115
+17	Blazegraph		    976	      	Count= 8 	200		venue_author-gender-distribution 140573
+18	Blazegraph		    712	      	Count= 8 	200		venue_author-gender-distribution 105826
+19	Blazegraph		    866	      	Count= 9 	200		venue_author-gender-distribution 96574
+20	Blazegraph		    752	      	Count= 10 	200		venue_author-gender-distribution 72143
+21	Blazegraph		   7383	      	Count= 50 	200		venue_author-images 254115
+22	Blazegraph		   6268	      	Count= 50 	200		venue_author-images 140573
+23	Blazegraph		   6230	      	Count= 50 	200		venue_author-images 105826
+24	Blazegraph		   6760	      	Count= 50 	200		venue_author-images 96574
+25	Blazegraph		   6457	      	Count= 50 	200		venue_author-images 72143
+26	Blazegraph		 600018	      	None 	500	ERROR java.util.concurrent.TimeoutException	venue_authors 254115
+27	Blazegraph		 538511	      	Count= 50 	200		venue_authors 140573
+28	Blazegraph		 193354	      	Count= 50 	200		venue_authors 105826
+29	Blazegraph		 227599	      	Count= 50 	200		venue_authors 96574
+30	Blazegraph		  83351	      	Count= 50 	200		venue_authors 72143
+31	Blazegraph		   1690	      	Count= 11 	200		venue_authorship-gender-distribution 254115
+32	Blazegraph		    886	      	Count= 8 	200		venue_authorship-gender-distribution 140573
+33	Blazegraph		    561	      	Count= 8 	200		venue_authorship-gender-distribution 105826
+34	Blazegraph		    657	      	Count= 9 	200		venue_authorship-gender-distribution 96574
+35	Blazegraph		    618	      	Count= 10 	200		venue_authorship-gender-distribution 72143
+36	Blazegraph		   2637	      	Count= 369 	200		venue_citation-distribution 254115
+37	Blazegraph		   1212	      	Count= 171 	200		venue_citation-distribution 140573
+38	Blazegraph		    464	      	Count= 261 	200		venue_citation-distribution 105826
+39	Blazegraph		   3347	      	Count= 935 	200		venue_citation-distribution 96574
+40	Blazegraph		   2882	      	Count= 1324 	200		venue_citation-distribution 72143
+41	Blazegraph		 124970	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=963bdd0e-71e0-4742-8952-037e91f0dbde,bopId=19,partitionId=-1,sinkId=21,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Optional,joinVars=[cited_journal],outputDistinctJVs=true,size=4380883,considered(left=0,right=0,joins=0),joinSetSize=0}	venue_cited-venues 254115
+42	Blazegraph		 104959	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=c5794b3b-4159-4863-bd92-0b13d8ad1f70,bopId=19,partitionId=-1,sinkId=21,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	venue_cited-venues 140573
+43	Blazegraph		  18569	      	Count= 200 	200		venue_cited-venues 105826
+44	Blazegraph		  76913	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=2dacc02f-3df2-46e3-93e8-35d54ef85ff9,bopId=22,partitionId=-1,sinkId=23,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Optional,joinVars=[cited_journal],outputDistinctJVs=true,size=3968565,considered(left=200,right=1764378,joins=2441761),joinSetSize=1764091}	venue_cited-venues 96574
+45	Blazegraph		   4272	      	Count= 200 	200		venue_cited-venues 72143
+46	Blazegraph		  27008	      	Count= 1000 	200		venue_citing-venues 254115
+47	Blazegraph		   3263	      	Count= 1000 	200		venue_citing-venues 140573
+48	Blazegraph		   2537	      	Count= 1000 	200		venue_citing-venues 105826
+49	Blazegraph		  90086	      	Count= 1000 	200		venue_citing-venues 96574
+50	Blazegraph		  55515	      	Count= 1000 	200		venue_citing-venues 72143
+51	Blazegraph		 600015	      	None 	500	ERROR java.util.concurrent.TimeoutException	venue_co-author-graph 254115
+52	Blazegraph		 600016	      	None 	500	ERROR java.util.concurrent.TimeoutException	venue_co-author-graph 140573
+53	Blazegraph		 600014	      	None 	500	ERROR java.util.concurrent.TimeoutException	venue_co-author-graph 105826
+54	Blazegraph		 600026	      	None 	500	ERROR java.util.concurrent.TimeoutException	venue_co-author-graph 96574
+55	Blazegraph		 600014	      	None 	500	ERROR java.util.concurrent.TimeoutException	venue_co-author-graph 72143
+56	Blazegraph		     84	      	Count= 7 	200		venue_incoming-bubble 254115
+57	Blazegraph		     35	      	Count= 4 	200		venue_incoming-bubble 140573
+58	Blazegraph		     40	      	Count= 2 	200		venue_incoming-bubble 105826
+59	Blazegraph		     38	      	Count= 3 	200		venue_incoming-bubble 96574
+60	Blazegraph		     40	      	Count= 6 	200		venue_incoming-bubble 72143
+61	Blazegraph		     51	      	Count= 7 	200		venue_incoming 254115
+62	Blazegraph		     44	      	Count= 4 	200		venue_incoming 140573
+63	Blazegraph		     38	      	Count= 2 	200		venue_incoming 105826
+64	Blazegraph		     35	      	Count= 3 	200		venue_incoming 96574
+65	Blazegraph		     34	      	Count= 6 	200		venue_incoming 72143
+66	Blazegraph		   1397	      	Count= 1000 	200		venue_most-cited-articles 254115
+67	Blazegraph		    702	      	Count= 1000 	200		venue_most-cited-articles 140573
+68	Blazegraph		    383	      	Count= 1000 	200		venue_most-cited-articles 105826
+69	Blazegraph		   1842	      	Count= 1000 	200		venue_most-cited-articles 96574
+70	Blazegraph		   1529	      	Count= 1000 	200		venue_most-cited-articles 72143
+71	Blazegraph		 600013	      	None 	500	ERROR java.util.concurrent.TimeoutException	venue_most-cited-authors 254115
+72	Blazegraph		 600018	      	None 	500	ERROR java.util.concurrent.TimeoutException	venue_most-cited-authors 140573
+73	Blazegraph		 244718	      	Count= 100 	200		venue_most-cited-authors 105826
+74	Blazegraph		 435231	      	Count= 100 	200		venue_most-cited-authors 96574
+75	Blazegraph		 143057	      	Count= 100 	200		venue_most-cited-authors 72143
+76	Blazegraph		     34	      	Count= 2 	200		venue_most-reused-articles 254115
+77	Blazegraph		     34	      	Count= 2 	200		venue_most-reused-articles 140573
+78	Blazegraph		     25	      	Count= 0 	200		venue_most-reused-articles 105826
+79	Blazegraph		     29	      	Count= 0 	200		venue_most-reused-articles 96574
+80	Blazegraph		     29	      	Count= 0 	200		venue_most-reused-articles 72143
+81	Blazegraph		    114	      	Count= 12 	200		venue_outgoing-bubble 254115
+82	Blazegraph		     36	      	Count= 5 	200		venue_outgoing-bubble 140573
+83	Blazegraph		     38	      	Count= 0 	200		venue_outgoing-bubble 105826
+84	Blazegraph		     41	      	Count= 4 	200		venue_outgoing-bubble 96574
+85	Blazegraph		     37	      	Count= 3 	200		venue_outgoing-bubble 72143
+86	Blazegraph		     40	      	Count= 12 	200		venue_outgoing 254115
+87	Blazegraph		     38	      	Count= 5 	200		venue_outgoing 140573
+88	Blazegraph		     37	      	Count= 0 	200		venue_outgoing 105826
+89	Blazegraph		     40	      	Count= 4 	200		venue_outgoing 96574
+90	Blazegraph		     39	      	Count= 3 	200		venue_outgoing 72143
+91	Blazegraph		   1822	      	Count= 1000 	200		venue_recently-published-works 254115
+92	Blazegraph		   1009	      	Count= 1000 	200		venue_recently-published-works 140573
+93	Blazegraph		    494	      	Count= 1000 	200		venue_recently-published-works 105826
+94	Blazegraph		   1195	      	Count= 1000 	200		venue_recently-published-works 96574
+95	Blazegraph		   1487	      	Count= 1000 	200		venue_recently-published-works 72143
+96	Blazegraph		    313	      	Count= 100 	200		venue_retractions 254115
+97	Blazegraph		    107	      	Count= 100 	200		venue_retractions 140573
+98	Blazegraph		     82	      	Count= 32 	200		venue_retractions 105826
+99	Blazegraph		    143	      	Count= 100 	200		venue_retractions 96574
+100	Blazegraph		    153	      	Count= 100 	200		venue_retractions 72143
+101	Blazegraph		 600020	      	None 	500	ERROR java.util.concurrent.TimeoutException	venue_top-topics-through-time 254115
+102	Blazegraph		 600022	      	None 	500	ERROR java.util.concurrent.TimeoutException	venue_top-topics-through-time 140573
+103	Blazegraph		 600027	      	None 	500	ERROR java.util.concurrent.TimeoutException	venue_top-topics-through-time 105826
+104	Blazegraph		 600022	      	None 	500	ERROR java.util.concurrent.TimeoutException	venue_top-topics-through-time 96574
+105	Blazegraph		 600023	      	None 	500	ERROR java.util.concurrent.TimeoutException	venue_top-topics-through-time 72143
+106	Blazegraph		  45162	      	Count= 30730 	200		venue_topics 254115
+107	Blazegraph		  16378	      	Count= 16415 	200		venue_topics 140573
+108	Blazegraph		   3128	      	Count= 7076 	200		venue_topics 105826
+109	Blazegraph		  22703	      	Count= 24003 	200		venue_topics 96574
+110	Blazegraph		  10344	      	Count= 13618 	200		venue_topics 72143
+111	Blazegraph		   1183	      	Count= 1577 	200		venue_uses 254115
+112	Blazegraph		    556	      	Count= 959 	200		venue_uses 140573
+113	Blazegraph		    221	      	Count= 527 	200		venue_uses 105826
+114	Blazegraph		    906	      	Count= 1763 	200		venue_uses 96574
+115	Blazegraph		    823	      	Count= 1556 	200		venue_uses 72143

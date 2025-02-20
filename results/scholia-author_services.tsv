@@ -1,0 +1,132 @@
+1	QLever		    176	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang=\"en\"><head><link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crosso'",	author_academic-tree Q100005
+1	QWDS		    370	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang=\"en\"><head><link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crosso'",	author_academic-tree Q100005
+1	WDQS		  60064	      	None 	500	ERROR java.util.concurrent.TimeoutException	author_academic-tree Q100005
+2	QLever		   3150	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang=\"en\"><head><link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crosso'",	author_academic-tree Q1000203
+2	QWDS		    378	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang=\"en\"><head><link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crosso'",	author_academic-tree Q1000203
+2	WDQS		  60076	      	None 	500	ERROR java.util.concurrent.TimeoutException	author_academic-tree Q1000203
+3	QLever		     74	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	author_associated-images Q100005
+3	QWDS		    347	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	author_associated-images Q100005
+3	WDQS		     84	      	Count= 14 	200		author_associated-images Q100005
+4	QLever		   3139	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	author_associated-images Q1000203
+4	QWDS		    337	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	author_associated-images Q1000203
+4	WDQS		     62	      	Count= 34 	200		author_associated-images Q1000203
+5	QLever		    103	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{?citing_workwdt:p50target:}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	author_citations-by-year Q100005
+5	QWDS		    338	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{?citing_workwdt:p50target:}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	author_citations-by-year Q100005
+5	WDQS		     55	      	Count= 0 	200		author_citations-by-year Q100005
+6	QLever		    117	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{?citing_workwdt:p50target:}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	author_citations-by-year Q1000203
+6	QWDS		    327	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{?citing_workwdt:p50target:}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	author_citations-by-year Q1000203
+6	WDQS		     74	      	Count= 0 	200		author_citations-by-year Q1000203
+7	QLever		    161	      	Count= 0 	200		author_coauthor-map Q100005
+7	QWDS		    342	      	None 	500	    "exception": "Assertion `_joinVar == findJoinVar(*_right, _rightJoinCol)` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/Join.cpp \" at line 139",	author_coauthor-map Q100005
+7	WDQS		     75	      	Count= 0 	200		author_coauthor-map Q100005
+8	QLever		    128	      	Count= 0 	200		author_coauthor-map Q1000203
+8	QWDS		    326	      	None 	500	    "exception": "Assertion `_joinVar == findJoinVar(*_right, _rightJoinCol)` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/Join.cpp \" at line 139",	author_coauthor-map Q1000203
+8	WDQS		     81	      	Count= 0 	200		author_coauthor-map Q1000203
+9	QLever		     89	      	Count= 0 	200		author_coauthors Q100005
+9	QWDS		    321	      	Count= 0 	200		author_coauthors Q100005
+9	WDQS		     66	      	Count= 0 	200		author_coauthors Q100005
+10	QLever		     29	      	Count= 0 	200		author_coauthors Q1000203
+10	QWDS		    316	      	Count= 0 	200		author_coauthors Q1000203
+10	WDQS		     55	      	Count= 0 	200		author_coauthors Q1000203
+11	QLever		   3190	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_events Q100005
+11	QWDS		    340	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_events Q100005
+11	WDQS		     60	      	Count= 0 	200		author_events Q100005
+12	QLever		     99	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_events Q1000203
+12	QWDS		    339	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_events Q1000203
+12	WDQS		     80	      	Count= 0 	200		author_events Q1000203
+13	QLever		   3149	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_list-of-publications Q100005
+13	QWDS		    336	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_list-of-publications Q100005
+13	WDQS		  60085	      	None 	500	ERROR java.util.concurrent.TimeoutException	author_list-of-publications Q100005
+14	QLever		     97	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_list-of-publications Q1000203
+14	QWDS		    328	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_list-of-publications Q1000203
+14	WDQS		    105	      	Count= 0 	200		author_list-of-publications Q1000203
+15	QLever		   3227	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_list-of-retracted-articles Q100005
+15	QWDS		    357	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_list-of-retracted-articles Q100005
+15	WDQS		    107	      	Count= 0 	200		author_list-of-retracted-articles Q100005
+16	QLever		    139	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_list-of-retracted-articles Q1000203
+16	QWDS		    335	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	author_list-of-retracted-articles Q1000203
+16	WDQS		     86	      	Count= 0 	200		author_list-of-retracted-articles Q1000203
+17	QLever		   3253	      	Count= 8 	200		author_most-cited-works Q100005
+17	QWDS		    334	      	Count= 8 	200		author_most-cited-works Q100005
+17	WDQS		    101	      	Count= 8 	200		author_most-cited-works Q100005
+18	QLever		     83	      	Count= 0 	200		author_most-cited-works Q1000203
+18	QWDS		    335	      	Count= 0 	200		author_most-cited-works Q1000203
+18	WDQS		    151	      	Count= 0 	200		author_most-cited-works Q1000203
+19	QLever		     86	      	Count= 0 	200		author_most-citing-authors Q100005
+19	QWDS		    357	      	Count= 0 	200		author_most-citing-authors Q100005
+19	WDQS		    280	      	Count= 0 	200		author_most-citing-authors Q100005
+20	QLever		   3136	      	Count= 0 	200		author_most-citing-authors Q1000203
+20	QWDS		    348	      	Count= 0 	200		author_most-citing-authors Q1000203
+20	WDQS		    119	      	Count= 0 	200		author_most-citing-authors Q1000203
+21	QLever		    135	      	Count= 11 	200		author_other-locations Q100005
+21	QWDS		    332	      	None 	500	    "exception": "Assertion `_joinVar == findJoinVar(*_right, _rightJoinCol)` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/Join.cpp \" at line 139",	author_other-locations Q100005
+21	WDQS		   1102	      	Count= 11 	200		author_other-locations Q100005
+22	QLever		     27	      	Count= 28 	200		author_other-locations Q1000203
+22	QWDS		    318	      	None 	500	    "exception": "Assertion `_joinVar == findJoinVar(*_right, _rightJoinCol)` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/Join.cpp \" at line 139",	author_other-locations Q1000203
+22	WDQS		    287	      	Count= 28 	200		author_other-locations Q1000203
+23	QLever		     65	      	Count= 0 	200		author_pages-per-year Q100005
+23	QWDS		    415	      	Count= 0 	200		author_pages-per-year Q100005
+23	WDQS		    225	      	Count= 0 	200		author_pages-per-year Q100005
+24	QLever		   3147	      	Count= 0 	200		author_pages-per-year Q1000203
+24	QWDS		    400	      	Count= 0 	200		author_pages-per-year Q1000203
+24	WDQS		    158	      	Count= 0 	200		author_pages-per-year Q1000203
+25	QLever		   3179	      	Result=1947 	200		author_publications-per-year Q100005
+25	QWDS		    338	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	author_publications-per-year Q100005
+25	WDQS		    188	      	Result=1947 	200		author_publications-per-year Q100005
+26	QLever		   3302	      	Count= 0 	200		author_publications-per-year Q1000203
+26	QWDS		    335	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	author_publications-per-year Q1000203
+26	WDQS		    339	      	Count= 0 	200		author_publications-per-year Q1000203
+27	QLever		   3267	      	Count= 0 	200		author_retracted-articles-per-year Q100005
+27	QWDS		    348	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	author_retracted-articles-per-year Q100005
+27	WDQS		    188	      	Count= 0 	200		author_retracted-articles-per-year Q100005
+28	QLever		   3147	      	Count= 0 	200		author_retracted-articles-per-year Q1000203
+28	QWDS		    333	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	author_retracted-articles-per-year Q1000203
+28	WDQS		    270	      	Count= 0 	200		author_retracted-articles-per-year Q1000203
+29	QLever		   3154	      	Count= 0 	200		author_review-statistics Q100005
+29	QWDS		   2528	      	Count= 0 	200		author_review-statistics Q100005
+29	WDQS		     91	      	Count= 0 	200		author_review-statistics Q100005
+30	QLever		    244	      	Count= 0 	200		author_review-statistics Q1000203
+30	QWDS		    347	      	Count= 0 	200		author_review-statistics Q1000203
+30	WDQS		    101	      	Count= 0 	200		author_review-statistics Q1000203
+31	QLever		   3228	      	Count= 7 	200		author_timeline Q100005
+31	QWDS		    331	      	None 	500	    "exception": "Assertion `_joinVar == findJoinVar(*_right, _rightJoinCol)` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/Join.cpp \" at line 139",	author_timeline Q100005
+31	WDQS		    248	      	Count= 7 	200		author_timeline Q100005
+32	QLever		    135	      	Count= 6 	200		author_timeline Q1000203
+32	QWDS		    364	      	None 	500	    "exception": "Assertion `_joinVar == findJoinVar(*_right, _rightJoinCol)` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/Join.cpp \" at line 139",	author_timeline Q1000203
+32	WDQS		    804	      	Count= 6 	200		author_timeline Q1000203
+33	QLever		    137	      	Count= 0 	200		author_topic-scores Q100005
+33	QWDS		    348	      	Count= 0 	200		author_topic-scores Q100005
+33	WDQS		    331	      	Count= 0 	200		author_topic-scores Q100005
+34	QLever		    126	      	Count= 0 	200		author_topic-scores Q1000203
+34	QWDS		    322	      	Count= 0 	200		author_topic-scores Q1000203
+34	WDQS		    100	      	Count= 0 	200		author_topic-scores Q1000203
+35	QLever		     87	      	Count= 0 	200		author_topics-works-matrix Q100005
+35	QWDS		    443	      	Count= 0 	200		author_topics-works-matrix Q100005
+35	WDQS		    399	      	Count= 0 	200		author_topics-works-matrix Q100005
+36	QLever		   3150	      	Count= 0 	200		author_topics-works-matrix Q1000203
+36	QWDS		    323	      	Count= 0 	200		author_topics-works-matrix Q1000203
+36	WDQS		    307	      	Count= 0 	200		author_topics-works-matrix Q1000203
+37	QLever		     70	      	Count= 0 	200		author_topics Q100005
+37	QWDS		    322	      	Count= 0 	200		author_topics Q100005
+37	WDQS		     84	      	Count= 0 	200		author_topics Q100005
+38	QLever		    108	      	Count= 0 	200		author_topics Q1000203
+38	QWDS		    338	      	Count= 0 	200		author_topics Q1000203
+38	WDQS		    348	      	Count= 0 	200		author_topics Q1000203
+39	QLever		     34	      	Count= 0 	200		author_use Q100005
+39	QWDS		    358	      	Count= 0 	200		author_use Q100005
+39	WDQS		     81	      	Count= 0 	200		author_use Q100005
+40	QLever		    120	      	Count= 0 	200		author_use Q1000203
+40	QWDS		    335	      	Count= 0 	200		author_use Q1000203
+40	WDQS		    439	      	Count= 0 	200		author_use Q1000203
+41	QLever		   3200	      	Count= 0 	200		author_venue-statistics-chart Q100005
+41	QWDS		    437	      	Count= 0 	200		author_venue-statistics-chart Q100005
+41	WDQS		  60074	      	None 	500	ERROR java.util.concurrent.TimeoutException	author_venue-statistics-chart Q100005
+42	QLever		    107	      	Count= 0 	200		author_venue-statistics-chart Q1000203
+42	QWDS		    386	      	Count= 0 	200		author_venue-statistics-chart Q1000203
+42	WDQS		  60111	      	None 	500	ERROR java.util.concurrent.TimeoutException	author_venue-statistics-chart Q1000203
+43	QLever		     77	      	Count= 0 	200		author_venue-statistics Q100005
+43	QWDS		    344	      	Count= 0 	200		author_venue-statistics Q100005
+43	WDQS		    368	      	Count= 0 	200		author_venue-statistics Q100005
+44	QLever		   3220	      	Count= 0 	200		author_venue-statistics Q1000203
+44	QWDS		    378	      	Count= 0 	200		author_venue-statistics Q1000203
+44	WDQS		    107	      	Count= 0 	200		author_venue-statistics Q1000203

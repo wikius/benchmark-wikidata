@@ -1,0 +1,90 @@
+1	MilleniumDB		 601002	      	None 	200	ERROR EMPTY OUTPUT	Topic author awards for human
+2	MilleniumDB		 600035	      	None 	200	ERROR EMPTY OUTPUT	Topic author awards for protein
+3	MilleniumDB		 600036	      	None 	200	ERROR EMPTY OUTPUT	Topic author awards for building
+4	MilleniumDB		 600035	      	None 	200	ERROR EMPTY OUTPUT	Topic author awards for lake
+5	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	Topic author awards for mountain
+6	MilleniumDB		  82740	      	Count= 200 	200		Topic author scores graph for human
+7	MilleniumDB		 219607	      	Count= 200 	200		Topic author scores graph for protein
+8	MilleniumDB		   2791	      	Count= 200 	200		Topic author scores graph for building
+9	MilleniumDB		   3525	      	Count= 200 	200		Topic author scores graph for lake
+10	MilleniumDB		    632	      	Count= 200 	200		Topic author scores graph for mountain
+11	MilleniumDB		 600764	      	None 	200	ERROR EMPTY OUTPUT	Topic author scores for human
+12	MilleniumDB		 600248	      	None 	200	ERROR EMPTY OUTPUT	Topic author scores for protein
+13	MilleniumDB		 600822	      	None 	200	ERROR EMPTY OUTPUT	Topic author scores for building
+14	MilleniumDB		 600036	      	None 	200	ERROR EMPTY OUTPUT	Topic author scores for lake
+15	MilleniumDB		 600038	      	None 	200	ERROR EMPTY OUTPUT	Topic author scores for mountain
+16	MilleniumDB		  39689	      	Count= 201 	200		Topic authors for human
+17	MilleniumDB		  52559	      	Count= 201 	200		Topic authors for protein
+18	MilleniumDB		   2653	      	Count= 200 	200		Topic authors for building
+19	MilleniumDB		    549	      	Count= 200 	200		Topic authors for lake
+20	MilleniumDB		    856	      	Count= 200 	200		Topic authors for mountain
+21	MilleniumDB		 601369	      	Count= 3 	200		Topic co-occuring map for human
+22	MilleniumDB		 602663	      	Count= 4 	200		Topic co-occuring map for protein
+23	MilleniumDB		 601138	      	Count= 3 	200		Topic co-occuring map for building
+24	MilleniumDB		 600325	      	Count= 4 	200		Topic co-occuring map for lake
+25	MilleniumDB		 601064	      	Count= 3 	200		Topic co-occuring map for mountain
+26	MilleniumDB		 601649	      	None 	200	ERROR EMPTY OUTPUT	CRASHED Topic co-occuring for human
+27	MilleniumDB		 602508	      	None 	200	ERROR EMPTY OUTPUT	Topic co-occuring for protein
+28	MilleniumDB		  41646	      	Count= 400 	200		Topic co-occuring for building
+29	MilleniumDB		   4837	      	Count= 400 	200		Topic co-occuring for lake
+30	MilleniumDB		   2853	      	Count= 400 	200		Topic co-occuring for mountain
+31	MilleniumDB		 601673	      	None 	200	ERROR EMPTY OUTPUT	Topic co-author graph for human
+32	MilleniumDB		 601561	      	None 	200	ERROR EMPTY OUTPUT	Topic co-author graph for protein
+33	MilleniumDB		 600156	      	None 	200	ERROR EMPTY OUTPUT	Topic co-author graph for building
+34	MilleniumDB		 600909	      	None 	200	ERROR EMPTY OUTPUT	Topic co-author graph for lake
+35	MilleniumDB		 600057	      	None 	200	ERROR EMPTY OUTPUT	Topic co-author graph for mountain
+36	MilleniumDB		 126524	      	Count= 142 	200		Topic context for human
+37	MilleniumDB		 101979	      	Count= 66 	200		Topic context for protein
+38	MilleniumDB		 103820	      	Count= 94 	200		Topic context for building
+39	MilleniumDB		 106498	      	Count= 38 	200		Topic context for lake
+40	MilleniumDB		 106222	      	Count= 88 	200		Topic context for mountain
+41	MilleniumDB		 600979	      	None 	200	ERROR EMPTY OUTPUT	Topic country citation graph for human
+42	MilleniumDB		 600035	      	Count= 10 	200		Topic country citation graph for protein
+43	MilleniumDB		 600035	      	None 	200	ERROR EMPTY OUTPUT	Topic country citation graph for building
+44	MilleniumDB		 600032	      	Count= 37 	200		Topic country citation graph for lake
+45	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	Topic country citation graph for mountain
+46	MilleniumDB		 600530	      	None 	200	ERROR EMPTY OUTPUT	Topic earliest published workd for human
+47	MilleniumDB		 601636	      	None 	200	ERROR EMPTY OUTPUT	Topic earliest published workd for protein
+48	MilleniumDB		 600946	      	None 	200	ERROR EMPTY OUTPUT	Topic earliest published workd for building
+49	MilleniumDB		 600043	      	None 	200	ERROR EMPTY OUTPUT	Topic earliest published workd for lake
+50	MilleniumDB		 600049	      	None 	200	ERROR EMPTY OUTPUT	Topic earliest published workd for mountain
+51	MilleniumDB		 601426	      	None 	200	ERROR EMPTY OUTPUT	Topic most cited authors for human
+52	MilleniumDB		 601654	      	None 	200	ERROR EMPTY OUTPUT	Topic most cited authors for protein
+53	MilleniumDB		 601065	      	None 	200	ERROR EMPTY OUTPUT	Topic most cited authors for building
+54	MilleniumDB		 600932	      	None 	200	ERROR EMPTY OUTPUT	Topic most cited authors for lake
+55	MilleniumDB		 600052	      	None 	200	ERROR EMPTY OUTPUT	Topic most cited authors for mountain
+56	MilleniumDB		 600009	      	None 	200	ERROR EMPTY OUTPUT	Topic organization map for human
+57	MilleniumDB		 600029	      	None 	200	ERROR EMPTY OUTPUT	Topic organization map for protein
+58	MilleniumDB		 600092	      	None 	200	ERROR EMPTY OUTPUT	Topic organization map for building
+59	MilleniumDB		 600983	      	None 	200	ERROR EMPTY OUTPUT	Topic organization map for lake
+60	MilleniumDB		 600053	      	None 	200	ERROR EMPTY OUTPUT	Topic organization map for mountain
+61	MilleniumDB		  64261	      	Count= 0 	200		Topic publications per year for human
+62	MilleniumDB		  59656	      	Count= 0 	200		Topic publications per year for protein
+63	MilleniumDB		  18736	      	Count= 0 	200		Topic publications per year for building
+64	MilleniumDB		  14249	      	Count= 0 	200		Topic publications per year for lake
+65	MilleniumDB		  14576	      	Count= 0 	200		Topic publications per year for mountain
+66	MilleniumDB		 600868	      	None 	200	ERROR EMPTY OUTPUT	Topic recently published works for human
+67	MilleniumDB		 601938	      	None 	200	ERROR EMPTY OUTPUT	Topic recently published works for protein
+68	MilleniumDB		 601078	      	None 	200	ERROR EMPTY OUTPUT	Topic recently published works for building
+69	MilleniumDB		 600753	      	None 	200	ERROR EMPTY OUTPUT	Topic recently published works for lake
+70	MilleniumDB		 600046	      	None 	200	ERROR EMPTY OUTPUT	Topic recently published works for mountain
+71	MilleniumDB		 387442	      	Count= 200 	200		Topic top cited for human
+72	MilleniumDB		 535509	      	Count= 200 	200		Topic top cited for protein
+73	MilleniumDB		   8333	      	Count= 200 	200		Topic top cited for building
+74	MilleniumDB		   8262	      	Count= 200 	200		Topic top cited for lake
+75	MilleniumDB		   3833	      	Count= 200 	200		Topic top cited for mountain
+76	MilleniumDB		 601343	      	None 	200	ERROR EMPTY OUTPUT	CRASHED Topic topics for human
+77	MilleniumDB		 602657	      	None 	200	ERROR EMPTY OUTPUT	Topic topics for protein
+78	MilleniumDB		 601132	      	None 	200	ERROR EMPTY OUTPUT	Topic topics for building
+79	MilleniumDB		 600708	      	None 	200	ERROR EMPTY OUTPUT	Topic topics for lake
+80	MilleniumDB		 600052	      	None 	200	ERROR EMPTY OUTPUT	Topic topics for mountain
+81	MilleniumDB		 341416	      	Count= 2 	200		Topic uses for human
+82	MilleniumDB		 600609	      	None 	200	ERROR EMPTY OUTPUT	Topic uses for protein
+83	MilleniumDB		      8	      	Count= 0 	200		Topic uses for building
+84	MilleniumDB		 600029	      	None 	200	ERROR EMPTY OUTPUT	Topic uses for lake
+85	MilleniumDB		 600037	      	None 	200	ERROR EMPTY OUTPUT	Topic uses for mountain
+86	MilleniumDB		  21825	      	Count= 200 	200		Topic venues for human
+87	MilleniumDB		  52893	      	Count= 200 	200		Topic venues for protein
+88	MilleniumDB		   2028	      	Count= 200 	200		Topic venues for building
+89	MilleniumDB		    463	      	Count= 200 	200		Topic venues for lake
+90	MilleniumDB		    495	      	Count= 200 	200		Topic venues for mountain

@@ -1,0 +1,66 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX cc: <http://creativecommons.org/ns#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX pqn: <http://www.wikidata.org/prop/qualifier/value-normalized/>
+PREFIX pqv: <http://www.wikidata.org/prop/qualifier/value/>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX prn: <http://www.wikidata.org/prop/reference/value-normalized/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX prv: <http://www.wikidata.org/prop/reference/value/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX psn: <http://www.wikidata.org/prop/statement/value-normalized/>
+PREFIX psv: <http://www.wikidata.org/prop/statement/value/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdata: <http://www.wikidata.org/wiki/Special:EntityData/>
+PREFIX wdno: <http://www.wikidata.org/prop/novalue/>
+PREFIX wdref: <http://www.wikidata.org/reference/>
+PREFIX wds: <http://www.wikidata.org/entity/statement/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wdtn: <http://www.wikidata.org/prop/direct-normalized/>
+PREFIX wdv: <http://www.wikidata.org/value/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+
+SELECT DISTINCT 
+?item ?itemLabel (CONCAT("/work/", SUBSTR(STR(?item), 32)) AS ?itemUrl) ?taxonname
+  (REPLACE(STR(?item), ".*Q", "Q") AS ?work) 
+  ("P921" AS ?main_subject)
+  (REPLACE(STR(target: ), ".*Q", "Q") AS ?taxon)
+  ("S887" AS ?heuristic)
+  ("Q69652283" AS ?deduced)
+
+WHERE {
+  { SELECT  ?item ?taxonname WHERE {
+  target: wdt:P225 ?taxonname .
+  target: wdt:P105 wd:Q7432 . # this filters for species-level (Q7432) taxon names; comment out or adapt as necessary
+
+  SERVICE wikibase:mwapi
+  {
+    bd:serviceParam wikibase:endpoint "www.wikidata.org";
+      wikibase:api "Generator";
+      mwapi:generator "search";
+      mwapi:gsrsearch ?taxonname;
+      mwapi:gsrlimit "max".
+    ?item wikibase:apiOutputItem mwapi:title.
+  }
+  ?item wdt:P1476 ?title .
+  
+  MINUS {?item wdt:P921 target: }
+  MINUS {?item wdt:P921 [wdt:P171* target: ] } # this filters out works about subspecies of the target
+
+  FILTER (REGEX(LCASE(?title), LCASE(CONCAT( "\\\\", "b", ?taxonname ,"\\\\", "b"))))
+  }
+  LIMIT 200
+} OPTIONAL { ?item rdfs:label ?itemLabel .  FILTER ( lang(?itemLabel) = 'en' ) }
+}
+LIMIT 200

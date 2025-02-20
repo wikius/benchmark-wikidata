@@ -1,0 +1,13 @@
+wikiproject-index_most-used	wikiproject-index_most-used LABEL	QUERY	wikiproject
+wikiproject_author-awards	wikiproject_author-awards LABEL	QUERY	wikiproject
+wikiproject_authors	wikiproject_authors LABEL	QUERY	wikiproject
+wikiproject_co-occurring-wikiprojects	wikiproject_co-occurring-wikiprojects LABEL	QUERY	wikiproject
+wikiproject_context	wikiproject_context LABEL	QUERY	wikiproject
+wikiproject_earliest-published-works	wikiproject_earliest-published-works LABEL	QUERY	wikiproject
+wikiproject_focus	wikiproject_focus LABEL	QUERY	wikiproject
+wikiproject_maintained	wikiproject_maintained LABEL	QUERY	wikiproject
+wikiproject_organization-map	wikiproject_organization-map LABEL	QUERY	wikiproject
+wikiproject_publications-per-year	wikiproject_publications-per-year LABEL	QUERY	wikiproject
+wikiproject_recently-published-works	wikiproject_recently-published-works LABEL	QUERY	wikiproject
+wikiproject_topics	wikiproject_topics LABEL	QUERY	wikiproject
+wikiproject_venues	wikiproject_venues LABEL	QUERY	wikiproject

@@ -1,0 +1,19 @@
+# General topic
+topic_author-awards	Topic author awards for LABEL	VALUES	topic
+topic_author-scores-graph	Topic author scores graph for LABEL	VALUES	topic
+topic_author-scores	Topic author scores for LABEL	VALUES	topic
+topic_authors	Topic authors for LABEL	VALUES	topic
+topic_co-occurring-map	Topic co-occuring map for LABEL	VALUES	topic
+topic_co-occurring	Topic co-occuring for LABEL	VALUES	topic
+topic_coauthor-graph	Topic co-author graph for LABEL	VALUES	topic
+topic_context	Topic context for LABEL	VALUES	topic
+topic_country-citation-graph	Topic country citation graph for LABEL	VALUES	topic
+topic_earliest-published-works	Topic earliest published workd for LABEL	VALUES	topic
+topic_most-cited-authors	Topic most cited authors for LABEL	VALUES	topic
+topic_organization-map	Topic organization map for LABEL	VALUES	topic
+topic_publications-per-year	Topic publications per year for LABEL	VALUES	topic
+topic_recently-published-works	Topic recently published works for LABEL	VALUES	topic
+topic_top-cited	Topic top cited for LABEL	VALUES	topic
+topic_topics	Topic topics for LABEL	VALUES	topic
+topic_uses	Topic uses for LABEL	VALUES	topic
+topic_venues	Topic venues for LABEL	VALUES	topic

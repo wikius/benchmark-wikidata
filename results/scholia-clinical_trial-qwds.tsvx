@@ -1,0 +1,10 @@
+1	QWDS		    516	      	Count= 5 	200		clinical-trial_data Q100788294
+2	QWDS		    496	      	Count= 5 	200		clinical-trial_data Q100788300
+3	QWDS		    520	      	Count= 6 	200		clinical-trial_data Q100788302
+4	QWDS		    597	      	Count= 5 	200		clinical-trial_data Q100788304
+5	QWDS		    440	      	Count= 6 	200		clinical-trial_data Q100788305
+6	QWDS		    511	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	clinical-trial_related-trials Q100788294
+7	QWDS		    359	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	clinical-trial_related-trials Q100788300
+8	QWDS		   1175	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	clinical-trial_related-trials Q100788302
+9	QWDS		    423	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	clinical-trial_related-trials Q100788304
+10	QWDS		    469	      	None 	500	    "exception": "Assertion `it != varColMap.end()` failed. Please report this to the developers. In file \"/local/data-ssd/qlever/qlever-code/src/engine/QueryExecutionTree.cpp \" at line 226",	clinical-trial_related-trials Q100788305

@@ -1,0 +1,6 @@
+# Series
+series_authors	series_authors LABEL	QUERY	series
+series_in-series	series_in-series LABEL	QUERY	series
+series_organizations	series_organizations LABEL	QUERY	series
+series_topics	series_topics LABEL	QUERY	series
+series_works	series_works LABEL	QUERY	series

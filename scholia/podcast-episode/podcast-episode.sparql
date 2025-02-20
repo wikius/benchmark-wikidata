@@ -1,0 +1,5 @@
+SELECT DISTINCT ?c WHERE { 
+  ?c wdt:P31/wdt:P279* wd:Q61855877 .
+  ?c wdt:P5030 ?guest .
+} 
+LIMIT 5

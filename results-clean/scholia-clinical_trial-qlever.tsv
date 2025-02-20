@@ -1,0 +1,10 @@
+1	QLever		  17059	      	Count= 5 	200		clinical-trial_data Q100788294
+2	QLever		      8	      	Count= 5 	200		clinical-trial_data Q100788300
+3	QLever		      7	      	Count= 6 	200		clinical-trial_data Q100788302
+4	QLever		  14337	      	Count= 5 	200		clinical-trial_data Q100788304
+5	QLever		  16563	      	Count= 6 	200		clinical-trial_data Q100788305
+6	QLever		  68955	      	None 	500	    "exception": "Tried to allocate 52.4 GB, but only 30.2 GB were available. Clear the cache or allow more memory for QLever during startup",	clinical-trial_related-trials Q100788294
+7	QLever		  67617	      	None 	500	    "exception": "Tried to allocate 52.4 GB, but only 30.2 GB were available. Clear the cache or allow more memory for QLever during startup",	clinical-trial_related-trials Q100788300
+8	QLever		  67936	      	None 	500	    "exception": "Tried to allocate 52.4 GB, but only 30.2 GB were available. Clear the cache or allow more memory for QLever during startup",	clinical-trial_related-trials Q100788302
+9	QLever		  67809	      	None 	500	    "exception": "Tried to allocate 52.4 GB, but only 30.2 GB were available. Clear the cache or allow more memory for QLever during startup",	clinical-trial_related-trials Q100788304
+10	QLever		  67887	      	None 	500	    "exception": "Tried to allocate 52.4 GB, but only 30.2 GB were available. Clear the cache or allow more memory for QLever during startup",	clinical-trial_related-trials Q100788305

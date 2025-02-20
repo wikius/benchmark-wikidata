@@ -1,0 +1,31 @@
+# A set of subclass closure and instance queries, included because some are hard for Blazegraph.
+human-subclass	All subclasses of human (Q5)
+#human-subclass-labels	All subclasses of human (Q5) with labels
+human-subclass-labels	All subclasses of human (Q5) with labels, label service for Blazegraph	Blazegraph	human-subclass-labels-WDQS	WDQS	human-subclass-labels-WDQS
+protein-subclass	All subclasses of protein (Q8054)
+protein-subclass	All subclasses of protein (Q8054), 2nd try
+protein-subclass	All subclasses of protein (Q8054), 3rd try
+protein-subclass	All subclasses of protein (Q8054), 4th try
+#protein-subclass-labels	All subclasses of protein (Q8054) with labels
+protein-subclass-labels	All subclasses of protein (Q8054) with labels, label service for Blazegraph	WDQS	protein-subclass-labels-WDQS	Blazegraph	protein-subclass-labels-WDQS
+chemical-subclass	All subclasses of chemical entity (Q43460564)
+concrete-subclass	All subclasses of concrete object (Q4406616)
+object-subclass	All subclasses of object (Q488383)
+entity-subclass	All subclasses of entity (Q35120) 
+#entity-subclass-labels	All subclasses of entity (Q35120) with labels
+entity-subclass-labels	All subclasses of entity (Q35120) with labels, label service for Blazegraph	WDQS	entity-subclass-labels-WDQS	Blazegraph	entity-subclass-labels-WDQS
+human-instance	All instances of human (Q5)
+#human-instance-labels	All instances of human (Q5) with labels
+human-instance-labels	All instances of human (Q5) with labels, label service for Blazegraph	WDQS	human-instance-labels-WDQS	Blazegraph	human-instance-labels-WDQS
+protein-instance	All instances of protein (Q8054)
+protein-instance	All instances of protein (Q8054), 2nd try
+protein-instance	All instances of protein (Q8054), 3rd try
+protein-instance	All instances of protein (Q8054), 4th try
+protein-instance-labels	All instances of protein (Q8054) with labels
+#protein-instance-labels	All instances of protein (Q8054) with labels, label service for Blazegraph	WDQS	protein-instance-labels-WDQS	Blazegraph	protein-instance-labels-WDQS
+chemical-instance	All instances of chemical entity (Q43460564)
+concrete-instance	All instances of concrete object (Q4406616)
+object-instance	All instances of object (Q488383)
+entity-instance	All instances of entity (Q35120) 
+#entity-instance-labels	All instances of entity (Q35120) with labels
+entity-instance-labels	All instances of entity (Q35120) with labels, label service for Blazegraph	WDQS	entity-instance-labels-WDQS	Blazegraph	entity-instance-labels-WDQS

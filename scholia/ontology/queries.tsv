@@ -1,0 +1,5 @@
+ontology_data	ontology_data LABEL	QUERY	ontology
+ontology_recent-works	ontology_recent-works LABEL	QUERY	ontology
+ontology_reuse-graph	ontology_reuse-graph LABEL	QUERY	ontology
+ontology_used-by-ontologies	ontology_used-by-ontologies LABEL	QUERY	ontology
+ontology_used-ontologies	ontology_used-ontologies LABEL	QUERY	ontology

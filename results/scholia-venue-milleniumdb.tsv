@@ -1,0 +1,115 @@
+1	MilleniumDB		    426	      	Count= 15 	200		venue_articles-by-intention 254115
+2	MilleniumDB		    148	      	Count= 5 	200		venue_articles-by-intention 140573
+3	MilleniumDB		     63	      	Count= 0 	200		venue_articles-by-intention 105826
+4	MilleniumDB		    138	      	Count= 6 	200		venue_articles-by-intention 96574
+5	MilleniumDB		    162	      	Count= 3 	200		venue_articles-by-intention 72143
+6	MilleniumDB		      9	      	None 	400	Operation `Unsupported IRI function` not supported yet.	venue_articles-citing-retracted-articles 254115
+7	MilleniumDB		      3	      	None 	400	Operation `Unsupported IRI function` not supported yet.	venue_articles-citing-retracted-articles 140573
+8	MilleniumDB		      2	      	None 	400	Operation `Unsupported IRI function` not supported yet.	venue_articles-citing-retracted-articles 105826
+9	MilleniumDB		      2	      	None 	400	Operation `Unsupported IRI function` not supported yet.	venue_articles-citing-retracted-articles 96574
+10	MilleniumDB		      2	      	None 	400	Operation `Unsupported IRI function` not supported yet.	venue_articles-citing-retracted-articles 72143
+11	MilleniumDB		   5807	      	Count= 500 	200		venue_author-awards 254115
+12	MilleniumDB		   1505	      	Count= 500 	200		venue_author-awards 140573
+13	MilleniumDB		   1484	      	Count= 500 	200		venue_author-awards 105826
+14	MilleniumDB		   3866	      	Count= 500 	200		venue_author-awards 96574
+15	MilleniumDB		   2523	      	Count= 500 	200		venue_author-awards 72143
+16	MilleniumDB		   1876	      	Count= 11 	200		venue_author-gender-distribution 254115
+17	MilleniumDB		    697	      	Count= 8 	200		venue_author-gender-distribution 140573
+18	MilleniumDB		    523	      	Count= 8 	200		venue_author-gender-distribution 105826
+19	MilleniumDB		    740	      	Count= 9 	200		venue_author-gender-distribution 96574
+20	MilleniumDB		    509	      	Count= 10 	200		venue_author-gender-distribution 72143
+21	MilleniumDB		   7328	      	Count= 0 	200		venue_author-images 254115
+22	MilleniumDB		   2710	      	Count= 0 	200		venue_author-images 140573
+23	MilleniumDB		   1802	      	Count= 0 	200		venue_author-images 105826
+24	MilleniumDB		   1441	      	Count= 0 	200		venue_author-images 96574
+25	MilleniumDB		   1038	      	Count= 0 	200		venue_author-images 72143
+26	MilleniumDB		 600487	      	None 	200	ERROR EMPTY OUTPUT	venue_authors 254115
+27	MilleniumDB		 600032	      	None 	200	ERROR EMPTY OUTPUT	venue_authors 140573
+28	MilleniumDB		 600037	      	None 	200	ERROR EMPTY OUTPUT	venue_authors 105826
+29	MilleniumDB		 600038	      	None 	200	ERROR EMPTY OUTPUT	venue_authors 96574
+30	MilleniumDB		 600038	      	None 	200	ERROR EMPTY OUTPUT	venue_authors 72143
+31	MilleniumDB		   1399	      	Count= 11 	200		venue_authorship-gender-distribution 254115
+32	MilleniumDB		    635	      	Count= 8 	200		venue_authorship-gender-distribution 140573
+33	MilleniumDB		    481	      	Count= 8 	200		venue_authorship-gender-distribution 105826
+34	MilleniumDB		    687	      	Count= 9 	200		venue_authorship-gender-distribution 96574
+35	MilleniumDB		    471	      	Count= 10 	200		venue_authorship-gender-distribution 72143
+36	MilleniumDB		  11150	      	Count= 369 	200		venue_citation-distribution 254115
+37	MilleniumDB		   2548	      	Count= 171 	200		venue_citation-distribution 140573
+38	MilleniumDB		   1791	      	Count= 261 	200		venue_citation-distribution 105826
+39	MilleniumDB		  35343	      	Count= 935 	200		venue_citation-distribution 96574
+40	MilleniumDB		  28770	      	Count= 1324 	200		venue_citation-distribution 72143
+41	MilleniumDB		      6	      	None 	400	Operation `Unsupported IRI function` not supported yet.	venue_cited-venues 254115
+42	MilleniumDB		      2	      	None 	400	Operation `Unsupported IRI function` not supported yet.	venue_cited-venues 140573
+43	MilleniumDB		      2	      	None 	400	Operation `Unsupported IRI function` not supported yet.	venue_cited-venues 105826
+44	MilleniumDB		      2	      	None 	400	Operation `Unsupported IRI function` not supported yet.	venue_cited-venues 96574
+45	MilleniumDB		      2	      	None 	400	Operation `Unsupported IRI function` not supported yet.	venue_cited-venues 72143
+46	MilleniumDB		  16037	      	Count= 1000 	200		venue_citing-venues 254115
+47	MilleniumDB		   2610	      	Count= 1000 	200		venue_citing-venues 140573
+48	MilleniumDB		   2018	      	Count= 1000 	200		venue_citing-venues 105826
+49	MilleniumDB		  35091	      	Count= 1000 	200		venue_citing-venues 96574
+50	MilleniumDB		  24355	      	Count= 1000 	200		venue_citing-venues 72143
+51	MilleniumDB		 600182	      	None 	200	ERROR EMPTY OUTPUT	venue_co-author-graph 254115
+52	MilleniumDB		 600035	      	None 	200	ERROR EMPTY OUTPUT	venue_co-author-graph 140573
+53	MilleniumDB		 600038	      	None 	200	ERROR EMPTY OUTPUT	venue_co-author-graph 105826
+54	MilleniumDB		 600036	      	None 	200	ERROR EMPTY OUTPUT	venue_co-author-graph 96574
+55	MilleniumDB		 600036	      	None 	200	ERROR EMPTY OUTPUT	venue_co-author-graph 72143
+56	MilleniumDB		    132	      	Count= 7 	200		venue_incoming-bubble 254115
+57	MilleniumDB		     44	      	Count= 4 	200		venue_incoming-bubble 140573
+58	MilleniumDB		     64	      	Count= 2 	200		venue_incoming-bubble 105826
+59	MilleniumDB		     18	      	Count= 3 	200		venue_incoming-bubble 96574
+60	MilleniumDB		     23	      	Count= 6 	200		venue_incoming-bubble 72143
+61	MilleniumDB		     17	      	Count= 7 	200		venue_incoming 254115
+62	MilleniumDB		     11	      	Count= 4 	200		venue_incoming 140573
+63	MilleniumDB		     10	      	Count= 2 	200		venue_incoming 105826
+64	MilleniumDB		     11	      	Count= 3 	200		venue_incoming 96574
+65	MilleniumDB		     12	      	Count= 6 	200		venue_incoming 72143
+66	MilleniumDB		 600807	      	None 	200	ERROR EMPTY OUTPUT	venue_most-cited-articles 254115
+67	MilleniumDB		 600027	      	None 	200	ERROR EMPTY OUTPUT	venue_most-cited-articles 140573
+68	MilleniumDB		 600031	      	None 	200	ERROR EMPTY OUTPUT	venue_most-cited-articles 105826
+69	MilleniumDB		 600038	      	None 	200	ERROR EMPTY OUTPUT	venue_most-cited-articles 96574
+70	MilleniumDB		 600034	      	None 	200	ERROR EMPTY OUTPUT	venue_most-cited-articles 72143
+71	MilleniumDB		 600982	      	None 	200	ERROR EMPTY OUTPUT	venue_most-cited-authors 254115
+72	MilleniumDB		 600034	      	None 	200	ERROR EMPTY OUTPUT	venue_most-cited-authors 140573
+73	MilleniumDB		 600034	      	None 	200	ERROR EMPTY OUTPUT	venue_most-cited-authors 105826
+74	MilleniumDB		 600035	      	None 	200	ERROR EMPTY OUTPUT	venue_most-cited-authors 96574
+75	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	venue_most-cited-authors 72143
+76	MilleniumDB		     12	      	Count= 2 	200		venue_most-reused-articles 254115
+77	MilleniumDB		      7	      	Count= 2 	200		venue_most-reused-articles 140573
+78	MilleniumDB		      5	      	Count= 0 	200		venue_most-reused-articles 105826
+79	MilleniumDB		      5	      	Count= 0 	200		venue_most-reused-articles 96574
+80	MilleniumDB		      6	      	Count= 0 	200		venue_most-reused-articles 72143
+81	MilleniumDB		     22	      	Count= 12 	200		venue_outgoing-bubble 254115
+82	MilleniumDB		     38	      	Count= 5 	200		venue_outgoing-bubble 140573
+83	MilleniumDB		     52	      	Count= 0 	200		venue_outgoing-bubble 105826
+84	MilleniumDB		     15	      	Count= 4 	200		venue_outgoing-bubble 96574
+85	MilleniumDB		     12	      	Count= 3 	200		venue_outgoing-bubble 72143
+86	MilleniumDB		     17	      	Count= 12 	200		venue_outgoing 254115
+87	MilleniumDB		     11	      	Count= 5 	200		venue_outgoing 140573
+88	MilleniumDB		     11	      	Count= 0 	200		venue_outgoing 105826
+89	MilleniumDB		     12	      	Count= 4 	200		venue_outgoing 96574
+90	MilleniumDB		     10	      	Count= 3 	200		venue_outgoing 72143
+91	MilleniumDB		      6	      	None 	400	Operation `Unsupported IRI function` not supported yet.	venue_recently-published-works 254115
+92	MilleniumDB		      3	      	None 	400	Operation `Unsupported IRI function` not supported yet.	venue_recently-published-works 140573
+93	MilleniumDB		      2	      	None 	400	Operation `Unsupported IRI function` not supported yet.	venue_recently-published-works 105826
+94	MilleniumDB		      2	      	None 	400	Operation `Unsupported IRI function` not supported yet.	venue_recently-published-works 96574
+95	MilleniumDB		      2	      	None 	400	Operation `Unsupported IRI function` not supported yet.	venue_recently-published-works 72143
+96	MilleniumDB		    349	      	Count= 100 	200		venue_retractions 254115
+97	MilleniumDB		     59	      	Count= 100 	200		venue_retractions 140573
+98	MilleniumDB		     26	      	Count= 32 	200		venue_retractions 105826
+99	MilleniumDB		     83	      	Count= 100 	200		venue_retractions 96574
+100	MilleniumDB		     99	      	Count= 100 	200		venue_retractions 72143
+101	MilleniumDB		 528747	      	Count= 76 	200		venue_top-topics-through-time 254115
+102	MilleniumDB		  76321	      	Count= 52 	200		venue_top-topics-through-time 140573
+103	MilleniumDB		  75303	      	Count= 55 	200		venue_top-topics-through-time 105826
+104	MilleniumDB		  75688	      	Count= 356 	200		venue_top-topics-through-time 96574
+105	MilleniumDB		  75365	      	Count= 405 	200		venue_top-topics-through-time 72143
+106	MilleniumDB		 600210	      	None 	200	ERROR EMPTY OUTPUT	venue_topics 254115
+107	MilleniumDB		 600034	      	None 	200	ERROR EMPTY OUTPUT	venue_topics 140573
+108	MilleniumDB		 600039	      	None 	200	ERROR EMPTY OUTPUT	venue_topics 105826
+109	MilleniumDB		 600038	      	None 	200	ERROR EMPTY OUTPUT	venue_topics 96574
+110	MilleniumDB		 600037	      	None 	200	ERROR EMPTY OUTPUT	venue_topics 72143
+111	MilleniumDB		 600498	      	None 	200	ERROR EMPTY OUTPUT	venue_uses 254115
+112	MilleniumDB		 600035	      	None 	200	ERROR EMPTY OUTPUT	venue_uses 140573
+113	MilleniumDB		 600034	      	None 	200	ERROR EMPTY OUTPUT	venue_uses 105826
+114	MilleniumDB		 600037	      	None 	200	ERROR EMPTY OUTPUT	venue_uses 96574
+115	MilleniumDB		 600040	      	None 	200	ERROR EMPTY OUTPUT	venue_uses 72143

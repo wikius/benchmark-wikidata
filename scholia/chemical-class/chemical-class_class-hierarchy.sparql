@@ -1,0 +1,83 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX cc: <http://creativecommons.org/ns#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX pqn: <http://www.wikidata.org/prop/qualifier/value-normalized/>
+PREFIX pqv: <http://www.wikidata.org/prop/qualifier/value/>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX prn: <http://www.wikidata.org/prop/reference/value-normalized/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX prv: <http://www.wikidata.org/prop/reference/value/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX psn: <http://www.wikidata.org/prop/statement/value-normalized/>
+PREFIX psv: <http://www.wikidata.org/prop/statement/value/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdata: <http://www.wikidata.org/wiki/Special:EntityData/>
+PREFIX wdno: <http://www.wikidata.org/prop/novalue/>
+PREFIX wdref: <http://www.wikidata.org/reference/>
+PREFIX wds: <http://www.wikidata.org/entity/statement/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wdtn: <http://www.wikidata.org/prop/direct-normalized/>
+PREFIX wdv: <http://www.wikidata.org/value/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+#defaultView:Graph
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+
+SELECT
+  ?child ?childLabel
+  ?rgb 
+  ?parent ?parentLabel
+WHERE {
+  {
+  SELECT ?child ?rgb ?parent WHERE {
+    { 
+      SELECT ?child ?rgb ?parent  WHERE {
+        SERVICE gas:service {
+          gas:program gas:gasClass "com.bigdata.rdf.graph.analytics.BFS" ;
+                  gas:in target: ;
+                  gas:traversalDirection "Forward" ;
+                  gas:out ?child ;
+                  gas:out1 ?depth ;
+                  gas:out2 ?parent1 ;
+                  gas:linkType wdt:P279 ;
+        }
+        ?child wdt:P279 ?parent .
+        BIND(IF(?child = target:, "FF0000", "FFFFFF") AS ?rgb)
+      }
+    }
+    UNION
+    {
+      SELECT ?child ?rgb ?parent WHERE {
+        BIND(target: AS ?parent)
+        ?child wdt:P279 ?parent . 
+        BIND("DDDDDD" AS ?rgb)
+      }
+      LIMIT 10
+    }
+  }
+} 
+  VALUES ?classes {
+    wd:Q15711994 # group of isomeric entities
+    wd:Q17339814 # group or class of chemical substances
+    wd:Q47154513 # structural class of chemical entities
+    wd:Q55640599 # group of chemical entities
+    wd:Q56256173 # class of chemical entities with similar applications or functions
+    wd:Q56256178 # class of chemical entities with similar source or occurrence
+    wd:Q55662456 # group of ortho, meta, para isomers
+    wd:Q59199015 # group of stereoisomers
+    wd:Q72070508 # group or class of chemical entities
+    wd:Q74892521 # imprecise class of chemical entities
+  }
+  ?parent wdt:P31 ?classes. 
+  ?child rdfs:label ?childLabel . FILTER(LANG(?childLabel) = "en")
+  ?parent rdfs:label ?parentLabel . FILTER(LANG(?parentLabel) = "en")
+}

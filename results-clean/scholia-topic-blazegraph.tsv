@@ -1,0 +1,90 @@
+1	Blazegraph		 600039	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic author awards for human
+2	Blazegraph		 600019	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic author awards for protein
+3	Blazegraph		 600018	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic author awards for building
+4	Blazegraph		 600019	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic author awards for lake
+5	Blazegraph		 600033	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic author awards for mountain
+6	Blazegraph		  24911	      	Count= 200 	200		Topic author scores graph for human
+7	Blazegraph		  81924	      	Count= 200 	200		Topic author scores graph for protein
+8	Blazegraph		    903	      	Count= 200 	200		Topic author scores graph for building
+9	Blazegraph		   1062	      	Count= 200 	200		Topic author scores graph for lake
+10	Blazegraph		    414	      	Count= 200 	200		Topic author scores graph for mountain
+11	Blazegraph		   8086	      	Count= 200 	200		Topic author scores for human
+12	Blazegraph		  55808	      	Count= 200 	200		Topic author scores for protein
+13	Blazegraph		  27713	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=42a93516-7eff-4347-893c-4a1bb3daaa6c,bopId=69,partitionId=-1,sinkId=71,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Optional,joinVars=[],outputDistinctJVs=false,size=200,considered(left=229700,right=463624,joins=45922301),joinSetSize=102}	Topic author scores for building
+14	Blazegraph		    620	      	Count= 200 	200		Topic author scores for lake
+15	Blazegraph		    265	      	Count= 200 	200		Topic author scores for mountain
+16	Blazegraph		  88300	      	Count= 201 	200		Topic authors for human
+17	Blazegraph		  36418	      	Count= 201 	200		Topic authors for protein
+18	Blazegraph		  12006	      	Count= 200 	200		Topic authors for building
+19	Blazegraph		   1975	      	Count= 200 	200		Topic authors for lake
+20	Blazegraph		   3910	      	Count= 200 	200		Topic authors for mountain
+21	Blazegraph		  90837	      	Count= 7585 	200		Topic co-occuring map for human
+22	Blazegraph		  69750	      	Count= 273 	200		Topic co-occuring map for protein
+23	Blazegraph		  20667	      	Count= 15460 	200		Topic co-occuring map for building
+24	Blazegraph		   2373	      	Count= 1602 	200		Topic co-occuring map for lake
+25	Blazegraph		   3681	      	Count= 2160 	200		Topic co-occuring map for mountain
+26	Blazegraph		 391355	      	Count= 400 	200		Topic co-occuring for human
+27	Blazegraph		 684556	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic co-occuring for protein
+28	Blazegraph		  47114	      	Count= 400 	200		Topic co-occuring for building
+29	Blazegraph		   3024	      	Count= 400 	200		Topic co-occuring for lake
+30	Blazegraph		   3690	      	Count= 400 	200		Topic co-occuring for mountain
+31	Blazegraph		 600021	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic co-author graph for human
+32	Blazegraph		 600025	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic co-author graph for protein
+33	Blazegraph		 600034	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic co-author graph for building
+34	Blazegraph		 600028	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic co-author graph for lake
+35	Blazegraph		 600026	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic co-author graph for mountain
+36	Blazegraph		   2450	      	Count= 142 	200		Topic context for human
+37	Blazegraph		   2418	      	Count= 66 	200		Topic context for protein
+38	Blazegraph		   2959	      	Count= 94 	200		Topic context for building
+39	Blazegraph		   1944	      	Count= 38 	200		Topic context for lake
+40	Blazegraph		   2725	      	Count= 88 	200		Topic context for mountain
+41	Blazegraph		  18751	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=c434a949-7ee0-4bf5-bbf7-1910a20aa93f,bopId=65,partitionId=-1,sinkId=66,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.RuntimeException: java.lang.RuntimeException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	Topic country citation graph for human
+42	Blazegraph		  21447	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=456bf07f-14bf-40a3-a55c-3c326a75ec3e,bopId=65,partitionId=-1,sinkId=66,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.RuntimeException: java.lang.RuntimeException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	Topic country citation graph for protein
+43	Blazegraph		  19030	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=5a15331d-3be3-484f-a905-6fbd99a3d134,bopId=65,partitionId=-1,sinkId=66,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.RuntimeException: java.lang.RuntimeException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	Topic country citation graph for building
+44	Blazegraph		  22151	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=5639f365-e170-4d2c-b4e7-87769cd0f589,bopId=65,partitionId=-1,sinkId=66,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.RuntimeException: java.lang.RuntimeException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	Topic country citation graph for lake
+45	Blazegraph		  18968	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=96dda1b1-894f-4cf6-bcb6-d847f9e255fb,bopId=65,partitionId=-1,sinkId=66,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.RuntimeException: java.lang.RuntimeException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	Topic country citation graph for mountain
+46	Blazegraph		 600029	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic earliest published workd for human
+47	Blazegraph		 600023	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic earliest published workd for protein
+48	Blazegraph		 600024	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic earliest published workd for building
+49	Blazegraph		 600020	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic earliest published workd for lake
+50	Blazegraph		 600020	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic earliest published workd for mountain
+51	Blazegraph		 600023	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic most cited authors for human
+52	Blazegraph		 600015	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic most cited authors for protein
+53	Blazegraph		 600024	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic most cited authors for building
+54	Blazegraph		 600015	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic most cited authors for lake
+55	Blazegraph		 600022	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic most cited authors for mountain
+56	Blazegraph		  44732	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=3297e077-3165-439b-bd6d-304ef35f6caa,bopId=71,partitionId=-1,sinkId=72,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[--pp-anon-9d0f0814-643d-44c8-9df8-7321ab4a3155],outputDistinctJVs=true,size=30292857,considered(left=0,right=0,joins=0)}	Topic organization map for human
+57	Blazegraph		  49976	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=3ae8b4c8-7c45-4189-a398-d81970e9b69e,bopId=71,partitionId=-1,sinkId=72,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[--pp-anon-265f1617-c994-4bc1-b26f-1a09eff9bff9],outputDistinctJVs=true,size=30317075,considered(left=0,right=0,joins=0)}	Topic organization map for protein
+58	Blazegraph		  48584	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=9f74b89e-a3ec-4b27-89e8-96742811bd78,bopId=71,partitionId=-1,sinkId=72,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[--pp-anon-71e2f1b3-5edf-4cf6-99ef-af14ccd5cb82],outputDistinctJVs=true,size=30299545,considered(left=0,right=0,joins=0)}	Topic organization map for building
+59	Blazegraph		  46558	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=29d57606-9243-420e-bff3-df5cd4271e10,bopId=71,partitionId=-1,sinkId=72,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[--pp-anon-8774257c-f5eb-4036-be7b-9a7c32a4c38a],outputDistinctJVs=true,size=30284795,considered(left=0,right=0,joins=0)}	Topic organization map for lake
+60	Blazegraph		  47608	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=2a5e6037-ae7b-4870-af9d-4eb484c5716f,bopId=71,partitionId=-1,sinkId=72,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[--pp-anon-88de09f1-1614-40fb-a75a-6c1dc535f5e9],outputDistinctJVs=true,size=30345979,considered(left=0,right=0,joins=0)}	Topic organization map for mountain
+61	Blazegraph		 600026	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic publications per year for human
+62	Blazegraph		 600026	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic publications per year for protein
+63	Blazegraph		 600022	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic publications per year for building
+64	Blazegraph		 600025	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic publications per year for lake
+65	Blazegraph		 600025	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic publications per year for mountain
+66	Blazegraph		 600029	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic recently published works for human
+67	Blazegraph		 600024	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic recently published works for protein
+68	Blazegraph		 600064	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic recently published works for building
+69	Blazegraph		 600020	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic recently published works for lake
+70	Blazegraph		 600030	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic recently published works for mountain
+71	Blazegraph		 117394	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=cb190bc7-d895-47ce-9b46-64852ba8d8bb,bopId=66,partitionId=-1,sinkId=70,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	Topic top cited for human
+72	Blazegraph		  96855	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=994638d7-cdcd-45ff-8aac-4f72d0aff5b0,bopId=68,partitionId=-1,sinkId=66,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	Topic top cited for protein
+73	Blazegraph		  13305	      	Count= 200 	200		Topic top cited for building
+74	Blazegraph		   4997	      	Count= 200 	200		Topic top cited for lake
+75	Blazegraph		   4164	      	Count= 200 	200		Topic top cited for mountain
+76	Blazegraph		 600023	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic topics for human
+77	Blazegraph		 600028	      	None 	500	ERROR java.util.concurrent.TimeoutException	Topic topics for protein
+78	Blazegraph		 237027	      	Count= 28745 	200		Topic topics for building
+79	Blazegraph		  13209	      	Count= 6128 	200		Topic topics for lake
+80	Blazegraph		  10528	      	Count= 4973 	200		Topic topics for mountain
+81	Blazegraph		     61	      	Count= 2 	200		Topic uses for human
+82	Blazegraph		     60	      	Count= 12 	200		Topic uses for protein
+83	Blazegraph		     35	      	Count= 0 	200		Topic uses for building
+84	Blazegraph		     80	      	Count= 32 	200		Topic uses for lake
+85	Blazegraph		     46	      	Count= 5 	200		Topic uses for mountain
+86	Blazegraph		  91276	      	Count= 200 	200		Topic venues for human
+87	Blazegraph		  38505	      	Count= 200 	200		Topic venues for protein
+88	Blazegraph		  12239	      	Count= 200 	200		Topic venues for building
+89	Blazegraph		   2048	      	Count= 200 	200		Topic venues for lake
+90	Blazegraph		   3413	      	Count= 200 	200		Topic venues for mountain

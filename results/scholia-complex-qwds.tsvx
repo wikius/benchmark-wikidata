@@ -1,0 +1,20 @@
+1	QWDS		   1194	      	None 	500	    "exception": "This query might have to evaluate the empty path, which is currently not supported. In file \"/qlever/src/engine/TransitivePathImpl.h \" at line 160",	complex_articles-by-year Q100146810
+2	QWDS		    369	      	None 	500	    "exception": "This query might have to evaluate the empty path, which is currently not supported. In file \"/qlever/src/engine/TransitivePathImpl.h \" at line 160",	complex_articles-by-year Q100146811
+3	QWDS		    370	      	None 	500	    "exception": "This query might have to evaluate the empty path, which is currently not supported. In file \"/qlever/src/engine/TransitivePathImpl.h \" at line 160",	complex_articles-by-year Q100146812
+4	QWDS		    355	      	None 	500	    "exception": "This query might have to evaluate the empty path, which is currently not supported. In file \"/qlever/src/engine/TransitivePathImpl.h \" at line 160",	complex_articles-by-year Q100146813
+5	QWDS		    371	      	None 	500	    "exception": "This query might have to evaluate the empty path, which is currently not supported. In file \"/qlever/src/engine/TransitivePathImpl.h \" at line 160",	complex_articles-by-year Q100146821
+6	QWDS		   4894	      	None 	500	    "exception": "This query might have to evaluate the empty path, which is currently not supported. In file \"/qlever/src/engine/TransitivePathImpl.h \" at line 160",	complex_articles-recent Q100146810
+7	QWDS		    355	      	None 	500	    "exception": "This query might have to evaluate the empty path, which is currently not supported. In file \"/qlever/src/engine/TransitivePathImpl.h \" at line 160",	complex_articles-recent Q100146811
+8	QWDS		    336	      	None 	500	    "exception": "This query might have to evaluate the empty path, which is currently not supported. In file \"/qlever/src/engine/TransitivePathImpl.h \" at line 160",	complex_articles-recent Q100146812
+9	QWDS		    345	      	None 	500	    "exception": "This query might have to evaluate the empty path, which is currently not supported. In file \"/qlever/src/engine/TransitivePathImpl.h \" at line 160",	complex_articles-recent Q100146813
+10	QWDS		    358	      	None 	500	    "exception": "This query might have to evaluate the empty path, which is currently not supported. In file \"/qlever/src/engine/TransitivePathImpl.h \" at line 160",	complex_articles-recent Q100146821
+11	QWDS		    533	      	Result=P3937 	200		complex_identifiers Q100146810
+12	QWDS		    537	      	Result=P3937 	200		complex_identifiers Q100146811
+13	QWDS		    552	      	Result=P3937 	200		complex_identifiers Q100146812
+14	QWDS		    584	      	Result=P3937 	200		complex_identifiers Q100146813
+15	QWDS		    534	      	Result=P3937 	200		complex_identifiers Q100146821
+16	QWDS		  10310	      	Count= 2 	200		complex_participants Q100146810
+17	QWDS		    338	      	Result=1 	200		complex_participants Q100146811
+18	QWDS		    337	      	Count= 2 	200		complex_participants Q100146812
+19	QWDS		    334	      	Count= 7 	200		complex_participants Q100146813
+20	QWDS		    347	      	Count= 2 	200		complex_participants Q100146821

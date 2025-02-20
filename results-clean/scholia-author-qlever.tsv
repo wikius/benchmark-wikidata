@@ -1,0 +1,105 @@
+6	QLever		      2	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	author_associated-images Richard Feynman
+7	QLever		      1	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	author_associated-images Linus Pauling
+8	QLever		      1	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	author_associated-images Barack Obama
+9	QLever		      1	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	author_associated-images Isaac Newton
+10	QLever		      1	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	author_associated-images Ian R. Horrocks
+11	QLever		      2	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{?citing_workwdt:p50target:}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	author_citations-by-year Richard Feynman
+12	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{?citing_workwdt:p50target:}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	author_citations-by-year Linus Pauling
+13	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{?citing_workwdt:p50target:}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	author_citations-by-year Barack Obama
+14	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{?citing_workwdt:p50target:}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	author_citations-by-year Isaac Newton
+15	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{?citing_workwdt:p50target:}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	author_citations-by-year Ian R. Horrocks
+16	QLever		   2153	      	Count= 56 	200		author_coauthor-map Richard Feynman
+17	QLever		     48	      	Count= 72 	200		author_coauthor-map Linus Pauling
+18	QLever		     23	      	Count= 10 	200		author_coauthor-map Barack Obama
+19	QLever		     17	      	Count= 0 	200		author_coauthor-map Isaac Newton
+20	QLever		     17	      	Count= 150 	200		author_coauthor-map Ian R. Horrocks
+21	QLever		    477	      	Count= 30 	200		author_coauthors Richard Feynman
+22	QLever		     20	      	Count= 42 	200		author_coauthors Linus Pauling
+23	QLever		     12	      	Count= 2 	200		author_coauthors Barack Obama
+24	QLever		      9	      	Count= 0 	200		author_coauthors Isaac Newton
+25	QLever		      9	      	Count= 888 	200		author_coauthors Ian R. Horrocks
+26	QLever		   1042	      	Result=1939-01-01T00:00:00Z 	200		author_events Richard Feynman
+27	QLever		     11	      	Count= 0 	200		author_events Linus Pauling
+28	QLever		     12	      	Count= 63 	200		author_events Barack Obama
+29	QLever		     11	      	Count= 2 	200		author_events Isaac Newton
+30	QLever		     10	      	Count= 28 	200		author_events Ian R. Horrocks
+31	QLever		  71203	      	None 	500	    "exception": "Tried to allocate 13.1 GB, but only 9.4 GB were available. Clear the cache or allow more memory for QLever during startup",	author_list-of-publications Richard Feynman
+32	QLever		  64391	      	None 	500	    "exception": "Tried to allocate 13.1 GB, but only 9.4 GB were available. Clear the cache or allow more memory for QLever during startup",	author_list-of-publications Linus Pauling
+33	QLever		  64511	      	None 	500	    "exception": "Tried to allocate 13.1 GB, but only 9.4 GB were available. Clear the cache or allow more memory for QLever during startup",	author_list-of-publications Barack Obama
+34	QLever		  65042	      	None 	500	    "exception": "Tried to allocate 13.1 GB, but only 9.4 GB were available. Clear the cache or allow more memory for QLever during startup",	author_list-of-publications Isaac Newton
+35	QLever		  64426	      	None 	500	    "exception": "Tried to allocate 13.1 GB, but only 9.4 GB were available. Clear the cache or allow more memory for QLever during startup",	author_list-of-publications Ian R. Horrocks
+36	QLever		   9363	      	Count= 0 	200		author_list-of-retracted-articles Richard Feynman
+37	QLever		     10	      	Count= 0 	200		author_list-of-retracted-articles Linus Pauling
+38	QLever		      8	      	Count= 0 	200		author_list-of-retracted-articles Barack Obama
+39	QLever		     11	      	Count= 0 	200		author_list-of-retracted-articles Isaac Newton
+40	QLever		      9	      	Count= 0 	200		author_list-of-retracted-articles Ian R. Horrocks
+41	QLever		   1317	      	Count= 74 	200		author_most-cited-works Richard Feynman
+42	QLever		      6	      	Count= 271 	200		author_most-cited-works Linus Pauling
+43	QLever		      3	      	Count= 326 	200		author_most-cited-works Barack Obama
+44	QLever		      2	      	Count= 21 	200		author_most-cited-works Isaac Newton
+45	QLever		      3	      	Count= 141 	200		author_most-cited-works Ian R. Horrocks
+46	QLever		    139	      	Count= 500 	200		author_most-citing-authors Richard Feynman
+47	QLever		     89	      	Count= 500 	200		author_most-citing-authors Linus Pauling
+48	QLever		     26	      	Count= 251 	200		author_most-citing-authors Barack Obama
+49	QLever		      9	      	Count= 19 	200		author_most-citing-authors Isaac Newton
+50	QLever		     26	      	Count= 450 	200		author_most-citing-authors Ian R. Horrocks
+51	QLever		   6181	      	Count= 28 	200		author_other-locations Richard Feynman
+52	QLever		      8	      	Count= 44 	200		author_other-locations Linus Pauling
+53	QLever		      7	      	Count= 46 	200		author_other-locations Barack Obama
+54	QLever		      7	      	Count= 26 	200		author_other-locations Isaac Newton
+55	QLever		      7	      	Count= 12 	200		author_other-locations Ian R. Horrocks
+56	QLever		     27	      	Count= 12 	200		author_pages-per-year Richard Feynman
+57	QLever		     23	      	Count= 34 	200		author_pages-per-year Linus Pauling
+58	QLever		     19	      	Count= 6 	200		author_pages-per-year Barack Obama
+59	QLever		     14	      	Count= 5 	200		author_pages-per-year Isaac Newton
+60	QLever		     12	      	Count= 13 	200		author_pages-per-year Ian R. Horrocks
+61	QLever		  59975	      	Count= 56 	200		author_publications-per-year Richard Feynman
+62	QLever		     26	      	Count= 127 	200		author_publications-per-year Linus Pauling
+63	QLever		     18	      	Count= 18 	200		author_publications-per-year Barack Obama
+64	QLever		     15	      	Count= 17 	200		author_publications-per-year Isaac Newton
+65	QLever		     15	      	Count= 62 	200		author_publications-per-year Ian R. Horrocks
+66	QLever		     13	      	Count= 0 	200		author_retracted-articles-per-year Richard Feynman
+67	QLever		     12	      	Count= 0 	200		author_retracted-articles-per-year Linus Pauling
+68	QLever		     12	      	Count= 0 	200		author_retracted-articles-per-year Barack Obama
+69	QLever		     12	      	Count= 0 	200		author_retracted-articles-per-year Isaac Newton
+70	QLever		     12	      	Count= 0 	200		author_retracted-articles-per-year Ian R. Horrocks
+71	QLever		   3517	      	Count= 0 	200		author_review-statistics Richard Feynman
+72	QLever		      6	      	Count= 0 	200		author_review-statistics Linus Pauling
+73	QLever		      6	      	Count= 0 	200		author_review-statistics Barack Obama
+74	QLever		      5	      	Count= 0 	200		author_review-statistics Isaac Newton
+75	QLever		      5	      	Count= 0 	200		author_review-statistics Ian R. Horrocks
+76	QLever		    570	      	Count= 19 	200		author_timeline Richard Feynman
+77	QLever		     53	      	Count= 40 	200		author_timeline Linus Pauling
+78	QLever		     55	      	Count= 37 	200		author_timeline Barack Obama
+79	QLever		     51	      	Count= 11 	200		author_timeline Isaac Newton
+80	QLever		     51	      	Count= 9 	200		author_timeline Ian R. Horrocks
+81	QLever		    140	      	Count= 200 	200		author_topic-scores Richard Feynman
+82	QLever		    117	      	Count= 200 	200		author_topic-scores Linus Pauling
+83	QLever		     33	      	Count= 177 	200		author_topic-scores Barack Obama
+84	QLever		     16	      	Count= 35 	200		author_topic-scores Isaac Newton
+85	QLever		     28	      	Count= 170 	200		author_topic-scores Ian R. Horrocks
+86	QLever		    184	      	Count= 30 	200		author_topics-works-matrix Richard Feynman
+87	QLever		      4	      	Count= 124 	200		author_topics-works-matrix Linus Pauling
+88	QLever		      3	      	Count= 80 	200		author_topics-works-matrix Barack Obama
+89	QLever		      3	      	Count= 12 	200		author_topics-works-matrix Isaac Newton
+90	QLever		      3	      	Count= 103 	200		author_topics-works-matrix Ian R. Horrocks
+91	QLever		    755	      	Count= 19 	200		author_topics Richard Feynman
+92	QLever		    751	      	Count= 73 	200		author_topics Linus Pauling
+93	QLever		    745	      	Count= 69 	200		author_topics Barack Obama
+94	QLever		    765	      	Count= 12 	200		author_topics Isaac Newton
+95	QLever		    764	      	Count= 31 	200		author_topics Ian R. Horrocks
+96	QLever		     13	      	Count= 0 	200		author_use Richard Feynman
+97	QLever		      4	      	Count= 0 	200		author_use Linus Pauling
+98	QLever		      3	      	Count= 0 	200		author_use Barack Obama
+99	QLever		      3	      	Count= 0 	200		author_use Isaac Newton
+100	QLever		      3	      	Count= 0 	200		author_use Ian R. Horrocks
+101	QLever		      3	      	Count= 15 	200		author_venue-statistics-chart Richard Feynman
+102	QLever		      3	      	Count= 62 	200		author_venue-statistics-chart Linus Pauling
+103	QLever		      3	      	Count= 13 	200		author_venue-statistics-chart Barack Obama
+104	QLever		      3	      	Result=1 	200		author_venue-statistics-chart Isaac Newton
+105	QLever		      3	      	Count= 53 	200		author_venue-statistics-chart Ian R. Horrocks
+106	QLever		      4	      	Count= 15 	200		author_venue-statistics Richard Feynman
+107	QLever		      4	      	Count= 62 	200		author_venue-statistics Linus Pauling
+108	QLever		      3	      	Count= 13 	200		author_venue-statistics Barack Obama
+109	QLever		      3	      	Result=1 	200		author_venue-statistics Isaac Newton
+110	QLever		      3	      	Count= 53 	200		author_venue-statistics Ian R. Horrocks

@@ -1,0 +1,86 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX cc: <http://creativecommons.org/ns#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX pqn: <http://www.wikidata.org/prop/qualifier/value-normalized/>
+PREFIX pqv: <http://www.wikidata.org/prop/qualifier/value/>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX prn: <http://www.wikidata.org/prop/reference/value-normalized/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX prv: <http://www.wikidata.org/prop/reference/value/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX psn: <http://www.wikidata.org/prop/statement/value-normalized/>
+PREFIX psv: <http://www.wikidata.org/prop/statement/value/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdata: <http://www.wikidata.org/wiki/Special:EntityData/>
+PREFIX wdno: <http://www.wikidata.org/prop/novalue/>
+PREFIX wdref: <http://www.wikidata.org/reference/>
+PREFIX wds: <http://www.wikidata.org/entity/statement/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wdtn: <http://www.wikidata.org/prop/direct-normalized/>
+PREFIX wdv: <http://www.wikidata.org/value/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX gas: <http://www.bigdata.com/rdf/gas#>
+
+#defaultView:Graph
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+
+SELECT
+  ?child ?childLabel
+  ?rgb 
+  ?parent ?parentLabel
+WHERE {
+  {
+  SELECT ?child ?rgb ?parent WHERE {
+    { 
+      # Parent taxa
+      SELECT ?child ?rgb ?parent  WHERE {
+        SERVICE gas:service {
+          gas:program gas:gasClass "com.bigdata.rdf.graph.analytics.BFS" ;
+                  gas:in target: ;
+                  # We should not do undirected here because this could result
+                  # in very big graphs.
+                  gas:traversalDirection "Forward" ;
+                  gas:out ?child ;
+                  gas:out1 ?depth ;
+                  gas:out2 ?parent1 ;
+                  gas:linkType wdt:P171 ;
+        }
+        ?child wdt:P171 ?parent .
+        BIND(IF(?child = target:, "FF0000", "FFFFFF") AS ?rgb)
+      }
+    }
+    UNION 
+    {
+      # Child taxa
+      SELECT ?child ?rgb ?parent WHERE {
+        BIND(target: AS ?parent)
+        ?child wdt:P171 ?parent . 
+        BIND("DDDDDD" AS ?rgb)
+      }
+      LIMIT 100
+    }
+  }
+}          
+  ?child rdfs:label ?child_label . FILTER(LANG(?child_label) = 'en')
+  ?parent rdfs:label ?parent_label . FILTER(LANG(?parent_label) = 'en')
+  OPTIONAL {
+    ?child wdt:P105 / rdfs:label ?child_rank_label . FILTER (LANG(?child_rank_label) = 'en')
+  }
+  OPTIONAL {
+    ?parent wdt:P105 / rdfs:label ?parent_rank_label . FILTER (LANG(?parent_rank_label) = 'en')
+  }
+  BIND(CONCAT(?child_label, " - ", COALESCE(?child_rank_label, "???")) AS ?childLabel)
+  BIND(CONCAT(?parent_label, " - ", COALESCE(?parent_rank_label, "???")) AS ?parentLabel)
+
+}

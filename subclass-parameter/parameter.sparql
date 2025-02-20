@@ -1,4 +1,0 @@
-SELECT DISTINCT ?c ?cLabel (COUNT (?s) AS ?count) WHERE {
-  ?s wdt:P279+ ?c .
-  OPTIONAL { ?c rdfs:label ?cLabel . FILTER ( lang(?cLabel) = 'en' ) }
-} GROUP BY ?c ?cLabel HAVING (COUNT(DISTINCT ?s) > 100000) ORDER BY ?count

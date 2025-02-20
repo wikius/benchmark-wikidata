@@ -1,0 +1,50 @@
+1	Blazegraph		    201	      	Count= 2 	200		chemical_biological-processes Q100146813
+2	Blazegraph		     46	      	Result=Q100156056 	200		chemical_biological-processes Q100146817
+3	Blazegraph		     37	      	Count= 3 	200		chemical_biological-processes Q100146821
+4	Blazegraph		     36	      	Count= 2 	200		chemical_biological-processes Q100146822
+5	Blazegraph		     38	      	Count= 2 	200		chemical_biological-processes Q100146823
+6	Blazegraph		     58	      	Count= 0 	200		chemical_found-in-matrix-np Q100146813
+7	Blazegraph		     50	      	Count= 0 	200		chemical_found-in-matrix-np Q100146817
+8	Blazegraph		     49	      	Count= 0 	200		chemical_found-in-matrix-np Q100146821
+9	Blazegraph		     49	      	Count= 0 	200		chemical_found-in-matrix-np Q100146822
+10	Blazegraph		     52	      	Count= 0 	200		chemical_found-in-matrix-np Q100146823
+11	Blazegraph		     75	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146813
+12	Blazegraph		     43	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146817
+13	Blazegraph		     40	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146821
+14	Blazegraph		     40	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146822
+15	Blazegraph		     43	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146823
+16	Blazegraph		     74	      	Count= 0 	200		chemical_identifiers Q100146813
+17	Blazegraph		     85	      	Count= 0 	200		chemical_identifiers Q100146817
+18	Blazegraph		     76	      	Count= 0 	200		chemical_identifiers Q100146821
+19	Blazegraph		     53	      	Count= 0 	200		chemical_identifiers Q100146822
+20	Blazegraph		     56	      	Count= 0 	200		chemical_identifiers Q100146823
+21	Blazegraph		     59	      	Count= 0 	200		chemical_physchem-properties Q100146813
+22	Blazegraph		     40	      	Count= 0 	200		chemical_physchem-properties Q100146817
+23	Blazegraph		     39	      	Count= 0 	200		chemical_physchem-properties Q100146821
+24	Blazegraph		     36	      	Count= 0 	200		chemical_physchem-properties Q100146822
+25	Blazegraph		     42	      	Count= 0 	200		chemical_physchem-properties Q100146823
+26	Blazegraph		    389	      	Result=2017 	200		chemical_publications-per-year Q100146813
+27	Blazegraph		    411	      	Count= 3 	200		chemical_publications-per-year Q100146817
+28	Blazegraph		    346	      	Count= 2 	200		chemical_publications-per-year Q100146821
+29	Blazegraph		    284	      	Result=2017 	200		chemical_publications-per-year Q100146822
+30	Blazegraph		    295	      	Result=2017 	200		chemical_publications-per-year Q100146823
+31	Blazegraph		 600025	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical_recent-literature Q100146813
+32	Blazegraph		 600024	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical_recent-literature Q100146817
+33	Blazegraph		 600026	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical_recent-literature Q100146821
+34	Blazegraph		 600025	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical_recent-literature Q100146822
+35	Blazegraph		 600022	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical_recent-literature Q100146823
+36	Blazegraph		   2212	      	Count= 0 	200		chemical_related Q100146813
+37	Blazegraph		   1953	      	Count= 0 	200		chemical_related Q100146817
+38	Blazegraph		   2338	      	Count= 0 	200		chemical_related Q100146821
+39	Blazegraph		   2417	      	Count= 0 	200		chemical_related Q100146822
+40	Blazegraph		   2499	      	Count= 0 	200		chemical_related Q100146823
+41	Blazegraph		     47	      	Count= 0 	200		chemical_relates Q100146813
+42	Blazegraph		     27	      	Count= 0 	200		chemical_relates Q100146817
+43	Blazegraph		     27	      	Count= 0 	200		chemical_relates Q100146821
+44	Blazegraph		     29	      	Count= 0 	200		chemical_relates Q100146822
+45	Blazegraph		     29	      	Count= 0 	200		chemical_relates Q100146823
+46	Blazegraph		     43	      	Count= 0 	200		chemical_structural-identifiers Q100146813
+47	Blazegraph		     42	      	Count= 0 	200		chemical_structural-identifiers Q100146817
+48	Blazegraph		     35	      	Count= 0 	200		chemical_structural-identifiers Q100146821
+49	Blazegraph		     38	      	Count= 0 	200		chemical_structural-identifiers Q100146822
+50	Blazegraph		     39	      	Count= 0 	200		chemical_structural-identifiers Q100146823

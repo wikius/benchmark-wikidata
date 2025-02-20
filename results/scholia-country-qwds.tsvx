@@ -1,0 +1,25 @@
+1	QWDS		  17428	      	None 	500	    "exception": "Tried to allocate 6.6 GB, but only 2.1 GB were available. Clear the cache or allow more memory for QLever during startup",	country_authors Q1000
+2	QWDS		  17204	      	None 	500	    "exception": "Tried to allocate 6.6 GB, but only 2.2 GB were available. Clear the cache or allow more memory for QLever during startup",	country_authors Q1005
+3	QWDS		  16369	      	None 	500	    "exception": "Tried to allocate 6.6 GB, but only 2.2 GB were available. Clear the cache or allow more memory for QLever during startup",	country_authors Q1006
+4	QWDS		  44037	      	None 	500	    "exception": "Tried to allocate 1.6 GB, but only 970.1 MB were available. Clear the cache or allow more memory for QLever during startup",	country_authors Q1007
+5	QWDS		  17016	      	None 	500	    "exception": "Tried to allocate 6.6 GB, but only 2.2 GB were available. Clear the cache or allow more memory for QLever during startup",	country_authors Q1008
+6	QWDS		   1041	      	Count= 0 	200		country_co-organizations Q1000
+7	QWDS		    429	      	Count= 0 	200		country_co-organizations Q1005
+8	QWDS		    418	      	Count= 0 	200		country_co-organizations Q1006
+9	QWDS		    394	      	Count= 0 	200		country_co-organizations Q1007
+10	QWDS		    401	      	Count= 0 	200		country_co-organizations Q1008
+11	QWDS		  14724	      	Count= 1461 	200		country_locations-as-topics Q1000
+12	QWDS		    770	      	Count= 4161 	200		country_locations-as-topics Q1005
+13	QWDS		    508	      	Count= 558 	200		country_locations-as-topics Q1006
+14	QWDS		    637	      	Count= 1249 	200		country_locations-as-topics Q1007
+15	QWDS		    902	      	Count= 2727 	200		country_locations-as-topics Q1008
+16	QWDS		    331	      	Count= 6 	200		country_narrative-locations Q1000
+17	QWDS		    335	      	Count= 6 	200		country_narrative-locations Q1005
+18	QWDS		    334	      	Count= 6 	200		country_narrative-locations Q1006
+19	QWDS		    334	      	Count= 4 	200		country_narrative-locations Q1007
+20	QWDS		    346	      	Count= 24 	200		country_narrative-locations Q1008
+21	QWDS		    685	      	Count= 12 	200		country_organizations Q1000
+22	QWDS		    352	      	Count= 9 	200		country_organizations Q1005
+23	QWDS		    347	      	Count= 7 	200		country_organizations Q1006
+24	QWDS		    345	      	Count= 6 	200		country_organizations Q1007
+25	QWDS		    354	      	Count= 33 	200		country_organizations Q1008

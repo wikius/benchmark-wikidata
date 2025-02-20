@@ -13,3 +13,5 @@ The queries are organized into groupings, each in its on subdirectory:
   bottom  queries that determine minimum class order based on instance chains
   split	  queries that find pairs where the first is both an instance and a subclasses of the second
   misc	  other queries
+
+queries.tsv in this directory combines queries.tsv in each of the subdirectorie

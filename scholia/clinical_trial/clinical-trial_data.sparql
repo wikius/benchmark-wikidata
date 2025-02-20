@@ -1,0 +1,125 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX cc: <http://creativecommons.org/ns#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX pqn: <http://www.wikidata.org/prop/qualifier/value-normalized/>
+PREFIX pqv: <http://www.wikidata.org/prop/qualifier/value/>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX prn: <http://www.wikidata.org/prop/reference/value-normalized/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX prv: <http://www.wikidata.org/prop/reference/value/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX psn: <http://www.wikidata.org/prop/statement/value-normalized/>
+PREFIX psv: <http://www.wikidata.org/prop/statement/value/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdata: <http://www.wikidata.org/wiki/Special:EntityData/>
+PREFIX wdno: <http://www.wikidata.org/prop/novalue/>
+PREFIX wdref: <http://www.wikidata.org/reference/>
+PREFIX wds: <http://www.wikidata.org/entity/statement/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wdtn: <http://www.wikidata.org/prop/direct-normalized/>
+PREFIX wdv: <http://www.wikidata.org/value/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+
+SELECT ?description ?value ?valueUrl
+WHERE {
+  BIND(target: AS ?trial)
+  {
+    BIND(1 AS ?order)
+    BIND("Title" AS ?description)
+    ?trial wdt:P1476 ?value .
+  }
+  UNION
+  {
+    BIND(10 AS ?order)
+    BIND("Number of participants" AS ?description)
+    ?trial wdt:P1132 ?value .
+  }
+  UNION
+  {
+    BIND(11 AS ?order)
+    BIND("Clinical trial phase" AS ?description)
+    ?trial wdt:P6099 ?iri .
+
+    BIND(SUBSTR(STR(?iri), 32) AS ?q) 
+    ?iri rdfs:label ?value_string . 
+    FILTER (LANG(?value_string) = 'en')
+    BIND(COALESCE(?value_string, ?q) AS ?value)
+    BIND(CONCAT("../topic/", ?q) AS ?valueUrl)
+  }
+  UNION
+  {
+    BIND(12 AS ?order)
+    BIND("Medical condition" AS ?description)
+    ?trial wdt:P1050 ?iri .
+
+    BIND(SUBSTR(STR(?iri), 32) AS ?q) 
+    ?iri rdfs:label ?value_string . 
+    FILTER (LANG(?value_string) = 'en')
+    BIND(COALESCE(?value_string, ?q) AS ?value)
+    BIND(CONCAT("../disease/", ?q) AS ?valueUrl)
+  }
+  UNION
+  {
+    BIND(13 AS ?order)
+    BIND("Research intervention" AS ?description)
+    ?trial wdt:P4844 ?iri .
+
+    BIND(SUBSTR(STR(?iri), 32) AS ?q) 
+    ?iri rdfs:label ?value_string . 
+    FILTER (LANG(?value_string) = 'en')
+    BIND(COALESCE(?value_string, ?q) AS ?value)
+    BIND(CONCAT("../topic/", ?q) AS ?valueUrl)
+  }
+  UNION
+  {
+    BIND(20 AS ?order)
+    BIND("Sponsor" AS ?description)
+    ?trial wdt:P859 ?iri .
+
+    BIND(SUBSTR(STR(?iri), 32) AS ?q) 
+    ?iri rdfs:label ?value_string . 
+    FILTER (LANG(?value_string) = 'en')
+    BIND(COALESCE(?value_string, ?q) AS ?value)
+    BIND(CONCAT("../sponsor/", ?q) AS ?valueUrl)
+  }
+
+  UNION
+  {
+    BIND(100 AS ?order)
+    BIND("ClinicalTrials.gov" AS ?description)
+    ?trial wdt:P3098 ?value_ .
+    BIND(CONCAT(?value_, " ↗") AS ?value)
+    BIND(CONCAT("https://clinicaltrials.gov/show/", ?value_) AS ?valueUrl)
+  }
+
+  UNION
+  {
+    BIND(101 AS ?order)
+    BIND("ClinWiki" AS ?description)
+    ?trial wdt:P3098 ?value_ .
+    BIND(CONCAT(?value_, " ↗") AS ?value)
+    BIND(CONCAT("https://www.clinwiki.org/study/", ?value_) AS ?valueUrl)
+  }
+
+  UNION
+  {
+    BIND(103 AS ?order)
+    BIND("OpenTrials" AS ?description)
+    ?trial wdt:P6220 ?value_ .
+    BIND(CONCAT(?value_, " ↗") AS ?value)
+    BIND(CONCAT("https://explorer.opentrials.net/trials/", ?value_) AS ?valueUrl)
+  }
+
+} 
+ORDER BY ?order

@@ -1,0 +1,9 @@
+SELECT DISTINCT ?c WHERE { 
+  ?c wdt:P31/wdt:P279* wd:Q7397 .
+
+    ?work (wdt:P2283 | wdt:P4510) / wdt:P279* ?c ;
+          wdt:P50 ?author .
+    ?software wdt:P1547+ ?c .
+
+} 
+LIMIT 5

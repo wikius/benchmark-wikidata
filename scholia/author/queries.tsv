@@ -1,0 +1,23 @@
+# Authors
+author_academic-tree	author_academic-tree LABEL	VALUES	author
+author_associated-images	author_associated-images LABEL	VALUES	author
+author_citations-by-year	author_citations-by-year LABEL	VALUES	author
+author_coauthor-map	author_coauthor-map LABEL	VALUES	author
+author_coauthors	author_coauthors LABEL	VALUES	author
+author_events	author_events LABEL	VALUES	author
+author_list-of-publications	author_list-of-publications LABEL	VALUES	author
+author_list-of-retracted-articles	author_list-of-retracted-articles LABEL	VALUES	author
+author_most-cited-works	author_most-cited-works LABEL	VALUES	author
+author_most-citing-authors	author_most-citing-authors LABEL	VALUES	author
+author_other-locations	author_other-locations LABEL	VALUES	author
+author_pages-per-year	author_pages-per-year LABEL	VALUES	author
+author_publications-per-year	author_publications-per-year LABEL	VALUES	author
+author_retracted-articles-per-year	author_retracted-articles-per-year LABEL	VALUES	author
+author_review-statistics	author_review-statistics LABEL	VALUES	author
+author_timeline	author_timeline LABEL	VALUES	author
+author_topic-scores	author_topic-scores LABEL	VALUES	author
+author_topics-works-matrix	author_topics-works-matrix LABEL	VALUES	author
+author_topics	author_topics LABEL	VALUES	author
+author_use	author_use LABEL	VALUES	author
+author_venue-statistics-chart	author_venue-statistics-chart LABEL	VALUES	author
+author_venue-statistics	author_venue-statistics LABEL	VALUES	author

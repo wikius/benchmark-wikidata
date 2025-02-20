@@ -1,0 +1,70 @@
+1	MilleniumDB		      8	      	Result=Q24027515 	200		All sixth-order classes
+2	MilleniumDB		      3	      	Result=Q24027474 	200		Roots of fifth-order classes
+3	MilleniumDB		      2	      	Result=Q24027474 	200		All fifth-order classes
+4	MilleniumDB		      4	      	Result=Q24017465 	200		Roots of fourth-order classes
+5	MilleniumDB		      2	      	Result=Q24017465 	200		All fourth-order classes
+6	MilleniumDB		     21	      	Count= 36 	200		Roots of third-order classes
+7	MilleniumDB		    499	      	Count= 3565 	200		All third-order classes
+8	MilleniumDB		  14123	      	Count= 217189 	200		Roots of second-order classes
+9	MilleniumDB		 193267	      	Count= 2418598 	200		All second-order classes
+10	MilleniumDB		 402155	      	Count= 8899014 	200		Roots of first-order classes
+11	MilleniumDB		 600811	      	Count= 3 	200		All first-order classes, using a subquery to cut down on memory usage in older versions of QLever
+12	MilleniumDB		 600166	      	Count= 10949905 	200		All first-order classes
+13	MilleniumDB		 600070	      	None 	200	ERROR EMPTY OUTPUT	Instance loops with one instance link and subclass, not currently handled by QLever
+14	MilleniumDB		 600032	      	None 	200	ERROR EMPTY OUTPUT	Instance loops with one instance link and non-empty subclass
+15	MilleniumDB		 600031	      	Count= 0 	200		Instance loops with one instance link and non-empty subclass (no labels)
+16	MilleniumDB		 600033	      	Count= 0 	200		Instance loops with one instance link and non-empty subclass (no labels), using filter to check out speed difference
+17	MilleniumDB		 600036	      	None 	200	ERROR EMPTY OUTPUT	Instance loops with one instance link and subclass, using union to be acceptable to QLever
+18	MilleniumDB		 600030	      	None 	200	ERROR EMPTY OUTPUT	Instance loops with one instance link and subclass, using filter and union to get around a bug in old versions of QLever
+19	MilleniumDB		 600031	      	None 	200	ERROR EMPTY OUTPUT	Instance loops with one instance link and subclass, as above but using a subquery for potential speed improvement
+20	MilleniumDB		 600030	      	None 	200	ERROR EMPTY OUTPUT	Instance loops with one instance link and subclass, using filter to be acceptable to QLever
+21	MilleniumDB		 600031	      	None 	200	ERROR EMPTY OUTPUT	Instance loops with one instance link and subclass, as above but using a subquery for potential speed improvement
+22	MilleniumDB		    775	      	Count= 10 	200		Instance loops with two instance links
+23	MilleniumDB		 600255	      	None 	200	ERROR EMPTY OUTPUT	Instance loops with two instance links and subclass
+24	MilleniumDB		 601414	      	None 	200	ERROR EMPTY OUTPUT	Instance loops with two instance links and subclass, using a subquery
+25	MilleniumDB		 600648	      	None 	200	ERROR EMPTY OUTPUT	Instance loops with two instance links and subclass, no super
+26	MilleniumDB		 600030	      	Count= 49 	200		First-order classes based on instance
+27	MilleniumDB		 600030	      	Count= 15786 	200		First-order classes based on all evidence
+28	MilleniumDB		 600032	      	None 	200	ERROR EMPTY OUTPUT	Second-order classes based on instance
+29	MilleniumDB		 600046	      	None 	200	ERROR EMPTY OUTPUT	Second-order classes based on all evidence
+30	MilleniumDB		 600017	      	None 	200	ERROR EMPTY OUTPUT	Third-order classes based on instance
+31	MilleniumDB		 600052	      	None 	200	ERROR EMPTY OUTPUT	Third-order classes based on all evidence
+32	MilleniumDB		 600017	      	None 	200	ERROR EMPTY OUTPUT	Fourth-order classes based on instance
+33	MilleniumDB		 600049	      	None 	200	ERROR EMPTY OUTPUT	Fourth-order classes based on all evidence
+34	MilleniumDB		 600016	      	None 	200	ERROR EMPTY OUTPUT	Fifth-order classes based on instance
+35	MilleniumDB		 600048	      	None 	200	ERROR EMPTY OUTPUT	Fifth-order classes based on all evidence
+36	MilleniumDB		 600015	      	None 	200	ERROR EMPTY OUTPUT	Sixth-order classes based on instance
+37	MilleniumDB		 600045	      	None 	200	ERROR EMPTY OUTPUT	Sixth-order classes based on all evidence
+38	MilleniumDB		 600035	      	Count= 0 	200		Split-order classes (without exclusion)
+39	MilleniumDB		 600005	      	Count= 0 	200		Split-order classes case self (without exclusion)
+40	MilleniumDB		 600031	      	Count= 4 	200		Split-order classes case self using union (without exclusion)
+41	MilleniumDB		 600026	      	Count= 4 	200		Split-order classes case self using union and filter (without exclusion)
+42	MilleniumDB		 600030	      	None 	200	ERROR EMPTY OUTPUT	Split-order classes (purpose unknown)
+43	MilleniumDB		 600031	      	Count= 1418 	200		Split-order classes case other (without exclusion)
+44	MilleniumDB		 600027	      	Count= 0 	200		Split-order classes case other (with exclusion)
+45	MilleniumDB		 600146	      	Count= 9114359 	200		Split-order classes subcase AB (partial, without exclusion)
+46	MilleniumDB		 600656	      	Count= 4339 	200		Split-order classes subcase AB (without exclusion)
+47	MilleniumDB		 600028	      	Count= 2990 	200		Split-order classes subcase AB exclusion
+48	MilleniumDB		 600032	      	Count= 4778 	200		Split-order classes subcase C (without exclusion)
+49	MilleniumDB		 600027	      	Count= 4768 	200		Split-order classes subcase C including labels (without exclusion)
+50	MilleniumDB		 600033	      	Count= 17801 	200		Split-order classes subcase C exclusion
+51	MilleniumDB		 600028	      	Count= 11 	200		Split-order classes subcase C exclusion part 1
+52	MilleniumDB		 600035	      	None 	200	ERROR EMPTY OUTPUT	Split-order classes subcase C exclusion part 1 (optimized)
+53	MilleniumDB		 600035	      	None 	200	ERROR EMPTY OUTPUT	Split-order classes subcase C exclusion part 2
+54	MilleniumDB		 600033	      	Count= 4341 	200		Split-order classes subcase D test (without exclusion)
+55	MilleniumDB		 600519	      	Count= 29497373 	200		Split-order classes subcase D partial (without exclusion)
+56	MilleniumDB		 601026	      	Count= 0 	200		Split-order classes subcase D partial (without exclusion)
+57	MilleniumDB		 601410	      	Count= 29497373 	200		Split-order classes subcase D partial (without exclusion)
+58	MilleniumDB		 600984	      	None 	200	ERROR EMPTY OUTPUT	Split-order classes subcase D (without exclusion)
+59	MilleniumDB		 600031	      	None 	200	ERROR EMPTY OUTPUT	Split-order classes subcase D exclusion 1
+60	MilleniumDB		 601022	      	None 	200	ERROR EMPTY OUTPUT	Split-order classes subcase D exclusion 2
+61	MilleniumDB		 600043	      	None 	200	ERROR EMPTY OUTPUT	Split-order classes subcase D exclusion 3
+62	MilleniumDB		 601509	      	None 	200	ERROR EMPTY OUTPUT	Split-order classes subcase D exclusion 4 test
+63	MilleniumDB		 600547	      	None 	200	ERROR EMPTY OUTPUT	Split-order classes subcase D exclusion 4
+64	MilleniumDB		 600038	      	Count= 0 	200		Split-order extra query
+65	MilleniumDB		 600054	      	None 	200	ERROR EMPTY OUTPUT	Split-order extra query
+66	MilleniumDB		 159417	      	Count= 17757714 	200		All instances of class (Q16889133)
+67	MilleniumDB		 177279	      	Count= 173 	200		Counts of instances of class (Q16889133) by direct subclass
+68	MilleniumDB		   2013	      	Count= 14 	200		Instances of human (Q5) that are classes
+69	MilleniumDB		 600174	      	Count= 17 	200		Class orders of classes in is metaclass for (P8225) relationships
+70	MilleniumDB		 598864	      	Count= 26 	200		Class orders of classes in metasubclass (P2445) relationships

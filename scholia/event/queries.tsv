@@ -1,0 +1,15 @@
+event_co-authors	event_co-authors LABEL	QUERY	event
+event_data	event_data LABEL	QUERY	event
+event_future-events	event_future-events LABEL	QUERY	event
+event_past-events	event_past-events LABEL	QUERY	event
+event_people	event_people LABEL	QUERY	event
+event_presentations	event_presentations LABEL	QUERY	event
+event_proceedings	event_proceedings LABEL	QUERY	event
+event_recent-publications	event_recent-publications LABEL	QUERY	event
+event_related-events-people	event_related-events-people LABEL	QUERY	event
+event_related-events-timelocation	event_related-events-timelocation LABEL	QUERY	event
+event_sponsors	event_sponsors LABEL	QUERY	event
+event_timeline	event_timeline LABEL	QUERY	event
+event_topic-scores	event_topic-scores LABEL	QUERY	event
+event_upcoming-deadlines	event_upcoming-deadlines LABEL	QUERY	event
+event_uses	event_uses LABEL	QUERY	event

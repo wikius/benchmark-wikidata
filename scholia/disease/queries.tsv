@@ -1,0 +1,3 @@
+disease_clinical-trials	disease_clinical-trials LABEL	QUERY	disease
+disease_publications-per-year	disease_publications-per-year LABEL	QUERY	disease
+disease_related-diseases	disease_related-diseases LABEL	QUERY	disease

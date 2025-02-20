@@ -1,0 +1,100 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX cc: <http://creativecommons.org/ns#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX pqn: <http://www.wikidata.org/prop/qualifier/value-normalized/>
+PREFIX pqv: <http://www.wikidata.org/prop/qualifier/value/>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX prn: <http://www.wikidata.org/prop/reference/value-normalized/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX prv: <http://www.wikidata.org/prop/reference/value/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX psn: <http://www.wikidata.org/prop/statement/value-normalized/>
+PREFIX psv: <http://www.wikidata.org/prop/statement/value/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdata: <http://www.wikidata.org/wiki/Special:EntityData/>
+PREFIX wdno: <http://www.wikidata.org/prop/novalue/>
+PREFIX wdref: <http://www.wikidata.org/reference/>
+PREFIX wds: <http://www.wikidata.org/entity/statement/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wdtn: <http://www.wikidata.org/prop/direct-normalized/>
+PREFIX wdv: <http://www.wikidata.org/value/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+
+SELECT
+  ?number_of_roles
+  # (?number_of_publications AS ?works)
+  ?person ?personLabel ?personDescription
+  (CONCAT("/author/", SUBSTR(STR(?person), 32)) AS ?personUrl)
+  ?roles
+  ?example_work ?example_workLabel
+ 
+WHERE {
+  {
+  SELECT
+    ?number_of_roles
+    # (COUNT(?work) AS ?number_of_publications)
+    ?roles
+    ?person (SAMPLE(?work) AS ?example_work)
+  WHERE {
+    {
+  SELECT
+    (COUNT(?role) AS ?number_of_roles)
+    (GROUP_CONCAT(DISTINCT ?role; separator=", ") AS ?roles) ?person
+  WHERE {
+    {
+      # speaker
+      target: ^wdt:P179 / wdt:P823 ?person .
+      BIND("speaker" AS ?role)
+    }
+    UNION
+    {
+      # organizer
+      target: ^wdt:P179 / wdt:P664 ?person .
+      BIND("organizer" AS ?role)
+    }
+    UNION
+    {
+      # participant
+      ?person (wdt:P1344 | ^wdt:P710) / wdt:P179 target: .
+      BIND("participant" AS ?role)
+    }
+    UNION
+    {
+      # editor
+      ?person (^wdt:P98 / wdt:P4745) / wdt:P179 target: .
+      BIND("editor of proceedings" AS ?role)
+    }
+    UNION
+    {
+      # author
+      ?person (^wdt:P50 / wdt:P1433 / wdt:P4745) / wdt:P179 target: .
+      BIND("author" AS ?role)
+    }
+    UNION
+    {
+      # program committee member
+      target: ^wdt:P179 / wdt:P5804 ?person .
+      BIND("program committee member" AS ?role)
+    }
+  }
+  GROUP BY ?person
+}
+    OPTIONAL { ?work wdt:P50 ?person . }
+  }
+  GROUP BY ?number_of_roles ?roles ?person
+} OPTIONAL { ?person rdfs:label ?personLabel .  FILTER ( lang(?personLabel) = 'en' ) }
+  OPTIONAL { ?example_work rdfs:label ?example_workLabel .  FILTER ( lang(?example_workLabel) = 'en' ) }
+}
+ORDER BY DESC(?number_of_roles)
+LIMIT 500
