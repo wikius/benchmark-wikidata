@@ -11,8 +11,8 @@ parameterized based on values in another file or on the results of a query.
 The statistics program outputs for each engine the number of queries run and
 in milliseconds the minimum, first quartile, second quartile (median), third
 quartile, maximum, mean, and mean with all times capped at 60 seconds.
-It also outputs the number of wrong results, which are then broken down into
-timeouts, errors, and divergences from the single mode.
+It also outputs the number of timeouts, errors, and divergences from the single mode.
+The 'wrong' column, if present, is the total of these.
 
 Along with timings and error statistics the statistics program can show the
 results on each query where was disagreement between the engines.  Each line
@@ -21,16 +21,20 @@ different non-error answer extracts; the single mode of the answer abstracts
 if there is one; and entries for each engine.  An answer extract 'Result='
 shows the value of the first variable if there is only one result; 'Count='
 shows the number of results otherwise.  An engine entry has the elapsed time
-in milliseconds, if timings were requested; a flag, which is '!' if an error
-was detected, '*' if the non-error answer extract differs from the mode, and
-' ' otherwise; and the answer abstract.
+in milliseconds, if timings were requested; a flag, which is '!' or '+' if
+an error was detected, '*' if the non-error answer extract differs from the
+mode, and ' ' otherwise; and the answer abstract.
 
 In some cases this output has been manually marked up with the reason for
 the difference.  This was sometimes done by running the query against the
 Wikidata services of the various engines and examining the results.
 
-Most of the information here is also available in reports on the benchmarking, 
+Much of the information here is available or summarized in analysis of the
+benchmarking,
 
+NOTE: Some of the actions described here were actually done in a slightly
+different way.  There should be no difference in the analyses resulting from
+this.
 
 1/ hernandez/			Benchmark from Querying wikidata: Comparing sparql, relational and graph databases
 	Not currently being done
@@ -109,6 +113,7 @@ MilleniumDB         280      1      1      3    135  29631    770    770     0  
 QLever              280      2      3      7    136  44364    769    769     5     0     0     5
 Virtuoso            280      1      8    122   2016  48371   1725   1725    51     0     0    51
 Number of queries with different non-error, non-suspect results:  25
+	./stats.py -e results/single_bgps-norm-*.tsv
 	Different output for GeoSPARQL points causes some differences between outputs.
 	Some QLever and probably one Virtuoso divergences are due to treatment of numbers.
 	Blazegraph does not load schema.org/name or skos:prefLabel triples, resulting in some divergences.
@@ -153,6 +158,12 @@ Number of queries with different non-error, non-suspect results:  19
 	./benchmark.py --engine=MilleniumDB wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-norm-milleniumdb.tsv
 	./benchmark.py --engine=QLever wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-norm-qlever.tsv
 	./benchmark.py --engine=Virtuoso wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-norm-virtuoso.tsv
+	./stats.py -e results/multiple_bgps-norm-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          681     11   1150   6823   9471 600000  17602   9302    10     0    10     0
+MilleniumDB         681      1    161   3272   6295 485873   5069   4395     0     0     0     0
+QLever              681      2    168   4142   7106 600000  11060   5283     9     3     3     3
+Virtuoso            681      1   1136   3959   6420 600000  66675   9932   460     4    67   389
 	./stats.py -v results/multiple_bgps-norm-*.tsv
 ROW* 144 None             Blazegraph  Count= 5453899   MilleniumDB  Count= 5453900   QLever  Count= 5453602   Virtuoso  Count= 1048576   GeoSPARQL
 ROW* 166 Count= 7415      Blazegraph  Count= 7415      MilleniumDB  Count= 7415      QLever* Count= 7414      Virtuoso  Count= 7415      GeoSPARQL
@@ -165,7 +176,7 @@ ROW* 585 Count= 1681986   Blazegraph  Count= 1681986   MilleniumDB  Count= 16819
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
 Blazegraph          681     11   1150   6823   9471 176377   9653   9076    10     0    10     0
 MilleniumDB         681      1    161   3272   6295 485873   5069   4395     0     0     0     0
-QLever              681      2    168   4142   7106 600006   8619   5220     9     3     6     3
+QLever              681      2    168   4142   7106 600006   8619   5220     9     3     3     3
 Virtuoso            681      1    170   3370   5160 600684   7665   4046   460     4    71   389
 Number of queries with different non-error, non-suspect results:   8
 	Virtuoso hits its limit of 2^20 results in very many answers.  As the problems with Virtuoso affect over half of the queries, the timing information for it are not useful.
@@ -180,7 +191,13 @@ Number of queries with different non-error, non-suspect results:   8
 	./benchmark.py --count --engine=MilleniumDB wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-counted-milleniumdb.tsv
 	./benchmark.py --count --engine=QLever wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-counted-qlever.tsv
 	./benchmark.py --count --engine=Virtuoso wdbench/Queries/multiple_bgps.text | tee results/multiple_bgps-counted-virtuoso.tsv
-	./stats.py -v results/multiple_bgps-[bmv]local-counted.* results/multiple_bgps-qlocat-counted.* (with guess at cause of divergences)
+	 ./stats.py -e results/multiple_bgps-counted-*tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/COUNTED  681     19   1261  14768  18429 600000  24075  14457    16     4     7     5
+MilleniumDB/COUNTED 681      1     69    158    457 469402   1296    676     0     0     0     0
+QLever/COUNTED      681      2     33     81    112 600000   6739   1000    14     3     3     8
+Virtuoso/COUNTED    681      1     60     66    119 600000   4145    762     4     4     0     0
+	 ./stats.py -v results/multiple_bgps-counted-*tsv (with guess at cause of divergences)
 ROW* 144 Result=5453900   Blazegraph/COUNTED* Result=5453899   MilleniumDB/COUNTED  Result=5453900   QLever/COUNTED* Result=5453602   Virtuoso/COUNTED  Result=5453900   GeoSPARQL
 ROW* 166 Result=7415      Blazegraph/COUNTED  Result=7415      MilleniumDB/COUNTED  Result=7415      QLever/COUNTED* Result=7414      Virtuoso/COUNTED  Result=7415      GeoSPARQL
 ROW* 395 Result=2496939   Blazegraph/COUNTED* Result=2496932   MilleniumDB/COUNTED  Result=2496939   QLever/COUNTED* Result=2496658   Virtuoso/COUNTED  Result=2496939   GeoSPARQL
@@ -190,42 +207,135 @@ ROW* 446 Result=1657131   Blazegraph/COUNTED  Result=1657131   MilleniumDB/COUNT
 ROW* 447 Result=1580719   Blazegraph/COUNTED* Result=1580710   MilleniumDB/COUNTED  Result=1580719   QLever/COUNTED* Result=1580438   Virtuoso/COUNTED  Result=1580719   GeoSPARQL
 ROW* 585 Result=1681986   Blazegraph/COUNTED  Result=1681986   MilleniumDB/COUNTED  Result=1681986   QLever/COUNTED* Result=1681592   Virtuoso/COUNTED  Result=1681986   GeoSPARQL
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-Blazegraph/COUNTED  681     19   1261  14763  18355 600030  18111  14043    16     4    11     5
+Blazegraph/COUNTED  681     19   1261  14763  18355 600030  18111  14043    16     4     7     5
 MilleniumDB/COUNTED 681      1     69    158    457 469402   1296    676     0     0     0     0
-QLever/COUNTED      681      2     33     81    112 600005   4297    937    14     3     6     8
-Virtuoso/COUNTED    681      1     60     66    119 600722   4149    762     4     4     4     0
+QLever/COUNTED      681      2     33     81    112 600005   4297    937    14     3     3     8
+Virtuoso/COUNTED    681      1     60     66    119 600722   4149    762     4     4     0     0
 Number of queries with different non-error, non-suspect results:   8
 	AS ABOVE, except no extreme Virtuoso problems
-	Blazegraph is much slower than on the as-is queries for some unknown reason
+	Blazegraph is much slower than on the as-is queries for some unknown reason.  This occurs for several benchmarks.
 
 	./wdbench-expand.py wdbench/Queries/opts.txt 10000000
-TODO	./benchmark.py --engine=Blazegraph wdbench/Queries/opts.text | tee results/opts-norm-blazegraph.tsv
-TODO	./benchmark.py --engine=MilleniumDB wdbench/Queries/opts.text | tee results/opts-norm-milleniumdb.tsv
+	./benchmark.py --engine=Blazegraph wdbench/Queries/opts.text | tee results/opts-norm-blazegraph.tsv
+	./benchmark.py --engine=MilleniumDB wdbench/Queries/opts.text | tee results/opts-norm-milleniumdb.tsv
 	./benchmark.py --engine=QLever wdbench/Queries/opts.text | tee results/opts-norm-qlever.tsv
-TODO	./benchmark.py --engine=Virtuoso wdbench/Queries/opts.text | tee results/opts-norm-virtuoso.tsv
-TODO	./stats.py -v results/opts-norm-*.tsv
+	./benchmark.py --engine=Virtuoso wdbench/Queries/opts.text | tee results/opts-norm-virtuoso.tsv
+	./stats.py -v results/opts-norm-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          498     15   1330  12485  23734 600101  20851  15537    29     3    23     3
+MilleniumDB         498      1    876   9552  17434 601081  24772  12632    10    10     0     0
+QLever              498      1    111   2013  12821 325905  17391  12245   135     0   126     9
+Virtuoso            498      1    266   3714   6530 600705  25630   9158   346     6    51   289
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+  1* Count= 392         *Count= 346          Count= 392          Count= 392          Count= 392         
+ 51* None               +Count= 1150581      Count= 10000000     Count= 0           +Count= 32648       
+110* None                Count= 2094390      Count= 2094392      Count= 2094364      Count= 1048576     
+152* None               +Count= 662428       Count= 10000000     Count= 0           +Count= 5           
+207* Count= 672021       Count= 672021       Count= 672021      *Count= 671999       Count= 672021      
+261* Count= 1501         Count= 1501         Count= 1501        *Count= 1498         Count= 1501        
+263* Count= 670140      *Count= 670139       Count= 670140       Count= 670140       Count= 670140      
+301* Count= 4195         Count= 4195         Count= 4195        *Count= 4192         Count= 4195        
+348* Count= 568494       Count= 568494       Count= 568494      *Count= 568437       Count= 568494      
+349* Count= 1682006      Count= 1682006      Count= 1682006     *Count= 1681612     *Count= 1048576     
+357* Count= 16437        Count= 16437        Count= 16437       *Count= 16435        Count= 16437       
+359* Count= 3371503     *Count= 2847900      Count= 3371503      Count= 3371503     *Count= 1048576     
+453* Count= 557005       Count= 557005       Count= 557005      *Count= 556830       Count= 557005      
+455* Count= 550553       Count= 550553       Count= 550553      *Count= 550379       Count= 550553      
+480* Count= 13331        Count= 13331        Count= 13331       *Count= 0           +Count= 4000        
+	QLever is-fastest of the engines, but has too many errors for this result to be useful.
+	Blazegraph is second-fastest, with few errors.
+	MilleniumDB is third-fastest, but has no errors aside from timeouts.
+	Virtuoso is slowest, and diverges on over half of the queries.
+	QLever runs out of memory on about one-quarter of the queries;
+	penalizing QLever for these errors turns it into the slowest.
+	Virtuoso is the fastest of the engines, but the large number of errors makes this result not useful.
+	about half of which appear to be executing open joins.
+	The errors for Virtuoso are all due to estimated execution times being larger than the limit.
+	Virtuoso diverges on more than half of the as-is queries due to its result limit of 2^20.
+	The small number of divergences for QLever appear to be mostly from its treatment of numbers.
+	The few divergences for Blazegraph have unknown reasons.
 
-TODO	./benchmark.py --count --engine=Blazegraph wdbench/Queries/opts.text | tee results/opts-counted-blazegraph.tsv
-TODO	./benchmark.py --count --engine=MilleniumDB wdbench/Queries/opts.text | tee results/opts-counted-milleniumdb.tsv
-TODO	./benchmark.py --count --engine=QLever wdbench/Queries/opts.text | tee results/opts-counted-qlever.tsv
-TODO	./benchmark.py --count --engine=Virtuoso wdbench/Queries/opts.text | tee results/opts-counted-virtuoso.tsv
+	./benchmark.py --count --engine=Blazegraph wdbench/Queries/opts.text | tee results/opts-counted-blazegraph.tsv
+	./benchmark.py --count --engine=MilleniumDB wdbench/Queries/opts.text | tee results/opts-counted-milleniumdb.tsv
+	./benchmark.py --count --engine=QLever wdbench/Queries/opts.text | tee results/opts-counted-qlever.tsv
+	./benchmark.py --count --engine=Virtuoso wdbench/Queries/opts.text | tee results/opts-counted-virtuoso.tsv
+	./stats.py -v results/opts-counted-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/COUNTED  498     15   1951  24592  49999 600031  46248  27517   203     4   192     7
+MilleniumDB/COUNTED 498      1    300   2496   7579 600965  18330   6611    10    10     0     0
+QLever/COUNTED      498      1     51    311   5246 282894  14645   9959   138     0   127    11
+Virtuoso/COUNTED    498      1     68    312   1798 600687  31191   7671    15    14     1     0
+ROW  Mode Result            Blazegraph/COUNTED  MilleniumDB/COUNTED QLever/COUNTED      Virtuoso/COUNTED   
+  1* Result=392         *Result=346          Result=392          Result=392          Result=392         
+ 51* Result=10000000     Result=10000000     Result=10000000    *Result=0           +Count= 0           
+110* Result=2094392     *Result=2094390      Result=2094392     *Result=2094364      Result=2094392     
+115* Result=7672673     *Result=8825910      Result=7672673      Result=7672673      Result=7672673     
+116* Result=7317410     *Result=8417281      Result=7317410      Result=7317410      Result=7317410     
+207* Result=672021       Result=672021       Result=672021      *Result=671999       Result=672021      
+261* Result=1501         Result=1501         Result=1501        *Result=1498         Result=1501        
+263* Result=670140      *Result=670139       Result=670140       Result=670140       Result=670140      
+301* Result=4195         Result=4195         Result=4195        *Result=4192         Result=4195        
+326* Result=16889       *Result=17608        Result=16889        Result=16889        Result=16889       
+327* Result=17261       *Result=18300        Result=17261        Result=17261        Result=17261       
+348* Result=568494       Result=568494       Result=568494      *Result=568437       Result=568494      
+349* Result=1682006      Result=1682006      Result=1682006     *Result=1681612      Result=1682006     
+357* Result=16437        Result=16437        Result=16437       *Result=16435        Result=16437       
+453* Result=557005       Result=557005       Result=557005      *Result=556830       Result=557005      
+455* Result=550553       Result=550553       Result=550553      *Result=550379       Result=550553      
+480* Result=13331        Result=13331        Result=13331       *Result=0           +Count= 0           
+	As above.
+	Blazegraph runs out of memory often and takes more time when counting results.
+	MilleniumDB and QLever are faster when counting.
+	Virtuoso is slower, probably because it refuses far fewer queries due to excess estimated times.
+	Counting also eliminates the problem with Virtuoso only returning 2^20 results.
 
-TODO	./benchmark.py --nodups --engine=Blazegraph wdbench/Queries/opts.text | tee results/opts-nodups-blazegraph.tsv
-TODO	./benchmark.py --nodups --engine=MilleniumDB wdbench/Queries/opts.text | tee results/opts-nodups-milleniumdb.tsv
-TODO	./benchmark.py --nodups --engine=QLever wdbench/Queries/opts.text | tee results/opts-nodups-qlever.tsv
-TODO	./benchmark.py --nodups --engine=Virtuoso wdbench/Queries/opts.text | tee results/opts-nodups-virtuoso.tsv
+	./benchmark.py --nodups --engine=Blazegraph wdbench/Queries/opts.text | tee results/opts-nodups-blazegraph.tsv
+	./benchmark.py --nodups --engine=MilleniumDB wdbench/Queries/opts.text | tee results/opts-nodups-milleniumdb.tsv
+	./benchmark.py --nodups --engine=QLever wdbench/Queries/opts.text | tee results/opts-nodups-qlever.tsv
+	./benchmark.py --nodups --engine=Virtuoso wdbench/Queries/opts.text | tee results/opts-nodups-virtuoso.tsv
+	./stats.py -v results/opts-nodups-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/NODUPS   498     16   1308  15859  25763 600080  21980  17457   282     3   275     4
+MilleniumDB/NODUPS  498      2   1053  13048  20636 600940  27545  15070    10    10     0     0
+QLever/NODUPS       498      1    106   2587  25908 550051  29468  15709   142     0   133     9
+Virtuoso/NODUPS     498      1    728   4370   8121 600673  29369  10176   343     8    27   308
+ROW  Mode Result            Blazegraph/NODUPS   MilleniumDB/NODUPS  QLever/NODUPS       Virtuoso/NODUPS    
+  1* Count= 392         *Count= 346          Count= 392          Count= 392          Count= 392         
+ 51* None               +Count= 1215579      Count= 10000000     Count= 0           +Count= 33643       
+110* None               +Count= 1596320      Count= 2094392      Count= 2094364      Count= 1048576     
+152* None               +Count= 683013       Count= 10000000     Count= 0           +Count= 5           
+207* Count= 672021       Count= 672021       Count= 672021      *Count= 671999       Count= 672021      
+221* None                Count= 1442900      Count= 10000000    +None               +Count= 5           
+242* Count= 10000000    *Count= 1365900      Count= 10000000     Count= 10000000    *Count= 1048576     
+261* Count= 1501         Count= 1501         Count= 1501        *Count= 1498         Count= 1501        
+263* Count= 670140      *Count= 670139       Count= 670140       Count= 670140       Count= 670140      
+301* Count= 4195         Count= 4195         Count= 4195        *Count= 4192         Count= 4195        
+348* Count= 568494       Count= 568494       Count= 568494      *Count= 568437       Count= 568494      
+349* Count= 1682006      Count= 1682006      Count= 1682006     *Count= 1681612     *Count= 1048576     
+357* Count= 16437        Count= 16437        Count= 16437       *Count= 16435        Count= 16437       
+410* Count= 10000000    *Count= 1885300      Count= 10000000     Count= 10000000    *Count= 1048576     
+453* Count= 557005       Count= 557005       Count= 557005      *Count= 556830       Count= 557005      
+455* Count= 550553       Count= 550553       Count= 550553      *Count= 550379       Count= 550553      
+480* Count= 13331        Count= 13331        Count= 13331       *Count= 0           +Count= 4000        
+TODO analyze
 
 	./wdbench-expand.py wdbench/Queries/paths.txt 10000000
 	./benchmark.py --engine=Blazegraph wdbench/Queries/paths.text | tee results/paths-norm-blazegraph.tsv
 	./benchmark.py --engine=MilleniumDB wdbench/Queries/paths.text | tee results/paths-norm-milleniumdb.tsv
 	./benchmark.py --engine=QLever wdbench/Queries/paths.text | tee results/paths-norm-qlever.tsv
 	./benchmark.py --engine=Virtuoso wdbench/Queries/paths.text | tee results/paths-norm-virtuoso.tsv	
+	./stats.py -e results/paths-norm-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          660     11     95    256   3803 600000  38527   8665    35    12    21     2
+MilleniumDB         660      1      3     29    667 600000   8185   2729    22     4     1    17
+QLever              660      1      6     41    918 600000  27845   4011    32     0    29     3
+Virtuoso            660      0     17    219   2753 600000  49043   6690   473     2    49   422
 	./stats.py results/paths-norm-*.tsv
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-Blazegraph          660     11     95    256   3803 729483  25277   8665    35    12    33     2
-MilleniumDB         660      1      2     29    661 602220   7281   2638    22     4     5    17
+Blazegraph          660     11     95    256   3803 729483  25277   8665    35    12    21     2
+MilleniumDB         660      1      2     29    661 602220   7281   2638    22     4     1    17
 QLever              660      0      5     32    395 387872   2070   1467    32     0    29     3
-Virtuoso            660      0     11    135   2224 652395   5730   3308   473     2    51   422
+Virtuoso            660      0     11    135   2224 652395   5730   3308   473     2    49   422
 Number of queries with different non-error, non-suspect results: 325
 	./stats.py -v results/paths-norm-[bmq]*.tsv
 ROW*  63 Count= 3         Blazegraph  Count= 3         MilleniumDB  Count= 3         QLever* Count= 0         QLever bug in tab-separated-values output
@@ -258,8 +368,8 @@ ROW* 646 Count= 1137604   Blazegraph  Count= 1137604   MilleniumDB* Count= 11375
 ROW* 648 Count= 1492786   Blazegraph  Count= 1492786   MilleniumDB* Count= 1492725   QLever  Count= 1492786   MilleniumDB bug in alternatives
 ROW* 650 None             Blazegraph  Count= 337245    MilleniumDB  Count= 224744    QLever! None             
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-Blazegraph          660     11     95    256   3803 729483  25277   8665    35    12    33     2
-MilleniumDB         660      1      2     29    661 602220   7281   2638    22     4     5    17
+Blazegraph          660     11     95    256   3803 729483  25277   8665    35    12    21     2
+MilleniumDB         660      1      2     29    661 602220   7281   2638    22     4     1    17
 QLever              660      0      5     32    395 387872   2070   1467    32     0    29     3
 Number of queries with different non-error, non-suspect results:  29
 	QLever refuses to evaluate some of the queries because of empty path concerns even though some or all of these queries do not have to evaluate the empty path.
@@ -279,12 +389,18 @@ Number of queries with different non-error, non-suspect results:  29
 	./benchmark.py --count --engine=MilleniumDB wdbench/Queries/paths.text | tee results/paths-counted-milleniumdb.tsv
 	./benchmark.py --count --engine=QLever wdbench/Queries/paths.text | tee results/paths-counted-qlever.tsv
 	./benchmark.py --count --engine=Virtuoso wdbench/Queries/paths.text | tee results/paths-counted-virtuoso.tsv
+	./stats.py -e results/paths-counted-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/COUNTED  660     21     93    309   5666 600000  35814   8627    34    15    15     4
+MilleniumDB/COUNTED 660      1      2      7    162 600000   7246   2029    24     4     1    19
+QLever/COUNTED      660      0      2      8    123 600000  27414   3582    32     0    29     3
+Virtuoso/COUNTED    660      1      3     13    177 600000  48457   5836   417     3    49   365
 	./stats.py results/paths-counted-*.tsv
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-Blazegraph/COUNTED  660     14     90    268   4769 654743  23206   7910    34    15    30     4
-MilleniumDB/COUNTED 660      1      2      7    162 601491   6341   1938    24     4     5    19
+Blazegraph/COUNTED  660     14     90    268   4769 654743  23206   7910    34    15    15     4
+MilleniumDB/COUNTED 660      1      2      7    162 601491   6341   1938    24     4     1    19
 QLever/COUNTED      660      0      2      6     59 376559   1622   1037    32     0    29     3
-Virtuoso/COUNTED    660      1      3     10     87 662366   5128   2445   417     3    52   365
+Virtuoso/COUNTED    660      1      3     10     87 662366   5128   2445   417     3    49   365
 Number of queries with different non-error, non-suspect results: 390
 	./stats.py -v results/paths-counted-[bmq]*.tsv
 ROW* 121 Result=4126738   Blazegraph/COUNTED  Result=4126738   MilleniumDB/COUNTED* Result=4125785   QLever/COUNTED  Result=4126738   as above
@@ -315,8 +431,8 @@ ROW* 646 Result=1137604   Blazegraph/COUNTED  Result=1137604   MilleniumDB/COUNT
 ROW* 648 Result=1492786   Blazegraph/COUNTED  Result=1492786   MilleniumDB/COUNTED* Result=1492725   QLever/COUNTED  Result=1492786   as above
 ROW* 650 None             Blazegraph/COUNTED  Result=337245    MilleniumDB/COUNTED  Result=224744    QLever/COUNTED! None             as above
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-Blazegraph/COUNTED  660     14     90    268   4769 654743  23206   7910    33    15    30     3
-MilleniumDB/COUNTED 660      1      2      7    162 601491   6341   1938    22     4     5    17
+Blazegraph/COUNTED  660     14     90    268   4769 654743  23206   7910    33    15    15     3
+MilleniumDB/COUNTED 660      1      2      7    162 601491   6341   1938    22     4     1    17
 QLever/COUNTED      660      0      2      6     59 376559   1622   1037    29     0    29     0
 Number of queries with different non-error, non-suspect results:  27
 	No difference from above
@@ -325,12 +441,18 @@ Number of queries with different non-error, non-suspect results:  27
 	./benchmark.py --nodups --engine=MilleniumDB wdbench/Queries/paths.text | tee results/paths-nodups-milleniumdb.tsv
 	./benchmark.py --nodups --engine=QLever wdbench/Queries/paths.text | tee results/paths-nodups-qlever.tsv
 	./benchmark.py --nodups --engine=Virtuoso wdbench/Queries/paths.text | tee results/paths-nodups-virtuoso.tsv
+	./stats.py -e results/paths-nodups-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/NODUPS   660     19     98    327   6953 600000  76506  11777    78    12    65     1
+MilleniumDB/NODUPS  660      1      3     32    931 600000   9360   3242     6     4     1     1
+QLever/NODUPS       660      0      4     34    767 600000  34025   5161    38     2    33     3
+Virtuoso/NODUPS     660      1     17    207   2832 600000  50318   6818   163     2    50   111
 	./stats.py results/paths-nodups-*.tsv
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-Virtuoso/NODUPS     660      1     11    114   2008 654737   6081   3338   163     2    52   111
-QLever/NODUPS       660      0      3     27    356 600878   7069   2616    38     2    35     3
-MilleniumDB/NODUPS  660      1      3     32    888 602286   8457   3151     6     4     5     1
 Blazegraph/NODUPS   660     19     98    327   6953 707903  26716   9759    78    12    77     1
+MilleniumDB/NODUPS  660      1      3     32    888 602286   8457   3151     6     4     1     1
+QLever/NODUPS       660      0      3     27    356 600878   7069   2616    38     2    33     3
+Virtuoso/NODUPS     660      1     11    114   2008 654737   6081   3338   163     2    50   111
 Number of queries with different non-error, non-suspect results:  12
 ./stats.py -v results/paths-nodups-[bmq]*.tsv
 ROW*  63 None             Blazegraph/NODUPS  Count= 3         MilleniumDB/NODUPS  Result=          QLever/NODUPS  Count= 0         QLever bug in tab-separated-values output
@@ -355,12 +477,18 @@ Number of queries with different non-error, non-suspect results:  10
 	./benchmark.py --engine=MilleniumDB wdbench/Queries/c2rpqs.text | tee results/c2rpqs-norm-milleniumdb.tsv
 	./benchmark.py --engine=QLever wdbench/Queries/c2rpqs.text | tee results/c2rpqs-norm-qlever.tsv
 	./benchmark.py --engine=Virtuoso wdbench/Queries/c2rpqs.text | tee results/c2rpqs-norm-virtuoso.tsv
+	./stats.py -e results/c2rpqs-norm-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          539     36    112   5354  71385 600000 106917  20716    90    54    15    21
+MilleniumDB         539      1     20   2786  30732 600000  84973  16870    62    58     0     4
+QLever              539      1      8     73   2404 600000   8472   2858    13     0     5     8
+Virtuoso            539      1     72    775   4266 600000  40349   7832   347     9    20   318
 	./stats.py results/c2rpqs-norm-*.tsv
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-Blazegraph          539     36    112   5354  56620 864181  96114  20266    90    54    69    21
-MilleniumDB         539      1     20   2786  30732 601075  85019  16870    62    58    58     4
+Blazegraph          539     36    112   5354  56620 864181  96114  20266    90    54    15    21
+MilleniumDB         539      1     20   2786  30732 601075  85019  16870    62    58     0     4
 QLever              539      1      7     69   2213 594223   4942   2525    13     0     5     8
-Virtuoso            539      1     48    610   3950 602763  18509   5996   347     9    29   318
+Virtuoso            539      1     48    610   3950 602763  18509   5996   347     9    20   318
 Number of queries with different non-error, non-suspect results: 239
 	./stats.py -v results/c2rpqs-norm-[bmq]*.tsv
 ROW*  91 Count= 43162     Blazegraph  Count= 43162     MilleniumDB* Count= 42865     QLever  Count= 43162     Alternatives
@@ -412,8 +540,8 @@ ROW* 521 None             Blazegraph  Count= 35171     MilleniumDB  Count= 35172
 ROW* 526 Count= 1424010   Blazegraph  Count= 1424010   MilleniumDB* Count= 1408397   QLever  Count= 1424010   Alternatives
 ROW* 528 Count= 49475     Blazegraph  Count= 49475     MilleniumDB* Count= 16095     QLever  Count= 49475     Alternatives
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-Blazegraph          539     36    112   5354  56620 864181  96114  20266    90    54    69    21
-MilleniumDB         539      1     20   2786  30732 601075  85019  16870    62    58    58     4
+Blazegraph          539     36    112   5354  56620 864181  96114  20266    90    54    15    21
+MilleniumDB         539      1     20   2786  30732 601075  85019  16870    62    58     0     4
 QLever              539      1      7     69   2213 594223   4942   2525    13     0     5     8
 Number of queries with different non-error, non-suspect results:  48
 	QLever is over three times faster than Virtuoso, which is about five times faster than Blazegraph and MilleniumDB.
@@ -438,12 +566,18 @@ Number of queries with different non-error, non-suspect results:  48
 	./benchmark.py --count --engine=MilleniumDB wdbench/Queries/c2rpqs.text | tee results/c2rpqs-counted-milleniumdb.tsv
 	./benchmark.py --count --engine=QLever wdbench/Queries/c2rpqs.text | tee results/c2rpqs-counted-qlever.tsv
 	./benchmark.py --count --engine=Virtuoso wdbench/Queries/c2rpqs.text | tee results/c2rpqs-counted-virtuoso.tsv
+	./stats.py -e results/c2rpqs-counted-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/COUNTED  539     28    114   6513  65172 600000 101541  22455    89    56     7    26
+MilleniumDB/COUNTED 539      1      3    164  15223 600000  79832  13541    59    56     0     3
+QLever/COUNTED      539      1      4     31    250 600000   6447   1794    12     0     4     8
+Virtuoso/COUNTED    539      1      4     73   1177 600000  34878   6096   265     9    16   240
 	./stats.py results/c2rpqs-counted-*.tsv
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-Blazegraph/COUNTED  539     28    114   6513  63293 790266  97506  22373    89    56    63    26
-MilleniumDB/COUNTED 539      1      3    164  15223 600998  79876  13541    59    56    56     3
+Blazegraph/COUNTED  539     28    114   6513  63293 790266  97506  22373    89    56     7    26
+MilleniumDB/COUNTED 539      1      3    164  15223 600998  79876  13541    59    56     0     3
 QLever/COUNTED      539      1      4     29    242 550507   3015   1460    12     0     4     8
-Virtuoso/COUNTED    539      1      4     70    998 606907  17478   4682   265     9    25   240
+Virtuoso/COUNTED    539      1      4     70    998 606907  17478   4682   265     9    16   240
 Number of queries with different non-error, non-suspect results: 288
 	./stats.py -v results/c2rpqs-counted-[bmq]*.tsv
 ROW*  91 Result=43162     Blazegraph/COUNTED  Result=43162     MilleniumDB/COUNTED* Result=42865     QLever/COUNTED  Result=43162     ditto
@@ -501,8 +635,8 @@ ROW* 518 Result=17        Blazegraph/COUNTED* Result=425       MilleniumDB/COUNT
 ROW* 521 None             Blazegraph/COUNTED  Result=35171     MilleniumDB/COUNTED  Result=35172     QLever/COUNTED  Result=35165     ditto
 ROW* 526 Result=1424010   Blazegraph/COUNTED  Result=1424010   MilleniumDB/COUNTED* Result=1408397   QLever/COUNTED  Result=1424010   ditto
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-Blazegraph/COUNTED  539     28    114   6513  63293 790266  97506  22373    90    56    63    27
-MilleniumDB/COUNTED 539      1      3    164  15223 600998  79876  13541    59    56    56     3
+Blazegraph/COUNTED  539     28    114   6513  63293 790266  97506  22373    90    56     7    27
+MilleniumDB/COUNTED 539      1      3    164  15223 600998  79876  13541    59    56     0     3
 QLever/COUNTED      539      1      4     29    242 550507   3015   1460    12     0     4     8
 Number of queries with different non-error, non-suspect results:  54
 	See above,
@@ -511,7 +645,13 @@ Number of queries with different non-error, non-suspect results:  54
 	./benchmark.py --nodups --engine=MilleniumDB wdbench/Queries/c2rpqs.text | tee results/c2rpqs-nodups-milleniumdb.tsv
 	./benchmark.py --nodups --engine=QLever wdbench/Queries/c2rpqs.text | tee results/c2rpqs-nodups-qlever.tsv
 	./benchmark.py --nodups --engine=Virtuoso wdbench/Queries/c2rpqs.text | tee results/c2rpqs-nodups-virtuoso.tsv
-TODO	./stats.py -v results/c2rpqs-nodups-*.tsv
+	./stats.py -e results/c2rpqs-nodups-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/NODUPS   539     36    130   9799 600000 600000 196026  27408   156    53    99     4
+MilleniumDB/NODUPS  539      1     21   3257  29271 600000  84180  16941    58    58     0     0
+QLever/NODUPS       539      1     20    169   2443 600000  59673   9209    58     4    43    11
+Virtuoso/NODUPS     539      1     65    843   4327 600000  40436   7769   139     9    19   111
+	./stats.py -v results/c2rpqs-nodups-*.tsv
 ROW* 133 Count= 278       Blazegraph/NODUPS  Count= 278       MilleniumDB/NODUPS  Count= 278       QLever/NODUPS  Count= 278       Virtuoso/NODUPS* Count= 21101     ??
 ROW* 145 Count= 680       Blazegraph/NODUPS! Count= 395       MilleniumDB/NODUPS  Count= 680       QLever/NODUPS  Count= 680       Virtuoso/NODUPS* Result=Q16195062 ??
 ROW* 146 Count= 386       Blazegraph/NODUPS! None             MilleniumDB/NODUPS  Count= 386       QLever/NODUPS  Count= 386       Virtuoso/NODUPS* Count= 0         ??
@@ -558,6 +698,12 @@ Number of queries with different non-error, non-suspect results:  31
 	./benchmark.py --engine=MilleniumDB wdqs/wikidata-queries.tsv | tee results/wdqs-norm-milleniumdb.tsv
 	./benchmark.py --engine=QLever wdqs/wikidata-queries.tsv | tee results/wdqs-norm-qlever.tsv
 	./benchmark.py --engine=Virtuoso wdqs/wikidata-queries.tsv | tee results/wdqs-norm-virtuoso.tsvo
+	./stats.py -e results/wdqs-norm-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          298     17     89    520   6403 600000  68675  10236    46     1    31    14
+MilleniumDB         298      2     41    788  26321 600000  95728  15571    51    38     0    13
+QLever              298      3     32    123    583 600000   9029   2337    15     0     3    12
+Virtuoso            298      2     80    589   4351 600000  38562   8515    44     3    12    29
 	./stats.py -v results/wdqs-norm-*.tsv
 ROW*   5 Count= 32963     Blazegraph  Count= 32963     MilleniumDB  Count= 32963     QLever  Count= 32963     Virtuoso* Count= 33209     Virtuoso bug in transitive closure
 ROW*   6 Result=11463628  Blazegraph  Result=11463628  MilleniumDB* Result=11463627  QLever  Result=11463628  Virtuoso  Result=11463628  MilleniumDB bug with embedded queries
@@ -623,10 +769,10 @@ ROW* 284 Count= 241561    Blazegraph! None             MilleniumDB  Count= 24156
 ROW* 290 None             Blazegraph! Count= 1183048   MilleniumDB  Count= 29644213  QLever  Count= 42620343  Virtuoso  Count= 1048576   ?
 ROW* 292 Count= 238251    Blazegraph* Count= 229775    MilleniumDB  Count= 238251    QLever  Count= 238251    Virtuoso  Count= 238251    ?
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-Blazegraph          298     11     88    511   6155 600018  12560   8253    46     1    32    14
-MilleniumDB         298      2     41    788  26321 601000  95797  15571    51    38    38    13
+Blazegraph          298     11     88    511   6155 600018  12560   8253    46     1    31    14
+MilleniumDB         298      2     41    788  26321 601000  95797  15571    51    38     0    13
 QLever              298      3     32    123    583 273346   4596   2295    15     0     3    12
-Virtuoso            298      1     65    449   3230 600719  14623   6317    44     3    15    29
+Virtuoso            298      1     65    449   3230 600719  14623   6317    44     3    12    29
 Number of queries with different non-error, non-suspect results:  63
 	SEE ALSO ../existing.text
 	errors - Blazegraph memory 30, syntax 1; MilleniumDB crashed on two different queries; Qlever memory 3
@@ -642,6 +788,12 @@ Number of queries with different non-error, non-suspect results:  63
 	./benchmark.py --engine=MilleniumDB --count wdqs/wikidata-queries.tsv | tee results/wdqs-counted-milleniumdb.tsv
 	./benchmark.py --engine=QLever --count wdqs/wikidata-queries.tsv | tee results/wdqs-counted-qlever.tsv
 	./benchmark.py --engine=Virtuoso --count wdqs/wikidata-queries.tsv | tee results/wdqs-counted-virtuoso.tsv
+	./stats.py -e results/wdqs-counted-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/COUNTED  298     24     98    466   7464 600000  68212  10683    43     6    23    14
+MilleniumDB/COUNTED 298      2     40    644  24784 600000  93449  15453    49    38     0    11
+QLever/COUNTED      298      1     20     77    453 600000   8588   1967    15     0     3    12
+Virtuoso/COUNTED    298      2     58    445   3249 600000  36103   7962    40     3    11    26
 	./stats.py -v results/wdqs-counted-*.tsv
 ROW*   5 Result=32963     Blazegraph/COUNTED  Result=32963     MilleniumDB/COUNTED  Result=32963     QLever/COUNTED  Result=32963     Virtuoso/COUNTED* Result=33209     
 ROW*   9 Result=21253     Blazegraph/COUNTED* Result=0         MilleniumDB/COUNTED  Result=21253     QLever/COUNTED  Result=21253     Virtuoso/COUNTED  Result=21253     
@@ -704,10 +856,10 @@ ROW* 278 Result=598       Blazegraph/COUNTED  Result=598       MilleniumDB/COUNT
 ROW* 284 Result=241561    Blazegraph/COUNTED! None             MilleniumDB/COUNTED  Result=241561    QLever/COUNTED  Result=241561    Virtuoso/COUNTED* Result=328109    
 ROW* 292 Result=238251    Blazegraph/COUNTED* Result=229775    MilleniumDB/COUNTED  Result=238251    QLever/COUNTED  Result=238251    Virtuoso/COUNTED  Result=238251    
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-Blazegraph/COUNTED  298     18     97    465   6803 600037  28682   9363    43     6    29    14
-MilleniumDB/COUNTED 298      2     40    644  24784 600966  93509  15453    49    38    38    11
+Blazegraph/COUNTED  298     18     97    465   6803 600037  28682   9363    43     6    23    14
+MilleniumDB/COUNTED 298      2     40    644  24784 600966  93509  15453    49    38     0    11
 QLever/COUNTED      298      1     20     77    453 301322   4248   1913    15     0     3    12
-Virtuoso/COUNTED    298      1     49    368   2643 600727  14181   5962    40     3    14    26
+Virtuoso/COUNTED    298      1     49    368   2643 600727  14181   5962    40     3    11    26
 Number of queries with different non-error, non-suspect results:  60
 	SEE ABOVE
 
@@ -715,6 +867,12 @@ Number of queries with different non-error, non-suspect results:  60
 	./benchmark.py --engine=MilleniumDB --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-nodups-milleniumdb.tsv
 	./benchmark.py --engine=QLever --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-nodups-qlever.tsv
 	./benchmark.py --engine=Virtuoso --nodups wdqs/wikidata-queries.tsv | tee results/wdqs-nodups-virtuoso.tsv
+	./stats.py -e results/wdqs-nodups-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph/NODUPS   298     18     84    479   5777 600000  70412  10177    47     1    32    14
+MilleniumDB/NODUPS  298      2     38    792  26302 600000  95343  15523    50    38     0    12
+QLever/NODUPS       298      3     25    105    570 600000   9150   2517    16     0     3    13
+Virtuoso/NODUPS     298      2     79    596   4386 600000  36140   8232    35     3    11    21
 	./stats.py -v results/wdqs-nodups-*.tsv
 ROW*   6 Result=11463628  Blazegraph/NODUPS  Result=11463628  MilleniumDB/NODUPS* Result=11463627  QLever/NODUPS  Result=11463628  Virtuoso/NODUPS  Result=11463628  
 ROW*   9 Count= 21253     Blazegraph/NODUPS* Count= 0         MilleniumDB/NODUPS  Count= 21253     QLever/NODUPS  Count= 21253     Virtuoso/NODUPS  Count= 21253     
@@ -769,12 +927,50 @@ ROW* 270 Count= 2070194   Blazegraph/NODUPS* Count= 2070192   MilleniumDB/NODUPS
 ROW* 271 Count= 2070194   Blazegraph/NODUPS* Count= 2070192   MilleniumDB/NODUPS  Count= 2070194   QLever/NODUPS  Count= 2070194   Virtuoso/NODUPS* Count= 1048576   
 ROW* 292 Count= 201578    Blazegraph/NODUPS* Count= 193257    MilleniumDB/NODUPS  Count= 201578    QLever/NODUPS  Count= 201578    Virtuoso/NODUPS  Count= 201578    
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-Blazegraph/NODUPS   298     12     83    469   5333 600023  12220   7975    47     1    33    14
-MilleniumDB/NODUPS  298      2     38    792  26302 600975  95403  15523    50    38    38    12
+Blazegraph/NODUPS   298     12     83    469   5333 600023  12220   7975    47     1    32    14
+MilleniumDB/NODUPS  298      2     38    792  26302 600975  95403  15523    50    38     0    12
 QLever/NODUPS       298      3     25    105    570 301438   4805   2467    16     0     3    13
-Virtuoso/NODUPS     298      1     68    493   3473 600720  14212   6233    35     3    14    21
+Virtuoso/NODUPS     298      1     68    493   3473 600720  14212   6233    35     3    11    21
 Number of queries with different non-error, non-suspect results:  52
 	SEE ABOVE
+
+To create summary statistics:
+
+echo > existing-stats.text
+echo > existing-stats-errs.text
+foreach category ( wgpb-norm single_bgps-norm multiple_bgps-norm opts-norm paths-norm c2rpqs-norm wdqs-norm )
+   echo 'CATEGORY' ${category}
+   echo '\nCATEGORY' ${category} >> existing-stats.text
+   ./stats.py results/${category}-[bmqv]*.tsv >> existing-stats.text
+   echo '\nCATEGORY' ${category} >> existing-stats-errs.text
+   ./stats.py -e results/${category}-[bmqv]*.tsv >> existing-stats-errs.text
+end
+./summary.py -f7 existing-stats.text
+./summary.py -f8 existing-stats-errs.text
+
+echo > existing-stats-counted.text
+echo > existing-stats-counted-errs.text
+foreach category ( wgpb-norm single_bgps-counted multiple_bgps-counted opts-counted paths-counted c2rpqs-counted wdqs-counted )
+   echo 'CATEGORY' ${category}
+   echo '\nCATEGORY' ${category} >> existing-stats-counted.text
+   ./stats.py results/${category}-[bmqv]*.tsv >> existing-stats-counted.text
+   echo '\nCATEGORY' ${category} >> existing-stats-counted-errs.text
+   ./stats.py -e results/${category}-[bmqv]*.tsv >> existing-stats-counted-errs.text
+end
+./summary.py -f7 existing-stats-counted.text
+./summary.py -f8 existing-stats-counted-errs.text
+
+echo > existing-stats-nodups.text
+echo > existing-stats-nodups-errs.text
+foreach category ( wgpb-norm single_bgps-norm multiple_bgps-norm opts-nodups paths-nodups c2rpqs-nodups wdqs-nodups )
+   echo 'CATEGORY' ${category}
+   echo '\nCATEGORY' ${category} >> existing-stats-nodups.text
+   ./stats.py results/${category}-[bmqv]*.tsv >> existing-stats-nodups.text
+   echo '\nCATEGORY' ${category} >> existing-stats-nodups-errs.text
+   ./stats.py -e results/${category}-[bmqv]*.tsv >> existing-stats-nodups-errs.text
+end
+./summary.py -f7 existing-stats-nodups.text
+./summary.py -f8 existing-stats-nodups-errs.text
 
 
 5/ ontology/queries.tsv	Several subclass and instance queries
@@ -842,7 +1038,7 @@ Number of queries with different non-error, non-suspect results:   0
 	./benchmark.py --engine=MilleniumDB --directory=order | tee results/order-norm-milleniumdb.tsv
 	./benchmark.py --engine=QLever --directory=order | tee results/order-norm-qlever.tsv
 	./benchmark.py --engine=Virtuoso --directory=order | tee results/order-norm-virtuoso.tsv
-TODO	./stats.py -v results/order-norm-*.tsv
+	./stats.py -v results/order-norm-*.tsv
 Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
 Blazegraph           70     30  22363  36521 202811 600031 149062  38623    58     8    58     0
 MilleniumDB          70      2 600015 600031 600052 601509 493729  51677    55    55    55     0
@@ -877,7 +1073,7 @@ Number of queries with different non-error, non-suspect results:   0
 
 8/ Scholia
 
-Issues with QLever (and MilleniumDB)
+Issues with QLever (some also with MilleniumDB)
   QLever has problems with unions of transitive closures in paths
 	This query might have to evaluate the empty path
 		complex_articles-by-year
@@ -901,114 +1097,7 @@ Issues with QLever (and MilleniumDB)
  	Assertion `subresult->idTable().numColumns() == inWidth` failed
 		Topic author scores for human
 	REGEX function must be a string literal
-		chemical_relates
-
-Non-standard constructs patched
-  Removed xsd:date in a way that should not affect timings
-		author_events  
-		author_list-of-publications
-		author_list-of-retracted-articles
-		series_in-series
-		series_works
-		venue_articles-citing-retracted-articles
-		venue_cited-venues.sparql
-		project_recent-articles
-		sponsor_recently-published-sponsored-works
-		organization_recent-citations
-		event_future-events
-		event_past-events
-		event_recent-publications
-		event_upcoming-deadlines.sparql
-		chemical_recent-literature
-		chemical-element_recent-literature.sparql
-		ontology_recent-works.sparql
-		pathway_citing-articles.sparql
-		pathway_recent-articles.sparql~
-		dataset_citations.sparql
-		software_data.sparql
-		software_recent-works.sparql
-		use_recent-work-using-the-used.sparql
-		podcast_recent-episodes.sparql
-		podcast-episode_data
-		organization_recent-literature
-		award_recent-publications-by-recipients.sparql
- 		chemical-class_recent-literature.sparql
-		venue_recently-published-works.sparql
-		work-index_recently-retracted-works.sparql
-		work_citations.sparql
-		work_cited-works.sparql
-		work_data.sparql
-
-Non-standard constructs not changed
-  Mediawiki API calls - they use mwapi: in a non-standard way
-	Prefix mwapi was not registered
-		chemical_related
-  geof:distance
-	Not part of SPARQL 1.1
-		event_related-events-timelocation
-
-
-Several queries had illegal syntax.  These were fixed before translating them to standard SPARQL.
-  AS variable reuse
-	an AS clause
-		series_in-series
-		event-series_events
-
-grep exception results/scholia-*-qlever.tsv | cut -f 8 | sort | uniq
-
-
-categories identified
-
-DONE	author
-?	award
-IP	catalogue
-IP*	chemical-class
-IP	chemical-element
-	chemical-index
-IP	chemical
-DONE	clinical_trial
-IP	complex
-IP	country
-IP	dataset
-DONE	disease
-IP	event-series
-IP	event
-DONE	gene
-IP	ontology
-IP	organization
-IP	pathway
-IP	podcast-episode
-IP	podcast-season
-IP	podcast
-IP	project
-IP	property
-DONE	protein
-DONE	publisher
-DONE	series
-IP	software
-IP	sponsor
-IP	taxon
-DONE	topic
-IP	use
-IP	venue
-IP	wikiproject
-IP*	work
-
-
-PARTIAL	convert scholia parameterized Blazegraph queries to standard parameterized SPARQL
-MOSTLY	figure out what values to send in to queries
-DONE	extend harness appropriately
-
-check out topic - Virtuoso crashed
-
-OK cl	all done and no non-standard queries
-OK n...	all done with some non-standard queries
-REDO	needs to be recone
-IP	in progress
-TODO	needs to be benchmarked
-SETUP	needs to be set tup
-
-
+		chemical_relates and one other?
 
 OK cl	./SCHOLIA topic
 	./stats.py -v -t results/scholia-topic-*.tsv
@@ -1090,22 +1179,22 @@ ROW  Mode Result            Blazegraph                 MilleniumDB              
  12* Count= 9              9310 Count= 9               823*Count= 0                12 Count= 9               184 Count= 9           
  15* Count= 2              9346 Count= 2               837*Count= 0                 8 Count= 2                62 Count= 2           
 
-REDO patch QM 6 hours	./SCHOLIA venue
+OK cl	./SCHOLIA venue
 	./stats.py -v -t results/scholia-venue-*.tsv
-ROW  MODE RESULT          Blazegraph                 MilleniumDB                QLever                     Virtuoso                  
-  4* Count= 7            8851 Count= 7               138*Count= 6               110 Count= 7                32!Count= 76          
-  5* Count= 5            3768 Count= 5               162*Count= 3               119 Count= 5                32!Count= 76          
- 21* Count= 50           7383 Count= 50             7328*Count= 0                62 Count= 50             9017 Count= 50          
- 22* Count= 50           6268 Count= 50             2710*Count= 0                28 Count= 50             1595 Count= 50          
- 23* Count= 50           6230 Count= 50             1802*Count= 0                25 Count= 50             1265 Count= 50          
- 24* Count= 50           6760 Count= 50             1441*Count= 0                26 Count= 50             1754 Count= 50          
- 25* Count= 50           6457 Count= 50             1038*Count= 0                25 Count= 50             1516 Count= 50          
-Engine             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
-Blazegraph          115     25    153   2378  45162 600027  93225  17288    18    13    18     0
-MilleniumDB         115      2     12    740 600031 600982 165520  19994    52    30    45     7
-QLever              115      1      5     62    773   2950    381    381    15     0    15     0
-Virtuoso            115     10     56    364   3384  29791   3578   3578     7     0     7     0
-Number of queries with different non-error, non-suspect results:   7
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          115     23    382   2436  46873 600168  94222  17304    16    13     3     0
+MilleniumDB         115      5     87   2429 600035 600918 190648  23596    41    34     0     7
+QLever              115      3     15    103    794   5037    513    513     1     0     0     1
+Virtuoso            115      5     53    358   3279  29250   3430   3430     7     0     7     0
+ROW  Mode Result            Blazegraph                 MilleniumDB                QLever                     Virtuoso                  
+  4* Count= 7              8757 Count= 7               139*Count= 6               103 Count= 7                31+Count= 76          
+  5* Count= 5              3761 Count= 5               162*Count= 3               122 Count= 5                33+Count= 76          
+  9* Count= 1909          84942 Count= 1909         600035+None                    24*Count= 1910           1635 Count= 1909        
+ 21* Count= 50             7337 Count= 50             5322*Count= 0                57 Count= 50             8725 Count= 50          
+ 22* Count= 50             6343 Count= 50             2350*Count= 0                28 Count= 50             1555 Count= 50          
+ 23* Count= 50             6022 Count= 50             1834*Count= 0                25 Count= 50             1242 Count= 50          
+ 24* Count= 50             6553 Count= 50             1348*Count= 0                25 Count= 50             1747 Count= 50          
+ 25* Count= 50             6198 Count= 50             1036*Count= 0                25 Count= 50             1480 Count= 50          
 
 OK cl	./SCHOLIA protein
 	./stats.py -v results/scholia-protein-*.tsv
@@ -1190,7 +1279,6 @@ ROW  Mode Result            Blazegraph          MilleniumDB         QLever      
  24* Count= 105         *Count= 0            Count= 105          Count= 105          Count= 105         
  25* Count= 39          *Count= 0            Count= 39           Count= 39           Count= 39          
 
-
 OK 10	./SCHOLIA event
 	./stats.py -v results/scholia-event-*.tsv
 ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
@@ -1231,77 +1319,231 @@ ROW  Mode Result            Blazegraph          MilleniumDB         QLever      
  34* None               !None               !None                Result=2021-03-23T  Count= 0           
  35* None               !None               !None                Result=2021-03-23T  Count= 0           
 
-IP cl	./SCHOLIA chemical-element
-TODO	./stats.py -v results/scholia-chemical-element-*.tsv
+OK cl	./SCHOLIA chemical-element
+	./stats.py -v results/scholia-chemical-element-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           20     32     82    260 450125 600034 150137  15130     5     5     0     0
+MilleniumDB          20      5      5      9 450031 600596 150044  15008     5     5     0     0
+QLever               20      8     13    100    169  10885    646    646     0     0     0     0
+Virtuoso             20      4     15     85   1486  32757   2293   2293     0     0     0     0
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+ 17* None               !None               !None                Count= 500          Count= 2           
 
-TODO cl	./SCHOLIA ontology
-TODO	./stats.py -v results/scholia-ontology-*.tsv
+OK cl	./SCHOLIA ontology
+	./stats.py -v results/scholia-ontology-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           25     25     31     46     86   1348    124    124     0     0     0     0
+MilleniumDB          25      3      4      7     64 122114  12149   7749     0     0     0     0
+QLever               25      2      3      6    159    497    103    103     0     0     0     0
+Virtuoso             25      2      2      7     53   1966    147    147     0     0     0     0
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
 
-TODO cl	./SCHOLIA pathway
-TODO	./stats.py -v results/scholia-pathway-*.tsv
+OK  cl	./SCHOLIA pathway
+	./stats.py -v results/scholia-pathway-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           25     35     47    101    216   1078    164    164     0     0     0     0
+MilleniumDB          25      5      6     32 188379 600466 137110  24023     3     3     0     0
+QLever               25      2      4      6     17   8663    573    573     0     0     0     0
+Virtuoso             25      8     20     28   1537  26406   4786   4786     6     0     5     1
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+ 23* Count= 484          Count= 484          Count= 484          Count= 484         *Count= 0           
 
-TODO cl	./SCHOLIA taxon
-TODO	./stats.py -v results/scholia-taxon-*.tsv
+OK 7	./SCHOLIA taxon
+	./stats.py -v results/scholia-taxon-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           35     24     92    899   9740  19515   4146   4146     5     0     5     0
+MilleniumDB          35      2      9     31   1077 600842  73365  11208     8     3     5     0
+QLever               35      2      4      9     43   1057    138    138     5     0     5     0
+Virtuoso             35      2      2      5    320   5413    438    438     5     0     5     0
 
-TODO cl	./SCHOLIA dataset
-TODO	./stats.py -v results/scholia-dataset-*.tsv
+OK cl	./SCHOLIA dataset
+	./stats.py -v results/scholia-dataset-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           20     46     56     74    138    376    114    114     0     0     0     0
+MilleniumDB          20      5      6     13     17     38     15     15     0     0     0     0
+QLever               20      4     11     16     26  18010   1010   1010     0     0     0     0
+Virtuoso             20      1     17    175    319   6150    605    605     5     0     5     0
 
-TODO cl	./SCHOLIA software
-TODO	./stats.py -v results/scholia-software-*.tsv
+OK cl	./SCHOLIA software
+	./stats.py -v results/scholia-software-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           35     48     66     83    136    920    140    140     0     0     0     0
+MilleniumDB          35      5      7     31 167105 600903 150606  21252     8     8     0     0
+QLever               35      3      7     59    760  40674   4631   4631     0     0     0     0
+Virtuoso             35      2     17     68    582   9398    807    807     5     0     0     5
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+ 16* Result=0            Result=0            Result=0            Result=0           *Count= 0           
+ 17* Count= 73           Count= 73           Count= 73           Count= 73          *Count= 23          
+ 18* Result=0            Result=0            Result=0            Result=0           *Count= 0           
+ 19* Count= 4            Count= 4            Count= 4            Count= 4           *Count= 0           
+ 20* Result=0            Result=0            Result=0            Result=0           *Count= 0           
 
-TODO cl	./SCHOLIA use
-TODO	./stats.py -v results/scholia-use-*.tsv
+OK cl	./SCHOLIA use
+	./stats.py -v results/scholia-use-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           15     29     48     54     65    250     67     67     0     0     0     0
+MilleniumDB          15      4      5      7     14 600904  51180   8007     1     1     0     0
+QLever                3     21     21     25   3173   3173   1073   1073     0     0     0     0
+Virtuoso             15      3      5      7     67   1062    150    150     0     0     0     0
 
-TODO cl	./SCHOLIA complex
-TODO	./stats.py -v results/scholia-complex-*.tsv
+OK cl	./SCHOLIA complex
+	./stats.py -v results/scholia-complex-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           20     38     65  28075 464439 600039 164211  29205    10     5     5     0
+MilleniumDB          20      5     12   6681 453934 600886 153539  18489     5     5     0     0
+QLever               20      5      7     13     89   9975    774    774    10     0    10     0
+Virtuoso             20      4      9     37    119   2919    230    230     5     0     5     0
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+ 17* None                Result=1.0          Result=1.0          Result=1            Result=1           
 
-TODO cl	./SCHOLIA podcast
-TODO	./stats.py -v results/scholia-podcast-*.tsv
+OK cl	./SCHOLIA podcast
+	./stats.py -v results/scholia-podcast-[bmqv]*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           25     27     38     55     72    285     67     67     0     0     0     0
+MilleniumDB          25      4      5      7     11     28      9      9     1     0     0     1
+QLever               25      2      4      8    382  23758   2940   2940     0     0     0     0
+Virtuoso             25      3      8     43    132   2360    189    189     0     0     0     0
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+ 12* Result=2022-03-27T  Result=2022-03-27T *Result=Q124268563   Result=2022-03-27T  Result=2022-03-27T 
 
-TODO cl	./SCHOLIA podcast-season
-TODO	./stats.py -v results/scholia-podcast-season-*.tsv
+OK cl	./SCHOLIA podcast-season
+	./stats.py -v results/scholia-podcast-season-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           10     32     41     57     63    218     68     68     0     0     0     0
+MilleniumDB          10      6      6      8     12     25     10     10     0     0     0     0
+QLever               10      2      2   7260  14707  19792   7850   7850     0     0     0     0
+Virtuoso             10      8     10     61    171   2067    280    280     5     0     0     5
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+  1* Result=Title        Result=Title        Result=Title        Result=Title       *Count= 2           
+  2* Count= 2            Count= 2            Count= 2            Count= 2           *Count= 3           
+  3* Count= 3            Count= 3            Count= 3            Count= 3           *Count= 4           
+  4* Count= 2            Count= 2            Count= 2            Count= 2           *Count= 3           
+  5* Count= 0            Count= 0            Count= 0            Count= 0           *Result=Number of e 
            
-TODO cl	./SCHOLIA podcast-episode
-TODO	./stats.py -v results/scholia-podcast-episode-*.tsv
+OK cl	./SCHOLIA podcast-episode
+	./stats.py -v results/scholia-podcast-episode-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           15     16     31     57     78    260     67     67     0     0     0     0
+MilleniumDB          15      2      4      5    842    975    296    296     0     0     0     0
+QLever               15      3      5     14  22191  29315   8016   8016     0     0     0     0
+Virtuoso             15      1      2      5     37   2402    193    193     5     0     5     0
 
-TODO 4,12	./SCHOLIA wikiproject
-TODO	./stats.py -v results/scholia-wikiproject-*.tsv
+OK 4,12	./SCHOLIA wikiproject
+	./stats.py -v results/scholia-wikiproject-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           65     35     49    881 141751 600047 148828  21660    35    15    20     0
+MilleniumDB          65      5     28 108012 600034 601013 265562  32423    36    26    10     0
+QLever               65      3      7     18    115   9674    256    256    10     0    10     0
+Virtuoso             65      1      6     20    804 105162   2427   1732    16     0    15     1
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+  7* None               !None               !None                Count= 57           Count= 61          
+ 62* Count= 51           Count= 51           Count= 51           Count= 51          *Count= 0           
 
-TODO 5	./SCHOLIA country
-./stats.py TODO	./stats.py -v results/scholia-country-*.tsv
-           
-TODO 5	./SCHOLIA event-series
-TODO	./stats.py -v results/scholia-event-series-*.tsv
+OK cl	./SCHOLIA country
+	./stats.py -v results/scholia-country-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           25     45    244    493   1108  51613   9364   9364     5     0     5     0
+MilleniumDB          25      5     16    440 600033 600793 240136  24091    10    10     0     0
+QLever               25      1      2      5    318 231260  24436  10873    18     0    18     0
+Virtuoso             25      6     22    166   6193  14704   3210   3210     5     0     5     0
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+  1* None               +None               +None                Count= 10000        Count= 41          
+  4* None               +None               +None                Count= 10000        Count= 11          
 
-TODO 5	./SCHOLIA property
-TODO	./stats.py -v results/scholia-property-*.tsv
+OK cl	./SCHOLIA event-series
+	./stats.py -v results/scholia-event-series-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           50     12     40  20669 128716 600026 102877  28658    25     5    20     0
+MilleniumDB          50      2      5 369206 600037 600991 306845  32410    23    23     0     0
+QLever               50      2     13     23   7395 615041  45276  11561     6     3     3     0
+Virtuoso             50      2      4     10   1302   6883    892    892    25     0    25     0
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+ 21* None               +None               +None                Count= 500          Count= 92          
+ 22* None               +None               +None                Count= 500          Count= 41          
+ 23* None               +None               +None                Count= 500          Count= 158         
+ 24* None               +None               +None                Count= 500          Count= 79          
+ 44* None               +None                Count= 16           Count= 15          +Count= 80          
 
-TODO	./SCHOLIA catalogue
-TODO	./stats.py -v results/scholia-catalogue-*.tsv
-           
-SETUP	./SCHOLIA work
-TODO	./stats.py -v results/scholia-work-*.tsv
+OK cl	./SCHOLIA property
+	./stats.py -v results/scholia-property-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           15    327    768   2651 641341 1292467 243533  19950     4     4     0     0
+MilleniumDB          15     51     77  15970 132770 600873 121006  25515     1     1     0     0
+QLever               15     14     88    525   2824  16838   2564   2564     0     0     0     0
+Virtuoso             15     84    544   2036   3097  22763   3983   3983     0     0     0     0
 
-SETUP	./SCHOLIA chemical-class
-TODO	./stats.py -v results/scholia-chemical-class-*.tsv
+OK cl	./SCHOLIA catalogue
+	./stats.py -v results/scholia-catalogue-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           10     34     40     54    137    351    106    106     0     0     0     0
+MilleniumDB          10      3      3      7     13    173     24     24     0     0     0     0
+QLever               10      3      3      6     82  23690   2403   2403     0     0     0     0
+Virtuoso             10      6     31     89    729   2778    527    527     0     0     0     0
+
+OK 1	./SCHOLIA chemical-class
+	./stats.py -v results/scholia-chemical-class-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           30     36     58    152  13885 600027 102438  12434    10     5     5     0
+MilleniumDB          30      2      3      6 600032 600483 211998  22004    15    10     5     0
+QLever               30      1      7     35     61   8934    439    439     5     0     5     0
+Virtuoso             30      2      7     94    602   6024    614    614    10     0    10     0
+
+OK cl	./SCHOLIA award
+	./stats.py -v results/scholia-award-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           35     34     48     64    212  58072   7751   7751     5     0     5     0
+MilleniumDB          35      4      4      8     50 601114  85844   8585     5     5     0     0
+QLever               35      2      6     11    119 141379   7850   5363     0     0     0     0
+Virtuoso             35      3      5     99    774   6762    683    683     1     0     1     0
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+ 16* None               +None               +None                Count= 10000        Count= 2           
+ 17* None               +None               +None                Count= 10000        Count= 2           
+ 18* None               +None               +None                Count= 10000        Count= 8           
+ 19* None               +None               +None                Count= 10000        Count= 39          
+ 20* None               +None               +None                Count= 10000        Count= 2           
+
+OK cl	./SCHOLIA work
+	./stats.py -v results/scholia-work-*.tsv
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           70     22     40     51    195  92206   9400   7455    10     0    10     0
+MilleniumDB          70      2      5      7    118 600595  94335   9460    21     6    15     0
+QLever               70      1      2      6     63 217647  15121   4623    20     0    20     0
+Virtuoso             70      1      3      6     23   6686    255    255    14     0    10     4
+ROW  Mode Result            Blazegraph          MilleniumDB         QLever              Virtuoso           
+  6* None               +None               +None                Count= 3            Count= 0           
+  7* None               +None               +None                Count= 2            Count= 0           
+  8* None               +None               +None                Count= 2            Count= 0           
+ 10* None               +None               +None                Count= 52           Count= 0           
+ 46* Count= 500          Count= 500          Count= 500          Count= 500         *Count= 0           
+ 47* Count= 2            Count= 2            Count= 2            Count= 2           *Count= 0           
+ 48* Count= 2            Count= 2            Count= 2            Count= 2           *Count= 0           
+ 50* Count= 63           Count= 63           Count= 63           Count= 63          *Count= 0           
+
+NO	./SCHOLIA location	Not done, as only QLever can handle either of the queries
+NO	./stats.py -v results/scholia-location-*.tsv
+
+To create category timings and summary statistics:
+
+echo > scholia-stats.text
+echo > scholia-stats-clean.text
+echo > scholia-stats-clean.md
+foreach category ( author award catalogue chemical-class chemical-element chemical clinical_trial complex \
+                   country dataset disease event-series event gene ontology organization pathway \
+		   podcast-episode podcast-season podcast project property protein publisher \
+		   series software sponsor taxon topic use venue wikiproject work )
+   echo Stats ${category} 
+   echo '\nCATEGORY' ${category} >> scholia-stats.text
+   ./stats.py results/scholia-${category}-[bmqv]*.tsv >> scholia-stats.text
+   echo '\nCATEGORY' ${category} >> scholia-stats-clean.text
+   ./stats.py -e results-clean/scholia-${category}-[bmqv]*.tsv >> scholia-stats-clean.text
+   echo "\n'''${category}:'''" >> scholia-stats-clean.md
+   ./stats.py -vme results-clean/scholia-${category}-[bmqv]*.tsv >> scholia-stats-clean.md
+end
+
+./summary.py -f7 scholia-stats.text 
+./summary.py -f8 scholia-stats-clean.text
 
 
+To check for problems with queries:
 
 cut -f 8 results/scholia-*-qlever.tsv | grep -v allocate | sort | uniq
-
-cp results/scholia-XX-* results-clean/
-
-
-echo "'''Author:'''"  > stats-clean.text ; ./stats.py -me results-clean/scholia-author-*.tsv >> stats-clean.text
-echo "\n'''Chemical:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-chemical-*.tsv >> stats-clean.text
-echo "\n'''Clinical_trial:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-clinical_trial-*.tsv >> stats-clean.text
-echo "\n'''Disease:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-disease-*.tsv >> stats-clean.text
-echo "\n'''Event:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-event-*.tsv >> stats-clean.text
-echo "\n'''Gene:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-gene-*.tsv >> stats-clean.text
-echo "\n'''Organization:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-organization-*.tsv >> stats-clean.text
-echo "\n'''Project:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-project-*.tsv >> stats-clean.text
-echo "\n'''Protein:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-protein-*.tsv >> stats-clean.text
-echo "\n'''Publisher:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-publisher-*.tsv >> stats-clean.text
-echo "\n'''Series:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-series-*.tsv >> stats-clean.text
-echo "\n'''Sponsor:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-sponsor-*.tsv >> stats-clean.text
-echo "\n'''Topic:'''" >> stats-clean.text ; ./stats.py -me results-clean/scholia-topic-*.tsv >> stats-clean.text

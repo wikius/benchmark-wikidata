@@ -1,0 +1,15 @@
+1	Blazegraph		    260	      	Count= 4 	200		podcast-episode_data Q100326679
+2	Blazegraph		     78	      	Count= 4 	200		podcast-episode_data Q104713141
+3	Blazegraph		     65	      	Count= 3 	200		podcast-episode_data Q104713445
+4	Blazegraph		    108	      	Count= 3 	200		podcast-episode_data Q104713455
+5	Blazegraph		     67	      	Count= 3 	200		podcast-episode_data Q104820002
+6	Blazegraph		     45	      	Count= 2 	200		podcast-episode_guests Q100326679
+7	Blazegraph		     31	      	Count= 2 	200		podcast-episode_guests Q104713141
+8	Blazegraph		     16	      	Result=Q42687823 	200		podcast-episode_guests Q104713445
+9	Blazegraph		     18	      	Result=Q42687823 	200		podcast-episode_guests Q104713455
+10	Blazegraph		     30	      	Result=Q96196490 	200		podcast-episode_guests Q104820002
+11	Blazegraph		     58	      	Count= 0 	200		podcast-episode_listings Q100326679
+12	Blazegraph		     50	      	Count= 0 	200		podcast-episode_listings Q104713141
+13	Blazegraph		     57	      	Result=P11976 	200		podcast-episode_listings Q104713445
+14	Blazegraph		     51	      	Count= 0 	200		podcast-episode_listings Q104713455
+15	Blazegraph		     79	      	Count= 0 	200		podcast-episode_listings Q104820002

@@ -282,11 +282,6 @@ def query_values(parameter_file_name, directory):
 
 def parameterized_query(parameter, directory, query_file_name, description, alternatives, counting=False, index=0):
     rows = query_values(parameter, directory)
-    with open(directory + '/' + parameter + '.sparql', 'r') as parameter_file:
-        parameter = parameter_file.read()
-    reply, _ = basic_eval(parameter, 'https://qlever.cs.uni-freiburg.de/api/wikidata/')
-    rows = reply.text.splitlines()
-
     for row in rows[1:]:
         replace = unbox(row.split('\t')[0])
         label = row.split('\t')[1] if len(row.split('\t')) > 1 else replace

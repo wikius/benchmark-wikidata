@@ -37,7 +37,7 @@ SELECT DISTINCT ?mol WHERE {
   ?mol wdt:P279* target: .
   MINUS { [] wdt:P279 ?mol }
 } LIMIT 500
-}PTIONAL { ?mol wdt:P235 ?InChIKey }
+}OPTIONAL { ?mol wdt:P235 ?InChIKey }
 OPTIONAL {
   VALUES ?CASIDdir { wdt:P231 }
   ?mol ?CASIDdir ?CAS .

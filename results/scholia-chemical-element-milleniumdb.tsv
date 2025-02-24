@@ -1,0 +1,20 @@
+1	MilleniumDB		     19	      	Count= 0 	200		chemical-element_allotropes Q1038
+2	MilleniumDB		      5	      	Count= 0 	200		chemical-element_allotropes Q104567
+3	MilleniumDB		      5	      	Count= 0 	200		chemical-element_allotropes Q1046
+4	MilleniumDB		      5	      	Count= 0 	200		chemical-element_allotropes Q1053
+5	MilleniumDB		      5	      	Count= 0 	200		chemical-element_allotropes Q1054
+6	MilleniumDB		     16	      	Count= 4 	200		chemical-element_data Q1038
+7	MilleniumDB		      8	      	Count= 0 	200		chemical-element_data Q104567
+8	MilleniumDB		      9	      	Count= 4 	200		chemical-element_data Q1046
+9	MilleniumDB		      9	      	Count= 4 	200		chemical-element_data Q1053
+10	MilleniumDB		      9	      	Count= 4 	200		chemical-element_data Q1054
+11	MilleniumDB		     46	      	Count= 31 	200		chemical-element_isotopes Q1038
+12	MilleniumDB		      5	      	Count= 0 	200		chemical-element_isotopes Q104567
+13	MilleniumDB		     10	      	Count= 35 	200		chemical-element_isotopes Q1046
+14	MilleniumDB		      8	      	Count= 30 	200		chemical-element_isotopes Q1053
+15	MilleniumDB		      9	      	Count= 37 	200		chemical-element_isotopes Q1054
+16	MilleniumDB		 600596	      	None 	200	ERROR EMPTY OUTPUT	chemical-element_recent-literature Q1038
+17	MilleniumDB		 600031	      	None 	200	ERROR EMPTY OUTPUT	chemical-element_recent-literature Q104567
+18	MilleniumDB		 600029	      	None 	200	ERROR EMPTY OUTPUT	chemical-element_recent-literature Q1046
+19	MilleniumDB		 600026	      	None 	200	ERROR EMPTY OUTPUT	chemical-element_recent-literature Q1053
+20	MilleniumDB		 600030	      	None 	200	ERROR EMPTY OUTPUT	chemical-element_recent-literature Q1054

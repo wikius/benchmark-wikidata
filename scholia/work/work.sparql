@@ -1,4 +1,6 @@
 SELECT DISTINCT ?c WHERE { 
   ?c wdt:P31/wdt:P279* wd:Q191067 .
+  FILTER EXISTS { ?c wdt:P2860 ?cited_work . }
+  FILTER EXISTS { ?c ^wdt:P2860 ?citing_work . }
 } 
 LIMIT 5

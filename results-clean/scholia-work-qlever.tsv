@@ -1,0 +1,70 @@
+1	QLever		      5	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	work_associated-images Q100019567
+2	QLever		      2	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	work_associated-images Q100138103
+3	QLever		      1	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	work_associated-images Q100138118
+4	QLever		      1	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	work_associated-images Q100138615
+5	QLever		      2	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	work_associated-images Q100139626
+6	QLever		 217647	      	Count= 3 	200		work_citation-graph Q100019567
+7	QLever		 207054	      	Count= 2 	200		work_citation-graph Q100138103
+8	QLever		 205781	      	Count= 2 	200		work_citation-graph Q100138118
+9	QLever		 205825	      	Count= 0 	200		work_citation-graph Q100138615
+10	QLever		 198559	      	Count= 52 	200		work_citation-graph Q100139626
+11	QLever		      3	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{target:wdt:p50?selfauthor.?citing_workwdt:p50?selfauthor}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	work_citations-per-year Q100019567
+12	QLever		      2	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{target:wdt:p50?selfauthor.?citing_workwdt:p50?selfauthor}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	work_citations-per-year Q100138103
+13	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{target:wdt:p50?selfauthor.?citing_workwdt:p50?selfauthor}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	work_citations-per-year Q100138118
+14	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{target:wdt:p50?selfauthor.?citing_workwdt:p50?selfauthor}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	work_citations-per-year Q100138615
+15	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: Built-in function \"exists{target:wdt:p50?selfauthor.?citing_workwdt:p50?selfauthor}\"  not yet implemented; if you need it, just add it to SparqlQleverVisitor.cpp::visitTypesafe(Parser::BuiltInCallContext following the already implemented functions there",	work_citations-per-year Q100139626
+16	QLever		   1821	      	Count= 0 	200		work_citations Q100019567
+17	QLever		      3	      	Count= 0 	200		work_citations Q100138103
+18	QLever		      3	      	Count= 0 	200		work_citations Q100138118
+19	QLever		      2	      	Count= 0 	200		work_citations Q100138615
+20	QLever		      2	      	Result=0 	200		work_citations Q100139626
+21	QLever		    748	      	Count= 7 	200		work_cited-work-authors Q100019567
+22	QLever		      6	      	Count= 0 	200		work_cited-work-authors Q100138103
+23	QLever		      5	      	Count= 0 	200		work_cited-work-authors Q100138118
+24	QLever		      3	      	Count= 0 	200		work_cited-work-authors Q100138615
+25	QLever		      3	      	Count= 0 	200		work_cited-work-authors Q100139626
+26	QLever		      3	      	Count= 2 	200		work_cited-works Q100019567
+27	QLever		      2	      	Result=2 	200		work_cited-works Q100138103
+28	QLever		      2	      	Result=2 	200		work_cited-works Q100138118
+29	QLever		      2	      	Count= 0 	200		work_cited-works Q100138615
+30	QLever		      2	      	Count= 0 	200		work_cited-works Q100139626
+31	QLever		      8	      	Count= 0 	200		work_cito-incoming-chart Q100019567
+32	QLever		      5	      	Count= 0 	200		work_cito-incoming-chart Q100138103
+33	QLever		      5	      	Count= 0 	200		work_cito-incoming-chart Q100138118
+34	QLever		      6	      	Count= 0 	200		work_cito-incoming-chart Q100138615
+35	QLever		      6	      	Count= 0 	200		work_cito-incoming-chart Q100139626
+36	QLever		      3	      	Count= 0 	200		work_cito-incoming Q100019567
+37	QLever		      3	      	Count= 0 	200		work_cito-incoming Q100138103
+38	QLever		      3	      	Count= 0 	200		work_cito-incoming Q100138118
+39	QLever		      4	      	Count= 0 	200		work_cito-incoming Q100138615
+40	QLever		      3	      	Count= 0 	200		work_cito-incoming Q100139626
+41	QLever		  17969	      	Count= 6 	200		work_list-of-authors Q100019567
+42	QLever		     19	      	Count= 2 	200		work_list-of-authors Q100138103
+43	QLever		     20	      	Count= 2 	200		work_list-of-authors Q100138118
+44	QLever		     28	      	Count= 11 	200		work_list-of-authors Q100138615
+45	QLever		     95	      	Count= 22 	200		work_list-of-authors Q100139626
+46	QLever		      8	      	Count= 500 	200		work_related-works Q100019567
+47	QLever		      2	      	Count= 2 	200		work_related-works Q100138103
+48	QLever		      2	      	Count= 2 	200		work_related-works Q100138118
+49	QLever		      2	      	Count= 0 	200		work_related-works Q100138615
+50	QLever		      3	      	Count= 63 	200		work_related-works Q100139626
+51	QLever		    615	      	None 	500	    "exception": "Tried to allocate 161.5 GB, but only 140.5 GB were available. Clear the cache or allow more memory for QLever during startup",	work_statements Q100019567
+52	QLever		     64	      	None 	500	    "exception": "Tried to allocate 161.5 GB, but only 142 GB were available. Clear the cache or allow more memory for QLever during startup",	work_statements Q100138103
+53	QLever		     63	      	None 	500	    "exception": "Tried to allocate 161.5 GB, but only 142 GB were available. Clear the cache or allow more memory for QLever during startup",	work_statements Q100138118
+54	QLever		     63	      	None 	500	    "exception": "Tried to allocate 161.5 GB, but only 142 GB were available. Clear the cache or allow more memory for QLever during startup",	work_statements Q100138615
+55	QLever		     62	      	None 	500	    "exception": "Tried to allocate 161.5 GB, but only 142 GB were available. Clear the cache or allow more memory for QLever during startup",	work_statements Q100139626
+56	QLever		     29	      	Count= 3 	200		work_timeline Q100019567
+57	QLever		     27	      	Count= 3 	200		work_timeline Q100138103
+58	QLever		     25	      	Count= 3 	200		work_timeline Q100138118
+59	QLever		     26	      	Result=2020-12-01T00:00:00Z 	200		work_timeline Q100138615
+60	QLever		     25	      	Count= 3 	200		work_timeline Q100139626
+61	QLever		    291	      	Count= 10 	200		work_topic-scores Q100019567
+62	QLever		      9	      	Result=21 	200		work_topic-scores Q100138103
+63	QLever		      9	      	Result=21 	200		work_topic-scores Q100138118
+64	QLever		     11	      	Count= 6 	200		work_topic-scores Q100138615
+65	QLever		      8	      	Count= 4 	200		work_topic-scores Q100139626
+66	QLever		    560	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://wikiba.se:80/ontology#mwapi>: SERVICE responded with HTTP status code: 301, Moved Permanently. First 100 bytes of the response: '<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently'",	work_wikipedia-mentions Q100019567
+67	QLever		    242	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://wikiba.se:80/ontology#mwapi>: SERVICE responded with HTTP status code: 301, Moved Permanently. First 100 bytes of the response: '<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently'",	work_wikipedia-mentions Q100138103
+68	QLever		    234	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://wikiba.se:80/ontology#mwapi>: SERVICE responded with HTTP status code: 301, Moved Permanently. First 100 bytes of the response: '<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently'",	work_wikipedia-mentions Q100138118
+69	QLever		    225	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://wikiba.se:80/ontology#mwapi>: SERVICE responded with HTTP status code: 301, Moved Permanently. First 100 bytes of the response: '<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently'",	work_wikipedia-mentions Q100138615
+70	QLever		    236	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://wikiba.se:80/ontology#mwapi>: SERVICE responded with HTTP status code: 301, Moved Permanently. First 100 bytes of the response: '<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently'",	work_wikipedia-mentions Q100139626

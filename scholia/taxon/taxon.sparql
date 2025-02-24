@@ -7,7 +7,7 @@ SELECT DISTINCT ?c WHERE {
     # Filter for taxa
     ?taxon wdt:P105 ?taxonrank .
     # Avoid listing the queried topic itself
-    FILTER (?c != ?taxon
+    FILTER (?c != ?taxon)
 
 } 
 LIMIT 5

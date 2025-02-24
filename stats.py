@@ -139,18 +139,18 @@ def print_rows(print_all, timings):
             continue
         identical = ' ' if entry['identical'] else '*'
         if args.mediawiki:
-            print(f"|-\n| {row:3}{identical} || {str(entry['result'])[0:18]}", end='')
+            print(f"|-\n| {row:3}{identical} || {str(entry['result'])[0:18]}", end=' ')
         else:
             print(f"{row:3}{identical} {str(entry['result'])[0:18]:18}", end=' ')
         for engine in engines:
             if engine in entry:
                 row = entry[engine]
-                flag = "!" if row['error'] else " "
+                flag = "+" if row['error'] else " "
                 flag = "*" if row['diverge'] else flag
                 flag = " " if row['correct'] else flag
                 if args.mediawiki:
-                    if timings: print(f' || style="text-align:right;" | {row['time']}', end=' || ')
-                    print(f"{flag}{str(row['result'][0:18])}", end= '')
+                    if timings: print(f' || style="text-align:right;" | {row['time']}', end='')
+                    print(f"|| {flag}{str(row['result'][0:18])}", end= ' ')
                 else:
                     if timings: print(f"{row['time']:7}", end='')
                     print(f"{flag}{str(row['result'][0:18]):18}", end= ' ')

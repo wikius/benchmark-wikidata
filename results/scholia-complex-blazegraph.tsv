@@ -1,0 +1,20 @@
+1	Blazegraph		  57317	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=28558ea4-8326-48d1-9b61-c4458eae16fa,bopId=138,partitionId=-1,sinkId=136,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	complex_articles-by-year Q100146810
+2	Blazegraph		  57714	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=1cb25807-64d9-4526-bcac-8b9844ac8813,bopId=138,partitionId=-1,sinkId=136,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	complex_articles-by-year Q100146811
+3	Blazegraph		  56227	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=1451b696-c115-48a9-842f-735fa11bc136,bopId=137,partitionId=-1,sinkId=138,altSinkId=136}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	complex_articles-by-year Q100146812
+4	Blazegraph		  55964	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=8e7e0feb-62c5-4f77-a812-8eaeddaa2088,bopId=138,partitionId=-1,sinkId=136,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	complex_articles-by-year Q100146813
+5	Blazegraph		  55967	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=75e51b24-3f17-48e4-8582-4b7865ea77ca,bopId=138,partitionId=-1,sinkId=136,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	complex_articles-by-year Q100146821
+6	Blazegraph		 600016	      	None 	500	ERROR java.util.concurrent.TimeoutException	complex_articles-recent Q100146810
+7	Blazegraph		 600035	      	None 	500	ERROR java.util.concurrent.TimeoutException	complex_articles-recent Q100146811
+8	Blazegraph		 600039	      	None 	500	ERROR java.util.concurrent.TimeoutException	complex_articles-recent Q100146812
+9	Blazegraph		 600022	      	None 	500	ERROR java.util.concurrent.TimeoutException	complex_articles-recent Q100146813
+10	Blazegraph		 600015	      	None 	500	ERROR java.util.concurrent.TimeoutException	complex_articles-recent Q100146821
+11	Blazegraph		    186	      	Count= 2 	200		complex_identifiers Q100146810
+12	Blazegraph		     89	      	Count= 2 	200		complex_identifiers Q100146811
+13	Blazegraph		    117	      	Count= 2 	200		complex_identifiers Q100146812
+14	Blazegraph		    131	      	Count= 2 	200		complex_identifiers Q100146813
+15	Blazegraph		    165	      	Count= 2 	200		complex_identifiers Q100146821
+16	Blazegraph		     53	      	Count= 2 	200		complex_participants Q100146810
+17	Blazegraph		     45	      	Result=1.0 	200		complex_participants Q100146811
+18	Blazegraph		     38	      	Count= 2 	200		complex_participants Q100146812
+19	Blazegraph		     42	      	Count= 7 	200		complex_participants Q100146813
+20	Blazegraph		     57	      	Count= 2 	200		complex_participants Q100146821

@@ -1,0 +1,30 @@
+1	QLever		      6	      	None 	400	    "exception": "Invalid SPARQL query: Prefix gas was not registered using a PREFIX declaration",	chemical-class_class-hierarchy Q101561621
+2	QLever		      2	      	None 	400	    "exception": "Invalid SPARQL query: Prefix gas was not registered using a PREFIX declaration",	chemical-class_class-hierarchy Q101565160
+3	QLever		      2	      	None 	400	    "exception": "Invalid SPARQL query: Prefix gas was not registered using a PREFIX declaration",	chemical-class_class-hierarchy Q103537
+4	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: Prefix gas was not registered using a PREFIX declaration",	chemical-class_class-hierarchy Q103840598
+5	QLever		      1	      	None 	400	    "exception": "Invalid SPARQL query: Prefix gas was not registered using a PREFIX declaration",	chemical-class_class-hierarchy Q105620529
+6	QLever		    312	      	Count= 0 	200		chemical-class_found-in-taxon Q101561621
+7	QLever		      7	      	Count= 0 	200		chemical-class_found-in-taxon Q101565160
+8	QLever		    780	      	Count= 2 	200		chemical-class_found-in-taxon Q103537
+9	QLever		      9	      	Count= 0 	200		chemical-class_found-in-taxon Q103840598
+10	QLever		      8	      	Count= 0 	200		chemical-class_found-in-taxon Q105620529
+11	QLever		     13	      	Count= 0 	200		chemical-class_identifiers Q101561621
+12	QLever		      7	      	Count= 0 	200		chemical-class_identifiers Q101565160
+13	QLever		      7	      	Count= 0 	200		chemical-class_identifiers Q103537
+14	QLever		      7	      	Result=P2926 	200		chemical-class_identifiers Q103840598
+15	QLever		      7	      	Count= 0 	200		chemical-class_identifiers Q105620529
+16	QLever		     78	      	Result=1987 	200		chemical-class_publications-per-year Q101561621
+17	QLever		     40	      	Count= 2 	200		chemical-class_publications-per-year Q101565160
+18	QLever		    178	      	Count= 129 	200		chemical-class_publications-per-year Q103537
+19	QLever		     42	      	Count= 16 	200		chemical-class_publications-per-year Q103840598
+20	QLever		     44	      	Count= 8 	200		chemical-class_publications-per-year Q105620529
+21	QLever		   8934	      	Count= 2 	200		chemical-class_recent-literature Q101561621
+22	QLever		     35	      	Result=Q199897 	200		chemical-class_recent-literature Q101565160
+23	QLever		     86	      	Count= 250 	200		chemical-class_recent-literature Q103537
+24	QLever		     32	      	Result=Q39246449 	200		chemical-class_recent-literature Q103840598
+25	QLever		     36	      	Count= 6 	200		chemical-class_recent-literature Q105620529
+26	QLever		   2298	      	Result=Q101561621 	200		chemical-class_related-chemicals Q101561621
+27	QLever		     50	      	Result=Q101565160 	200		chemical-class_related-chemicals Q101565160
+28	QLever		     56	      	Count= 71 	200		chemical-class_related-chemicals Q103537
+29	QLever		     49	      	Result=Q103840598 	200		chemical-class_related-chemicals Q103840598
+30	QLever		     55	      	Count= 259 	200		chemical-class_related-chemicals Q105620529

@@ -1,0 +1,75 @@
+1	QWDS		    603	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	work_associated-images Q100019567
+2	QWDS		    316	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	work_associated-images Q100138103
+3	QWDS		    335	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	work_associated-images Q100138118
+4	QWDS		    326	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	work_associated-images Q100138615
+5	QWDS		    332	      	None 	400	    "exception": "Not supported: \"!\" inside a property path is  currently not supported by QLever.",	work_associated-images Q100139626
+6	QWDS		   6772	      	None 	500	    "exception": "Tried to allocate 4.9 GB, but only 3.8 GB were available. Clear the cache or allow more memory for QLever during startup",	work_citation-graph Q100019567
+7	QWDS		  76303	      	Count= 2 	200		work_citation-graph Q100138103
+8	QWDS		   6820	      	None 	500	    "exception": "Tried to allocate 4.9 GB, but only 350.8 MB were available. Clear the cache or allow more memory for QLever during startup",	work_citation-graph Q100138118
+9	QWDS		  74643	      	Count= 24 	200		work_citation-graph Q100138615
+10	QWDS		   6542	      	None 	500	    "exception": "Tried to allocate 4.9 GB, but only 350.8 MB were available. Clear the cache or allow more memory for QLever during startup",	work_citation-graph Q100139626
+11	QWDS		    355	      	Count= 22 	200		work_citations-per-year Q100019567
+12	QWDS		    349	      	Count= 21 	200		work_citations-per-year Q100138103
+13	QWDS		    354	      	Count= 21 	200		work_citations-per-year Q100138118
+14	QWDS		    353	      	Count= 22 	200		work_citations-per-year Q100138615
+15	QWDS		    386	      	Count= 23 	200		work_citations-per-year Q100139626
+16	QWDS		   2635	      	Count= 0 	200		work_citations Q100019567
+17	QWDS		    328	      	Count= 0 	200		work_citations Q100138103
+18	QWDS		    336	      	Count= 0 	200		work_citations Q100138118
+19	QWDS		    339	      	Count= 0 	200		work_citations Q100138615
+20	QWDS		    325	      	Result=0 	200		work_citations Q100139626
+21	QWDS		   1429	      	Count= 7 	200		work_cited-work-authors Q100019567
+22	QWDS		    341	      	Count= 0 	200		work_cited-work-authors Q100138103
+23	QWDS		    335	      	Count= 0 	200		work_cited-work-authors Q100138118
+24	QWDS		   1512	      	Count= 12 	200		work_cited-work-authors Q100138615
+25	QWDS		   1765	      	Count= 51 	200		work_cited-work-authors Q100139626
+26	QWDS		    334	      	Count= 2 	200		work_cited-works Q100019567
+27	QWDS		    336	      	Result=2 	200		work_cited-works Q100138103
+28	QWDS		    326	      	Result=2 	200		work_cited-works Q100138118
+29	QWDS		    339	      	Count= 2 	200		work_cited-works Q100138615
+30	QWDS		    311	      	Count= 2 	200		work_cited-works Q100139626
+31	QWDS		    337	      	Count= 0 	200		work_cito-incoming-chart Q100019567
+32	QWDS		    338	      	Count= 0 	200		work_cito-incoming-chart Q100138103
+33	QWDS		    361	      	Count= 0 	200		work_cito-incoming-chart Q100138118
+34	QWDS		    345	      	Count= 0 	200		work_cito-incoming-chart Q100138615
+35	QWDS		    329	      	Count= 0 	200		work_cito-incoming-chart Q100139626
+36	QWDS		    336	      	Count= 0 	200		work_cito-incoming Q100019567
+37	QWDS		    335	      	Count= 0 	200		work_cito-incoming Q100138103
+38	QWDS		    321	      	Count= 0 	200		work_cito-incoming Q100138118
+39	QWDS		    345	      	Count= 0 	200		work_cito-incoming Q100138615
+40	QWDS		    337	      	Count= 0 	200		work_cito-incoming Q100139626
+41	QWDS		    432	      	None 	414	<html><head>	work_data Q100019567
+42	QWDS		    479	      	None 	414	<html><head>	work_data Q100138103
+43	QWDS		    444	      	None 	414	<html><head>	work_data Q100138118
+44	QWDS		    441	      	None 	414	<html><head>	work_data Q100138615
+45	QWDS		    445	      	None 	414	<html><head>	work_data Q100139626
+46	QWDS		 106987	      	Count= 6 	200		work_list-of-authors Q100019567
+47	QWDS		    371	      	Count= 2 	200		work_list-of-authors Q100138103
+48	QWDS		    388	      	Count= 2 	200		work_list-of-authors Q100138118
+49	QWDS		    390	      	Count= 11 	200		work_list-of-authors Q100138615
+50	QWDS		    442	      	Count= 22 	200		work_list-of-authors Q100139626
+51	QWDS		  65629	      	Count= 500 	200		work_related-works Q100019567
+52	QWDS		   6569	      	None 	500	    "exception": "Tried to allocate 4.9 GB, but only 3.8 GB were available. Clear the cache or allow more memory for QLever during startup",	work_related-works Q100138103
+53	QWDS		  65766	      	Count= 2 	200		work_related-works Q100138118
+54	QWDS		   6610	      	None 	500	    "exception": "Tried to allocate 4.9 GB, but only 3.8 GB were available. Clear the cache or allow more memory for QLever during startup",	work_related-works Q100138615
+55	QWDS		  67379	      	Count= 235 	200		work_related-works Q100139626
+56	QWDS		    540	      	None 	500	    "exception": "Tried to allocate 162.2 GB, but only 18.6 GB were available. Clear the cache or allow more memory for QLever during startup",	work_statements Q100019567
+57	QWDS		    452	      	None 	500	    "exception": "Tried to allocate 162.2 GB, but only 20 GB were available. Clear the cache or allow more memory for QLever during startup",	work_statements Q100138103
+58	QWDS		    440	      	None 	500	    "exception": "Tried to allocate 162.2 GB, but only 20 GB were available. Clear the cache or allow more memory for QLever during startup",	work_statements Q100138118
+59	QWDS		    435	      	None 	500	    "exception": "Tried to allocate 162.2 GB, but only 20 GB were available. Clear the cache or allow more memory for QLever during startup",	work_statements Q100138615
+60	QWDS		    443	      	None 	500	    "exception": "Tried to allocate 162.2 GB, but only 20 GB were available. Clear the cache or allow more memory for QLever during startup",	work_statements Q100139626
+61	QWDS		    383	      	Count= 3 	200		work_timeline Q100019567
+62	QWDS		    397	      	Count= 3 	200		work_timeline Q100138103
+63	QWDS		    382	      	Count= 3 	200		work_timeline Q100138118
+64	QWDS		    394	      	Count= 3 	200		work_timeline Q100138615
+65	QWDS		    427	      	Count= 5 	200		work_timeline Q100139626
+66	QWDS		    799	      	Count= 10 	200		work_topic-scores Q100019567
+67	QWDS		    338	      	Result=21 	200		work_topic-scores Q100138103
+68	QWDS		    347	      	Result=21 	200		work_topic-scores Q100138118
+69	QWDS		    336	      	Count= 8 	200		work_topic-scores Q100138615
+70	QWDS		    339	      	Count= 11 	200		work_topic-scores Q100139626
+71	QWDS		    348	      	None 	400	    "exception": "Invalid SPARQL query: Prefix mwapi was not registered using a PREFIX declaration",	work_wikipedia-mentions Q100019567
+72	QWDS		    328	      	None 	400	    "exception": "Invalid SPARQL query: Prefix mwapi was not registered using a PREFIX declaration",	work_wikipedia-mentions Q100138103
+73	QWDS		    347	      	None 	400	    "exception": "Invalid SPARQL query: Prefix mwapi was not registered using a PREFIX declaration",	work_wikipedia-mentions Q100138118
+74	QWDS		    340	      	None 	400	    "exception": "Invalid SPARQL query: Prefix mwapi was not registered using a PREFIX declaration",	work_wikipedia-mentions Q100138615
+75	QWDS		    359	      	None 	400	    "exception": "Invalid SPARQL query: Prefix mwapi was not registered using a PREFIX declaration",	work_wikipedia-mentions Q100139626

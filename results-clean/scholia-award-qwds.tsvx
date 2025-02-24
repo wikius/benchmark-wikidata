@@ -1,0 +1,35 @@
+1	QWDS		   1501	      	Count= 3 	200		award_coawards Q100328361
+2	QWDS		    372	      	Count= 3 	200		award_coawards Q100328630
+3	QWDS		    465	      	Count= 22 	200		award_coawards Q1003293
+4	QWDS		    493	      	Count= 76 	200		award_coawards Q1004305
+5	QWDS		    428	      	Result=1 	200		award_coawards Q101001039
+6	QWDS		    363	      	Result=2 	200		award_gender-distribution Q100328361
+7	QWDS		    362	      	Result=2 	200		award_gender-distribution Q100328630
+8	QWDS		    384	      	Result=8 	200		award_gender-distribution Q1003293
+9	QWDS		    364	      	Count= 2 	200		award_gender-distribution Q1004305
+10	QWDS		    546	      	Count= 2 	200		award_gender-distribution Q101001039
+11	QWDS		    818	      	Result=2020 	200		award_images-of-recipients Q100328361
+12	QWDS		    442	      	Result=2008 	200		award_images-of-recipients Q100328630
+13	QWDS		    406	      	Count= 6 	200		award_images-of-recipients Q1003293
+14	QWDS		    371	      	Count= 22 	200		award_images-of-recipients Q1004305
+15	QWDS		    367	      	Count= 0 	200		award_images-of-recipients Q101001039
+16	QWDS		  15934	      	Count= 10000 	200		award_list-of-recipients Q100328361
+17	QWDS		  19324	      	Count= 10000 	200		award_list-of-recipients Q100328630
+18	QWDS		  15140	      	None 	500	    "exception": "Tried to allocate 6.6 GB, but only 4.9 GB were available. Clear the cache or allow more memory for QLever during startup",	award_list-of-recipients Q1003293
+19	QWDS		  18072	      	None 	500	    "exception": "Tried to allocate 2.9 GB, but only 1.2 GB were available. Clear the cache or allow more memory for QLever during startup",	award_list-of-recipients Q1004305
+20	QWDS		  30429	      	Count= 10000 	200		award_list-of-recipients Q101001039
+21	QWDS		    598	      	Count= 15 	200		award_locations-of-recipients Q100328361
+22	QWDS		    501	      	Count= 15 	200		award_locations-of-recipients Q100328630
+23	QWDS		    515	      	Count= 63 	200		award_locations-of-recipients Q1003293
+24	QWDS		    563	      	Count= 259 	200		award_locations-of-recipients Q1004305
+25	QWDS		    396	      	Count= 6 	200		award_locations-of-recipients Q101001039
+26	QWDS		    696	      	Count= 15 	200		award_recent-publications-by-recipients Q100328361
+27	QWDS		    424	      	Count= 15 	200		award_recent-publications-by-recipients Q100328630
+28	QWDS		    407	      	Count= 0 	200		award_recent-publications-by-recipients Q1003293
+29	QWDS		    470	      	Count= 500 	200		award_recent-publications-by-recipients Q1004305
+30	QWDS		    365	      	Count= 0 	200		award_recent-publications-by-recipients Q101001039
+31	QWDS		    367	      	Count= 11 	200		award_topics-of-works-by-recipients Q100328361
+32	QWDS		    415	      	Count= 11 	200		award_topics-of-works-by-recipients Q100328630
+33	QWDS		    431	      	Count= 0 	200		award_topics-of-works-by-recipients Q1003293
+34	QWDS		    385	      	Count= 50 	200		award_topics-of-works-by-recipients Q1004305
+35	QWDS		    358	      	Count= 0 	200		award_topics-of-works-by-recipients Q101001039

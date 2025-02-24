@@ -1,0 +1,35 @@
+1	Blazegraph		    459	      	Count= 46 	200		taxon_co-occurring-taxa Q1000017
+2	Blazegraph		     81	      	Count= 6 	200		taxon_co-occurring-taxa Q1000266
+3	Blazegraph		     81	      	Count= 5 	200		taxon_co-occurring-taxa Q1000270
+4	Blazegraph		   1427	      	Result=1 	200		taxon_co-occurring-taxa Q1000274
+5	Blazegraph		     73	      	Result=1 	200		taxon_co-occurring-taxa Q100032077
+6	Blazegraph		     33	      	Count= 0 	200		taxon_genome Q1000017
+7	Blazegraph		     24	      	Count= 0 	200		taxon_genome Q1000266
+8	Blazegraph		     28	      	Count= 0 	200		taxon_genome Q1000270
+9	Blazegraph		     31	      	Count= 0 	200		taxon_genome Q1000274
+10	Blazegraph		     29	      	Count= 0 	200		taxon_genome Q100032077
+11	Blazegraph		    185	      	Count= 22 	200		taxon_identifiers Q1000017
+12	Blazegraph		    124	      	Count= 23 	200		taxon_identifiers Q1000266
+13	Blazegraph		    107	      	Count= 20 	200		taxon_identifiers Q1000270
+14	Blazegraph		    110	      	Count= 20 	200		taxon_identifiers Q1000274
+15	Blazegraph		     92	      	Count= 7 	200		taxon_identifiers Q100032077
+16	Blazegraph		  19515	      	Count= 0 	200		taxon_metabolome Q1000017
+17	Blazegraph		  10102	      	Count= 0 	200		taxon_metabolome Q1000266
+18	Blazegraph		   9717	      	Count= 0 	200		taxon_metabolome Q1000270
+19	Blazegraph		   9754	      	Count= 0 	200		taxon_metabolome Q1000274
+20	Blazegraph		   9740	      	Count= 0 	200		taxon_metabolome Q100032077
+21	Blazegraph		    669	      	Count= 25 	200		taxon_parent-taxa Q1000017
+22	Blazegraph		   1027	      	Count= 32 	200		taxon_parent-taxa Q1000266
+23	Blazegraph		    899	      	Count= 32 	200		taxon_parent-taxa Q1000270
+24	Blazegraph		    645	      	Count= 30 	200		taxon_parent-taxa Q1000274
+25	Blazegraph		    623	      	Count= 19 	200		taxon_parent-taxa Q100032077
+26	Blazegraph		   3463	      	Count= 0 	200		taxon_proteome Q1000017
+27	Blazegraph		   3494	      	Count= 0 	200		taxon_proteome Q1000266
+28	Blazegraph		   3447	      	Count= 0 	200		taxon_proteome Q1000270
+29	Blazegraph		   3567	      	Count= 0 	200		taxon_proteome Q1000274
+30	Blazegraph		   3373	      	Count= 0 	200		taxon_proteome Q100032077
+31	Blazegraph		  12968	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=1363a91e-977b-4511-9651-cde61ba38ba4,bopId=24,partitionId=-1,sinkId=28,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[child, parent],outputDistinctJVs=true,size=1221765,considered(left=0,right=0,joins=0)}	taxon_tree Q1000017
+32	Blazegraph		  12109	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=33ec7ba1-37c3-4c9f-9b03-48a171585abd,bopId=24,partitionId=-1,sinkId=28,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[child, parent],outputDistinctJVs=true,size=1223572,considered(left=0,right=0,joins=0)}	taxon_tree Q1000266
+33	Blazegraph		  12552	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=c25c66a1-a3be-4da4-bc57-2ae87726aede,bopId=24,partitionId=-1,sinkId=28,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[child, parent],outputDistinctJVs=true,size=1269506,considered(left=0,right=0,joins=0)}	taxon_tree Q1000270
+34	Blazegraph		  12237	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=9c5b3c6e-bdd5-4940-b633-a113c94c4b74,bopId=24,partitionId=-1,sinkId=28,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[child, parent],outputDistinctJVs=true,size=1226657,considered(left=0,right=0,joins=0)}	taxon_tree Q1000274
+35	Blazegraph		  12342	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=1d075364-f545-415c-8d18-be7450a88682,bopId=24,partitionId=-1,sinkId=28,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[child, parent],outputDistinctJVs=true,size=1215719,considered(left=0,right=0,joins=0)}	taxon_tree Q100032077

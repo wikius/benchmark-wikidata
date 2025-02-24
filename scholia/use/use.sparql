@@ -2,6 +2,5 @@ SELECT DISTINCT ?c WHERE {
   ?c wdt:P31/wdt:P279* wd:Q22811662 .
     ?work wdt:P4510 / wdt:P279* ?c ;
           wdt:P50 ?author .
-
 } 
 LIMIT 5

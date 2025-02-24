@@ -61,3 +61,4 @@ WHERE {
   OPTIONAL { ?example_work rdfs:label ?example_workLabel .  FILTER ( lang(?example_workLabel) = 'en' ) } 
 }
 ORDER BY DESC(?number_of_citing_works) 
+LIMIT 10000

@@ -1,0 +1,25 @@
+1	MilleniumDB		     11	      	Count= 2 	200		pathway_citing-articles Q28031254
+2	MilleniumDB		      5	      	Result=145 	200		pathway_citing-articles Q30151288
+3	MilleniumDB		      5	      	Result=17 	200		pathway_citing-articles Q30225378
+4	MilleniumDB		      5	      	Result=11 	200		pathway_citing-articles Q30225468
+5	MilleniumDB		      5	      	Result=8 	200		pathway_citing-articles Q30225516
+6	MilleniumDB		 209582	      	Result=WP111 	200		pathway_optional-data-values Q28031254
+7	MilleniumDB		 165998	      	Result=WP306 	200		pathway_optional-data-values Q30151288
+8	MilleniumDB		 165669	      	Result=WP1541 	200		pathway_optional-data-values Q30225378
+9	MilleniumDB		 167025	      	Result=WP2036 	200		pathway_optional-data-values Q30225468
+10	MilleniumDB		 167176	      	Result=WP2586 	200		pathway_optional-data-values Q30225516
+11	MilleniumDB		     32	      	Count= 117 	200		pathway_participants Q28031254
+12	MilleniumDB		     33	      	Count= 201 	200		pathway_participants Q30151288
+13	MilleniumDB		     10	      	Count= 47 	200		pathway_participants Q30225378
+14	MilleniumDB		      8	      	Count= 38 	200		pathway_participants Q30225468
+15	MilleniumDB		      9	      	Count= 45 	200		pathway_participants Q30225516
+16	MilleniumDB		 600466	      	None 	200	ERROR EMPTY OUTPUT	pathway_publications-per-year Q28031254
+17	MilleniumDB		 600037	      	None 	200	ERROR EMPTY OUTPUT	pathway_publications-per-year Q30151288
+18	MilleniumDB		 600041	      	None 	200	ERROR EMPTY OUTPUT	pathway_publications-per-year Q30225378
+19	MilleniumDB		 387090	      	Count= 0 	200		pathway_publications-per-year Q30225468
+20	MilleniumDB		 364095	      	Count= 0 	200		pathway_publications-per-year Q30225516
+21	MilleniumDB		     11	      	Count= 0 	200		pathway_recent-articles Q28031254
+22	MilleniumDB		      6	      	Count= 0 	200		pathway_recent-articles Q30151288
+23	MilleniumDB		    443	      	Count= 484 	200		pathway_recent-articles Q30225378
+24	MilleniumDB		      6	      	Count= 0 	200		pathway_recent-articles Q30225468
+25	MilleniumDB		      6	      	Count= 0 	200		pathway_recent-articles Q30225516

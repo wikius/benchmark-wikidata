@@ -1,0 +1,25 @@
+6	Blazegraph		     69	      	Count= 0 	200		chemical-class_found-in-taxon Q101561621
+7	Blazegraph		     52	      	Count= 0 	200		chemical-class_found-in-taxon Q101565160
+8	Blazegraph		    103	      	Count= 2 	200		chemical-class_found-in-taxon Q103537
+9	Blazegraph		     50	      	Count= 0 	200		chemical-class_found-in-taxon Q103840598
+10	Blazegraph		     88	      	Count= 0 	200		chemical-class_found-in-taxon Q105620529
+11	Blazegraph		     40	      	Count= 0 	200		chemical-class_identifiers Q101561621
+12	Blazegraph		     36	      	Count= 0 	200		chemical-class_identifiers Q101565160
+13	Blazegraph		     36	      	Count= 0 	200		chemical-class_identifiers Q103537
+14	Blazegraph		     40	      	Result=P2926 	200		chemical-class_identifiers Q103840598
+15	Blazegraph		     40	      	Count= 0 	200		chemical-class_identifiers Q105620529
+16	Blazegraph		    259	      	Result=1987 	200		chemical-class_publications-per-year Q101561621
+17	Blazegraph		    172	      	Count= 2 	200		chemical-class_publications-per-year Q101565160
+18	Blazegraph		   1069	      	Count= 129 	200		chemical-class_publications-per-year Q103537
+19	Blazegraph		    170	      	Count= 16 	200		chemical-class_publications-per-year Q103840598
+20	Blazegraph		    240	      	Count= 8 	200		chemical-class_publications-per-year Q105620529
+21	Blazegraph		 600012	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical-class_recent-literature Q101561621
+22	Blazegraph		 600023	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical-class_recent-literature Q101565160
+23	Blazegraph		 600027	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical-class_recent-literature Q103537
+24	Blazegraph		 600026	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical-class_recent-literature Q103840598
+25	Blazegraph		 600023	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical-class_recent-literature Q105620529
+26	Blazegraph		     86	      	Result=Q101561621 	200		chemical-class_related-chemicals Q101561621
+27	Blazegraph		     62	      	Result=Q101565160 	200		chemical-class_related-chemicals Q101565160
+28	Blazegraph		    134	      	Count= 71 	200		chemical-class_related-chemicals Q103537
+29	Blazegraph		     60	      	Result=Q103840598 	200		chemical-class_related-chemicals Q103840598
+30	Blazegraph		    104	      	Count= 259 	200		chemical-class_related-chemicals Q105620529

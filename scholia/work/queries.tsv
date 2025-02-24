@@ -1,7 +1,3 @@
-work-cito-intention_incoming	work-cito-intention_incoming LABEL	QUERY	work
-work-curation_author-resolving	work-curation_author-resolving LABEL	QUERY	work
-work-curation_missing-orcid	work-curation_missing-orcid LABEL	QUERY	work
-work-index_recently-retracted-works	work-index_recently-retracted-works LABEL	QUERY	work
 work_associated-images	work_associated-images LABEL	QUERY	work
 work_citation-graph	work_citation-graph LABEL	QUERY	work
 work_citations-per-year	work_citations-per-year LABEL	QUERY	work
@@ -10,15 +6,9 @@ work_cited-work-authors	work_cited-work-authors LABEL	QUERY	work
 work_cited-works	work_cited-works LABEL	QUERY	work
 work_cito-incoming-chart	work_cito-incoming-chart LABEL	QUERY	work
 work_cito-incoming	work_cito-incoming LABEL	QUERY	work
-work_data	work_data LABEL	QUERY	work
 work_list-of-authors	work_list-of-authors LABEL	QUERY	work
 work_related-works	work_related-works LABEL	QUERY	work
 work_statements	work_statements LABEL	QUERY	work
 work_timeline	work_timeline LABEL	QUERY	work
 work_topic-scores	work_topic-scores LABEL	QUERY	work
 work_wikipedia-mentions	work_wikipedia-mentions LABEL	QUERY	work
-works_authors	works_authors LABEL	QUERY	work
-works_citations-per-year	works_citations-per-year LABEL	QUERY	work
-works_citing-works	works_citing-works LABEL	QUERY	work
-works_list-of-works	works_list-of-works LABEL	QUERY	work
-works_topics	works_topics LABEL	QUERY	work

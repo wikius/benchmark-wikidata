@@ -1,0 +1,20 @@
+1	MilleniumDB		  15652	      	Count= 0 	200		complex_articles-by-year Q100146810
+2	MilleniumDB		  13525	      	Count= 0 	200		complex_articles-by-year Q100146811
+3	MilleniumDB		  13617	      	Count= 0 	200		complex_articles-by-year Q100146812
+4	MilleniumDB		  13512	      	Count= 0 	200		complex_articles-by-year Q100146813
+5	MilleniumDB		  13221	      	Count= 0 	200		complex_articles-by-year Q100146821
+6	MilleniumDB		 600886	      	None 	200	ERROR EMPTY OUTPUT	complex_articles-recent Q100146810
+7	MilleniumDB		 600034	      	None 	200	ERROR EMPTY OUTPUT	complex_articles-recent Q100146811
+8	MilleniumDB		 600031	      	None 	200	ERROR EMPTY OUTPUT	complex_articles-recent Q100146812
+9	MilleniumDB		 600031	      	None 	200	ERROR EMPTY OUTPUT	complex_articles-recent Q100146813
+10	MilleniumDB		 600028	      	None 	200	ERROR EMPTY OUTPUT	complex_articles-recent Q100146821
+11	MilleniumDB		    142	      	Count= 2 	200		complex_identifiers Q100146810
+12	MilleniumDB		     21	      	Count= 2 	200		complex_identifiers Q100146811
+13	MilleniumDB		     21	      	Count= 2 	200		complex_identifiers Q100146812
+14	MilleniumDB		     23	      	Count= 2 	200		complex_identifiers Q100146813
+15	MilleniumDB		     22	      	Count= 2 	200		complex_identifiers Q100146821
+16	MilleniumDB		      9	      	Count= 2 	200		complex_participants Q100146810
+17	MilleniumDB		      5	      	Result=1.0 	200		complex_participants Q100146811
+18	MilleniumDB		      6	      	Count= 2 	200		complex_participants Q100146812
+19	MilleniumDB		      6	      	Count= 7 	200		complex_participants Q100146813
+20	MilleniumDB		      5	      	Count= 2 	200		complex_participants Q100146821

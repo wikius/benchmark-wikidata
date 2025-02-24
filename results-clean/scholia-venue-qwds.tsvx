@@ -1,0 +1,46 @@
+1	QWDS		    821	      	Count= 15 	200		venue_articles-by-intention 254115
+2	QWDS		    752	      	Count= 5 	200		venue_articles-by-intention 140573
+3	QWDS		    515	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	venue_articles-citing-retracted-articles 254115
+4	QWDS		    513	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	venue_articles-citing-retracted-articles 140573
+5	QWDS		   2785	      	Count= 500 	200		venue_author-awards 254115
+6	QWDS		   2764	      	Count= 500 	200		venue_author-awards 140573
+7	QWDS		   1123	      	Count= 11 	200		venue_author-gender-distribution 254115
+8	QWDS		    975	      	Count= 8 	200		venue_author-gender-distribution 140573
+9	QWDS		   1241	      	Count= 50 	200		venue_author-images 254115
+10	QWDS		   1107	      	Count= 50 	200		venue_author-images 140573
+11	QWDS		   2768	      	Count= 50 	200		venue_authors 254115
+12	QWDS		   2644	      	Count= 50 	200		venue_authors 140573
+13	QWDS		   1536	      	Count= 11 	200		venue_authorship-gender-distribution 254115
+14	QWDS		    993	      	Count= 8 	200		venue_authorship-gender-distribution 140573
+15	QWDS		   2149	      	Count= 383 	200		venue_citation-distribution 254115
+16	QWDS		   2691	      	Count= 176 	200		venue_citation-distribution 140573
+17	QWDS		    563	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	venue_cited-venues 254115
+18	QWDS		    410	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	venue_cited-venues 140573
+19	QWDS		   2047	      	Count= 1000 	200		venue_citing-venues 254115
+20	QWDS		   1510	      	Count= 1000 	200		venue_citing-venues 140573
+21	QWDS		   1227	      	Count= 150 	200		venue_co-author-graph 254115
+22	QWDS		   1203	      	Count= 150 	200		venue_co-author-graph 140573
+23	QWDS		   1478	      	Count= 8 	200		venue_incoming-bubble 254115
+24	QWDS		   1007	      	Count= 4 	200		venue_incoming-bubble 140573
+25	QWDS		   1107	      	Count= 8 	200		venue_incoming 254115
+26	QWDS		   1229	      	Count= 4 	200		venue_incoming 140573
+27	QWDS		   4714	      	Count= 1000 	200		venue_most-cited-articles 254115
+28	QWDS		   2853	      	Count= 1000 	200		venue_most-cited-articles 140573
+29	QWDS		   4992	      	Count= 100 	200		venue_most-cited-authors 254115
+30	QWDS		   4193	      	Count= 100 	200		venue_most-cited-authors 140573
+31	QWDS		    937	      	Count= 3 	200		venue_most-reused-articles 254115
+32	QWDS		    976	      	Count= 2 	200		venue_most-reused-articles 140573
+33	QWDS		   1119	      	Count= 12 	200		venue_outgoing-bubble 254115
+34	QWDS		   1110	      	Count= 5 	200		venue_outgoing-bubble 140573
+35	QWDS		   1000	      	Count= 12 	200		venue_outgoing 254115
+36	QWDS		   1301	      	Count= 5 	200		venue_outgoing 140573
+37	QWDS		    512	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	venue_recently-published-works 254115
+38	QWDS		    511	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	venue_recently-published-works 140573
+39	QWDS		   2318	      	Count= 100 	200		venue_retractions 254115
+40	QWDS		   2457	      	Count= 100 	200		venue_retractions 140573
+41	QWDS		   1869	      	Count= 76 	200		venue_top-topics-through-time 254115
+42	QWDS		   1624	      	Count= 52 	200		venue_top-topics-through-time 140573
+43	QWDS		   4042	      	Count= 31735 	200		venue_topics 254115
+44	QWDS		   3510	      	Count= 16639 	200		venue_topics 140573
+45	QWDS		   2360	      	Count= 1578 	200		venue_uses 254115
+46	QWDS		   2231	      	Count= 959 	200		venue_uses 140573

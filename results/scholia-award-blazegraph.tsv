@@ -1,0 +1,35 @@
+1	Blazegraph		    218	      	Count= 3 	200		award_coawards Q100328361
+2	Blazegraph		     47	      	Count= 3 	200		award_coawards Q100328630
+3	Blazegraph		     97	      	Count= 22 	200		award_coawards Q1003293
+4	Blazegraph		    150	      	Count= 75 	200		award_coawards Q1004305
+5	Blazegraph		     40	      	Result=1 	200		award_coawards Q101001039
+6	Blazegraph		     59	      	Result=2 	200		award_gender-distribution Q100328361
+7	Blazegraph		     46	      	Result=2 	200		award_gender-distribution Q100328630
+8	Blazegraph		     49	      	Result=8 	200		award_gender-distribution Q1003293
+9	Blazegraph		     62	      	Count= 2 	200		award_gender-distribution Q1004305
+10	Blazegraph		     64	      	Count= 2 	200		award_gender-distribution Q101001039
+11	Blazegraph		     71	      	Result=2020 	200		award_images-of-recipients Q100328361
+12	Blazegraph		     36	      	Result=2008 	200		award_images-of-recipients Q100328630
+13	Blazegraph		     68	      	Count= 6 	200		award_images-of-recipients Q1003293
+14	Blazegraph		     90	      	Count= 21 	200		award_images-of-recipients Q1004305
+15	Blazegraph		     42	      	Count= 0 	200		award_images-of-recipients Q101001039
+16	Blazegraph		  58072	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=78fa60bd-bb32-4839-b7eb-35f19742bc83,bopId=43,partitionId=-1,sinkId=44,altSinkId=42}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	award_list-of-recipients Q100328361
+17	Blazegraph		  56814	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=5eb35f75-97fa-4678-a501-e6402d48662d,bopId=43,partitionId=-1,sinkId=44,altSinkId=42}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	award_list-of-recipients Q100328630
+18	Blazegraph		  45632	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=55631a7e-a2b1-4f63-9954-e9cd0e22fabc,bopId=43,partitionId=-1,sinkId=44,altSinkId=42}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	award_list-of-recipients Q1003293
+19	Blazegraph		  52503	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=aec53bf6-6c7e-4bcd-8964-b237e58edac4,bopId=45,partitionId=-1,sinkId=47,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	award_list-of-recipients Q1004305
+20	Blazegraph		  55506	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=3c47fe28-5d5f-4311-83e4-6f849da912a1,bopId=43,partitionId=-1,sinkId=44,altSinkId=42}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	award_list-of-recipients Q101001039
+21	Blazegraph		    173	      	Count= 15 	200		award_locations-of-recipients Q100328361
+22	Blazegraph		     54	      	Count= 15 	200		award_locations-of-recipients Q100328630
+23	Blazegraph		    129	      	Count= 62 	200		award_locations-of-recipients Q1003293
+24	Blazegraph		    376	      	Count= 255 	200		award_locations-of-recipients Q1004305
+25	Blazegraph		     63	      	Count= 6 	200		award_locations-of-recipients Q101001039
+26	Blazegraph		     65	      	Count= 15 	200		award_recent-publications-by-recipients Q100328361
+27	Blazegraph		     49	      	Count= 15 	200		award_recent-publications-by-recipients Q100328630
+28	Blazegraph		     53	      	Count= 0 	200		award_recent-publications-by-recipients Q1003293
+29	Blazegraph		    212	      	Count= 500 	200		award_recent-publications-by-recipients Q1004305
+30	Blazegraph		     48	      	Count= 0 	200		award_recent-publications-by-recipients Q101001039
+31	Blazegraph		     60	      	Count= 11 	200		award_topics-of-works-by-recipients Q100328361
+32	Blazegraph		     40	      	Count= 11 	200		award_topics-of-works-by-recipients Q100328630
+33	Blazegraph		     44	      	Count= 0 	200		award_topics-of-works-by-recipients Q1003293
+34	Blazegraph		    221	      	Count= 50 	200		award_topics-of-works-by-recipients Q1004305
+35	Blazegraph		     34	      	Count= 0 	200		award_topics-of-works-by-recipients Q101001039

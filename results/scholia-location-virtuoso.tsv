@@ -1,0 +1,10 @@
+1	Virtuoso		      9	      	Count= 76 	400	Virtuoso 37000 Error SP031: SPARQL compiler: Unknown function http://www.opengis.net/def/function/geosparql/distance()	location_nearby-locations-as-topics-in-works Q100
+2	Virtuoso		      2	      	Count= 76 	400	Virtuoso 37000 Error SP031: SPARQL compiler: Unknown function http://www.opengis.net/def/function/geosparql/distance()	location_nearby-locations-as-topics-in-works Q1000029
+3	Virtuoso		      1	      	Count= 76 	400	Virtuoso 37000 Error SP031: SPARQL compiler: Unknown function http://www.opengis.net/def/function/geosparql/distance()	location_nearby-locations-as-topics-in-works Q1000030
+4	Virtuoso		      1	      	Count= 76 	400	Virtuoso 37000 Error SP031: SPARQL compiler: Unknown function http://www.opengis.net/def/function/geosparql/distance()	location_nearby-locations-as-topics-in-works Q1000033
+5	Virtuoso		      1	      	Count= 76 	400	Virtuoso 37000 Error SP031: SPARQL compiler: Unknown function http://www.opengis.net/def/function/geosparql/distance()	location_nearby-locations-as-topics-in-works Q1000046
+6	Virtuoso		      1	      	Count= 68 	400	Virtuoso 37000 Error SP031: SPARQL compiler: Unknown function http://www.opengis.net/def/function/geosparql/distance()	location_nearby-organizations Q100
+7	Virtuoso		      2	      	Count= 68 	400	Virtuoso 37000 Error SP031: SPARQL compiler: Unknown function http://www.opengis.net/def/function/geosparql/distance()	location_nearby-organizations Q1000029
+8	Virtuoso		      2	      	Count= 68 	400	Virtuoso 37000 Error SP031: SPARQL compiler: Unknown function http://www.opengis.net/def/function/geosparql/distance()	location_nearby-organizations Q1000030
+9	Virtuoso		      1	      	Count= 68 	400	Virtuoso 37000 Error SP031: SPARQL compiler: Unknown function http://www.opengis.net/def/function/geosparql/distance()	location_nearby-organizations Q1000033
+10	Virtuoso		      1	      	Count= 68 	400	Virtuoso 37000 Error SP031: SPARQL compiler: Unknown function http://www.opengis.net/def/function/geosparql/distance()	location_nearby-organizations Q1000046

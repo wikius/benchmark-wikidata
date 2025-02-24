@@ -1,0 +1,25 @@
+1	MilleniumDB		     21	      	Count= 11 	200		use_authors-of-works-using-the-resource Q30337044
+2	MilleniumDB		      7	      	Count= 3 	200		use_authors-of-works-using-the-resource Q45342146
+3	MilleniumDB		      5	      	Result=1 	200		use_authors-of-works-using-the-resource Q47459391
+4	MilleniumDB		      6	      	Count= 0 	200		use_authors-of-works-using-the-resource Q107147026
+5	MilleniumDB		      5	      	Count= 0 	200		use_authors-of-works-using-the-resource Q111709974
+6	MilleniumDB		 600306	      	None 	200	ERROR EMPTY OUTPUT	use_co-used Q30337044
+7	MilleniumDB		      7	      	Count= 0 	200		use_co-used Q45342146
+8	MilleniumDB		 166177	      	Result=1 	200		use_co-used Q47459391
+9	MilleniumDB		      7	      	Count= 0 	200		use_co-used Q107147026
+10	MilleniumDB		      5	      	Count= 0 	200		use_co-used Q111709974
+11	MilleniumDB		      7	      	Count= 9 	200		use_recent-work-using-the-used Q30337044
+12	MilleniumDB		      5	      	Count= 2 	200		use_recent-work-using-the-used Q45342146
+13	MilleniumDB		      4	      	Result=2017-07-29T00:00:00Z 	200		use_recent-work-using-the-used Q47459391
+14	MilleniumDB		      4	      	Count= 0 	200		use_recent-work-using-the-used Q107147026
+15	MilleniumDB		      4	      	Count= 0 	200		use_recent-work-using-the-used Q111709974
+16	MilleniumDB		     10	      	Count= 12 	200		use_topics-of-works-using-the-resource Q30337044
+17	MilleniumDB		      5	      	Count= 3 	200		use_topics-of-works-using-the-resource Q45342146
+18	MilleniumDB		      5	      	Count= 2 	200		use_topics-of-works-using-the-resource Q47459391
+19	MilleniumDB		      5	      	Count= 0 	200		use_topics-of-works-using-the-resource Q107147026
+20	MilleniumDB		      5	      	Count= 0 	200		use_topics-of-works-using-the-resource Q111709974
+21	MilleniumDB		      5	      	Count= 4 	200		use_usage-over-time Q30337044
+22	MilleniumDB		      5	      	Count= 2 	200		use_usage-over-time Q45342146
+23	MilleniumDB		      4	      	Result=2017 	200		use_usage-over-time Q47459391
+24	MilleniumDB		      4	      	Count= 0 	200		use_usage-over-time Q107147026
+25	MilleniumDB		      4	      	Count= 0 	200		use_usage-over-time Q111709974

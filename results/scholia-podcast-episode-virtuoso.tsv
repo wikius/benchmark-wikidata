@@ -1,0 +1,15 @@
+1	Virtuoso		   2402	      	Count= 4 	200		podcast-episode_data Q100326679
+2	Virtuoso		     59	      	Count= 4 	200		podcast-episode_data Q104713141
+3	Virtuoso		     15	      	Count= 3 	200		podcast-episode_data Q104713445
+4	Virtuoso		     20	      	Count= 3 	200		podcast-episode_data Q104713455
+5	Virtuoso		     37	      	Count= 3 	200		podcast-episode_data Q104820002
+6	Virtuoso		      5	      	Count= 46 	400	Virtuoso 37000 Error SP031: SPARQL compiler: Internal error: ssg_print_rvr_fixed_val(): no SPART_VARR_FIXED	podcast-episode_guests Q100326679
+7	Virtuoso		      2	      	Count= 46 	400	Virtuoso 37000 Error SP031: SPARQL compiler: Internal error: ssg_print_rvr_fixed_val(): no SPART_VARR_FIXED	podcast-episode_guests Q104713141
+8	Virtuoso		      1	      	Count= 46 	400	Virtuoso 37000 Error SP031: SPARQL compiler: Internal error: ssg_print_rvr_fixed_val(): no SPART_VARR_FIXED	podcast-episode_guests Q104713445
+9	Virtuoso		      1	      	Count= 46 	400	Virtuoso 37000 Error SP031: SPARQL compiler: Internal error: ssg_print_rvr_fixed_val(): no SPART_VARR_FIXED	podcast-episode_guests Q104713455
+10	Virtuoso		      2	      	Count= 46 	400	Virtuoso 37000 Error SP031: SPARQL compiler: Internal error: ssg_print_rvr_fixed_val(): no SPART_VARR_FIXED	podcast-episode_guests Q104820002
+11	Virtuoso		    326	      	Count= 0 	200		podcast-episode_listings Q100326679
+12	Virtuoso		      5	      	Count= 0 	200		podcast-episode_listings Q104713141
+13	Virtuoso		     11	      	Result=P11976 	200		podcast-episode_listings Q104713445
+14	Virtuoso		      5	      	Count= 0 	200		podcast-episode_listings Q104713455
+15	Virtuoso		      4	      	Count= 0 	200		podcast-episode_listings Q104820002

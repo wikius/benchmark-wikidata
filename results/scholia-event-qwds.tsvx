@@ -1,75 +1,75 @@
-1	QWDS		    591	      	Count= 22 	200		event_co-authors Q100741900
-2	QWDS		    818	      	Count= 1210 	200		event_co-authors Q105835556
-3	QWDS		    614	      	Count= 228 	200		event_co-authors Q115781177
-4	QWDS		    610	      	Count= 570 	200		event_co-authors Q1159867
-5	QWDS		    629	      	Count= 12 	200		event_co-authors Q119153952
-6	QWDS		  10953	      	Count= 2 	200		event_data Q100741900
-7	QWDS		   2965	      	Count= 9 	200		event_data Q105835556
-8	QWDS		   2763	      	Count= 8 	200		event_data Q115781177
-9	QWDS		   2560	      	Count= 2 	200		event_data Q1159867
-10	QWDS		   2556	      	Count= 3 	200		event_data Q119153952
-11	QWDS		    404	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#dateTime>\" is currently not supported by QLever.",	event_future-events Q100741900
-12	QWDS		    525	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#dateTime>\" is currently not supported by QLever.",	event_future-events Q105835556
-13	QWDS		    507	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#dateTime>\" is currently not supported by QLever.",	event_future-events Q115781177
-14	QWDS		    701	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#dateTime>\" is currently not supported by QLever.",	event_future-events Q1159867
-15	QWDS		    614	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#dateTime>\" is currently not supported by QLever.",	event_future-events Q119153952
-16	QWDS		    613	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	event_past-events Q100741900
-17	QWDS		    510	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	event_past-events Q105835556
-18	QWDS		    527	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	event_past-events Q115781177
-19	QWDS		    513	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	event_past-events Q1159867
-20	QWDS		    501	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	event_past-events Q119153952
-21	QWDS		  14321	      	Count= 10000 	200		event_people Q100741900
-22	QWDS		  13661	      	None 	500	    "exception": "Tried to allocate 3.3 GB, but only 1.6 GB were available. Clear the cache or allow more memory for QLever during startup",	event_people Q105835556
-23	QWDS		   2252	      	Count= 65 	200		event_people Q115781177
-24	QWDS		   1843	      	Count= 60 	200		event_people Q1159867
-25	QWDS		   1655	      	Count= 23 	200		event_people Q119153952
-26	QWDS		   4915	      	Count= 0 	200		event_presentations Q100741900
-27	QWDS		    511	      	Count= 0 	200		event_presentations Q105835556
-28	QWDS		    511	      	Count= 0 	200		event_presentations Q115781177
-29	QWDS		    510	      	Count= 3 	200		event_presentations Q1159867
-30	QWDS		    511	      	Count= 0 	200		event_presentations Q119153952
-31	QWDS		    440	      	Result=Q100899396 	200		event_proceedings Q100741900
-32	QWDS		    579	      	Count= 128 	200		event_proceedings Q105835556
-33	QWDS		    434	      	Count= 39 	200		event_proceedings Q115781177
-34	QWDS		    489	      	Count= 27 	200		event_proceedings Q1159867
-35	QWDS		    419	      	Count= 2 	200		event_proceedings Q119153952
-36	QWDS		    488	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#dateTime>\" is currently not supported by QLever.",	event_recent-publications Q100741900
-37	QWDS		    513	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#dateTime>\" is currently not supported by QLever.",	event_recent-publications Q105835556
-38	QWDS		    508	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#dateTime>\" is currently not supported by QLever.",	event_recent-publications Q115781177
-39	QWDS		    413	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#dateTime>\" is currently not supported by QLever.",	event_recent-publications Q1159867
-40	QWDS		    413	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#dateTime>\" is currently not supported by QLever.",	event_recent-publications Q119153952
-41	QWDS		   2047	      	Count= 164 	200		event_related-events-people Q100741900
-42	QWDS		   1638	      	Count= 200 	200		event_related-events-people Q105835556
-43	QWDS		   1637	      	Count= 200 	200		event_related-events-people Q115781177
-44	QWDS		   1739	      	Count= 18 	200		event_related-events-people Q1159867
-45	QWDS		   1643	      	Count= 132 	200		event_related-events-people Q119153952
-46	QWDS		    511	      	None 	400	    "exception": "Invalid SPARQL query: Prefix geof was not registered using a PREFIX declaration",	event_related-events-timelocation Q100741900
-47	QWDS		    495	      	None 	400	    "exception": "Invalid SPARQL query: Prefix geof was not registered using a PREFIX declaration",	event_related-events-timelocation Q105835556
-48	QWDS		    329	      	None 	400	    "exception": "Invalid SPARQL query: Prefix geof was not registered using a PREFIX declaration",	event_related-events-timelocation Q115781177
-49	QWDS		    488	      	None 	400	    "exception": "Invalid SPARQL query: Prefix geof was not registered using a PREFIX declaration",	event_related-events-timelocation Q1159867
-50	QWDS		    416	      	None 	400	    "exception": "Invalid SPARQL query: Prefix geof was not registered using a PREFIX declaration",	event_related-events-timelocation Q119153952
-51	QWDS		    613	      	Count= 2 	200		event_sponsors Q100741900
-52	QWDS		    623	      	Count= 9 	200		event_sponsors Q105835556
-53	QWDS		    501	      	Count= 5 	200		event_sponsors Q115781177
-54	QWDS		    411	      	Result=Q239221 	200		event_sponsors Q1159867
-55	QWDS		    513	      	Result=Q234021 	200		event_sponsors Q119153952
-56	QWDS		    715	      	Count= 0 	200		event_timeline Q100741900
-57	QWDS		    511	      	Count= 0 	200		event_timeline Q105835556
-58	QWDS		    516	      	Count= 0 	200		event_timeline Q115781177
-59	QWDS		    506	      	Count= 0 	200		event_timeline Q1159867
-60	QWDS		   1636	      	Result=2023-07-20T00:00:00Z 	200		event_timeline Q119153952
-61	QWDS		    530	      	Count= 200 	200		event_topic-scores Q100741900
-62	QWDS		    533	      	Count= 200 	200		event_topic-scores Q105835556
-63	QWDS		    490	      	Count= 200 	200		event_topic-scores Q115781177
-64	QWDS		    490	      	Count= 200 	200		event_topic-scores Q1159867
-65	QWDS		    509	      	Count= 200 	200		event_topic-scores Q119153952
-66	QWDS		    716	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	event_upcoming-deadlines Q100741900
-67	QWDS		    716	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	event_upcoming-deadlines Q105835556
-68	QWDS		    517	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	event_upcoming-deadlines Q115781177
-69	QWDS		    408	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	event_upcoming-deadlines Q1159867
-70	QWDS		    515	      	None 	400	    "exception": "Not supported: Function \"<http://www.w3.org/2001/XMLSchema#date>\" is currently not supported by QLever.",	event_upcoming-deadlines Q119153952
-71	QWDS		   1945	      	Count= 159 	200		event_uses Q100741900
-72	QWDS		   1642	      	Count= 157 	200		event_uses Q105835556
-73	QWDS		   1476	      	Count= 152 	200		event_uses Q115781177
-74	QWDS		   1588	      	Count= 14 	200		event_uses Q1159867
-75	QWDS		   1432	      	Count= 32 	200		event_uses Q119153952
+1	QWDS		    598	      	Count= 22 	200		event_co-authors Q100741900
+2	QWDS		    652	      	Count= 1210 	200		event_co-authors Q105835556
+3	QWDS		    416	      	Count= 228 	200		event_co-authors Q115781177
+4	QWDS		    458	      	Count= 570 	200		event_co-authors Q1159867
+5	QWDS		    430	      	Count= 12 	200		event_co-authors Q119153952
+6	QWDS		  10224	      	Count= 2 	200		event_data Q100741900
+7	QWDS		   2600	      	Count= 9 	200		event_data Q105835556
+8	QWDS		   2563	      	Count= 8 	200		event_data Q115781177
+9	QWDS		   2558	      	Count= 2 	200		event_data Q1159867
+10	QWDS		   2551	      	Count= 3 	200		event_data Q119153952
+11	QWDS		  63013	      	None 	500	    "exception": "Tried to allocate 2.9 GB, but only 772.4 MB were available. Clear the cache or allow more memory for QLever during startup",	event_future-events Q100741900
+12	QWDS		  63248	      	None 	500	    "exception": "Tried to allocate 2.9 GB, but only 2.1 GB were available. Clear the cache or allow more memory for QLever during startup",	event_future-events Q105835556
+13	QWDS		  61979	      	None 	500	    "exception": "Tried to allocate 2.9 GB, but only 2.1 GB were available. Clear the cache or allow more memory for QLever during startup",	event_future-events Q115781177
+14	QWDS		  63430	      	None 	500	    "exception": "Tried to allocate 2.9 GB, but only 2.1 GB were available. Clear the cache or allow more memory for QLever during startup",	event_future-events Q1159867
+15	QWDS		  62240	      	None 	500	    "exception": "Tried to allocate 2.9 GB, but only 2.1 GB were available. Clear the cache or allow more memory for QLever during startup",	event_future-events Q119153952
+16	QWDS		  12253	      	None 	500	    "exception": "Tried to allocate 3.3 GB, but only 2.2 GB were available. Clear the cache or allow more memory for QLever during startup",	event_past-events Q100741900
+17	QWDS		  11696	      	None 	500	    "exception": "Tried to allocate 3.3 GB, but only 2.2 GB were available. Clear the cache or allow more memory for QLever during startup",	event_past-events Q105835556
+18	QWDS		  11375	      	None 	500	    "exception": "Tried to allocate 3.3 GB, but only 2.2 GB were available. Clear the cache or allow more memory for QLever during startup",	event_past-events Q115781177
+19	QWDS		  12378	      	None 	500	    "exception": "Tried to allocate 3.3 GB, but only 2.2 GB were available. Clear the cache or allow more memory for QLever during startup",	event_past-events Q1159867
+20	QWDS		  11778	      	None 	500	    "exception": "Tried to allocate 3.3 GB, but only 2.2 GB were available. Clear the cache or allow more memory for QLever during startup",	event_past-events Q119153952
+21	QWDS		  13575	      	Count= 10000 	200		event_people Q100741900
+22	QWDS		  13731	      	None 	500	    "exception": "Tried to allocate 3.3 GB, but only 1.6 GB were available. Clear the cache or allow more memory for QLever during startup",	event_people Q105835556
+23	QWDS		   2144	      	Count= 65 	200		event_people Q115781177
+24	QWDS		   1594	      	Count= 60 	200		event_people Q1159867
+25	QWDS		   1518	      	Count= 23 	200		event_people Q119153952
+26	QWDS		   4806	      	Count= 0 	200		event_presentations Q100741900
+27	QWDS		    326	      	Count= 0 	200		event_presentations Q105835556
+28	QWDS		    347	      	Count= 0 	200		event_presentations Q115781177
+29	QWDS		    332	      	Count= 3 	200		event_presentations Q1159867
+30	QWDS		    319	      	Count= 0 	200		event_presentations Q119153952
+31	QWDS		    339	      	Result=Q100899396 	200		event_proceedings Q100741900
+32	QWDS		    440	      	Count= 128 	200		event_proceedings Q105835556
+33	QWDS		    322	      	Count= 39 	200		event_proceedings Q115781177
+34	QWDS		    323	      	Count= 27 	200		event_proceedings Q1159867
+35	QWDS		    328	      	Count= 2 	200		event_proceedings Q119153952
+36	QWDS		    489	      	Count= 500 	200		event_recent-publications Q100741900
+37	QWDS		    540	      	Count= 500 	200		event_recent-publications Q105835556
+38	QWDS		    507	      	Count= 500 	200		event_recent-publications Q115781177
+39	QWDS		    525	      	Count= 500 	200		event_recent-publications Q1159867
+40	QWDS		    456	      	Count= 379 	200		event_recent-publications Q119153952
+41	QWDS		   1781	      	Count= 164 	200		event_related-events-people Q100741900
+42	QWDS		   1612	      	Count= 200 	200		event_related-events-people Q105835556
+43	QWDS		   1558	      	Count= 200 	200		event_related-events-people Q115781177
+44	QWDS		   1442	      	Count= 18 	200		event_related-events-people Q1159867
+45	QWDS		   1447	      	Count= 132 	200		event_related-events-people Q119153952
+46	QWDS		    539	      	Count= 0 	200		event_related-events-timelocation Q100741900
+47	QWDS		    500	      	Count= 0 	200		event_related-events-timelocation Q105835556
+48	QWDS		   2093	      	Count= 14360 	200		event_related-events-timelocation Q115781177
+49	QWDS		    419	      	Count= 0 	200		event_related-events-timelocation Q1159867
+50	QWDS		   1850	      	Count= 14360 	200		event_related-events-timelocation Q119153952
+51	QWDS		    361	      	Count= 2 	200		event_sponsors Q100741900
+52	QWDS		    321	      	Count= 9 	200		event_sponsors Q105835556
+53	QWDS		    326	      	Count= 5 	200		event_sponsors Q115781177
+54	QWDS		    336	      	Result=Q239221 	200		event_sponsors Q1159867
+55	QWDS		    322	      	Result=Q234021 	200		event_sponsors Q119153952
+56	QWDS		    354	      	Count= 0 	200		event_timeline Q100741900
+57	QWDS		    328	      	Count= 0 	200		event_timeline Q105835556
+58	QWDS		    335	      	Count= 0 	200		event_timeline Q115781177
+59	QWDS		    334	      	Count= 0 	200		event_timeline Q1159867
+60	QWDS		   1472	      	Result=2023-07-20T00:00:00Z 	200		event_timeline Q119153952
+61	QWDS		    435	      	Count= 200 	200		event_topic-scores Q100741900
+62	QWDS		    456	      	Count= 200 	200		event_topic-scores Q105835556
+63	QWDS		    458	      	Count= 200 	200		event_topic-scores Q115781177
+64	QWDS		    444	      	Count= 200 	200		event_topic-scores Q1159867
+65	QWDS		    405	      	Count= 200 	200		event_topic-scores Q119153952
+66	QWDS		    464	      	Count= 0 	200		event_upcoming-deadlines Q100741900
+67	QWDS		    348	      	Count= 0 	200		event_upcoming-deadlines Q105835556
+68	QWDS		    330	      	Count= 0 	200		event_upcoming-deadlines Q115781177
+69	QWDS		    348	      	Count= 0 	200		event_upcoming-deadlines Q1159867
+70	QWDS		    352	      	Count= 0 	200		event_upcoming-deadlines Q119153952
+71	QWDS		   1689	      	Count= 159 	200		event_uses Q100741900
+72	QWDS		   1510	      	Count= 157 	200		event_uses Q105835556
+73	QWDS		   1513	      	Count= 152 	200		event_uses Q115781177
+74	QWDS		   1477	      	Count= 14 	200		event_uses Q1159867
+75	QWDS		   1433	      	Count= 32 	200		event_uses Q119153952

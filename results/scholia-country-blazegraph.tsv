@@ -1,0 +1,25 @@
+1	Blazegraph		  51613	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=968d0f6f-a8c1-450d-b070-356756d66b91,bopId=60,partitionId=-1,sinkId=58,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	country_authors Q1000
+2	Blazegraph		  45790	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=26b60f9a-8987-4a46-b65b-af40b2e2ab32,bopId=59,partitionId=-1,sinkId=60,altSinkId=58}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	country_authors Q1005
+3	Blazegraph		  42806	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=d64cb56a-0a6c-4314-8324-711154bbcf02,bopId=61,partitionId=-1,sinkId=63,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Optional,joinVars=[],outputDistinctJVs=false,size=74,considered(left=12882,right=9636,joins=947369),joinSetSize=61}	country_authors Q1006
+4	Blazegraph		  43843	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=d0ef9ed8-4d7c-44d1-972b-06f5f02ce740,bopId=59,partitionId=-1,sinkId=60,altSinkId=58}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	country_authors Q1007
+5	Blazegraph		  40770	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=c498a77e-4aab-4ab2-b05f-c37e65050cf9,bopId=60,partitionId=-1,sinkId=58,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	country_authors Q1008
+6	Blazegraph		   1107	      	Count= 556 	200		country_co-organizations Q1000
+7	Blazegraph		   1110	      	Count= 1121 	200		country_co-organizations Q1005
+8	Blazegraph		    431	      	Count= 36 	200		country_co-organizations Q1006
+9	Blazegraph		    493	      	Count= 190 	200		country_co-organizations Q1007
+10	Blazegraph		   1012	      	Count= 932 	200		country_co-organizations Q1008
+11	Blazegraph		    781	      	Count= 1459 	200		country_locations-as-topics Q1000
+12	Blazegraph		    748	      	Count= 4154 	200		country_locations-as-topics Q1005
+13	Blazegraph		    377	      	Count= 557 	200		country_locations-as-topics Q1006
+14	Blazegraph		    493	      	Count= 1245 	200		country_locations-as-topics Q1007
+15	Blazegraph		    863	      	Count= 2721 	200		country_locations-as-topics Q1008
+16	Blazegraph		     71	      	Count= 6 	200		country_narrative-locations Q1000
+17	Blazegraph		     47	      	Count= 6 	200		country_narrative-locations Q1005
+18	Blazegraph		     56	      	Count= 6 	200		country_narrative-locations Q1006
+19	Blazegraph		     45	      	Count= 4 	200		country_narrative-locations Q1007
+20	Blazegraph		     85	      	Count= 23 	200		country_narrative-locations Q1008
+21	Blazegraph		    250	      	Count= 10 	200		country_organizations Q1000
+22	Blazegraph		    239	      	Count= 8 	200		country_organizations Q1005
+23	Blazegraph		    390	      	Count= 7 	200		country_organizations Q1006
+24	Blazegraph		    257	      	Count= 5 	200		country_organizations Q1007
+25	Blazegraph		    431	      	Count= 32 	200		country_organizations Q1008

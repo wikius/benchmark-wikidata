@@ -1,0 +1,10 @@
+1	Blazegraph		    218	      	Result=Title 	200		podcast-season_data Q105563898
+2	Blazegraph		     66	      	Count= 2 	200		podcast-season_data Q107120701
+3	Blazegraph		     62	      	Count= 3 	200		podcast-season_data Q107120815
+4	Blazegraph		     51	      	Count= 2 	200		podcast-season_data Q107120874
+5	Blazegraph		     54	      	Count= 0 	200		podcast-season_data Q108417363
+6	Blazegraph		     32	      	Count= 0 	200		podcast-season_episodes Q105563898
+7	Blazegraph		     44	      	Count= 25 	200		podcast-season_episodes Q107120701
+8	Blazegraph		     35	      	Count= 25 	200		podcast-season_episodes Q107120815
+9	Blazegraph		     62	      	Count= 22 	200		podcast-season_episodes Q107120874
+10	Blazegraph		     60	      	Count= 94 	200		podcast-season_episodes Q108417363

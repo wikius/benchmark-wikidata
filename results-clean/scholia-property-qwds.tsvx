@@ -1,0 +1,15 @@
+1	QWDS		    326	      	Count= 100 	200		property_item-counts subclass of
+2	QWDS		   4892	      	Count= 100 	200		property_item-counts instance of
+3	QWDS		   2435	      	Count= 100 	200		property_item-counts publication date
+4	QWDS		    633	      	Count= 100 	200		property_item-counts start time
+5	QWDS		    519	      	Count= 100 	200		property_item-counts part of
+6	QWDS		    322	      	Count= 100 	200		property_property-value-counts subclass of
+7	QWDS		    534	      	Count= 100 	200		property_property-value-counts instance of
+8	QWDS		    650	      	Count= 100 	200		property_property-value-counts publication date
+9	QWDS		    346	      	Count= 100 	200		property_property-value-counts start time
+10	QWDS		    495	      	Count= 100 	200		property_property-value-counts part of
+11	QWDS		    408	      	Count= 500 	200		property_use subclass of
+12	QWDS		  19940	      	Count= 500 	200		property_use instance of
+13	QWDS		   8088	      	Count= 500 	200		property_use publication date
+14	QWDS		   1385	      	Count= 500 	200		property_use start time
+15	QWDS		   1945	      	Count= 500 	200		property_use part of

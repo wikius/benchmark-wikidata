@@ -1,0 +1,30 @@
+1	QWDS		    684	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang=\"en\"><head><link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crosso'",	chemical-class_class-hierarchy Q101561621
+2	QWDS		    386	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang=\"en\"><head><link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crosso'",	chemical-class_class-hierarchy Q101565160
+3	QWDS		    369	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang=\"en\"><head><link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crosso'",	chemical-class_class-hierarchy Q103537
+4	QWDS		    361	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang=\"en\"><head><link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crosso'",	chemical-class_class-hierarchy Q103840598
+5	QWDS		    355	      	None 	500	    "exception": "Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang=\"en\"><head><link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crosso'",	chemical-class_class-hierarchy Q105620529
+6	QWDS		    498	      	Count= 0 	200		chemical-class_found-in-taxon Q101561621
+7	QWDS		    334	      	Count= 0 	200		chemical-class_found-in-taxon Q101565160
+8	QWDS		   1632	      	Count= 2 	200		chemical-class_found-in-taxon Q103537
+9	QWDS		    356	      	Count= 0 	200		chemical-class_found-in-taxon Q103840598
+10	QWDS		    339	      	Count= 0 	200		chemical-class_found-in-taxon Q105620529
+11	QWDS		    343	      	Count= 0 	200		chemical-class_identifiers Q101561621
+12	QWDS		    331	      	Count= 0 	200		chemical-class_identifiers Q101565160
+13	QWDS		    334	      	Count= 0 	200		chemical-class_identifiers Q103537
+14	QWDS		    358	      	Result=P2926 	200		chemical-class_identifiers Q103840598
+15	QWDS		    342	      	Count= 0 	200		chemical-class_identifiers Q105620529
+16	QWDS		    458	      	Result=1987 	200		chemical-class_publications-per-year Q101561621
+17	QWDS		    405	      	Count= 2 	200		chemical-class_publications-per-year Q101565160
+18	QWDS		    664	      	Count= 130 	200		chemical-class_publications-per-year Q103537
+19	QWDS		    403	      	Count= 16 	200		chemical-class_publications-per-year Q103840598
+20	QWDS		    424	      	Count= 13 	200		chemical-class_publications-per-year Q105620529
+21	QWDS		   8287	      	Count= 2 	200		chemical-class_recent-literature Q101561621
+22	QWDS		    394	      	Result=Q199897 	200		chemical-class_recent-literature Q101565160
+23	QWDS		    550	      	Count= 250 	200		chemical-class_recent-literature Q103537
+24	QWDS		    412	      	Result=Q39246449 	200		chemical-class_recent-literature Q103840598
+25	QWDS		    434	      	Count= 9 	200		chemical-class_recent-literature Q105620529
+26	QWDS		   4877	      	Result=Q101561621 	200		chemical-class_related-chemicals Q101561621
+27	QWDS		    419	      	Result=Q101565160 	200		chemical-class_related-chemicals Q101565160
+28	QWDS		    443	      	Count= 71 	200		chemical-class_related-chemicals Q103537
+29	QWDS		    417	      	Result=Q103840598 	200		chemical-class_related-chemicals Q103840598
+30	QWDS		    438	      	Count= 259 	200		chemical-class_related-chemicals Q105620529

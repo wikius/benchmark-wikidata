@@ -1,0 +1,35 @@
+1	MilleniumDB		 600903	      	None 	200	ERROR EMPTY OUTPUT	software_authors Q102537983
+2	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	software_authors Q1026367
+3	MilleniumDB		 600032	      	None 	200	ERROR EMPTY OUTPUT	software_authors Q1036510
+4	MilleniumDB		 600030	      	None 	200	ERROR EMPTY OUTPUT	software_authors Q105099901
+5	MilleniumDB		 167105	      	Result=1 	200		software_authors Q106313302
+6	MilleniumDB		 600783	      	None 	200	ERROR EMPTY OUTPUT	software_coused Q102537983
+7	MilleniumDB		 600029	      	None 	200	ERROR EMPTY OUTPUT	software_coused Q1026367
+8	MilleniumDB		 600029	      	None 	200	ERROR EMPTY OUTPUT	software_coused Q1036510
+9	MilleniumDB		 600030	      	None 	200	ERROR EMPTY OUTPUT	software_coused Q105099901
+10	MilleniumDB		      5	      	Count= 0 	200		software_coused Q106313302
+11	MilleniumDB		 158424	      	Count= 0 	200		software_data Q102537983
+12	MilleniumDB		  36286	      	Count= 8 	200		software_data Q1026367
+13	MilleniumDB		  35489	      	Count= 4 	200		software_data Q1036510
+14	MilleniumDB		  35628	      	Count= 6 	200		software_data Q105099901
+15	MilleniumDB		  35555	      	Count= 2 	200		software_data Q106313302
+16	MilleniumDB		    610	      	Result=0 	200		software_dependent-software Q102537983
+17	MilleniumDB		     31	      	Count= 73 	200		software_dependent-software Q1026367
+18	MilleniumDB		      7	      	Result=0 	200		software_dependent-software Q1036510
+19	MilleniumDB		      7	      	Count= 4 	200		software_dependent-software Q105099901
+20	MilleniumDB		      6	      	Result=0 	200		software_dependent-software Q106313302
+21	MilleniumDB		     19	      	Count= 500 	200		software_recent-works Q102537983
+22	MilleniumDB		     17	      	Count= 500 	200		software_recent-works Q1026367
+23	MilleniumDB		      6	      	Count= 2 	200		software_recent-works Q1036510
+24	MilleniumDB		      6	      	Count= 4 	200		software_recent-works Q105099901
+25	MilleniumDB		      5	      	Count= 0 	200		software_recent-works Q106313302
+26	MilleniumDB		      8	      	Count= 0 	200		software_software-dependencies Q102537983
+27	MilleniumDB		     20	      	Count= 53 	200		software_software-dependencies Q1026367
+28	MilleniumDB		      6	      	Count= 5 	200		software_software-dependencies Q1036510
+29	MilleniumDB		      5	      	Count= 13 	200		software_software-dependencies Q105099901
+30	MilleniumDB		      7	      	Count= 3 	200		software_software-dependencies Q106313302
+31	MilleniumDB		     41	      	Count= 100 	200		software_topics Q102537983
+32	MilleniumDB		     35	      	Count= 100 	200		software_topics Q1026367
+33	MilleniumDB		      7	      	Count= 8 	200		software_topics Q1036510
+34	MilleniumDB		     10	      	Count= 27 	200		software_topics Q105099901
+35	MilleniumDB		      6	      	Result=1 	200		software_topics Q106313302

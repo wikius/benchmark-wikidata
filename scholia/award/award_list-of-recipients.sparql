@@ -53,3 +53,4 @@ WHERE {
   OPTIONAL { ?recipient rdfs:label ?recipientLabel .  FILTER ( lang(?recipientLabel) = 'en' ) }  
 }
 ORDER BY DESC(?year)
+LIMIT 10000

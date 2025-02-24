@@ -1,0 +1,232 @@
+
+
+CATEGORY author
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          110     23     44     75    143  87730   8530   8070    15     0    15     0
+MilleniumDB         110      1     16     70  28010 601308 100981  16039    39    16    10    13
+QLever              110      1      3     12     51  71203   3816   3547    20     0    20     0
+Virtuoso            110      2      8     61    518   6545    484    484    27     0    27     0
+
+CATEGORY award
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           35     34     48     64    212  58072   7751   7751     5     0     5     0
+MilleniumDB          35      4      4      8     50 601114  85844   8585     5     5     0     0
+QLever               35      2      6     11    119 141379   7850   5363     0     0     0     0
+Virtuoso             35      3      5     99    774   6762    683    683     1     0     1     0
+
+CATEGORY catalogue
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           10     34     40     54    137    351    106    106     0     0     0     0
+MilleniumDB          10      3      3      7     13    173     24     24     0     0     0     0
+QLever               10      3      3      6     82  23690   2403   2403     0     0     0     0
+Virtuoso             10      6     31     89    729   2778    527    527     0     0     0     0
+
+CATEGORY chemical-class
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           30     36     58    152  13885 600027 102438  12434    10     5     5     0
+MilleniumDB          30      2      3      6 600032 600483 211998  22004    15    10     5     0
+QLever               30      1      7     35     61   8934    439    439     5     0     5     0
+Virtuoso             30      2      7     94    602   6024    614    614    10     0    10     0
+
+CATEGORY chemical-element
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           20     32     82    260 450125 600034 150137  15130     5     5     0     0
+MilleniumDB          20      5      5      9 450031 600596 150044  15008     5     5     0     0
+QLever               20      8     13    100    169  10885    646    646     0     0     0     0
+Virtuoso             20      4     15     85   1486  32757   2293   2293     0     0     0     0
+
+CATEGORY chemical
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           50     27     39     51    356 600026  60300   6298     5     5     0     0
+MilleniumDB          50      1      4      6 168225 600865 138011  18003    15    10     5     0
+QLever               50      1      4     30   2001 450301  66816  12445    15     0    15     0
+Virtuoso             50      1      2     16    113  29872   2525   2525    20     0    20     0
+
+CATEGORY clinical_trial
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           10     67     87    559    943   1731    599    599     0     0     0     0
+MilleniumDB          10   2500   2538  80107  84131  84322  50646  37020     1     0     0     1
+QLever               10      7  10754  42338  67899  68955  38817  34797     5     0     5     0
+Virtuoso             10     27     43    636   1260   3189    854    854     4     0     0     4
+
+CATEGORY complex
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           20     38     65  28075 464439 600039 164211  29205    10     5     5     0
+MilleniumDB          20      5     12   6681 453934 600886 153539  18489     5     5     0     0
+QLever               20      5      7     13     89   9975    774    774    10     0    10     0
+Virtuoso             20      4      9     37    119   2919    230    230     5     0     5     0
+
+CATEGORY country
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           25     45    244    493   1108  51613   9364   9364     5     0     5     0
+MilleniumDB          25      5     16    440 600033 600793 240136  24091    10    10     0     0
+QLever               25      1      2      5    318 231260  24436  10873    18     0    18     0
+Virtuoso             25      6     22    166   6193  14704   3210   3210     5     0     5     0
+
+CATEGORY dataset
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           20     46     56     74    138    376    114    114     0     0     0     0
+MilleniumDB          20      5      6     13     17     38     15     15     0     0     0     0
+QLever               20      4     11     16     26  18010   1010   1010     0     0     0     0
+Virtuoso             20      1     17    175    319   6150    605    605     5     0     5     0
+
+CATEGORY disease
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           15     54    173    376  16665  55311   8729   8729     5     0     5     0
+MilleniumDB          15      6     26 600032 600347 601093 374721  40009     8     8     0     0
+QLever               15     14     17     75  64200  87380  23237  20091     5     0     5     0
+Virtuoso             15      3      4     18   1053   2758    490    490    10     0    10     0
+
+CATEGORY event-series
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           50     12     40  20669 128716 600026 102877  28658    25     5    20     0
+MilleniumDB          50      2      5 369206 600037 600991 306845  32410    23    23     0     0
+QLever               50      2     13     23   7395 615041  45276  11561     6     3     3     0
+Virtuoso             50      2      4     10   1302   6883    892    892    25     0    25     0
+
+CATEGORY event
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           75     24     59    182  56386 600024  65332  19981    21     5    16     0
+MilleniumDB          75      2     10 600028 600037 601053 331551  35216    47    38     5     4
+QLever               75      2      6     83    806  55678   4910   4910    14     0    10     4
+Virtuoso             75      1      6    159   1576  22869   1162   1162     5     0     5     0
+
+CATEGORY gene
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           25     28     34     40     57    259     51     51     0     0     0     0
+MilleniumDB          25      2      3      4      5     26      6      6     0     0     0     0
+QLever               25      2      3      8      9    531     40     40     0     0     0     0
+Virtuoso             25      5     19     41     87   3033    255    255     0     0     0     0
+
+CATEGORY ontology
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           25     25     31     46     86   1348    124    124     0     0     0     0
+MilleniumDB          25      3      4      7     64 122114  12149   7749     0     0     0     0
+QLever               25      2      3      6    159    497    103    103     0     0     0     0
+Virtuoso             25      2      2      7     53   1966    147    147     0     0     0     0
+
+CATEGORY organization
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           60     57    113   4567  71716 600026  69557  19905    23     5    13     5
+MilleniumDB          60      5     31   6693 600034 600907 248815  27835    23    23     0     0
+QLever               60      1      8     20    755  47428   2344   2344     6     0     6     0
+Virtuoso             60      1      6     28    427 601760  13863   2905    17     1    16     0
+
+CATEGORY pathway
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           25     35     47    101    216   1078    164    164     0     0     0     0
+MilleniumDB          25      5      6     32 188379 600466 137110  24023     3     3     0     0
+QLever               25      2      4      6     17   8663    573    573     0     0     0     0
+Virtuoso             25      8     20     28   1537  26406   4786   4786     6     0     5     1
+
+CATEGORY podcast-episode
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           15     16     31     57     78    260     67     67     0     0     0     0
+MilleniumDB          15      2      4      5    842    975    296    296     0     0     0     0
+QLever               15      3      5     14  22191  29315   8016   8016     0     0     0     0
+Virtuoso             15      1      2      5     37   2402    193    193     5     0     5     0
+
+CATEGORY podcast-season
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           10     32     41     57     63    218     68     68     0     0     0     0
+MilleniumDB          10      6      6      8     12     25     10     10     0     0     0     0
+QLever               10      2      2   7260  14707  19792   7850   7850     0     0     0     0
+Virtuoso             10      8     10     61    171   2067    280    280     5     0     0     5
+
+CATEGORY podcast
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           25     27     38     55     72    285     67     67     0     0     0     0
+MilleniumDB          25      4      5      7     11     28      9      9     1     0     0     1
+QLever               25      2      4      8    382  23758   2940   2940     0     0     0     0
+Virtuoso             25      3      8     43    132   2360    189    189     0     0     0     0
+
+CATEGORY project
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           40     27     50     89    214 600033  75112   7609     5     5     0     0
+MilleniumDB          40      2      4      8 248659 600637 142057  15021     7     7     0     0
+QLever               40      3      6     11     27  13024    392    392     0     0     0     0
+Virtuoso             40      2      4     15    112   4236    257    257    16     0    15     1
+
+CATEGORY property
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           15    327    768   2651 641341 1292467 243533  19950     4     4     0     0
+MilleniumDB          15     51     77  15970 132770 600873 121006  25515     1     1     0     0
+QLever               15     14     88    525   2824  16838   2564   2564     0     0     0     0
+Virtuoso             15     84    544   2036   3097  22763   3983   3983     0     0     0     0
+
+CATEGORY protein
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           25     29     49    184  59522 600027  61545  16743     7     2     5     0
+MilleniumDB          25      4    417 600028 600035 600693 335765  36114    13    13     0     0
+QLever               25      4      9    409  32123  52147  12470  12470     4     0     4     0
+Virtuoso             25      1      2      4     14   1450    113    113    20     0    20     0
+
+CATEGORY publisher
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           30     37     47     71    100   3143    189    189     0     0     0     0
+MilleniumDB          30      4      5     20     45 600147  44192   8019     3     1     0     2
+QLever               30      3      6      9     48   3461    235    235     0     0     0     0
+Virtuoso             30      2      7     37    311   2430    300    300     2     0     0     2
+
+CATEGORY series
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           25     39     45     58    178  10067   1957   1957     0     0     0     0
+MilleniumDB          25      4      5     10    877 600120  75142  12173     6     2     0     4
+QLever               25      2      4      8    355   2215    241    241     0     0     0     0
+Virtuoso             25      3      6     56    204   2102    229    229     0     0     0     0
+
+CATEGORY software
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           35     48     66     83    136    920    140    140     0     0     0     0
+MilleniumDB          35      5      7     31 167105 600903 150606  21252     8     8     0     0
+QLever               35      3      7     59    760  40674   4631   4631     0     0     0     0
+Virtuoso             35      2     17     68    582   9398    807    807     5     0     0     5
+
+CATEGORY sponsor
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           25     45    114    143    216    407    164    164     0     0     0     0
+MilleniumDB          25      2     14     49 600033 600179 240037  24012    10    10     0     0
+QLever               25      4      6     48    770   3699    492    492     0     0     0     0
+Virtuoso             25      9     70    433   1102  11977   1196   1196     5     0     0     5
+
+CATEGORY taxon
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           35     24     92    899   9740  19515   4146   4146     5     0     5     0
+MilleniumDB          35      2      9     31   1077 600842  73365  11208     8     3     5     0
+QLever               35      2      4      9     43   1057    138    138     5     0     5     0
+Virtuoso             35      2      2      5    320   5413    438    438     5     0     5     0
+
+CATEGORY topic
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           90     35   3855  48096 600022 684556 242863  35862    46    33    13     0
+MilleniumDB          90      8  52809 600035 600914 602663 395266  47977    55    55     0     0
+QLever               90      1    128    438   1239 110719   3047   2483    11     0    11     0
+Virtuoso             90      5     94    456   1756 599999  36885   6674    20     0    10    10
+
+CATEGORY use
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           25     42     47     52     63    261     64     64     0     0     0     0
+MilleniumDB          25      4      4      5      7 600306  30664   4805     1     1     0     0
+QLever               25      2      2      5      7    799     78     78     0     0     0     0
+Virtuoso             25      3      3      4     51   1308    126    126     0     0     0     0
+
+CATEGORY venue
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph          115     23    382   2436  46873 600168  94222  17304    16    13     3     0
+MilleniumDB         115      5     87   2429 600035 600918 190648  23596    41    34     0     7
+QLever              115      3     15    103    794   5037    513    513     1     0     0     1
+Virtuoso            115      5     53    358   3279  29250   3430   3430     7     0     7     0
+
+CATEGORY wikiproject
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           65     35     49    881 141751 600047 148828  21660    35    15    20     0
+MilleniumDB          65      5     28 108012 600034 601013 265562  32423    36    26    10     0
+QLever               65      3      7     18    115   9674    256    256    10     0    10     0
+Virtuoso             65      1      6     20    804 105162   2427   1732    16     0    15     1
+
+CATEGORY work
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence
+Blazegraph           70     24     38     55    189  93970   9426   7381    10     0    10     0
+MilleniumDB          70      2      5      7    118 600595  94335   9460    21     6    15     0
+QLever               70      1      3      6     66 212758  14726   4637    20     0    20     0
+Virtuoso             70      1      3      6     22   6622    247    247    14     0    10     4

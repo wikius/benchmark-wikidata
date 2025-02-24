@@ -1,0 +1,55 @@
+1	Blazegraph		   2278	      	Count= 1000 	200		wikiproject-index_most-used Q101246526
+2	Blazegraph		    881	      	Count= 1000 	200		wikiproject-index_most-used Q10780973
+3	Blazegraph		    854	      	Count= 1000 	200		wikiproject-index_most-used Q10816993
+4	Blazegraph		    726	      	Count= 1000 	200		wikiproject-index_most-used Q111805275
+5	Blazegraph		    754	      	Count= 1000 	200		wikiproject-index_most-used Q112316163
+6	Blazegraph		 600016	      	None 	500	ERROR java.util.concurrent.TimeoutException	wikiproject_author-awards Q101246526
+7	Blazegraph		 600047	      	None 	500	ERROR java.util.concurrent.TimeoutException	wikiproject_author-awards Q10780973
+8	Blazegraph		 600019	      	None 	500	ERROR java.util.concurrent.TimeoutException	wikiproject_author-awards Q10816993
+9	Blazegraph		 600023	      	None 	500	ERROR java.util.concurrent.TimeoutException	wikiproject_author-awards Q111805275
+10	Blazegraph		 600022	      	None 	500	ERROR java.util.concurrent.TimeoutException	wikiproject_author-awards Q112316163
+11	Blazegraph		     75	      	Count= 0 	200		wikiproject_authors Q101246526
+12	Blazegraph		    814	      	Count= 200 	200		wikiproject_authors Q10780973
+13	Blazegraph		     56	      	Count= 0 	200		wikiproject_authors Q10816993
+14	Blazegraph		     36	      	Count= 0 	200		wikiproject_authors Q111805275
+15	Blazegraph		     40	      	Count= 0 	200		wikiproject_authors Q112316163
+21	Blazegraph		   1717	      	Count= 25 	200		wikiproject_context Q101246526
+22	Blazegraph		   1661	      	Count= 15 	200		wikiproject_context Q10780973
+23	Blazegraph		   1859	      	Count= 85 	200		wikiproject_context Q10816993
+24	Blazegraph		   1843	      	Count= 3 	200		wikiproject_context Q111805275
+25	Blazegraph		   2346	      	Count= 10 	200		wikiproject_context Q112316163
+26	Blazegraph		 600016	      	None 	500	ERROR java.util.concurrent.TimeoutException	wikiproject_earliest-published-works Q101246526
+27	Blazegraph		 600034	      	None 	500	ERROR java.util.concurrent.TimeoutException	wikiproject_earliest-published-works Q10780973
+28	Blazegraph		 600021	      	None 	500	ERROR java.util.concurrent.TimeoutException	wikiproject_earliest-published-works Q10816993
+29	Blazegraph		 600022	      	None 	500	ERROR java.util.concurrent.TimeoutException	wikiproject_earliest-published-works Q111805275
+30	Blazegraph		 600021	      	None 	500	ERROR java.util.concurrent.TimeoutException	wikiproject_earliest-published-works Q112316163
+31	Blazegraph		     46	      	Count= 0 	200		wikiproject_focus Q101246526
+32	Blazegraph		   1202	      	Count= 2485 	200		wikiproject_focus Q10780973
+33	Blazegraph		     53	      	Count= 10 	200		wikiproject_focus Q10816993
+34	Blazegraph		     63	      	Count= 40 	200		wikiproject_focus Q111805275
+35	Blazegraph		     58	      	Count= 27 	200		wikiproject_focus Q112316163
+36	Blazegraph		     71	      	Count= 7 	200		wikiproject_maintained Q101246526
+37	Blazegraph		     41	      	Count= 11 	200		wikiproject_maintained Q10780973
+38	Blazegraph		     50	      	Count= 13 	200		wikiproject_maintained Q10816993
+39	Blazegraph		     49	      	Count= 22 	200		wikiproject_maintained Q111805275
+40	Blazegraph		     39	      	Count= 4 	200		wikiproject_maintained Q112316163
+41	Blazegraph		  37796	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=090efa9e-d23d-4a50-bec0-0ae1dafdb4d5,bopId=41,partitionId=-1,sinkId=42,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[--pp-anon-370a3249-4a0d-4c09-abc7-fc508883bfaf],outputDistinctJVs=true,size=30298795,considered(left=0,right=0,joins=0)}	wikiproject_organization-map Q101246526
+42	Blazegraph		  38128	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=214f857c-a454-4d49-a655-9d4630d50db4,bopId=41,partitionId=-1,sinkId=42,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[--pp-anon-bb1da327-29d7-41dc-976f-5dd1537be85f],outputDistinctJVs=true,size=30330919,considered(left=0,right=0,joins=0)}	wikiproject_organization-map Q10780973
+43	Blazegraph		  38023	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=47aa1ec2-6d3a-48cf-abac-c1dcc6bd7c21,bopId=41,partitionId=-1,sinkId=42,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[--pp-anon-8beb4e6f-0ef1-449f-be96-961c71901d14],outputDistinctJVs=true,size=30277191,considered(left=0,right=0,joins=0)}	wikiproject_organization-map Q10816993
+44	Blazegraph		  37881	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=39aac649-cfce-4800-9ee6-7d33c255a308,bopId=41,partitionId=-1,sinkId=42,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[--pp-anon-5b20358e-3769-4e68-a321-a663a5f50f92],outputDistinctJVs=true,size=30278507,considered(left=0,right=0,joins=0)}	wikiproject_organization-map Q111805275
+45	Blazegraph		  37636	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=16585677-c258-4b96-93e7-aa4014f8ad28,bopId=41,partitionId=-1,sinkId=42,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[--pp-anon-9df69556-7d7f-4fdc-9917-3407b171f110],outputDistinctJVs=true,size=30325732,considered(left=0,right=0,joins=0)}	wikiproject_organization-map Q112316163
+46	Blazegraph		  59904	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=a4cf670e-8ded-4121-8a60-99bf3680f4e0,bopId=67,partitionId=-1,sinkId=68,altSinkId=66}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	wikiproject_publications-per-year Q101246526
+47	Blazegraph		 222007	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=bba74850-4dab-40e5-afb0-6d1795b4fe39,bopId=68,partitionId=-1,sinkId=66,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	wikiproject_publications-per-year Q10780973
+48	Blazegraph		  61019	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=072faf41-eb7c-459f-bb21-f7ad23f874c6,bopId=68,partitionId=-1,sinkId=66,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	wikiproject_publications-per-year Q10816993
+49	Blazegraph		  61054	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=6600e709-3f90-46a9-80dc-a7f3d72ef3fc,bopId=67,partitionId=-1,sinkId=68,altSinkId=66}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	wikiproject_publications-per-year Q111805275
+50	Blazegraph		  61495	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=0fd65463-08b7-4a28-bca5-bc9e9e6f40cd,bopId=67,partitionId=-1,sinkId=68,altSinkId=66}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	wikiproject_publications-per-year Q112316163
+51	Blazegraph		 600015	      	None 	500	ERROR java.util.concurrent.TimeoutException	wikiproject_recently-published-works Q101246526
+52	Blazegraph		 600041	      	None 	500	ERROR java.util.concurrent.TimeoutException	wikiproject_recently-published-works Q10780973
+53	Blazegraph		 600018	      	None 	500	ERROR java.util.concurrent.TimeoutException	wikiproject_recently-published-works Q10816993
+54	Blazegraph		 600023	      	None 	500	ERROR java.util.concurrent.TimeoutException	wikiproject_recently-published-works Q111805275
+55	Blazegraph		 600030	      	None 	500	ERROR java.util.concurrent.TimeoutException	wikiproject_recently-published-works Q112316163
+61	Blazegraph		     73	      	Count= 0 	200		wikiproject_venues Q101246526
+62	Blazegraph		    280	      	Count= 51 	200		wikiproject_venues Q10780973
+63	Blazegraph		     49	      	Count= 0 	200		wikiproject_venues Q10816993
+64	Blazegraph		     49	      	Count= 0 	200		wikiproject_venues Q111805275
+65	Blazegraph		     47	      	Count= 0 	200		wikiproject_venues Q112316163

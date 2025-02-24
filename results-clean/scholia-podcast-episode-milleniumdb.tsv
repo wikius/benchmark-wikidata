@@ -1,0 +1,15 @@
+1	MilleniumDB		    975	      	Count= 4 	200		podcast-episode_data Q100326679
+2	MilleniumDB		    841	      	Count= 4 	200		podcast-episode_data Q104713141
+3	MilleniumDB		    842	      	Count= 3 	200		podcast-episode_data Q104713445
+4	MilleniumDB		    881	      	Count= 3 	200		podcast-episode_data Q104713455
+5	MilleniumDB		    854	      	Count= 3 	200		podcast-episode_data Q104820002
+6	MilleniumDB		      9	      	Count= 2 	200		podcast-episode_guests Q100326679
+7	MilleniumDB		      4	      	Count= 2 	200		podcast-episode_guests Q104713141
+8	MilleniumDB		      3	      	Result=Q42687823 	200		podcast-episode_guests Q104713445
+9	MilleniumDB		      2	      	Result=Q42687823 	200		podcast-episode_guests Q104713455
+10	MilleniumDB		      3	      	Result=Q96196490 	200		podcast-episode_guests Q104820002
+11	MilleniumDB		     11	      	Count= 0 	200		podcast-episode_listings Q100326679
+12	MilleniumDB		      5	      	Count= 0 	200		podcast-episode_listings Q104713141
+13	MilleniumDB		      5	      	Result=P11976 	200		podcast-episode_listings Q104713445
+14	MilleniumDB		      4	      	Count= 0 	200		podcast-episode_listings Q104713455
+15	MilleniumDB		      4	      	Count= 0 	200		podcast-episode_listings Q104820002

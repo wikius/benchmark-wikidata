@@ -1,0 +1,35 @@
+1	MilleniumDB		     12	      	Count= 3 	200		award_coawards Q100328361
+2	MilleniumDB		      6	      	Count= 3 	200		award_coawards Q100328630
+3	MilleniumDB		     13	      	Count= 22 	200		award_coawards Q1003293
+4	MilleniumDB		     31	      	Count= 75 	200		award_coawards Q1004305
+5	MilleniumDB		      6	      	Result=1 	200		award_coawards Q101001039
+6	MilleniumDB		      5	      	Result=2 	200		award_gender-distribution Q100328361
+7	MilleniumDB		      4	      	Result=2 	200		award_gender-distribution Q100328630
+8	MilleniumDB		      5	      	Result=8 	200		award_gender-distribution Q1003293
+9	MilleniumDB		      9	      	Count= 2 	200		award_gender-distribution Q1004305
+10	MilleniumDB		      4	      	Count= 2 	200		award_gender-distribution Q101001039
+11	MilleniumDB		      7	      	Result=2020 	200		award_images-of-recipients Q100328361
+12	MilleniumDB		      4	      	Result=2008 	200		award_images-of-recipients Q100328630
+13	MilleniumDB		     10	      	Count= 6 	200		award_images-of-recipients Q1003293
+14	MilleniumDB		     24	      	Count= 21 	200		award_images-of-recipients Q1004305
+15	MilleniumDB		      5	      	Count= 0 	200		award_images-of-recipients Q101001039
+16	MilleniumDB		 600878	      	None 	200	ERROR EMPTY OUTPUT	award_list-of-recipients Q100328361
+17	MilleniumDB		 601026	      	None 	200	ERROR EMPTY OUTPUT	award_list-of-recipients Q100328630
+18	MilleniumDB		 600118	      	None 	200	ERROR EMPTY OUTPUT	award_list-of-recipients Q1003293
+19	MilleniumDB		 600945	      	None 	200	ERROR EMPTY OUTPUT	award_list-of-recipients Q1004305
+20	MilleniumDB		 601114	      	None 	200	ERROR EMPTY OUTPUT	award_list-of-recipients Q101001039
+21	MilleniumDB		     60	      	Count= 15 	200		award_locations-of-recipients Q100328361
+22	MilleniumDB		      7	      	Count= 15 	200		award_locations-of-recipients Q100328630
+23	MilleniumDB		     20	      	Count= 62 	200		award_locations-of-recipients Q1003293
+24	MilleniumDB		     73	      	Count= 255 	200		award_locations-of-recipients Q1004305
+25	MilleniumDB		      7	      	Count= 6 	200		award_locations-of-recipients Q101001039
+26	MilleniumDB		      8	      	Count= 15 	200		award_recent-publications-by-recipients Q100328361
+27	MilleniumDB		      4	      	Count= 15 	200		award_recent-publications-by-recipients Q100328630
+28	MilleniumDB		      4	      	Count= 0 	200		award_recent-publications-by-recipients Q1003293
+29	MilleniumDB		     82	      	Count= 500 	200		award_recent-publications-by-recipients Q1004305
+30	MilleniumDB		      4	      	Count= 0 	200		award_recent-publications-by-recipients Q101001039
+31	MilleniumDB		      9	      	Count= 11 	200		award_topics-of-works-by-recipients Q100328361
+32	MilleniumDB		      4	      	Count= 11 	200		award_topics-of-works-by-recipients Q100328630
+33	MilleniumDB		      4	      	Count= 0 	200		award_topics-of-works-by-recipients Q1003293
+34	MilleniumDB		     50	      	Count= 50 	200		award_topics-of-works-by-recipients Q1004305
+35	MilleniumDB		      4	      	Count= 0 	200		award_topics-of-works-by-recipients Q101001039

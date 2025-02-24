@@ -1,0 +1,25 @@
+6	MilleniumDB		     11	      	Count= 0 	200		chemical-class_found-in-taxon Q101561621
+7	MilleniumDB		      7	      	Count= 0 	200		chemical-class_found-in-taxon Q101565160
+8	MilleniumDB		 359060	      	Count= 2 	200		chemical-class_found-in-taxon Q103537
+9	MilleniumDB		      9	      	Count= 0 	200		chemical-class_found-in-taxon Q103840598
+10	MilleniumDB		     40	      	Count= 0 	200		chemical-class_found-in-taxon Q105620529
+11	MilleniumDB		      6	      	Count= 0 	200		chemical-class_identifiers Q101561621
+12	MilleniumDB		      3	      	Count= 0 	200		chemical-class_identifiers Q101565160
+13	MilleniumDB		      3	      	Count= 0 	200		chemical-class_identifiers Q103537
+14	MilleniumDB		      3	      	Result=P2926 	200		chemical-class_identifiers Q103840598
+15	MilleniumDB		      3	      	Count= 0 	200		chemical-class_identifiers Q105620529
+16	MilleniumDB		 600483	      	None 	200	ERROR EMPTY OUTPUT	chemical-class_publications-per-year Q101561621
+17	MilleniumDB		 600032	      	None 	200	ERROR EMPTY OUTPUT	chemical-class_publications-per-year Q101565160
+18	MilleniumDB		 600031	      	None 	200	ERROR EMPTY OUTPUT	chemical-class_publications-per-year Q103537
+19	MilleniumDB		 600034	      	None 	200	ERROR EMPTY OUTPUT	chemical-class_publications-per-year Q103840598
+20	MilleniumDB		 600034	      	None 	200	ERROR EMPTY OUTPUT	chemical-class_publications-per-year Q105620529
+21	MilleniumDB		 600032	      	None 	200	ERROR EMPTY OUTPUT	chemical-class_recent-literature Q101561621
+22	MilleniumDB		 600032	      	None 	200	ERROR EMPTY OUTPUT	chemical-class_recent-literature Q101565160
+23	MilleniumDB		 600037	      	None 	200	ERROR EMPTY OUTPUT	chemical-class_recent-literature Q103537
+24	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	chemical-class_recent-literature Q103840598
+25	MilleniumDB		 600035	      	None 	200	ERROR EMPTY OUTPUT	chemical-class_recent-literature Q105620529
+26	MilleniumDB		      6	      	Result=Q101561621 	200		chemical-class_related-chemicals Q101561621
+27	MilleniumDB		      3	      	Result=Q101565160 	200		chemical-class_related-chemicals Q101565160
+28	MilleniumDB		      4	      	Count= 71 	200		chemical-class_related-chemicals Q103537
+29	MilleniumDB		      3	      	Result=Q103840598 	200		chemical-class_related-chemicals Q103840598
+30	MilleniumDB		      5	      	Count= 259 	200		chemical-class_related-chemicals Q105620529

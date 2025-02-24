@@ -1,0 +1,15 @@
+1	MilleniumDB		  66927	      	Count= 100 	200		property_item-counts subclass of
+2	MilleniumDB		 600873	      	None 	200	ERROR EMPTY OUTPUT	property_item-counts instance of
+3	MilleniumDB		 515189	      	Count= 100 	200		property_item-counts publication date
+4	MilleniumDB		   6860	      	Count= 100 	200		property_item-counts start time
+5	MilleniumDB		  38352	      	Count= 100 	200		property_item-counts part of
+6	MilleniumDB		  15970	      	Count= 100 	200		property_property-value-counts subclass of
+7	MilleniumDB		 416600	      	Count= 100 	200		property_property-value-counts instance of
+8	MilleniumDB		 132770	      	Count= 100 	200		property_property-value-counts publication date
+9	MilleniumDB		   1524	      	Count= 100 	200		property_property-value-counts start time
+10	MilleniumDB		  19668	      	Count= 100 	200		property_property-value-counts part of
+11	MilleniumDB		     95	      	Count= 500 	200		property_use subclass of
+12	MilleniumDB		     69	      	Count= 500 	200		property_use instance of
+13	MilleniumDB		     77	      	Count= 500 	200		property_use publication date
+14	MilleniumDB		     51	      	Count= 500 	200		property_use start time
+15	MilleniumDB		     70	      	Count= 500 	200		property_use part of

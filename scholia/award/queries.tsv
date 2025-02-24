@@ -1,0 +1,7 @@
+award_coawards	award_coawards LABEL	QUERY	award
+award_gender-distribution	award_gender-distribution LABEL	QUERY	award
+award_images-of-recipients	award_images-of-recipients LABEL	QUERY	award
+award_list-of-recipients	award_list-of-recipients LABEL	QUERY	award
+award_locations-of-recipients	award_locations-of-recipients LABEL	QUERY	award
+award_recent-publications-by-recipients	award_recent-publications-by-recipients LABEL	QUERY	award
+award_topics-of-works-by-recipients	award_topics-of-works-by-recipients LABEL	QUERY	award

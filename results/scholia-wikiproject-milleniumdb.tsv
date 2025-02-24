@@ -1,0 +1,65 @@
+1	MilleniumDB		 600108	      	None 	200	ERROR EMPTY OUTPUT	wikiproject-index_most-used Q101246526
+2	MilleniumDB		 600038	      	None 	200	ERROR EMPTY OUTPUT	wikiproject-index_most-used Q10780973
+3	MilleniumDB		 600037	      	None 	200	ERROR EMPTY OUTPUT	wikiproject-index_most-used Q10816993
+4	MilleniumDB		 600035	      	None 	200	ERROR EMPTY OUTPUT	wikiproject-index_most-used Q111805275
+5	MilleniumDB		 600037	      	None 	200	ERROR EMPTY OUTPUT	wikiproject-index_most-used Q112316163
+6	MilleniumDB		 600601	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_author-awards Q101246526
+7	MilleniumDB		 601013	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_author-awards Q10780973
+8	MilleniumDB		 600075	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_author-awards Q10816993
+9	MilleniumDB		 600998	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_author-awards Q111805275
+10	MilleniumDB		 600064	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_author-awards Q112316163
+11	MilleniumDB		     42	      	Count= 0 	200		wikiproject_authors Q101246526
+12	MilleniumDB		    296	      	Count= 200 	200		wikiproject_authors Q10780973
+13	MilleniumDB		      6	      	Count= 0 	200		wikiproject_authors Q10816993
+14	MilleniumDB		      6	      	Count= 0 	200		wikiproject_authors Q111805275
+15	MilleniumDB		      5	      	Count= 0 	200		wikiproject_authors Q112316163
+16	MilleniumDB		     53	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_co-occurring-wikiprojects Q101246526
+17	MilleniumDB		     28	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_co-occurring-wikiprojects Q10780973
+18	MilleniumDB		     31	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_co-occurring-wikiprojects Q10816993
+19	MilleniumDB		     28	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_co-occurring-wikiprojects Q111805275
+20	MilleniumDB		     28	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_co-occurring-wikiprojects Q112316163
+21	MilleniumDB		 136504	      	Count= 25 	200		wikiproject_context Q101246526
+22	MilleniumDB		 113947	      	Count= 15 	200		wikiproject_context Q10780973
+23	MilleniumDB		 108012	      	Count= 85 	200		wikiproject_context Q10816993
+24	MilleniumDB		 107792	      	Count= 3 	200		wikiproject_context Q111805275
+25	MilleniumDB		 104696	      	Count= 10 	200		wikiproject_context Q112316163
+26	MilleniumDB		 600149	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_earliest-published-works Q101246526
+27	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_earliest-published-works Q10780973
+28	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_earliest-published-works Q10816993
+29	MilleniumDB		 600035	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_earliest-published-works Q111805275
+30	MilleniumDB		 600032	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_earliest-published-works Q112316163
+31	MilleniumDB		      9	      	Count= 0 	200		wikiproject_focus Q101246526
+32	MilleniumDB		   4441	      	Count= 2485 	200		wikiproject_focus Q10780973
+33	MilleniumDB		      8	      	Count= 10 	200		wikiproject_focus Q10816993
+34	MilleniumDB		     60	      	Count= 40 	200		wikiproject_focus Q111805275
+35	MilleniumDB		     10	      	Count= 27 	200		wikiproject_focus Q112316163
+36	MilleniumDB		    185	      	Count= 7 	200		wikiproject_maintained Q101246526
+37	MilleniumDB		      7	      	Count= 11 	200		wikiproject_maintained Q10780973
+38	MilleniumDB		      8	      	Count= 13 	200		wikiproject_maintained Q10816993
+39	MilleniumDB		     10	      	Count= 22 	200		wikiproject_maintained Q111805275
+40	MilleniumDB		      5	      	Count= 4 	200		wikiproject_maintained Q112316163
+41	MilleniumDB		 600187	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_organization-map Q101246526
+42	MilleniumDB		 600020	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_organization-map Q10780973
+43	MilleniumDB		 600028	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_organization-map Q10816993
+44	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_organization-map Q111805275
+45	MilleniumDB		 600034	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_organization-map Q112316163
+46	MilleniumDB		 600623	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_publications-per-year Q101246526
+47	MilleniumDB		 525834	      	Count= 0 	200		wikiproject_publications-per-year Q10780973
+48	MilleniumDB		 184182	      	Count= 0 	200		wikiproject_publications-per-year Q10816993
+49	MilleniumDB		 184303	      	Count= 0 	200		wikiproject_publications-per-year Q111805275
+50	MilleniumDB		 183844	      	Count= 0 	200		wikiproject_publications-per-year Q112316163
+51	MilleniumDB		 600593	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_recently-published-works Q101246526
+52	MilleniumDB		 600030	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_recently-published-works Q10780973
+53	MilleniumDB		 600042	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_recently-published-works Q10816993
+54	MilleniumDB		 600017	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_recently-published-works Q111805275
+55	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_recently-published-works Q112316163
+56	MilleniumDB		     61	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_topics Q101246526
+57	MilleniumDB		     26	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_topics Q10780973
+58	MilleniumDB		     31	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_topics Q10816993
+59	MilleniumDB		     29	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_topics Q111805275
+60	MilleniumDB		     48	      	None 	200	ERROR EMPTY OUTPUT	wikiproject_topics Q112316163
+61	MilleniumDB		     22	      	Count= 0 	200		wikiproject_venues Q101246526
+62	MilleniumDB		   1985	      	Count= 51 	200		wikiproject_venues Q10780973
+63	MilleniumDB		      7	      	Count= 0 	200		wikiproject_venues Q10816993
+64	MilleniumDB		     40	      	Count= 0 	200		wikiproject_venues Q111805275
+65	MilleniumDB		      8	      	Count= 0 	200		wikiproject_venues Q112316163
