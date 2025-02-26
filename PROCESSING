@@ -248,8 +248,6 @@ ROW  Mode Result            Blazegraph          MilleniumDB         QLever      
 	Virtuoso is slowest, and diverges on over half of the queries.
 	QLever runs out of memory on about one-quarter of the queries;
 	penalizing QLever for these errors turns it into the slowest.
-	Virtuoso is the fastest of the engines, but the large number of errors makes this result not useful.
-	about half of which appear to be executing open joins.
 	The errors for Virtuoso are all due to estimated execution times being larger than the limit.
 	Virtuoso diverges on more than half of the as-is queries due to its result limit of 2^20.
 	The small number of divergences for QLever appear to be mostly from its treatment of numbers.
@@ -317,6 +315,8 @@ ROW  Mode Result            Blazegraph/NODUPS   MilleniumDB/NODUPS  QLever/NODUP
 453* Count= 557005       Count= 557005       Count= 557005      *Count= 556830       Count= 557005      
 455* Count= 550553       Count= 550553       Count= 550553      *Count= 550379       Count= 550553      
 480* Count= 13331        Count= 13331        Count= 13331       *Count= 0           +Count= 4000        
+	With duplicates eliminated Blazegraph performs particularly poorly, running out of memory on over half of the queries, so its timings are not useful.
+
 TODO analyze
 
 	./wdbench-expand.py wdbench/Queries/paths.txt 10000000

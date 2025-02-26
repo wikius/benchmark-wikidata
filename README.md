@@ -10,7 +10,7 @@ A few of the benchmarking runs caused crashes.  In these cases the run was resta
 
 Also present in PROCESSING is a log of the commands run to generate statistics and places where engines differ plus the output of these commands.
 
-Results of the benchmarks are in results-original
+Results of the benchmarks are in results-original.  Results of cleaning up the Scholia benchmark to exclude non-standard queries are in results-clean.
 
 Statistics for the existing benchmarks and Scholia benchmark are in stats-original:
 * existing.text
