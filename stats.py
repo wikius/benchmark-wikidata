@@ -192,15 +192,15 @@ for entry in data.values():
 stats = compute_stats(data, engines)
 
 if args.mediawiki:
-    print('{| class="wikitable" style="text-align: right;" \n! ENGINE !! Count !! min !! q1 !! q2 !! q3 !! max !! mean !! tmean !! wrong !! timeout !! error !! diverge')
+    print('{| class="wikitable" style="text-align: right;" \n! ENGINE !! Count !! min !! q1 !! q2 !! q3 !! max !! mean !! tmean !! timeout !! error !! diverge')
 else:
-    print("ENGINE             Count   min     q1     q2     q3    max   mean  tmean wrong timeout err divergence")
+    print("ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence")
 
 for engine, stats in stats.items():
     if args.mediawiki:
-        print(f'|-\n| style="text-align: right;" | {engine} || {stats[0]} || {stats[1]} || {int(stats[2][0])} || {int(stats[2][1])} || {int(stats[2][2])} || {stats[3]} || {stats[4]} || {stats[5]} || {stats[6]} || {stats[7]} || {stats[8]-stats[7]} || {stats[9]}')
+        print(f'|-\n| style="text-align: right;" | {engine} || {stats[0]} || {stats[1]} || {int(stats[2][0])} || {int(stats[2][1])} || {int(stats[2][2])} || {stats[3]} || {stats[4]} || {stats[5]} || {stats[7]} || {stats[8]-stats[7]} || {stats[9]}')
     else:
-        print(f"{engine:18} {stats[0]:>4} {stats[1]:>6} {int(stats[2][0]):>6} {int(stats[2][1]):>6} {int(stats[2][2]):>6} {stats[3]:>6} {stats[4]:>6} {stats[5]:>6} {stats[6]:>5} {stats[7]:>5} {stats[8]-stats[7]:>5} {stats[9]:>5}")
+        print(f"{engine:18} {stats[0]:>4} {stats[1]:>6} {int(stats[2][0]):>6} {int(stats[2][1]):>6} {int(stats[2][2]):>6} {stats[3]:>6} {stats[4]:>6} {stats[5]:>6} {stats[7]:>5} {stats[8]-stats[7]:>5} {stats[9]:>5}")
 if args.mediawiki: print("|}\n")
 #print(f"Number of queries with different non-error, non-suspect results: {difference_count:3}")
 

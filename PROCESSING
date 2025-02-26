@@ -6,7 +6,7 @@ analyzed using the stats.py program in this directory.
 The benchmark program evaluates here a sequence of queries on a single
 engine.  The queries can be lines in a single file.  The queries can also be
 files mentioned in a control file.  In the latter case, the queries can be
-parameterized based on values in another file or on the results of a query.
+parameterized based on val/home/local/qlever/ues in another file or on the results of a query.
 
 The statistics program outputs for each engine the number of queries run and
 in milliseconds the minimum, first quartile, second quartile (median), third
@@ -936,41 +936,41 @@ Number of queries with different non-error, non-suspect results:  52
 
 To create summary statistics:
 
-echo > existing-stats.text
-echo > existing-stats-errs.text
+echo > stats-original/existing.text
+echo > stats-original/existing-errs.text
 foreach category ( wgpb-norm single_bgps-norm multiple_bgps-norm opts-norm paths-norm c2rpqs-norm wdqs-norm )
    echo 'CATEGORY' ${category}
-   echo '\nCATEGORY' ${category} >> existing-stats.text
-   ./stats.py results/${category}-[bmqv]*.tsv >> existing-stats.text
-   echo '\nCATEGORY' ${category} >> existing-stats-errs.text
-   ./stats.py -e results/${category}-[bmqv]*.tsv >> existing-stats-errs.text
+   echo '\nCATEGORY' ${category} >> stats-original/existing.text
+   ./stats.py results/${category}-[bmqv]*.tsv >> stats-original/existing.text
+   echo '\nCATEGORY' ${category} >> stats-original/existing-errs.text
+   ./stats.py -e results/${category}-[bmqv]*.tsv >> stats-original/existing-errs.text
 end
-./summary.py -f7 existing-stats.text
-./summary.py -f8 existing-stats-errs.text
+./summary.py -f7 stats-original/existing.text
+./summary.py -f8 stats-original/existing-errs.text
 
-echo > existing-stats-counted.text
-echo > existing-stats-counted-errs.text
+echo > stats-original/existing-counted.text
+echo > stats-original/existing-counted-errs.text
 foreach category ( wgpb-norm single_bgps-counted multiple_bgps-counted opts-counted paths-counted c2rpqs-counted wdqs-counted )
    echo 'CATEGORY' ${category}
-   echo '\nCATEGORY' ${category} >> existing-stats-counted.text
-   ./stats.py results/${category}-[bmqv]*.tsv >> existing-stats-counted.text
-   echo '\nCATEGORY' ${category} >> existing-stats-counted-errs.text
-   ./stats.py -e results/${category}-[bmqv]*.tsv >> existing-stats-counted-errs.text
+   echo '\nCATEGORY' ${category} >> stats-original/existing-counted.text
+   ./stats.py results/${category}-[bmqv]*.tsv >> stats-original/existing-counted.text
+   echo '\nCATEGORY' ${category} >> stats-original/existing-counted-errs.text
+   ./stats.py -e results/${category}-[bmqv]*.tsv >> stats-original/existing-counted-errs.text
 end
-./summary.py -f7 existing-stats-counted.text
-./summary.py -f8 existing-stats-counted-errs.text
+./summary.py -f7 stats-original/existing-counted.text
+./summary.py -f8 stats-original/existing-counted-errs.text
 
-echo > existing-stats-nodups.text
-echo > existing-stats-nodups-errs.text
+echo > stats-original/existing-nodups.text
+echo > stats-original/existing-nodups-errs.text
 foreach category ( wgpb-norm single_bgps-norm multiple_bgps-norm opts-nodups paths-nodups c2rpqs-nodups wdqs-nodups )
    echo 'CATEGORY' ${category}
-   echo '\nCATEGORY' ${category} >> existing-stats-nodups.text
-   ./stats.py results/${category}-[bmqv]*.tsv >> existing-stats-nodups.text
-   echo '\nCATEGORY' ${category} >> existing-stats-nodups-errs.text
-   ./stats.py -e results/${category}-[bmqv]*.tsv >> existing-stats-nodups-errs.text
+   echo '\nCATEGORY' ${category} >> stats-original/existing-nodups.text
+   ./stats.py results/${category}-[bmqv]*.tsv >> stats-original/existing-nodups.text
+   echo '\nCATEGORY' ${category} >> stats-original/existing-nodups-errs.text
+   ./stats.py -e results/${category}-[bmqv]*.tsv >> stats-original/existing-nodups-errs.text
 end
-./summary.py -f7 existing-stats-nodups.text
-./summary.py -f8 existing-stats-nodups-errs.text
+./summary.py -f7 stats-original/existing-nodups.text
+./summary.py -f8 stats-original/existing-nodups-errs.text
 
 
 5/ ontology/queries.tsv	Several subclass and instance queries
@@ -1524,24 +1524,23 @@ NO	./stats.py -v results/scholia-location-*.tsv
 
 To create category timings and summary statistics:
 
-echo > scholia-stats.text
-echo > scholia-stats-clean.text
-echo > scholia-stats-clean.md
+echo > stats-original/scholia.text
+echo > stats-original/scholia-clean.text
+echo > stats-original/scholia-clean.md
 foreach category ( author award catalogue chemical-class chemical-element chemical clinical_trial complex \
                    country dataset disease event-series event gene ontology organization pathway \
 		   podcast-episode podcast-season podcast project property protein publisher \
 		   series software sponsor taxon topic use venue wikiproject work )
    echo Stats ${category} 
-   echo '\nCATEGORY' ${category} >> scholia-stats.text
-   ./stats.py results/scholia-${category}-[bmqv]*.tsv >> scholia-stats.text
-   echo '\nCATEGORY' ${category} >> scholia-stats-clean.text
-   ./stats.py -e results-clean/scholia-${category}-[bmqv]*.tsv >> scholia-stats-clean.text
-   echo "\n'''${category}:'''" >> scholia-stats-clean.md
-   ./stats.py -vme results-clean/scholia-${category}-[bmqv]*.tsv >> scholia-stats-clean.md
+   echo '\nCATEGORY' ${category} >> stats-original/scholia.text
+   ./stats.py results/scholia-${category}-[bmqv]*.tsv >> stats-original/scholia.text
+   echo '\nCATEGORY' ${category} >> stats-original/scholia-clean.text
+   ./stats.py -e results-clean/scholia-${category}-[bmqv]*.tsv >> stats-original/scholia-clean.text
+   echo "\n'''${category}:'''" >> stats-original/scholia-clean.md
+   ./stats.py -vme results-clean/scholia-${category}-[bmqv]*.tsv >> stats-original/scholia-clean.md
 end
-
-./summary.py -f7 scholia-stats.text 
-./summary.py -f8 scholia-stats-clean.text
+./summary.py -f7 stats-original/scholia.text 
+./summary.py -f8 stats-original/scholia-clean.text
 
 
 To check for problems with queries:

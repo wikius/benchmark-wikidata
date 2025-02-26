@@ -1,0 +1,71 @@
+#!/bin/tcsh
+
+mkdir results-current
+
+/home/local/scripts/$1-run
+./benchmark.py --engine=$1 wgpb/bgps/wgpb.text | tee results-current/wgpb-norm-$1.tsv
+/home/local/scripts/$1-stop
+/home/local/scripts/$1-run
+./benchmark.py --count --engine=$1 wgpb/bgps/wgpb.text | tee results-current/wgpb-counted-$1.tsv
+/home/local/scripts/$1-stop
+/home/local/scripts/$1-run
+./benchmark.py --nodups --engine=$1 wgpb/bgps/wgpb.text | tee results-current/wgpb-nodups-$1.tsv
+/home/local/scripts/$1-stop
+
+/home/local/scripts/$1-run
+./benchmark.py --engine=$1 wdqs/wikidata-queries.tsv | tee results-current/wdqs-norm-$1.tsv
+/home/local/scripts/$1-stop
+/home/local/scripts/$1-run
+./benchmark.py --count --engine=$1 wdqs/wikidata-queries.tsv | tee results-current/wdqs-counted-$1.tsv
+/home/local/scripts/$1-stop
+/home/local/scripts/$1-run
+./benchmark.py --nodups --engine=$1 wdqs/wikidata-queries.tsv | tee results-current/wdqs-nodups-$1.tsv
+/home/local/scripts/$1-stop
+
+/home/local/scripts/$1-run
+./benchmark.py --engine=$1 wdbench/Queries/single_bgps.text | tee results-current/single_bgps-norm-$1.tsv
+/home/local/scripts/$1-stop
+/home/local/scripts/$1-run
+./benchmark.py --engine=$1 wdbench/Queries/multiple_bgps.text | tee results-current/multiple_bgps-norm-$1.tsv
+/home/local/scripts/$1-stop
+/home/local/scripts/$1-run
+./benchmark.py --engine=$1 wdbench/Queries/opts.text | tee results-current/opts-norm-$1.tsv
+/home/local/scripts/$1-stop
+/home/local/scripts/$1-run
+./benchmark.py --engine=$1 wdbench/Queries/paths.text | tee results-current/paths-norm-$1.tsv
+/home/local/scripts/$1-stop
+/home/local/scripts/$1-run
+./benchmark.py --engine=$1 wdbench/Queries/c2rpqs.text | tee results-current/c2rpqs-norm-$1.tsv
+/home/local/scripts/$1-stop
+
+/home/local/scripts/$1-run
+./benchmark.py --count --engine=$1 wdbench/Queries/single_bgps.text | tee results-current/single_bgps-counted-$1.tsv
+/home/local/scripts/$1-stop
+/home/local/scripts/$1-run
+./benchmark.py --count --engine=$1 wdbench/Queries/multiple_bgps.text | tee results-current/multiple_bgps-counted-$1.tsv
+/home/local/scripts/$1-stop
+/home/local/scripts/$1-run
+./benchmark.py --count --engine=$1 wdbench/Queries/opts.text | tee results-current/opts-counted-$1.tsv
+/home/local/scripts/$1-stop
+/home/local/scripts/$1-run
+./benchmark.py --count --engine=$1 wdbench/Queries/paths.text | tee results-current/paths-counted-$1.tsv
+/home/local/scripts/$1-stop
+/home/local/scripts/$1-run
+./benchmark.py --count --engine=$1 wdbench/Queries/c2rpqs.text | tee results-current/c2rpqs-counted-$1.tsv
+/home/local/scripts/$1-stop
+
+/home/local/scripts/$1-run
+./benchmark.py --nodups --engine=$1 wdbench/Queries/single_bgps.text | tee results-current/single_bgps-nodups-$1.tsv
+/home/local/scripts/$1-stop
+/home/local/scripts/$1-run
+./benchmark.py --nodups --engine=$1 wdbench/Queries/multiple_bgps.text | tee results-current/multiple_bgps-nodups-$1.tsv
+/home/local/scripts/$1-stop
+/home/local/scripts/$1-run
+./benchmark.py --nodups --engine=$1 wdbench/Queries/opts.text | tee results-current/opts-nodups-$1.tsv
+/home/local/scripts/$1-stop
+/home/local/scripts/$1-run
+./benchmark.py --nodups --engine=$1 wdbench/Queries/paths.text | tee results-current/paths-nodups-$1.tsv
+/home/local/scripts/$1-stop
+/home/local/scripts/$1-run
+./benchmark.py --nodups --engine=$1 wdbench/Queries/c2rpqs.text | tee results-current/c2rpqs-nodups-$1.tsv
+/home/local/scripts/$1-stop

@@ -1,0 +1,50 @@
+
+
+CATEGORY wgpb-norm
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph          850     10     37     63    132 205404    644    473     0     2     0
+MilleniumDB         850      1      3      8     20   9083     29     29     0     0     0
+QLever              850      0      6      8     13 130735    183    100     0     0     0
+Virtuoso            850      1     21     61    147 600727    989    353     1     1     0
+
+CATEGORY single_bgps-norm
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph          280      8     27     39    484 235474   3103   2073     0     0    15
+MilleniumDB         280      1      1      3    135  29631    770    770     0     0     0
+QLever              280      2      3      7    136  44364    769    769     0     0     5
+Virtuoso            280      1      8    122   2016  48371   1725   1725     0     0    51
+
+CATEGORY multiple_bgps-norm
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph          681     11   1150   6823   9471 176377   9653   9076     0    10     0
+MilleniumDB         681      1    161   3272   6295 485873   5069   4395     0     0     0
+QLever              681      2    168   4142   7106 600006   8619   5220     3     3     3
+Virtuoso            681      1    170   3370   5160 600684   7665   4046     4    67   389
+
+CATEGORY opts-norm
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph          498     15   1330  12485  23734 600101  20851  15537     3    23     3
+MilleniumDB         498      1    876   9552  17434 601081  24772  12632    10     0     0
+QLever              498      1    111   2013  12821 325905  17391  12245     0   126     9
+Virtuoso            498      1    266   3714   6530 600705  25630   9158     6    51   289
+
+CATEGORY paths-norm
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph          660     11     95    256   3803 729483  25277   8665    12    21     2
+MilleniumDB         660      1      2     29    661 602220   7281   2638     4     1    17
+QLever              660      0      5     32    395 387872   2070   1467     0    29     3
+Virtuoso            660      0     11    135   2224 652395   5730   3308     2    49   422
+
+CATEGORY c2rpqs-norm
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph          539     36    112   5354  56620 864181  96114  20266    54    15    21
+MilleniumDB         539      1     20   2786  30732 601075  85019  16870    58     0     4
+QLever              539      1      7     69   2213 594223   4942   2525     0     5     8
+Virtuoso            539      1     48    610   3950 602763  18509   5996     9    20   318
+
+CATEGORY wdqs-norm
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph          298     11     88    511   6155 600018  12560   8253     1    31    14
+MilleniumDB         298      2     41    788  26321 601000  95797  15571    38     0    13
+QLever              298      3     32    123    583 273346   4596   2295     0     3    12
+Virtuoso            298      1     65    449   3230 600719  14623   6317     3    12    29

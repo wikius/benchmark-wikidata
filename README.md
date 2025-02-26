@@ -10,4 +10,18 @@ A few of the benchmarking runs caused crashes.  In these cases the run was resta
 
 Also present in PROCESSING is a log of the commands run to generate statistics and places where engines differ plus the output of these commands.
 
+Results of the benchmarks are in results-original
+
+Statistics for the existing benchmarks and Scholia benchmark are in stats-original:
+* existing.text
+* existing-errs.text
+* existing-counted.text
+* existing-counted-errs.text
+* existing-nodups.text
+* existing-nodups-errs.text
+* scholia.text
+* scholia-errs.text
+* scholia-clean.text
+* scholia-clean.md
+
 Supported in part by a [grant](https://meta.wikimedia.org/wiki/Wikimedia_CH/Grant_apply/Scaling_Wikidata_by_benchmarking_QLever) from [Wikimedia CH](https://wikimedia.ch/). 
