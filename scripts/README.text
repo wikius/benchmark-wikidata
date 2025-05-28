@@ -1,0 +1,40 @@
+Scripts and programs to control and test SPARQL engines on getafix
+
+Blazegraph-run*
+MilleniumDB-run*
+QLever-run*
+QLever-test*
+Virtuoso-run*
+	Run an engine
+
+Blazegraph-stop*
+MilleniumDB-stop*
+QLever-stop*
+Virtuoso-stop*
+	Stop an engine
+
+MillenniumDB-load*
+QLever-load*
+Virtuoso-load*
+	Load an RDF document into an engine (suitable for testing)
+
+cache*
+	Clear the system disk cache
+
+current*
+	Determine which engine is running
+
+mload*
+	Load Wikidata into MillenniumDB
+vload*
+	Load Wikidata into Virtuoso
+
+
+virtuoso.ini@
+	Virtuoso initialization file (linked here so that it is copied to idefix)
+
+run-manifest.py*
+	Run a SPARQL test manifest
+
+run-tests
+	Run all the EXISTS tests on MillenniumDB, QLever, and Virtuoso

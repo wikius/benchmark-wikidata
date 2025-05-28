@@ -1,0 +1,5 @@
+#!/bin/tcsh
+cd ${BENCHMARK_HOME}/benchmark/virtuoso-wikidata/
+${BENCHMARK_HOME}/scripts/cache
+${BENCHMARK_HOME}/virtuoso/virtuoso-opensource/binsrc/virtuoso/virtuoso-t -f &
+sleep 1m

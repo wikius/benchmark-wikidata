@@ -1,0 +1,26 @@
+#!/bin/tcsh
+# Compute statistics for Scholia benchmark
+# ./stats-scholia <directory suffix> <engines to use original stats>
+
+set area = $1
+if ( $1 == '' ) set area = current
+
+set orig = $2
+if ( $2 == '' ) set orig = X
+if ( $2 == '' & $area == original ) set orig = bmqv
+
+echo Computing statistics for Scholia benchmark from results-$area, using original stats for $orig
+mkdir -p stats-$area
+
+echo > stats-$area/scholia.text
+echo > stats-$area/scholia-errs.text
+foreach category ( author award catalogue chemical-class chemical-element chemical clinical_trial complex \
+                   country dataset disease event-series event gene ontology organization pathway \
+		   podcast-episode podcast-season podcast project property protein publisher \
+		   series software sponsor taxon topic use venue wikiproject work )
+   echo Stats ${category} from results-${area} original ${orig}
+   echo '\nCATEGORY' ${category} >> stats-$area/scholia.text
+   ./stats.py results-original/scholia-${category}-[$orig]*.tsv results-$area/scholia-${category}-[BMQV]*.tsv >> stats-$area/scholia.text
+   echo '\nCATEGORY' ${category} >> stats-$area/scholia-errs.text
+   ./stats.py -e results-original/scholia-${category}-[$orig]*.tsv results-$area/scholia-${category}-[BMQV]*.tsv >> stats-$area/scholia-errs.text
+end

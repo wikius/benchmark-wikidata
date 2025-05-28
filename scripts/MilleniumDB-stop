@@ -1,0 +1,2 @@
+#!/bin/csh
+killall -9 /home/local/milleniumdb/MillenniumDB/build/Release/bin/mdb-server

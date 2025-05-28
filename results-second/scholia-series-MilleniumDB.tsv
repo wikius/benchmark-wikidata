@@ -1,0 +1,25 @@
+1	MilleniumDB		 581121	      	Count= 2 	200		series_authors Q100146423
+2	MilleniumDB		 600412	      	None 	200	ERROR EMPTY OUTPUT	series_authors Q100865575
+3	MilleniumDB		 288850	      	Result=1 	200		series_authors Q101541688
+4	MilleniumDB		 288425	      	Result=1 	200		series_authors Q101985322
+5	MilleniumDB		 600806	      	None 	200	ERROR EMPTY OUTPUT	series_authors Q102293105
+6	MilleniumDB		     18	      	Count= 3 	200		series_in-series Q100146423
+7	MilleniumDB		      5	      	Count= 3 	200		series_in-series Q100865575
+8	MilleniumDB		      4	      	Count= 2 	200		series_in-series Q101541688
+9	MilleniumDB		      4	      	Result=1 	200		series_in-series Q101985322
+10	MilleniumDB		      6	      	Count= 5 	200		series_in-series Q102293105
+11	MilleniumDB		   1512	      	Result=2017 	200		series_organizations Q100146423
+12	MilleniumDB		   4336	      	Count= 9 	200		series_organizations Q100865575
+13	MilleniumDB		   1428	      	Count= 0 	200		series_organizations Q101541688
+14	MilleniumDB		   1410	      	Count= 0 	200		series_organizations Q101985322
+15	MilleniumDB		   3046	      	Count= 2 	200		series_organizations Q102293105
+16	MilleniumDB		      8	      	Count= 5 	200		series_topics Q100146423
+17	MilleniumDB		     10	      	Count= 21 	200		series_topics Q100865575
+18	MilleniumDB		      4	      	Count= 0 	200		series_topics Q101541688
+19	MilleniumDB		      4	      	Count= 3 	200		series_topics Q101985322
+20	MilleniumDB		      4	      	Count= 0 	200		series_topics Q102293105
+21	MilleniumDB		      4	      	Result=0 	200		series_works Q100146423
+22	MilleniumDB		      5	      	Count= 6 	200		series_works Q100865575
+23	MilleniumDB		      4	      	Result=0 	200		series_works Q101541688
+24	MilleniumDB		      4	      	Result=0 	200		series_works Q101985322
+25	MilleniumDB		      4	      	Count= 4 	200		series_works Q102293105

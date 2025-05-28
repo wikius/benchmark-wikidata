@@ -1,0 +1,4 @@
+#!/bin/tcsh
+
+cd ${BENCHMARK_HOME}/benchmark/milleniumdb-wikidata
+${BENCHMARK_HOME}/milleniumdb/MillenniumDB/build/Release/bin/mdb-import ${BENCHMARK_HOME}/wikidata/wikidata-20241028-all-BETA.ttl DB --buffer 120GB --prefixes wikidata-prefixes.txt

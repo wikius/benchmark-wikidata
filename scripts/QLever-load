@@ -1,0 +1,8 @@
+#!/bin/tcsh
+setenv BENCHMARK_HOME /home/local
+mkdir -p ${BENCHMARK_HOME}/tests
+${BENCHMARK_HOME}/scripts/QLever-stop >& /dev/null
+
+cat $1 | ${BENCHMARK_HOME}/qlever/qlever-code/build/IndexBuilderMain -F ttl -f - -i exists >& ${BENCHMARK_HOME}/tests/log.txt
+
+( ${BENCHMARK_HOME}/qlever/qlever-code/build/ServerMain --index-basename exists --port 7001 --memory-max-size 20G --cache-max-size 20G --default-query-timeout 600s >& /dev/null & )

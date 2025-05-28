@@ -1,0 +1,50 @@
+
+
+CATEGORY wgpb-counted
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph/COUNTED  850     12     43     68    132  60000    443    443     1     0     0
+MilleniumDB/COUNTED 850      1      2      4      9   8981     20     20     0     0     0
+Virtuoso/COUNTED    850      1      9     31     65  60000    127    127     1     0     0
+QLever/COUNTED      850      1      6      9     14    270     12     12     0     0     0
+
+CATEGORY single_bgps-counted
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph/COUNTED  280      9     33     43    542  25653   1619   1619     0     0    15
+MilleniumDB/COUNTED 280      1      1      1      7    182     17     17     0     0     0
+Virtuoso/COUNTED    280      1      1      9     70   5998    117    117     0     0     1
+QLever/COUNTED      280      1      2      3      5    473      8      8     0     0     4
+
+CATEGORY multiple_bgps-counted
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph/COUNTED  681     19   1261  14768  18429  60000  14457  14457    18     7     5
+MilleniumDB/COUNTED 681      1     69    158    457  60000    676    676     2     0     0
+Virtuoso/COUNTED    681      1     60     66    119  60000    762    762     6     0     0
+QLever/COUNTED      681      1     28     68     92  60000    643    643     0     6     8
+
+CATEGORY opts-counted
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph/COUNTED  498     15   1951  42275  60000  60000  33758  33758   105   108     7
+MilleniumDB/COUNTED 498      1    300   2496   7579  60000   6611   6611    16     0     0
+Virtuoso/COUNTED    498      1     68    316   1815  60000   7792   7792    46     1     0
+QLever/COUNTED      498      1    107    841  60000  60000  19066  19066    28   115     9
+
+CATEGORY paths-counted
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph/COUNTED  660     21     93    309   5666  60000   8627   8627    42    10     3
+MilleniumDB/COUNTED 660      1      2      7    162  60000   2029   2029    10     1    20
+Virtuoso/COUNTED    660      1      3     13    177  60000   5836   5836    12    43   362
+QLever/COUNTED      660      0      2     10    114  60000   1932   1932     8     3     3
+
+CATEGORY c2rpqs-counted
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph/COUNTED  539     28    114   6513  60000  60000  22455  22455   140     3    12
+MilleniumDB/COUNTED 539      1      3    164  15223  60000  13541  13541    91     0     2
+Virtuoso/COUNTED    539      1      4     73   1177  60000   6096   6096    27    15   229
+QLever/COUNTED      539      1      4     32    212  60000   1243   1243     4     1     8
+
+CATEGORY wdqs-counted
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph/COUNTED  298     24     98    466   7464  60000  10683  10683    24    13    14
+MilleniumDB/COUNTED 298      2     40    644  24784  60000  15453  15453    58     0     9
+Virtuoso/COUNTED    298      2     58    445   3249  60000   7962   7962    15    10    24
+QLever/COUNTED      298      2     22     78    445  60000   1908   1908     5     1    12

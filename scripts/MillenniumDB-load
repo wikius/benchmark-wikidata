@@ -1,0 +1,9 @@
+#!/bin/tcsh
+setenv BENCHMARK_HOME /home/local
+mkdir -p ${BENCHMARK_HOME}/tests
+${BENCHMARK_HOME}/scripts/MilleniumDB-stop >& /dev/null
+
+rm -rf DB
+${BENCHMARK_HOME}/milleniumdb/MillenniumDB/build/Release/bin/mdb-import $1 DB --buffer 20GB >& /dev/null
+
+( ${BENCHMARK_HOME}/milleniumdb/MillenniumDB/build/Release/bin/mdb-server DB --threads 1 --versioned-buffer 20GB --unversioned-buffer 4GB --private-buffer 4GB --strings-static 20GB --strings-dynamic 4GB --timeout 600 >& /dev/null & )

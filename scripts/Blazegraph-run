@@ -1,0 +1,12 @@
+#!/bin/tcsh
+${BENCHMARK_HOME}/scripts/cache
+
+cd ${BENCHMARK_HOME}/benchmark/blazegraph-wikidata
+
+${BENCHMARK_HOME}/scripts/cache
+  docker run --user=1316 --entrypoint=/runBlazegraph.sh -d -e HEAP_SIZE="128g" -p 9999:9999 --name wdqs\
+    -v ${BENCHMARK_HOME}/benchmark/blazegraph-wikidata:/wdqs/data:z \
+    -v ${BENCHMARK_HOME}/wikidata/munge:/wdqs/munge:z \
+   wikibase/wdqs:wdqs0.3.142
+
+sleep 1m

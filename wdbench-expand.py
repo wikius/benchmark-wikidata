@@ -1,10 +1,11 @@
 #!/bin/python
 
-# wdbench-expand.py <filename>.txt
+# wdbench-expand.py <filename>.txt [limit]
 
 # Expand query cores from WDBench benchmark to full SPARQL queries
-# Wraps the core in SELECT * WHERE { ... }
-# May want to add LIMIT nnn at some point
+# Wraps the core in SELECT * WHERE { ... } 
+# or
+# Wraps the core in SELECT * WHERE { ... } LIMIT limit
 
 # Reads the query core file, writes a file with the .text extension
 # For each line in the file extracts a core, writes the core as a full query

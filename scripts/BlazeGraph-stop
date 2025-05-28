@@ -1,0 +1,4 @@
+#!/bin/tcsh
+
+docker stop blazegraph
+docker rm blazegraph

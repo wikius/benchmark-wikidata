@@ -1,0 +1,3 @@
+#!/bin/tcsh
+killall /home/local/qlever/qlever-code/build/ServerMain
+sleep 5s

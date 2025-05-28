@@ -1,0 +1,25 @@
+1	MilleniumDB		 600634	      	None 	200	ERROR EMPTY OUTPUT	country_authors Q1000
+2	MilleniumDB		 600032	      	None 	200	ERROR EMPTY OUTPUT	country_authors Q1005
+3	MilleniumDB		 600031	      	None 	200	ERROR EMPTY OUTPUT	country_authors Q1006
+4	MilleniumDB		 600035	      	None 	200	ERROR EMPTY OUTPUT	country_authors Q1007
+5	MilleniumDB		 600034	      	None 	200	ERROR EMPTY OUTPUT	country_authors Q1008
+6	MilleniumDB		 600031	      	None 	200	ERROR EMPTY OUTPUT	country_co-organizations Q1000
+7	MilleniumDB		 600038	      	None 	200	ERROR EMPTY OUTPUT	country_co-organizations Q1005
+8	MilleniumDB		 600034	      	None 	200	ERROR EMPTY OUTPUT	country_co-organizations Q1006
+9	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	country_co-organizations Q1007
+10	MilleniumDB		 600038	      	None 	200	ERROR EMPTY OUTPUT	country_co-organizations Q1008
+11	MilleniumDB		    216	      	Count= 1459 	200		country_locations-as-topics Q1000
+12	MilleniumDB		    369	      	Count= 4154 	200		country_locations-as-topics Q1005
+13	MilleniumDB		     92	      	Count= 557 	200		country_locations-as-topics Q1006
+14	MilleniumDB		    105	      	Count= 1245 	200		country_locations-as-topics Q1007
+15	MilleniumDB		    313	      	Count= 2721 	200		country_locations-as-topics Q1008
+16	MilleniumDB		      7	      	Count= 6 	200		country_narrative-locations Q1000
+17	MilleniumDB		      4	      	Count= 6 	200		country_narrative-locations Q1005
+18	MilleniumDB		      5	      	Count= 6 	200		country_narrative-locations Q1006
+19	MilleniumDB		      3	      	Count= 4 	200		country_narrative-locations Q1007
+20	MilleniumDB		      8	      	Count= 23 	200		country_narrative-locations Q1008
+21	MilleniumDB		     12	      	Count= 10 	200		country_organizations Q1000
+22	MilleniumDB		      9	      	Count= 8 	200		country_organizations Q1005
+23	MilleniumDB		     20	      	Count= 7 	200		country_organizations Q1006
+24	MilleniumDB		      9	      	Count= 5 	200		country_organizations Q1007
+25	MilleniumDB		     17	      	Count= 32 	200		country_organizations Q1008

@@ -1,0 +1,15 @@
+1	QLever		  21164	      	Count= 4 	200		podcast-episode_data Q100326679
+2	QLever		  16438	      	Count= 4 	200		podcast-episode_data Q104713141
+3	QLever		    763	      	Count= 3 	200		podcast-episode_data Q104713445
+4	QLever		    754	      	Count= 3 	200		podcast-episode_data Q104713455
+5	QLever		    800	      	Count= 3 	200		podcast-episode_data Q104820002
+6	QLever		    259	      	Count= 2 	200		podcast-episode_guests Q100326679
+7	QLever		      4	      	Count= 2 	200		podcast-episode_guests Q104713141
+8	QLever		      4	      	Result=Q42687823 	200		podcast-episode_guests Q104713445
+9	QLever		      4	      	Result=Q42687823 	200		podcast-episode_guests Q104713455
+10	QLever		      4	      	Result=Q96196490 	200		podcast-episode_guests Q104820002
+11	QLever		     20	      	Count= 0 	200		podcast-episode_listings Q100326679
+12	QLever		     15	      	Count= 0 	200		podcast-episode_listings Q104713141
+13	QLever		     13	      	Result=P11976 	200		podcast-episode_listings Q104713445
+14	QLever		     14	      	Count= 0 	200		podcast-episode_listings Q104713455
+15	QLever		     14	      	Count= 0 	200		podcast-episode_listings Q104820002

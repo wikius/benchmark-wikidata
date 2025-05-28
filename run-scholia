@@ -1,6 +1,6 @@
 #!/bin/tcsh
 
-mkdir results-current
+mkdir -p results-current
 
 foreach category ( author award catalogue chemical-class chemical-element chemical clinical_trial complex \
                    country dataset disease event-series event gene ontology organization pathway \

@@ -1,0 +1,14 @@
+#!/bin/tcsh
+docker stop blazegraph >& /dev/null
+docker rm blazegraph >& /dev/null
+rm -f /home/local/tests/blazegraph/data.jnl  >& /dev/null
+
+docker run --user=1316 --entrypoint=/runBlazegraph.sh -d -e HEAP_SIZE="128g" -p 9999:9999 --name blazegraph\
+    -v /home/local/tests/blazegraph:/wdqs/data:z \
+    -v /home/local/tests/blazegraph/munge:/wdqs/munge:z \
+   wikibase/wdqs:wdqs0.3.142 >& /dev/null
+sleep 5s
+cp $1 /home/local/tests/blazegraph/munge/wikidump-000000001.ttl
+gzip -f /home/local/tests/blazegraph/munge/wikidump-000000001.ttl
+
+docker exec -it blazegraph bash /wdqs/loadData.sh -n wdq -d /wdqs/munge -s 1 -e 1

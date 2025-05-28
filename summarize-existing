@@ -1,0 +1,21 @@
+#!/bin/tcsh
+# Summarize existing statistics
+# ./summarize-existing <directory suffix>
+
+set area = $1
+if ( $1 == '' ) set area = current
+
+echo Computing summaries for existing benchmarks from stats-$area
+
+echo '\nRaw timings, as-is results:'
+./summary.py -f7 stats-$area/existing.text
+echo '\nAdjusted timings, as-is results:'
+./summary.py -f8 stats-$area/existing-errs.text
+echo '\nRaw timings, counted results:'
+./summary.py -f7 stats-$area/existing-counted.text
+echo '\nAdjusted timings, counted results:'
+./summary.py -f8 stats-$area/existing-counted-errs.text
+echo '\nRaw timings, no duplicates results:'
+./summary.py -f7 stats-$area/existing-nodups.text
+echo '\nAdjusted timings, no duplicates results:'
+./summary.py -f8 stats-$area/existing-nodups-errs.text

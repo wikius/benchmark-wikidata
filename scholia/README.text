@@ -1,0 +1,11 @@
+The Scholia Benchmark contains query templates from Scholia https://scholia.toolforge.org/
+
+The query templates have been modified to remove Blazegraph extensions.
+Named queries have been expanded.
+The label service has been replaced with fragments that return English labels.
+
+Each subdirectory contains modified query templates from a Scholia document template that uses a single Wikidata class.  The subdirectory name is the English label for the class.  In each subdirectory there is queries.tsv file that controls the benchmarking.  In most subdirectories there is a SPARQL file with same root name as the subdirectory containing a SPARQL query to select five items to instantiate the query templates.  There is also a
+TSV file with same root name as the subdirectory containing either the results of running this query or five hand-picked Wikidata items.  If present, this file is used instead of the results of the query so that subsequent benchmark runs will instantiate the queries with the same items.
+
+SPARQL query templates not in subdirectories are modified Schola templates that were not used in the benchmark because they could not be determined to fit into the above categorization.
+

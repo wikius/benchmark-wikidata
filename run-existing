@@ -1,6 +1,6 @@
-#!/bin/tcsh
+#!/bin/tcsh -x
 
-mkdir results-current
+mkdir -p results-current
 
 /home/local/scripts/$1-run
 ./benchmark.py --engine=$1 wgpb/bgps/wgpb.text | tee results-current/wgpb-norm-$1.tsv

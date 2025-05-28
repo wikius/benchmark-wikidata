@@ -1,0 +1,36 @@
+#!/bin/tcsh
+setenv BENCHMARK_HOME /home/local
+
+setenv DIFF "false"
+setenv RESULT "Accept: application/sparql-results+xml"
+if ($#argv > 2) then
+  setenv DIFF true
+  if ($argv[3] == csv ) then
+    setenv RESULT "Accept: text/csv"
+    setenv DIFF false
+  endif 
+endif 
+
+${BENCHMARK_HOME}/scripts/QLever-stop >& /dev/null
+mkdir -p ${BENCHMARK_HOME}/tests
+cat $1 | ${BENCHMARK_HOME}/qlever/qlever-code/build/IndexBuilderMain -F ttl -f - -i exists >& ${BENCHMARK_HOME}/tests/log.txt
+( ${BENCHMARK_HOME}/qlever/qlever-code/build/ServerMain --index-basename exists --port 7001 --memory-max-size 20G --cache-max-size 20G --default-query-timeout 600s >& /dev/null & )
+sleep 15s
+curl -s getafix:7001 -H "Content-type: application/sparql-query" -H "$RESULT" --data "@$2" > ${BENCHMARK_HOME}/tests/result
+
+if ("$DIFF" == "true" ) then
+  xmldiff ${BENCHMARK_HOME}/tests/result $3 > ${BENCHMARK_HOME}/tests/diff
+  setenv SIZE `wc -c ${BENCHMARK_HOME}/tests/diff | awk '{print $1}'`
+   if ( "$SIZE" > 10 ) then
+#    wc ${BENCHMARK_HOME}/tests/diff ${BENCHMARK_HOME}/tests/result $3 
+    echo ACTUAL RESULT
+    cat ${BENCHMARK_HOME}/tests/result
+    echo ''
+    echo SPECIFIED RESULT
+    cat $3
+   endif
+else
+  echo RESULT
+  cat ${BENCHMARK_HOME}/tests/result
+  echo ''
+endif

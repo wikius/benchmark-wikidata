@@ -1,0 +1,25 @@
+1	MilleniumDB		 600789	      	None 	200	ERROR EMPTY OUTPUT	protein_cofunctional-proteins Q101244282
+2	MilleniumDB		 600031	      	None 	200	ERROR EMPTY OUTPUT	protein_cofunctional-proteins Q1024612
+3	MilleniumDB		 600028	      	None 	200	ERROR EMPTY OUTPUT	protein_cofunctional-proteins Q1026649
+4	MilleniumDB		 600027	      	None 	200	ERROR EMPTY OUTPUT	protein_cofunctional-proteins Q1032902
+5	MilleniumDB		 600024	      	None 	200	ERROR EMPTY OUTPUT	protein_cofunctional-proteins Q104586124
+6	MilleniumDB		     18	      	Count= 0 	200		protein_cointeracting-proteins Q101244282
+7	MilleniumDB		      4	      	Count= 0 	200		protein_cointeracting-proteins Q1024612
+8	MilleniumDB		      4	      	Count= 0 	200		protein_cointeracting-proteins Q1026649
+9	MilleniumDB		      4	      	Count= 0 	200		protein_cointeracting-proteins Q1032902
+10	MilleniumDB		      4	      	Count= 0 	200		protein_cointeracting-proteins Q104586124
+11	MilleniumDB		   1251	      	Count= 0 	200		protein_participates-in Q101244282
+12	MilleniumDB		    425	      	Result=biological process 	200		protein_participates-in Q1024612
+13	MilleniumDB		    424	      	Count= 0 	200		protein_participates-in Q1026649
+14	MilleniumDB		    426	      	Count= 0 	200		protein_participates-in Q1032902
+15	MilleniumDB		    418	      	Count= 0 	200		protein_participates-in Q104586124
+16	MilleniumDB		 600044	      	None 	200	ERROR EMPTY OUTPUT	protein_publications-per-year Q101244282
+17	MilleniumDB		 600024	      	None 	200	ERROR EMPTY OUTPUT	protein_publications-per-year Q1024612
+18	MilleniumDB		 600021	      	None 	200	ERROR EMPTY OUTPUT	protein_publications-per-year Q1026649
+19	MilleniumDB		 600017	      	None 	200	ERROR EMPTY OUTPUT	protein_publications-per-year Q1032902
+20	MilleniumDB		 600018	      	None 	200	ERROR EMPTY OUTPUT	protein_publications-per-year Q104586124
+21	MilleniumDB		 600028	      	None 	200	ERROR EMPTY OUTPUT	protein_similar-proteins Q101244282
+22	MilleniumDB		 600026	      	None 	200	ERROR EMPTY OUTPUT	protein_similar-proteins Q1024612
+23	MilleniumDB		 600025	      	None 	200	ERROR EMPTY OUTPUT	protein_similar-proteins Q1026649
+24	MilleniumDB		 600034	      	None 	200	ERROR EMPTY OUTPUT	protein_similar-proteins Q1032902
+25	MilleniumDB		 600037	      	None 	200	ERROR EMPTY OUTPUT	protein_similar-proteins Q104586124

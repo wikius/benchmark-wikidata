@@ -1,0 +1,15 @@
+#!/bin/tcsh
+# Summarize Scholia statistics
+# ./summarize-scholia <directory suffix>
+
+set area = $1
+if ( $1 == '' ) set area = current
+
+echo Computing summaries for Scholia benchmark from stats-$area.
+echo Does not exclude non-standard queries.
+echo Speeds are total time for the category, not the mean.
+
+echo '\nRaw timings:'
+./summary.py -f7 stats-$area/scholia.text 
+echo '\nAdjusted timings:'
+./summary.py -f8 stats-$area/scholia-errs.text

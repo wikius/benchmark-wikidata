@@ -1,0 +1,11 @@
+SKIPPING 2 queries
+3	MilleniumDB		     25	      	Count= 22 	200		work_citations-per-year Q100019567
+4	MilleniumDB		     57	      	Count= 21 	200		work_citations-per-year Q100138103
+5	MilleniumDB		     66	      	Count= 21 	200		work_citations-per-year Q100138118
+6	MilleniumDB		     66	      	Count= 20 	200		work_citations-per-year Q100138615
+7	MilleniumDB		     99	      	Count= 21 	200		work_citations-per-year Q100139626
+8	MilleniumDB		     30	      	Count= 0 	200		work_citations Q100019567
+9	MilleniumDB		     33	      	Count= 0 	200		work_citations Q100138103
+10	MilleniumDB		      5	      	Count= 0 	200		work_citations Q100138118
+11	MilleniumDB		     44	      	Count= 0 	200		work_citations Q100138615
+12	MilleniumDB		     34	      	Result=0 	200		work_citations Q100139626

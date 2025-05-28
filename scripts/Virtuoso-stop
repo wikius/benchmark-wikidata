@@ -1,0 +1,4 @@
+#!/bin/tcsh
+${BENCHMARK_HOME}/virtuoso/virtuoso-opensource/binsrc/tests/isql 1111 dba dba <<EOF
+shutdown;
+EOF

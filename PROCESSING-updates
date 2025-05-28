@@ -1,0 +1,86 @@
+		PROCESSING updated versions of engines
+
+QLever - done for version of 24 Feb 2025
+  Download and compile current version - see ../reports/install-qlever.text
+    cd ${BENCHMARK_HOME}/qlever
+    git clone --recursive -j8 https://github.com/ad-freiburg/qlever qlever-code-<date>
+    cd qlever-code-<date>
+    mkdir build
+    cd build
+    cmake -DCMAKE_BUILD_TYPE=Release .. && make -j 8
+  Install current version
+    cd ${BENCHMARK_HOME}/qlever
+    rm qlever-code
+    ln -s qlever-code-<date> qlever-code    
+  Load Wikidata - often does not need to be done
+  Run existing benchmarks
+    cd ~/research/wikidata/benchmark/project/queries 
+    ./run-existing QLever
+  Run Scholia benchmark
+    cd ~/research/wikidata/benchmark/project/queries 
+    ./run-scholia QLever
+
+MilleniumDB - done for version of 05 March 2025
+  Download and compile current version - see ../reports/install-milleniumdb.text
+    cd ${BENCHMARK_HOME}/milleniumdb 
+    git clone git@github.com:MillenniumDB/MillenniumDB.git MillenniumDB-<date>
+    cd MillenniumDB-<date>
+    cmake -Bbuild/Release -DCMAKE_BUILD_TYPE=Release
+    cmake --build build/Release/ -j 8
+  Install current version
+    cd ${BENCHMARK_HOME}/milleniumdb 
+    ln -s MillenniumDB-<date> MillenniumDB
+    MODIFY arguments in MilleniumDB-run as per email
+     --threads 1 --versioned-buffer 70GB --unversioned-buffer 4GB --private-buffer 4GB --strings-static 75GB --strings-dynamic 4GB --timeout 600
+  Load Wikidata into MillenniumDB - needed to be done for 05mar2025
+    cd ${BENCHMARK_HOME}/benchmark
+    mkdir milleniumdb-wikidata-<date>
+    ln -s milleniumdb-wikidata-<date> milleniumdb-wikidata 
+    cd milleniumdb-wikidata 
+    cp ${BENCHMARK_HOME}/benchmark/milleniumdb-wikidata-jan2025/wikidata-prefixes.txt .
+    ${BENCHMARK_HOME}/milleniumdb/MillenniumDB/build/Release/bin/mdb-import ${BENCHMARK_HOME}/wikidata/wikidata-combined.ttl DB --buffer 120GB --prefixes wikidata-prefixes.txt
+  Run existing benchmarks
+    cd ~/research/wikidata/benchmark/project/queries 
+    ./run-existing MilleniumDB
+  Run Scholia benchmark
+    cd ~/research/wikidata/benchmark/project/queries 
+    ./run-scholia MilleniumDB
+
+Virtuoso - in progress for version of 19 March 2025 - NOT COMPLETE
+  Download and compile current version - see ../reports/install-virtuoso.text
+    cd ${BENCHMARK_HOME}/virtuoso
+    git clone https://github.com/openlink/virtuoso-opensource.git virtoso-opensource-<date>
+    cd virtuoso-opensource-<date>
+    ./autogen.sh
+    ./configure
+    make -j 16
+  Run the Virtuoso server and load the Wikidata files into the server == 
+    This generally can be skipped
+  Run existing benchmarks
+    cd ~/research/wikidata/benchmark/project/queries 
+    ./run-existing Virtuoso
+    Virtuoso dumps core for query 57 in WDQS benchmark
+
+  Run Scholia benchmark
+    cd ~/research/wikidata/benchmark/project/queries 
+    ./run-scholia Virtuoso
+
+Compute statistics and summaries for existing benchmarks
+	./stats-existing current b
+		- adjust last argument as necessary
+		- check divergences in ./stats-current/existing*.text
+	./summarize-existing current	
+
+Compute statistics and summaries for Scholia benchmark
+	./stats-scholia current bmv
+		- adjust last argument as necessary
+		- check divergences in ./stats-current/existing*.text
+	./summarize-scholia current	
+
+
+
+Summary for original runs:
+	./stats-existing original
+	./summarize-existing original
+	./stats-scholia original
+	./summarize-scholia original

@@ -1,0 +1,9 @@
+#!/bin/tcsh
+cp /home/local/scripts/virtuoso.ini .
+/home/local/scripts/Virtuoso-stop >& /dev/null
+( ${BENCHMARK_HOME}/virtuoso/virtuoso-opensource/binsrc/virtuoso/virtuoso-t -f >& /dev/null & )
+sleep 10s
+${BENCHMARK_HOME}/virtuoso/virtuoso-opensource/binsrc/tests/isql 1111 dba dba VERBOSE=OFF PROMPT=OFF <<EOF
+DB.DBA.TTLP_MT(file_to_string_output('$1'), '', '<http://www.example.org/example/>');
+exit;
+EOF

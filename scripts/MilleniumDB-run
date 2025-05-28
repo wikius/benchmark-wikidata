@@ -1,0 +1,5 @@
+#!/usr/bin/tcsh
+cd ${BENCHMARK_HOME}/milleniumdb/MillenniumDB
+${BENCHMARK_HOME}/scripts/cache
+${BENCHMARK_HOME}/milleniumdb/MillenniumDB/build/Release/bin/mdb-server ${BENCHMARK_HOME}/benchmark/milleniumdb-wikidata/DB --threads 1 --versioned-buffer 70GB --unversioned-buffer 4GB --private-buffer 4GB --strings-static 75GB --strings-dynamic 4GB --timeout 600 > /dev/null &
+sleep 1m

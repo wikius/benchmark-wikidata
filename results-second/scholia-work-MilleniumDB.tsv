@@ -1,0 +1,70 @@
+1	MilleniumDB		     16	      	None 	400	Operation `PathNegatedSet` not supported yet.	work_associated-images Q100019567
+2	MilleniumDB		      2	      	None 	400	Operation `PathNegatedSet` not supported yet.	work_associated-images Q100138103
+3	MilleniumDB		      2	      	None 	400	Operation `PathNegatedSet` not supported yet.	work_associated-images Q100138118
+4	MilleniumDB		      1	      	None 	400	Operation `PathNegatedSet` not supported yet.	work_associated-images Q100138615
+5	MilleniumDB		      1	      	None 	400	Operation `PathNegatedSet` not supported yet.	work_associated-images Q100139626
+6	MilleniumDB		 599999	     0	None 	None	CRASHED REPEATEDLY	work_citation-graph Q100019567
+7	MilleniumDB		 599999	     0	None 	None	CRASHED REPEATEDLY	work_citation-graph Q100138103
+8	MilleniumDB		 599999	     0	None 	None	CRASHED REPEATEDLY	work_citation-graph Q100138118
+9	MilleniumDB		 599999	     0	None 	None	CRASHED REPEATEDLY	work_citation-graph Q100138615
+10	MilleniumDB		 599999	     0	None 	None	CRASHED REPEATEDLY	work_citation-graph Q100139626
+11	MilleniumDB		     25	      	Count= 22 	200		work_citations-per-year Q100019567
+12	MilleniumDB		     57	      	Count= 21 	200		work_citations-per-year Q100138103
+13	MilleniumDB		     66	      	Count= 21 	200		work_citations-per-year Q100138118
+14	MilleniumDB		     66	      	Count= 20 	200		work_citations-per-year Q100138615
+15	MilleniumDB		     99	      	Count= 21 	200		work_citations-per-year Q100139626
+16	MilleniumDB		     30	      	Count= 0 	200		work_citations Q100019567
+17	MilleniumDB		     33	      	Count= 0 	200		work_citations Q100138103
+18	MilleniumDB		      5	      	Count= 0 	200		work_citations Q100138118
+19	MilleniumDB		     44	      	Count= 0 	200		work_citations Q100138615
+20	MilleniumDB		     34	      	Result=0 	200		work_citations Q100139626
+21	MilleniumDB		 600833	      	None 	200	ERROR EMPTY OUTPUT	work_cited-work-authors Q100019567
+22	MilleniumDB		     17	      	Count= 0 	200		work_cited-work-authors Q100138103
+23	MilleniumDB		      8	      	Count= 0 	200		work_cited-work-authors Q100138118
+24	MilleniumDB		     33	      	Count= 0 	200		work_cited-work-authors Q100138615
+25	MilleniumDB		     49	      	Count= 0 	200		work_cited-work-authors Q100139626
+26	MilleniumDB		     32	      	Count= 2 	200		work_cited-works Q100019567
+27	MilleniumDB		     16	      	Result=2 	200		work_cited-works Q100138103
+28	MilleniumDB		     49	      	Result=2 	200		work_cited-works Q100138118
+29	MilleniumDB		     16	      	Count= 0 	200		work_cited-works Q100138615
+30	MilleniumDB		     33	      	Count= 0 	200		work_cited-works Q100139626
+31	MilleniumDB		     33	      	Count= 0 	200		work_cito-incoming-chart Q100019567
+32	MilleniumDB		     17	      	Count= 0 	200		work_cito-incoming-chart Q100138103
+33	MilleniumDB		     48	      	Count= 0 	200		work_cito-incoming-chart Q100138118
+34	MilleniumDB		      4	      	Count= 0 	200		work_cito-incoming-chart Q100138615
+35	MilleniumDB		     29	      	Count= 0 	200		work_cito-incoming-chart Q100139626
+36	MilleniumDB		     50	      	Count= 0 	200		work_cito-incoming Q100019567
+37	MilleniumDB		     83	      	Count= 0 	200		work_cito-incoming Q100138103
+38	MilleniumDB		     33	      	Count= 0 	200		work_cito-incoming Q100138118
+39	MilleniumDB		     33	      	Count= 0 	200		work_cito-incoming Q100138615
+40	MilleniumDB		     49	      	Count= 0 	200		work_cito-incoming Q100139626
+41	MilleniumDB		    123	      	Count= 6 	200		work_list-of-authors Q100019567
+42	MilleniumDB		     93	      	Count= 2 	200		work_list-of-authors Q100138103
+43	MilleniumDB		     82	      	Count= 2 	200		work_list-of-authors Q100138118
+44	MilleniumDB		     83	      	Count= 11 	200		work_list-of-authors Q100138615
+45	MilleniumDB		    199	      	Count= 23 	200		work_list-of-authors Q100139626
+46	MilleniumDB		     76	      	Count= 500 	200		work_related-works Q100019567
+47	MilleniumDB		      4	      	Count= 2 	200		work_related-works Q100138103
+48	MilleniumDB		      3	      	Count= 2 	200		work_related-works Q100138118
+49	MilleniumDB		     32	      	Count= 0 	200		work_related-works Q100138615
+50	MilleniumDB		     31	      	Count= 63 	200		work_related-works Q100139626
+51	MilleniumDB		 600655	      	None 	200	ERROR EMPTY OUTPUT	work_statements Q100019567
+52	MilleniumDB		 600036	      	None 	200	ERROR EMPTY OUTPUT	work_statements Q100138103
+53	MilleniumDB		 600040	      	None 	200	ERROR EMPTY OUTPUT	work_statements Q100138118
+54	MilleniumDB		 600036	      	None 	200	ERROR EMPTY OUTPUT	work_statements Q100138615
+55	MilleniumDB		 600036	      	None 	200	ERROR EMPTY OUTPUT	work_statements Q100139626
+56	MilleniumDB		     80	      	Count= 3 	200		work_timeline Q100019567
+57	MilleniumDB		     57	      	Count= 3 	200		work_timeline Q100138103
+58	MilleniumDB		     74	      	Count= 3 	200		work_timeline Q100138118
+59	MilleniumDB		     75	      	Result=2020-12-01T00:00:00Z 	200		work_timeline Q100138615
+60	MilleniumDB		     82	      	Count= 3 	200		work_timeline Q100139626
+61	MilleniumDB		     33	      	Count= 10 	200		work_topic-scores Q100019567
+62	MilleniumDB		     47	      	Result=21 	200		work_topic-scores Q100138103
+63	MilleniumDB		     31	      	Result=21 	200		work_topic-scores Q100138118
+64	MilleniumDB		     51	      	Count= 6 	200		work_topic-scores Q100138615
+65	MilleniumDB		     65	      	Count= 4 	200		work_topic-scores Q100139626
+66	MilleniumDB		    943	      	None 	200	ERROR EMPTY OUTPUT	work_wikipedia-mentions Q100019567
+67	MilleniumDB		    236	      	None 	200	ERROR EMPTY OUTPUT	work_wikipedia-mentions Q100138103
+68	MilleniumDB		    226	      	None 	200	ERROR EMPTY OUTPUT	work_wikipedia-mentions Q100138118
+69	MilleniumDB		    233	      	None 	200	ERROR EMPTY OUTPUT	work_wikipedia-mentions Q100138615
+70	MilleniumDB		    228	      	None 	200	ERROR EMPTY OUTPUT	work_wikipedia-mentions Q100139626

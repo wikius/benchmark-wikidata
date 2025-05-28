@@ -1,0 +1,4 @@
+#!/bin/tcsh
+
+docker stop wdqs
+docker rm wdqs

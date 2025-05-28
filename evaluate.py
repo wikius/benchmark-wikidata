@@ -28,8 +28,8 @@ def inspect(reply):
             print(".".join(hex(ord(c))[2:] for c in field))
 
 def generic_eval(query, output, url, verbose):
-    headers={"Accept": "text/tab-separated-values", "Content-type": "application/sparql-query", "user-agent": "pfps-benchmark/0.0.1"}
-#    headers={"Accept": "application/sparql-results+json", "Content-type": "application/sparql-query", "user-agent": "pfps-benchmark/0.0.1"}
+    headers={"Accept": "text/tab-separated-values", "Content-type": "application/sparql-query", "user-agent": "wikidata-benchmark/0.0.1"}
+#    headers={"Accept": "application/sparql-results+json", "Content-type": "application/sparql-query", "user-agent": "wikidata-benchmark/0.0.1"}
     reply = requests.get(url,
                          headers=headers,
                          params={"query": query})
@@ -43,8 +43,8 @@ def generic_eval(query, output, url, verbose):
         file.write(reply.text)
         
 def blazegraph_eval(query, output, url, verbose):
-    headers={"Accept": "text/tab-separated-values", "user-agent": "pfps-benchmark/0.0.1"}
-#    headers={"Accept": "application/sparql-results+json", "user-agent": "pfps-benchmark/0.0.1"}
+    headers={"Accept": "text/tab-separated-values", "user-agent": "wikidata-benchmark/0.0.1"}
+#    headers={"Accept": "application/sparql-results+json", "user-agent": "wikidata-benchmark/0.0.1"}
     reply = requests.get(url,
                          headers=headers,
                          params={"query": query})
@@ -55,8 +55,8 @@ def blazegraph_eval(query, output, url, verbose):
         file.write(reply.text)
 
 def mdb_eval(query, output, url, verbose):
-    headers={"Content-Type": "application/sparql-query", "user-agent": "pfps-benchmark/0.0.1"}
-#    headers={"Accept": "text/tab-separated-values", "Content-Type": "application/sparql-query", "user-agent": "pfps-benchmark/0.0.1"}
+    headers={"Content-Type": "application/sparql-query", "user-agent": "wikidata-benchmark/0.0.1"}
+#    headers={"Accept": "text/tab-separated-values", "Content-Type": "application/sparql-query", "user-agent": "wikidata-benchmark/0.0.1"}
     reply = requests.post(url, headers=headers, data=query)
 
 #    inspect(reply)

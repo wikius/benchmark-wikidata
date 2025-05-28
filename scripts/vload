@@ -1,0 +1,20 @@
+#!/bin/tcsh
+# try with 6 loaders to lessen thrashing during last third of loading process
+cd ${BENCHMARK_HOME}/benchmark/virtuoso-wikidata
+${BENCHMARK_HOME}/virtuoso/virtuoso-opensource/binsrc/virtuoso/virtuoso-t -f &
+sleep 30
+${BENCHMARK_HOME}/virtuoso/virtuoso-opensource/binsrc/tests/isql 1111 dba dba VERBOSE=OFF PROMPT=OFF <<EOF
+ld_dir ('/home/local/wikidata/split', 'wikidata-part-*.ttl', 'http://wikidata.org');
+SELECT ll_file, ll_state, ll_error FROM DB.DBA.load_list;
+rdf_loader_run() &
+rdf_loader_run() &
+rdf_loader_run() &
+rdf_loader_run() &
+rdf_loader_run() &
+rdf_loader_run() &
+wait_for_children;
+checkpoint;
+set types off;
+SELECT ll_file, ll_state, ll_error FROM DB.DBA.load_list WHERE ll_state <> 2 OR NOT isnull(ll_error) ;
+exit;
+EOF

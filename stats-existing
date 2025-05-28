@@ -1,0 +1,42 @@
+#!/bin/tcsh
+# Compute statistics for existing benchmarks
+# ./stats-existing <directory suffix> <engines to use original stats>
+
+set area = $1
+if ( $1 == '' ) set area = current
+
+set orig = $2
+if ( $2 == '' ) set orig = X
+
+echo Computing statistics for existing benchmarks from results-$area, using original stats for $orig
+mkdir -p stats-$area
+
+echo > stats-$area/existing.text
+echo > stats-$area/existing-errs.text
+foreach category ( wgpb-norm single_bgps-norm multiple_bgps-norm opts-norm paths-norm c2rpqs-norm wdqs-norm )
+   echo 'CATEGORY' ${category}
+   echo '\nCATEGORY' ${category} >> stats-$area/existing.text
+  ./stats.py results-original/${category}-[$orig]*.tsv results-$area/${category}-*.tsv >> stats-$area/existing.text
+  echo '\nCATEGORY' ${category} >> stats-$area/existing-errs.text
+  ./stats.py -e -T 60000 results-original/${category}-[$orig]*.tsv results-$area/${category}-*.tsv >> stats-$area/existing-errs.text
+end
+
+echo > stats-$area/existing-counted.text
+echo > stats-$area/existing-counted-errs.text
+foreach category ( wgpb-counted single_bgps-counted multiple_bgps-counted opts-counted paths-counted c2rpqs-counted wdqs-counted )
+   echo 'CATEGORY' ${category}
+   echo '\nCATEGORY' ${category} >> stats-$area/existing-counted.text
+   ./stats.py results-original/${category}-[$orig]*.tsv results-$area/${category}-*.tsv >> stats-$area/existing-counted.text
+   echo '\nCATEGORY' ${category} >> stats-$area/existing-counted-errs.text
+  ./stats.py -e -T 60000 results-original/${category}-[$orig]*.tsv results-$area/${category}-*.tsv >> stats-$area/existing-counted-errs.text
+end
+  
+echo > stats-$area/existing-nodups.text
+echo > stats-$area/existing-nodups-errs.text
+foreach category ( wgpb-nodups single_bgps-nodups multiple_bgps-nodups opts-nodups paths-nodups c2rpqs-nodups wdqs-nodups )
+   echo 'CATEGORY' ${category}
+   echo '\nCATEGORY' ${category} >> stats-$area/existing-nodups.text
+   ./stats.py results-original/${category}-[$orig]*.tsv results-$area/${category}-*.tsv >> stats-$area/existing-nodups.text
+   echo '\nCATEGORY' ${category} >> stats-$area/existing-nodups-errs.text
+  ./stats.py -e -T 60000 results-original/${category}-[$orig]*.tsv results-$area/${category}-*.tsv >> stats-$area/existing-nodups-errs.text
+end

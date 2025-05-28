@@ -5,7 +5,7 @@
 
 # TODO handle different versions of strings being output  <string> vs "<string>@lt"
 
-# ./benchmark.py [<filename>] --description --engine --directory --count
+# ./benchmark.py [<filename>] [--description=description] [--engine=engines] [--directory=directory] [--count] [--nodups] [--skip=n]
 
 # Content output lines contain tab-separated fields
 #  RESULT or numeric index
@@ -37,9 +37,9 @@
 #  QLever - Local QLever Wikidata query service at http://getafix:7001
 #  Blazegraph - local Blazegraph query service at http://getafix:9999/bigdata/sparql
 #  Virtuoso - local Virtuoso query service at http://getafix:8890/sparql
-#  MilleniumDB - local MilleniumDB at http://getafix:1234/sparql
+#  MilleniumDB - local MillenniumDB at http://getafix:1234/sparql
 #  WDQS - Wikidata Query Service running Blazegraph at https://query.wikidata.org/sparql
-#  MDB - MilleniumDB Wikidata Query Service at https://wikidata.imfd.cl/wikidata/sparql
+#  MDB - MillenniumDB Wikidata Query Service at https://wikidata.imfd.cl/wikidata/sparql
 #  QWDS - QLever Wikidata Query Service" at https://qlever.cs.uni-freiburg.de/api/wikidata/
 #  VOS - Virtuoso Wikidata Query Service " at https://wikidata.demo.openlinksw.com/sparq,
 
@@ -62,6 +62,8 @@ import time
 import re
 import json
 import csv
+import psutil
+proc = psutil.Process()
 
 prefixes = '''PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX wd: <http://www.wikidata.org/entity/>
@@ -91,10 +93,10 @@ def unbox(field):
                 return match.group(1) if match and len(match.groups()) >= 1 else field
     return field
 
-def results_csv(text, separator=','):
-    count = text.count("\n")-1
+def results_csv(reply, separator=','):
+    count = reply.text.count("\n")-1
     if count == 1:
-        result = text.split('\n')[1].strip().split(separator)[0]
+        result = reply.text.split('\n')[1].strip().split(separator)[0]
         if separator == "\t":
             return f"Result={unbox(result)}"
         else:
@@ -104,7 +106,7 @@ def results_csv(text, separator=','):
         return f"Count= {count}"
 
 def basic_eval(query, url, result_format="text/tab-separated-values"):
-    headers={"Accept": result_format, "Content-type": "application/sparql-query", "user-agent": "pfps-benchmark/0.0.1"}
+    headers={"Accept": result_format, "Content-type": "application/sparql-query", "user-agent": "wikidata-benchmark/0.0.1"}
     start_time = time.time()
     reply = requests.get(url,
                          headers=headers,
@@ -119,17 +121,27 @@ def generic_eval(query, url=None, separator='	'):
     reply, etime = basic_eval(query, url)
     if reply.status_code < 400:
         if reply.text:
-            return etime, results_csv(reply.text, separator=separator), reply.status_code, "", "", ""
+            return etime, results_csv(reply, separator=separator), reply.status_code, "", "", ""
         else:
             return etime, None, reply.status_code, "ERROR EMPTY OUTPUT", "", ""
-    else:
-        error_text = reply.text.split('\n')
-        error_text = error_text[min(1,len(error_text)-1)]
+    else: # the text might be very long so don't split it
+        # error_text = reply.text.split('\n')
+        # error_text = error_text[min(1,len(error_text)-1)]
+        if reply.text[0] == '{': # guess that it's JSON
+            status = json.loads(reply.text)
+            error_text = "ERROR: " + status["exception"].splitlines()[0]
+        else:
+            start = end = 0
+            while end < len(reply.text):
+                if reply.text[end] == '\n':
+                    start = end + 1
+                    end += 1
+            error_text = reply.text[start:end]
         return etime, None, reply.status_code, error_text, "", ""
 
 def virtuoso_eval(query, url):
     reply, etime = basic_eval(query, url)
-    count = results_csv(reply.text, separator='	')
+    count = results_csv(reply, separator='	')
     if reply.status_code == 200:
         return etime, count, reply.status_code, "", "", ""
     else:
@@ -140,7 +152,7 @@ def mdb_eval(query, url):
     return generic_eval(query, url, result_format="text/csv")
 
 def blazegraph_eval(query, url):
-    headers={"Accept": "text/tab-separated-values", "user-agent": "pfps-benchmark/0.0.1"}
+    headers={"Accept": "text/tab-separated-values", "user-agent": "wikidata-benchmark/0.0.1"}
     try:
         start_time = time.time()
         reply = requests.get(url,
@@ -175,7 +187,7 @@ def blazegraph_eval(query, url):
                     exception = "ERROR MEMORY EXCEPTION"
                 else:
                     exception = "ERROR EXECUTION EXCEPTION"
-        count = results_csv(reply.text, separator='	')
+        count = results_csv(reply, separator='	')
     return etime, count, reply.status_code, exception, "", ""
 
 engines = [
@@ -205,7 +217,7 @@ def modify_query(query, count, replace=None):
     if replace:
         for l, r in replace:
             query = re.sub(l, r, query)
-#    print("QUERY START\n", query, "\nQUERY END")
+    # print("MQ START\n", query, "\nMQ END")
     return query
 
 def print_result(index, engine, opts, etime, itime, count, code, err, message):

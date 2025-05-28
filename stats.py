@@ -28,7 +28,7 @@ import sys
 import statistics
 import argparse
 
-maxtime = 600000
+runmaxtime = maxtime = 600000
 truncated_time = 60000
 
 data = dict()    
@@ -50,19 +50,20 @@ def process_row(row):
     engine_index = f"{engine}/{variant}" if variant else engine
     if row_entry.get(engine_index, None) is not None:
         print(f"WARNING: repeating data for {row_index} {engine_index}")
+    realtimeout = int(time) >= runmaxtime
     timeout = int(time) >= maxtime
-    err = bool((error_message != "") or (result.strip() == "None") or int(code) >= 400 or timeout)
-    if err and args.error: time = maxtime
+    err = bool((error_message != "") or (result.strip() == "None") or int(code) >= 400) and not timeout
+    if (err or timeout) and args.error: time = maxtime
     row_entry[engine_index] = { "time": int(time), "result": result.strip(), "code": int(code) if code != "None" else "500",
-                                "error_message": error_message, "timeout": timeout,
+                                "error_message": error_message, "timeout": timeout, "realtimeout": realtimeout,
                                 "error": err }
 
 # determine the result of a query and score engines, return whether all non-error answers agree
 def process_query(index, query):
     real_results = []
     for engine, row in query.items():
-        if row['error'] or row['timeout']:  
-            continue # ignore errors
+        if row['error'] or row['realtimeout']:  
+            continue # ignore errors and real timeouts
         if "100000" == row['result'].split('=')[-1].strip():
             continue # ignore common incorrect answer
         if engine.startswith("V") and "1048576" == row['result'].split('=')[-1].strip():
@@ -92,14 +93,14 @@ def process_query(index, query):
     query["identical"] = identical
     for row in query.values():
         if isinstance(row, dict):
-            row["correct"] = bool(not row["error"] and ( (real_result is None) or row["result"] == real_result ))
-            row["diverge"] = bool(not row["correct"] and not row["error"])
+            row["correct"] = bool(( (real_result is None) or row["result"] == real_result ) and not row["error"] and not row["timeout"])
+            row["diverge"] = bool(not row["correct"] and not row["error"] and not row["timeout"])
     return not identical
 
 def compute_engine_stats(data, engine):
     times = []
     incorrect = timeouts = errors = diverges = 0
-    for index, entry in data.items():
+    for index, entry in data.items():  # iterate over queries
         row = entry.get(engine, None)
         if row:
             times.append(row["time"])
@@ -170,7 +171,9 @@ parser.add_argument("-v", "--verbose", action='count', default=0, help="Show que
 parser.add_argument("-t", "--timings", action='store_true', help="Show timings for all queries with no errors")
 parser.add_argument("-m", "--mediawiki", action='store_true', help="Output in mediawiki format")
 parser.add_argument("-e", "--error", action='store_true', help="Use maxtime for any errors")
+parser.add_argument("-T", "--timeout", type=int, help="Time to consider as timing out")
 args = parser.parse_args()
+if args.timeout: maxtime = args.timeout
 
 for filename in args.files:
     with open(filename) as file:
@@ -200,7 +203,7 @@ for engine, stats in stats.items():
     if args.mediawiki:
         print(f'|-\n| style="text-align: right;" | {engine} || {stats[0]} || {stats[1]} || {int(stats[2][0])} || {int(stats[2][1])} || {int(stats[2][2])} || {stats[3]} || {stats[4]} || {stats[5]} || {stats[7]} || {stats[8]-stats[7]} || {stats[9]}')
     else:
-        print(f"{engine:18} {stats[0]:>4} {stats[1]:>6} {int(stats[2][0]):>6} {int(stats[2][1]):>6} {int(stats[2][2]):>6} {stats[3]:>6} {stats[4]:>6} {stats[5]:>6} {stats[7]:>5} {stats[8]-stats[7]:>5} {stats[9]:>5}")
+        print(f"{engine:19} {stats[0]:>3} {stats[1]:>6} {int(stats[2][0]):>6} {int(stats[2][1]):>6} {int(stats[2][2]):>6} {stats[3]:>6} {stats[4]:>6} {stats[5]:>6} {stats[7]:>5} {stats[8]:>5} {stats[9]:>5}")
 if args.mediawiki: print("|}\n")
 #print(f"Number of queries with different non-error, non-suspect results: {difference_count:3}")
 

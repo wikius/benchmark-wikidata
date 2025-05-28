@@ -1,0 +1,21 @@
+#!/bin/tcsh
+
+# Test repository https://github.com/afs/SPARQL-exists
+# Cloned in /home/local/tests/SPARQL-exists
+
+
+##foreach engine ( MillenniumDB QLever Virtuoso )
+foreach engine ( BlazeGraph )
+  rm -f results-${engine}.earl
+  /home/local/scripts/run-manifest.py /home/local/tests/SPARQL-exists/tests/exists-1-empty-bgp $engine
+  /home/local/scripts/run-manifest.py /home/local/tests/SPARQL-exists/tests/exists-2-def-var $engine
+  /home/local/scripts/run-manifest.py /home/local/tests/SPARQL-exists/tests/exists-3-bgp $engine
+  /home/local/scripts/run-manifest.py /home/local/tests/SPARQL-exists/tests/exists-4-minus $engine
+  /home/local/scripts/run-manifest.py /home/local/tests/SPARQL-exists/tests/exists-5-scope $engine
+  /home/local/scripts/run-manifest.py /home/local/tests/SPARQL-exists/tests/exists-6-places $engine
+  /home/local/scripts/run-manifest.py /home/local/tests/SPARQL-exists/tests/exists-bnodes $engine
+  /home/local/scripts/run-manifest.py /home/local/tests/SPARQL-exists/tests/exists-filter $engine
+  /home/local/scripts/run-manifest.py /home/local/tests/SPARQL-exists/tests/other/exists-pfps $engine
+  /home/local/scripts/run-manifest.py /home/local/tests/SPARQL-exists/tests/other/exists-sparql11 $engine
+
+end

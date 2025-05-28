@@ -1,0 +1,50 @@
+
+
+CATEGORY wgpb-nodups
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph/NODUPS   850     12     39     63    134 190392    626    473     0     2     0
+MilleniumDB/NODUPS  850      1      4      9     20   9153     30     30     0     0     0
+Virtuoso/NODUPS     850      1     15     48    137 600616    839    203     1     0     0
+QLever/NODUPS       850      1      7      9     14   1055     15     15     0     0     0
+
+CATEGORY single_bgps-nodups
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph/NODUPS   280     12     27     39    705 188914   3873   3022     0    20    15
+MilleniumDB/NODUPS  280      1      2      4    189  32114   1025   1025     0     0     0
+Virtuoso/NODUPS     280      0      9    128   2196  48900   1787   1787     0     0    51
+QLever/NODUPS       280      1      3      6    132  44744    769    769     0     0     5
+
+CATEGORY multiple_bgps-nodups
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph/NODUPS   681     13   1398  14001  24020 107443  16109  15924     0   363     0
+MilleniumDB/NODUPS  681      1    188   6472   9564 494549   7091   6390     0     0     0
+Virtuoso/NODUPS     681      1    244   3739   5892 600718   7081   4413     3    45   410
+QLever/NODUPS       681      1     26    228  12107 604175  26657  11416     2   241     2
+
+CATEGORY opts-nodups
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph/NODUPS   498     16   1308  15859  25763 600080  21980  17457     3   275     4
+MilleniumDB/NODUPS  498      2   1053  13048  20636 600940  27545  15070    10     0     0
+Virtuoso/NODUPS     498      1    728   4370   8121 600673  29369  10176     8    27   308
+QLever/NODUPS       498      1    118   2545  27052 512563  29291  15871     0   134     8
+
+CATEGORY paths-nodups
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph/NODUPS   660     19     98    327   6953 707903  26716   9759    12    65     2
+MilleniumDB/NODUPS  660      1      3     32    888 602286   8457   3151     4     1     1
+Virtuoso/NODUPS     660      1     11    114   2008 654737   6081   3338     2    50   111
+QLever/NODUPS       660      0      4     35    649 601097  22472   4162    19     9     1
+
+CATEGORY c2rpqs-nodups
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph/NODUPS   539     36    130   9275  54705 834953  96895  21618    53    99     4
+MilleniumDB/NODUPS  539      1     21   3257  29271 601059  84226  16941    58     0     0
+Virtuoso/NODUPS     539      1     50    600   3944 603393  19643   5982     9    19   111
+QLever/NODUPS       539      1     20    122    845 602384  14594   4990     3    42    11
+
+CATEGORY wdqs-nodups
+ENGINE             Count   min     q1     q2     q3    max   mean  tmean timeout err divergence
+Blazegraph/NODUPS   298     12     83    469   5333 600023  12220   7975     1    32    14
+MilleniumDB/NODUPS  298      2     38    792  26302 600975  95403  15523    38     0    12
+Virtuoso/NODUPS     298      1     68    493   3473 600720  14212   6233     3    11    21
+QLever/NODUPS       298      2     26    101    558 297839   4730   2405     0     3    13

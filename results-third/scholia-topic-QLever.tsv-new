@@ -1,0 +1,6 @@
+SKIPPING 2 queries
+3	QLever		     90	      	Count= 200 	200		Topic author scores for human
+4	QLever		   3168	      	Count= 200 	200		Topic author scores for protein
+5	QLever		     19	      	None 	500	ERROR: Assertion `subresult->idTable().numColumns() == inWidth` failed. Please report this to the developers. In file "/home/local/qlever/qlever-code-24mar2025/src/engine/GroupBy.cpp " at line 419	Topic author scores for building
+6	QLever		     14	      	None 	500	ERROR: Assertion `subresult->idTable().numColumns() == inWidth` failed. Please report this to the developers. In file "/home/local/qlever/qlever-code-24mar2025/src/engine/GroupBy.cpp " at line 419	Topic author scores for lake
+7	QLever		   3240	      	None 	500	ERROR: Assertion `subresult->idTable().numColumns() == inWidth` failed. Please report this to the developers. In file "/home/local/qlever/qlever-code-24mar2025/src/engine/GroupBy.cpp " at line 419	Topic author scores for mountain

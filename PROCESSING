@@ -1,7 +1,9 @@
 		PROCESSING
 
 Benchmarks are run using the benchmark.py program in this directory and
-analyzed using the stats.py program in this directory.  
+analyzed using the stats.py program in this directory and
+finally summarized using the summary.py program in this directory.
+
 
 The benchmark program evaluates here a sequence of queries on a single
 engine.  The queries can be lines in a single file.  The queries can also be
@@ -317,7 +319,6 @@ ROW  Mode Result            Blazegraph/NODUPS   MilleniumDB/NODUPS  QLever/NODUP
 480* Count= 13331        Count= 13331        Count= 13331       *Count= 0           +Count= 4000        
 	With duplicates eliminated Blazegraph performs particularly poorly, running out of memory on over half of the queries, so its timings are not useful.
 
-TODO analyze
 
 	./wdbench-expand.py wdbench/Queries/paths.txt 10000000
 	./benchmark.py --engine=Blazegraph wdbench/Queries/paths.text | tee results/paths-norm-blazegraph.tsv

@@ -1,0 +1,5 @@
+This is a collection of parameterized queries that query aspects of the Wikidata ontology.
+
+These queries are for subclass closure and instance.
+
+queries.tsv is a control file for use with the benchmark.py benchmark control program

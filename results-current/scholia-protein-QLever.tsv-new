@@ -1,0 +1,11 @@
+SKIPPING 3 queries
+4	QLever		    418	      	Count= 0 	200		protein_publications-per-year Q101244282
+5	QLever		     45	      	Count= 3 	200		protein_publications-per-year Q1024612
+6	QLever		     38	      	Count= 0 	200		protein_publications-per-year Q1026649
+7	QLever		    110	      	Count= 37 	200		protein_publications-per-year Q1032902
+8	QLever		     36	      	Count= 0 	200		protein_publications-per-year Q104586124
+9	QLever		   1315	      	Count= 500 	200		protein_similar-proteins Q101244282
+10	QLever		  47301	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.4 GB were available. Clear the cache or allow more memory for QLever during startup	protein_similar-proteins Q1024612
+11	QLever		  23789	      	Count= 500 	200		protein_similar-proteins Q1026649
+12	QLever		  47422	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.4 GB were available. Clear the cache or allow more memory for QLever during startup	protein_similar-proteins Q1032902
+13	QLever		   1360	      	Count= 500 	200		protein_similar-proteins Q104586124

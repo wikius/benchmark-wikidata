@@ -1,0 +1,7 @@
+#!/bin/tcsh
+
+ps a | egrep 'Release/[a-z]+/mdb-server'
+ps a | egrep 'qlever-code/[a-z]+/ServerMain'
+ps a | egrep 'binsrc/[a-z]+/virtuoso-t'
+ps a | egrep 'docker.*wdqs[ ]*bash'
+ps a | egrep '[B]lazegraph.sh'
