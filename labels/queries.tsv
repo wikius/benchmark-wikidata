@@ -1,0 +1,7 @@
+# Testing speed of ways of getting preferred labels
+german	German-only for LABEL	VALUES	classes
+simple	English-only for LABEL	VALUES	classes
+coalesce	Coalesce for LABEL	VALUES	classes
+service	Wikibase label service for LABEL	VALUES	classes
+#prefer	Prefer for LABEL	VALUES	classes
+#prefer2	Prefer 2 for LABEL	VALUES	classes

@@ -1,0 +1,110 @@
+1	QLever		    249	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	author_academic-tree Richard Feynman
+2	QLever		    424	      	Count= 64 	200		author_associated-images Richard Feynman
+3	QLever		    135	      	Count= 90 	200		author_citations-by-year Richard Feynman
+4	QLever		   2508	      	Count= 56 	200		author_coauthor-map Richard Feynman
+5	QLever		    905	      	Count= 30 	200		author_coauthors Richard Feynman
+6	QLever		   1830	      	Result=1939-01-01T00:00:00Z 	200		author_events Richard Feynman
+7	QLever		  64012	      	None 	500	ERROR: Tried to allocate 13.1 GB, but only 8 GB were available. Clear the cache or allow more memory for QLever during startup	author_list-of-publications Richard Feynman
+8	QLever		  17950	      	Count= 0 	200		author_list-of-retracted-articles Richard Feynman
+9	QLever		   3072	      	Count= 74 	200		author_most-cited-works Richard Feynman
+10	QLever		    337	      	Count= 500 	200		author_most-citing-authors Richard Feynman
+11	QLever		  12189	      	Count= 28 	200		author_other-locations Richard Feynman
+12	QLever		     24	      	Count= 12 	200		author_pages-per-year Richard Feynman
+13	QLever		  18686	      	Count= 56 	200		author_publications-per-year Richard Feynman
+14	QLever		     16	      	Count= 0 	200		author_retracted-articles-per-year Richard Feynman
+15	QLever		   6696	      	Count= 0 	200		author_review-statistics Richard Feynman
+16	QLever		   2049	      	Count= 235 	200		author_timeline Richard Feynman
+17	QLever		    147	      	Count= 200 	200		author_topic-scores Richard Feynman
+18	QLever		    268	      	Count= 30 	200		author_topics-works-matrix Richard Feynman
+19	QLever		   1470	      	Count= 19 	200		author_topics Richard Feynman
+20	QLever		     12	      	Count= 0 	200		author_use Richard Feynman
+21	QLever		     10	      	Count= 15 	200		author_venue-statistics-chart Richard Feynman
+22	QLever		      7	      	Count= 15 	200		author_venue-statistics Richard Feynman
+23	QLever		    147	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	author_academic-tree Linus Pauling
+24	QLever		    212	      	Count= 118 	200		author_associated-images Linus Pauling
+25	QLever		     28	      	Count= 140 	200		author_citations-by-year Linus Pauling
+26	QLever		   1902	      	Count= 72 	200		author_coauthor-map Linus Pauling
+27	QLever		    913	      	Count= 42 	200		author_coauthors Linus Pauling
+28	QLever		   1656	      	Count= 0 	200		author_events Linus Pauling
+29	QLever		  62483	      	None 	500	ERROR: Tried to allocate 13.1 GB, but only 11.4 GB were available. Clear the cache or allow more memory for QLever during startup	author_list-of-publications Linus Pauling
+30	QLever		  17934	      	Count= 0 	200		author_list-of-retracted-articles Linus Pauling
+31	QLever		   1591	      	Count= 271 	200		author_most-cited-works Linus Pauling
+32	QLever		    314	      	Count= 500 	200		author_most-citing-authors Linus Pauling
+33	QLever		  12146	      	Count= 44 	200		author_other-locations Linus Pauling
+34	QLever		     34	      	Count= 34 	200		author_pages-per-year Linus Pauling
+35	QLever		  18629	      	Count= 127 	200		author_publications-per-year Linus Pauling
+36	QLever		     15	      	Count= 0 	200		author_retracted-articles-per-year Linus Pauling
+37	QLever		   6651	      	Count= 0 	200		author_review-statistics Linus Pauling
+38	QLever		   1987	      	Count= 850 	200		author_timeline Linus Pauling
+39	QLever		    171	      	Count= 200 	200		author_topic-scores Linus Pauling
+40	QLever		    240	      	Count= 124 	200		author_topics-works-matrix Linus Pauling
+41	QLever		   1583	      	Count= 73 	200		author_topics Linus Pauling
+42	QLever		     12	      	Count= 0 	200		author_use Linus Pauling
+43	QLever		     21	      	Count= 62 	200		author_venue-statistics-chart Linus Pauling
+44	QLever		     14	      	Count= 62 	200		author_venue-statistics Linus Pauling
+45	QLever		    133	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	author_academic-tree Barack Obama
+46	QLever		    187	      	Count= 100 	200		author_associated-images Barack Obama
+47	QLever		     10	      	Count= 14 	200		author_citations-by-year Barack Obama
+48	QLever		   1877	      	Count= 10 	200		author_coauthor-map Barack Obama
+49	QLever		    891	      	Count= 2 	200		author_coauthors Barack Obama
+50	QLever		   1686	      	Count= 63 	200		author_events Barack Obama
+51	QLever		  62466	      	None 	500	ERROR: Tried to allocate 13.1 GB, but only 11.4 GB were available. Clear the cache or allow more memory for QLever during startup	author_list-of-publications Barack Obama
+52	QLever		  17985	      	Count= 0 	200		author_list-of-retracted-articles Barack Obama
+53	QLever		   1531	      	Count= 326 	200		author_most-cited-works Barack Obama
+54	QLever		    138	      	Count= 251 	200		author_most-citing-authors Barack Obama
+55	QLever		  12206	      	Count= 46 	200		author_other-locations Barack Obama
+56	QLever		     26	      	Count= 6 	200		author_pages-per-year Barack Obama
+57	QLever		  17979	      	Count= 18 	200		author_publications-per-year Barack Obama
+58	QLever		     16	      	Count= 0 	200		author_retracted-articles-per-year Barack Obama
+59	QLever		   6613	      	Count= 0 	200		author_review-statistics Barack Obama
+60	QLever		   1988	      	Count= 184 	200		author_timeline Barack Obama
+61	QLever		     86	      	Count= 177 	200		author_topic-scores Barack Obama
+62	QLever		    225	      	Count= 80 	200		author_topics-works-matrix Barack Obama
+63	QLever		   1461	      	Count= 69 	200		author_topics Barack Obama
+64	QLever		     10	      	Count= 0 	200		author_use Barack Obama
+65	QLever		      6	      	Count= 13 	200		author_venue-statistics-chart Barack Obama
+66	QLever		      7	      	Count= 13 	200		author_venue-statistics Barack Obama
+67	QLever		    142	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	author_academic-tree Isaac Newton
+68	QLever		    182	      	Count= 49 	200		author_associated-images Isaac Newton
+69	QLever		      8	      	Count= 15 	200		author_citations-by-year Isaac Newton
+70	QLever		   1696	      	Count= 0 	200		author_coauthor-map Isaac Newton
+71	QLever		    901	      	Count= 0 	200		author_coauthors Isaac Newton
+72	QLever		   1657	      	Count= 2 	200		author_events Isaac Newton
+73	QLever		  62621	      	None 	500	ERROR: Tried to allocate 13.1 GB, but only 11.4 GB were available. Clear the cache or allow more memory for QLever during startup	author_list-of-publications Isaac Newton
+74	QLever		  17984	      	Count= 0 	200		author_list-of-retracted-articles Isaac Newton
+75	QLever		   1529	      	Count= 21 	200		author_most-cited-works Isaac Newton
+76	QLever		     35	      	Count= 19 	200		author_most-citing-authors Isaac Newton
+77	QLever		  12100	      	Count= 26 	200		author_other-locations Isaac Newton
+78	QLever		     22	      	Count= 5 	200		author_pages-per-year Isaac Newton
+79	QLever		  17774	      	Count= 17 	200		author_publications-per-year Isaac Newton
+80	QLever		     16	      	Count= 0 	200		author_retracted-articles-per-year Isaac Newton
+81	QLever		   6590	      	Count= 0 	200		author_review-statistics Isaac Newton
+82	QLever		   1987	      	Count= 47 	200		author_timeline Isaac Newton
+83	QLever		     25	      	Count= 35 	200		author_topic-scores Isaac Newton
+84	QLever		    224	      	Count= 12 	200		author_topics-works-matrix Isaac Newton
+85	QLever		   1469	      	Count= 12 	200		author_topics Isaac Newton
+86	QLever		     10	      	Count= 0 	200		author_use Isaac Newton
+87	QLever		      3	      	Result=1 	200		author_venue-statistics-chart Isaac Newton
+88	QLever		      3	      	Result=1 	200		author_venue-statistics Isaac Newton
+89	QLever		    120	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	author_academic-tree Ian R. Horrocks
+90	QLever		    192	      	Count= 44 	200		author_associated-images Ian R. Horrocks
+91	QLever		      9	      	Count= 42 	200		author_citations-by-year Ian R. Horrocks
+92	QLever		   1916	      	Count= 150 	200		author_coauthor-map Ian R. Horrocks
+93	QLever		    913	      	Count= 888 	200		author_coauthors Ian R. Horrocks
+94	QLever		   1659	      	Count= 28 	200		author_events Ian R. Horrocks
+95	QLever		  62250	      	None 	500	ERROR: Tried to allocate 13.1 GB, but only 11.4 GB were available. Clear the cache or allow more memory for QLever during startup	author_list-of-publications Ian R. Horrocks
+96	QLever		  17987	      	Count= 0 	200		author_list-of-retracted-articles Ian R. Horrocks
+97	QLever		   1591	      	Count= 141 	200		author_most-cited-works Ian R. Horrocks
+98	QLever		    181	      	Count= 450 	200		author_most-citing-authors Ian R. Horrocks
+99	QLever		  12106	      	Count= 12 	200		author_other-locations Ian R. Horrocks
+100	QLever		     20	      	Count= 13 	200		author_pages-per-year Ian R. Horrocks
+101	QLever		  17596	      	Count= 62 	200		author_publications-per-year Ian R. Horrocks
+102	QLever		     16	      	Count= 0 	200		author_retracted-articles-per-year Ian R. Horrocks
+103	QLever		   6630	      	Count= 0 	200		author_review-statistics Ian R. Horrocks
+104	QLever		   1984	      	Count= 426 	200		author_timeline Ian R. Horrocks
+105	QLever		     74	      	Count= 170 	200		author_topic-scores Ian R. Horrocks
+106	QLever		    224	      	Count= 103 	200		author_topics-works-matrix Ian R. Horrocks
+107	QLever		   1457	      	Count= 31 	200		author_topics Ian R. Horrocks
+108	QLever		     10	      	Count= 0 	200		author_use Ian R. Horrocks
+109	QLever		     12	      	Count= 53 	200		author_venue-statistics-chart Ian R. Horrocks
+110	QLever		      6	      	Count= 53 	200		author_venue-statistics Ian R. Horrocks

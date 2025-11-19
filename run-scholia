@@ -1,13 +1,24 @@
 #!/bin/tcsh
+# ./run-scholia <engine> <directory suffix for results> [<version of Wikidata>]
+# Run the existing benchmarks
+# Needs the -run script to be set up for $version.  
 
-mkdir -p results-current
+if ( $#argv < 2 ) exit
+set area = $2
+set version = $2
+if ( $#argv > 2 ) set version = $3
+
+mkdir -p results-$area
+echo "Scholia wikidata version $version" | tee results-$area/scholia-version-$1
+
+/home/local/scripts/$1-stop
 
 foreach category ( author award catalogue chemical-class chemical-element chemical clinical_trial complex \
                    country dataset disease event-series event gene ontology organization pathway \
 		   podcast-episode podcast-season podcast project property protein publisher \
 		   series software sponsor taxon topic use venue wikiproject work )
   echo CATEGORY ${category}
-  /home/local/scripts/$1-run
-  ./benchmark.py --engine=$1 --directory=scholia/${category}  | tee results-current/scholia-${category}-$1.tsv
+  /home/local/scripts/$1-run $version
+  ./benchmark.py -S --engine=$1 --directory=scholia/${category}  | tee results-$area/SCHOLIA-${category}-$1.tsv
   /home/local/scripts/$1-stop
 end

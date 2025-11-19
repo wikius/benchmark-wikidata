@@ -1,0 +1,1 @@
+SELECT (COUNT (*) As ?count) WHERE { ?a ?b ?c . }

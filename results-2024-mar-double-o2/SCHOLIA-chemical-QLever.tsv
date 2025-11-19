@@ -1,0 +1,50 @@
+1	QLever		    510	      	Count= 2 	200		chemical_biological-processes Q100146813
+2	QLever		    177	      	Count= 0 	200		chemical_found-in-matrix-np Q100146813
+3	QLever		  61317	      	None 	500	ERROR: Tried to allocate 35 GB, but only 20 GB were available. Clear the cache or allow more memory for QLever during startup	chemical_found-in-taxon Q100146813
+4	QLever		    532	      	Count= 0 	200		chemical_identifiers Q100146813
+5	QLever		  60777	      	None 	500	ERROR: Tried to allocate 35 GB, but only 20 GB were available. Clear the cache or allow more memory for QLever during startup	chemical_physchem-properties Q100146813
+6	QLever		    838	      	Result=2017 	200		chemical_publications-per-year Q100146813
+7	QLever		  23578	      	Count= 2 	200		chemical_recent-literature Q100146813
+8	QLever		    554	      	None 	500	ERROR: Error while executing a SERVICE request to <http://wikiba.se:80/ontology#mwapi>: SERVICE responded with HTTP status code: 301, Moved Permanently. First 100 bytes of the response: '<html>	chemical_related Q100146813
+9	QLever		     36	      	Count= 0 	200		chemical_relates Q100146813
+10	QLever		     12	      	Count= 0 	200		chemical_structural-identifiers Q100146813
+11	QLever		    478	      	Result=Q100156056 	200		chemical_biological-processes Q100146817
+12	QLever		    150	      	Count= 0 	200		chemical_found-in-matrix-np Q100146817
+13	QLever		  60904	      	None 	500	ERROR: Tried to allocate 35 GB, but only 20 GB were available. Clear the cache or allow more memory for QLever during startup	chemical_found-in-taxon Q100146817
+14	QLever		    529	      	Count= 0 	200		chemical_identifiers Q100146817
+15	QLever		  61353	      	None 	500	ERROR: Tried to allocate 35 GB, but only 20 GB were available. Clear the cache or allow more memory for QLever during startup	chemical_physchem-properties Q100146817
+16	QLever		    785	      	Count= 3 	200		chemical_publications-per-year Q100146817
+17	QLever		  24048	      	Count= 5 	200		chemical_recent-literature Q100146817
+18	QLever		    385	      	None 	500	ERROR: Error while executing a SERVICE request to <http://wikiba.se:80/ontology#mwapi>: SERVICE responded with HTTP status code: 301, Moved Permanently. First 100 bytes of the response: '<html>	chemical_related Q100146817
+19	QLever		     26	      	Count= 0 	200		chemical_relates Q100146817
+20	QLever		     12	      	Count= 0 	200		chemical_structural-identifiers Q100146817
+21	QLever		    476	      	Count= 3 	200		chemical_biological-processes Q100146821
+22	QLever		    147	      	Count= 0 	200		chemical_found-in-matrix-np Q100146821
+23	QLever		  61163	      	None 	500	ERROR: Tried to allocate 35 GB, but only 20 GB were available. Clear the cache or allow more memory for QLever during startup	chemical_found-in-taxon Q100146821
+24	QLever		    505	      	Count= 0 	200		chemical_identifiers Q100146821
+25	QLever		  61042	      	None 	500	ERROR: Tried to allocate 35 GB, but only 20 GB were available. Clear the cache or allow more memory for QLever during startup	chemical_physchem-properties Q100146821
+26	QLever		    752	      	Count= 2 	200		chemical_publications-per-year Q100146821
+27	QLever		  23911	      	Count= 3 	200		chemical_recent-literature Q100146821
+28	QLever		    385	      	None 	500	ERROR: Error while executing a SERVICE request to <http://wikiba.se:80/ontology#mwapi>: SERVICE responded with HTTP status code: 301, Moved Permanently. First 100 bytes of the response: '<html>	chemical_related Q100146821
+29	QLever		     25	      	Count= 0 	200		chemical_relates Q100146821
+30	QLever		     12	      	Count= 0 	200		chemical_structural-identifiers Q100146821
+31	QLever		    466	      	Count= 2 	200		chemical_biological-processes Q100146822
+32	QLever		    146	      	Count= 0 	200		chemical_found-in-matrix-np Q100146822
+33	QLever		  60926	      	None 	500	ERROR: Tried to allocate 35 GB, but only 20 GB were available. Clear the cache or allow more memory for QLever during startup	chemical_found-in-taxon Q100146822
+34	QLever		    507	      	Count= 0 	200		chemical_identifiers Q100146822
+35	QLever		  60854	      	None 	500	ERROR: Tried to allocate 35 GB, but only 20 GB were available. Clear the cache or allow more memory for QLever during startup	chemical_physchem-properties Q100146822
+36	QLever		    771	      	Result=2017 	200		chemical_publications-per-year Q100146822
+37	QLever		  23385	      	Count= 2 	200		chemical_recent-literature Q100146822
+38	QLever		    384	      	None 	500	ERROR: Error while executing a SERVICE request to <http://wikiba.se:80/ontology#mwapi>: SERVICE responded with HTTP status code: 301, Moved Permanently. First 100 bytes of the response: '<html>	chemical_related Q100146822
+39	QLever		     26	      	Count= 0 	200		chemical_relates Q100146822
+40	QLever		     12	      	Count= 0 	200		chemical_structural-identifiers Q100146822
+41	QLever		    471	      	Count= 2 	200		chemical_biological-processes Q100146823
+42	QLever		    151	      	Count= 0 	200		chemical_found-in-matrix-np Q100146823
+43	QLever		  60227	      	None 	500	ERROR: Tried to allocate 35 GB, but only 20 GB were available. Clear the cache or allow more memory for QLever during startup	chemical_found-in-taxon Q100146823
+44	QLever		    515	      	Count= 0 	200		chemical_identifiers Q100146823
+45	QLever		  61471	      	None 	500	ERROR: Tried to allocate 35 GB, but only 20 GB were available. Clear the cache or allow more memory for QLever during startup	chemical_physchem-properties Q100146823
+46	QLever		    742	      	Result=2017 	200		chemical_publications-per-year Q100146823
+47	QLever		  23539	      	Count= 2 	200		chemical_recent-literature Q100146823
+48	QLever		    374	      	None 	500	ERROR: Error while executing a SERVICE request to <http://wikiba.se:80/ontology#mwapi>: SERVICE responded with HTTP status code: 301, Moved Permanently. First 100 bytes of the response: '<html>	chemical_related Q100146823
+49	QLever		     23	      	Count= 0 	200		chemical_relates Q100146823
+50	QLever		     12	      	Count= 0 	200		chemical_structural-identifiers Q100146823

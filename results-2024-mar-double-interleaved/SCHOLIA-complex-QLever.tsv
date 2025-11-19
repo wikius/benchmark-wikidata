@@ -1,0 +1,20 @@
+1	QLever		 600386	      	None 	429	ERROR: Operation timed out. Last operation: TransitivePath ?_QLever_internal_variable_qp_14 <http://www.wikidata.org/prop/direct/P31> ?_QLever_internal_variable_qp_16	complex_articles-by-year Q100146810
+2	QLever		 600435	      	None 	429	ERROR: Operation timed out. Last operation: TransitivePath ?_QLever_internal_variable_qp_0 <http://www.wikidata.org/prop/direct/P31> ?_QLever_internal_variable_qp_6	complex_articles-recent Q100146810
+3	QLever		    725	      	Count= 2 	200		complex_identifiers Q100146810
+4	QLever		  19619	      	Count= 2 	200		complex_participants Q100146810
+5	QLever		 600417	      	None 	429	ERROR: Operation timed out. Last operation: TransitivePath ?_QLever_internal_variable_qp_14 <http://www.wikidata.org/prop/direct/P31> ?_QLever_internal_variable_qp_16	complex_articles-by-year Q100146811
+6	QLever		 600398	      	None 	429	ERROR: Operation timed out. Last operation: TransitivePath ?_QLever_internal_variable_qp_0 <http://www.wikidata.org/prop/direct/P31> ?_QLever_internal_variable_qp_6	complex_articles-recent Q100146811
+7	QLever		    645	      	Count= 2 	200		complex_identifiers Q100146811
+8	QLever		  19575	      	Result=1 	200		complex_participants Q100146811
+9	QLever		 600441	      	None 	429	ERROR: Operation timed out. Last operation: TransitivePath ?_QLever_internal_variable_qp_14 <http://www.wikidata.org/prop/direct/P31> ?_QLever_internal_variable_qp_16	complex_articles-by-year Q100146812
+10	QLever		 600450	      	None 	429	ERROR: Operation timed out. Last operation: TransitivePath ?_QLever_internal_variable_qp_0 <http://www.wikidata.org/prop/direct/P31> ?_QLever_internal_variable_qp_6	complex_articles-recent Q100146812
+11	QLever		    658	      	Count= 2 	200		complex_identifiers Q100146812
+12	QLever		  19675	      	Count= 2 	200		complex_participants Q100146812
+13	QLever		 600446	      	None 	429	ERROR: Operation timed out. Last operation: TransitivePath ?_QLever_internal_variable_qp_14 <http://www.wikidata.org/prop/direct/P31> ?_QLever_internal_variable_qp_16	complex_articles-by-year Q100146813
+14	QLever		 600446	      	None 	429	ERROR: Operation timed out. Last operation: TransitivePath ?_QLever_internal_variable_qp_0 <http://www.wikidata.org/prop/direct/P31> ?_QLever_internal_variable_qp_6	complex_articles-recent Q100146813
+15	QLever		    671	      	Count= 2 	200		complex_identifiers Q100146813
+16	QLever		  19761	      	Count= 7 	200		complex_participants Q100146813
+17	QLever		 600430	      	None 	429	ERROR: Operation timed out. Last operation: TransitivePath ?_QLever_internal_variable_qp_14 <http://www.wikidata.org/prop/direct/P31> ?_QLever_internal_variable_qp_16	complex_articles-by-year Q100146821
+18	QLever		 600429	      	None 	429	ERROR: Operation timed out. Last operation: TransitivePath ?_QLever_internal_variable_qp_0 <http://www.wikidata.org/prop/direct/P31> ?_QLever_internal_variable_qp_6	complex_articles-recent Q100146821
+19	QLever		    627	      	Count= 2 	200		complex_identifiers Q100146821
+20	QLever		  19698	      	Count= 2 	200		complex_participants Q100146821

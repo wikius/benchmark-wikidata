@@ -1,0 +1,5 @@
+#!/usr/bin/tcsh
+./compare.py -o results-single/ results-double-SS/ results-double-o1 results-double-o2 results-double-interleaved results-double-big/
+./compare.py results-single/ results-double-SS/ results-double-o1 results-double-o2 results-double-interleaved results-double-big/
+./compare.py -u results-single/ results-double-SS/ results-double-o1 results-double-o2 results-double-interleaved results-double-big/
+./compare.py -s results-single/ results-double-SS/ results-double-o1 results-double-o2 results-double-interleaved results-double-big/

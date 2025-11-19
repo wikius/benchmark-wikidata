@@ -1,1 +1,1 @@
-SELECT DISTINCT ?s WHERE { ?s wdt:P279+ REPLACE . }
+SELECT DISTINCT ?s WHERE { ?s wdt:P279+ wd:{{ q }} . }

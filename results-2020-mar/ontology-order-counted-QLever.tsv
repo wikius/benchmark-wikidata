@@ -1,0 +1,70 @@
+1	QLever	COUNTED	    256	      	Result=1 	200		All sixth-order classes
+2	QLever	COUNTED	      3	      	Result=1 	200		Roots of fifth-order classes
+3	QLever	COUNTED	      8	      	Result=1 	200		All fifth-order classes
+4	QLever	COUNTED	      2	      	Result=1 	200		Roots of fourth-order classes
+5	QLever	COUNTED	      8	      	Result=3 	200		All fourth-order classes
+6	QLever	COUNTED	      2	      	Result=25 	200		Roots of third-order classes
+7	QLever	COUNTED	     33	      	Result=25621 	200		All third-order classes
+8	QLever	COUNTED	   2169	      	Result=8462427 	200		Roots of second-order classes
+9	QLever	COUNTED	  22030	      	Result=9584535 	200		All second-order classes
+10	QLever	COUNTED	  20858	      	Result=21777133 	200		Roots of first-order classes
+11	QLever	COUNTED	  24635	      	Result=22203722 	200		All first-order classes, using a subquery to cut down on memory usage in older versions of QLever
+12	QLever	COUNTED	  98346	      	Result=22203722 	200		All first-order classes
+13	QLever	COUNTED	 600400	      	None 	429	ERROR: Operation timed out. Last operation: TransitivePath ?_QLever_internal_variable_qp_0 <http://www.wikidata.org/prop/direct/P279> ?c	Instance loops with one instance link and subclass, not currently handled by QLever
+14	QLever	COUNTED	  16584	      	Result=14 	200		Instance loops with one instance link and non-empty subclass
+15	QLever	COUNTED	      3	      	Result=14 	200		Instance loops with one instance link and non-empty subclass (no labels)
+16	QLever	COUNTED	 325807	      	Result=14 	200		Instance loops with one instance link and non-empty subclass (no labels), using filter to check out speed difference
+17	QLever	COUNTED	    363	      	Result=65 	200		Instance loops with one instance link and subclass, using union to be acceptable to QLever
+18	QLever	COUNTED	      3	      	Result=65 	200		Instance loops with one instance link and subclass, using filter and union to get around a bug in old versions of QLever
+19	QLever	COUNTED	      2	      	Result=65 	200		Instance loops with one instance link and subclass, as above but using a subquery for potential speed improvement
+20	QLever	COUNTED	 331144	      	Result=65 	200		Instance loops with one instance link and subclass, using filter to be acceptable to QLever
+21	QLever	COUNTED	     10	      	Result=65 	200		Instance loops with one instance link and subclass, as above but using a subquery for potential speed improvement
+22	QLever	COUNTED	   1138	      	Result=59 	200		Instance loops with two instance links
+23	QLever	COUNTED	 238479	      	None 	500	ERROR: Tried to allocate 18 GB, but only 156.1 MB were available. Clear the cache or allow more memory for QLever during startup	Instance loops with two instance links and subclass
+24	QLever	COUNTED	 240056	      	None 	500	ERROR: Tried to allocate 18 GB, but only 2.9 GB were available. Clear the cache or allow more memory for QLever during startup	Instance loops with two instance links and subclass, using a subquery
+25	QLever	COUNTED	 299276	      	None 	500	ERROR: Tried to allocate 34.4 GB, but only 18.4 GB were available. Clear the cache or allow more memory for QLever during startup	Instance loops with two instance links and subclass, no super
+26	QLever	COUNTED	   1178	      	Result=84755 	200		First-order classes based on instance
+27	QLever	COUNTED	  27732	      	Result=13968806 	200		First-order classes based on all evidence
+28	QLever	COUNTED	    504	      	Result=9424 	200		Second-order classes based on instance
+29	QLever	COUNTED	   3169	      	Result=45935 	200		Second-order classes based on all evidence
+30	QLever	COUNTED	     47	      	Result=2352 	200		Third-order classes based on instance
+31	QLever	COUNTED	    402	      	Result=6063 	200		Third-order classes based on all evidence
+32	QLever	COUNTED	     36	      	Result=1145 	200		Fourth-order classes based on instance
+33	QLever	COUNTED	     44	      	Result=1826 	200		Fourth-order classes based on all evidence
+34	QLever	COUNTED	     38	      	Result=788 	200		Fifth-order classes based on instance
+35	QLever	COUNTED	     37	      	Result=943 	200		Fifth-order classes based on all evidence
+36	QLever	COUNTED	     42	      	Result=697 	200		Sixth-order classes based on instance
+37	QLever	COUNTED	     38	      	Result=738 	200		Sixth-order classes based on all evidence
+38	QLever	COUNTED	 600431	      	None 	429	ERROR: Operation timed out. Last operation: TransitivePath ?c <http://www.wikidata.org/prop/direct/P279> ?s	Split-order classes (without exclusion)
+39	QLever	COUNTED	 600433	      	None 	429	ERROR: Operation timed out. Last operation: TransitivePath ?_QLever_internal_variable_qp_0 <http://www.wikidata.org/prop/direct/P279> ?c	Split-order classes case self (without exclusion)
+40	QLever	COUNTED	  17003	      	Result=65 	200		Split-order classes case self using union (without exclusion)
+41	QLever	COUNTED	 325378	      	Result=65 	200		Split-order classes case self using union and filter (without exclusion)
+42	QLever	COUNTED	      3	      	Result=15 	200		Split-order classes (purpose unknown)
+43	QLever	COUNTED	 600442	      	None 	429	ERROR: Operation timed out. Last operation: TransitivePath ?c <http://www.wikidata.org/prop/direct/P279> ?_QLever_internal_variable_qp_2	Split-order classes case other (without exclusion)
+44	QLever	COUNTED	 600462	      	None 	429	ERROR: Operation timed out. Last operation: TransitivePath ?c <http://www.wikidata.org/prop/direct/P279> ?_QLever_internal_variable_qp_2	Split-order classes case other (with exclusion)
+45	QLever	COUNTED	  68607	      	Result=112862562 	200		Split-order classes subcase AB (partial, without exclusion)
+46	QLever	COUNTED	 600407	      	None 	429	ERROR: Operation timed out. Last operation: TransitivePath ?c <http://www.wikidata.org/prop/direct/P279> ?_QLever_internal_variable_qp_2	Split-order classes subcase AB (without exclusion)
+47	QLever	COUNTED	 241162	      	None 	500	ERROR: Tried to allocate 34.4 GB, but only 18.9 GB were available. Clear the cache or allow more memory for QLever during startup	Split-order classes subcase AB exclusion
+48	QLever	COUNTED	 237074	      	None 	500	ERROR: Tried to allocate 17.2 GB, but only 4.4 GB were available. Clear the cache or allow more memory for QLever during startup	Split-order classes subcase C (without exclusion)
+49	QLever	COUNTED	  62528	      	Result=46362554 	200		Split-order classes subcase C including labels (without exclusion)
+50	QLever	COUNTED	 387399	      	None 	500	ERROR: Tried to allocate 34.4 GB, but only 21.6 GB were available. Clear the cache or allow more memory for QLever during startup	Split-order classes subcase C exclusion
+51	QLever	COUNTED	 396050	      	None 	500	ERROR: Tried to allocate 34.4 GB, but only 21.7 GB were available. Clear the cache or allow more memory for QLever during startup	Split-order classes subcase C exclusion part 1
+52	QLever	COUNTED	 236870	      	None 	500	ERROR: Tried to allocate 17.2 GB, but only 4.4 GB were available. Clear the cache or allow more memory for QLever during startup	Split-order classes subcase C exclusion part 1 (optimized)
+53	QLever	COUNTED	  20072	      	Result=7209691 	200		Split-order classes subcase C exclusion part 2
+54	QLever	COUNTED	 600490	      	None 	429	ERROR: Operation timed out. Last operation: TransitivePath ?c <http://www.wikidata.org/prop/direct/P279> ?_QLever_internal_variable_qp_2	Split-order classes subcase D test (without exclusion)
+55	QLever	COUNTED	 125745	      	Result=82807255 	200		Split-order classes subcase D partial (without exclusion)
+56	QLever	COUNTED	 237577	      	None 	500	ERROR: Tried to allocate 17.2 GB, but only 1 GB were available. Clear the cache or allow more memory for QLever during startup	Split-order classes subcase D partial (without exclusion)
+57	QLever	COUNTED	 240635	      	None 	500	ERROR: Tried to allocate 17.2 GB, but only 4.4 GB were available. Clear the cache or allow more memory for QLever during startup	Split-order classes subcase D partial (without exclusion)
+58	QLever	COUNTED	 153372	      	Result=20004345 	200		Split-order classes subcase D (without exclusion)
+59	QLever	COUNTED	 235377	      	None 	500	ERROR: Tried to allocate 17.2 GB, but only 14.9 GB were available. Clear the cache or allow more memory for QLever during startup	Split-order classes subcase D exclusion 1
+60	QLever	COUNTED	  49701	      	Result=2327172 	200		Split-order classes subcase D exclusion 2
+61	QLever	COUNTED	 117438	      	Result=19346644 	200		Split-order classes subcase D exclusion 3
+62	QLever	COUNTED	 232332	      	None 	500	ERROR: Tried to allocate 17.2 GB, but only 14.9 GB were available. Clear the cache or allow more memory for QLever during startup	Split-order classes subcase D exclusion 4 test
+63	QLever	COUNTED	 237798	      	None 	500	ERROR: Tried to allocate 17.2 GB, but only 4.4 GB were available. Clear the cache or allow more memory for QLever during startup	Split-order classes subcase D exclusion 4
+64	QLever	COUNTED	 104169	      	Result=20004345 	200		Split-order extra query
+65	QLever	COUNTED	  29439	      	Result=15031717 	200		Split-order extra query
+66	QLever	COUNTED	   2984	      	Result=11628730 	200		All instances of class (Q16889133)
+67	QLever	COUNTED	 238863	      	None 	500	ERROR: Tried to allocate 18 GB, but only 1.7 GB were available. Clear the cache or allow more memory for QLever during startup	Counts of instances of class (Q16889133) by direct subclass
+68	QLever	COUNTED	   3269	      	Result=152 	200		Instances of human (Q5) that are classes
+69	QLever	COUNTED	   4899	      	Result=67 	200		Class orders of classes in is metaclass for (P8225) relationships
+70	QLever	COUNTED	   4832	      	Result=27 	200		Class orders of classes in metasubclass (P2445) relationships

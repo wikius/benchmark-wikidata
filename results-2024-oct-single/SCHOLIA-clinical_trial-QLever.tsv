@@ -1,0 +1,10 @@
+1	QLever		   6369	      	Count= 5 	200		clinical-trial_data Q100788294
+2	QLever		 100864	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available	clinical-trial_related-trials Q100788294
+3	QLever		   4430	      	Count= 5 	200		clinical-trial_data Q100788300
+4	QLever		 100525	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available	clinical-trial_related-trials Q100788300
+5	QLever		   4467	      	Count= 6 	200		clinical-trial_data Q100788302
+6	QLever		 100325	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available	clinical-trial_related-trials Q100788302
+7	QLever		   4476	      	Count= 5 	200		clinical-trial_data Q100788304
+8	QLever		 102231	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available	clinical-trial_related-trials Q100788304
+9	QLever		   4491	      	Count= 6 	200		clinical-trial_data Q100788305
+10	QLever		  99605	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available	clinical-trial_related-trials Q100788305

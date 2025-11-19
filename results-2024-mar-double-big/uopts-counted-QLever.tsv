@@ -1,0 +1,498 @@
+1	QLever	COUNTED	     72	      	Result=400 	200		
+2	QLever	COUNTED	    293	      	Result=0 	200		
+3	QLever	COUNTED	  44734	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.3 GB were available. Clear the cache or allow more memory for QLever during startup	
+4	QLever	COUNTED	 268683	      	Result=1412588325 	200		
+5	QLever	COUNTED	  46427	      	Result=1131495259 	200		
+6	QLever	COUNTED	  38085	      	Result=927826092 	200		
+7	QLever	COUNTED	  33986	      	Result=927826092 	200		
+8	QLever	COUNTED	  29706	      	Result=927826092 	200		
+9	QLever	COUNTED	  50724	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.3 GB were available. Clear the cache or allow more memory for QLever during startup	
+10	QLever	COUNTED	  56841	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+11	QLever	COUNTED	     73	      	Result=71 	200		
+12	QLever	COUNTED	     39	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+13	QLever	COUNTED	 242868	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 16.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+14	QLever	COUNTED	   5583	      	Result=67889700 	200		
+15	QLever	COUNTED	     32	      	Result=21872 	200		
+16	QLever	COUNTED	  42665	      	Result=1923542234 	200		
+17	QLever	COUNTED	  13669	      	Result=67889700 	200		
+18	QLever	COUNTED	    134	      	Result=549129 	200		
+19	QLever	COUNTED	 148206	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 16.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+20	QLever	COUNTED	     52	      	Result=0 	200		
+21	QLever	COUNTED	    649	      	Result=527892 	200		
+22	QLever	COUNTED	     47	      	Result=28911 	200		
+23	QLever	COUNTED	  44527	      	Result=234537857 	200		
+24	QLever	COUNTED	  11644	      	Result=161830785 	200		
+25	QLever	COUNTED	    452	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+26	QLever	COUNTED	    125	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+27	QLever	COUNTED	    125	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+28	QLever	COUNTED	     95	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+29	QLever	COUNTED	  16269	      	Result=678897069 	200		
+30	QLever	COUNTED	   8981	      	Result=384708331 	200		
+31	QLever	COUNTED	  57816	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.5 GB were available. Clear the cache or allow more memory for QLever during startup	
+32	QLever	COUNTED	  45307	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+33	QLever	COUNTED	     86	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+34	QLever	COUNTED	     84	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+35	QLever	COUNTED	     79	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+36	QLever	COUNTED	  44580	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+37	QLever	COUNTED	  52321	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+38	QLever	COUNTED	  56642	      	Result=475228119 	200		
+39	QLever	COUNTED	    384	      	Result=107119 	200		
+40	QLever	COUNTED	  56402	      	Result=475228119 	200		
+41	QLever	COUNTED	     50	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+42	QLever	COUNTED	    287	      	Result=1560337 	200		
+43	QLever	COUNTED	     20	      	Result=1063097 	200		
+44	QLever	COUNTED	    244	      	Result=2262834 	200		
+45	QLever	COUNTED	    854	      	Result=4210058 	200		
+46	QLever	COUNTED	  44729	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.3 GB were available. Clear the cache or allow more memory for QLever during startup	
+47	QLever	COUNTED	    135	      	Result=1068742 	200		
+48	QLever	COUNTED	     77	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+49	QLever	COUNTED	    298	      	Result=665549 	200		
+50	QLever	COUNTED	    190	      	Result=746328 	200		
+51	QLever	COUNTED	    416	      	Result=17427089 	200		
+52	QLever	COUNTED	    758	      	Result=26772179 	200		
+53	QLever	COUNTED	    125	      	Result=3264640 	200		
+54	QLever	COUNTED	  27323	      	None 	500	ERROR: Tried to allocate 19.4 GB, but only 6.4 GB were available. Clear the cache or allow more memory for QLever during startup	
+55	QLever	COUNTED	    103	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+56	QLever	COUNTED	  15832	      	Result=497858054 	200		
+57	QLever	COUNTED	     56	      	Result=7760 	200		
+58	QLever	COUNTED	     36	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+59	QLever	COUNTED	   1116	      	Result=42614708 	200		
+60	QLever	COUNTED	    117	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+61	QLever	COUNTED	 141867	      	Result=594758598 	200		
+62	QLever	COUNTED	 138407	      	Result=414499136 	200		
+63	QLever	COUNTED	     47	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+64	QLever	COUNTED	 257272	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 24 GB were available. Clear the cache or allow more memory for QLever during startup	
+65	QLever	COUNTED	 269476	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.6 GB were available. Clear the cache or allow more memory for QLever during startup	
+66	QLever	COUNTED	     22	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+67	QLever	COUNTED	  37436	      	Result=2217730295 	200		
+68	QLever	COUNTED	      2	      	Result=193 	200		
+69	QLever	COUNTED	   1390	      	Result=54655590 	200		
+70	QLever	COUNTED	   5236	      	Result=67672479 	200		
+71	QLever	COUNTED	  12261	      	Result=211855248 	200		
+72	QLever	COUNTED	    276	      	Result=4009024 	200		
+73	QLever	COUNTED	     24	      	Result=1207 	200		
+74	QLever	COUNTED	     76	      	Result=1569 	200		
+75	QLever	COUNTED	   3289	      	Result=148537680 	200		
+76	QLever	COUNTED	     22	      	Result=0 	200		
+77	QLever	COUNTED	    555	      	Result=39946528 	200		
+78	QLever	COUNTED	    416	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+79	QLever	COUNTED	   2783	      	Result=31744640 	200		
+80	QLever	COUNTED	    157	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+81	QLever	COUNTED	  32581	      	Result=342842112 	200		
+82	QLever	COUNTED	  34092	      	Result=342842112 	200		
+83	QLever	COUNTED	     25	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+84	QLever	COUNTED	   6167	      	Result=271561281 	200		
+85	QLever	COUNTED	  23626	      	Result=130193055 	200		
+86	QLever	COUNTED	  27157	      	None 	500	ERROR: Tried to allocate 26.6 GB, but only 8.6 GB were available. Clear the cache or allow more memory for QLever during startup	
+87	QLever	COUNTED	     37	      	Result=152 	200		
+88	QLever	COUNTED	    121	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+89	QLever	COUNTED	 116023	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 20.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+90	QLever	COUNTED	  52657	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.5 GB were available. Clear the cache or allow more memory for QLever during startup	
+91	QLever	COUNTED	  52082	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.5 GB were available. Clear the cache or allow more memory for QLever during startup	
+92	QLever	COUNTED	  52513	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+93	QLever	COUNTED	    718	      	Result=370951 	200		
+94	QLever	COUNTED	     97	      	Result=1602406 	200		
+95	QLever	COUNTED	     61	      	Result=548309 	200		
+96	QLever	COUNTED	     26	      	Result=689748 	200		
+97	QLever	COUNTED	    124	      	Result=1594839 	200		
+98	QLever	COUNTED	     11	      	Result=1109 	200		
+99	QLever	COUNTED	    209	      	Result=1922048 	200		
+100	QLever	COUNTED	   5426	      	Result=226299008 	200		
+101	QLever	COUNTED	    156	      	Result=2162304 	200		
+102	QLever	COUNTED	     91	      	Result=534012 	200		
+103	QLever	COUNTED	  21505	      	Result=237853440 	200		
+104	QLever	COUNTED	     91	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+105	QLever	COUNTED	  44719	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+106	QLever	COUNTED	  15947	      	Result=159227697 	200		
+107	QLever	COUNTED	  30703	      	Result=159327096 	200		
+108	QLever	COUNTED	    962	      	Result=1148 	200		
+109	QLever	COUNTED	    243	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+110	QLever	COUNTED	    676	      	Result=5610457 	200		
+111	QLever	COUNTED	      8	      	Result=1214 	200		
+112	QLever	COUNTED	    244	      	Result=0 	200		
+113	QLever	COUNTED	   2447	      	Result=58648591 	200		
+114	QLever	COUNTED	    386	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+115	QLever	COUNTED	    376	      	Result=11874880 	200		
+116	QLever	COUNTED	    312	      	Result=9360571 	200		
+117	QLever	COUNTED	    208	      	Result=64853 	200		
+118	QLever	COUNTED	     64	      	Result=0 	200		
+119	QLever	COUNTED	      9	      	Result=0 	200		
+120	QLever	COUNTED	    614	      	Result=0 	200		
+121	QLever	COUNTED	  14586	      	Result=178582950 	200		
+122	QLever	COUNTED	   1188	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+123	QLever	COUNTED	     74	      	Result=247 	200		
+124	QLever	COUNTED	      3	      	Result=393 	200		
+125	QLever	COUNTED	     27	      	Result=374 	200		
+126	QLever	COUNTED	      4	      	Result=169 	200		
+127	QLever	COUNTED	  25100	      	Result=1222015385 	200		
+128	QLever	COUNTED	    475	      	Result=206 	200		
+129	QLever	COUNTED	     13	      	Result=223 	200		
+130	QLever	COUNTED	    638	      	Result=97 	200		
+131	QLever	COUNTED	      9	      	Result=97 	200		
+132	QLever	COUNTED	   4318	      	Result=19636679 	200		
+133	QLever	COUNTED	 155512	      	Result=633637200 	200		
+134	QLever	COUNTED	   6105	      	Result=294188718 	200		
+135	QLever	COUNTED	  57851	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available. Clear the cache or allow more memory for QLever during startup	
+136	QLever	COUNTED	  58595	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available. Clear the cache or allow more memory for QLever during startup	
+137	QLever	COUNTED	     77	      	Result=17139 	200		
+138	QLever	COUNTED	     82	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+139	QLever	COUNTED	  47707	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+140	QLever	COUNTED	     28	      	Result=1947 	200		
+141	QLever	COUNTED	     16	      	Result=315 	200		
+142	QLever	COUNTED	   2214	      	Result=4608362 	200		
+143	QLever	COUNTED	    281	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+144	QLever	COUNTED	     33	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+145	QLever	COUNTED	     10	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+146	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+147	QLever	COUNTED	     16	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+148	QLever	COUNTED	     86	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+149	QLever	COUNTED	     16	      	Result=30 	200		
+150	QLever	COUNTED	      2	      	Result=30 	200		
+151	QLever	COUNTED	      5	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+152	QLever	COUNTED	     18	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+153	QLever	COUNTED	     92	      	Result=11191 	200		
+154	QLever	COUNTED	    169	      	Result=33323 	200		
+155	QLever	COUNTED	     16	      	Result=101 	200		
+156	QLever	COUNTED	     43	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+157	QLever	COUNTED	  39971	      	Result=494391716 	200		
+158	QLever	COUNTED	  57025	      	Result=897841812 	200		
+159	QLever	COUNTED	 157212	      	Result=904455748 	200		
+160	QLever	COUNTED	    118	      	Result=0 	200		
+161	QLever	COUNTED	     15	      	Result=0 	200		
+162	QLever	COUNTED	      9	      	Result=531 	200		
+163	QLever	COUNTED	     40	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+164	QLever	COUNTED	    686	      	Result=164 	200		
+165	QLever	COUNTED	  52203	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.6 GB were available. Clear the cache or allow more memory for QLever during startup	
+166	QLever	COUNTED	  58211	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.6 GB were available. Clear the cache or allow more memory for QLever during startup	
+167	QLever	COUNTED	     74	      	Result=0 	200		
+168	QLever	COUNTED	     25	      	Result=81 	200		
+169	QLever	COUNTED	      3	      	Result=264 	200		
+170	QLever	COUNTED	      2	      	Result=266 	200		
+171	QLever	COUNTED	      7	      	Result=258 	200		
+172	QLever	COUNTED	     20	      	Result=189 	200		
+173	QLever	COUNTED	  52618	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+174	QLever	COUNTED	  52344	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+175	QLever	COUNTED	     11	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+176	QLever	COUNTED	 258222	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 19.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+177	QLever	COUNTED	  52588	      	None 	500	ERROR: Tried to allocate 13.1 GB, but only 10.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+178	QLever	COUNTED	    118	      	Result=5870 	200		
+179	QLever	COUNTED	  45647	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+180	QLever	COUNTED	     84	      	Result=19907 	200		
+181	QLever	COUNTED	 212494	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 16.6 GB were available. Clear the cache or allow more memory for QLever during startup	
+182	QLever	COUNTED	    321	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+183	QLever	COUNTED	 145151	      	Result=525988162 	200		
+184	QLever	COUNTED	    139	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+185	QLever	COUNTED	   1858	      	Result=41333277 	200		
+186	QLever	COUNTED	   5144	      	Result=58203062 	200		
+187	QLever	COUNTED	   1430	      	Result=41331557 	200		
+188	QLever	COUNTED	  24185	      	Result=254074590 	200		
+189	QLever	COUNTED	    242	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+190	QLever	COUNTED	    151	      	Result=47534 	200		
+191	QLever	COUNTED	  23702	      	None 	500	ERROR: Tried to allocate 41.6 GB, but only 17 GB were available. Clear the cache or allow more memory for QLever during startup	
+192	QLever	COUNTED	    133	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+193	QLever	COUNTED	     51	      	Result=907 	200		
+194	QLever	COUNTED	      7	      	Result=908 	200		
+195	QLever	COUNTED	 179433	      	Result=913789164 	200		
+196	QLever	COUNTED	    182	      	Result=11011089 	200		
+197	QLever	COUNTED	   1530	      	Result=11009542 	200		
+198	QLever	COUNTED	  20227	      	Result=1235089126 	200		
+199	QLever	COUNTED	     21	      	Result=3882 	200		
+200	QLever	COUNTED	     58	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+201	QLever	COUNTED	  44537	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+202	QLever	COUNTED	    152	      	Result=2558037 	200		
+203	QLever	COUNTED	   1541	      	Result=10324146 	200		
+204	QLever	COUNTED	  25448	      	None 	500	ERROR: Tried to allocate 33.9 GB, but only 6.6 GB were available. Clear the cache or allow more memory for QLever during startup	
+205	QLever	COUNTED	  25028	      	None 	500	ERROR: Tried to allocate 33.9 GB, but only 6.6 GB were available. Clear the cache or allow more memory for QLever during startup	
+206	QLever	COUNTED	  48007	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+207	QLever	COUNTED	    593	      	Result=933036 	200		
+208	QLever	COUNTED	    536	      	Result=5761539 	200		
+209	QLever	COUNTED	    115	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+210	QLever	COUNTED	    244	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+211	QLever	COUNTED	     94	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+212	QLever	COUNTED	     44	      	Result=0 	200		
+213	QLever	COUNTED	    108	      	Result=60 	200		
+214	QLever	COUNTED	     23	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+215	QLever	COUNTED	     80	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+216	QLever	COUNTED	     72	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+217	QLever	COUNTED	     81	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+218	QLever	COUNTED	    237	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+219	QLever	COUNTED	    180	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+220	QLever	COUNTED	  45144	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+221	QLever	COUNTED	  58305	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+222	QLever	COUNTED	  58694	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+223	QLever	COUNTED	  58813	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37 GB were available. Clear the cache or allow more memory for QLever during startup	
+224	QLever	COUNTED	  58216	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+225	QLever	COUNTED	    879	      	Result=3658038 	200		
+226	QLever	COUNTED	    110	      	Result=3159501 	200		
+227	QLever	COUNTED	    109	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+228	QLever	COUNTED	    332	      	Result=4513189 	200		
+229	QLever	COUNTED	     36	      	Result=3174464 	200		
+230	QLever	COUNTED	    657	      	Result=11735041 	200		
+231	QLever	COUNTED	  26404	      	Result=217735584 	200		
+232	QLever	COUNTED	     79	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+233	QLever	COUNTED	  43740	      	Result=467874320 	200		
+234	QLever	COUNTED	 126785	      	Result=1272766914 	200		
+235	QLever	COUNTED	    983	      	Result=0 	200		
+236	QLever	COUNTED	    147	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+237	QLever	COUNTED	  11815	      	Result=546127647 	200		
+238	QLever	COUNTED	  50754	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.4 GB were available. Clear the cache or allow more memory for QLever during startup	
+239	QLever	COUNTED	  50900	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 19.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+240	QLever	COUNTED	  51152	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 19.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+241	QLever	COUNTED	  50264	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.4 GB were available. Clear the cache or allow more memory for QLever during startup	
+242	QLever	COUNTED	  25238	      	Result=85847006 	200		
+243	QLever	COUNTED	  10547	      	Result=200739578 	200		
+244	QLever	COUNTED	  21942	      	None 	500	ERROR: Tried to allocate 37.1 GB, but only 29.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+245	QLever	COUNTED	 114871	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 17 GB were available. Clear the cache or allow more memory for QLever during startup	
+246	QLever	COUNTED	     69	      	Result=0 	200		
+247	QLever	COUNTED	  16172	      	Result=836722621 	200		
+248	QLever	COUNTED	  32725	      	Result=1213667725 	200		
+249	QLever	COUNTED	  52464	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.6 GB were available. Clear the cache or allow more memory for QLever during startup	
+250	QLever	COUNTED	  45410	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+251	QLever	COUNTED	    212	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+252	QLever	COUNTED	     28	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+253	QLever	COUNTED	     30	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+254	QLever	COUNTED	    163	      	Result=64272 	200		
+255	QLever	COUNTED	  38623	      	Result=1219059298 	200		
+256	QLever	COUNTED	  50208	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23 GB were available. Clear the cache or allow more memory for QLever during startup	
+257	QLever	COUNTED	    639	      	Result=731 	200		
+258	QLever	COUNTED	     20	      	Result=1950 	200		
+259	QLever	COUNTED	    348	      	Result=13983583 	200		
+260	QLever	COUNTED	    134	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+261	QLever	COUNTED	     95	      	Result=3283 	200		
+262	QLever	COUNTED	      5	      	Result=3353 	200		
+263	QLever	COUNTED	    402	      	Result=918554 	200		
+264	QLever	COUNTED	  20099	      	Result=1255166544 	200		
+265	QLever	COUNTED	      5	      	Result=246 	200		
+266	QLever	COUNTED	    922	      	Result=529 	200		
+267	QLever	COUNTED	    411	      	Result=4764392 	200		
+268	QLever	COUNTED	      8	      	Result=0 	200		
+269	QLever	COUNTED	    449	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+270	QLever	COUNTED	    260	      	Result=1722 	200		
+271	QLever	COUNTED	    309	      	Result=536376 	200		
+272	QLever	COUNTED	   1266	      	Result=7454129 	200		
+273	QLever	COUNTED	    950	      	Result=7444049 	200		
+274	QLever	COUNTED	    333	      	Result=602809 	200		
+275	QLever	COUNTED	     42	      	Result=590040 	200		
+276	QLever	COUNTED	  67822	      	None 	500	ERROR: Tried to allocate 6.6 GB, but only 4.3 GB were available. Clear the cache or allow more memory for QLever during startup	
+277	QLever	COUNTED	     67	      	Result=1694289 	200		
+278	QLever	COUNTED	    703	      	Result=1717046 	200		
+279	QLever	COUNTED	     19	      	Result=406218 	200		
+280	QLever	COUNTED	     12	      	Result=403634 	200		
+281	QLever	COUNTED	    723	      	Result=4209163 	200		
+282	QLever	COUNTED	     25	      	Result=497963 	200		
+283	QLever	COUNTED	   2925	      	Result=37267483 	200		
+284	QLever	COUNTED	  58727	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.3 GB were available. Clear the cache or allow more memory for QLever during startup	
+285	QLever	COUNTED	     44	      	Result=189 	200		
+286	QLever	COUNTED	    193	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+287	QLever	COUNTED	  45862	      	Result=541985322 	200		
+288	QLever	COUNTED	    462	      	Result=6409068 	200		
+289	QLever	COUNTED	     44	      	Result=10 	200		
+290	QLever	COUNTED	     43	      	Result=447 	200		
+291	QLever	COUNTED	    242	      	Result=2 	200		
+292	QLever	COUNTED	    253	      	Result=5306 	200		
+293	QLever	COUNTED	  11695	      	Result=45754574 	200		
+294	QLever	COUNTED	   3034	      	Result=60300655 	200		
+295	QLever	COUNTED	    915	      	Result=58341820 	200		
+296	QLever	COUNTED	   6489	      	Result=195005580 	200		
+297	QLever	COUNTED	   2752	      	Result=58360972 	200		
+298	QLever	COUNTED	   2125	      	Result=86143977 	200		
+299	QLever	COUNTED	  30746	      	Result=1669640712 	200		
+300	QLever	COUNTED	   7118	      	Result=58365300 	200		
+301	QLever	COUNTED	     66	      	Result=5090 	200		
+302	QLever	COUNTED	      4	      	Result=143 	200		
+303	QLever	COUNTED	   1671	      	Result=8844716 	200		
+304	QLever	COUNTED	      4	      	Result=4133 	200		
+305	QLever	COUNTED	    565	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+306	QLever	COUNTED	    635	      	Result=0 	200		
+307	QLever	COUNTED	      7	      	Result=1 	200		
+308	QLever	COUNTED	     67	      	Result=0 	200		
+309	QLever	COUNTED	    175	      	Result=1289 	200		
+310	QLever	COUNTED	     76	      	Result=0 	200		
+311	QLever	COUNTED	     70	      	Result=0 	200		
+312	QLever	COUNTED	      3	      	Result=469 	200		
+313	QLever	COUNTED	    587	      	Result=0 	200		
+314	QLever	COUNTED	    731	      	Result=135474 	200		
+315	QLever	COUNTED	    259	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+316	QLever	COUNTED	  52111	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37 GB were available. Clear the cache or allow more memory for QLever during startup	
+317	QLever	COUNTED	  52453	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37 GB were available. Clear the cache or allow more memory for QLever during startup	
+318	QLever	COUNTED	    220	      	Result=12633008 	200		
+319	QLever	COUNTED	     19	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+320	QLever	COUNTED	    316	      	Result=1244366 	200		
+321	QLever	COUNTED	   5919	      	Result=10023567 	200		
+322	QLever	COUNTED	  16749	      	Result=898805936 	200		
+323	QLever	COUNTED	     68	      	Result=1435690 	200		
+324	QLever	COUNTED	     26	      	Result=1442535 	200		
+325	QLever	COUNTED	    223	      	Result=1236994 	200		
+326	QLever	COUNTED	     11	      	Result=33641 	200		
+327	QLever	COUNTED	      7	      	Result=34707 	200		
+328	QLever	COUNTED	     47	      	Result=553940 	200		
+329	QLever	COUNTED	  18294	      	Result=1063605456 	200		
+330	QLever	COUNTED	    190	      	Result=7136076 	200		
+331	QLever	COUNTED	  73971	      	Result=292854757 	200		
+332	QLever	COUNTED	   9438	      	Result=266992446 	200		
+333	QLever	COUNTED	    299	      	Result=5582400 	200		
+334	QLever	COUNTED	    362	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+335	QLever	COUNTED	     24	      	Result=28 	200		
+336	QLever	COUNTED	     41	      	Result=480413 	200		
+337	QLever	COUNTED	    560	      	Result=388340 	200		
+338	QLever	COUNTED	     47	      	Result=299052 	200		
+339	QLever	COUNTED	     10	      	Result=1113 	200		
+340	QLever	COUNTED	  53292	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+341	QLever	COUNTED	     81	      	Result=134798 	200		
+342	QLever	COUNTED	     33	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+343	QLever	COUNTED	  58009	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available. Clear the cache or allow more memory for QLever during startup	
+344	QLever	COUNTED	    108	      	Result=391863 	200		
+345	QLever	COUNTED	  52113	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37 GB were available. Clear the cache or allow more memory for QLever during startup	
+346	QLever	COUNTED	  52202	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+347	QLever	COUNTED	     15	      	Result=293748 	200		
+348	QLever	COUNTED	    163	      	Result=727220 	200		
+349	QLever	COUNTED	    324	      	Result=2175282 	200		
+350	QLever	COUNTED	   3918	      	Result=112869987 	200		
+351	QLever	COUNTED	  61357	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available. Clear the cache or allow more memory for QLever during startup	
+352	QLever	COUNTED	  58345	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available. Clear the cache or allow more memory for QLever during startup	
+353	QLever	COUNTED	  62284	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.5 GB were available. Clear the cache or allow more memory for QLever during startup	
+354	QLever	COUNTED	  57839	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.5 GB were available. Clear the cache or allow more memory for QLever during startup	
+355	QLever	COUNTED	  58552	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.6 GB were available. Clear the cache or allow more memory for QLever during startup	
+356	QLever	COUNTED	     94	      	Result=117827 	200		
+357	QLever	COUNTED	    792	      	Result=23945 	200		
+358	QLever	COUNTED	  31190	      	Result=3218705982 	200		
+359	QLever	COUNTED	    789	      	Result=4877898 	200		
+360	QLever	COUNTED	    933	      	Result=4770619 	200		
+361	QLever	COUNTED	    111	      	Result=4770613 	200		
+362	QLever	COUNTED	    399	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+363	QLever	COUNTED	    966	      	Result=10170472 	200		
+364	QLever	COUNTED	    246	      	Result=10170473 	200		
+365	QLever	COUNTED	    372	      	Result=8653628 	200		
+366	QLever	COUNTED	   1125	      	Result=10907872 	200		
+367	QLever	COUNTED	    301	      	Result=10956968 	200		
+368	QLever	COUNTED	    113	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+369	QLever	COUNTED	    236	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+370	QLever	COUNTED	    274	      	Result=15137238 	200		
+371	QLever	COUNTED	    208	      	Result=14957190 	200		
+372	QLever	COUNTED	   2015	      	Result=14904052 	200		
+373	QLever	COUNTED	    409	      	Result=14932887 	200		
+374	QLever	COUNTED	    378	      	Result=15142728 	200		
+375	QLever	COUNTED	   1088	      	Result=14954319 	200		
+376	QLever	COUNTED	    854	      	Result=21506265 	200		
+377	QLever	COUNTED	    801	      	Result=21510957 	200		
+378	QLever	COUNTED	   1182	      	Result=25844907 	200		
+379	QLever	COUNTED	   1212	      	Result=21778472 	200		
+380	QLever	COUNTED	    665	      	Result=21832921 	200		
+381	QLever	COUNTED	  12972	      	Result=39883525 	200		
+382	QLever	COUNTED	   1026	      	Result=26101293 	200		
+383	QLever	COUNTED	    247	      	Result=14906198 	200		
+384	QLever	COUNTED	    413	      	Result=16085675 	200		
+385	QLever	COUNTED	    219	      	Result=14904276 	200		
+386	QLever	COUNTED	   1162	      	Result=15162351 	200		
+387	QLever	COUNTED	    781	      	Result=17303720 	200		
+388	QLever	COUNTED	   2325	      	Result=18622528 	200		
+389	QLever	COUNTED	    217	      	Result=14931815 	200		
+390	QLever	COUNTED	    239	      	Result=14904186 	200		
+391	QLever	COUNTED	    577	      	Result=14905130 	200		
+392	QLever	COUNTED	    485	      	Result=14904257 	200		
+393	QLever	COUNTED	    388	      	Result=14929899 	200		
+394	QLever	COUNTED	   1291	      	Result=18938191 	200		
+395	QLever	COUNTED	    423	      	Result=14982278 	200		
+396	QLever	COUNTED	    749	      	Result=17712740 	200		
+397	QLever	COUNTED	   3517	      	Result=31127264 	200		
+398	QLever	COUNTED	   1078	      	Result=20355231 	200		
+399	QLever	COUNTED	   2236	      	Result=20758668 	200		
+400	QLever	COUNTED	   1857	      	Result=15027067 	200		
+401	QLever	COUNTED	    208	      	Result=14916963 	200		
+402	QLever	COUNTED	   3735	      	Result=16913568 	200		
+403	QLever	COUNTED	    851	      	Result=14904052 	200		
+404	QLever	COUNTED	    774	      	Result=14929943 	200		
+405	QLever	COUNTED	    524	      	Result=14904052 	200		
+406	QLever	COUNTED	   2288	      	Result=18622528 	200		
+407	QLever	COUNTED	   2401	      	Result=18345641 	200		
+408	QLever	COUNTED	    286	      	Result=15856051 	200		
+409	QLever	COUNTED	    551	      	Result=15032551 	200		
+410	QLever	COUNTED	    869	      	Result=21768701 	200		
+411	QLever	COUNTED	    522	      	Result=16135711 	200		
+412	QLever	COUNTED	    304	      	Result=15044466 	200		
+413	QLever	COUNTED	   1208	      	Result=17303388 	200		
+414	QLever	COUNTED	    521	      	Result=18467371 	200		
+415	QLever	COUNTED	    480	      	Result=15162119 	200		
+416	QLever	COUNTED	   2104	      	Result=15162314 	200		
+417	QLever	COUNTED	    416	      	Result=15000906 	200		
+418	QLever	COUNTED	    925	      	Result=14904057 	200		
+419	QLever	COUNTED	    531	      	Result=14904058 	200		
+420	QLever	COUNTED	    591	      	Result=16637845 	200		
+421	QLever	COUNTED	   3475	      	Result=24446730 	200		
+422	QLever	COUNTED	   1401	      	Result=19468251 	200		
+423	QLever	COUNTED	    871	      	Result=21270656 	200		
+424	QLever	COUNTED	    796	      	Result=19969327 	200		
+425	QLever	COUNTED	    684	      	Result=17667026 	200		
+426	QLever	COUNTED	    902	      	Result=21211943 	200		
+427	QLever	COUNTED	    700	      	Result=19969327 	200		
+428	QLever	COUNTED	   1274	      	Result=20885027 	200		
+429	QLever	COUNTED	    672	      	Result=17759393 	200		
+430	QLever	COUNTED	    196	      	Result=14933904 	200		
+431	QLever	COUNTED	    211	      	Result=14904053 	200		
+432	QLever	COUNTED	    688	      	Result=15000997 	200		
+433	QLever	COUNTED	    228	      	Result=14904052 	200		
+434	QLever	COUNTED	      5	      	Result=0 	200		
+435	QLever	COUNTED	     14	      	Result=204 	200		
+436	QLever	COUNTED	    120	      	Result=258 	200		
+437	QLever	COUNTED	      2	      	Result=204 	200		
+438	QLever	COUNTED	      4	      	Result=210 	200		
+439	QLever	COUNTED	      3	      	Result=210 	200		
+440	QLever	COUNTED	      4	      	Result=223 	200		
+441	QLever	COUNTED	    555	      	Result=3652236 	200		
+442	QLever	COUNTED	     17	      	Result=21208 	200		
+443	QLever	COUNTED	      2	      	Result=41 	200		
+444	QLever	COUNTED	      4	      	Result=44 	200		
+445	QLever	COUNTED	    631	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+446	QLever	COUNTED	      6	      	Result=228 	200		
+447	QLever	COUNTED	  52954	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+448	QLever	COUNTED	    267	      	Result=34010 	200		
+449	QLever	COUNTED	     35	      	Result=2169 	200		
+450	QLever	COUNTED	     21	      	Result=671485 	200		
+451	QLever	COUNTED	    275	      	Result=829334 	200		
+452	QLever	COUNTED	    171	      	Result=1147366 	200		
+453	QLever	COUNTED	    696	      	Result=1081338 	200		
+454	QLever	COUNTED	    168	      	Result=821111 	200		
+455	QLever	COUNTED	    289	      	Result=838716 	200		
+456	QLever	COUNTED	  51744	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.3 GB were available. Clear the cache or allow more memory for QLever during startup	
+457	QLever	COUNTED	  20798	      	Result=267435511 	200		
+458	QLever	COUNTED	    304	      	Result=185 	200		
+459	QLever	COUNTED	      5	      	Result=0 	200		
+460	QLever	COUNTED	      8	      	Result=2 	200		
+461	QLever	COUNTED	    164	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+462	QLever	COUNTED	    768	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+463	QLever	COUNTED	    775	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+464	QLever	COUNTED	  23053	      	Result=266991924 	200		
+465	QLever	COUNTED	   5104	      	Result=267435511 	200		
+466	QLever	COUNTED	  13568	      	Result=367086452 	200		
+467	QLever	COUNTED	   4570	      	Result=266991924 	200		
+468	QLever	COUNTED	   6553	      	Result=274945172 	200		
+469	QLever	COUNTED	   3172	      	Result=66693542 	200		
+470	QLever	COUNTED	    201	      	Result=2889 	200		
+471	QLever	COUNTED	    556	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+472	QLever	COUNTED	    103	      	Result=2 	200		
+473	QLever	COUNTED	  38399	      	Result=2135936088 	200		
+474	QLever	COUNTED	    298	      	Result=1810388 	200		
+475	QLever	COUNTED	    229	      	Result=7454577 	200		
+476	QLever	COUNTED	  28723	      	Result=326889348 	200		
+477	QLever	COUNTED	    158	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+478	QLever	COUNTED	     15	      	Result=164201 	200		
+479	QLever	COUNTED	    202	      	Result=17 	200		
+480	QLever	COUNTED	     45	      	Result=17115 	200		
+481	QLever	COUNTED	     29	      	Result=85 	200		
+482	QLever	COUNTED	 185366	      	None 	500	ERROR: Tried to allocate 6.6 GB, but only 3.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+483	QLever	COUNTED	   8268	      	Result=61943526 	200		
+484	QLever	COUNTED	     40	      	Result=13 	200		
+485	QLever	COUNTED	     66	      	Result=26407 	200		
+486	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+487	QLever	COUNTED	    147	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+488	QLever	COUNTED	    572	      	Result=476737 	200		
+489	QLever	COUNTED	    126	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+490	QLever	COUNTED	   5458	      	Result=203669924 	200		
+491	QLever	COUNTED	   1307	      	Result=67890475 	200		
+492	QLever	COUNTED	     12	      	Result=986 	200		
+493	QLever	COUNTED	    128	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+494	QLever	COUNTED	     40	      	Result=8 	200		
+495	QLever	COUNTED	    717	      	Result=22754550 	200		
+496	QLever	COUNTED	     71	      	Result=814964 	200		
+497	QLever	COUNTED	    238	      	Result=83 	200		
+498	QLever	COUNTED	     83	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	

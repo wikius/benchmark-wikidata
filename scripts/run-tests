@@ -4,8 +4,8 @@
 # Cloned in /home/local/tests/SPARQL-exists
 
 
-##foreach engine ( MillenniumDB QLever Virtuoso )
-foreach engine ( BlazeGraph )
+##foreach engine ( BlazeGraph MillenniumDB QLever Virtuoso rdflib )
+foreach engine ( rdflib )
   rm -f results-${engine}.earl
   /home/local/scripts/run-manifest.py /home/local/tests/SPARQL-exists/tests/exists-1-empty-bgp $engine
   /home/local/scripts/run-manifest.py /home/local/tests/SPARQL-exists/tests/exists-2-def-var $engine

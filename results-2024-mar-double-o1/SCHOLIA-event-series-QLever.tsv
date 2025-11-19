@@ -1,0 +1,10 @@
+1	QLever		   2004	      	Count= 2 	200		event-series_acceptance-rate Q105695391
+2	QLever		 627668	      	None 	429	ERROR: Operation timed out. Last operation: GroupBy on ?event ?eventLabel ?proceedings ?proceedingsLabel	event-series_events Q105695391
+3	QLever		    142	      	Count= 6 	200		event-series_map Q105695391
+4	QLever		     10	      	Result=2007 	200		event-series_number-of-participants Q105695391
+5	QLever		  96830	      	Count= 500 	200		event-series_people Q105695391
+6	QLever		  15156	      	Count= 62 	200		event-series_proceedings-publications Q105695391
+7	QLever		    614	      	Count= 500 	200		event-series_recent-publications Q105695391
+8	QLever		     22	      	Count= 4 	200		event-series_timeline Q105695391
+9	QLever		     19	      	Count= 5 	200		event-series_top-topics-through-time Q105695391
+10	QLever		      0	     0	None 	None	EXCEPTION ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))	event-series_topics Q105695391

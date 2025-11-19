@@ -1,0 +1,25 @@
+1	QLever		    369	      	Count= 15 	200		protein_cofunctional-proteins Q101244282
+2	QLever		    157	      	Count= 0 	200		protein_cointeracting-proteins Q101244282
+3	QLever		    672	      	Count= 0 	200		protein_participates-in Q101244282
+4	QLever		    749	      	Count= 0 	200		protein_publications-per-year Q101244282
+5	QLever		   1553	      	Count= 500 	200		protein_similar-proteins Q101244282
+6	QLever		  52472	      	None 	500	ERROR: Tried to allocate 32.9 GB, but only 26.9 GB were available	protein_cofunctional-proteins Q1024612
+7	QLever		    144	      	Count= 0 	200		protein_cointeracting-proteins Q1024612
+8	QLever		  59231	      	Count= 92416126 	200		protein_participates-in Q1024612
+9	QLever		    700	      	Count= 3 	200		protein_publications-per-year Q1024612
+10	QLever		  47456	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.5 GB were available	protein_similar-proteins Q1024612
+11	QLever		  49126	      	Count= 500 	200		protein_cofunctional-proteins Q1026649
+12	QLever		    138	      	Count= 0 	200		protein_cointeracting-proteins Q1026649
+13	QLever		    506	      	Count= 0 	200		protein_participates-in Q1026649
+14	QLever		    691	      	Count= 0 	200		protein_publications-per-year Q1026649
+15	QLever		  38827	      	Count= 500 	200		protein_similar-proteins Q1026649
+16	QLever		  63191	      	None 	500	ERROR: Tried to allocate 43.2 GB, but only 33.9 GB were available	protein_cofunctional-proteins Q1032902
+17	QLever		    134	      	Count= 0 	200		protein_cointeracting-proteins Q1032902
+18	QLever		    506	      	Count= 0 	200		protein_participates-in Q1032902
+19	QLever		    797	      	Count= 37 	200		protein_publications-per-year Q1032902
+20	QLever		  51989	      	None 	500	ERROR: Tried to allocate 22.4 GB, but only 18.7 GB were available	protein_similar-proteins Q1032902
+21	QLever		    252	      	Result=1 	200		protein_cofunctional-proteins Q104586124
+22	QLever		    139	      	Count= 0 	200		protein_cointeracting-proteins Q104586124
+23	QLever		    514	      	Count= 0 	200		protein_participates-in Q104586124
+24	QLever		    718	      	Count= 0 	200		protein_publications-per-year Q104586124
+25	QLever		   1580	      	Count= 500 	200		protein_similar-proteins Q104586124

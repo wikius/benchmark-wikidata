@@ -1,0 +1,25 @@
+1	QLever		 308180	      	None 	500	ERROR: Tried to allocate 13.1 GB, but only 11.4 GB were available. Clear the cache or allow more memory for QLever during startup	country_authors Q1000
+2	QLever		   4778	      	Count= 556 	200		country_co-organizations Q1000
+3	QLever		  43015	      	Count= 1459 	200		country_locations-as-topics Q1000
+4	QLever		  17293	      	Count= 6 	200		country_narrative-locations Q1000
+5	QLever		     23	      	Count= 10 	200		country_organizations Q1000
+6	QLever		  47802	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 21.1 GB were available. Clear the cache or allow more memory for QLever during startup	country_authors Q1005
+7	QLever		   4882	      	Count= 1121 	200		country_co-organizations Q1005
+8	QLever		  43241	      	Count= 4154 	200		country_locations-as-topics Q1005
+9	QLever		  17316	      	Count= 6 	200		country_narrative-locations Q1005
+10	QLever		     23	      	Count= 8 	200		country_organizations Q1005
+11	QLever		  46875	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 21.1 GB were available. Clear the cache or allow more memory for QLever during startup	country_authors Q1006
+12	QLever		   4299	      	Count= 36 	200		country_co-organizations Q1006
+13	QLever		  42723	      	Count= 557 	200		country_locations-as-topics Q1006
+14	QLever		  17460	      	Count= 6 	200		country_narrative-locations Q1006
+15	QLever		     22	      	Count= 7 	200		country_organizations Q1006
+16	QLever		 125920	      	Count= 10000 	200		country_authors Q1007
+17	QLever		   3572	      	Count= 190 	200		country_co-organizations Q1007
+18	QLever		  42790	      	Count= 1245 	200		country_locations-as-topics Q1007
+19	QLever		  17247	      	Count= 4 	200		country_narrative-locations Q1007
+20	QLever		     22	      	Count= 5 	200		country_organizations Q1007
+21	QLever		  47618	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 21.1 GB were available. Clear the cache or allow more memory for QLever during startup	country_authors Q1008
+22	QLever		   4616	      	Count= 932 	200		country_co-organizations Q1008
+23	QLever		  43165	      	Count= 2721 	200		country_locations-as-topics Q1008
+24	QLever		  17274	      	Count= 23 	200		country_narrative-locations Q1008
+25	QLever		     24	      	Count= 32 	200		country_organizations Q1008

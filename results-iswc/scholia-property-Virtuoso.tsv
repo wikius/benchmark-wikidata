@@ -1,0 +1,15 @@
+1	Virtuoso		   3265	      	Count= 100 	200		property_item-counts subclass of
+2	Virtuoso		  23592	      	Count= 100 	200		property_item-counts instance of
+3	Virtuoso		  12824	      	Count= 100 	200		property_item-counts publication date
+4	Virtuoso		   1271	      	Count= 100 	200		property_item-counts start time
+5	Virtuoso		   1235	      	Count= 100 	200		property_item-counts part of
+6	Virtuoso		   1308	      	Count= 100 	200		property_property-value-counts subclass of
+7	Virtuoso		   2535	      	Count= 100 	200		property_property-value-counts instance of
+8	Virtuoso		    206	      	Count= 100 	200		property_property-value-counts publication date
+9	Virtuoso		     86	      	Count= 100 	200		property_property-value-counts start time
+10	Virtuoso		    498	      	Count= 100 	200		property_property-value-counts part of
+11	Virtuoso		   4920	      	Count= 500 	200		property_use subclass of
+12	Virtuoso		   2561	      	Count= 500 	200		property_use instance of
+13	Virtuoso		   2932	      	Count= 500 	200		property_use publication date
+14	Virtuoso		    520	      	Count= 500 	200		property_use start time
+15	Virtuoso		   1935	      	Count= 500 	200		property_use part of

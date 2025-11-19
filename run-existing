@@ -1,71 +1,52 @@
 #!/bin/tcsh -x
+# ./run-existing <engine> <directory suffix for results> <version of Wikidata>
+# Run the existing benchmarks
+# Needs the -run script to be set up for $version.  
 
-mkdir -p results-current
+if ( $#argv < 1 ) exit
+set area = $2
+if ( $#argv < 2 ) set area = new
+set version = $2
+if ( $#argv > 2 ) set version = $3
 
-/home/local/scripts/$1-run
-./benchmark.py --engine=$1 wgpb/bgps/wgpb.text | tee results-current/wgpb-norm-$1.tsv
-/home/local/scripts/$1-stop
-/home/local/scripts/$1-run
-./benchmark.py --count --engine=$1 wgpb/bgps/wgpb.text | tee results-current/wgpb-counted-$1.tsv
-/home/local/scripts/$1-stop
-/home/local/scripts/$1-run
-./benchmark.py --nodups --engine=$1 wgpb/bgps/wgpb.text | tee results-current/wgpb-nodups-$1.tsv
-/home/local/scripts/$1-stop
+mkdir -p results-$area
+echo "Existing wikidata version $version" | tee results-$area/existing-version-$1
 
-/home/local/scripts/$1-run
-./benchmark.py --engine=$1 wdqs/wikidata-queries.tsv | tee results-current/wdqs-norm-$1.tsv
-/home/local/scripts/$1-stop
-/home/local/scripts/$1-run
-./benchmark.py --count --engine=$1 wdqs/wikidata-queries.tsv | tee results-current/wdqs-counted-$1.tsv
-/home/local/scripts/$1-stop
-/home/local/scripts/$1-run
-./benchmark.py --nodups --engine=$1 wdqs/wikidata-queries.tsv | tee results-current/wdqs-nodups-$1.tsv
 /home/local/scripts/$1-stop
 
-/home/local/scripts/$1-run
-./benchmark.py --engine=$1 wdbench/Queries/single_bgps.text | tee results-current/single_bgps-norm-$1.tsv
+#/home/local/scripts/$1-run $version
+#./benchmark.py --engine=$1 wgpb/bgps/wgpb.text | tee results-$area/wgpb-norm-$1.tsv
+#/home/local/scripts/$1-stop
+/home/local/scripts/$1-run $version
+./benchmark.py --count --engine=$1 wgpb/bgps/wgpb.text | tee results-$area/wgpb-counted-$1.tsv
 /home/local/scripts/$1-stop
-/home/local/scripts/$1-run
-./benchmark.py --engine=$1 wdbench/Queries/multiple_bgps.text | tee results-current/multiple_bgps-norm-$1.tsv
-/home/local/scripts/$1-stop
-/home/local/scripts/$1-run
-./benchmark.py --engine=$1 wdbench/Queries/opts.text | tee results-current/opts-norm-$1.tsv
-/home/local/scripts/$1-stop
-/home/local/scripts/$1-run
-./benchmark.py --engine=$1 wdbench/Queries/paths.text | tee results-current/paths-norm-$1.tsv
-/home/local/scripts/$1-stop
-/home/local/scripts/$1-run
-./benchmark.py --engine=$1 wdbench/Queries/c2rpqs.text | tee results-current/c2rpqs-norm-$1.tsv
-/home/local/scripts/$1-stop
+#/home/local/scripts/$1-run $version
+#./benchmark.py --nodups --engine=$1 wgpb/bgps/wgpb.text | tee results-$area/wgpb-nodups-$1.tsv
+#/home/local/scripts/$1-stop
 
-/home/local/scripts/$1-run
-./benchmark.py --count --engine=$1 wdbench/Queries/single_bgps.text | tee results-current/single_bgps-counted-$1.tsv
+#/home/local/scripts/$1-run $version
+#./benchmark.py --engine=$1 wdqs/wikidata-queries.tsv | tee results-$area/wdqs-norm-$1.tsv
+#/home/local/scripts/$1-stop
+/home/local/scripts/$1-run $version
+./benchmark.py --count --engine=$1 wdqs/wikidata-queries.tsv | tee results-$area/wdqs-counted-$1.tsv
 /home/local/scripts/$1-stop
-/home/local/scripts/$1-run
-./benchmark.py --count --engine=$1 wdbench/Queries/multiple_bgps.text | tee results-current/multiple_bgps-counted-$1.tsv
-/home/local/scripts/$1-stop
-/home/local/scripts/$1-run
-./benchmark.py --count --engine=$1 wdbench/Queries/opts.text | tee results-current/opts-counted-$1.tsv
-/home/local/scripts/$1-stop
-/home/local/scripts/$1-run
-./benchmark.py --count --engine=$1 wdbench/Queries/paths.text | tee results-current/paths-counted-$1.tsv
-/home/local/scripts/$1-stop
-/home/local/scripts/$1-run
-./benchmark.py --count --engine=$1 wdbench/Queries/c2rpqs.text | tee results-current/c2rpqs-counted-$1.tsv
-/home/local/scripts/$1-stop
+#/home/local/scripts/$1-run $version
+#./benchmark.py --nodups --engine=$1 wdqs/wikidata-queries.tsv | tee results-$area/wdqs-nodups-$1.tsv
+#/home/local/scripts/$1-stop
 
-/home/local/scripts/$1-run
-./benchmark.py --nodups --engine=$1 wdbench/Queries/single_bgps.text | tee results-current/single_bgps-nodups-$1.tsv
-/home/local/scripts/$1-stop
-/home/local/scripts/$1-run
-./benchmark.py --nodups --engine=$1 wdbench/Queries/multiple_bgps.text | tee results-current/multiple_bgps-nodups-$1.tsv
-/home/local/scripts/$1-stop
-/home/local/scripts/$1-run
-./benchmark.py --nodups --engine=$1 wdbench/Queries/opts.text | tee results-current/opts-nodups-$1.tsv
-/home/local/scripts/$1-stop
-/home/local/scripts/$1-run
-./benchmark.py --nodups --engine=$1 wdbench/Queries/paths.text | tee results-current/paths-nodups-$1.tsv
-/home/local/scripts/$1-stop
-/home/local/scripts/$1-run
-./benchmark.py --nodups --engine=$1 wdbench/Queries/c2rpqs.text | tee results-current/c2rpqs-nodups-$1.tsv
-/home/local/scripts/$1-stop
+foreach benchmark ( single_bgps opts paths c2rpqs multiple_bgps )
+#  /home/local/scripts/$1-run $version
+#  ./benchmark.py --engine=$1 wdbench/Queries/$benchmark.text | tee results-$area/$benchmark-norm-$1.tsv
+#  /home/local/scripts/$1-stop
+  /home/local/scripts/$1-run $version
+  ./benchmark.py --count --engine=$1 wdbench/Queries/$benchmark.text | tee results-$area/$benchmark-counted-$1.tsv
+  /home/local/scripts/$1-stop
+#  /home/local/scripts/$1-run $version
+#  ./benchmark.py --nodups --engine=$1 wdbench/Queries/$benchmark.text | tee results-$area/$benchmark-nodups-$1.tsv
+#  /home/local/scripts/$1-stop
+  /home/local/scripts/$1-run $version
+  ./benchmark.py --count --engine=$1 wdbenchu/Queries/$benchmark.text | tee results-$area/u$benchmark-counted-$1.tsv
+  /home/local/scripts/$1-stop
+end
+  
+exit

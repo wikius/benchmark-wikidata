@@ -1,0 +1,21 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT 
+  ?item ?itemLabel
+WHERE {
+  ?item wdt:P31 wd:QID .
+  OPTIONAL {
+    ?item rdfs:label ?label_mul .
+    FILTER (lang(?label_mul) = 'mul')
+  }  
+  OPTIONAL {
+    ?item rdfs:label ?label_en .
+    FILTER (lang(?label_en) = 'en')
+  }  
+  OPTIONAL {
+    ?item rdfs:label ?label_da .
+    FILTER (lang(?label_da) = 'da')
+  }  
+  BIND(COALESCE(?label_en, ?label_mul, ?label_da) AS ?itemLabel)
+}

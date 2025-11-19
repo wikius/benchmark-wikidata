@@ -1,0 +1,25 @@
+1	QLever		  53295	      	Count= 10000 	200		country_authors Q1000
+2	QLever		    934	      	Count= 97 	200		country_co-organizations Q1000
+3	QLever		  12655	      	Count= 1281 	200		country_locations-as-topics Q1000
+4	QLever		   1334	      	Count= 6 	200		country_narrative-locations Q1000
+5	QLever		    114	      	Count= 5 	200		country_organizations Q1000
+6	QLever		  55594	      	Count= 10000 	200		country_authors Q1005
+7	QLever		   1034	      	Count= 223 	200		country_co-organizations Q1005
+8	QLever		  12660	      	Count= 3464 	200		country_locations-as-topics Q1005
+9	QLever		   1269	      	Count= 6 	200		country_narrative-locations Q1005
+10	QLever		    146	      	Count= 4 	200		country_organizations Q1005
+11	QLever		 133532	      	Count= 10000 	200		country_authors Q1006
+12	QLever		    765	      	Count= 10 	200		country_co-organizations Q1006
+13	QLever		  12130	      	Count= 415 	200		country_locations-as-topics Q1006
+14	QLever		   1219	      	Count= 4 	200		country_narrative-locations Q1006
+15	QLever		    134	      	Count= 3 	200		country_organizations Q1006
+16	QLever		  28071	      	Count= 10000 	200		country_authors Q1007
+17	QLever		    798	      	Count= 17 	200		country_co-organizations Q1007
+18	QLever		  12197	      	Count= 618 	200		country_locations-as-topics Q1007
+19	QLever		   1262	      	Count= 3 	200		country_narrative-locations Q1007
+20	QLever		    130	      	Count= 2 	200		country_organizations Q1007
+21	QLever		 260922	      	None 	500	ERROR: Tried to allocate 13.1 GB, but only 12.9 GB were available	country_authors Q1008
+22	QLever		    934	      	Count= 50 	200		country_co-organizations Q1008
+23	QLever		  12654	      	Count= 2366 	200		country_locations-as-topics Q1008
+24	QLever		   1399	      	Count= 21 	200		country_narrative-locations Q1008
+25	QLever		    113	      	Count= 5 	200		country_organizations Q1008

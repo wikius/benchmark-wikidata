@@ -1,0 +1,35 @@
+1	QLever		      8	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q102537983>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_authors Q102537983
+2	QLever		      2	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q102537983>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_coused Q102537983
+3	QLever		  17519	      	Count= 0 	200		software_data Q102537983
+4	QLever		      3	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q102537983>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_dependent-software Q102537983
+5	QLever		      2	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q102537983>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_recent-works Q102537983
+6	QLever		      2	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q102537983>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_software-dependencies Q102537983
+7	QLever		      1	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q102537983>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_topics Q102537983
+8	QLever		    886	      	Count= 13 	200		software_authors Q1026367
+9	QLever		    607	      	Count= 4 	200		software_coused Q1026367
+10	QLever		  23822	      	Count= 8 	200		software_data Q1026367
+11	QLever		     19	      	Count= 0 	200		software_dependent-software Q1026367
+12	QLever		      8	      	Count= 3 	200		software_recent-works Q1026367
+13	QLever		     80	      	Count= 20 	200		software_software-dependencies Q1026367
+14	QLever		     15	      	Count= 11 	200		software_topics Q1026367
+15	QLever		    837	      	Count= 8 	200		software_authors Q1036510
+16	QLever		    613	      	Result=1 	200		software_coused Q1036510
+17	QLever		  23652	      	Count= 4 	200		software_data Q1036510
+18	QLever		     11	      	Count= 0 	200		software_dependent-software Q1036510
+19	QLever		      6	      	Result=2007-02-22T00:00:00Z 	200		software_recent-works Q1036510
+20	QLever		     64	      	Count= 6 	200		software_software-dependencies Q1036510
+21	QLever		      8	      	Count= 5 	200		software_topics Q1036510
+22	QLever		      4	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q105099901>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_authors Q105099901
+23	QLever		      2	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q105099901>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_coused Q105099901
+24	QLever		  16267	      	Count= 0 	200		software_data Q105099901
+25	QLever		      3	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q105099901>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_dependent-software Q105099901
+26	QLever		      2	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q105099901>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_recent-works Q105099901
+27	QLever		      3	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q105099901>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_software-dependencies Q105099901
+28	QLever		      1	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q105099901>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_topics Q105099901
+29	QLever		      5	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q106313302>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_authors Q106313302
+30	QLever		      2	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q106313302>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_coused Q106313302
+31	QLever		  16293	      	Count= 0 	200		software_data Q106313302
+32	QLever		      2	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q106313302>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_dependent-software Q106313302
+33	QLever		      2	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q106313302>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_recent-works Q106313302
+34	QLever		      8	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q106313302>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_software-dependencies Q106313302
+35	QLever		      4	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q106313302>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	software_topics Q106313302

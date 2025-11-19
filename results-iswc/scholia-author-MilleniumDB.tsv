@@ -1,0 +1,110 @@
+1	MilleniumDB		    129	      	None 	200	ERROR EMPTY OUTPUT	author_academic-tree Richard Feynman
+2	MilleniumDB		     26	      	None 	200	ERROR EMPTY OUTPUT	author_academic-tree Linus Pauling
+3	MilleniumDB		     30	      	None 	200	ERROR EMPTY OUTPUT	author_academic-tree Barack Obama
+4	MilleniumDB		     29	      	None 	200	ERROR EMPTY OUTPUT	author_academic-tree Isaac Newton
+5	MilleniumDB		     31	      	None 	200	ERROR EMPTY OUTPUT	author_academic-tree Ian R. Horrocks
+6	MilleniumDB		      1	      	None 	400	Operation `PathNegatedSet` not supported yet.	author_associated-images Richard Feynman
+7	MilleniumDB		      1	      	None 	400	Operation `PathNegatedSet` not supported yet.	author_associated-images Linus Pauling
+8	MilleniumDB		      1	      	None 	400	Operation `PathNegatedSet` not supported yet.	author_associated-images Barack Obama
+9	MilleniumDB		      1	      	None 	400	Operation `PathNegatedSet` not supported yet.	author_associated-images Isaac Newton
+10	MilleniumDB		      1	      	None 	400	Operation `PathNegatedSet` not supported yet.	author_associated-images Ian R. Horrocks
+11	MilleniumDB		    411	      	Count= 90 	200		author_citations-by-year Richard Feynman
+12	MilleniumDB		    812	      	Count= 140 	200		author_citations-by-year Linus Pauling
+13	MilleniumDB		     46	      	Count= 14 	200		author_citations-by-year Barack Obama
+14	MilleniumDB		      9	      	Count= 15 	200		author_citations-by-year Isaac Newton
+15	MilleniumDB		     51	      	Count= 42 	200		author_citations-by-year Ian R. Horrocks
+16	MilleniumDB		 149678	      	Count= 15 	200		author_coauthor-map Richard Feynman
+17	MilleniumDB		  27869	      	Count= 20 	200		author_coauthor-map Linus Pauling
+18	MilleniumDB		  27654	      	Count= 0 	200		author_coauthor-map Barack Obama
+19	MilleniumDB		  26516	      	Count= 0 	200		author_coauthor-map Isaac Newton
+20	MilleniumDB		  26954	      	Count= 39 	200		author_coauthor-map Ian R. Horrocks
+21	MilleniumDB		     14	      	Count= 30 	200		author_coauthors Richard Feynman
+22	MilleniumDB		     24	      	Count= 42 	200		author_coauthors Linus Pauling
+23	MilleniumDB		     16	      	Count= 2 	200		author_coauthors Barack Obama
+24	MilleniumDB		      5	      	Count= 0 	200		author_coauthors Isaac Newton
+25	MilleniumDB		     18	      	Count= 888 	200		author_coauthors Ian R. Horrocks
+26	MilleniumDB		  23135	      	Result=Q127050 	200		author_events Richard Feynman
+27	MilleniumDB		    986	      	Count= 0 	200		author_events Linus Pauling
+28	MilleniumDB		   1020	      	Count= 63 	200		author_events Barack Obama
+29	MilleniumDB		   1000	      	Count= 2 	200		author_events Isaac Newton
+30	MilleniumDB		   1012	      	Count= 28 	200		author_events Ian R. Horrocks
+31	MilleniumDB		 600534	      	None 	200	ERROR EMPTY OUTPUT	author_list-of-publications Richard Feynman
+32	MilleniumDB		 600157	      	None 	200	ERROR EMPTY OUTPUT	author_list-of-publications Linus Pauling
+33	MilleniumDB		 601044	      	None 	200	ERROR EMPTY OUTPUT	author_list-of-publications Barack Obama
+34	MilleniumDB		 601023	      	None 	200	ERROR EMPTY OUTPUT	author_list-of-publications Isaac Newton
+35	MilleniumDB		 600907	      	None 	200	ERROR EMPTY OUTPUT	author_list-of-publications Ian R. Horrocks
+36	MilleniumDB		 600032	      	None 	200	ERROR EMPTY OUTPUT	author_list-of-retracted-articles Richard Feynman
+37	MilleniumDB		 600025	      	None 	200	ERROR EMPTY OUTPUT	author_list-of-retracted-articles Linus Pauling
+38	MilleniumDB		 559297	      	Count= 0 	200		author_list-of-retracted-articles Barack Obama
+39	MilleniumDB		 600767	      	None 	200	ERROR EMPTY OUTPUT	author_list-of-retracted-articles Isaac Newton
+40	MilleniumDB		 584685	      	Count= 0 	200		author_list-of-retracted-articles Ian R. Horrocks
+41	MilleniumDB		     19	      	Count= 74 	200		author_most-cited-works Richard Feynman
+42	MilleniumDB		     47	      	Count= 271 	200		author_most-cited-works Linus Pauling
+43	MilleniumDB		     26	      	Count= 326 	200		author_most-cited-works Barack Obama
+44	MilleniumDB		      6	      	Count= 21 	200		author_most-cited-works Isaac Newton
+45	MilleniumDB		      9	      	Count= 141 	200		author_most-cited-works Ian R. Horrocks
+46	MilleniumDB		 193058	      	Count= 500 	200		author_most-citing-authors Richard Feynman
+47	MilleniumDB		 119587	      	Count= 500 	200		author_most-citing-authors Linus Pauling
+48	MilleniumDB		 108320	      	Count= 251 	200		author_most-citing-authors Barack Obama
+49	MilleniumDB		  85443	      	Count= 19 	200		author_most-citing-authors Isaac Newton
+50	MilleniumDB		  93786	      	Count= 450 	200		author_most-citing-authors Ian R. Horrocks
+51	MilleniumDB		     52	      	Count= 28 	200		author_other-locations Richard Feynman
+52	MilleniumDB		     37	      	Count= 44 	200		author_other-locations Linus Pauling
+53	MilleniumDB		     57	      	Count= 46 	200		author_other-locations Barack Obama
+54	MilleniumDB		     33	      	Count= 26 	200		author_other-locations Isaac Newton
+55	MilleniumDB		     11	      	Count= 12 	200		author_other-locations Ian R. Horrocks
+56	MilleniumDB		     78	      	Count= 12 	200		author_pages-per-year Richard Feynman
+57	MilleniumDB		    241	      	Count= 34 	200		author_pages-per-year Linus Pauling
+58	MilleniumDB		    165	      	Count= 6 	200		author_pages-per-year Barack Obama
+59	MilleniumDB		     23	      	Count= 5 	200		author_pages-per-year Isaac Newton
+60	MilleniumDB		    103	      	Count= 13 	200		author_pages-per-year Ian R. Horrocks
+61	MilleniumDB		 600298	      	None 	200	ERROR EMPTY OUTPUT	author_publications-per-year Richard Feynman
+62	MilleniumDB		 600030	      	None 	200	ERROR EMPTY OUTPUT	author_publications-per-year Linus Pauling
+63	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	author_publications-per-year Barack Obama
+64	MilleniumDB		 600032	      	None 	200	ERROR EMPTY OUTPUT	author_publications-per-year Isaac Newton
+65	MilleniumDB		 600033	      	None 	200	ERROR EMPTY OUTPUT	author_publications-per-year Ian R. Horrocks
+66	MilleniumDB		    182	      	Count= 0 	200		author_retracted-articles-per-year Richard Feynman
+67	MilleniumDB		    690	      	Count= 0 	200		author_retracted-articles-per-year Linus Pauling
+68	MilleniumDB		    211	      	Count= 0 	200		author_retracted-articles-per-year Barack Obama
+69	MilleniumDB		     38	      	Count= 0 	200		author_retracted-articles-per-year Isaac Newton
+70	MilleniumDB		    315	      	Count= 0 	200		author_retracted-articles-per-year Ian R. Horrocks
+71	MilleniumDB		      9	      	Count= 0 	200		author_review-statistics Richard Feynman
+72	MilleniumDB		      8	      	Count= 0 	200		author_review-statistics Linus Pauling
+73	MilleniumDB		      6	      	Count= 0 	200		author_review-statistics Barack Obama
+74	MilleniumDB		      6	      	Count= 0 	200		author_review-statistics Isaac Newton
+75	MilleniumDB		      7	      	Count= 0 	200		author_review-statistics Ian R. Horrocks
+76	MilleniumDB		   1596	      	Count= 19 	200		author_timeline Richard Feynman
+77	MilleniumDB		   1484	      	Count= 40 	200		author_timeline Linus Pauling
+78	MilleniumDB		   1630	      	Count= 37 	200		author_timeline Barack Obama
+79	MilleniumDB		   1456	      	Count= 11 	200		author_timeline Isaac Newton
+80	MilleniumDB		   1529	      	Count= 9 	200		author_timeline Ian R. Horrocks
+81	MilleniumDB		    200	      	Count= 200 	200		author_topic-scores Richard Feynman
+82	MilleniumDB		    462	      	Count= 200 	200		author_topic-scores Linus Pauling
+83	MilleniumDB		     36	      	Count= 177 	200		author_topic-scores Barack Obama
+84	MilleniumDB		      8	      	Count= 35 	200		author_topic-scores Isaac Newton
+85	MilleniumDB		     36	      	Count= 170 	200		author_topic-scores Ian R. Horrocks
+86	MilleniumDB		      3	      	Count= 30 	200		author_topics-works-matrix Richard Feynman
+87	MilleniumDB		      5	      	Count= 124 	200		author_topics-works-matrix Linus Pauling
+88	MilleniumDB		      4	      	Count= 80 	200		author_topics-works-matrix Barack Obama
+89	MilleniumDB		      2	      	Count= 12 	200		author_topics-works-matrix Isaac Newton
+90	MilleniumDB		      4	      	Count= 103 	200		author_topics-works-matrix Ian R. Horrocks
+91	MilleniumDB		 600087	      	None 	200	ERROR EMPTY OUTPUT	author_topics Richard Feynman
+92	MilleniumDB		 600034	      	None 	200	ERROR EMPTY OUTPUT	author_topics Linus Pauling
+93	MilleniumDB		 600032	      	None 	200	ERROR EMPTY OUTPUT	author_topics Barack Obama
+94	MilleniumDB		 600034	      	None 	200	ERROR EMPTY OUTPUT	author_topics Isaac Newton
+95	MilleniumDB		 600030	      	None 	200	ERROR EMPTY OUTPUT	author_topics Ian R. Horrocks
+96	MilleniumDB		     20	      	Count= 0 	200		author_use Richard Feynman
+97	MilleniumDB		     13	      	Count= 0 	200		author_use Linus Pauling
+98	MilleniumDB		      7	      	Count= 0 	200		author_use Barack Obama
+99	MilleniumDB		      4	      	Count= 0 	200		author_use Isaac Newton
+100	MilleniumDB		      5	      	Count= 0 	200		author_use Ian R. Horrocks
+101	MilleniumDB		 331846	      	Count= 15 	200		author_venue-statistics-chart Richard Feynman
+102	MilleniumDB		 190962	      	Count= 7 	200		author_venue-statistics-chart Linus Pauling
+103	MilleniumDB		 381008	      	Count= 13 	200		author_venue-statistics-chart Barack Obama
+104	MilleniumDB		  24112	      	Result=1 	200		author_venue-statistics-chart Isaac Newton
+105	MilleniumDB		 600088	      	None 	200	ERROR EMPTY OUTPUT	author_venue-statistics-chart Ian R. Horrocks
+106	MilleniumDB		     27	      	Count= 15 	200		author_venue-statistics Richard Feynman
+107	MilleniumDB		     58	      	Count= 62 	200		author_venue-statistics Linus Pauling
+108	MilleniumDB		     13	      	Count= 13 	200		author_venue-statistics Barack Obama
+109	MilleniumDB		      6	      	Result=1 	200		author_venue-statistics Isaac Newton
+110	MilleniumDB		     28	      	Count= 53 	200		author_venue-statistics Ian R. Horrocks

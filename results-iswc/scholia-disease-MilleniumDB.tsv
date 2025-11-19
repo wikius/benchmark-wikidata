@@ -1,0 +1,15 @@
+1	MilleniumDB		 600652	      	None 	200	ERROR EMPTY OUTPUT	disease_clinical-trials Q1001150
+2	MilleniumDB		 600112	      	None 	200	ERROR EMPTY OUTPUT	disease_clinical-trials Q1016605
+3	MilleniumDB		 601214	      	None 	200	ERROR EMPTY OUTPUT	disease_clinical-trials Q101896
+4	MilleniumDB		 600802	      	None 	200	ERROR EMPTY OUTPUT	disease_clinical-trials Q1022718
+5	MilleniumDB		 600282	      	None 	200	ERROR EMPTY OUTPUT	disease_clinical-trials Q1023604
+6	MilleniumDB		 600799	      	None 	200	ERROR EMPTY OUTPUT	disease_publications-per-year Q1001150
+7	MilleniumDB		 600040	      	None 	200	ERROR EMPTY OUTPUT	disease_publications-per-year Q1016605
+8	MilleniumDB		 600038	      	None 	200	ERROR EMPTY OUTPUT	disease_publications-per-year Q101896
+9	MilleniumDB		 600038	      	None 	200	ERROR EMPTY OUTPUT	disease_publications-per-year Q1022718
+10	MilleniumDB		 600038	      	None 	200	ERROR EMPTY OUTPUT	disease_publications-per-year Q1023604
+11	MilleniumDB		     17	      	Count= 0 	200		disease_related-diseases Q1001150
+12	MilleniumDB		      6	      	Count= 0 	200		disease_related-diseases Q1016605
+13	MilleniumDB		     12	      	Count= 69 	200		disease_related-diseases Q101896
+14	MilleniumDB		     39	      	Count= 361 	200		disease_related-diseases Q1022718
+15	MilleniumDB		      5	      	Result=1 	200		disease_related-diseases Q1023604

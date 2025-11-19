@@ -1,0 +1,35 @@
+1	QLever		   2088	      	Count= 46 	200		taxon_co-occurring-taxa Q1000017
+2	QLever		      4	      	Count= 0 	200		taxon_genome Q1000017
+3	QLever		    109	      	Count= 22 	200		taxon_identifiers Q1000017
+4	QLever		    247	      	Count= 0 	200		taxon_metabolome Q1000017
+5	QLever		     65	      	Count= 25 	200		taxon_parent-taxa Q1000017
+6	QLever		      3	      	Count= 0 	200		taxon_proteome Q1000017
+7	QLever		    173	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	taxon_tree Q1000017
+8	QLever		   1937	      	Count= 6 	200		taxon_co-occurring-taxa Q1000266
+9	QLever		      3	      	Count= 0 	200		taxon_genome Q1000266
+10	QLever		     93	      	Count= 23 	200		taxon_identifiers Q1000266
+11	QLever		    191	      	Count= 0 	200		taxon_metabolome Q1000266
+12	QLever		     47	      	Count= 32 	200		taxon_parent-taxa Q1000266
+13	QLever		      4	      	Count= 0 	200		taxon_proteome Q1000266
+14	QLever		     82	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	taxon_tree Q1000266
+15	QLever		   1917	      	Count= 5 	200		taxon_co-occurring-taxa Q1000270
+16	QLever		      3	      	Count= 0 	200		taxon_genome Q1000270
+17	QLever		     89	      	Count= 20 	200		taxon_identifiers Q1000270
+18	QLever		    198	      	Count= 0 	200		taxon_metabolome Q1000270
+19	QLever		     33	      	Count= 32 	200		taxon_parent-taxa Q1000270
+20	QLever		      3	      	Count= 0 	200		taxon_proteome Q1000270
+21	QLever		     93	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	taxon_tree Q1000270
+22	QLever		   1932	      	Result=1 	200		taxon_co-occurring-taxa Q1000274
+23	QLever		      4	      	Count= 0 	200		taxon_genome Q1000274
+24	QLever		     91	      	Count= 20 	200		taxon_identifiers Q1000274
+25	QLever		    195	      	Count= 0 	200		taxon_metabolome Q1000274
+26	QLever		     34	      	Count= 30 	200		taxon_parent-taxa Q1000274
+27	QLever		      3	      	Count= 0 	200		taxon_proteome Q1000274
+28	QLever		     94	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	taxon_tree Q1000274
+29	QLever		   1934	      	Result=1 	200		taxon_co-occurring-taxa Q100032077
+30	QLever		      3	      	Count= 0 	200		taxon_genome Q100032077
+31	QLever		     82	      	Count= 7 	200		taxon_identifiers Q100032077
+32	QLever		    192	      	Count= 0 	200		taxon_metabolome Q100032077
+33	QLever		     37	      	Count= 19 	200		taxon_parent-taxa Q100032077
+34	QLever		      3	      	Count= 0 	200		taxon_proteome Q100032077
+35	QLever		     86	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	taxon_tree Q100032077

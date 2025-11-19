@@ -1,0 +1,51 @@
+This folder contains supplemental material to support the paper "Benchmarking SPARQL Engines on Wikidata Queries"
+
+Contents:
+
+wgpb/			WGPB Benchmark, sourced from https://zenodo.org/records/4035223#.Y8gsHOzMI0T
+wdbench/		WDBench benchmark, sourced from https://github.com/MillenniumDB/WDBench
+wdbench-expand.py*	Expand query cores from WDBench benchmark to full SPARQL queries
+wdqs/			WDQS Benchmark, sourced from  https://ad-research.cs.uni-freiburg.de/benchmarks/wdqs-queries/
+scholia/		Scholia Benchmark
+scholia-fix.py*		Translate Scholia query templates to standard SPARQL
+SCHOLIA*		Run a Scholia directory on all engines (depends on scripts to run and stop the engines)
+
+scripts/		Scripts to run and stop the engines and load Wikidata into MilleniumDB and Virtuoso
+			Also has the parameter file for Virtuoso
+			This will need to be updated to reflect locations on the benchmark machine
+
+benchmark.py*		Run a benchmark for an engine 
+stats.py*		Compute statistics from all the engines for a benchmark run
+summary.py*		Summarize multiple statistics outputs
+
+run-existing*		Run all existing benchmarks for an engine (depends on scripts to run and stop the engine)
+run-scholia*		Run Scholia benchmark for an engine (depends on scripts to run and stop the engine)
+
+stats-existing*		Compute statistics for all existing benchmarks using stats.py
+stats-scholia*		Compute statistics for Scholia benchmark using stats.py
+
+summarize-existing*	Summarize results for all existing benchmarks using summary.py
+summarize-scholia*	Summarize results for Scholia benchmark using summary.py
+
+PROCESSING		Information on the progress of first full set of benchmark runs (only),
+			includes information about divergences,
+
+results-original/	Original set of complete benchmarks results from Jan and Feb 2025
+results-iswc/		Results for MilleniumDB from 5-13 Mar 2025 and
+				    QLever from 23-24 Mar 2025 and
+				    Virtuoso from 19-22 Mar 2025
+
+stats-iswc/		Statistics from runs for iswc
+	./stats-existing iswc b  			
+	./stats-scholia iswc b
+
+iswc-summary-existing.text	Summary for existing benchmark
+	./summarize-existing iswc > iswc-summary-existing.text
+iswc-summary-scholia.text	Summary for Scholia benchmark
+	./stats-scholia iswc > iswc-summary-scholia.text
+
+To be included in final version of paper (points to identifying information so not in submission)
+
+README.md		General description of the benchmarking process
+
+

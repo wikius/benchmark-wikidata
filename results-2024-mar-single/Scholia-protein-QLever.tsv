@@ -1,0 +1,25 @@
+1	QLever		   1090	      	Count= 15 	200		protein_cofunctional-proteins Q101244282
+2	QLever		     17	      	Count= 0 	200		protein_cointeracting-proteins Q101244282
+3	QLever		    698	      	Count= 0 	200		protein_participates-in Q101244282
+4	QLever		    394	      	Count= 0 	200		protein_publications-per-year Q101244282
+5	QLever		   1137	      	Count= 500 	200		protein_similar-proteins Q101244282
+6	QLever		  45528	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.5 GB were available. Clear the cache or allow more memory for QLever during startup	protein_cofunctional-proteins Q1024612
+7	QLever		    311	      	Count= 0 	200		protein_cointeracting-proteins Q1024612
+8	QLever		    604	      	Count= 0 	200		protein_participates-in Q1024612
+9	QLever		    360	      	Count= 3 	200		protein_publications-per-year Q1024612
+10	QLever		  48797	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.5 GB were available. Clear the cache or allow more memory for QLever during startup	protein_similar-proteins Q1024612
+11	QLever		  36091	      	Count= 500 	200		protein_cofunctional-proteins Q1026649
+12	QLever		     15	      	Count= 0 	200		protein_cointeracting-proteins Q1026649
+13	QLever		    613	      	Count= 0 	200		protein_participates-in Q1026649
+14	QLever		    340	      	Count= 0 	200		protein_publications-per-year Q1026649
+15	QLever		  23600	      	Count= 500 	200		protein_similar-proteins Q1026649
+16	QLever		  44208	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.5 GB were available. Clear the cache or allow more memory for QLever during startup	protein_cofunctional-proteins Q1032902
+17	QLever		    312	      	Count= 0 	200		protein_cointeracting-proteins Q1032902
+18	QLever		    614	      	Count= 0 	200		protein_participates-in Q1032902
+19	QLever		    431	      	Count= 37 	200		protein_publications-per-year Q1032902
+20	QLever		  48292	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.5 GB were available. Clear the cache or allow more memory for QLever during startup	protein_similar-proteins Q1032902
+21	QLever		    986	      	Result=1 	200		protein_cofunctional-proteins Q104586124
+22	QLever		     15	      	Count= 0 	200		protein_cointeracting-proteins Q104586124
+23	QLever		    608	      	Count= 0 	200		protein_participates-in Q104586124
+24	QLever		    354	      	Count= 0 	200		protein_publications-per-year Q104586124
+25	QLever		   1160	      	Count= 500 	200		protein_similar-proteins Q104586124

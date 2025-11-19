@@ -1,7 +1,7 @@
 # General topic
 topic_author-awards	Topic author awards for LABEL	VALUES	topic
 topic_author-scores-graph	Topic author scores graph for LABEL	VALUES	topic
-topic_author-scores	Topic author scores for LABEL	VALUES	topic
+#topic_author-scores	Topic author scores for LABEL	VALUES	topic
 topic_authors	Topic authors for LABEL	VALUES	topic
 topic_co-occurring-map	Topic co-occuring map for LABEL	VALUES	topic
 topic_co-occurring	Topic co-occuring for LABEL	VALUES	topic

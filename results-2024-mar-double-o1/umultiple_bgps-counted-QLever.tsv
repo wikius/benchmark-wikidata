@@ -1,0 +1,681 @@
+1	QLever	COUNTED	     12	      	Result=10 	200		
+2	QLever	COUNTED	      3	      	Result=1 	200		
+3	QLever	COUNTED	     54	      	Result=624 	200		
+4	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+5	QLever	COUNTED	   1092	      	Result=165285252 	200		
+6	QLever	COUNTED	  13301	      	Result=1995830496 	200		
+7	QLever	COUNTED	   1820	      	Result=296700300 	200		
+8	QLever	COUNTED	 249586	      	Result=29764971567 	200		
+9	QLever	COUNTED	 405804	      	Result=77524628402 	200		
+10	QLever	COUNTED	     19	      	Result=9171 	200		
+11	QLever	COUNTED	      6	      	Result=83 	200		
+12	QLever	COUNTED	     10	      	Result=16430 	200		
+13	QLever	COUNTED	     28	      	Result=386551 	200		
+14	QLever	COUNTED	     63	      	Result=3198711 	200		
+15	QLever	COUNTED	     18	      	Result=149791 	200		
+16	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+17	QLever	COUNTED	   1032	      	Result=100 	200		
+18	QLever	COUNTED	      7	      	Result=206204 	200		
+19	QLever	COUNTED	   3635	      	Result=451786280 	200		
+20	QLever	COUNTED	     57	      	Result=137867 	200		
+21	QLever	COUNTED	     15	      	Result=53123 	200		
+22	QLever	COUNTED	      2	      	Result=53123 	200		
+23	QLever	COUNTED	     13	      	Result=4882 	200		
+24	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+25	QLever	COUNTED	  14974	      	Result=2300205620 	200		
+26	QLever	COUNTED	     31	      	Result=10492 	200		
+27	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+28	QLever	COUNTED	 414479	      	Result=63133179456 	200		
+29	QLever	COUNTED	     57	      	Result=496175 	200		
+30	QLever	COUNTED	   5642	      	Result=1203679890 	200		
+31	QLever	COUNTED	    330	      	Result=67183000 	200		
+32	QLever	COUNTED	   1243	      	Result=243882988 	200		
+33	QLever	COUNTED	  12254	      	Result=1855696350 	200		
+34	QLever	COUNTED	    970	      	Result=187183284 	200		
+35	QLever	COUNTED	    113	      	Result=0 	200		
+36	QLever	COUNTED	 436342	      	Result=54221240400 	200		
+37	QLever	COUNTED	  41828	      	Result=4209161400 	200		
+38	QLever	COUNTED	  35068	      	Result=4231791300 	200		
+39	QLever	COUNTED	  42892	      	Result=5295396600 	200		
+40	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+41	QLever	COUNTED	   1547	      	Result=226299000 	200		
+42	QLever	COUNTED	     16	      	Result=189 	200		
+43	QLever	COUNTED	  41208	      	Result=4888058400 	200		
+44	QLever	COUNTED	  33530	      	Result=4229448020 	200		
+45	QLever	COUNTED	 321072	      	Result=41242449432 	200		
+46	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+47	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+48	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+49	QLever	COUNTED	  72914	      	Result=14179665600 	200		
+50	QLever	COUNTED	    514	      	Result=102879000 	200		
+51	QLever	COUNTED	   2652	      	Result=523988875 	200		
+52	QLever	COUNTED	     42	      	Result=377 	200		
+53	QLever	COUNTED	   3050	      	Result=429968100 	200		
+54	QLever	COUNTED	  31006	      	Result=6167426484 	200		
+55	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+56	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+57	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+58	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+59	QLever	COUNTED	    947	      	Result=82247554 	200		
+60	QLever	COUNTED	 158227	      	Result=14781252114 	200		
+61	QLever	COUNTED	     24	      	Result=760 	200		
+62	QLever	COUNTED	   1311	      	Result=272248884 	200		
+63	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+64	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+65	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+66	QLever	COUNTED	  35496	      	Result=5328767653 	200		
+67	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+68	QLever	COUNTED	   8041	      	Result=1513197576 	200		
+69	QLever	COUNTED	 231812	      	Result=44616401256 	200		
+70	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+71	QLever	COUNTED	    823	      	Result=161602077 	200		
+72	QLever	COUNTED	  33991	      	Result=4286314548 	200		
+73	QLever	COUNTED	 600007	      	None 	429	ERROR: Operation timed out.	
+74	QLever	COUNTED	     46	      	Result=81286 	200		
+75	QLever	COUNTED	  44971	      	Result=5757355170 	200		
+76	QLever	COUNTED	      2	      	Result=332121 	200		
+77	QLever	COUNTED	     36	      	Result=180816 	200		
+78	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+79	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+80	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+81	QLever	COUNTED	 600007	      	None 	429	ERROR: Operation timed out.	
+82	QLever	COUNTED	   3770	      	Result=754396617 	200		
+83	QLever	COUNTED	   3810	      	Result=744646431 	200		
+84	QLever	COUNTED	 600007	      	None 	429	ERROR: Operation timed out.	
+85	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+86	QLever	COUNTED	 430032	      	Result=82541615485 	200		
+87	QLever	COUNTED	  20311	      	Result=3897190449 	200		
+88	QLever	COUNTED	 436960	      	Result=83662050910 	200		
+89	QLever	COUNTED	 600007	      	None 	429	ERROR: Operation timed out.	
+90	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+91	QLever	COUNTED	 204228	      	Result=30374286696 	200		
+92	QLever	COUNTED	     12	      	Result=1 	200		
+93	QLever	COUNTED	    512	      	Result=119629237 	200		
+94	QLever	COUNTED	 442573	      	Result=66682041432 	200		
+95	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+96	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+97	QLever	COUNTED	   2548	      	Result=517375383 	200		
+98	QLever	COUNTED	 242167	      	Result=46005684331 	200		
+99	QLever	COUNTED	     17	      	Result=963 	200		
+100	QLever	COUNTED	   4610	      	Result=944821566 	200		
+101	QLever	COUNTED	 221443	      	Result=27193484760 	200		
+102	QLever	COUNTED	     48	      	Result=17491 	200		
+103	QLever	COUNTED	    481	      	Result=98427924 	200		
+104	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+105	QLever	COUNTED	     16	      	Result=2 	200		
+106	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+107	QLever	COUNTED	 126866	      	Result=10975501500 	200		
+108	QLever	COUNTED	 128059	      	Result=10975501500 	200		
+109	QLever	COUNTED	  41372	      	Result=4137761472 	200		
+110	QLever	COUNTED	      2	      	Result=4505 	200		
+111	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+112	QLever	COUNTED	  37186	      	Result=5844928485 	200		
+113	QLever	COUNTED	   2871	      	Result=362078400 	200		
+114	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+115	QLever	COUNTED	   2180	      	Result=258899469 	200		
+116	QLever	COUNTED	  22209	      	Result=2693393640 	200		
+117	QLever	COUNTED	 600007	      	None 	429	ERROR: Operation timed out.	
+118	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+119	QLever	COUNTED	     12	      	Result=123 	200		
+120	QLever	COUNTED	 113781	      	Result=17221353900 	200		
+121	QLever	COUNTED	   8156	      	Result=1554369356 	200		
+122	QLever	COUNTED	     71	      	Result=902179 	200		
+123	QLever	COUNTED	     36	      	Result=1918176 	200		
+124	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+125	QLever	COUNTED	 213887	      	Result=25952383239 	200		
+126	QLever	COUNTED	     98	      	Result=414051 	200		
+127	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+128	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+129	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+130	QLever	COUNTED	      3	      	Result=6776 	200		
+131	QLever	COUNTED	      3	      	Result=0 	200		
+132	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+133	QLever	COUNTED	    396	      	Result=110095080 	200		
+134	QLever	COUNTED	     21	      	Result=968 	200		
+135	QLever	COUNTED	     28	      	Result=366494 	200		
+136	QLever	COUNTED	     26	      	Result=349436 	200		
+137	QLever	COUNTED	    257	      	Result=13835777 	200		
+138	QLever	COUNTED	    262	      	Result=17010743 	200		
+139	QLever	COUNTED	     36	      	Result=0 	200		
+140	QLever	COUNTED	     87	      	Result=895838 	200		
+141	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+142	QLever	COUNTED	  54158	      	Result=5453805900 	200		
+143	QLever	COUNTED	   1214	      	Result=10693754 	200		
+144	QLever	COUNTED	   1040	      	Result=10907204 	200		
+145	QLever	COUNTED	    512	      	Result=9750859 	200		
+146	QLever	COUNTED	    341	      	Result=15083716 	200		
+147	QLever	COUNTED	    213	      	Result=11483004 	200		
+148	QLever	COUNTED	    589	      	Result=6073693 	200		
+149	QLever	COUNTED	   7938	      	Result=656156986 	200		
+150	QLever	COUNTED	    665	      	Result=41122628 	200		
+151	QLever	COUNTED	   1205	      	Result=20481623 	200		
+152	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+153	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+154	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+155	QLever	COUNTED	 600016	      	None 	429	ERROR: Operation timed out.	
+156	QLever	COUNTED	     85	      	Result=933964 	200		
+157	QLever	COUNTED	  38300	      	Result=5811012144 	200		
+158	QLever	COUNTED	   7400	      	Result=1299103183 	200		
+159	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+160	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+161	QLever	COUNTED	    400	      	Result=115297860 	200		
+162	QLever	COUNTED	      5	      	Result=33 	200		
+163	QLever	COUNTED	  28411	      	Result=2444981880 	200		
+164	QLever	COUNTED	     19	      	Result=5919 	200		
+165	QLever	COUNTED	      8	      	Result=56 	200		
+166	QLever	COUNTED	     45	      	Result=7414 	200		
+167	QLever	COUNTED	      9	      	Result=6440 	200		
+168	QLever	COUNTED	   1322	      	Result=56851592 	200		
+169	QLever	COUNTED	     35	      	Result=1290 	200		
+170	QLever	COUNTED	      8	      	Result=6996 	200		
+171	QLever	COUNTED	     12	      	Result=0 	200		
+172	QLever	COUNTED	 210170	      	Result=32841927664 	200		
+173	QLever	COUNTED	     33	      	Result=6387616 	200		
+174	QLever	COUNTED	  41399	      	Result=6499399280 	200		
+175	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+176	QLever	COUNTED	   4113	      	Result=629180176 	200		
+177	QLever	COUNTED	     24	      	Result=1724688 	200		
+178	QLever	COUNTED	   1593	      	Result=327347797 	200		
+179	QLever	COUNTED	    516	      	Result=43516368 	200		
+180	QLever	COUNTED	      4	      	Result=252004 	200		
+181	QLever	COUNTED	     83	      	Result=2859456 	200		
+182	QLever	COUNTED	     25	      	Result=4830 	200		
+183	QLever	COUNTED	     98	      	Result=0 	200		
+184	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+185	QLever	COUNTED	    511	      	Result=61431468 	200		
+186	QLever	COUNTED	     34	      	Result=9538 	200		
+187	QLever	COUNTED	      8	      	Result=99840 	200		
+188	QLever	COUNTED	     99	      	Result=14153520 	200		
+189	QLever	COUNTED	   3804	      	Result=600442724 	200		
+190	QLever	COUNTED	      5	      	Result=0 	200		
+191	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+192	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+193	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+194	QLever	COUNTED	   5465	      	Result=654124396 	200		
+195	QLever	COUNTED	     16	      	Result=16 	200		
+196	QLever	COUNTED	   1433	      	Result=285701312 	200		
+197	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+198	QLever	COUNTED	   5317	      	Result=1082366285 	200		
+199	QLever	COUNTED	      5	      	Result=3 	200		
+200	QLever	COUNTED	     24	      	Result=3802432 	200		
+201	QLever	COUNTED	   1729	      	Result=271558800 	200		
+202	QLever	COUNTED	      6	      	Result=1 	200		
+203	QLever	COUNTED	      8	      	Result=556989 	200		
+204	QLever	COUNTED	      4	      	Result=0 	200		
+205	QLever	COUNTED	 360973	      	Result=52350210540 	200		
+206	QLever	COUNTED	    201	      	Result=36814360 	200		
+207	QLever	COUNTED	     20	      	Result=2060346 	200		
+208	QLever	COUNTED	      4	      	Result=64 	200		
+209	QLever	COUNTED	      2	      	Result=0 	200		
+210	QLever	COUNTED	     82	      	Result=17859 	200		
+211	QLever	COUNTED	   1567	      	Result=183105975 	200		
+212	QLever	COUNTED	     80	      	Result=91383 	200		
+213	QLever	COUNTED	   1643	      	Result=253782646 	200		
+214	QLever	COUNTED	    778	      	Result=85135404 	200		
+215	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+216	QLever	COUNTED	     69	      	Result=583 	200		
+217	QLever	COUNTED	     11	      	Result=34156 	200		
+218	QLever	COUNTED	 330971	      	Result=50544727352 	200		
+219	QLever	COUNTED	   2851	      	Result=488617128 	200		
+220	QLever	COUNTED	   1730	      	Result=434326336 	200		
+221	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+222	QLever	COUNTED	  17533	      	Result=2665415328 	200		
+223	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+224	QLever	COUNTED	    245	      	Result=27377022 	200		
+225	QLever	COUNTED	   1033	      	Result=233917198 	200		
+226	QLever	COUNTED	   8462	      	Result=994870716 	200		
+227	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+228	QLever	COUNTED	      9	      	Result=4210 	200		
+229	QLever	COUNTED	  18217	      	Result=3627517536 	200		
+230	QLever	COUNTED	 498099	      	Result=75859424916 	200		
+231	QLever	COUNTED	   4403	      	Result=905809719 	200		
+232	QLever	COUNTED	 226092	      	Result=28038446100 	200		
+233	QLever	COUNTED	 130537	      	Result=13306381200 	200		
+234	QLever	COUNTED	    746	      	Result=114789633 	200		
+235	QLever	COUNTED	    599	      	Result=121190381 	200		
+236	QLever	COUNTED	     96	      	Result=17467080 	200		
+237	QLever	COUNTED	 217702	      	Result=19009116000 	200		
+238	QLever	COUNTED	     17	      	Result=67722 	200		
+239	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+240	QLever	COUNTED	    456	      	Result=83076084 	200		
+241	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+242	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+243	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+244	QLever	COUNTED	   9755	      	Result=830765649 	200		
+245	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+246	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+247	QLever	COUNTED	    170	      	Result=32480935 	200		
+248	QLever	COUNTED	  17088	      	Result=2524421042 	200		
+249	QLever	COUNTED	   1233	      	Result=183105975 	200		
+250	QLever	COUNTED	 578123	      	Result=87604761060 	200		
+251	QLever	COUNTED	 436669	      	Result=66763347930 	200		
+252	QLever	COUNTED	  15818	      	Result=3292781800 	200		
+253	QLever	COUNTED	     32	      	Result=28336 	200		
+254	QLever	COUNTED	 210316	      	Result=21797240880 	200		
+255	QLever	COUNTED	    720	      	Result=43900736 	200		
+256	QLever	COUNTED	   4121	      	Result=68112146 	200		
+257	QLever	COUNTED	 314717	      	Result=48382214220 	200		
+258	QLever	COUNTED	    148	      	Result=18022753 	200		
+259	QLever	COUNTED	 431335	      	Result=67041365860 	200		
+260	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+261	QLever	COUNTED	     30	      	Result=4938862 	200		
+262	QLever	COUNTED	     54	      	Result=3608968 	200		
+263	QLever	COUNTED	   6628	      	Result=1376956932 	200		
+264	QLever	COUNTED	     10	      	Result=2965 	200		
+265	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+266	QLever	COUNTED	 600007	      	None 	429	ERROR: Operation timed out.	
+267	QLever	COUNTED	    526	      	Result=95306640 	200		
+268	QLever	COUNTED	  39844	      	Result=5879686560 	200		
+269	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+270	QLever	COUNTED	    158	      	Result=25489440 	200		
+271	QLever	COUNTED	   1930	      	Result=289305144 	200		
+272	QLever	COUNTED	  16186	      	Result=1399471104 	200		
+273	QLever	COUNTED	  21245	      	Result=1765197162 	200		
+274	QLever	COUNTED	 461718	      	Result=67862696304 	200		
+275	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+276	QLever	COUNTED	      6	      	Result=0 	200		
+277	QLever	COUNTED	 244256	      	Result=37261391704 	200		
+278	QLever	COUNTED	 312285	      	Result=39860425728 	200		
+279	QLever	COUNTED	  23545	      	Result=2929585380 	200		
+280	QLever	COUNTED	     25	      	Result=3580 	200		
+281	QLever	COUNTED	   2452	      	Result=378669470 	200		
+282	QLever	COUNTED	    130	      	Result=1480741 	200		
+283	QLever	COUNTED	     23	      	Result=1125105 	200		
+284	QLever	COUNTED	 516239	      	Result=38474497533 	200		
+285	QLever	COUNTED	 116361	      	Result=14257315516 	200		
+286	QLever	COUNTED	     13	      	Result=599 	200		
+287	QLever	COUNTED	      3	      	Result=0 	200		
+288	QLever	COUNTED	    202	      	Result=8316126 	200		
+289	QLever	COUNTED	     53	      	Result=1545100 	200		
+290	QLever	COUNTED	 200482	      	Result=30075766747 	200		
+291	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+292	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+293	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+294	QLever	COUNTED	     35	      	Result=1154 	200		
+295	QLever	COUNTED	      4	      	Result=1798 	200		
+296	QLever	COUNTED	   9317	      	Result=1953626288 	200		
+297	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+298	QLever	COUNTED	     11	      	Result=24 	200		
+299	QLever	COUNTED	    139	      	Result=7774002 	200		
+300	QLever	COUNTED	     10	      	Result=6164 	200		
+301	QLever	COUNTED	  31602	      	Result=4745097948 	200		
+302	QLever	COUNTED	      5	      	Result=34 	200		
+303	QLever	COUNTED	    176	      	Result=663942 	200		
+304	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+305	QLever	COUNTED	     12	      	Result=358 	200		
+306	QLever	COUNTED	   4512	      	Result=733259304 	200		
+307	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+308	QLever	COUNTED	      9	      	Result=146 	200		
+309	QLever	COUNTED	    354	      	Result=38927766 	200		
+310	QLever	COUNTED	 180722	      	Result=35158969832 	200		
+311	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+312	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+313	QLever	COUNTED	   3133	      	Result=487981562 	200		
+314	QLever	COUNTED	      7	      	Result=159 	200		
+315	QLever	COUNTED	   2230	      	Result=342710280 	200		
+316	QLever	COUNTED	     10	      	Result=296 	200		
+317	QLever	COUNTED	   5671	      	Result=905196000 	200		
+318	QLever	COUNTED	      8	      	Result=3291 	200		
+319	QLever	COUNTED	      7	      	Result=21 	200		
+320	QLever	COUNTED	 379141	      	Result=75734224128 	200		
+321	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+322	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+323	QLever	COUNTED	      8	      	Result=112 	200		
+324	QLever	COUNTED	      7	      	Result=484 	200		
+325	QLever	COUNTED	  35734	      	Result=7038423210 	200		
+326	QLever	COUNTED	      5	      	Result=10187 	200		
+327	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+328	QLever	COUNTED	     21	      	Result=566 	200		
+329	QLever	COUNTED	 262870	      	Result=50928422680 	200		
+330	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+331	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+332	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+333	QLever	COUNTED	 162517	      	Result=24681153076 	200		
+334	QLever	COUNTED	      6	      	Result=688 	200		
+335	QLever	COUNTED	   1367	      	Result=281765412 	200		
+336	QLever	COUNTED	      4	      	Result=5724 	200		
+337	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+338	QLever	COUNTED	      7	      	Result=656064 	200		
+339	QLever	COUNTED	      2	      	Result=51283 	200		
+340	QLever	COUNTED	   1919	      	Result=278424006 	200		
+341	QLever	COUNTED	  10092	      	Result=2004241856 	200		
+342	QLever	COUNTED	   1772	      	Result=360316324 	200		
+343	QLever	COUNTED	     71	      	Result=164512 	200		
+344	QLever	COUNTED	     28	      	Result=12933 	200		
+345	QLever	COUNTED	      1	      	Result=8903 	200		
+346	QLever	COUNTED	      9	      	Result=80 	200		
+347	QLever	COUNTED	      4	      	Result=1 	200		
+348	QLever	COUNTED	     34	      	Result=10073 	200		
+349	QLever	COUNTED	   1188	      	Result=39189618 	200		
+350	QLever	COUNTED	     21	      	Result=458 	200		
+351	QLever	COUNTED	    449	      	Result=22413406 	200		
+352	QLever	COUNTED	    338	      	Result=44995344 	200		
+353	QLever	COUNTED	     50	      	Result=40714 	200		
+354	QLever	COUNTED	      4	      	Result=12661 	200		
+355	QLever	COUNTED	     70	      	Result=535814 	200		
+356	QLever	COUNTED	      3	      	Result=8529 	200		
+357	QLever	COUNTED	     89	      	Result=3403 	200		
+358	QLever	COUNTED	     14	      	Result=0 	200		
+359	QLever	COUNTED	    989	      	Result=108674250 	200		
+360	QLever	COUNTED	      3	      	Result=14 	200		
+361	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+362	QLever	COUNTED	     12	      	Result=0 	200		
+363	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+364	QLever	COUNTED	  74033	      	Result=11125554270 	200		
+365	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+366	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+367	QLever	COUNTED	     23	      	Result=12224 	200		
+368	QLever	COUNTED	 593174	      	Result=90971564604 	200		
+369	QLever	COUNTED	  40605	      	Result=6169263240 	200		
+370	QLever	COUNTED	  77545	      	Result=9674592532 	200		
+371	QLever	COUNTED	     36	      	Result=547389 	200		
+372	QLever	COUNTED	   1900	      	Result=297256716 	200		
+373	QLever	COUNTED	      6	      	Result=29 	200		
+374	QLever	COUNTED	  70057	      	Result=7128418500 	200		
+375	QLever	COUNTED	  57700	      	Result=7037898900 	200		
+376	QLever	COUNTED	     24	      	Result=190 	200		
+377	QLever	COUNTED	 341853	      	Result=29441499900 	200		
+378	QLever	COUNTED	   2861	      	Result=212375016 	200		
+379	QLever	COUNTED	     64	      	Result=1051156 	200		
+380	QLever	COUNTED	      3	      	Result=50 	200		
+381	QLever	COUNTED	     15	      	Result=17440 	200		
+382	QLever	COUNTED	      2	      	Result=83 	200		
+383	QLever	COUNTED	     20	      	Result=131965 	200		
+384	QLever	COUNTED	      3	      	Result=131965 	200		
+385	QLever	COUNTED	     78	      	Result=1262332 	200		
+386	QLever	COUNTED	     48	      	Result=1221275 	200		
+387	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+388	QLever	COUNTED	      5	      	Result=171 	200		
+389	QLever	COUNTED	      1	      	Result=171 	200		
+390	QLever	COUNTED	      4	      	Result=171 	200		
+391	QLever	COUNTED	    673	      	Result=12276082 	200		
+392	QLever	COUNTED	    713	      	Result=12276082 	200		
+393	QLever	COUNTED	      4	      	Result=208 	200		
+394	QLever	COUNTED	    149	      	Result=2450452 	200		
+395	QLever	COUNTED	      2	      	Result=4993316 	200		
+396	QLever	COUNTED	    134	      	Result=1327728 	200		
+397	QLever	COUNTED	   5572	      	Result=869751132 	200		
+398	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+399	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+400	QLever	COUNTED	  49038	      	Result=7409398884 	200		
+401	QLever	COUNTED	    225	      	Result=33028524 	200		
+402	QLever	COUNTED	  16285	      	Result=2389063236 	200		
+403	QLever	COUNTED	   2048	      	Result=319275732 	200		
+404	QLever	COUNTED	  14130	      	Result=2168873076 	200		
+405	QLever	COUNTED	    509	      	Result=77066556 	200		
+406	QLever	COUNTED	   2472	      	Result=385332780 	200		
+407	QLever	COUNTED	   1407	      	Result=181813752 	200		
+408	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+409	QLever	COUNTED	      5	      	Result=0 	200		
+410	QLever	COUNTED	  14801	      	Result=2278968156 	200		
+411	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+412	QLever	COUNTED	    398	      	Result=60070422 	200		
+413	QLever	COUNTED	     68	      	Result=10962204 	200		
+414	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+415	QLever	COUNTED	 406977	      	Result=61575957900 	200		
+416	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+417	QLever	COUNTED	 276573	      	Result=41750496756 	200		
+418	QLever	COUNTED	 374047	      	Result=58753047462 	200		
+419	QLever	COUNTED	  46661	      	Result=8953085658 	200		
+420	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+421	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+422	QLever	COUNTED	 317830	      	Result=38493459900 	200		
+423	QLever	COUNTED	     70	      	Result=165094 	200		
+424	QLever	COUNTED	    238	      	Result=1384918 	200		
+425	QLever	COUNTED	    311	      	Result=1378728 	200		
+426	QLever	COUNTED	  41928	      	Result=4186531500 	200		
+427	QLever	COUNTED	     23	      	Result=426 	200		
+428	QLever	COUNTED	   7000	      	Result=886581512 	200		
+429	QLever	COUNTED	  55914	      	Result=5660723820 	200		
+430	QLever	COUNTED	  72622	      	Result=7424763336 	200		
+431	QLever	COUNTED	     63	      	Result=304754 	200		
+432	QLever	COUNTED	 134238	      	Result=13804239000 	200		
+433	QLever	COUNTED	 113228	      	Result=13849498800 	200		
+434	QLever	COUNTED	    333	      	Result=2207025 	200		
+435	QLever	COUNTED	    472	      	Result=3547804 	200		
+436	QLever	COUNTED	   2387	      	Result=294188700 	200		
+437	QLever	COUNTED	      5	      	Result=6207 	200		
+438	QLever	COUNTED	      4	      	Result=0 	200		
+439	QLever	COUNTED	      1	      	Result=7108316 	200		
+440	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+441	QLever	COUNTED	 104037	      	Result=12423815100 	200		
+442	QLever	COUNTED	 368709	      	Result=44535643200 	200		
+443	QLever	COUNTED	  18242	      	Result=2869509240 	200		
+444	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+445	QLever	COUNTED	    566	      	Result=62942754 	200		
+446	QLever	COUNTED	    494	      	Result=3314260 	200		
+447	QLever	COUNTED	    106	      	Result=3160876 	200		
+448	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+449	QLever	COUNTED	 149321	      	Result=17266093810 	200		
+450	QLever	COUNTED	     22	      	Result=19393 	200		
+451	QLever	COUNTED	     94	      	Result=151652 	200		
+452	QLever	COUNTED	 115282	      	Result=14282596002 	200		
+453	QLever	COUNTED	   4675	      	Result=732032964 	200		
+454	QLever	COUNTED	   1075	      	Result=104273676 	200		
+455	QLever	COUNTED	     71	      	Result=2409859 	200		
+456	QLever	COUNTED	     57	      	Result=1455796 	200		
+457	QLever	COUNTED	      2	      	Result=1166 	200		
+458	QLever	COUNTED	      4	      	Result=227 	200		
+459	QLever	COUNTED	    113	      	Result=16379650 	200		
+460	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+461	QLever	COUNTED	 526694	      	Result=103845501955 	200		
+462	QLever	COUNTED	 101731	      	Result=19738824105 	200		
+463	QLever	COUNTED	  14115	      	Result=2763679516 	200		
+464	QLever	COUNTED	      2	      	Result=447581 	200		
+465	QLever	COUNTED	     26	      	Result=443846 	200		
+466	QLever	COUNTED	    354	      	Result=5368201 	200		
+467	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+468	QLever	COUNTED	    455	      	Result=4597891 	200		
+469	QLever	COUNTED	    831	      	Result=19089898 	200		
+470	QLever	COUNTED	      4	      	Result=132 	200		
+471	QLever	COUNTED	   2380	      	Result=378441960 	200		
+472	QLever	COUNTED	  63728	      	Result=9498893196 	200		
+473	QLever	COUNTED	     74	      	Result=68 	200		
+474	QLever	COUNTED	      2	      	Result=7 	200		
+475	QLever	COUNTED	   2485	      	Result=360338690 	200		
+476	QLever	COUNTED	      8	      	Result=7253 	200		
+477	QLever	COUNTED	      1	      	Result=3162 	200		
+478	QLever	COUNTED	      8	      	Result=1397 	200		
+479	QLever	COUNTED	      1	      	Result=0 	200		
+480	QLever	COUNTED	      4	      	Result=0 	200		
+481	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+482	QLever	COUNTED	   3999	      	Result=584644518 	200		
+483	QLever	COUNTED	    257	      	Result=39062934 	200		
+484	QLever	COUNTED	      2	      	Result=0 	200		
+485	QLever	COUNTED	      4	      	Result=73 	200		
+486	QLever	COUNTED	     28	      	Result=3127 	200		
+487	QLever	COUNTED	 220806	      	Result=27382179000 	200		
+488	QLever	COUNTED	      4	      	Result=0 	200		
+489	QLever	COUNTED	    120	      	Result=17795078 	200		
+490	QLever	COUNTED	  14136	      	Result=2888831736 	200		
+491	QLever	COUNTED	      6	      	Result=0 	200		
+492	QLever	COUNTED	   3706	      	Result=579437536 	200		
+493	QLever	COUNTED	  18014	      	Result=3507867108 	200		
+494	QLever	COUNTED	     67	      	Result=2666854 	200		
+495	QLever	COUNTED	   4634	      	Result=744029370 	200		
+496	QLever	COUNTED	    750	      	Result=10044247 	200		
+497	QLever	COUNTED	  77315	      	Result=9588152070 	200		
+498	QLever	COUNTED	  33680	      	Result=5073848016 	200		
+499	QLever	COUNTED	     33	      	Result=346683 	200		
+500	QLever	COUNTED	    981	      	Result=197629632 	200		
+501	QLever	COUNTED	     30	      	Result=303080 	200		
+502	QLever	COUNTED	     23	      	Result=30602 	200		
+503	QLever	COUNTED	   3464	      	Result=504399192 	200		
+504	QLever	COUNTED	     24	      	Result=154242 	200		
+505	QLever	COUNTED	      4	      	Result=585796 	200		
+506	QLever	COUNTED	      3	      	Result=164 	200		
+507	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+508	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+509	QLever	COUNTED	  54726	      	Result=10810191774 	200		
+510	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+511	QLever	COUNTED	    274	      	Result=39493422 	200		
+512	QLever	COUNTED	    397	      	Result=6416919 	200		
+513	QLever	COUNTED	    117	      	Result=5345779 	200		
+514	QLever	COUNTED	    478	      	Result=3134453 	200		
+515	QLever	COUNTED	     23	      	Result=46426 	200		
+516	QLever	COUNTED	     14	      	Result=90628 	200		
+517	QLever	COUNTED	     23	      	Result=1450048 	200		
+518	QLever	COUNTED	   7792	      	Result=682283810 	200		
+519	QLever	COUNTED	      5	      	Result=187 	200		
+520	QLever	COUNTED	    653	      	Result=39502863 	200		
+521	QLever	COUNTED	  46759	      	Result=5858712680 	200		
+522	QLever	COUNTED	  91490	      	Result=18413727684 	200		
+523	QLever	COUNTED	     11	      	Result=0 	200		
+524	QLever	COUNTED	     34	      	Result=322 	200		
+525	QLever	COUNTED	     16	      	Result=222902 	200		
+526	QLever	COUNTED	      3	      	Result=1321 	200		
+527	QLever	COUNTED	     16	      	Result=301188 	200		
+528	QLever	COUNTED	      3	      	Result=326459 	200		
+529	QLever	COUNTED	      3	      	Result=40 	200		
+530	QLever	COUNTED	     13	      	Result=260359 	200		
+531	QLever	COUNTED	     12	      	Result=151100 	200		
+532	QLever	COUNTED	    678	      	Result=133949628 	200		
+533	QLever	COUNTED	     19	      	Result=279318 	200		
+534	QLever	COUNTED	  11282	      	Result=1660851072 	200		
+535	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+536	QLever	COUNTED	     11	      	Result=2 	200		
+537	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+538	QLever	COUNTED	    435	      	Result=65389288 	200		
+539	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+540	QLever	COUNTED	      5	      	Result=24392 	200		
+541	QLever	COUNTED	  77298	      	Result=11770899228 	200		
+542	QLever	COUNTED	    196	      	Result=29524176 	200		
+543	QLever	COUNTED	    541	      	Result=107543600 	200		
+544	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+545	QLever	COUNTED	    604	      	Result=44876236 	200		
+546	QLever	COUNTED	    606	      	Result=33024547 	200		
+547	QLever	COUNTED	    580	      	Result=30589568 	200		
+548	QLever	COUNTED	    641	      	Result=28716120 	200		
+549	QLever	COUNTED	      2	      	Result=0 	200		
+550	QLever	COUNTED	      2	      	Result=0 	200		
+551	QLever	COUNTED	      2	      	Result=76 	200		
+552	QLever	COUNTED	      3	      	Result=0 	200		
+553	QLever	COUNTED	  51992	      	Result=7926308764 	200		
+554	QLever	COUNTED	   7044	      	Result=1365951496 	200		
+555	QLever	COUNTED	      5	      	Result=1186 	200		
+556	QLever	COUNTED	   5410	      	Result=837306300 	200		
+557	QLever	COUNTED	   2240	      	Result=362078400 	200		
+558	QLever	COUNTED	      5	      	Result=264 	200		
+559	QLever	COUNTED	      6	      	Result=100 	200		
+560	QLever	COUNTED	     11	      	Result=11410 	200		
+561	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+562	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+563	QLever	COUNTED	      5	      	Result=2500 	200		
+564	QLever	COUNTED	      2	      	Result=0 	200		
+565	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+566	QLever	COUNTED	   1613	      	Result=314797560 	200		
+567	QLever	COUNTED	      5	      	Result=823 	200		
+568	QLever	COUNTED	      2	      	Result=1919 	200		
+569	QLever	COUNTED	      3	      	Result=165373 	200		
+570	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+571	QLever	COUNTED	      4	      	Result=0 	200		
+572	QLever	COUNTED	      2	      	Result=95 	200		
+573	QLever	COUNTED	      2	      	Result=196 	200		
+574	QLever	COUNTED	      7	      	Result=417088 	200		
+575	QLever	COUNTED	    903	      	Result=186049600 	200		
+576	QLever	COUNTED	  20462	      	Result=3172657984 	200		
+577	QLever	COUNTED	      5	      	Result=0 	200		
+578	QLever	COUNTED	      4	      	Result=1444 	200		
+579	QLever	COUNTED	      4	      	Result=69458 	200		
+580	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+581	QLever	COUNTED	  37127	      	Result=7148953815 	200		
+582	QLever	COUNTED	      4	      	Result=2 	200		
+583	QLever	COUNTED	  22878	      	Result=3788894220 	200		
+584	QLever	COUNTED	     15	      	Result=1994 	200		
+585	QLever	COUNTED	     18	      	Result=1681592 	200		
+586	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+587	QLever	COUNTED	      8	      	Result=258 	200		
+588	QLever	COUNTED	      3	      	Result=2120 	200		
+589	QLever	COUNTED	      1	      	Result=81 	200		
+590	QLever	COUNTED	      1	      	Result=22 	200		
+591	QLever	COUNTED	      2	      	Result=0 	200		
+592	QLever	COUNTED	      2	      	Result=0 	200		
+593	QLever	COUNTED	     39	      	Result=504091 	200		
+594	QLever	COUNTED	   3837	      	Result=592401330 	200		
+595	QLever	COUNTED	    165	      	Result=6557898 	200		
+596	QLever	COUNTED	    211	      	Result=3229352 	200		
+597	QLever	COUNTED	      2	      	Result=3389488 	200		
+598	QLever	COUNTED	     72	      	Result=1395603 	200		
+599	QLever	COUNTED	    117	      	Result=5225046 	200		
+600	QLever	COUNTED	    724	      	Result=6233134 	200		
+601	QLever	COUNTED	    306	      	Result=4806882 	200		
+602	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+603	QLever	COUNTED	     27	      	Result=490141 	200		
+604	QLever	COUNTED	   1152	      	Result=37593532 	200		
+605	QLever	COUNTED	  41508	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37 GB were available. Clear the cache or allow more memory for QLever during startup	
+606	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+607	QLever	COUNTED	   3724	      	Result=710744316 	200		
+608	QLever	COUNTED	   5867	      	Result=1215143508 	200		
+609	QLever	COUNTED	  22626	      	Result=2716877466 	200		
+610	QLever	COUNTED	 565376	      	Result=107184828300 	200		
+611	QLever	COUNTED	  44434	      	Result=8483077320 	200		
+612	QLever	COUNTED	  11978	      	Result=2453214252 	200		
+613	QLever	COUNTED	    345	      	Result=32709306 	200		
+614	QLever	COUNTED	  74602	      	Result=9063383218 	200		
+615	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+616	QLever	COUNTED	 600007	      	None 	429	ERROR: Operation timed out.	
+617	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+618	QLever	COUNTED	  23834	      	Result=2353509600 	200		
+619	QLever	COUNTED	      2	      	Result=214 	200		
+620	QLever	COUNTED	    334	      	Result=50601420 	200		
+621	QLever	COUNTED	  59478	      	Result=11351446400 	200		
+622	QLever	COUNTED	      7	      	Result=6388 	200		
+623	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+624	QLever	COUNTED	   1015	      	Result=206402368 	200		
+625	QLever	COUNTED	    386	      	Result=77090664 	200		
+626	QLever	COUNTED	      5	      	Result=9432 	200		
+627	QLever	COUNTED	      3	      	Result=0 	200		
+628	QLever	COUNTED	      9	      	Result=52 	200		
+629	QLever	COUNTED	    427	      	Result=11467315 	200		
+630	QLever	COUNTED	    153	      	Result=20612 	200		
+631	QLever	COUNTED	    574	      	Result=8147584 	200		
+632	QLever	COUNTED	    928	      	Result=25256570 	200		
+633	QLever	COUNTED	   1668	      	Result=70116154 	200		
+634	QLever	COUNTED	      9	      	Result=498 	200		
+635	QLever	COUNTED	  60185	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 19.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+636	QLever	COUNTED	   7769	      	Result=2339171980 	200		
+637	QLever	COUNTED	  18165	      	Result=205282952 	200		
+638	QLever	COUNTED	    646	      	Result=96980481 	200		
+639	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+640	QLever	COUNTED	   7323	      	Result=1228291068 	200		
+641	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+642	QLever	COUNTED	   1164	      	Result=173047960 	200		
+643	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+644	QLever	COUNTED	     73	      	Result=12057556 	200		
+645	QLever	COUNTED	   1765	      	Result=497857800 	200		
+646	QLever	COUNTED	     49	      	Result=70 	200		
+647	QLever	COUNTED	 375128	      	Result=28649453400 	200		
+648	QLever	COUNTED	   1041	      	Result=129549924 	200		
+649	QLever	COUNTED	      5	      	Result=0 	200		
+650	QLever	COUNTED	      1	      	Result=0 	200		
+651	QLever	COUNTED	 147253	      	Result=18509640246 	200		
+652	QLever	COUNTED	   1734	      	Result=223796058 	200		
+653	QLever	COUNTED	  40438	      	Result=6195964754 	200		
+654	QLever	COUNTED	  92324	      	Result=13891607808 	200		
+655	QLever	COUNTED	     98	      	Result=27827740 	200		
+656	QLever	COUNTED	    139	      	Result=300 	200		
+657	QLever	COUNTED	    541	      	Result=158409300 	200		
+658	QLever	COUNTED	      7	      	Result=2 	200		
+659	QLever	COUNTED	  46262	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.5 GB were available. Clear the cache or allow more memory for QLever during startup	
+660	QLever	COUNTED	  12810	      	Result=2004009792 	200		
+661	QLever	COUNTED	  25236	      	Result=3836024044 	200		
+662	QLever	COUNTED	    169	      	Result=6468248 	200		
+663	QLever	COUNTED	    190	      	Result=52657896 	200		
+664	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+665	QLever	COUNTED	     14	      	Result=157260 	200		
+666	QLever	COUNTED	      5	      	Result=70 	200		
+667	QLever	COUNTED	    243	      	Result=9643704 	200		
+668	QLever	COUNTED	 600005	      	None 	429	ERROR: Operation timed out.	
+669	QLever	COUNTED	 340761	      	Result=59554592510 	200		
+670	QLever	COUNTED	 205207	      	Result=17764471500 	200		
+671	QLever	COUNTED	 600006	      	None 	429	ERROR: Operation timed out.	
+672	QLever	COUNTED	   4519	      	Result=429968100 	200		
+673	QLever	COUNTED	     19	      	Result=14 	200		
+674	QLever	COUNTED	      8	      	Result=5 	200		
+675	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	
+676	QLever	COUNTED	     57	      	Result=128 	200		
+677	QLever	COUNTED	      6	      	Result=51 	200		
+678	QLever	COUNTED	  43194	      	Result=3748768068 	200		
+679	QLever	COUNTED	    223	      	Result=442 	200		
+680	QLever	COUNTED	      9	      	Result=11 	200		
+681	QLever	COUNTED	 600004	      	None 	429	ERROR: Operation timed out.	

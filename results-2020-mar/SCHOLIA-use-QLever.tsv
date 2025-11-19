@@ -1,0 +1,25 @@
+1	QLever		    256	      	Count= 8 	200		use_authors-of-works-using-the-resource Q30337044
+2	QLever		    617	      	Count= 9 	200		use_co-used Q30337044
+3	QLever		     10	      	Count= 7 	200		use_recent-work-using-the-used Q30337044
+4	QLever		     12	      	Count= 8 	200		use_topics-of-works-using-the-resource Q30337044
+5	QLever		      3	      	Count= 3 	200		use_usage-over-time Q30337044
+6	QLever		    214	      	Count= 2 	200		use_authors-of-works-using-the-resource Q45342146
+7	QLever		      9	      	Count= 0 	200		use_co-used Q45342146
+8	QLever		      7	      	Count= 2 	200		use_recent-work-using-the-used Q45342146
+9	QLever		      7	      	Count= 3 	200		use_topics-of-works-using-the-resource Q45342146
+10	QLever		      3	      	Count= 2 	200		use_usage-over-time Q45342146
+11	QLever		    216	      	Result=1 	200		use_authors-of-works-using-the-resource Q47459391
+12	QLever		    599	      	Result=1 	200		use_co-used Q47459391
+13	QLever		      7	      	Result=2017-07-29T00:00:00Z 	200		use_recent-work-using-the-used Q47459391
+14	QLever		      5	      	Result=1 	200		use_topics-of-works-using-the-resource Q47459391
+15	QLever		      3	      	Result=2017 	200		use_usage-over-time Q47459391
+16	QLever		      2	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q107147026>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	use_authors-of-works-using-the-resource Q107147026
+17	QLever		      2	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q107147026>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	use_co-used Q107147026
+18	QLever		      1	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q107147026>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	use_recent-work-using-the-used Q107147026
+19	QLever		      1	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q107147026>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	use_topics-of-works-using-the-resource Q107147026
+20	QLever		      1	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q107147026>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	use_usage-over-time Q107147026
+21	QLever		      2	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q111709974>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	use_authors-of-works-using-the-resource Q111709974
+22	QLever		      2	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q111709974>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	use_co-used Q111709974
+23	QLever		      2	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q111709974>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	use_recent-work-using-the-used Q111709974
+24	QLever		      1	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q111709974>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	use_topics-of-works-using-the-resource Q111709974
+25	QLever		      1	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q111709974>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	use_usage-over-time Q111709974

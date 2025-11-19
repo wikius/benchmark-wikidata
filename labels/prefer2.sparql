@@ -1,0 +1,17 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?x ?xLabel ?xLang WHERE {
+?x wdt:P31 wd:QID .
+?x rdfs:label ?xLabel .
+BIND ( lang(?xLabel) as ?xLang )
+VALUES ( ?xLang ?p ) { ('en' 1) ('mul' 2) ('de' 3) ('fr' 4) }
+FILTER NOT EXISTS {
+  BIND ( lang(?xLabel) as ?xLang )
+  VALUES ( ?xLang ?p ) { ('en' 1) ('mul' 2) ('de' 3) ('fr' 4) }
+  ?x rdfs:label ?xLabel1 .
+  BIND ( lang(?xLabel1) as ?xLang1 )
+  VALUES ( ?xLang1 ?p1 ) { ('en' 1) ('mul' 2) ('de' 3) ('fr' 4) }
+  FILTER ( ?p1 < ?p )
+  }
+}

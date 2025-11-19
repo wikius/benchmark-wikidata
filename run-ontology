@@ -1,0 +1,42 @@
+#!/bin/tcsh -x
+# ./run-ontology <engine> <directory suffix for results> [<version of Wikidata>]
+# Run the ontology-related benchmarks
+# Needs the -run script to be set up for $version.  
+
+if ( $#argv < 2 ) exit
+set area = $2
+set version = $2
+if ( $#argv > 2 ) set version = $3
+
+mkdir -p results-$area
+
+#echo "Ontology wikidata version $version" | tee results-$area/ontology-version-$1
+/home/local/scripts/$1-stop
+
+/home/local/scripts/$1-run $version
+./benchmark.py --engine=$1 count/count.text | tee results-$area/count-counted-$1.tsv
+/home/local/scripts/$1-stop
+
+/home/local/scripts/$1-run $version
+./benchmark.py --engine=$1 --directory=ontology | tee results-$area/ontology-norm-$1.tsv
+/home/local/scripts/$1-stop
+
+/home/local/scripts/$1-run $version
+./benchmark.py --engine=$1 --count --directory=ontology | tee results-$area/ontology-counted-$1.tsv
+/home/local/scripts/$1-stop
+
+/home/local/scripts/$1-run $version
+./benchmark.py --engine=$1 --directory=ontology-parameter | tee results-$area/ontology-parameter-norm-$1.tsv
+/home/local/scripts/$1-stop
+
+/home/local/scripts/$1-run $version
+./benchmark.py --engine=$1 --count --directory=ontology-parameter | tee results-$area/ontology-parameter-counted-$1.tsv
+/home/local/scripts/$1-stop
+
+/home/local/scripts/$1-run $version
+./benchmark.py --engine=$1 --count --directory=order | tee results-$area/ontology-order-counted-$1.tsv
+/home/local/scripts/$1-stop
+
+#./stats.py -v results-$area/ontology-counted-*.tsv
+#./stats.py -v results-$area/ontology-parameter-counted-*.tsv
+#./stats.py -v results-$area/order-norm-counted-*.tsv

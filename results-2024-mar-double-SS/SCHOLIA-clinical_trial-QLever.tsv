@@ -1,0 +1,10 @@
+1	QLever		  12586	      	Count= 5 	200		clinical-trial_data Q100788294
+2	QLever		 146989	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.3 GB were available. Clear the cache or allow more memory for QLever during startup	clinical-trial_related-trials Q100788294
+3	QLever		   8815	      	Count= 5 	200		clinical-trial_data Q100788300
+4	QLever		 139784	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.3 GB were available. Clear the cache or allow more memory for QLever during startup	clinical-trial_related-trials Q100788300
+5	QLever		   8719	      	Count= 6 	200		clinical-trial_data Q100788302
+6	QLever		 139697	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.3 GB were available. Clear the cache or allow more memory for QLever during startup	clinical-trial_related-trials Q100788302
+7	QLever		   8876	      	Count= 5 	200		clinical-trial_data Q100788304
+8	QLever		 148878	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.3 GB were available. Clear the cache or allow more memory for QLever during startup	clinical-trial_related-trials Q100788304
+9	QLever		   8917	      	Count= 6 	200		clinical-trial_data Q100788305
+10	QLever		 143118	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.3 GB were available. Clear the cache or allow more memory for QLever during startup	clinical-trial_related-trials Q100788305

@@ -1,5 +1,4 @@
 #!/bin/python
-## CHECK OLD USES as REPLACE is no longer replaced
 
 # Control program to run benchmarks.
 
@@ -29,8 +28,6 @@
 # 2b/ If the line does have a QUERY field the value is the name of a query file (without .sparql again)
 #    Run the parameter query.
 #    For each result of the parameter query, replace {{ q }} in the query with value of the first variable and run the resultant query
-# 2c/ If the line does have a REPLACE field the value is the name of a TSV file.
-#    For each value line of the TSV file replace each column label in the query with the value in the column and run the resultant query
 
 # Evaluates the query on one or more engines.  Note that local engines are not started.
 # Current engines are:
@@ -75,7 +72,7 @@ max_time = 600000
 def qlever_clear_cache(url):
     reply = requests.get(url, params={"cmd": "clear-cache"})
     if reply.status_code != 200:
-        print("Clear Cache Status Code", reply.status_code)
+        print("#Clear Cache Status Code", reply.status_code)
 
 def unbox(field):
     if len(field) == 0:
@@ -249,6 +246,7 @@ def process_queries_file(filename, description, counting, skip=0):
             process_query(index, query, counting, description=qdescription)
 
 def process(directory, query_file_name, description, alternatives=None, counting=False, replace=None, index=0):
+##    print("PRO", directory, query_file_name, description, alternatives, replace)
     alternatives = alternatives if alternatives is not None else {}
     if args.verbose:
         print("QUERY", query_file_name, description.strip())
@@ -338,6 +336,54 @@ def process_control_file(directory, control_file, skip=0):
             process(directory, query_file_name, description, alternatives, counting=args.count, index=index)
 
 
+def process_scholia_benchmark(directory, control_file):
+    index = 0
+    lines = control_file.readlines()
+    i = 1
+    rows = None
+    while True:
+        qlever_clear_cache('http://getafix:7001')
+        for line in lines:
+            fields = line.rstrip().split('\t')
+            if len(fields) < 2 or line.startswith("#"):
+                if args.verbose:
+                    print(line)
+                continue
+            query_file_name = fields[0]
+            description = fields[1]
+            alternatives = {fields[i]: fields[i + 1] for i in range(2, len(fields), 2)}
+##            print("LINE", query_file_name, description, alternatives, fields)
+            if rows is None:
+                if "QUERY" in alternatives:
+                    parameter = alternatives["QUERY"]
+                    del alternatives["QUERY"]
+                    with open(directory + '/' + parameter + '.tsv', 'r') as parameter_file:
+                        rows = [ row for row in csv.reader(parameter_file, delimiter="\t") ]
+                    values = False
+                elif "VALUES" in alternatives:
+                    parameter = alternatives["VALUES"]
+                    del alternatives["VALUES"]
+                    rows = query_values(parameter, directory)
+                    values = True
+##                print("ROWS", rows)
+            if rows is None or len(rows) <= i:
+                return
+##            print("QUERY", directory, query_file_name)
+
+            if not values:
+                replace = unbox(rows[i][0])
+                label = rows[i][1] if len(rows[i]) > 1 else replace
+                replace=[["{{ *q *}}", replace]]
+                rdesc = description.replace("LABEL", unbox(label))
+            else:
+                replace = list(zip(rows[0].split('\t'), rows[i].split('\t')))
+                rdesc = description.replace(replace[0][0], replace[0][1])
+##                print("REPLACE VALUES", replace)
+            process(directory, query_file_name, rdesc, replace=replace, index=index)
+            index += 1
+        i += 1
+
+
 parser = argparse.ArgumentParser()
 parser.add_argument("filename", nargs="?", default=None, help="Name of file containing queries")
 parser.add_argument("-D", "--description", action='store', default="", help="Description")
@@ -348,6 +394,7 @@ parser.add_argument("-c", "--count", action='store_true', help="Add enclosing SE
 parser.add_argument("-v", "--verbose", action='store_true', help="Verbose output")
 parser.add_argument("-P", "--nodups", action='store_true', help="Add DISTINCT to query to eliminate duplicates")
 parser.add_argument("-s", "--skip", action='store', type=int, help="Skip first n queries")
+parser.add_argument("-S", "--Scholia", action='store_true', help="Run in Scholia mode")
 args = parser.parse_args()
 
 if args.engine:
@@ -372,7 +419,9 @@ else:
     except Exception:
         control_file = None
 
-if control_file is not None:
+if args.Scholia:
+    process_scholia_benchmark(directory, control_file)
+elif control_file is not None:
     if args.verbose: 
         print(f"Evaluating queries from {directory}")
         if args.description:

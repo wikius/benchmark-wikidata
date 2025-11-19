@@ -1,0 +1,15 @@
+1	QLever		   1064	      	Count= 100 	200		property_item-counts subclass of
+2	QLever		    336	      	Count= 100 	200		property_property-value-counts subclass of
+3	QLever		   3394	      	Count= 500 	200		property_use subclass of
+4	QLever		  12851	      	Count= 100 	200		property_item-counts instance of
+5	QLever		    380	      	Count= 100 	200		property_property-value-counts instance of
+6	QLever		  33250	      	Count= 500 	200		property_use instance of
+7	QLever		   5728	      	Count= 100 	200		property_item-counts publication date
+8	QLever		    502	      	Count= 100 	200		property_property-value-counts publication date
+9	QLever		  14659	      	Count= 500 	200		property_use publication date
+10	QLever		    586	      	Count= 100 	200		property_item-counts start time
+11	QLever		     25	      	Count= 100 	200		property_property-value-counts start time
+12	QLever		   1441	      	Count= 500 	200		property_use start time
+13	QLever		    919	      	Count= 100 	200		property_item-counts part of
+14	QLever		    198	      	Count= 100 	200		property_property-value-counts part of
+15	QLever		   2752	      	Count= 500 	200		property_use part of

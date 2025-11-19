@@ -1,0 +1,75 @@
+1	QLever		    374	      	Count= 18 	200		event_co-authors Q100741900
+2	QLever		   5007	      	Count= 2 	200		event_data Q100741900
+3	QLever		     66	      	Count= 0 	200		event_future-events Q100741900
+4	QLever		  47119	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.7 GB were available. Clear the cache or allow more memory for QLever during startup	event_past-events Q100741900
+5	QLever		  11180	      	Count= 10000 	200		event_people Q100741900
+6	QLever		   3498	      	Count= 0 	200		event_presentations Q100741900
+7	QLever		      4	      	Result=Q100899396 	200		event_proceedings Q100741900
+8	QLever		    243	      	Count= 351 	200		event_recent-publications Q100741900
+9	QLever		    783	      	Count= 78 	200		event_related-events-people Q100741900
+10	QLever		     66	      	Count= 0 	200		event_related-events-timelocation Q100741900
+11	QLever		      4	      	Count= 2 	200		event_sponsors Q100741900
+12	QLever		    609	      	Count= 2 	200		event_timeline Q100741900
+13	QLever		   1407	      	Count= 200 	200		event_topic-scores Q100741900
+14	QLever		     30	      	Count= 0 	200		event_upcoming-deadlines Q100741900
+15	QLever		    662	      	Count= 25 	200		event_uses Q100741900
+16	QLever		    247	      	Count= 0 	200		event_co-authors Q105835556
+17	QLever		   3522	      	Count= 0 	200		event_data Q105835556
+18	QLever		     52	      	Count= 0 	200		event_future-events Q105835556
+19	QLever		  46821	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.7 GB were available. Clear the cache or allow more memory for QLever during startup	event_past-events Q105835556
+20	QLever		    270	      	Count= 0 	200		event_people Q105835556
+21	QLever		   3487	      	Count= 0 	200		event_presentations Q105835556
+22	QLever		      4	      	Count= 0 	200		event_proceedings Q105835556
+23	QLever		      4	      	Count= 0 	200		event_recent-publications Q105835556
+24	QLever		     11	      	Count= 0 	200		event_related-events-people Q105835556
+25	QLever		     16	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q105835556>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	event_related-events-timelocation Q105835556
+26	QLever		      3	      	Count= 0 	200		event_sponsors Q105835556
+27	QLever		     10	      	Count= 0 	200		event_timeline Q105835556
+28	QLever		      7	      	Count= 0 	200		event_topic-scores Q105835556
+29	QLever		     38	      	Count= 0 	200		event_upcoming-deadlines Q105835556
+30	QLever		      6	      	Count= 0 	200		event_uses Q105835556
+31	QLever		    250	      	Count= 0 	200		event_co-authors Q115781177
+32	QLever		   3529	      	Count= 0 	200		event_data Q115781177
+33	QLever		     52	      	Count= 0 	200		event_future-events Q115781177
+34	QLever		  47393	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.7 GB were available. Clear the cache or allow more memory for QLever during startup	event_past-events Q115781177
+35	QLever		    272	      	Count= 0 	200		event_people Q115781177
+36	QLever		   3478	      	Count= 0 	200		event_presentations Q115781177
+37	QLever		      7	      	Count= 0 	200		event_proceedings Q115781177
+38	QLever		      4	      	Count= 0 	200		event_recent-publications Q115781177
+39	QLever		     12	      	Count= 0 	200		event_related-events-people Q115781177
+40	QLever		     15	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q115781177>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	event_related-events-timelocation Q115781177
+41	QLever		      3	      	Count= 0 	200		event_sponsors Q115781177
+42	QLever		     12	      	Count= 0 	200		event_timeline Q115781177
+43	QLever		      7	      	Count= 0 	200		event_topic-scores Q115781177
+44	QLever		     39	      	Count= 0 	200		event_upcoming-deadlines Q115781177
+45	QLever		      6	      	Count= 0 	200		event_uses Q115781177
+46	QLever		    254	      	Count= 0 	200		event_co-authors Q1159867
+47	QLever		   4738	      	Count= 2 	200		event_data Q1159867
+48	QLever		     52	      	Count= 0 	200		event_future-events Q1159867
+49	QLever		  46735	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.7 GB were available. Clear the cache or allow more memory for QLever during startup	event_past-events Q1159867
+50	QLever		    271	      	Count= 0 	200		event_people Q1159867
+51	QLever		   3492	      	Count= 2 	200		event_presentations Q1159867
+52	QLever		      4	      	Count= 0 	200		event_proceedings Q1159867
+53	QLever		      4	      	Count= 0 	200		event_recent-publications Q1159867
+54	QLever		     11	      	Count= 0 	200		event_related-events-people Q1159867
+55	QLever		     62	      	Count= 0 	200		event_related-events-timelocation Q1159867
+56	QLever		      3	      	Result=Q239221 	200		event_sponsors Q1159867
+57	QLever		      9	      	Count= 0 	200		event_timeline Q1159867
+58	QLever		      9	      	Count= 2 	200		event_topic-scores Q1159867
+59	QLever		     22	      	Count= 0 	200		event_upcoming-deadlines Q1159867
+60	QLever		      5	      	Count= 0 	200		event_uses Q1159867
+61	QLever		    258	      	Count= 0 	200		event_co-authors Q119153952
+62	QLever		   3515	      	Count= 0 	200		event_data Q119153952
+63	QLever		     50	      	Count= 0 	200		event_future-events Q119153952
+64	QLever		  46630	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.7 GB were available. Clear the cache or allow more memory for QLever during startup	event_past-events Q119153952
+65	QLever		    269	      	Count= 0 	200		event_people Q119153952
+66	QLever		   3517	      	Count= 0 	200		event_presentations Q119153952
+67	QLever		      5	      	Count= 0 	200		event_proceedings Q119153952
+68	QLever		      4	      	Count= 0 	200		event_recent-publications Q119153952
+69	QLever		     11	      	Count= 0 	200		event_related-events-people Q119153952
+70	QLever		     15	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q119153952>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	event_related-events-timelocation Q119153952
+71	QLever		      3	      	Count= 0 	200		event_sponsors Q119153952
+72	QLever		     11	      	Count= 0 	200		event_timeline Q119153952
+73	QLever		      7	      	Count= 0 	200		event_topic-scores Q119153952
+74	QLever		     40	      	Count= 0 	200		event_upcoming-deadlines Q119153952
+75	QLever		      6	      	Count= 0 	200		event_uses Q119153952

@@ -1,0 +1,498 @@
+1	QLever	NODUPS	     58	      	Count= 392 	200		
+2	QLever	NODUPS	    143	      	Count= 0 	200		
+3	QLever	NODUPS	 316572	      	None 	500	ERROR: Tried to allocate 17.2 GB, but only 14.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+4	QLever	NODUPS	 317741	      	Count= 10000000 	200		
+5	QLever	NODUPS	 179011	      	Count= 10000000 	200		
+6	QLever	NODUPS	 151130	      	Count= 10000000 	200		
+7	QLever	NODUPS	 142485	      	Count= 10000000 	200		
+8	QLever	NODUPS	 138248	      	Count= 10000000 	200		
+9	QLever	NODUPS	  52287	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+10	QLever	NODUPS	  58031	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+11	QLever	NODUPS	     45	      	Count= 56 	200		
+12	QLever	NODUPS	     37	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+13	QLever	NODUPS	 294929	      	Count= 10000000 	200		
+14	QLever	NODUPS	  12187	      	Count= 10000000 	200		
+15	QLever	NODUPS	    519	      	Count= 20296 	200		
+16	QLever	NODUPS	 234283	      	Count= 10000000 	200		
+17	QLever	NODUPS	  15909	      	Count= 10000000 	200		
+18	QLever	NODUPS	    363	      	Count= 392894 	200		
+19	QLever	NODUPS	 118953	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 20.3 GB were available. Clear the cache or allow more memory for QLever during startup	
+20	QLever	NODUPS	     29	      	Count= 0 	200		
+21	QLever	NODUPS	    780	      	Count= 204363 	200		
+22	QLever	NODUPS	     53	      	Count= 25142 	200		
+23	QLever	NODUPS	  48661	      	Count= 10000000 	200		
+24	QLever	NODUPS	  23987	      	Count= 10000000 	200		
+25	QLever	NODUPS	    819	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+26	QLever	NODUPS	    119	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+27	QLever	NODUPS	     80	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+28	QLever	NODUPS	     55	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+29	QLever	NODUPS	  98946	      	Count= 10000000 	200		
+30	QLever	NODUPS	  52546	      	Count= 10000000 	200		
+31	QLever	NODUPS	  59274	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+32	QLever	NODUPS	  45355	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+33	QLever	NODUPS	     53	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+34	QLever	NODUPS	     54	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+35	QLever	NODUPS	     42	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+36	QLever	NODUPS	  45343	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+37	QLever	NODUPS	  52957	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37 GB were available. Clear the cache or allow more memory for QLever during startup	
+38	QLever	NODUPS	  62070	      	Count= 10000000 	200		
+39	QLever	NODUPS	   1715	      	Count= 37572 	200		
+40	QLever	NODUPS	  59494	      	Count= 10000000 	200		
+41	QLever	NODUPS	     28	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+42	QLever	NODUPS	    695	      	Count= 897594 	200		
+43	QLever	NODUPS	    342	      	Count= 837736 	200		
+44	QLever	NODUPS	   1064	      	Count= 1344779 	200		
+45	QLever	NODUPS	   2839	      	Count= 2032475 	200		
+46	QLever	NODUPS	  46292	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+47	QLever	NODUPS	    505	      	Count= 845365 	200		
+48	QLever	NODUPS	     59	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+49	QLever	NODUPS	   1429	      	Count= 391943 	200		
+50	QLever	NODUPS	    460	      	Count= 392137 	200		
+51	QLever	NODUPS	   5383	      	Count= 10000000 	200		
+52	QLever	NODUPS	   7443	      	Count= 10000000 	200		
+53	QLever	NODUPS	    998	      	Count= 1632320 	200		
+54	QLever	NODUPS	 424768	      	Count= 10000000 	200		
+55	QLever	NODUPS	  27049	      	None 	500	ERROR: Tried to allocate 14.4 GB, but only 12.5 GB were available. Clear the cache or allow more memory for QLever during startup	
+56	QLever	NODUPS	  69069	      	Count= 10000000 	200		
+57	QLever	NODUPS	     52	      	Count= 7301 	200		
+58	QLever	NODUPS	 144160	      	None 	500	ERROR: Tried to allocate 13.1 GB, but only 10.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+59	QLever	NODUPS	  13835	      	Count= 10000000 	200		
+60	QLever	NODUPS	     95	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+61	QLever	NODUPS	  97160	      	Count= 10000000 	200		
+62	QLever	NODUPS	 100780	      	Count= 10000000 	200		
+63	QLever	NODUPS	    257	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+64	QLever	NODUPS	 512563	      	Count= 10000000 	200		
+65	QLever	NODUPS	 503679	      	Count= 10000000 	200		
+66	QLever	NODUPS	     22	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+67	QLever	NODUPS	 166372	      	Count= 10000000 	200		
+68	QLever	NODUPS	      5	      	Count= 153 	200		
+69	QLever	NODUPS	  16778	      	Count= 10000000 	200		
+70	QLever	NODUPS	  10598	      	Count= 10000000 	200		
+71	QLever	NODUPS	  34014	      	Count= 10000000 	200		
+72	QLever	NODUPS	   2150	      	Count= 2443344 	200		
+73	QLever	NODUPS	     18	      	Count= 1103 	200		
+74	QLever	NODUPS	     39	      	Count= 1103 	200		
+75	QLever	NODUPS	  29246	      	Count= 10000000 	200		
+76	QLever	NODUPS	     17	      	Count= 0 	200		
+77	QLever	NODUPS	  15995	      	Count= 10000000 	200		
+78	QLever	NODUPS	   1028	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+79	QLever	NODUPS	  11878	      	Count= 10000000 	200		
+80	QLever	NODUPS	  26551	      	None 	500	ERROR: Tried to allocate 25.3 GB, but only 15.3 GB were available. Clear the cache or allow more memory for QLever during startup	
+81	QLever	NODUPS	  62644	      	Count= 10000000 	200		
+82	QLever	NODUPS	  64317	      	Count= 10000000 	200		
+83	QLever	NODUPS	     17	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+84	QLever	NODUPS	  26061	      	Count= 10000000 	200		
+85	QLever	NODUPS	  33836	      	Count= 10000000 	200		
+86	QLever	NODUPS	 298438	      	Count= 10000000 	200		
+87	QLever	NODUPS	     26	      	Count= 128 	200		
+88	QLever	NODUPS	     66	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+89	QLever	NODUPS	  88580	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 26.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+90	QLever	NODUPS	  53804	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+91	QLever	NODUPS	  54207	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+92	QLever	NODUPS	  54509	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37 GB were available. Clear the cache or allow more memory for QLever during startup	
+93	QLever	NODUPS	    651	      	Count= 257771 	200		
+94	QLever	NODUPS	   1030	      	Count= 850484 	200		
+95	QLever	NODUPS	    370	      	Count= 288388 	200		
+96	QLever	NODUPS	    504	      	Count= 378982 	200		
+97	QLever	NODUPS	   1057	      	Count= 813111 	200		
+98	QLever	NODUPS	    169	      	Count= 881 	200		
+99	QLever	NODUPS	   1631	      	Count= 1297058 	200		
+100	QLever	NODUPS	  31786	      	Count= 10000000 	200		
+101	QLever	NODUPS	   1697	      	Count= 1389705 	200		
+102	QLever	NODUPS	    369	      	Count= 382517 	200		
+103	QLever	NODUPS	  50724	      	Count= 10000000 	200		
+104	QLever	NODUPS	    737	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+105	QLever	NODUPS	  46637	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+106	QLever	NODUPS	  27387	      	Count= 10000000 	200		
+107	QLever	NODUPS	  32701	      	Count= 10000000 	200		
+108	QLever	NODUPS	    472	      	Count= 722 	200		
+109	QLever	NODUPS	    763	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+110	QLever	NODUPS	   1982	      	Count= 2094364 	200		
+111	QLever	NODUPS	      9	      	Count= 741 	200		
+112	QLever	NODUPS	    309	      	Count= 0 	200		
+113	QLever	NODUPS	  33464	      	Count= 10000000 	200		
+114	QLever	NODUPS	  24510	      	None 	500	ERROR: Tried to allocate 25.7 GB, but only 13.6 GB were available. Clear the cache or allow more memory for QLever during startup	
+115	QLever	NODUPS	  12952	      	Count= 7672673 	200		
+116	QLever	NODUPS	  11094	      	Count= 7317410 	200		
+117	QLever	NODUPS	    144	      	Count= 42931 	200		
+118	QLever	NODUPS	     33	      	Count= 0 	200		
+119	QLever	NODUPS	      6	      	Count= 0 	200		
+120	QLever	NODUPS	    289	      	Count= 0 	200		
+121	QLever	NODUPS	  23963	      	Count= 10000000 	200		
+122	QLever	NODUPS	   1013	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+123	QLever	NODUPS	     43	      	Count= 167 	200		
+124	QLever	NODUPS	      4	      	Count= 255 	200		
+125	QLever	NODUPS	     13	      	Count= 260 	200		
+126	QLever	NODUPS	    228	      	Count= 109 	200		
+127	QLever	NODUPS	 118985	      	Count= 10000000 	200		
+128	QLever	NODUPS	    955	      	Count= 122 	200		
+129	QLever	NODUPS	      7	      	Count= 126 	200		
+130	QLever	NODUPS	    280	      	Count= 55 	200		
+131	QLever	NODUPS	      5	      	Count= 55 	200		
+132	QLever	NODUPS	  17215	      	Count= 7187084 	200		
+133	QLever	NODUPS	 102690	      	Count= 10000000 	200		
+134	QLever	NODUPS	  30974	      	Count= 10000000 	200		
+135	QLever	NODUPS	  58382	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available. Clear the cache or allow more memory for QLever during startup	
+136	QLever	NODUPS	  60014	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available. Clear the cache or allow more memory for QLever during startup	
+137	QLever	NODUPS	     61	      	Count= 10911 	200		
+138	QLever	NODUPS	     46	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+139	QLever	NODUPS	  48919	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+140	QLever	NODUPS	    272	      	Count= 1487 	200		
+141	QLever	NODUPS	     11	      	Count= 223 	200		
+142	QLever	NODUPS	   2764	      	Count= 1876926 	200		
+143	QLever	NODUPS	    201	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+144	QLever	NODUPS	     18	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+145	QLever	NODUPS	      9	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+146	QLever	NODUPS	     61	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+147	QLever	NODUPS	      8	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+148	QLever	NODUPS	     49	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+149	QLever	NODUPS	     12	      	Count= 26 	200		
+150	QLever	NODUPS	      1	      	Count= 26 	200		
+151	QLever	NODUPS	      3	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+152	QLever	NODUPS	     11	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+153	QLever	NODUPS	     47	      	Count= 8082 	200		
+154	QLever	NODUPS	    169	      	Count= 22479 	200		
+155	QLever	NODUPS	     12	      	Count= 97 	200		
+156	QLever	NODUPS	     29	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+157	QLever	NODUPS	  78338	      	Count= 10000000 	200		
+158	QLever	NODUPS	 137004	      	Count= 10000000 	200		
+159	QLever	NODUPS	 101541	      	Count= 10000000 	200		
+160	QLever	NODUPS	     50	      	Count= 0 	200		
+161	QLever	NODUPS	      8	      	Count= 0 	200		
+162	QLever	NODUPS	      7	      	Count= 490 	200		
+163	QLever	NODUPS	    332	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+164	QLever	NODUPS	    335	      	Count= 156 	200		
+165	QLever	NODUPS	  53933	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+166	QLever	NODUPS	  60612	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+167	QLever	NODUPS	     41	      	Count= 0 	200		
+168	QLever	NODUPS	    164	      	Count= 72 	200		
+169	QLever	NODUPS	      5	      	Count= 242 	200		
+170	QLever	NODUPS	      2	      	Count= 244 	200		
+171	QLever	NODUPS	      5	      	Count= 229 	200		
+172	QLever	NODUPS	     17	      	Count= 183 	200		
+173	QLever	NODUPS	  54177	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37 GB were available. Clear the cache or allow more memory for QLever during startup	
+174	QLever	NODUPS	  53905	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37 GB were available. Clear the cache or allow more memory for QLever during startup	
+175	QLever	NODUPS	      8	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+176	QLever	NODUPS	 386098	      	Count= 10000000 	200		
+177	QLever	NODUPS	 257744	      	Count= 10000000 	200		
+178	QLever	NODUPS	     67	      	Count= 3182 	200		
+179	QLever	NODUPS	  46606	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.6 GB were available. Clear the cache or allow more memory for QLever during startup	
+180	QLever	NODUPS	     57	      	Count= 12665 	200		
+181	QLever	NODUPS	 360271	      	Count= 10000000 	200		
+182	QLever	NODUPS	 385108	      	None 	500	ERROR: Tried to allocate 17.2 GB, but only 13.5 GB were available. Clear the cache or allow more memory for QLever during startup	
+183	QLever	NODUPS	 139471	      	Count= 10000000 	200		
+184	QLever	NODUPS	     75	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+185	QLever	NODUPS	   5568	      	Count= 10000000 	200		
+186	QLever	NODUPS	   8921	      	Count= 10000000 	200		
+187	QLever	NODUPS	   5017	      	Count= 10000000 	200		
+188	QLever	NODUPS	  28439	      	Count= 10000000 	200		
+189	QLever	NODUPS	    603	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+190	QLever	NODUPS	    115	      	Count= 22437 	200		
+191	QLever	NODUPS	 169887	      	None 	500	ERROR: Tried to allocate 23.9 GB, but only 15.5 GB were available. Clear the cache or allow more memory for QLever during startup	
+192	QLever	NODUPS	     76	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+193	QLever	NODUPS	     37	      	Count= 716 	200		
+194	QLever	NODUPS	      6	      	Count= 717 	200		
+195	QLever	NODUPS	 116871	      	Count= 10000000 	200		
+196	QLever	NODUPS	   5477	      	Count= 5527626 	200		
+197	QLever	NODUPS	   5804	      	Count= 5527121 	200		
+198	QLever	NODUPS	 115866	      	Count= 10000000 	200		
+199	QLever	NODUPS	     20	      	Count= 2479 	200		
+200	QLever	NODUPS	     72	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+201	QLever	NODUPS	  45958	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+202	QLever	NODUPS	   1161	      	Count= 1650593 	200		
+203	QLever	NODUPS	   3771	      	Count= 6164382 	200		
+204	QLever	NODUPS	 182744	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 16.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+205	QLever	NODUPS	 180814	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 16.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+206	QLever	NODUPS	  48475	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+207	QLever	NODUPS	   1545	      	Count= 671999 	200		
+208	QLever	NODUPS	   4074	      	Count= 3607866 	200		
+209	QLever	NODUPS	     86	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+210	QLever	NODUPS	    247	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+211	QLever	NODUPS	     58	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+212	QLever	NODUPS	     27	      	Count= 0 	200		
+213	QLever	NODUPS	     60	      	Count= 57 	200		
+214	QLever	NODUPS	 219283	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 12.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+215	QLever	NODUPS	     39	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+216	QLever	NODUPS	     52	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+217	QLever	NODUPS	     46	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+218	QLever	NODUPS	    127	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+219	QLever	NODUPS	     95	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+220	QLever	NODUPS	  46561	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+221	QLever	NODUPS	  60060	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37 GB were available. Clear the cache or allow more memory for QLever during startup	
+222	QLever	NODUPS	  60132	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37 GB were available. Clear the cache or allow more memory for QLever during startup	
+223	QLever	NODUPS	  60251	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available. Clear the cache or allow more memory for QLever during startup	
+224	QLever	NODUPS	  60689	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37 GB were available. Clear the cache or allow more memory for QLever during startup	
+225	QLever	NODUPS	   2855	      	Count= 2664670 	200		
+226	QLever	NODUPS	   2055	      	Count= 2574163 	200		
+227	QLever	NODUPS	    115	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+228	QLever	NODUPS	   1558	      	Count= 3108727 	200		
+229	QLever	NODUPS	    760	      	Count= 2441436 	200		
+230	QLever	NODUPS	   4419	      	Count= 9368433 	200		
+231	QLever	NODUPS	  25737	      	Count= 10000000 	200		
+232	QLever	NODUPS	    564	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+233	QLever	NODUPS	  54309	      	Count= 10000000 	200		
+234	QLever	NODUPS	 138422	      	Count= 10000000 	200		
+235	QLever	NODUPS	    492	      	Count= 0 	200		
+236	QLever	NODUPS	    392	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+237	QLever	NODUPS	  54336	      	Count= 10000000 	200		
+238	QLever	NODUPS	  48694	      	None 	500	ERROR: Tried to allocate 9.5 GB, but only 2.5 GB were available. Clear the cache or allow more memory for QLever during startup	
+239	QLever	NODUPS	  52279	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.2 GB were available. Clear the cache or allow more memory for QLever during startup	
+240	QLever	NODUPS	  52304	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.2 GB were available. Clear the cache or allow more memory for QLever during startup	
+241	QLever	NODUPS	  52376	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+242	QLever	NODUPS	  30164	      	Count= 10000000 	200		
+243	QLever	NODUPS	  31125	      	Count= 10000000 	200		
+244	QLever	NODUPS	 200923	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 10.3 GB were available. Clear the cache or allow more memory for QLever during startup	
+245	QLever	NODUPS	  65161	      	None 	500	ERROR: Tried to allocate 13.9 GB, but only 9.4 GB were available. Clear the cache or allow more memory for QLever during startup	
+246	QLever	NODUPS	     44	      	Count= 0 	200		
+247	QLever	NODUPS	  74293	      	Count= 10000000 	200		
+248	QLever	NODUPS	 117329	      	Count= 10000000 	200		
+249	QLever	NODUPS	  53402	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+250	QLever	NODUPS	  46018	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+251	QLever	NODUPS	    106	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+252	QLever	NODUPS	    263	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+253	QLever	NODUPS	     27	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+254	QLever	NODUPS	    127	      	Count= 49033 	200		
+255	QLever	NODUPS	 111263	      	Count= 10000000 	200		
+256	QLever	NODUPS	  52756	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 23.5 GB were available. Clear the cache or allow more memory for QLever during startup	
+257	QLever	NODUPS	    335	      	Count= 453 	200		
+258	QLever	NODUPS	     19	      	Count= 1504 	200		
+259	QLever	NODUPS	   4260	      	Count= 9291544 	200		
+260	QLever	NODUPS	    120	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+261	QLever	NODUPS	     65	      	Count= 1498 	200		
+262	QLever	NODUPS	     10	      	Count= 1530 	200		
+263	QLever	NODUPS	  24392	      	Count= 670140 	200		
+264	QLever	NODUPS	 111053	      	Count= 10000000 	200		
+265	QLever	NODUPS	      5	      	Count= 192 	200		
+266	QLever	NODUPS	    687	      	Count= 450 	200		
+267	QLever	NODUPS	   2977	      	Count= 2085154 	200		
+268	QLever	NODUPS	      9	      	Count= 0 	200		
+269	QLever	NODUPS	    335	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+270	QLever	NODUPS	    152	      	Count= 1616 	200		
+271	QLever	NODUPS	    688	      	Count= 347076 	200		
+272	QLever	NODUPS	   8875	      	Count= 4164338 	200		
+273	QLever	NODUPS	   6519	      	Count= 4158507 	200		
+274	QLever	NODUPS	    744	      	Count= 289216 	200		
+275	QLever	NODUPS	    245	      	Count= 404118 	200		
+276	QLever	NODUPS	  60430	      	None 	500	ERROR: Tried to allocate 13.1 GB, but only 9.2 GB were available. Clear the cache or allow more memory for QLever during startup	
+277	QLever	NODUPS	   1139	      	Count= 1266448 	200		
+278	QLever	NODUPS	   2307	      	Count= 1283333 	200		
+279	QLever	NODUPS	    190	      	Count= 312850 	200		
+280	QLever	NODUPS	    224	      	Count= 310807 	200		
+281	QLever	NODUPS	   3822	      	Count= 2321761 	200		
+282	QLever	NODUPS	    344	      	Count= 327196 	200		
+283	QLever	NODUPS	  15723	      	Count= 10000000 	200		
+284	QLever	NODUPS	  60438	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.8 GB were available. Clear the cache or allow more memory for QLever during startup	
+285	QLever	NODUPS	     34	      	Count= 157 	200		
+286	QLever	NODUPS	     99	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+287	QLever	NODUPS	  67280	      	Count= 10000000 	200		
+288	QLever	NODUPS	   2401	      	Count= 4805224 	200		
+289	QLever	NODUPS	     34	      	Count= 8 	200		
+290	QLever	NODUPS	     26	      	Count= 355 	200		
+291	QLever	NODUPS	    127	      	Result=Q129264257 	200		
+292	QLever	NODUPS	    150	      	Count= 4038 	200		
+293	QLever	NODUPS	  28863	      	Count= 10000000 	200		
+294	QLever	NODUPS	  17375	      	Count= 10000000 	200		
+295	QLever	NODUPS	   5305	      	Count= 10000000 	200		
+296	QLever	NODUPS	  24940	      	Count= 10000000 	200		
+297	QLever	NODUPS	   9506	      	Count= 10000000 	200		
+298	QLever	NODUPS	   8935	      	Count= 10000000 	200		
+299	QLever	NODUPS	 171943	      	Count= 10000000 	200		
+300	QLever	NODUPS	  15364	      	Count= 10000000 	200		
+301	QLever	NODUPS	     45	      	Count= 4192 	200		
+302	QLever	NODUPS	      4	      	Count= 111 	200		
+303	QLever	NODUPS	  10345	      	Count= 4455527 	200		
+304	QLever	NODUPS	      7	      	Count= 3274 	200		
+305	QLever	NODUPS	    950	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+306	QLever	NODUPS	    341	      	Count= 0 	200		
+307	QLever	NODUPS	      6	      	Result=Q17332810 	200		
+308	QLever	NODUPS	    188	      	Count= 0 	200		
+309	QLever	NODUPS	     93	      	Count= 986 	200		
+310	QLever	NODUPS	     49	      	Count= 0 	200		
+311	QLever	NODUPS	     39	      	Count= 0 	200		
+312	QLever	NODUPS	      5	      	Count= 396 	200		
+313	QLever	NODUPS	    303	      	Count= 0 	200		
+314	QLever	NODUPS	    408	      	Count= 91570 	200		
+315	QLever	NODUPS	    228	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+316	QLever	NODUPS	  54109	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available. Clear the cache or allow more memory for QLever during startup	
+317	QLever	NODUPS	  54063	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available. Clear the cache or allow more memory for QLever during startup	
+318	QLever	NODUPS	   2421	      	Count= 5847227 	200		
+319	QLever	NODUPS	 238625	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 15 GB were available. Clear the cache or allow more memory for QLever during startup	
+320	QLever	NODUPS	    615	      	Count= 952998 	200		
+321	QLever	NODUPS	  11493	      	Count= 3054494 	200		
+322	QLever	NODUPS	  54257	      	Count= 10000000 	200		
+323	QLever	NODUPS	    540	      	Count= 945610 	200		
+324	QLever	NODUPS	    541	      	Count= 946883 	200		
+325	QLever	NODUPS	    565	      	Count= 952163 	200		
+326	QLever	NODUPS	     48	      	Count= 16889 	200		
+327	QLever	NODUPS	     49	      	Count= 17261 	200		
+328	QLever	NODUPS	    182	      	Count= 427020 	200		
+329	QLever	NODUPS	  90560	      	Count= 10000000 	200		
+330	QLever	NODUPS	   1371	      	Count= 5490883 	200		
+331	QLever	NODUPS	  41499	      	Count= 10000000 	200		
+332	QLever	NODUPS	  41811	      	Count= 10000000 	200		
+333	QLever	NODUPS	   2113	      	Count= 2044917 	200		
+334	QLever	NODUPS	    911	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+335	QLever	NODUPS	     15	      	Count= 23 	200		
+336	QLever	NODUPS	    517	      	Count= 305813 	200		
+337	QLever	NODUPS	    490	      	Count= 298625 	200		
+338	QLever	NODUPS	    222	      	Count= 233124 	200		
+339	QLever	NODUPS	     10	      	Count= 815 	200		
+340	QLever	NODUPS	 176971	      	None 	500	ERROR: Tried to allocate 13.1 GB, but only 12.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+341	QLever	NODUPS	    150	      	Count= 74746 	200		
+342	QLever	NODUPS	     20	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+343	QLever	NODUPS	  60310	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available. Clear the cache or allow more memory for QLever during startup	
+344	QLever	NODUPS	    313	      	Count= 248528 	200		
+345	QLever	NODUPS	  54249	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available. Clear the cache or allow more memory for QLever during startup	
+346	QLever	NODUPS	  53820	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37 GB were available. Clear the cache or allow more memory for QLever during startup	
+347	QLever	NODUPS	    137	      	Count= 228832 	200		
+348	QLever	NODUPS	    398	      	Count= 568437 	200		
+349	QLever	NODUPS	   1227	      	Count= 1681612 	200		
+350	QLever	NODUPS	  19271	      	Count= 10000000 	200		
+351	QLever	NODUPS	  62155	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available. Clear the cache or allow more memory for QLever during startup	
+352	QLever	NODUPS	  59768	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37.1 GB were available. Clear the cache or allow more memory for QLever during startup	
+353	QLever	NODUPS	  64754	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+354	QLever	NODUPS	  59653	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+355	QLever	NODUPS	  60514	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.9 GB were available. Clear the cache or allow more memory for QLever during startup	
+356	QLever	NODUPS	    148	      	Count= 76845 	200		
+357	QLever	NODUPS	    445	      	Count= 16435 	200		
+358	QLever	NODUPS	 305769	      	None 	500	ERROR: Tried to allocate 17.2 GB, but only 12.4 GB were available. Clear the cache or allow more memory for QLever during startup	
+359	QLever	NODUPS	   3324	      	Count= 3371503 	200		
+360	QLever	NODUPS	   4009	      	Count= 3246255 	200		
+361	QLever	NODUPS	   3390	      	Count= 3246252 	200		
+362	QLever	NODUPS	    238	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+363	QLever	NODUPS	   6396	      	Count= 6596498 	200		
+364	QLever	NODUPS	   6072	      	Count= 6596499 	200		
+365	QLever	NODUPS	   3568	      	Count= 6655902 	200		
+366	QLever	NODUPS	   5679	      	Count= 6860513 	200		
+367	QLever	NODUPS	   5469	      	Count= 6861235 	200		
+368	QLever	NODUPS	    209	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+369	QLever	NODUPS	    132	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+370	QLever	NODUPS	   2834	      	Count= 10000000 	200		
+371	QLever	NODUPS	   2668	      	Count= 10000000 	200		
+372	QLever	NODUPS	   2983	      	Count= 10000000 	200		
+373	QLever	NODUPS	   3234	      	Count= 10000000 	200		
+374	QLever	NODUPS	   3226	      	Count= 10000000 	200		
+375	QLever	NODUPS	   5152	      	Count= 10000000 	200		
+376	QLever	NODUPS	   4898	      	Count= 10000000 	200		
+377	QLever	NODUPS	   5568	      	Count= 10000000 	200		
+378	QLever	NODUPS	   6669	      	Count= 10000000 	200		
+379	QLever	NODUPS	   6959	      	Count= 10000000 	200		
+380	QLever	NODUPS	   7532	      	Count= 10000000 	200		
+381	QLever	NODUPS	  21787	      	Count= 10000000 	200		
+382	QLever	NODUPS	   7304	      	Count= 10000000 	200		
+383	QLever	NODUPS	   2823	      	Count= 10000000 	200		
+384	QLever	NODUPS	   3144	      	Count= 10000000 	200		
+385	QLever	NODUPS	   2551	      	Count= 10000000 	200		
+386	QLever	NODUPS	   4998	      	Count= 10000000 	200		
+387	QLever	NODUPS	   6001	      	Count= 10000000 	200		
+388	QLever	NODUPS	  12456	      	Count= 10000000 	200		
+389	QLever	NODUPS	   2556	      	Count= 10000000 	200		
+390	QLever	NODUPS	   2539	      	Count= 10000000 	200		
+391	QLever	NODUPS	   2761	      	Count= 10000000 	200		
+392	QLever	NODUPS	   3262	      	Count= 10000000 	200		
+393	QLever	NODUPS	   3591	      	Count= 10000000 	200		
+394	QLever	NODUPS	   6344	      	Count= 10000000 	200		
+395	QLever	NODUPS	   5018	      	Count= 10000000 	200		
+396	QLever	NODUPS	   3853	      	Count= 10000000 	200		
+397	QLever	NODUPS	  10416	      	Count= 10000000 	200		
+398	QLever	NODUPS	   5866	      	Count= 10000000 	200		
+399	QLever	NODUPS	   7805	      	Count= 10000000 	200		
+400	QLever	NODUPS	   9358	      	Count= 10000000 	200		
+401	QLever	NODUPS	   3323	      	Count= 10000000 	200		
+402	QLever	NODUPS	  10642	      	Count= 10000000 	200		
+403	QLever	NODUPS	   2297	      	Count= 10000000 	200		
+404	QLever	NODUPS	   3959	      	Count= 10000000 	200		
+405	QLever	NODUPS	   1903	      	Count= 10000000 	200		
+406	QLever	NODUPS	   9295	      	Count= 10000000 	200		
+407	QLever	NODUPS	   4770	      	Count= 10000000 	200		
+408	QLever	NODUPS	   3172	      	Count= 10000000 	200		
+409	QLever	NODUPS	   3710	      	Count= 10000000 	200		
+410	QLever	NODUPS	   6302	      	Count= 10000000 	200		
+411	QLever	NODUPS	   6132	      	Count= 10000000 	200		
+412	QLever	NODUPS	   4135	      	Count= 10000000 	200		
+413	QLever	NODUPS	   6043	      	Count= 10000000 	200		
+414	QLever	NODUPS	   6589	      	Count= 10000000 	200		
+415	QLever	NODUPS	   4358	      	Count= 10000000 	200		
+416	QLever	NODUPS	   5756	      	Count= 10000000 	200		
+417	QLever	NODUPS	   3177	      	Count= 10000000 	200		
+418	QLever	NODUPS	   2918	      	Count= 10000000 	200		
+419	QLever	NODUPS	   3039	      	Count= 10000000 	200		
+420	QLever	NODUPS	   5484	      	Count= 10000000 	200		
+421	QLever	NODUPS	  13722	      	Count= 10000000 	200		
+422	QLever	NODUPS	   9037	      	Count= 10000000 	200		
+423	QLever	NODUPS	  11084	      	Count= 10000000 	200		
+424	QLever	NODUPS	   7992	      	Count= 10000000 	200		
+425	QLever	NODUPS	   5212	      	Count= 10000000 	200		
+426	QLever	NODUPS	   6703	      	Count= 10000000 	200		
+427	QLever	NODUPS	   7884	      	Count= 10000000 	200		
+428	QLever	NODUPS	  10106	      	Count= 10000000 	200		
+429	QLever	NODUPS	   5960	      	Count= 10000000 	200		
+430	QLever	NODUPS	   2741	      	Count= 10000000 	200		
+431	QLever	NODUPS	   2618	      	Count= 10000000 	200		
+432	QLever	NODUPS	   3546	      	Count= 10000000 	200		
+433	QLever	NODUPS	   2574	      	Count= 10000000 	200		
+434	QLever	NODUPS	    292	      	Count= 0 	200		
+435	QLever	NODUPS	      9	      	Count= 197 	200		
+436	QLever	NODUPS	     62	      	Count= 197 	200		
+437	QLever	NODUPS	      4	      	Count= 197 	200		
+438	QLever	NODUPS	      5	      	Count= 203 	200		
+439	QLever	NODUPS	      5	      	Count= 203 	200		
+440	QLever	NODUPS	      5	      	Count= 165 	200		
+441	QLever	NODUPS	   1302	      	Count= 1669120 	200		
+442	QLever	NODUPS	     31	      	Count= 14847 	200		
+443	QLever	NODUPS	      2	      	Count= 33 	200		
+444	QLever	NODUPS	      4	      	Count= 38 	200		
+445	QLever	NODUPS	    904	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+446	QLever	NODUPS	      7	      	Count= 175 	200		
+447	QLever	NODUPS	  54556	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 37 GB were available. Clear the cache or allow more memory for QLever during startup	
+448	QLever	NODUPS	    151	      	Count= 26322 	200		
+449	QLever	NODUPS	     24	      	Count= 1774 	200		
+450	QLever	NODUPS	    117	      	Count= 518481 	200		
+451	QLever	NODUPS	    327	      	Count= 521303 	200		
+452	QLever	NODUPS	    334	      	Count= 527459 	200		
+453	QLever	NODUPS	    943	      	Count= 556830 	200		
+454	QLever	NODUPS	    353	      	Count= 538115 	200		
+455	QLever	NODUPS	    621	      	Count= 550379 	200		
+456	QLever	NODUPS	  53859	      	None 	500	ERROR: Tried to allocate 52.4 GB, but only 36.7 GB were available. Clear the cache or allow more memory for QLever during startup	
+457	QLever	NODUPS	  24959	      	Count= 10000000 	200		
+458	QLever	NODUPS	    149	      	Count= 115 	200		
+459	QLever	NODUPS	      5	      	Count= 0 	200		
+460	QLever	NODUPS	      7	      	Result=Q4743861 	200		
+461	QLever	NODUPS	    582	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+462	QLever	NODUPS	    403	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+463	QLever	NODUPS	    416	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+464	QLever	NODUPS	  27064	      	Count= 10000000 	200		
+465	QLever	NODUPS	  15162	      	Count= 10000000 	200		
+466	QLever	NODUPS	  20484	      	Count= 10000000 	200		
+467	QLever	NODUPS	  14563	      	Count= 10000000 	200		
+468	QLever	NODUPS	  19457	      	Count= 10000000 	200		
+469	QLever	NODUPS	  11254	      	Count= 10000000 	200		
+470	QLever	NODUPS	    109	      	Count= 2239 	200		
+471	QLever	NODUPS	    833	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+472	QLever	NODUPS	     60	      	Result=Q1984902 	200		
+473	QLever	NODUPS	 163531	      	Count= 10000000 	200		
+474	QLever	NODUPS	   1393	      	Count= 776083 	200		
+475	QLever	NODUPS	   1841	      	Count= 4341274 	200		
+476	QLever	NODUPS	  38210	      	Count= 10000000 	200		
+477	QLever	NODUPS	    746	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+478	QLever	NODUPS	     62	      	Count= 102548 	200		
+479	QLever	NODUPS	    111	      	Count= 15 	200		
+480	QLever	NODUPS	     33	      	Count= 13331 	200		
+481	QLever	NODUPS	     15	      	Count= 64 	200		
+482	QLever	NODUPS	 239974	      	Count= 10000000 	200		
+483	QLever	NODUPS	  19841	      	Count= 10000000 	200		
+484	QLever	NODUPS	      9	      	Count= 13 	200		
+485	QLever	NODUPS	     59	      	Count= 12761 	200		
+486	QLever	NODUPS	    796	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+487	QLever	NODUPS	     17	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+488	QLever	NODUPS	    498	      	Count= 368479 	200		
+489	QLever	NODUPS	     86	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+490	QLever	NODUPS	  24450	      	Count= 10000000 	200		
+491	QLever	NODUPS	  10148	      	Count= 10000000 	200		
+492	QLever	NODUPS	     13	      	Count= 968 	200		
+493	QLever	NODUPS	    532	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+494	QLever	NODUPS	     23	      	Count= 6 	200		
+495	QLever	NODUPS	   6899	      	Count= 10000000 	200		
+496	QLever	NODUPS	    366	      	Count= 627655 	200		
+497	QLever	NODUPS	    132	      	Count= 67 	200		
+498	QLever	NODUPS	     70	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	

@@ -1,0 +1,15 @@
+1	QLever		  53214	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.8 GB were available. Clear the cache or allow more memory for QLever during startup	disease_clinical-trials Q1001150
+2	QLever		    391	      	Count= 64 	200		disease_publications-per-year Q1001150
+3	QLever		    299	      	Count= 0 	200		disease_related-diseases Q1001150
+4	QLever		  53370	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.8 GB were available. Clear the cache or allow more memory for QLever during startup	disease_clinical-trials Q1016605
+5	QLever		    323	      	Count= 57 	200		disease_publications-per-year Q1016605
+6	QLever		    300	      	Count= 0 	200		disease_related-diseases Q1016605
+7	QLever		  53983	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.8 GB were available. Clear the cache or allow more memory for QLever during startup	disease_clinical-trials Q101896
+8	QLever		    303	      	Count= 60 	200		disease_publications-per-year Q101896
+9	QLever		    290	      	Count= 0 	200		disease_related-diseases Q101896
+10	QLever		  44873	      	None 	500	ERROR: Tried to allocate 7.3 GB, but only 515.6 MB were available. Clear the cache or allow more memory for QLever during startup	disease_clinical-trials Q1022718
+11	QLever		    290	      	Count= 7 	200		disease_publications-per-year Q1022718
+12	QLever		    374	      	Count= 318 	200		disease_related-diseases Q1022718
+13	QLever		    372	      	Count= 0 	200		disease_clinical-trials Q1023604
+14	QLever		    278	      	Count= 5 	200		disease_publications-per-year Q1023604
+15	QLever		     21	      	Result=1 	200		disease_related-diseases Q1023604

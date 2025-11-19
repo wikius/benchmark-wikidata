@@ -1,0 +1,65 @@
+1	QLever		   1677	      	Count= 1000 	200		wikiproject-index_most-used Q101246526
+2	QLever		     96	      	Count= 0 	200		wikiproject_author-awards Q101246526
+3	QLever		     18	      	Count= 0 	200		wikiproject_authors Q101246526
+4	QLever		    665	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf#sample>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	wikiproject_co-occurring-wikiprojects Q101246526
+5	QLever		   1117	      	Count= 25 	200		wikiproject_context Q101246526
+6	QLever		     92	      	Count= 0 	200		wikiproject_earliest-published-works Q101246526
+7	QLever		      3	      	Count= 0 	200		wikiproject_focus Q101246526
+8	QLever		   1405	      	Count= 7 	200		wikiproject_maintained Q101246526
+9	QLever		    105	      	Count= 0 	200		wikiproject_organization-map Q101246526
+10	QLever		     35	      	Count= 0 	200		wikiproject_publications-per-year Q101246526
+11	QLever		    239	      	Count= 0 	200		wikiproject_recently-published-works Q101246526
+12	QLever		     92	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf#sample>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	wikiproject_topics Q101246526
+13	QLever		    133	      	Count= 0 	200		wikiproject_venues Q101246526
+14	QLever		      8	      	Count= 1000 	200		wikiproject-index_most-used Q10780973
+15	QLever		    147	      	Count= 57 	200		wikiproject_author-awards Q10780973
+16	QLever		     61	      	Count= 200 	200		wikiproject_authors Q10780973
+17	QLever		    434	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf#sample>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	wikiproject_co-occurring-wikiprojects Q10780973
+18	QLever		    127	      	Count= 15 	200		wikiproject_context Q10780973
+19	QLever		    169	      	Count= 88 	200		wikiproject_earliest-published-works Q10780973
+20	QLever		   2085	      	Count= 2485 	200		wikiproject_focus Q10780973
+21	QLever		    470	      	Count= 11 	200		wikiproject_maintained Q10780973
+22	QLever		    134	      	Count= 82 	200		wikiproject_organization-map Q10780973
+23	QLever		    112	      	Count= 0 	200		wikiproject_publications-per-year Q10780973
+24	QLever		    155	      	Count= 210 	200		wikiproject_recently-published-works Q10780973
+25	QLever		     86	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf#sample>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	wikiproject_topics Q10780973
+26	QLever		    189	      	Count= 51 	200		wikiproject_venues Q10780973
+27	QLever		      9	      	Count= 1000 	200		wikiproject-index_most-used Q10816993
+28	QLever		     10	      	Count= 0 	200		wikiproject_author-awards Q10816993
+29	QLever		      3	      	Count= 0 	200		wikiproject_authors Q10816993
+30	QLever		    438	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf#sample>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	wikiproject_co-occurring-wikiprojects Q10816993
+31	QLever		    139	      	Count= 85 	200		wikiproject_context Q10816993
+32	QLever		      5	      	Count= 0 	200		wikiproject_earliest-published-works Q10816993
+33	QLever		   1017	      	Count= 10 	200		wikiproject_focus Q10816993
+34	QLever		    891	      	Count= 13 	200		wikiproject_maintained Q10816993
+35	QLever		     22	      	Count= 0 	200		wikiproject_organization-map Q10816993
+36	QLever		      7	      	Count= 0 	200		wikiproject_publications-per-year Q10816993
+37	QLever		     11	      	Result=Q7257906 	200		wikiproject_recently-published-works Q10816993
+38	QLever		     89	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf#sample>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	wikiproject_topics Q10816993
+39	QLever		     20	      	Count= 0 	200		wikiproject_venues Q10816993
+40	QLever		     11	      	Count= 1000 	200		wikiproject-index_most-used Q111805275
+41	QLever		     20	      	Count= 0 	200		wikiproject_author-awards Q111805275
+42	QLever		      4	      	Count= 0 	200		wikiproject_authors Q111805275
+43	QLever		    438	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf#sample>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	wikiproject_co-occurring-wikiprojects Q111805275
+44	QLever		    111	      	Count= 3 	200		wikiproject_context Q111805275
+45	QLever		     25	      	Count= 15 	200		wikiproject_earliest-published-works Q111805275
+46	QLever		   1289	      	Count= 40 	200		wikiproject_focus Q111805275
+47	QLever		   1093	      	Count= 22 	200		wikiproject_maintained Q111805275
+48	QLever		     23	      	Count= 0 	200		wikiproject_organization-map Q111805275
+49	QLever		     14	      	Count= 0 	200		wikiproject_publications-per-year Q111805275
+50	QLever		    159	      	Count= 325 	200		wikiproject_recently-published-works Q111805275
+51	QLever		     97	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf#sample>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	wikiproject_topics Q111805275
+52	QLever		     28	      	Count= 0 	200		wikiproject_venues Q111805275
+53	QLever		      9	      	Count= 1000 	200		wikiproject-index_most-used Q112316163
+54	QLever		     10	      	Count= 0 	200		wikiproject_author-awards Q112316163
+55	QLever		      3	      	Count= 0 	200		wikiproject_authors Q112316163
+56	QLever		    452	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf#sample>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	wikiproject_co-occurring-wikiprojects Q112316163
+57	QLever		    116	      	Count= 10 	200		wikiproject_context Q112316163
+58	QLever		      7	      	Count= 0 	200		wikiproject_earliest-published-works Q112316163
+59	QLever		   1316	      	Count= 27 	200		wikiproject_focus Q112316163
+60	QLever		    390	      	Count= 4 	200		wikiproject_maintained Q112316163
+61	QLever		     23	      	Count= 0 	200		wikiproject_organization-map Q112316163
+62	QLever		      8	      	Count= 0 	200		wikiproject_publications-per-year Q112316163
+63	QLever		     14	      	Count= 9 	200		wikiproject_recently-published-works Q112316163
+64	QLever		     96	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf#sample>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	wikiproject_topics Q112316163
+65	QLever		     20	      	Count= 0 	200		wikiproject_venues Q112316163

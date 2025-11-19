@@ -1,0 +1,15 @@
+1	MilleniumDB		   2991	      	Count= 100 	200		property_item-counts subclass of
+2	MilleniumDB		  98372	      	Count= 100 	200		property_item-counts instance of
+3	MilleniumDB		  39554	      	Count= 100 	200		property_item-counts publication date
+4	MilleniumDB		    638	      	Count= 100 	200		property_item-counts start time
+5	MilleniumDB		   2757	      	Count= 100 	200		property_item-counts part of
+6	MilleniumDB		   2013	      	Count= 100 	200		property_property-value-counts subclass of
+7	MilleniumDB		  70392	      	Count= 100 	200		property_property-value-counts instance of
+8	MilleniumDB		  23125	      	Count= 100 	200		property_property-value-counts publication date
+9	MilleniumDB		    259	      	Count= 100 	200		property_property-value-counts start time
+10	MilleniumDB		   1681	      	Count= 100 	200		property_property-value-counts part of
+11	MilleniumDB		    112	      	Count= 500 	200		property_use subclass of
+12	MilleniumDB		     82	      	Count= 500 	200		property_use instance of
+13	MilleniumDB		     83	      	Count= 500 	200		property_use publication date
+14	MilleniumDB		     51	      	Count= 500 	200		property_use start time
+15	MilleniumDB		     67	      	Count= 500 	200		property_use part of

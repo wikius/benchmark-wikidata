@@ -1,0 +1,25 @@
+1	QLever		 338750	      	None 	500	ERROR: Tried to allocate 13.1 GB, but only 11.4 GB were available. Clear the cache or allow more memory for QLever during startup	country_authors Q1000
+2	QLever		  47704	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 21.1 GB were available. Clear the cache or allow more memory for QLever during startup	country_authors Q1005
+3	QLever		  47190	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 21.1 GB were available. Clear the cache or allow more memory for QLever during startup	country_authors Q1006
+4	QLever		 122531	      	Count= 10000 	200		country_authors Q1007
+5	QLever		  46892	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 20.9 GB were available. Clear the cache or allow more memory for QLever during startup	country_authors Q1008
+6	QLever		   4774	      	Count= 556 	200		country_co-organizations Q1000
+7	QLever		   3798	      	Count= 1121 	200		country_co-organizations Q1005
+8	QLever		   3203	      	Count= 36 	200		country_co-organizations Q1006
+9	QLever		   3263	      	Count= 190 	200		country_co-organizations Q1007
+10	QLever		   3556	      	Count= 932 	200		country_co-organizations Q1008
+11	QLever		  42771	      	Count= 1459 	200		country_locations-as-topics Q1000
+12	QLever		  17737	      	Count= 4154 	200		country_locations-as-topics Q1005
+13	QLever		  17293	      	Count= 557 	200		country_locations-as-topics Q1006
+14	QLever		  17471	      	Count= 1245 	200		country_locations-as-topics Q1007
+15	QLever		  17682	      	Count= 2721 	200		country_locations-as-topics Q1008
+16	QLever		  17368	      	Count= 6 	200		country_narrative-locations Q1000
+17	QLever		  17384	      	Count= 6 	200		country_narrative-locations Q1005
+18	QLever		  17536	      	Count= 6 	200		country_narrative-locations Q1006
+19	QLever		  18104	      	Count= 4 	200		country_narrative-locations Q1007
+20	QLever		  17310	      	Count= 23 	200		country_narrative-locations Q1008
+21	QLever		     21	      	Count= 10 	200		country_organizations Q1000
+22	QLever		     22	      	Count= 8 	200		country_organizations Q1005
+23	QLever		     21	      	Count= 7 	200		country_organizations Q1006
+24	QLever		     20	      	Count= 5 	200		country_organizations Q1007
+25	QLever		     24	      	Count= 32 	200		country_organizations Q1008

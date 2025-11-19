@@ -1,0 +1,73 @@
+Computing summaries for existing benchmarks from stats-iswc
+
+Raw timings, as-is results:
+                                Blazegraph                         MilleniumDB                        QLever                             Virtuoso            
+                     Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div
+ wgpb-norm             644  3     632 1.7   2   0   0      21  2       9 0.2   0   0   0      12  1       0 0.0   0   0   0     978  4     966 1.9   0   1   0 
+ single_bgps-norm     3103  4    2602 0.8   0   0  15     501  1       0 0.0   0   0   0     769  2     268 0.2   0   0   5    1726  3    1225 0.5   0   0  51 
+ multiple_bgps-nor    9653  4    5023 0.3  10   0   0    5442  2     812 0.1   0   0   0    4630  1       0 0.0   6   0   3    7608  3    2978 0.2  73   4 383 
+ opts-norm           20851  2    3833 0.1  23   3   3   25364  3    8346 0.2   0  10   0   17018  1       0 0.0 127   0   8   25566  4    8548 0.2  50   6 290 
+ paths-norm          25277  4   21001 0.8  21  12   4    7293  3    3017 0.2   1   4  18    4276  1       0 0.0   5   2   0    5691  2    1415 0.1  49   2 422 
+ c2rpqs-norm         96114  4   92944 1.5  15  54  23   82337  3   79167 1.4   0  55   3    3170  1       0 0.0   2   0   8   18239  2   15069 0.8  20   9 320 
+ wdqs-norm           12560  2    7977 0.4  31   1  14  103271  4   98688 1.4   0  43   5    4583  1       0 0.0   3   0  12   14645  3   10062 0.5  13   2  30 
+ TOTALS             168202 23  134012 --- 102  70  59  224229 18  190039 ---   1 112  26   34458  8     268 --- 143   2  36   74453 21   40263 --- 205  24 1496
+
+Adjusted timings, as-is results:
+                                Blazegraph                         MilleniumDB                        QLever                             Virtuoso            
+                     Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div
+ wgpb-norm             501  4     489 1.6   1   1   0      21  2       9 0.2   0   0   0      12  1       0 0.0   0   0   0     342  3     330 1.5   0   1   0 
+ single_bgps-norm     2073  4    1572 0.6   0   3  14     501  1       0 0.0   0   0   0     769  2     268 0.2   0   0   5    1726  3    1225 0.5   0   0  51 
+ multiple_bgps-nor    9302  3    4573 0.3   6  11   0    4784  2      55 0.0   0   2   0    4729  1       0 0.0   6   0   3   10415  4    5686 0.3  73   7 381 
+ opts-norm           16885  3    4385 0.1  19  22   2   12500  1       0 0.0   0  26   0   21201  4    8701 0.2 115  29   8   15137  2    2637 0.1  50  36 260 
+ paths-norm           8665  4    6336 0.6   0  64   3    2708  2     379 0.1   1  11  18    2329  1       0 0.0   3   8   0    6686  3    4357 0.5  43  15 415 
+ c2rpqs-norm         20716  4   18327 0.9   9 133   9   15295  3   12906 0.8   0 100   2    2389  1       0 0.0   1   4   8    7767  2    5378 0.5  19  28 303 
+ wdqs-norm           10236  3    7946 0.7  21  16  13   15482  4   13192 0.8   0  64   3    2290  1       0 0.0   1   6  12    8506  2    6216 0.6  12  13  28 
+ TOTALS              68378 25   43628 ---  56 250  41   51291 15   26541 ---   1 203  23   33719 11    8969 --- 126  47  36   50579 19   25829 --- 197 100 1438
+
+Raw timings, counted results:
+                                Blazegraph                         MilleniumDB                        QLever                             Virtuoso            
+                     Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div
+ wgpb-counted         1078  4    1066 2.0   0   1   0      21  2       9 0.2   0   0   0      12  1       0 0.0   0   0   0     762  3     750 1.8   0   1   0 
+ single_bgps-count    1619  4    1611 2.3   0   0  15      17  2       9 0.3   0   0   0       8  1       0 0.0   0   0   4     116  3     108 1.2   0   0   1 
+ multiple_bgps-cou   18111  4   17571 1.5   7   4   5    1300  2     760 0.4   0   0   0     540  1       0 0.0   6   0   8    4122  3    3582 0.9   0   4   0 
+ opts-counted        46248  4   31697 0.5 192   4   7   19975  2    5424 0.1   0  10   0   14551  1       0 0.0 127   0   9   31140  3   16589 0.3   1  14   0 
+ paths-counted       23206  4   19337 0.8  15  15   4    6766  3    2897 0.2   1   4  20    3869  1       0 0.0   5   2   3    5065  2    1196 0.1  49   3 365 
+ c2rpqs-counted      97506  4   95490 1.7   7  56  26   81011  3   78995 1.6   0  54   3    2016  1       0 0.0   2   0   8   17441  2   15425 0.9  16   9 240 
+ wdqs-counted        28682  3   24524 0.8  23   6  14  102989  4   98831 1.4   0  43   4    4158  1       0 0.0   3   0  12   14130  2    9972 0.5  12   2  26 
+ TOTALS             216450 27  191296 --- 244  86  71  212079 18  186925 ---   1 111  27   25154  7       0 --- 143   2  44   72776 18   47622 ---  78  33 632
+
+Adjusted timings, counted results:
+                                Blazegraph                         MilleniumDB                        QLever                             Virtuoso            
+                     Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div
+ wgpb-counted          443  4     431 1.6   0   1   0      21  2       9 0.2   0   0   0      12  1       0 0.0   0   0   0     126  3     114 1.0   0   1   0 
+ single_bgps-count    1619  4    1611 2.3   0   0  15      17  2       9 0.3   0   0   0       8  1       0 0.0   0   0   4     116  3     108 1.2   0   0   1 
+ multiple_bgps-cou   14457  4   13814 1.4   7  18   5     681  2      38 0.0   0   2   0     643  1       0 0.0   6   0   8     735  3      92 0.1   0   6   0 
+ opts-counted        33758  4   26254 0.7 108 105   7    7504  1       0 0.0   0  24   0   19066  3   11562 0.4 115  28   9    7769  2     265 0.0   1  46   0 
+ paths-counted        8627  4    6695 0.6  10  42   3    2227  2     295 0.1   1  10  20    1932  1       0 0.0   3   8   3    5830  3    3898 0.5  43  11 363 
+ c2rpqs-counted      22455  4   21212 1.3   3 140  12   14154  3   12911 1.1   0 100   2    1243  1       0 0.0   1   4   8    6098  2    4855 0.7  15  28 229 
+ wdqs-counted        10683  3    8775 0.7  13  24  14   15341  4   13433 0.9   0  64   3    1908  1       0 0.0   1   5  12    7908  2    6000 0.6  11  13  24 
+ TOTALS              92042 27   78792 --- 141 330  56   39945 16   26695 ---   1 200  25   24812  9   11562 --- 126  45  44   28582 18   15332 ---  70 105 617
+
+Raw timings, no duplicates results:
+                                Blazegraph                         MilleniumDB                        QLever                             Virtuoso            
+                     Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div
+ wgpb-nodups           626  3     611 1.6   2   0   0      22  2       7 0.2   0   0   0      15  1       0 0.0   0   0   0     839  4     824 1.7   0   1   0 
+ single_bgps-nodup    3873  4    3114 0.7  20   0  15     759  1       0 0.0   0   0   0     769  2      10 0.0   0   0   5    1769  3    1010 0.4   0   0  51 
+ multiple_bgps-nod   16109  3    9066 0.4 363   0   0    7659  2     616 0.0   0   0   0   26657  4   19614 0.6 241   2   2    7043  1       0 0.0  45   3 410 
+ opts-nodups         21980  1       0 0.0 275   3   4   27913  2    5933 0.1   0  10   0   29291  3    7311 0.1 134   0   8   29383  4    7403 0.1  27   8 308 
+ paths-nodups        26716  4   20690 0.6  65  12   2    8318  2    2292 0.1   1   4   1   22472  3   16446 0.6   9  19   1    6026  1       0 0.0  50   2 111 
+ c2rpqs-nodups       96895  4   82301 0.8  99  53   4   83032  3   68438 0.8   0  56   0   14594  1       0 0.0  42   3  11   19519  2    4925 0.1  19   9 111 
+ wdqs-nodups         12220  2    7490 0.4  32   1  14  103326  4   98596 1.3   0  43   3    4730  1       0 0.0   3   0  13   14266  3    9536 0.5  12   2  23 
+ TOTALS             178419 21  123272 --- 856  69  39  231029 16  175882 ---   1 113   4   98528 15   43381 --- 429  24  40   78845 18   23698 --- 153  25 1014
+
+Adjusted timings, no duplicates results:
+                                Blazegraph                         MilleniumDB                        QLever                             Virtuoso            
+                     Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div   Speed Rank  Slow Log Err  TO Div
+ wgpb-nodups           502  4     487 1.5   1   1   0      22  2       7 0.2   0   0   0      15  1       0 0.0   0   0   0     203  3     188 1.1   0   1   0 
+ single_bgps-nodup    5908  4    5149 0.9  19   3  14     759  1       0 0.0   0   0   0     769  2      10 0.0   0   0   5    1769  3    1010 0.4   0   0  51 
+ multiple_bgps-nod   36675  4   29687 0.7 359   8   0    6988  1       0 0.0   0   2   0   29916  3   22928 0.6 231  64   2    8328  2    1340 0.1  45   7 407 
+ opts-nodups         37221  4   23812 0.4 266  19   4   14907  2    1498 0.0   0  26   0   25021  3   11612 0.3 108  66   8   13409  1       0 0.0  27  38 275 
+ paths-nodups        11777  4    8613 0.6  31  65   2    3164  1       0 0.0   1  11   0    4435  2    1271 0.1   3  32   1    6801  3    3637 0.3  44  15 105 
+ c2rpqs-nodups       27408  4   19733 0.6  85 132   4   15976  3    8301 0.3   0 100   0    8827  2    1152 0.1  37  26  11    7675  1       0 0.0  18  28 105 
+ wdqs-nodups         10177  3    7716 0.6  19  18  14   15510  4   13049 0.8   0  64   1    2461  1       0 0.0   1   7  13    8251  2    5790 0.5  11  14  22 
+ TOTALS             129668 27   95197 --- 780 246  38   57326 14   22855 ---   1 203   1   71444 14   36973 --- 380 195  40   46436 15   11965 --- 145 103 965

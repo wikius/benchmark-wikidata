@@ -1,0 +1,30 @@
+1	QLever		    454	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	chemical-class_class-hierarchy Q101561621
+2	QLever		     67	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	chemical-class_class-hierarchy Q101565160
+3	QLever		     65	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	chemical-class_class-hierarchy Q103537
+4	QLever		     68	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	chemical-class_class-hierarchy Q103840598
+5	QLever		     65	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	chemical-class_class-hierarchy Q105620529
+6	QLever		    265	      	Count= 0 	200		chemical-class_found-in-taxon Q101561621
+7	QLever		      8	      	Count= 0 	200		chemical-class_found-in-taxon Q101565160
+8	QLever		    756	      	Count= 2 	200		chemical-class_found-in-taxon Q103537
+9	QLever		      8	      	Count= 0 	200		chemical-class_found-in-taxon Q103840598
+10	QLever		      8	      	Count= 0 	200		chemical-class_found-in-taxon Q105620529
+11	QLever		     14	      	Count= 0 	200		chemical-class_identifiers Q101561621
+12	QLever		      7	      	Count= 0 	200		chemical-class_identifiers Q101565160
+13	QLever		      7	      	Count= 0 	200		chemical-class_identifiers Q103537
+14	QLever		      8	      	Result=P2926 	200		chemical-class_identifiers Q103840598
+15	QLever		      7	      	Count= 0 	200		chemical-class_identifiers Q105620529
+16	QLever		     91	      	Result=1987 	200		chemical-class_publications-per-year Q101561621
+17	QLever		     43	      	Count= 2 	200		chemical-class_publications-per-year Q101565160
+18	QLever		    184	      	Count= 129 	200		chemical-class_publications-per-year Q103537
+19	QLever		     47	      	Count= 16 	200		chemical-class_publications-per-year Q103840598
+20	QLever		     48	      	Count= 8 	200		chemical-class_publications-per-year Q105620529
+21	QLever		   8956	      	Count= 2 	200		chemical-class_recent-literature Q101561621
+22	QLever		     35	      	Result=Q199897 	200		chemical-class_recent-literature Q101565160
+23	QLever		    235	      	Count= 250 	200		chemical-class_recent-literature Q103537
+24	QLever		     37	      	Result=Q39246449 	200		chemical-class_recent-literature Q103840598
+25	QLever		     46	      	Count= 6 	200		chemical-class_recent-literature Q105620529
+26	QLever		   7040	      	Result=Q101561621 	200		chemical-class_related-chemicals Q101561621
+27	QLever		     59	      	Result=Q101565160 	200		chemical-class_related-chemicals Q101565160
+28	QLever		     82	      	Count= 71 	200		chemical-class_related-chemicals Q103537
+29	QLever		     57	      	Result=Q103840598 	200		chemical-class_related-chemicals Q103840598
+30	QLever		     87	      	Count= 259 	200		chemical-class_related-chemicals Q105620529

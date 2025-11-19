@@ -1,0 +1,28 @@
+	Files not included in ISWC supplemental material
+
+
+TODO			Things to do
+PROCESSING-updates	Information on updates (incomplete processing for 19 March 2025 version of Virtuoso)
+evaluate.py*		Evaluate a query in (or from) a file (used to probe into divergences)
+evaluate*		Evaluate a query and compare results (used to probe into divergences)
+
+ontology/		manually-specified ontology queries
+ontology-parameter/	parameterized ontology queries
+order/			queries related to class order
+
+hernandez/		Benchmark sourced from https://figshare.com/articles/dataset/Querying_Wikidata_Comparing_SPARQL_Relational_and_Graph_Databases/3219217
+
+labels/			Queries to show speed of determining labels
+
+results-clean/		Cleaned version of original results for Scholia benchmarks
+results-second/		Results for QLever from 24-25 Feb 2025 and
+				    MilleniumDB from 5-13 Mar 2025 and
+				    Virtuoso from 19-22 Mar 2025
+results-third/		Results for QLever from 22-24 Mar 2025
+results-current/	Scholia Results for QLever from 26 Mar 2025 - INCOMPLETE
+
+stats-original/		Statistics from original runs
+stats-second/		Incorporating second set of results
+stats-third/		Incorporating third set of results
+stats-current/		Incorporating current set of results
+

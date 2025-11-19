@@ -1,0 +1,25 @@
+1	QLever		  52808	      	Count= 10000 	200		country_authors Q1000
+2	QLever		   1532	      	Count= 97 	200		country_co-organizations Q1000
+3	QLever		  17724	      	Count= 1281 	200		country_locations-as-topics Q1000
+4	QLever		     19	      	Count= 6 	200		country_narrative-locations Q1000
+5	QLever		     11	      	Count= 5 	200		country_organizations Q1000
+6	QLever		  53186	      	Count= 10000 	200		country_authors Q1005
+7	QLever		   1571	      	Count= 223 	200		country_co-organizations Q1005
+8	QLever		  17443	      	Count= 3464 	200		country_locations-as-topics Q1005
+9	QLever		     16	      	Count= 6 	200		country_narrative-locations Q1005
+10	QLever		     12	      	Count= 4 	200		country_organizations Q1005
+11	QLever		 128707	      	Count= 10000 	200		country_authors Q1006
+12	QLever		   1386	      	Count= 10 	200		country_co-organizations Q1006
+13	QLever		  17240	      	Count= 415 	200		country_locations-as-topics Q1006
+14	QLever		     17	      	Count= 4 	200		country_narrative-locations Q1006
+15	QLever		     11	      	Count= 3 	200		country_organizations Q1006
+16	QLever		  25398	      	Count= 10000 	200		country_authors Q1007
+17	QLever		   1392	      	Count= 17 	200		country_co-organizations Q1007
+18	QLever		  17180	      	Count= 618 	200		country_locations-as-topics Q1007
+19	QLever		     16	      	Count= 3 	200		country_narrative-locations Q1007
+20	QLever		     11	      	Count= 2 	200		country_organizations Q1007
+21	QLever		 250281	      	None 	500	ERROR: Tried to allocate 13.1 GB, but only 11.6 GB were available. Clear the cache or allow more memory for QLever during startup	country_authors Q1008
+22	QLever		   1709	      	Count= 50 	200		country_co-organizations Q1008
+23	QLever		  17423	      	Count= 2366 	200		country_locations-as-topics Q1008
+24	QLever		     21	      	Count= 21 	200		country_narrative-locations Q1008
+25	QLever		     11	      	Count= 5 	200		country_organizations Q1008

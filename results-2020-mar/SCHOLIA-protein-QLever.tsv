@@ -1,0 +1,25 @@
+1	QLever		    864	      	Count= 15 	200		protein_cofunctional-proteins Q101244282
+2	QLever		     13	      	Count= 0 	200		protein_cointeracting-proteins Q101244282
+3	QLever		    489	      	Count= 0 	200		protein_participates-in Q101244282
+4	QLever		    317	      	Count= 0 	200		protein_publications-per-year Q101244282
+5	QLever		   1031	      	Count= 500 	200		protein_similar-proteins Q101244282
+6	QLever		  15109	      	Count= 500 	200		protein_cofunctional-proteins Q1024612
+7	QLever		     11	      	Count= 0 	200		protein_cointeracting-proteins Q1024612
+8	QLever		    404	      	Count= 0 	200		protein_participates-in Q1024612
+9	QLever		    263	      	Count= 6 	200		protein_publications-per-year Q1024612
+10	QLever		  55119	      	Count= 500 	200		protein_similar-proteins Q1024612
+11	QLever		  30755	      	Count= 500 	200		protein_cofunctional-proteins Q1026649
+12	QLever		     12	      	Count= 0 	200		protein_cointeracting-proteins Q1026649
+13	QLever		    392	      	Count= 0 	200		protein_participates-in Q1026649
+14	QLever		    283	      	Count= 0 	200		protein_publications-per-year Q1026649
+15	QLever		  19983	      	Count= 500 	200		protein_similar-proteins Q1026649
+16	QLever		    941	      	Count= 500 	200		protein_cofunctional-proteins Q1032902
+17	QLever		     11	      	Count= 0 	200		protein_cointeracting-proteins Q1032902
+18	QLever		    401	      	Count= 0 	200		protein_participates-in Q1032902
+19	QLever		    287	      	Count= 7 	200		protein_publications-per-year Q1032902
+20	QLever		  52727	      	Count= 500 	200		protein_similar-proteins Q1032902
+21	QLever		    219	      	Count= 0 	200		protein_cofunctional-proteins Q104586124
+22	QLever		     11	      	Count= 0 	200		protein_cointeracting-proteins Q104586124
+23	QLever		    412	      	Count= 0 	200		protein_participates-in Q104586124
+24	QLever		     10	      	None 	500	ERROR: No vocabulary entry for <http://www.wikidata.org/entity/Q104586124>. In file "/home/local/qlever/qlever-code-27mar2025/src/engine/QueryPlanner.cpp " at line 2785	protein_publications-per-year Q104586124
+25	QLever		     79	      	Count= 0 	200		protein_similar-proteins Q104586124
