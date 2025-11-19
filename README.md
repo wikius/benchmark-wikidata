@@ -68,13 +68,13 @@ Programs used in this phase:
 
 Results directories:
 
-The results are in directories of the form results-<dump>-<qlever>-<doubling>
+The results are in directories of the form results-dump-qlever-doubling
 where
-* <dump> is 2020 for wikidata-20201109-all-BETA.ttl dump,
+* dump is 2020 for wikidata-20201109-all-BETA.ttl dump,
 2024 for wikidata-20241028-all-BETA.ttl dump,
 and 2025 for wikidata-20251021-all-BETA.ttl dump;
-* <qlever> is mar for QLever version of March 2025 and oct for QLever version of October 2025; and
-* <doubling> is single or empty for just Wikidata,
+* qlever is mar for QLever version of March 2025 and oct for QLever version of October 2025; and
+* doubling is single or empty for just Wikidata,
 double-SS for the simple doubling, 
 double-o1 with one-way ontology interleaving added,
 double-o2 with two-way ontology interleaving added,
