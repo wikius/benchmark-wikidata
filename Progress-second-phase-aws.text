@@ -1,0 +1,222 @@
+		Progress of main-memory benchmarking on AWS
+
+Sizes of relevant large amounts of data
+	Wikidata RDF dump latest-all-ttl.bz2	121GB
+	QLever Wikidata index files		~450GB
+	So download the dump and generate the index on the large instance
+
+Sign in to console as root user
+	https://us-east-2.signin.aws.amazon.com/
+ 	Sign in to Console
+	Sign in using root user email, needs Google Authenticator on phone
+
+Connect to instance (from console, and then from local machine)
+	Instances (may have to deselect filter)
+	Connect -> SSH client - gives adddresss
+	On local maching
+		cd ~/research/wikidata/benchmark/double-project
+		ssh -i "QLever.pem" ubuntu@<address>
+	Currently for small instance (changes when stopped and restarted)
+	Currently for large instance (changes when stopped and restarted)
+		ssh -i "QLever.pem" ubuntu@ec2-18-191-254-103.us-east-2.compute.amazonaws.com
+
+Attach volume to instance (from console)
+	Volumes
+	Select volume
+	Actions -> Attach volume
+	Select instance
+	Choose device name (/dev/sdh?)
+
+Mount the EBS volume (from an instance)
+	lsblk - volume showed as nvme1n1
+	sudo mkdir /wikidata - if needed
+	sudo chown ubuntu:ubuntu /wikidata - if needed
+	sudo mount /dev/nvme1n1 /wikidata
+	sudo chown ubuntu:ubuntu /wikidata - if needed
+
+DONE: Set up AWS account
+
+DONE: Set up EBS volume to store persistent data (from console)
+    - QLever executable - small
+    - QLever Wikidata index - just under 500GB
+    - benchmarking data and code - 150MB
+	Elastic Block Store: Volumes -> Create Volume
+	gp3, 2000GB, defaults
+	vol-05bf23f22a592bf9c
+  Note: 2TB is needed to store uncompressed RDF dump and QLever indices
+        could later copy to a smaller one
+
+DONE: Create small instance (from console)
+	Name and tags:	QLever Ubuntu small
+	Amazon M Image:	Ubuntu 24.04
+	Instance type:	m7i-flex.large
+	Key pair: QLever - RSA pem
+
+DONE: Format the EBS volume (from an instance)
+	lsblk - volume showed as nvme1n1
+	sudo mkfs -t xfs /dev/nvme1n1
+	sudo mkdir /wikidata
+	sudo mount /dev/nvme1n1 /wikidata
+	sudo chown ubuntu:ubuntu /wikidata
+
+DONE: Copy benchmarking data and code from local machine (slow because scp was used)
+	scp -pr -i ~/research/wikidata/benchmark/double-project/QLever.pem ~/research/wikidata/benchmark/project/queries ubuntu@ec2-3-148-181-3.us-east-2.compute.amazonaws.com:/wikidata
+	cd /wikidata/queries
+	ed 
+
+DONE for small and large instance: Install needed software on the small instance
+	sudo apt-get update -y
+	sudo apt-get install -y build-essential cmake libbz2-dev libicu-dev libboost-all-dev 
+	sudo apt-get install -y libssl-dev libjemalloc-dev libzstd-dev
+	sudo apt-get install -y zip curl tcsh pip python3-psutil
+
+DONE: Build QLever in the EBS volume (later done using large instance)
+	cd /wikidata
+ 	git clone --recursive -j2 https://github.com/ad-freiburg/qlever qlever
+	cd qlever
+	mkdir build
+	cd build
+	cmake -DCMAKE_BUILD_TYPE=Release -DJEMALLOC_MANUALLY_INSTALLED=True .. && make -j 16
+
+DONE: Download Olympics RDF file (on small instance)
+	mkdir /wikidata/olympics
+	cd /wikidata/olympics
+	curl -sLo olympics.zip -C - https://github.com/wallscope/olympics-rdf/raw/master/data/olympics-nt-nodup.zip
+	unzip olympics.zip
+
+DONE: Set up scripts for olympics dataset (on small instance)
+	cd /wikidata
+	cat << EOF > QLever-run
+#!/bin/tcsh
+cd /wikidata/olympics
+/wikidata/qlever/build/qlever-server --index-basename olympics --port 7001 --memory-max-size 142G --cache-max-size 32G --default-query-timeout 600s >& /tmp/QLever   &
+/usr/bin/sleep 60s
+EOF
+	cat << EOF > QLever-stop
+#!/bin/tcsh
+killall qlever-server
+sleep 5s
+EOF
+	chmod +x QLever-run QLever-stop
+
+DONE: Build Olympics indices (on small instance)
+	pip install --break-system-packages qlever
+	cd /wikidata/olympics
+	echo '{ "ascii-prefixes-only": false, "num-triples-per-batch": 100000 }' > olympics.settings.json
+	export FILES="-f /wikidata/olympics/olympics.nt"
+	/wikidata/qlever/build/qlever-index --parse-parallel 1 --settings-file olympics.settings.json ${FILES} --index-basename olympics
+
+DONE: Run some queries on Olympics dataset (on small instance)
+	/wikidata/qlever/build/qlever-server --index-basename olympics --port 7001 --memory-max-size 142G --cache-max-size 32G --default-query-timeout 600s
+	cd /wikidata/queries
+	./benchmark.py --count --engine=QLever wgpb/bgps/wgpb.text
+	./run-existing-aws QLever ebs
+
+DONE: Set up scripts for Wikidata, overwriting olympics scripts (on small instance)
+	cd /wikidata
+	cat << EOF > QLever-run
+#!/bin/tcsh
+cd /wikidata/wikidata
+/wikidata/qlever/build/qlever-server --index-basename wikidata --port 7001 --memory-max-size 142G --cache-max-size 32G --default-query-timeout 600s >& /tmp/QLever   &
+/usr/bin/sleep 60s
+EOF
+	cat << EOF > QLever-stop
+#!/bin/tcsh
+killall qlever-server
+sleep 5s
+EOF
+	chmod +x QLever-run QLever-stop
+
+DONE: Download and uncompress Wikidata RDF dump (on small instance, takes about twelve hours, slow due to small instance CPU slowness)
+	mkdir /wikidata/wikidata
+	cd /wikidata/wikidata
+	nohup curl -C - -s -o latest-all.ttl.bz2 https://dumps.wikimedia.org/wikidatawiki/entities/latest-all.ttl.bz2
+		Failed near end and successfully restarted
+	nohup bunzip2 -k latest-all.ttl.bz2 &
+
+DONE: Create wikidata.settings.json (on small instance)
+	cd /wikidata/wikidata
+	cat << EOF > wikidata.settings.json
+{
+  "languages-internal": ["en"],
+  "prefixes-external": [
+    "<http://www.wikidata.org/entity/statement",
+    "<http://www.wikidata.org/value",
+    "<http://www.wikidata.org/reference"
+  ],
+  "locale": {
+	  "language": "en",
+	  "country": "US",
+	  "ignore-punctuation": true
+  },
+  "ascii-prefixes-only": true,
+  "num-triples-per-batch" : 10000000
+}
+EOF	
+
+DONE: Change AWS account from free to paid
+
+DONE: Create large instance (from console)
+	Increase vCPU limit to 64 https://us-east-2.console.aws.amazon.com/servicequotas/home/services/ec2/quotas
+		Search for on-demand, then open Running On-Demand Standard ... instances
+		Request instance at account level to 110
+	Name and tags:	QLever Ubuntu large
+	Amazon M Image:	Ubuntu 24.04
+	Instance type:	r5ad.24xlarge
+	Key pair: QLever - RSA pem
+
+DONE: Build Wikidata indices (on large instance, takes 19 hours, probably mostly because of using EBS)
+		Start 2026-01-24 16:02:09.854 Finish 2026-01-25 11:00:54.004
+	cd /wikidata/wikidata
+	ulimit -n 5000
+	nohup /wikidata/qlever/build/qlever-index --parse-parallel 1 --settings-file wikidata.settings.json --file-format ttl -f latest-all.ttl --index-basename wikidata --stxxl-memory 20G &
+
+DONE: Run queries on Wikidata using EBS (on large instance, requires Wikidata version of QLever-run)
+	cd /wikidata/wikidata
+	/wikidata/qlever/build/qlever-server --index-basename wikidata --port 7001 --memory-max-size 142G --cache-max-size 32G --default-query-timeout 600s
+	cd /wikidata/queries
+	./benchmark.py --count --engine=QLever wgpb/bgps/wgpb.text
+	./run-existing-aws QLever aws-ebs
+		also restart WDQS runs after QLever crashes
+  FAILURES:  wdqs norm 133 counted 133 - restarted
+  	     opts counted 13 - abandoned
+
+DONE: Set up to run queries from the attached SSD
+	mv /wikidata/wikidata /wikidata/wikidata-ebs
+	sudo mkfs -t xfs /dev/nvme1n1
+	sudo mkdir /ssd-wikidata
+	sudo mount /dev/nvme1n1 /ssd-wikidata
+	sudo chown ubuntu:ubuntu /ssd-wikidata
+	cp -pr /wikidata/wikidata-ebs/wikidata* /ssd-wikidata		# takes about 40 minutes
+	ln -s /ssd-wikidata /wikidata/wikidata
+
+DONE: Run queries on Wikidata using attached SSD (on large instance)
+	cd /wikidata/wikidata
+	/wikidata/qlever/build/qlever-server --index-basename wikidata --port 7001 --memory-max-size 142G --cache-max-size 32G --default-query-timeout 600s
+		Startup time about 70 seconds
+	cd /wikidata/queries
+	./benchmark.py --count --engine=QLever wgpb/bgps/wgpb.text
+	./run-existing-aws QLever aws-ssd
+		also restart WDQS runs after QLever crashes
+
+DONE: Set up to run queries from a ramdisk
+	sudo mkdir /ram-wikidata
+	sudo mount -t tmpfs -o size=500G tmpfs /ram-wikidata
+	sudo chown ubuntu:ubuntu /ram-wikidata
+	cp -pr /ssd-wikidata/wikidata* /ram-wikidata # takes about 10 minutes
+	rm /wikidata/wikidata
+	ln -s /ram-wikidata /wikidata/wikidata
+
+DONE: Run queries on Wikidata using main memory filesystem (on large instance)
+	cd /wikidata/wikidata
+	/wikidata/qlever/build/qlever-server --index-basename wikidata --port 7001 --memory-max-size 142G --cache-max-size 32G --default-query-timeout 600s
+		Startup time about 70 seconds
+	cd /wikidata/queries
+	./benchmark.py --count --engine=QLever wgpb/bgps/wgpb.text
+	./run-existing-aws QLever aws-ram
+		also restart WDQS runs after QLever crashes
+
+DONE: Copy results back
+	scp -pr -i ~/research/wikidata/benchmark/double-project/QLever.pem ubuntu@ec2-18-191-254-103.us-east-2.compute.amazonaws.com:/wikidata/queries/results-aws-ebs ~/research/wikidata/benchmark/project/queries 
+	scp -pr -i ~/research/wikidata/benchmark/double-project/QLever.pem ubuntu@ec2-18-191-254-103.us-east-2.compute.amazonaws.com:/wikidata/queries/results-aws-ssd ~/research/wikidata/benchmark/project/queries 
+	scp -pr -i ~/research/wikidata/benchmark/double-project/QLever.pem ubuntu@ec2-18-191-254-103.us-east-2.compute.amazonaws.com:/wikidata/queries/results-aws-ram ~/research/wikidata/benchmark/project/queries 

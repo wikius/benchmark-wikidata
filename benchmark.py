@@ -1,4 +1,4 @@
-#!/bin/python
+#!/bin/python3
 
 # Control program to run benchmarks.
 
@@ -189,7 +189,7 @@ def blazegraph_eval(query, url):
 
 engines = [
     [ "MilleniumDB", generic_eval, "http://getafix:1234/sparql"], 
-    [ "QLever", generic_eval, 'http://getafix:7001'],
+    [ "QLever", generic_eval, 'http://localhost:7001'],
     [ "Virtuoso", virtuoso_eval, "http://getafix:8890/sparql"],
     [ "Blazegraph", blazegraph_eval, "http://getafix:9999/bigdata/sparql"], 
     [ "MDB", generic_eval, "https://wikidata.imfd.cl/wikidata/sparql"],

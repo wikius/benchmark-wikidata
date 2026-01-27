@@ -1,0 +1,30 @@
+1	QLever		    532	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	chemical-class_class-hierarchy Q101561621
+2	QLever		    209	      	Count= 0 	200		chemical-class_found-in-taxon Q101561621
+3	QLever		    131	      	Count= 0 	200		chemical-class_identifiers Q101561621
+4	QLever		    690	      	Result=1987 	200		chemical-class_publications-per-year Q101561621
+5	QLever		   1846	      	Count= 2 	200		chemical-class_recent-literature Q101561621
+6	QLever		   8504	      	Result=Q101561621 	200		chemical-class_related-chemicals Q101561621
+7	QLever		    262	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	chemical-class_class-hierarchy Q101565160
+8	QLever		    191	      	Count= 0 	200		chemical-class_found-in-taxon Q101565160
+9	QLever		    127	      	Count= 0 	200		chemical-class_identifiers Q101565160
+10	QLever		    665	      	Count= 3 	200		chemical-class_publications-per-year Q101565160
+11	QLever		   1723	      	Result=Q199897 	200		chemical-class_recent-literature Q101565160
+12	QLever		   3139	      	Result=Q101565160 	200		chemical-class_related-chemicals Q101565160
+13	QLever		    281	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	chemical-class_class-hierarchy Q103537
+14	QLever		    408	      	Count= 2 	200		chemical-class_found-in-taxon Q103537
+15	QLever		    127	      	Count= 0 	200		chemical-class_identifiers Q103537
+16	QLever		   1270	      	Count= 130 	200		chemical-class_publications-per-year Q103537
+17	QLever		   3606	      	Count= 250 	200		chemical-class_recent-literature Q103537
+18	QLever		   3336	      	Count= 73 	200		chemical-class_related-chemicals Q103537
+19	QLever		    250	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	chemical-class_class-hierarchy Q103840598
+20	QLever		    198	      	Count= 0 	200		chemical-class_found-in-taxon Q103840598
+21	QLever		    128	      	Result=P2926 	200		chemical-class_identifiers Q103840598
+22	QLever		    673	      	Count= 16 	200		chemical-class_publications-per-year Q103840598
+23	QLever		   2832	      	Count= 9 	200		chemical-class_recent-literature Q103840598
+24	QLever		   3167	      	Result=Q103840598 	200		chemical-class_related-chemicals Q103840598
+25	QLever		    273	      	None 	500	ERROR: Error while executing a SERVICE request to <http://www.bigdata.com:80/rdf/gas#service>: QLever requires the endpoint of a SERVICE to send the result as 'application/sparql-results+json' but the endpoint sent 'text/html'. First 100 bytes of the response: '<!doctype html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com/" crosso'	chemical-class_class-hierarchy Q105620529
+26	QLever		    196	      	Count= 0 	200		chemical-class_found-in-taxon Q105620529
+27	QLever		    128	      	Count= 0 	200		chemical-class_identifiers Q105620529
+28	QLever		    686	      	Count= 13 	200		chemical-class_publications-per-year Q105620529
+29	QLever		   3254	      	Count= 54 	200		chemical-class_recent-literature Q105620529
+30	QLever		   3355	      	Count= 259 	200		chemical-class_related-chemicals Q105620529

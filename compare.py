@@ -1,8 +1,11 @@
 #!/usr/bin/python
-# Compare results of several different versions of a counted benchmark
+# Compare results of several different versions of a (counted) benchmark
 # the first version is considered the reference and others are compared to it
 # ./compare.py results-2020-oct/ results-2024-oct-single/ results-2025-oct-single/
-# Options:  -o compare ontology benchmarks, -s compare Scholia benchmarks, -u compare unlimited WDbench benchmarks, no option means compare existing benchmarks
+# Options:  -o compare ontology benchmarks,
+#	-s compare Scholia benchmarks,
+#	-u compare unlimited WDbench benchmarks,
+#	no option means compare existing benchmarks
 # For other options see below
 # Output fields:
 # the part of the benchmark
@@ -30,6 +33,8 @@ parser.add_argument("-b", "--benchmarks", action='append', help="Benchmark to us
 parser.add_argument("-d", "--detail", action='store_true', default=False, help="Show detailed information")
 parser.add_argument("-r", "--ratio", type=int, default=1, help="Expected results ratio between first run and other runs")
 parser.add_argument("-S", "--SCHOLIA", help="Scholia prefix")
+parser.add_argument("-p", "--penalty", type=float, default=5.0, help="Penalty for failure; 0 is ignore")
+parser.add_argument("-C", "--nocounted", action='store_true', help="Use normal, not counted runs")
 group = parser.add_mutually_exclusive_group()
 group.add_argument("-s", "--scholia", action='store_true', default=False, help="Show Scholia results")
 group.add_argument("-o", "--ontology", action='store_true', default=False, help="Show onology results")
@@ -60,7 +65,7 @@ def file(engine, benchmark, base):
         if args.scholia:
             return open(f"{base}/{args.SCHOLIA}-{benchmark}-{engine}.tsv")
         else:
-            return open(f"{base}/{benchmark}-counted-{engine}.tsv")
+            return open(f"{base}/{benchmark}-{"counted" if not args.nocounted else "norm"}-{engine}.tsv")
     except FileNotFoundError:
         return None
 
@@ -83,7 +88,7 @@ def print_summary(benchmark, lines, ttime, tcount, success, others, ttimes, tcou
     print(f"{benchmark:20} {lines:4} {lines-success:4} {ttime//1000:6,} {tcount:17,}  ", end='')
     for other in others:
         if successes[other]:
-            print(f"{success-successes[other]:5} {ttimes[other]/ttime:6.2f} {ttimes[other]//1000:6,} {tcounts[other]:17,} {tcounts[other]/txcounts[other] if txcounts[other] else 999.99:6.2f}", end='   ')
+            print(f"{success-successes[other]:5} {ttimes[other]/ttime:6.2f} {int(ttimes[other]//1000):6,} {tcounts[other]:17,} {tcounts[other]/txcounts[other] if txcounts[other] else 999.99:6.2f}", end='   ')
         else:
             print("                                             ", end='  ')
     print()
@@ -156,9 +161,8 @@ def compare_benchmark(benchmark):
                 c = None
                 t = 0
             if count is not None:
-#                ttimes[other] += t if c is not None else 600000  # drastic penalty
-                ttimes[other] += t if c is not None else min(600000, max(t, time * 5)) # strong penalty
-#                ttimes[other] += t if c is not None else min(600000, max(t, time * 3)) # moderate penalty
+                ttimes[other] += t if c is not None else ( time if time is not None else 0 ) if args.penalty == 0.0  \
+                    else min(600000, max(t, time * args.penalty)) # strong penalty
                 tcounts[other] += c if c is not None else 0
                 txcounts[other] += count if c is not None else 0
             if c is not None:

@@ -7,5 +7,8 @@ setenv BENCHMARK_HOME /home/local
 cd ${BENCHMARK_HOME}/benchmark/qlever-wikidata
 ${BENCHMARK_HOME}/scripts/cache
 echo "\n\nSTARTING QLEVER" >> /tmp/QLever
-${BENCHMARK_HOME}/qlever/qlever-code/build/ServerMain --index-basename wikidata$version --port 7001 --memory-max-size 142G --cache-max-size 32G --default-query-timeout 600s >>& /tmp/QLever   &
-sleep 30s
+set path = ${BENCHMARK_HOME}/qlever/qlever-code/build/qlever-server
+if ( $2 != '' ) set path = ${BENCHMARK_HOME}/qlever/$2/build/ServerMain
+${path} -a token --index-basename wikidata$version --port 7001 --memory-max-size 142G --cache-max-size 32G --default-query-timeout 600s >>& /tmp/QLever   &
+
+/usr/bin/sleep 60s

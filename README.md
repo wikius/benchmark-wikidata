@@ -3,7 +3,10 @@
 Programs and data for benchmarking SPARQL queries on Wikidata. 
 These are used in the [Scaling Wikidata](https://www.wikidata.org/wiki/Wikidata:Scaling_Wikidata/Benchmarking) project, to evaluate different potential Wikidata backends. 
 
-Supported in part by a [grant](https://meta.wikimedia.org/wiki/Wikimedia_CH/Grant_apply/Scaling_Wikidata_by_benchmarking_QLever) from [Wikimedia CH](https://wikimedia.ch/). 
+Supported in part by two grants ([Phase 1](https://meta.wikimedia.org/wiki/Wikimedia_CH/Grant_apply/Scaling_Wikidata_by_benchmarking_QLever) and
+[Phase 2](https://meta.wikimedia.org/wiki/Wikimedia_CH/Grant_apply/Scaling_Wikidata_through_Benchmarking,_Part_2))
+from [Wikimedia CH](https://wikimedia.ch/). 
+
 
 ## Phase 1:  Evaluation of four SPARQL engines on Wikidata
 
@@ -57,14 +60,20 @@ results-iswc
 * [Phase 1 Final Report][https://www.wikidata.org/wiki/Wikidata:Scaling_Wikidata/Benchmarking/Final_Report]
 * Benchmarking SPARQL Engines on Wikidata Queries at the 2025 Wikidata Workshop, ISWC-2025, November 2025, Nara, Japan
 
-## Phase 2: Evaluation of QLever on doubled and historial Wikidata
+
+
+## Phase 2: 
+
+The file Progress-second-phase.text has details on how the various versions of Wikidata were generated and where the results are stored.
 
 Programs used in this phase:
 * benchmark.py - perform a benchmark run
 * run-existing - run all the exiting benchmarks
-* run-ontology - run the ontolgy benchmark
+* run-ontology - run the ontology benchmark
 * run-scholia - run the Scholia benchmark
-* compare.py - compare the results of several benchmark runs on several versions of Wikidata
+* compare.py - compare the results of several benchmark runs on several versions
+
+### Evaluation of QLever on doubled and historial Wikidata
 
 Results directories:
 
@@ -95,4 +104,32 @@ results-2025-oct-single
 results-2025-oct-double-SS
 ```
 
-For more information and results see the [doubling report][https://www.wikidata.org/wiki/Wikidata:Scaling_Wikidata/Benchmarking/Phase_2_Doubling_Report].
+For more information and results see the [doubling report]9https://www.wikidata.org/wiki/Wikidata:Scaling_Wikidata/Benchmarking/Phase_2_Doubling_Report).
+
+
+### Evaluation of QLever on doubled and historial Wikidata
+
+The results are in the directories
+
+```
+results-2025-nov-update
+results-2025-nov-update-updating
+```
+
+For more information see the [updating report](https://www.wikidata.org/wiki/Wikidata:Scaling_Wikidata/Benchmarking/Phase_2_Update_Report).
+
+
+### Evaluation of QLever with much main memory
+
+The file Progress-second-phase-aws.text has details on how the benchmarking was performed on AWS instances and how the results files were created.
+
+The results are in the directories
+
+```
+results-aws-ebs
+results-aws-ssd
+results-aws-ram
+```
+
+For more information see the [main-memory report](https://www.wikidata.org/wiki/Wikidata:Scaling_Wikidata/Benchmarking/Phase_2_Memory_Report).
+

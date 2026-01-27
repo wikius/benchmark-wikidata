@@ -1,0 +1,25 @@
+1	QLever		  62556	      	None 	500	ERROR: Tried to allocate 17 GB, but only 13.2 GB were available	country_authors Q1000
+2	QLever		   2763	      	Count= 620 	200		country_co-organizations Q1000
+3	QLever		  28559	      	Count= 4229 	200		country_locations-as-topics Q1000
+4	QLever		   2443	      	Count= 6 	200		country_narrative-locations Q1000
+5	QLever		    295	      	Count= 13 	200		country_organizations Q1000
+6	QLever		  54937	      	None 	500	ERROR: Tried to allocate 12.7 GB, but only 7.2 GB were available	country_authors Q1005
+7	QLever		   2685	      	Count= 1211 	200		country_co-organizations Q1005
+8	QLever		  28684	      	Count= 12234 	200		country_locations-as-topics Q1005
+9	QLever		   2348	      	Count= 6 	200		country_narrative-locations Q1005
+10	QLever		    302	      	Count= 9 	200		country_organizations Q1005
+11	QLever		  60933	      	None 	500	ERROR: Tried to allocate 37 GB, but only 30.9 GB were available	country_authors Q1006
+12	QLever		   1871	      	Count= 55 	200		country_co-organizations Q1006
+13	QLever		  27428	      	Count= 486 	200		country_locations-as-topics Q1006
+14	QLever		   2445	      	Count= 6 	200		country_narrative-locations Q1006
+15	QLever		    318	      	Count= 12 	200		country_organizations Q1006
+16	QLever		 127670	      	Count= 10000 	200		country_authors Q1007
+17	QLever		   1752	      	Count= 206 	200		country_co-organizations Q1007
+18	QLever		  27800	      	Count= 3628 	200		country_locations-as-topics Q1007
+19	QLever		   2336	      	Count= 4 	200		country_narrative-locations Q1007
+20	QLever		    337	      	Count= 7 	200		country_organizations Q1007
+21	QLever		  60116	      	None 	500	ERROR: Tried to allocate 33.8 GB, but only 23.6 GB were available	country_authors Q1008
+22	QLever		   2301	      	Count= 993 	200		country_co-organizations Q1008
+23	QLever		  28538	      	Count= 8002 	200		country_locations-as-topics Q1008
+24	QLever		   2702	      	Count= 25 	200		country_narrative-locations Q1008
+25	QLever		    332	      	Count= 34 	200		country_organizations Q1008

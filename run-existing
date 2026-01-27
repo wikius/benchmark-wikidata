@@ -14,9 +14,9 @@ echo "Existing wikidata version $version" | tee results-$area/existing-version-$
 
 /home/local/scripts/$1-stop
 
-#/home/local/scripts/$1-run $version
-#./benchmark.py --engine=$1 wgpb/bgps/wgpb.text | tee results-$area/wgpb-norm-$1.tsv
-#/home/local/scripts/$1-stop
+/home/local/scripts/$1-run $version
+./benchmark.py --engine=$1 wgpb/bgps/wgpb.text | tee results-$area/wgpb-norm-$1.tsv
+/home/local/scripts/$1-stop
 /home/local/scripts/$1-run $version
 ./benchmark.py --count --engine=$1 wgpb/bgps/wgpb.text | tee results-$area/wgpb-counted-$1.tsv
 /home/local/scripts/$1-stop
@@ -24,9 +24,9 @@ echo "Existing wikidata version $version" | tee results-$area/existing-version-$
 #./benchmark.py --nodups --engine=$1 wgpb/bgps/wgpb.text | tee results-$area/wgpb-nodups-$1.tsv
 #/home/local/scripts/$1-stop
 
-#/home/local/scripts/$1-run $version
-#./benchmark.py --engine=$1 wdqs/wikidata-queries.tsv | tee results-$area/wdqs-norm-$1.tsv
-#/home/local/scripts/$1-stop
+/home/local/scripts/$1-run $version
+./benchmark.py --engine=$1 wdqs/wikidata-queries.tsv | tee results-$area/wdqs-norm-$1.tsv
+/home/local/scripts/$1-stop
 /home/local/scripts/$1-run $version
 ./benchmark.py --count --engine=$1 wdqs/wikidata-queries.tsv | tee results-$area/wdqs-counted-$1.tsv
 /home/local/scripts/$1-stop
@@ -34,7 +34,7 @@ echo "Existing wikidata version $version" | tee results-$area/existing-version-$
 #./benchmark.py --nodups --engine=$1 wdqs/wikidata-queries.tsv | tee results-$area/wdqs-nodups-$1.tsv
 #/home/local/scripts/$1-stop
 
-foreach benchmark ( single_bgps opts paths c2rpqs multiple_bgps )
+foreach benchmark ( single_bgps multiple_bgps opts paths c2rpqs )
 #  /home/local/scripts/$1-run $version
 #  ./benchmark.py --engine=$1 wdbench/Queries/$benchmark.text | tee results-$area/$benchmark-norm-$1.tsv
 #  /home/local/scripts/$1-stop
@@ -44,9 +44,29 @@ foreach benchmark ( single_bgps opts paths c2rpqs multiple_bgps )
 #  /home/local/scripts/$1-run $version
 #  ./benchmark.py --nodups --engine=$1 wdbench/Queries/$benchmark.text | tee results-$area/$benchmark-nodups-$1.tsv
 #  /home/local/scripts/$1-stop
-  /home/local/scripts/$1-run $version
-  ./benchmark.py --count --engine=$1 wdbenchu/Queries/$benchmark.text | tee results-$area/u$benchmark-counted-$1.tsv
-  /home/local/scripts/$1-stop
+##  /home/local/scripts/$1-run $version
+##  ./benchmark.py --count --engine=$1 wdbenchu/Queries/$benchmark.text | tee results-$area/u$benchmark-counted-$1.tsv
+##  /home/local/scripts/$1-stop
 end
   
+exit
+
+# restart QLever after queries that cause it to crash
+
+/home/local/scripts/$1-run $version
+./benchmark.py --count --skip 245 --engine=$1 wdbench/Queries/opts.text | tee results-$area/opts-counted-$1-extra1.tsv
+/home/local/scripts/$1-stop
+
+/home/local/scripts/$1-run $version
+./benchmark.py --count --skip 476 --engine=$1 wdbench/Queries/opts.text | tee results-$area/opts-counted-$1-extra2.tsv
+/home/local/scripts/$1-stop
+
+/home/local/scripts/$1-run $version
+./benchmark.py --count --skip 60 --engine=$1 wdbench/Queries/opts.text | tee results-$area/opts-counted-$1-extra3.tsv
+/home/local/scripts/$1-stop
+
+/home/local/scripts/$1-run $version
+./benchmark.py --count --skip 286 --engine=$1 wdbench/Queries/opts.text | tee results-$area/opts-counted-$1-extra4.tsv
+/home/local/scripts/$1-stop
+
 exit

@@ -1,0 +1,41 @@
+SKIPPING 245 queries
+246	QLever	COUNTED	     25	      	Result=0 	200		
+247	QLever	COUNTED	     63	      	Result=10000000 	200		
+248	QLever	COUNTED	   3088	      	Result=10000000 	200		
+249	QLever	COUNTED	     95	      	Result=10000000 	200		
+250	QLever	COUNTED	    122	      	Result=10000000 	200		
+251	QLever	COUNTED	   3561	      	Result=10000000 	200		
+252	QLever	COUNTED	     46	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+253	QLever	COUNTED	     31	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+254	QLever	COUNTED	     69	      	Result=72002 	200		
+255	QLever	COUNTED	    108	      	Result=10000000 	200		
+256	QLever	COUNTED	     38	      	Result=10000000 	200		
+257	QLever	COUNTED	    417	      	Result=461 	200		
+258	QLever	COUNTED	     19	      	Result=1724 	200		
+259	QLever	COUNTED	     63	      	Result=10000000 	200		
+260	QLever	COUNTED	 600008	      	None 	429	ERROR: Operation timed out. Last operation: GroupBy (implicit)	
+261	QLever	COUNTED	    144	      	Result=1713 	200		
+262	QLever	COUNTED	     48	      	Result=1771 	200		
+263	QLever	COUNTED	    109	      	Result=711064 	200		
+264	QLever	COUNTED	     26	      	Result=10000000 	200		
+265	QLever	COUNTED	      6	      	Result=75 	200		
+266	QLever	COUNTED	    537	      	Result=500 	200		
+267	QLever	COUNTED	    221	      	Result=2274768 	200		
+268	QLever	COUNTED	     21	      	Result=0 	200		
+269	QLever	COUNTED	    345	      	None 	500	ERROR: The memory limit was exceeded during the computation of a cross-product. Check if this cross-product is intentional or if you have mistyped a variable name.	
+270	QLever	COUNTED	     89	      	Result=1914 	200		
+271	QLever	COUNTED	    146	      	Result=363459 	200		
+272	QLever	COUNTED	    185	      	Result=4703946 	200		
+273	QLever	COUNTED	    181	      	Result=4699541 	200		
+274	QLever	COUNTED	    148	      	Result=306173 	200		
+275	QLever	COUNTED	     16	      	Result=437351 	200		
+276	QLever	COUNTED	    390	      	Result=10000000 	200		
+277	QLever	COUNTED	     14	      	Result=1357201 	200		
+278	QLever	COUNTED	    148	      	Result=1377228 	200		
+279	QLever	COUNTED	      9	      	Result=339598 	200		
+280	QLever	COUNTED	      8	      	Result=337338 	200		
+281	QLever	COUNTED	    177	      	Result=2514247 	200		
+282	QLever	COUNTED	     17	      	Result=354915 	200		
+283	QLever	COUNTED	    418	      	Result=10000000 	200		
+284	QLever	COUNTED	    107	      	Result=10000000 	200		
+285	QLever	COUNTED	     25	      	Result=161 	200		

@@ -1,5 +1,0 @@
-# curl -Gs http://getafix.local:7001 --header 'Accept:text/tab-separated-values' --data-urlencode query@<file>
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-
-  SELECT ?s ?a WHERE { ?s wdt:P31/wdt:P279* ?a . }
-

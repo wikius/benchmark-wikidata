@@ -1,0 +1,15 @@
+1	QLever		  52412	      	None 	500	ERROR: Tried to allocate 22.3 GB, but only 19.4 GB were available	disease_clinical-trials Q1001150
+2	QLever		   2029	      	Count= 86 	200		disease_publications-per-year Q1001150
+3	QLever		    458	      	Count= 0 	200		disease_related-diseases Q1001150
+4	QLever		  52547	      	None 	500	ERROR: Tried to allocate 18.2 GB, but only 14.7 GB were available	disease_clinical-trials Q1016605
+5	QLever		   1455	      	Count= 58 	200		disease_publications-per-year Q1016605
+6	QLever		    282	      	Count= 0 	200		disease_related-diseases Q1016605
+7	QLever		  68523	      	None 	500	ERROR: Tried to allocate 27.1 GB, but only 20 GB were available	disease_clinical-trials Q101896
+8	QLever		   1451	      	Count= 100 	200		disease_publications-per-year Q101896
+9	QLever		    478	      	Count= 75 	200		disease_related-diseases Q101896
+10	QLever		  62948	      	None 	500	ERROR: Tried to allocate 17.2 GB, but only 13.1 GB were available	disease_clinical-trials Q1022718
+11	QLever		   1274	      	Count= 5 	200		disease_publications-per-year Q1022718
+12	QLever		    532	      	Count= 365 	200		disease_related-diseases Q1022718
+13	QLever		  76971	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 12.7 GB were available	disease_clinical-trials Q1023604
+14	QLever		   1298	      	Count= 30 	200		disease_publications-per-year Q1023604
+15	QLever		    338	      	Result=1 	200		disease_related-diseases Q1023604

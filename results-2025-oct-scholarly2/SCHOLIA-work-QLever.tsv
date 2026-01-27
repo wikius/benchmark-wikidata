@@ -1,0 +1,70 @@
+1	QLever		     65	      	Count= 6 	200		work_associated-images Q100019567
+2	QLever		 137727	      	Count= 60 	200		work_citation-graph Q100019567
+3	QLever		    121	      	Count= 38 	200		work_citations-per-year Q100019567
+4	QLever		   4216	      	Count= 8 	200		work_citations Q100019567
+5	QLever		    298	      	Count= 40 	200		work_cited-work-authors Q100019567
+6	QLever		    708	      	Count= 20 	200		work_cited-works Q100019567
+7	QLever		    100	      	Count= 0 	200		work_cito-incoming-chart Q100019567
+8	QLever		    120	      	Count= 0 	200		work_cito-incoming Q100019567
+9	QLever		    803	      	Count= 6 	200		work_list-of-authors Q100019567
+10	QLever		    232	      	Count= 500 	200		work_related-works Q100019567
+11	QLever		    613	      	None 	500	ERROR: Tried to allocate 241.2 GB, but only 142 GB were available	work_statements Q100019567
+12	QLever		    255	      	Count= 5 	200		work_timeline Q100019567
+13	QLever		    246	      	Count= 26 	200		work_topic-scores Q100019567
+14	QLever		    617	      	None 	500	ERROR: Error while executing a SERVICE request to <http://wikiba.se:80/ontology#mwapi>: SERVICE responded with HTTP status code: 301, Moved Permanently. First 100 bytes of the response: '<html>	work_wikipedia-mentions Q100019567
+15	QLever		     50	      	Result=Scientific%20citations.png 	200		work_associated-images Q100138103
+16	QLever		 135143	      	Count= 4 	200		work_citation-graph Q100138103
+17	QLever		    109	      	Count= 21 	200		work_citations-per-year Q100138103
+18	QLever		     58	      	Count= 0 	200		work_citations Q100138103
+19	QLever		     46	      	Count= 0 	200		work_cited-work-authors Q100138103
+20	QLever		     57	      	Result=4 	200		work_cited-works Q100138103
+21	QLever		     93	      	Count= 0 	200		work_cito-incoming-chart Q100138103
+22	QLever		    119	      	Count= 0 	200		work_cito-incoming Q100138103
+23	QLever		    273	      	Count= 2 	200		work_list-of-authors Q100138103
+24	QLever		    262	      	Count= 4 	200		work_related-works Q100138103
+25	QLever		    624	      	None 	500	ERROR: Tried to allocate 241.2 GB, but only 142 GB were available	work_statements Q100138103
+26	QLever		    246	      	Count= 3 	200		work_timeline Q100138103
+27	QLever		    182	      	Result=21 	200		work_topic-scores Q100138103
+28	QLever		    290	      	None 	500	ERROR: Error while executing a SERVICE request to <http://wikiba.se:80/ontology#mwapi>: SERVICE responded with HTTP status code: 301, Moved Permanently. First 100 bytes of the response: '<html>	work_wikipedia-mentions Q100138103
+29	QLever		     47	      	Result=Scientific%20citations.png 	200		work_associated-images Q100138118
+30	QLever		 137213	      	Count= 4 	200		work_citation-graph Q100138118
+31	QLever		    106	      	Count= 21 	200		work_citations-per-year Q100138118
+32	QLever		     59	      	Count= 0 	200		work_citations Q100138118
+33	QLever		     46	      	Count= 0 	200		work_cited-work-authors Q100138118
+34	QLever		     58	      	Result=4 	200		work_cited-works Q100138118
+35	QLever		     92	      	Count= 0 	200		work_cito-incoming-chart Q100138118
+36	QLever		    119	      	Count= 0 	200		work_cito-incoming Q100138118
+37	QLever		    270	      	Count= 2 	200		work_list-of-authors Q100138118
+38	QLever		    251	      	Count= 4 	200		work_related-works Q100138118
+39	QLever		    640	      	None 	500	ERROR: Tried to allocate 241.2 GB, but only 142 GB were available	work_statements Q100138118
+40	QLever		    246	      	Count= 3 	200		work_timeline Q100138118
+41	QLever		    188	      	Result=21 	200		work_topic-scores Q100138118
+42	QLever		    269	      	None 	500	ERROR: Error while executing a SERVICE request to <http://wikiba.se:80/ontology#mwapi>: SERVICE responded with HTTP status code: 301, Moved Permanently. First 100 bytes of the response: '<html>	work_wikipedia-mentions Q100138118
+43	QLever		     53	      	Count= 4 	200		work_associated-images Q100138615
+44	QLever		 136595	      	Count= 21 	200		work_citation-graph Q100138615
+45	QLever		    108	      	Count= 22 	200		work_citations-per-year Q100138615
+46	QLever		     59	      	Count= 0 	200		work_citations Q100138615
+47	QLever		    223	      	Count= 12 	200		work_cited-work-authors Q100138615
+48	QLever		    276	      	Count= 2 	200		work_cited-works Q100138615
+49	QLever		     91	      	Count= 0 	200		work_cito-incoming-chart Q100138615
+50	QLever		    119	      	Count= 0 	200		work_cito-incoming Q100138615
+51	QLever		    378	      	Count= 11 	200		work_list-of-authors Q100138615
+52	QLever		    316	      	Count= 500 	200		work_related-works Q100138615
+53	QLever		    630	      	None 	500	ERROR: Tried to allocate 241.2 GB, but only 142 GB were available	work_statements Q100138615
+54	QLever		    246	      	Count= 3 	200		work_timeline Q100138615
+55	QLever		    219	      	Count= 8 	200		work_topic-scores Q100138615
+56	QLever		    285	      	None 	500	ERROR: Error while executing a SERVICE request to <http://wikiba.se:80/ontology#mwapi>: SERVICE responded with HTTP status code: 301, Moved Permanently. First 100 bytes of the response: '<html>	work_wikipedia-mentions Q100138615
+57	QLever		     55	      	Count= 3 	200		work_associated-images Q100139626
+58	QLever		 135479	      	Count= 80 	200		work_citation-graph Q100139626
+59	QLever		    115	      	Count= 25 	200		work_citations-per-year Q100139626
+60	QLever		    856	      	Count= 2 	200		work_citations Q100139626
+61	QLever		    381	      	Count= 103 	200		work_cited-work-authors Q100139626
+62	QLever		    844	      	Count= 4 	200		work_cited-works Q100139626
+63	QLever		     97	      	Count= 0 	200		work_cito-incoming-chart Q100139626
+64	QLever		    120	      	Count= 0 	200		work_cito-incoming Q100139626
+65	QLever		    585	      	Count= 22 	200		work_list-of-authors Q100139626
+66	QLever		    261	      	Count= 500 	200		work_related-works Q100139626
+67	QLever		    639	      	None 	500	ERROR: Tried to allocate 241.2 GB, but only 142 GB were available	work_statements Q100139626
+68	QLever		    248	      	Count= 5 	200		work_timeline Q100139626
+69	QLever		    251	      	Count= 19 	200		work_topic-scores Q100139626
+70	QLever		    283	      	None 	500	ERROR: Error while executing a SERVICE request to <http://wikiba.se:80/ontology#mwapi>: SERVICE responded with HTTP status code: 301, Moved Permanently. First 100 bytes of the response: '<html>	work_wikipedia-mentions Q100139626

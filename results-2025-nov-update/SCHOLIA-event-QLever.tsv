@@ -1,0 +1,75 @@
+1	QLever		    381	      	Count= 22 	200		event_co-authors Q100741900
+2	QLever		  15783	      	Count= 2 	200		event_data Q100741900
+3	QLever		 746347	      	Count= 5332759 	200		event_future-events Q100741900
+4	QLever		  54769	      	None 	500	ERROR: Tried to allocate 29.3 GB, but only 24.9 GB were available	event_past-events Q100741900
+5	QLever		  27064	      	Count= 10000 	200		event_people Q100741900
+6	QLever		    948	      	Count= 0 	200		event_presentations Q100741900
+7	QLever		    958	      	Result=Q100899396 	200		event_proceedings Q100741900
+8	QLever		    199	      	Count= 500 	200		event_recent-publications Q100741900
+9	QLever		    713	      	Count= 173 	200		event_related-events-people Q100741900
+10	QLever		 425932	      	None 	500	ERROR: Tried to allocate 68.7 GB, but only 38.8 GB were available	event_related-events-timelocation Q100741900
+11	QLever		     52	      	Count= 2 	200		event_sponsors Q100741900
+12	QLever		     62	      	Count= 2 	200		event_timeline Q100741900
+13	QLever		    221	      	Count= 200 	200		event_topic-scores Q100741900
+14	QLever		     82	      	Count= 0 	200		event_upcoming-deadlines Q100741900
+15	QLever		    430	      	Count= 159 	200		event_uses Q100741900
+16	QLever		    373	      	Count= 1274 	200		event_co-authors Q105835556
+17	QLever		  15869	      	Count= 9 	200		event_data Q105835556
+18	QLever		 767331	      	Count= 5384619 	200		event_future-events Q105835556
+19	QLever		  55512	      	None 	500	ERROR: Tried to allocate 29.3 GB, but only 24.9 GB were available	event_past-events Q105835556
+20	QLever		  42809	      	Count= 10000 	200		event_people Q105835556
+21	QLever		    920	      	Count= 0 	200		event_presentations Q105835556
+22	QLever		   1296	      	Count= 128 	200		event_proceedings Q105835556
+23	QLever		    281	      	Count= 500 	200		event_recent-publications Q105835556
+24	QLever		    597	      	Count= 200 	200		event_related-events-people Q105835556
+25	QLever		 424668	      	None 	500	ERROR: Tried to allocate 68.7 GB, but only 38.8 GB were available	event_related-events-timelocation Q105835556
+26	QLever		    142	      	Count= 9 	200		event_sponsors Q105835556
+27	QLever		     73	      	Count= 2 	200		event_timeline Q105835556
+28	QLever		    247	      	Count= 200 	200		event_topic-scores Q105835556
+29	QLever		     68	      	Count= 0 	200		event_upcoming-deadlines Q105835556
+30	QLever		    474	      	Count= 177 	200		event_uses Q105835556
+31	QLever		    355	      	Count= 256 	200		event_co-authors Q115781177
+32	QLever		  15872	      	Count= 8 	200		event_data Q115781177
+33	QLever		 748440	      	Count= 5312595 	200		event_future-events Q115781177
+34	QLever		  55561	      	None 	500	ERROR: Tried to allocate 29.3 GB, but only 24.9 GB were available	event_past-events Q115781177
+35	QLever		    343	      	Count= 68 	200		event_people Q115781177
+36	QLever		    934	      	Count= 0 	200		event_presentations Q115781177
+37	QLever		   1210	      	Count= 40 	200		event_proceedings Q115781177
+38	QLever		    220	      	Count= 500 	200		event_recent-publications Q115781177
+39	QLever		    608	      	Count= 200 	200		event_related-events-people Q115781177
+40	QLever		 428577	      	None 	500	ERROR: Tried to allocate 68.7 GB, but only 38.8 GB were available	event_related-events-timelocation Q115781177
+41	QLever		    134	      	Count= 5 	200		event_sponsors Q115781177
+42	QLever		     74	      	Count= 2 	200		event_timeline Q115781177
+43	QLever		    182	      	Count= 200 	200		event_topic-scores Q115781177
+44	QLever		     69	      	Count= 0 	200		event_upcoming-deadlines Q115781177
+45	QLever		    481	      	Count= 162 	200		event_uses Q115781177
+46	QLever		    391	      	Count= 570 	200		event_co-authors Q1159867
+47	QLever		  15826	      	Count= 2 	200		event_data Q1159867
+48	QLever		 760739	      	Count= 5379648 	200		event_future-events Q1159867
+49	QLever		  55009	      	None 	500	ERROR: Tried to allocate 29.3 GB, but only 24.9 GB were available	event_past-events Q1159867
+50	QLever		    373	      	Count= 60 	200		event_people Q1159867
+51	QLever		   1177	      	Count= 3 	200		event_presentations Q1159867
+52	QLever		   1199	      	Count= 27 	200		event_proceedings Q1159867
+53	QLever		    212	      	Count= 500 	200		event_recent-publications Q1159867
+54	QLever		    537	      	Count= 18 	200		event_related-events-people Q1159867
+55	QLever		 429214	      	None 	500	ERROR: Tried to allocate 68.7 GB, but only 38.8 GB were available	event_related-events-timelocation Q1159867
+56	QLever		     57	      	Result=Q239221 	200		event_sponsors Q1159867
+57	QLever		      9	      	Count= 0 	200		event_timeline Q1159867
+58	QLever		    213	      	Count= 200 	200		event_topic-scores Q1159867
+59	QLever		     66	      	Count= 0 	200		event_upcoming-deadlines Q1159867
+60	QLever		    462	      	Count= 15 	200		event_uses Q1159867
+61	QLever		    362	      	Count= 88 	200		event_co-authors Q119153952
+62	QLever		  15849	      	Count= 4 	200		event_data Q119153952
+63	QLever		 748364	      	Count= 5248019 	200		event_future-events Q119153952
+64	QLever		  54958	      	None 	500	ERROR: Tried to allocate 29.3 GB, but only 24.9 GB were available	event_past-events Q119153952
+65	QLever		    329	      	Count= 42 	200		event_people Q119153952
+66	QLever		    920	      	Count= 0 	200		event_presentations Q119153952
+67	QLever		   1125	      	Count= 14 	200		event_proceedings Q119153952
+68	QLever		    200	      	Count= 500 	200		event_recent-publications Q119153952
+69	QLever		    600	      	Count= 200 	200		event_related-events-people Q119153952
+70	QLever		 425568	      	None 	500	ERROR: Tried to allocate 68.7 GB, but only 38.8 GB were available	event_related-events-timelocation Q119153952
+71	QLever		     67	      	Result=Q234021 	200		event_sponsors Q119153952
+72	QLever		     91	      	Count= 4 	200		event_timeline Q119153952
+73	QLever		    186	      	Count= 200 	200		event_topic-scores Q119153952
+74	QLever		     66	      	Count= 0 	200		event_upcoming-deadlines Q119153952
+75	QLever		    422	      	Count= 136 	200		event_uses Q119153952

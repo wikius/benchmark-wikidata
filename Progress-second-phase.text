@@ -1,0 +1,285 @@
+			Progress of double and update benchmarking
+
+	Wikidata dumps and processing of them	
+
+Wikidata from 2020
+  Download and gunzip			DONE	wikidata-20201109-all-BETA.ttl
+
+Wikidata from 2024
+  Download and gunzip			DONE	wikidata-20241028-all-BETA.ttl
+  Simple Shadow	    			----	wikidata-20241028-all-BETA-SS.ttl
+    sed -e /^@prefix/s/entity/entity2/ -e /^@prefix/s/EntityData/EntityData2/ wikidata-20241028-all-BETA.ttl > wikidata-20241028-all-BETA-SS.ttl
+  Subclass shadow original		DONE	wikidata-20241028-subclass-shadow-original.ttl
+  Subclass original shadow parent	DONE	wikidata-20241028-subclass-original-shadow-parent.ttl
+  Instance shadow original parent	DONE	wikidata-20241028-instance-shadow-original-parent.ttl
+    Load up wikidata-single
+    .../queries/ontology.py wikidata-20241028
+    	Runs queries to find subclass and instances relationships and constructs new statements from them
+  Interleave	  			DONE	wikidata-20241028-all-BETA-interleaved.ttl
+    ~/research/wikidata/benchmark/project/queries/interleave.py wikidata-20241028-all-BETA.ttl > wikidata-20241028-all-BETA-interleaved.ttl 
+  Interleave Shadow			DONE	wikidata-20241028-all-BETA-interleaved-shadow.ttl
+    ~/research/wikidata/benchmark/project/queries/interleave.py --shadow wikidata-20241028-all-BETA.ttl > wikidata-20241028-all-BETA-interleaved-shadow.ttl
+
+Wikidata from 2025
+  Download and gunzip			DONE	wikidata-20251021-all-BETA.ttl				
+  Simple Shadow	    			DONE	wikidata-20251021-all-BETA-SS.ttl
+    sed -e /^@prefix/s/entity/entity2/ -e /^@prefix/s/EntityData/EntityData2/ wikidata-20251021-all-BETA.ttl > wikidata-20251021-all-BETA-SS.ttl
+  Subclass shadow original		NOTDONE	wikidata-20251021-subclass-shadow-original.ttl		
+  Subclass original shadow parent	NOTDONE	wikidata-20251021-subclass-original-shadow-parent.ttl	
+  Instance shadow original parent	NOTDONE	wikidata-20251021-instance-shadow-original-parent.ttl	
+    Load up wikidata-single
+    .../queries/ontology.py wikidata-20251021
+    	Runs queries to find subclass and instances relationships and constructs new statements from them
+  Interleave	  			NOTDONE	wikidata-20251021-all-BETA-interleaved.ttl 		
+    ~/research/wikidata/benchmark/project/queries/interleave.py wikidata-20251021-all-BETA.ttl > wikidata-20251021-all-BETA-interleaved.ttl 
+  Interleave Shadow			NOTDONE	wikidata-20251021-all-BETA-interleaved-shadow.ttl 	
+    ~/research/wikidata/benchmark/project/queries/interleave.py --shadow wikidata-20251021-all-BETA.ttl > wikidata-20251021-all-BETA-interleaved-shadow.ttl
+
+Scholarly split
+  Extract scholarly items		DONE	wikidata-20251021-all-BETA-scholarly.ttl		
+    ~/research/wikidata/benchmark/project/queries/scholarly.py wikidata-20251021-all-BETA.ttl > wikidata-20251021-all-BETA-scholarly.ttl 
+  Make copies				DONE	wikidata-20251021-all-BETA-scholarly2.ttl
+    sed -e "/^@prefix data: /s/EntityData/EntityData2/" -e "/^@prefix wd: /a @prefix wd2: <http://www.wikidata.org/entity2/> ." -e "/^@prefix wds: /s/entity/entity2/" -e "/^wd:/s//wd2:/" wikidata-20251021-all-BETA-scholarly.ttl > wikidata-20251021-all-BETA-scholarly2.ttl
+       					DONE	wikidata-20251021-all-BETA-scholarly3.ttl
+    sed -e "/^@prefix data: /s/EntityData/EntityData3/" -e "/^@prefix wd: /a @prefix wd3: <http://www.wikidata.org/entity3/> ." -e "/^@prefix wds: /s/entity/entity3/" -e "/^wd:/s//wd3:/" wikidata-20251021-all-BETA-scholarly.ttl > wikidata-20251021-all-BETA-scholarly3.ttl
+       					DONE	wikidata-20251021-all-BETA-scholarly4.ttl
+    sed -e "/^@prefix data: /s/EntityData/EntityData4/" -e "/^@prefix wd: /a @prefix wd4: <http://www.wikidata.org/entity4/> ." -e "/^@prefix wds: /s/entity/entity4/" -e "/^wd:/s//wd4:/" wikidata-20251021-all-BETA-scholarly.ttl > wikidata-20251021-all-BETA-scholarly4.ttl
+       					DONE	wikidata-20251021-all-BETA-scholarly5.ttl
+    sed -e "/^@prefix data: /s/EntityData/EntityData5/" -e "/^@prefix wd: /a @prefix wd5: <http://www.wikidata.org/entity5/> ." -e "/^@prefix wds: /s/entity/entity5/" -e "/^wd:/s//wd5:/" wikidata-20251021-all-BETA-scholarly.ttl > wikidata-20251021-all-BETA-scholarly5.ttl
+	  - change data prefix - @prefix data: <https://www.wikidata.org/wiki/Special:EntityDataN/> .
+	  - add second entity prefix - @prefix wdN: <http://www.wikidata.org/entityN/> .
+	  - change statment prefix - @prefix wds: <http://www.wikidata.org/entityN/statement/> .
+	  - change main items to new entity prefix ^wd: -> ^wdN:
+
+
+Wikidata from November 2025
+  Download and bunzip			DONE	wikidata-20251124-all-BETA.ttl				
+
+
+
+	Benchmarking
+
+Wikidata from 2020, using qlever-code-27mar2025
+  Original
+    Files	wikidata-20201109-all-BETA.ttl
+    Results	results-2020-mar		
+    Triples	14 billion or so
+    Benchmarks	DONE	.../queries/run-ontology QLever 2020-mar 2020
+  		DONE	.../queries/run-existing QLever 2020-mar 2020	counted only
+		DONE	.../queries/run-scholia QLever 2020-mar 2020
+
+Wikidata from 2020, using qlever-code-28oct2025
+  Original
+    Files	wikidata-20201109-all-BETA.ttl
+    Results	results-2020-oct		
+    Triples	14 billion or so
+    Benchmarks	DONE	.../queries/run-ontology QLever 2020-oct 2020
+  		DONE	.../queries/run-existing QLever 2020-oct 2020	counted only
+		DONE	.../queries/run-scholia QLever 2020-oct 2020
+
+Wikidata from 2024, using qlever-code-27mar2025
+  Original
+    Files	wikidata-20241028-all-BETA.ttl
+    Results	results-2024-mar-single
+    Triples	20,011,414,509
+    Benchmarks	DONE	.../queries/run-ontology QLever 2024-mar-single single
+  		DONE	.../queries/run-existing QLever 2024-mar-single single
+		DONE	.../queries/run-scholia QLever 2024-mar-single single
+			NOTE: topic fails in third query in original version
+  Simple Shadow
+    Files	wikidata-20241028-all-BETA.ttl wikidata-20241028-all-BETA-SS.ttl
+    Index	copied to /S2/benchmark/qlever-wikidata/double-SS
+    Results	results-2024-mar-double-SS
+    Triples	38,779,285,657
+    Benchmarks	DONE	.../queries/run-ontology QLever 2024-mar-double-SS double-SS
+  		DONE	.../queries/run-existing QLever 2024-mar-double-SS double-SS		counted only
+		DONE	.../queries/run-scholia QLever 2024-mar-double-SS double-SS
+  Simple Shadow + one-way ontology interleaving
+    Files	wikidata-20241028-all-BETA.ttl wikidata-20241028-all-BETA-SS.ttl subclass-shadow-original.ttl 
+    Index	copied to /S2/benchmark/qlever-wikidata/double-o1
+    Results	results-2024-mar-double-o1
+    Triples	38,804,549,581
+    Benchmarks	DONE	.../queries/run-ontology QLever 2024-mar-double-o1 double-o1
+  		DONE	.../queries/run-existing QLever 2024-mar-double-o1 double-o1
+		DONE	.../queries/run-scholia QLever 2024-mar-double-o1 double-o1
+  Simple Shadow + two-way ontology interleaving
+    Files	wikidata-20241028-all-BETA.ttl wikidata-20241028-all-BETA-SS.ttl subclass-shadow-original.ttl subclass-original-shadow-parent.ttl
+    Index	copied to /S2/benchmark/qlever-wikidata/double-o2
+    Results	results-2024-mar-double-o2
+    Triples	38,834,032,303
+    Benchmarks	DONE	.../queries/run-ontology QLever 2024-mar-double-o2 double-o2
+  		DONE	.../queries/run-existing QLever 2024-mar-double-o2 double-o2		counted only
+		DONE	.../queries/run-scholia QLever 2024-mar-double-o2 double-o2
+  Interleaved
+    Files	wikidata-20241028-all-BETA-interleaved.ttl wikidata-20241028-all-BETA-interleaved-shadow.ttl 
+    Index	copied to /S2/benchmark/qlever-wikidata/double-interleaved
+    Results	results-2024-mar-double-interleaved
+    Triples	38,687,602,069
+    Benchmarks	DONE	.../queries/run-ontology QLever 2024-mar-double-interleaved double-interleaved
+  		DONE	.../queries/run-existing QLever 2024-mar-double-interleaved double-interleaved	counted only, no unlimited
+		DONE	.../queries/run-scholia QLever 2024-mar-double-interleaved double-interleaved
+  Big
+    Files	wikidata-20241028-all-BETA.ttl wikidata-20241028-all-BETA-interleaved.ttl wikidata-20241028-all-BETA-interleaved-shadow.ttl
+    Results 	results-2024-mar-double-big
+    Triples	39,169,320,960
+    Benchmarks	DONE	.../queries/run-ontology QLever 2024-mar-double-big double-big
+  		DONE	.../queries/run-existing QLever 2024-mar-double-big double-big	counted only
+		DONE	.../queries/run-scholia QLever 2024-mar-double-big double-big
+
+Wikidata from 2024, using qlever-code-28oct2025
+  Original
+    Files	wikidata-20241028-all-BETA.ttl
+    Results	results-2024-oct-single
+    Triples	20,011,414,509
+    Benchmarks	DONE	.../queries/run-ontology QLever 2024-oct-single single
+  		DONE	.../queries/run-existing QLever 2024-oct-single single	counted only
+				**** Failures in opts, bypassed, and uopts, bypassed
+		DONE	.../queries/run-scholia QLever 2024-oct-single single
+
+Wikidata from October 2025, using qlever-code-28oct2025
+  Original    	    generation time 5 hours  
+    Files	wikidata-20251021-all-BETA.ttl
+    Results	results-2025-oct-single
+    Triples	20,639,121,216
+    Benchmarks	DONE	.../queries/run-ontology QLever 2025-oct-single 2025-single
+  		DONE	.../queries/run-existing QLever 2025-oct-single 2025-single	counted only
+				**** Failures in opts, bypassed, and uopts, bypassed
+		DONE	.../queries/run-scholia QLever 2025-oct-single 2025-single
+  Simple Shadow
+    Files	wikidata-20251021-all-BETA.ttl wikidata-20251021-all-BETA-SS.ttl
+    Results	results-2025-oct-double-SS
+    Triples	39,949,065,510
+    Benchmarks	DONE	.../queries/run-ontology QLever 2025-oct-double-SS 2025-double-SS
+  		DONE	.../queries/run-existing QLever 2025-oct-double-SS 2025-double-SS	counted only
+				**** Failures in several runs, bypassed
+		DONE	.../queries/run-scholia QLever 2025-oct-double-SS 2025-double-SS
+  Scholarly 2
+    Files	wikidata-20251021-all-BETA.ttl wikidata-20251021-all-BETA-scholarly2.ttl
+    Results	results-2025-oct-scholarly2
+    Triples	30,152,307,409	Load time 7:30
+    Benchmarks	DONE	.../queries/run-ontology QLever 2025-oct-scholarly2 2025-scholarly2
+  		DONE	.../queries/run-existing QLever 2025-oct-scholarly2 2025-scholarly2	counted only
+				**** Failures in opts, bypassed, and uopts, bypassed
+		DONE	.../queries/run-scholia QLever 2025-oct-scholarly2 2025-scholarly2
+  Scholarly 3
+    Files	wikidata-20251021-all-BETA.ttl wikidata-20251021-all-BETA-scholarly2.ttl wikidata-20251021-all-BETA-scholarly3.ttl
+    Results	results-2025-oct-scholarly3
+    Triples	39,665,493,602	Load time 9:45
+    Benchmarks	DONE	.../queries/run-ontology QLever 2025-oct-scholarly3 2025-scholarly3
+  		DONE	.../queries/run-existing QLever 2025-oct-scholarly3 2025-scholarly3	counted only
+				**** Failures in opts, bypassed, and uopts, bypassed
+		DONE	.../queries/run-scholia QLever 2025-oct-scholarly3 2025-scholarly3
+
+Wikidata from November 2025, using QLever of 4 December 2025, with slower SSD, and recommended settings
+    Files	wikidata-20251124-all-BETA.ttl
+    Index	wikidata2025-update (modified with updates to about December 15)
+    Results	results-2025-nov-update
+    Triples	20,712,720,568
+    Setup	unmodified RDF dump
+    Benchmarks	DONE	.../queries/run-ontology QLever 2025-nov-update 2025-update
+  		DONE	.../queries/run-existing QLever 2025-nov-update 2025-update	counted only, no unlimited
+		DONE	.../queries/run-scholia QLever 2025-nov-update 2025-update
+    Setup	in parallel with updating to current, updating to current takes about 2/3 of the time to do the benchmark
+		DONE	./run-existing QLever 2025-nov-update-updating 2025-update
+    Setup	after updates to 15 December have completed		ABANDONED due to running out of memory
+		TODO	./run-existing QLever 2025-nov-update-updated 2025-update
+
+
+UNCERTAIN FROM HERE
+
+Wikidata from November 2025, using QLever of 4 December 2025
+    Files	wikidata-20251124-all-BETA.ttl
+    Suffix	2025-update
+    Index	.../qlever-wikidata/2025-update		OLD
+    Triples	20,712,720,568
+    Results	2025-nov-updateX
+    Benchmarks	DONE	.../queries/run-ontology QLever 2025-nov-updateX 2025-update
+  		DONE	.../queries/run-existing QLever 2025-nov-updateX 2025-update	counted only, no unlimited
+		DONE	.../queries/run-scholia QLever 2025-nov-updateX 2025-update
+
+		
+		
+
+
+
+		Reporting the data
+
+The report data and the commands to generate it are in comparisons.text
+
+
+
+		General Information
+
+	Prefixes
+2025
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix data: <https://www.wikidata.org/wiki/Special:EntityData/> .
+@prefix wds: <http://www.wikidata.org/entity/statement/> .
+@prefix wdref: <http://www.wikidata.org/reference/> .
+@prefix wdv: <http://www.wikidata.org/value/> .
+2024
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix data: <https://www.wikidata.org/wiki/Special:EntityData/> .
+@prefix s: <http://www.wikidata.org/entity/statement/> .
+@prefix ref: <http://www.wikidata.org/reference/> .
+@prefix v: <http://www.wikidata.org/value/> .
+
+
+	QLever versions
+
+To download and compile QLever see ....
+Download to /home/local/qlever/qlever-code-<date>
+The current version of QLever code is in /home/local/qlever/qlever-code, which is a symbolic link to one of the dated versions.
+To switch between versions change the symbolic link.
+
+
+	QLever indexes and benchmarks
+
+Creating an index
+  QLever
+    Edit /home/local/scripts/QLever-load to load the correct files
+    Run /home/local/scripts/QLever-load
+
+Setting up for benchmarks
+  Create the appropriate index, if necessary
+  Edit <engine>-run so that it uses the index, if necessary
+    QLever-run has an argument for this
+
+Runing benchmarks
+  .../queries/run-ontology <engine> <version> [<directory>]
+  .../queries/run-existing <engine> <version> [<directory>]
+  .../queries/run-scholia <engine> <version> [<directory>]
+
+
+	New Naming of Results Directories
+
+.../queries/results-<dump>-<qlever>-<doubling>
+  <dump>	2020 	Wikidata dump from October 2020
+  		2024	Wikidata dump from October 2024
+		2025	Wikidata dump from October 2025
+  <qlever>	mar	QLever version of March 2025
+  		oct	QLever version of October 2025
+  <doubling>	single	See above, ...
+  		double-SS
+  		double-o1
+		double-o2
+		double-interleaved
+		double-big
+		scholarly2
+		scholarly3
+
+
+	Prefixes in Wikidata RDF dumps
+
+2024
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix data: <https://www.wikidata.org/wiki/Special:EntityData/> .
+@prefix s: <http://www.wikidata.org/entity/statement/> .
+@prefix ref: <http://www.wikidata.org/reference/> .
+@prefix v: <http://www.wikidata.org/value/> .
+2025
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix data: <https://www.wikidata.org/wiki/Special:EntityData/> .
+@prefix wds: <http://www.wikidata.org/entity/statement/> .
+@prefix wdref: <http://www.wikidata.org/reference/> .
+@prefix wdv: <http://www.wikidata.org/value/> .

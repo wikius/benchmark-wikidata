@@ -1,0 +1,72 @@
+#!/bin/tcsh -x
+# ./run-existing <engine> <directory suffix for results> <version of Wikidata>
+# Run the existing benchmarks
+# Needs the -run script to be set up for $version.  
+
+if ( $#argv < 1 ) exit
+set area = $2
+if ( $#argv < 2 ) set area = new
+set version = $2
+if ( $#argv > 2 ) set version = $3
+
+mkdir -p results-$area
+echo "Existing wikidata version $version" | tee results-$area/existing-version-$1
+
+/wikidata/$1-stop
+
+/wikidata/$1-run $version
+./benchmark.py --engine=$1 wgpb/bgps/wgpb.text | tee results-$area/wgpb-norm-$1.tsv
+/wikidata/$1-stop
+/wikidata/$1-run $version
+./benchmark.py --count --engine=$1 wgpb/bgps/wgpb.text | tee results-$area/wgpb-counted-$1.tsv
+/wikidata/$1-stop
+#/wikidata/$1-run $version
+#./benchmark.py --nodups --engine=$1 wgpb/bgps/wgpb.text | tee results-$area/wgpb-nodups-$1.tsv
+#/wikidata/$1-stop
+
+/wikidata/$1-run $version
+./benchmark.py --engine=$1 wdqs/wikidata-queries.tsv | tee results-$area/wdqs-norm-$1.tsv
+/wikidata/$1-stop
+/wikidata/$1-run $version
+./benchmark.py --count --engine=$1 wdqs/wikidata-queries.tsv | tee results-$area/wdqs-counted-$1.tsv
+/wikidata/$1-stop
+#/wikidata/$1-run $version
+#./benchmark.py --nodups --engine=$1 wdqs/wikidata-queries.tsv | tee results-$area/wdqs-nodups-$1.tsv
+#/wikidata/$1-stop
+
+foreach benchmark ( single_bgps multiple_bgps opts paths c2rpqs )
+  /wikidata/$1-run $version
+  ./benchmark.py --engine=$1 wdbench/Queries/$benchmark.text | tee results-$area/$benchmark-norm-$1.tsv
+  /wikidata/$1-stop
+  /wikidata/$1-run $version
+  ./benchmark.py --count --engine=$1 wdbench/Queries/$benchmark.text | tee results-$area/$benchmark-counted-$1.tsv
+  /wikidata/$1-stop
+#  /wikidata/$1-run $version
+#  ./benchmark.py --nodups --engine=$1 wdbench/Queries/$benchmark.text | tee results-$area/$benchmark-nodups-$1.tsv
+#  /wikidata/$1-stop
+##  /wikidata/$1-run $version
+##  ./benchmark.py --count --engine=$1 wdbenchu/Queries/$benchmark.text | tee results-$area/u$benchmark-counted-$1.tsv
+##  /wikidata/$1-stop
+end
+  
+exit
+
+# restart QLever after queries that cause it to crash
+
+/wikidata/$1-run $version
+./benchmark.py --count --skip 245 --engine=$1 wdbench/Queries/opts.text | tee results-$area/opts-counted-$1-extra1.tsv
+/wikidata/$1-stop
+
+/wikidata/$1-run $version
+./benchmark.py --count --skip 476 --engine=$1 wdbench/Queries/opts.text | tee results-$area/opts-counted-$1-extra2.tsv
+/wikidata/$1-stop
+
+/wikidata/$1-run $version
+./benchmark.py --count --skip 60 --engine=$1 wdbench/Queries/opts.text | tee results-$area/opts-counted-$1-extra3.tsv
+/wikidata/$1-stop
+
+/wikidata/$1-run $version
+./benchmark.py --count --skip 286 --engine=$1 wdbench/Queries/opts.text | tee results-$area/opts-counted-$1-extra4.tsv
+/wikidata/$1-stop
+
+exit

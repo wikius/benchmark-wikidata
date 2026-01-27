@@ -1,0 +1,60 @@
+#!/bin/tcsh
+setenv BENCHMARK_HOME /home/local
+
+# Turtle files to load
+## Wikidata from 2020
+#setenv FILES "-f ${BENCHMARK_HOME}/wikidata/wikidata-20201109-all-BETA.ttl"
+#setenv BASENAME wikidata2020
+## Wikidata from 2024
+## Wikidata
+##setenv FILES "-f ${BENCHMARK_HOME}/wikidata/wikidata-20241028-all-BETA.ttl"
+##setenv BASENAME wikidatasingle
+## Wikidata plus simple duplicate
+#setenv FILES "-f ${BENCHMARK_HOME}/wikidata/wikidata-20241028-all-BETA.ttl -f ${BENCHMARK_HOME}/wikidata/wikidata-20241028-all-BETA-SS.ttl"
+#setenv BASENAME wikidatadouble-SS
+## Wikidata plus simple duplicate plus subclass shadow original
+#setenv FILES "-f ${BENCHMARK_HOME}/wikidata/wikidata-20241028-all-BETA.ttl -f ${BENCHMARK_HOME}/wikidata/wikidata-20241028-all-BETA-SS.ttl -f ${BENCHMARK_HOME}/wikidata/subclass-shadow-original.ttl"
+#setenv BASENAME wikidatadouble-o1
+## Wikidata plus simple duplicate plus subclass shadow original plus subclass original-shadow-parent
+#setenv FILES "-f ${BENCHMARK_HOME}/wikidata/wikidata-20241028-all-BETA.ttl -f ${BENCHMARK_HOME}/wikidata/wikidata-20241028-all-BETA-SS.ttl -f ${BENCHMARK_HOME}/wikidata/subclass-shadow-original.ttl -f ${BENCHMARK_HOME}/wikidata/subclass-original-shadow-parent.ttl"
+#setenv BASENAME wikidatadouble-o2
+## both interleaved copies of Wikidata
+#setenv FILES "-f ${BENCHMARK_HOME}/wikidata/wikidata-20241028-all-BETA-interleave.ttl -f ${BENCHMARK_HOME}/wikidata/wikidata-20241028-all-BETA-interleave-shadow.ttl"
+#setenv BASENAME wikidatadouble-interleaved
+## Wikidata plus both interleaved copies of Wikidata
+#setenv FILES "-f ${BENCHMARK_HOME}/wikidata/wikidata-20241028-all-BETA.ttl -f ${BENCHMARK_HOME}/wikidata/wikidata-20241028-all-BETA-interleave.ttl -f ${BENCHMARK_HOME}/wikidata/wikidata-20241028-all-BETA-interleave-shadow.ttl"
+#setenv BASENAME wikidatadouble-big
+
+## Wikidata from 2025
+## Wikidata
+#setenv FILES "-f ${BENCHMARK_HOME}/wikidata/wikidata-20251021-all-BETA.ttl"
+#setenv BASENAME wikidata2025-single
+## Wikidata plus simple duplicate
+#setenv FILES "-f ${BENCHMARK_HOME}/wikidata/wikidata-20251021-all-BETA.ttl -f ${BENCHMARK_HOME}/wikidata/wikidata-20251021-all-BETA-SS.ttl"
+#setenv BASENAME wikidata2025-double-SS
+## Scholarly double 2
+#setenv FILES "-f ${BENCHMARK_HOME}/wikidata/wikidata-20251021-all-BETA.ttl -f ${BENCHMARK_HOME}/wikidata/wikidata-20251021-all-BETA-scholarly2.ttl"
+#setenv BASENAME wikidata2025-scholarly2
+## Scholarly double 3
+#setenv FILES "-f ${BENCHMARK_HOME}/wikidata/wikidata-20251021-all-BETA.ttl -f ${BENCHMARK_HOME}/wikidata/wikidata-20251021-all-BETA-scholarly2.ttl -f ${BENCHMARK_HOME}/wikidata/wikidata-20251021-all-BETA-scholarly3.ttl"
+#setenv BASENAME wikidata2025-scholarly3
+
+## Wikidata from November 2025
+setenv FILES "-f ${BENCHMARK_HOME}/wikidata/wikidata-20251124-all-BETA.ttl"
+setenv BASENAME wikidata2025-update
+
+
+
+# Run in directory where the index will be
+cd ${BENCHMARK_HOME}/benchmark/qlever-wikidata
+
+mkdir -p ${BENCHMARK_HOME}/tests
+${BENCHMARK_HOME}/scripts/QLever-stop >& /dev/null
+
+# Increase number of open files
+limit descriptors 5000
+# Load one or more Turtle files
+${BENCHMARK_HOME}/qlever/qlever-code/build/IndexBuilderMain --parse-parallel 1 --settings-file wikidata.settings.json --file-format ttl ${FILES} --index-basename ${BASENAME} --stxxl-memory 20G |& tee ${BENCHMARK_HOME}/tests/log.txt 
+
+# Test out system
+( ${BENCHMARK_HOME}/qlever/qlever-code/build/ServerMain --index-basename ${BASENAME} --port 7001 --memory-max-size 20G --cache-max-size 20G --default-query-timeout 600s >& /dev/null & )

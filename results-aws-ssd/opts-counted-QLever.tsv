@@ -1,0 +1,12 @@
+1	QLever	COUNTED	    102	      	Result=412 	200		
+2	QLever	COUNTED	     69	      	Result=0 	200		
+3	QLever	COUNTED	    397	      	Result=10000000 	200		
+4	QLever	COUNTED	 710631	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1 ?x3	
+5	QLever	COUNTED	    563	      	Result=10000000 	200		
+6	QLever	COUNTED	    374	      	Result=10000000 	200		
+7	QLever	COUNTED	    304	      	Result=10000000 	200		
+8	QLever	COUNTED	    356	      	Result=10000000 	200		
+9	QLever	COUNTED	    293	      	Result=10000000 	200		
+10	QLever	COUNTED	    260	      	Result=10000000 	200		
+11	QLever	COUNTED	     99	      	Result=71 	200		
+12	QLever	COUNTED	 709782	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x3	
