@@ -104,7 +104,7 @@ results-2025-oct-single
 results-2025-oct-double-SS
 ```
 
-For more information and results see the [doubling report]9https://www.wikidata.org/wiki/Wikidata:Scaling_Wikidata/Benchmarking/Phase_2_Doubling_Report).
+For more information and results see the [doubling report](https://www.wikidata.org/wiki/Wikidata:Scaling_Wikidata/Benchmarking/Phase_2_Doubling_Report).
 
 
 ### Evaluation of QLever on doubled and historial Wikidata
