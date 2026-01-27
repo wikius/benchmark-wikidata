@@ -57,7 +57,7 @@ results-iswc
 
 ### Reports
 
-* [Phase 1 Final Report][https://www.wikidata.org/wiki/Wikidata:Scaling_Wikidata/Benchmarking/Final_Report]
+* [Phase 1 Final Report](https://www.wikidata.org/wiki/Wikidata:Scaling_Wikidata/Benchmarking/Final_Report)
 * Benchmarking SPARQL Engines on Wikidata Queries at the 2025 Wikidata Workshop, ISWC-2025, November 2025, Nara, Japan
 
 
@@ -133,3 +133,7 @@ results-aws-ram
 
 For more information see the [main-memory report](https://www.wikidata.org/wiki/Wikidata:Scaling_Wikidata/Benchmarking/Phase_2_Memory_Report).
 
+### Summary Report
+
+There is a [summary final report](Wikidata:Scaling Wikidata/Benchmarking/Part 2)
+that give the high-level view of the second phase and points to the detailed reports.
