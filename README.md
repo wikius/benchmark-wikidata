@@ -135,5 +135,5 @@ For more information see the [main-memory report](https://www.wikidata.org/wiki/
 
 ### Summary Report
 
-There is a [summary final report](Wikidata:Scaling Wikidata/Benchmarking/Part 2)
+There is a [summary final report](https://www.wikidata.org/wiki/Wikidata:Scaling_Wikidata/Benchmarking/Part_2)
 that give the high-level view of the second phase and points to the detailed reports.
