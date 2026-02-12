@@ -1,0 +1,17 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT (COUNT(DISTINCT ?citingArticle) AS ?count) ?journal ?journalLabel (CONCAT("/venue/", SUBSTR(STR(?journal),32)) AS ?journalUrl) WHERE {
+  VALUES ?INTENTION { target: }
+  ?citingArticle p:P2860 ?citationStatement ;
+                 wdt:P1433 ?journal .
+  ?citationStatement pq:P3712 ?INTENTION .
+  BIND (IF(BOUND (?journal), ?journal, <http://doesntexist.example.com/nexistepas>) AS ?journalLabel__)
+  OPTIONAL { ?journalLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?journalLabel. FILTER(LANG(?journalLabel) = "en") }
+  OPTIONAL { ?journalLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?journalLabel. FILTER(LANG(?journalLabel) = "mul") }
+}
+GROUP BY ?journal ?journalLabel
+ORDER BY DESC(?count)

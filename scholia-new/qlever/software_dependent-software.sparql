@@ -1,0 +1,24 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?software ?softwareLabel ?softwareDescription (CONCAT("/software/", SUBSTR(STR(?software),32)) AS ?softwareUrl) WHERE {
+  {
+    SELECT (COUNT(?other_software) AS ?count) ?software {
+      ?software wdt:P1547+ target: .
+      OPTIONAL {
+        ?other_software wdt:P1547+ ?software .
+      }
+    }
+    GROUP BY ?software
+    ORDER BY DESC(?count)
+    LIMIT 500
+  }
+  BIND (IF(BOUND (?software), ?software, <http://doesntexist.example.com/nexistepas>) AS ?softwareLabel__)
+  OPTIONAL { ?softwareLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?softwareLabel. FILTER(LANG(?softwareLabel) = "en") }
+  OPTIONAL { ?softwareLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?softwareLabel. FILTER(LANG(?softwareLabel) = "mul") }
+  BIND (IF(BOUND (?software), ?software, <http://doesntexist.example.com/nexistepas>) AS ?softwareDescription__)
+  OPTIONAL { ?softwareDescription__ <http://schema.org/description> ?softwareDescription. FILTER(LANG(?softwareDescription) = "en") }
+  OPTIONAL { ?softwareDescription__ <http://schema.org/description> ?softwareDescription. FILTER(LANG(?softwareDescription) = "mul") }
+}
+ORDER BY DESC(?count)

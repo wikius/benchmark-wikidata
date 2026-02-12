@@ -1,0 +1,50 @@
+1	QLever		     99	      	Count= 2 	200		event-series_acceptance-rate Q105695391
+2	QLever		 614180	      	Count= 36157990 	200		event-series_events Q105695391
+3	QLever		    587	      	Count= 5 	200		event-series_map Q105695391
+4	QLever		     11	      	Result=2007 	200		event-series_number-of-participants Q105695391
+5	QLever		  50696	      	Count= 500 	200		event-series_people Q105695391
+6	QLever		   1615	      	Count= 63 	200		event-series_proceedings-publications Q105695391
+7	QLever		    485	      	Count= 500 	200		event-series_recent-publications Q105695391
+8	QLever		    111	      	Count= 4 	200		event-series_timeline Q105695391
+9	QLever		    136	      	Count= 5 	200		event-series_top-topics-through-time Q105695391
+10	QLever		   2265	      	Count= 200 	200		event-series_topics Q105695391
+11	QLever		     19	      	Count= 0 	200		event-series_acceptance-rate Q105699590
+12	QLever		 632211	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?year ?ordinal ?short_name ?event ?eventLabel ?eventUrl ?proceedings ?proceedingsLabel ?proceedingsUrl	event-series_events Q105699590
+13	QLever		    167	      	Result=Q61983755 	200		event-series_map Q105699590
+14	QLever		      7	      	Result=2019 	200		event-series_number-of-participants Q105699590
+15	QLever		  52232	      	Count= 500 	200		event-series_people Q105699590
+16	QLever		   1380	      	Count= 42 	200		event-series_proceedings-publications Q105699590
+17	QLever		    372	      	Count= 473 	200		event-series_recent-publications Q105699590
+18	QLever		    204	      	Count= 4 	200		event-series_timeline Q105699590
+19	QLever		    174	      	Count= 6 	200		event-series_top-topics-through-time Q105699590
+20	QLever		   2533	      	Count= 200 	200		event-series_topics Q105699590
+21	QLever		     29	      	Count= 0 	200		event-series_acceptance-rate Q109379759
+22	QLever		 614431	      	Count= 48199919 	200		event-series_events Q109379759
+23	QLever		    688	      	Count= 5 	200		event-series_map Q109379759
+24	QLever		      7	      	Result=2024 	200		event-series_number-of-participants Q109379759
+25	QLever		  83405	      	Count= 500 	200		event-series_people Q109379759
+26	QLever		   1350	      	Count= 43 	200		event-series_proceedings-publications Q109379759
+27	QLever		    399	      	Count= 500 	200		event-series_recent-publications Q109379759
+28	QLever		     61	      	Count= 8 	200		event-series_timeline Q109379759
+29	QLever		    184	      	Count= 17 	200		event-series_top-topics-through-time Q109379759
+30	QLever		   1233	      	Count= 200 	200		event-series_topics Q109379759
+31	QLever		     19	      	Count= 0 	200		event-series_acceptance-rate Q130426964
+32	QLever		 633074	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?year ?ordinal ?short_name ?event ?eventLabel ?eventUrl ?proceedings ?proceedingsLabel ?proceedingsUrl	event-series_events Q130426964
+33	QLever		    100	      	Count= 31 	200		event-series_map Q130426964
+34	QLever		      6	      	Count= 5 	200		event-series_number-of-participants Q130426964
+35	QLever		  85999	      	Count= 500 	200		event-series_people Q130426964
+36	QLever		   1676	      	Count= 70 	200		event-series_proceedings-publications Q130426964
+37	QLever		    330	      	Count= 500 	200		event-series_recent-publications Q130426964
+38	QLever		     58	      	Count= 31 	200		event-series_timeline Q130426964
+39	QLever		    109	      	Count= 15 	200		event-series_top-topics-through-time Q130426964
+40	QLever		   1226	      	Count= 200 	200		event-series_topics Q130426964
+41	QLever		     45	      	Count= 8 	200		event-series_acceptance-rate Q18353514
+42	QLever		 617462	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?year ?ordinal ?short_name ?event ?eventLabel ?eventUrl ?proceedings ?proceedingsLabel ?proceedingsUrl	event-series_events Q18353514
+43	QLever		    167	      	Count= 33 	200		event-series_map Q18353514
+44	QLever		      7	      	Count= 2 	200		event-series_number-of-participants Q18353514
+45	QLever		  58964	      	None 	500	ERROR: Tried to allocate 87.6 GB, but only 33.8 GB were available	event-series_people Q18353514
+46	QLever		   1604	      	Count= 126 	200		event-series_proceedings-publications Q18353514
+47	QLever		    428	      	Count= 500 	200		event-series_recent-publications Q18353514
+48	QLever		    272	      	Count= 40 	200		event-series_timeline Q18353514
+49	QLever		    140	      	Count= 22 	200		event-series_top-topics-through-time Q18353514
+50	QLever		   2930	      	Count= 200 	200		event-series_topics Q18353514

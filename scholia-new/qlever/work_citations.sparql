@@ -1,0 +1,31 @@
+
+#title: List of works that is cited by the specified work
+#defaultView:Table
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?publication_date ?citations  ?citing_work ?citing_workLabel WHERE {
+  {
+    SELECT (MIN(?date) AS ?publication_date) (COUNT(?citing_citing_work) AS ?citations) ?citing_work WHERE {
+      # Find works that cite the queried work
+      ?citing_work wdt:P2860 target: .
+      OPTIONAL {
+        ?citing_work wdt:P577 ?datetime .
+        # Simplify the datetime to one with day, month and year only
+        BIND (xsd:date(?datetime) AS ?date)
+      }
+      OPTIONAL {
+        ?citing_citing_work wdt:P2860 ?citing_work
+      }
+    }
+    GROUP BY ?citing_work ?citing_workLabel
+    # Limit the number of results to avoid downloading too much data
+    ORDER BY DESC(?citations) DESC(?publication_date)
+    LIMIT 1000
+  }
+  # Label the result
+  BIND (IF(BOUND (?citing_work), ?citing_work, <http://doesntexist.example.com/nexistepas>) AS ?citing_workLabel__)
+  OPTIONAL { ?citing_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?citing_workLabel. FILTER(LANG(?citing_workLabel) = "en") }
+  OPTIONAL { ?citing_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?citing_workLabel. FILTER(LANG(?citing_workLabel) = "mul") }
+}
+ORDER BY DESC(?citations) DESC(?publication_date)

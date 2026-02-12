@@ -1,0 +1,27 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?variant ?variantLabel ?variantDescription ?types WHERE {
+  {
+    SELECT ?variant (GROUP_CONCAT(?type_label; SEPARATOR=" // ") AS ?types) WHERE {
+      {
+        SELECT ?variant ?type WHERE {
+          ?variant wdt:P3433 target:
+        }
+      }
+      OPTIONAL {
+        ?variant wdt:P279 ?variantType .
+        ?variantType rdfs:label ?type_label . FILTER (LANG(?type_label) = 'en')
+      }
+    }
+    GROUP BY ?variant
+  }
+  BIND (IF(BOUND (?variant), ?variant, <http://doesntexist.example.com/nexistepas>) AS ?variantLabel__)
+  OPTIONAL { ?variantLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?variantLabel. FILTER(LANG(?variantLabel) = "en") }
+  OPTIONAL { ?variantLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?variantLabel. FILTER(LANG(?variantLabel) = "mul") }
+  BIND (IF(BOUND (?variant), ?variant, <http://doesntexist.example.com/nexistepas>) AS ?variantDescription__)
+  OPTIONAL { ?variantDescription__ <http://schema.org/description> ?variantDescription. FILTER(LANG(?variantDescription) = "en") }
+  OPTIONAL { ?variantDescription__ <http://schema.org/description> ?variantDescription. FILTER(LANG(?variantDescription) = "mul") }
+}

@@ -1,0 +1,25 @@
+1	Blazegraph		  57769	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=97e6a088-d707-440f-a717-cdc768d63fa1,bopId=131,partitionId=-1,sinkId=132,altSinkId=130}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	complex_articles-by-year Q100146810
+2	Blazegraph		    108	      	Result=2019-02-10 	200		complex_articles-recent Q100146810
+3	Blazegraph		    168	      	Count= 2 	200		complex_identifiers Q100146810
+4	Blazegraph		     38	      	Count= 2 	200		complex_participants Q100146810
+5	Blazegraph		   5018	      	Count= 2 	200		complex-index_statistics Q100146810
+6	Blazegraph		  57453	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=67919028-fbe7-4322-b155-57aa99bc36cb,bopId=131,partitionId=-1,sinkId=132,altSinkId=130}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	complex_articles-by-year Q100146811
+7	Blazegraph		    127	      	Result=2019-02-10 	200		complex_articles-recent Q100146811
+8	Blazegraph		    133	      	Count= 2 	200		complex_identifiers Q100146811
+9	Blazegraph		     57	      	Result=1.0 	200		complex_participants Q100146811
+10	Blazegraph		   4977	      	Count= 2 	200		complex-index_statistics Q100146811
+11	Blazegraph		  57355	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=fca08766-5932-4e2a-bf01-b415c3436b64,bopId=132,partitionId=-1,sinkId=130,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	complex_articles-by-year Q100146812
+12	Blazegraph		    152	      	Result=2019-02-10 	200		complex_articles-recent Q100146812
+13	Blazegraph		    172	      	Count= 2 	200		complex_identifiers Q100146812
+14	Blazegraph		     43	      	Count= 2 	200		complex_participants Q100146812
+15	Blazegraph		   5005	      	Count= 2 	200		complex-index_statistics Q100146812
+16	Blazegraph		  57314	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=1325be4c-8a8b-4435-b46e-f15ca7b86cf4,bopId=131,partitionId=-1,sinkId=132,altSinkId=130}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	complex_articles-by-year Q100146813
+17	Blazegraph		    165	      	Result=2019-02-10 	200		complex_articles-recent Q100146813
+18	Blazegraph		    160	      	Count= 2 	200		complex_identifiers Q100146813
+19	Blazegraph		     65	      	Count= 7 	200		complex_participants Q100146813
+20	Blazegraph		   4997	      	Count= 2 	200		complex-index_statistics Q100146813
+21	Blazegraph		  57139	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=c753bc85-5998-4229-8573-13e8172ea581,bopId=131,partitionId=-1,sinkId=132,altSinkId=130}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	complex_articles-by-year Q100146821
+22	Blazegraph		    127	      	Count= 0 	200		complex_articles-recent Q100146821
+23	Blazegraph		    175	      	Count= 2 	200		complex_identifiers Q100146821
+24	Blazegraph		     60	      	Count= 2 	200		complex_participants Q100146821
+25	Blazegraph		   4987	      	Count= 2 	200		complex-index_statistics Q100146821

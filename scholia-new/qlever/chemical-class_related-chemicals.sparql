@@ -1,0 +1,51 @@
+# title: lists related chemicals for this class
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?mol ?molLabel ?InChIKey ?CAS ?CASUrl ?ChemSpider ?ChemSpiderUrl ?PubChem_CID ?PubChem_CIDUrl WHERE {
+  {
+    SELECT DISTINCT ?mol WHERE {
+      ?mol wdt:P279* target: .
+      MINUS {
+        [] wdt:P279 ?mol
+      }
+    }
+    LIMIT 500
+  }
+  OPTIONAL {
+    ?mol wdt:P235 ?InChIKey
+  }
+  OPTIONAL {
+    VALUES ?CASIDdir { wdt:P231 }
+    ?mol ?CASIDdir ?CAS .
+    OPTIONAL {
+      ?CASIDpred wikibase:directClaim ?CASIDdir .
+      ?CASIDpred wdt:P1630 ?CASformatterurl .
+    }
+    BIND (IRI(REPLACE(?CASformatterurl, '\\\\$1', STR(?CAS))) AS ?CASUrl) .
+  }
+  OPTIONAL {
+    VALUES ?IDdir { wdt:P661 }
+    ?mol ?IDdir ?ChemSpider .
+    OPTIONAL {
+      ?IDpred wikibase:directClaim ?IDdir .
+      ?IDpred wdt:P1630 ?formatterurl .
+    }
+    BIND (IRI(REPLACE(?formatterurl, '\\\\$1', STR(?ChemSpider))) AS ?ChemSpiderUrl) .
+  }
+  OPTIONAL {
+    ?mol wdt:P662 ?PubChem_CID
+  }
+  OPTIONAL {
+    VALUES ?PCIDdir { wdt:P662 }
+    ?mol ?PCIDdir ?PubChem_CID .
+    OPTIONAL {
+      ?PCIDpred wikibase:directClaim ?PCIDdir .
+      ?PCIDpred wdt:P1630 ?PCformatterurl .
+    }
+    BIND (IRI(REPLACE(?PCformatterurl, '\\\\$1', STR(?PubChem_CID))) AS ?PubChem_CIDUrl) .
+  }
+  BIND (IF(BOUND (?mol), ?mol, <http://doesntexist.example.com/nexistepas>) AS ?molLabel__)
+  OPTIONAL { ?molLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?molLabel. FILTER(LANG(?molLabel) = "en") }
+  OPTIONAL { ?molLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?molLabel. FILTER(LANG(?molLabel) = "mul") }
+}

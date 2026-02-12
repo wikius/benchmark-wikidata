@@ -1,0 +1,25 @@
+#defaultView:Table
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?award ?awardLabel ?recipients ?recipientsUrl WHERE {
+  {
+    SELECT (COUNT(?researcher) AS ?count) ?award (GROUP_CONCAT(?researcher_label; SEPARATOR=", ") AS ?recipients) (CONCAT("../authors/", GROUP_CONCAT(DISTINCT SUBSTR(STR(?researcher),32); SEPARATOR=",")) AS ?recipientsUrl) WHERE {
+      # hint:Query hint:optimizer "None" .
+      {
+        SELECT DISTINCT ?researcher WHERE {
+          ?researcher (wdt:P108 | wdt:P463 | wdt:P1416)/wdt:P361* target: .
+        }
+      }
+      ?researcher wdt:P166 ?award .
+      ?researcher rdfs:label ?researcher_label . FILTER (LANG(?researcher_label) = 'en')
+    }
+    GROUP BY ?award
+  }
+  BIND (IF(BOUND (?award), ?award, <http://doesntexist.example.com/nexistepas>) AS ?awardLabel__)
+  OPTIONAL { ?awardLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?awardLabel. FILTER(LANG(?awardLabel) = "en") }
+  OPTIONAL { ?awardLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?awardLabel. FILTER(LANG(?awardLabel) = "mul") }
+}
+ORDER BY DESC(?count)

@@ -1,0 +1,32 @@
+# tool: scholia
+#defaultView:ScatterChart
+# Statistics on number of recipients for award wrt. gender
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?males ?females ?award ?awardLabel WHERE {
+  {
+    SELECT (COUNT(?recipient_male) AS ?males) (COUNT(?recipient_female) AS ?females) ?award WHERE {
+      ?award wdt:P31 wd:Q11448906 .
+      {
+        ?recipient_male wdt:P166 ?award .
+        ?recipient_male wdt:P21 wd:Q6581097 .
+      }
+      UNION {
+        ?recipient_female wdt:P166 ?award .
+        ?recipient_female wdt:P21 wd:Q6581072 .
+      }
+    }
+    GROUP BY ?award
+  }
+  UNION {
+    VALUES (?males ?females ?award ?awardLabel) {
+      (2000 2000 wd:Q10578722 "Fictive Award Label for axis")
+    }
+  }
+  BIND (IF(BOUND (?award), ?award, <http://doesntexist.example.com/nexistepas>) AS ?awardLabel__)
+  OPTIONAL { ?awardLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?awardLabel. FILTER(LANG(?awardLabel) = "en") }
+  OPTIONAL { ?awardLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?awardLabel. FILTER(LANG(?awardLabel) = "mul") }
+}
+ORDER BY DESC(?males) DESC(?female)

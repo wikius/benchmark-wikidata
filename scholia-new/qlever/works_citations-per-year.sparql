@@ -1,0 +1,15 @@
+
+#defaultView:LineChart
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?year (COUNT(DISTINCT ?citing_work) AS ?number_of_citations) (CONCAT(?work1Label, " (", SUBSTR(STR(?work1), 32), ")") AS ?work) WHERE {
+  VALUES ?work1 { {% for q in qs -%} wd:{{ q }} {% endfor -%} }
+  ?citing_work wdt:P2860 ?work1 .
+  # Year of citation
+  ?citing_work wdt:P577 ?date .
+  BIND (STR(YEAR(?date)) AS ?year)
+  BIND (IF(BOUND (?work1), ?work1, <http://doesntexist.example.com/nexistepas>) AS ?work1Label__)
+  OPTIONAL { ?work1Label__ <http://www.w3.org/2000/01/rdf-schema#label> ?work1Label. FILTER(LANG(?work1Label) = "en") }
+  OPTIONAL { ?work1Label__ <http://www.w3.org/2000/01/rdf-schema#label> ?work1Label. FILTER(LANG(?work1Label) = "mul") }
+}
+GROUP BY ?year ?work1 ?work1Label

@@ -1,0 +1,42 @@
+
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT DISTINCT ?retracted_work ?retracted_workLabel (CONCAT("/work/", SUBSTR(STR(?retracted_work),32)) AS ?retracted_workUrl) ?date ?retraction ?retractionLabel (CONCAT("/work/", SUBSTR(STR(?retraction),32)) AS ?retractionUrl) WHERE {
+  { # Find retracted papers indicated by instance of retracted paper,
+    # by retraction notice property or by significant event
+    SELECT DISTINCT ?retracted_work WHERE {
+      {
+        ?retracted_work wdt:P31 wd:Q45182324
+      }
+      UNION {
+        ?retracted_work wdt:P5824 []
+      }
+      UNION {
+        ?retracted_work wdt:P793 wd:Q45203135
+      }
+    }
+  }
+  OPTIONAL {
+    ?retracted_work wdt:P5824 ?retraction .
+    ?retraction wdt:P577 ?retraction_datetime
+  BIND (IF(BOUND (?retraction), ?retraction, <http://doesntexist.example.com/nexistepas>) AS ?retractionLabel__)
+  OPTIONAL { ?retractionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?retractionLabel. FILTER(LANG(?retractionLabel) = "en") }
+  OPTIONAL { ?retractionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?retractionLabel. FILTER(LANG(?retractionLabel) = "mul") }
+  }
+  OPTIONAL {
+    ?retracted_work p:P793 [
+      ps:P793 wd:Q45203135 ;
+      pq:P585 ?keyevent_datetime
+    ]
+  }
+  BIND (COALESCE(xsd:date(COALESCE(?retraction_datetime, ?keyevent_datetime)), "Unknown date") AS ?date)
+  BIND (IF(BOUND (?retracted_work), ?retracted_work, <http://doesntexist.example.com/nexistepas>) AS ?retracted_workLabel__)
+  OPTIONAL { ?retracted_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?retracted_workLabel. FILTER(LANG(?retracted_workLabel) = "en") }
+  OPTIONAL { ?retracted_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?retracted_workLabel. FILTER(LANG(?retracted_workLabel) = "mul") }
+}
+ORDER BY DESC(?date)
+LIMIT 500

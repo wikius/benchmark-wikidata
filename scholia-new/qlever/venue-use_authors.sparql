@@ -1,0 +1,26 @@
+
+PREFIX target1: <http://www.wikidata.org/entity/{{ q1 }}>
+PREFIX target2: <http://www.wikidata.org/entity/{{ q2 }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?number_of_works ?author ?authorLabel (CONCAT("/author/", SUBSTR(STR(?author),32)) AS ?authorUrl) ?authorDescription ?example_work ?example_workLabel (CONCAT("/work/", SUBSTR(STR(?example_work),32)) AS ?example_workUrl) WHERE {
+  {
+    SELECT (COUNT(?work) AS ?number_of_works) ?author (SAMPLE(?work) AS ?example_work) WHERE {
+      ?work wdt:P1433 target1: ;
+            wdt:P4510 target2: ;
+            wdt:P50 ?author .
+    }
+    GROUP BY ?author
+    ORDER BY DESC(?number_of_works)
+    LIMIT 500
+  }
+  BIND (IF(BOUND (?author), ?author, <http://doesntexist.example.com/nexistepas>) AS ?authorLabel__)
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "en") }
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "mul") }
+  BIND (IF(BOUND (?example_work), ?example_work, <http://doesntexist.example.com/nexistepas>) AS ?example_workLabel__)
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "en") }
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "mul") }
+  BIND (IF(BOUND (?author), ?author, <http://doesntexist.example.com/nexistepas>) AS ?authorDescription__)
+  OPTIONAL { ?authorDescription__ <http://schema.org/description> ?authorDescription. FILTER(LANG(?authorDescription) = "en") }
+  OPTIONAL { ?authorDescription__ <http://schema.org/description> ?authorDescription. FILTER(LANG(?authorDescription) = "mul") }
+}
+ORDER BY DESC(?number_of_works)

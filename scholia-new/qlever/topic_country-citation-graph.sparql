@@ -1,0 +1,37 @@
+
+#defaultView:Graph
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT DISTINCT ?citing_country ?citing_countryLabel ?citing_flag ?cited_country ?cited_countryLabel ?cited_flag WHERE {
+  {
+    SELECT DISTINCT ?cited_country ?citing_country (COUNT(?citing_country) AS ?count) WHERE {
+      ?citing_work wdt:P921 target: ;
+                   wdt:P50 ?citing_author ;
+                   wdt:P2860 ?cited_work .
+      ?cited_work wdt:P921 target: ;
+                  wdt:P50 ?cited_author .
+
+      FILTER (?citing_work != ?cited_work)
+      FILTER (?citing_author != ?cited_author)
+
+      ?citing_author (wdt:P108 | wdt:P1416) ?citing_organization .
+      ?cited_author (wdt:P108 | wdt:P1416) ?cited_organization .
+      ?cited_organization wdt:P17 ?cited_country .
+      ?citing_organization wdt:P17 ?citing_country .
+      FILTER (?citing_country != ?cited_country)
+    }
+    GROUP BY ?cited_country ?citing_country
+    ORDER BY DESC(?count)
+    # Adjust number of connections to display
+    LIMIT 42
+  }
+  ?cited_country wdt:P41 ?cited_flag .
+  ?citing_country wdt:P41 ?citing_flag .
+
+  BIND (IF(BOUND (?citing_country), ?citing_country, <http://doesntexist.example.com/nexistepas>) AS ?citing_countryLabel__)
+  OPTIONAL { ?citing_countryLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?citing_countryLabel. FILTER(LANG(?citing_countryLabel) = "en") }
+  OPTIONAL { ?citing_countryLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?citing_countryLabel. FILTER(LANG(?citing_countryLabel) = "mul") }
+  BIND (IF(BOUND (?cited_country), ?cited_country, <http://doesntexist.example.com/nexistepas>) AS ?cited_countryLabel__)
+  OPTIONAL { ?cited_countryLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?cited_countryLabel. FILTER(LANG(?cited_countryLabel) = "en") }
+  OPTIONAL { ?cited_countryLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?cited_countryLabel. FILTER(LANG(?cited_countryLabel) = "mul") }
+}

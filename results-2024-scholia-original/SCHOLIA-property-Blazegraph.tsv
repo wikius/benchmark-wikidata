@@ -1,0 +1,15 @@
+1	Blazegraph		  23032	      	Count= 100 	200		property_item-counts subclass of
+2	Blazegraph		    902	      	Count= 100 	200		property_property-value-counts subclass of
+3	Blazegraph		   4696	      	Count= 500 	200		property_use subclass of
+4	Blazegraph		 350731	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=50c6000a-3e66-4770-92b8-937762f89555,bopId=7,partitionId=-1,sinkId=9,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=44686612,considered(left=0,right=0,joins=0)}	property_item-counts instance of
+5	Blazegraph		   1597	      	Count= 100 	200		property_property-value-counts instance of
+6	Blazegraph		  48597	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=bdf0e104-7e89-4261-b31b-c204b6d8ce92,bopId=4,partitionId=-1,sinkId=3,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	property_use instance of
+7	Blazegraph		 597065	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=81ed95b4-b4e5-4074-b71a-2eab252847e9,bopId=7,partitionId=-1,sinkId=9,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Filter,joinVars=[s],outputDistinctJVs=false,selectVars=[s],size=45269750,considered(left=0,right=0,joins=0)}	property_item-counts publication date
+8	Blazegraph		   1024	      	Count= 100 	200		property_property-value-counts publication date
+9	Blazegraph		  46937	      	Count= 500 	200		property_use publication date
+10	Blazegraph		   5936	      	Count= 100 	200		property_item-counts start time
+11	Blazegraph		    283	      	Count= 100 	200		property_property-value-counts start time
+12	Blazegraph		   2351	      	Count= 500 	200		property_use start time
+13	Blazegraph		  28184	      	Count= 100 	200		property_item-counts part of
+14	Blazegraph		   1783	      	Count= 100 	200		property_property-value-counts part of
+15	Blazegraph		   6925	      	Count= 500 	200		property_use part of

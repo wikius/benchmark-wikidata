@@ -1,0 +1,17 @@
+#defaultView:BarChart
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT (STR(?year_) AS ?year) ?count ?phase ?phaseLabel WHERE {
+  {
+    SELECT ?year_ (COUNT(*) AS ?count) ?phase WHERE {
+      ?trial wdt:P6099 ?phase .
+      ?trial wdt:P580 ?start_datetime .
+      BIND (YEAR(?start_datetime) AS ?year_)
+    }
+    GROUP BY ?year_ ?phase
+  }
+  BIND (IF(BOUND (?phase), ?phase, <http://doesntexist.example.com/nexistepas>) AS ?phaseLabel__)
+  OPTIONAL { ?phaseLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?phaseLabel. FILTER(LANG(?phaseLabel) = "en") }
+  OPTIONAL { ?phaseLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?phaseLabel. FILTER(LANG(?phaseLabel) = "mul") }
+}

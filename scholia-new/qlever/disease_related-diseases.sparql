@@ -1,0 +1,30 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?count ?gene_count ?symptom_count ?disease ?diseaseLabel ?genes ?symptoms {
+  {
+    SELECT ?disease (COUNT(?gene) AS ?gene_count) (GROUP_CONCAT(?gene_label; SEPARATOR=" // ") AS ?genes) WHERE {
+      target: wdt:P2293 ?gene .
+      ?gene wdt:P2293 ?disease .
+      FILTER (target: != ?disease)
+      ?gene rdfs:label ?gene_label
+      FILTER (LANG(?gene_label) = "en")
+    }
+    GROUP BY ?disease
+  }
+  UNION {
+    SELECT ?disease (COUNT(?symptom) AS ?symptom_count) (GROUP_CONCAT(?symptom_label; SEPARATOR=" // ") AS ?symptoms) {
+      target: wdt:P780 ?symptom .
+      ?disease wdt:P780 ?symptom .
+      FILTER (target: != ?disease)
+      ?symptom rdfs:label ?symptom_label . FILTER (LANG(?symptom_label) = "en")
+    }
+    GROUP BY ?disease
+  }
+  # Aggregate count
+  BIND ((COALESCE(?symptom_count, 0) + COALESCE(?gene_count, 0)) AS ?count)
+  BIND (IF(BOUND (?disease), ?disease, <http://doesntexist.example.com/nexistepas>) AS ?diseaseLabel__)
+  OPTIONAL { ?diseaseLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?diseaseLabel. FILTER(LANG(?diseaseLabel) = "en") }
+  OPTIONAL { ?diseaseLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?diseaseLabel. FILTER(LANG(?diseaseLabel) = "mul") }
+}
+ORDER BY DESC(?count)

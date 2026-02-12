@@ -1,0 +1,32 @@
+{% extends "q_curation.html" %}
+
+
+{% set aspect = "venue-curation" %}
+
+{% block in_ready %}
+
+{{ sparql_to_table('missing-author-item') }}
+{{ sparql_to_table('missing-topics') }}
+
+{% endblock %}
+
+
+{% block curation_panels %}
+
+<h2 id="missing-author-item">Missing author item</h2>
+
+If there are any author names listed below, it means that these name strings have not been matched to Wikidata items for at least some of the works published in the venue.
+
+Follow the link to use the Author disambiguator tool to try to create links between the work items and the respective author items.
+
+<table class="table table-hover" id="missing-author-item-table"></table>
+
+
+<h2 id="missing-topics">Missing topics</h2>
+
+<p>Works published in venue that have few or no main topics.</p>
+
+<table class="table table-hover" id="missing-topics-table"></table>
+
+
+{% endblock %}

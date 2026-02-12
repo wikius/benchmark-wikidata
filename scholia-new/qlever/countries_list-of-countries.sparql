@@ -1,0 +1,26 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?number_of_publications ?country ?countryLabel ?example_author ?example_authorLabel ?example_work ?example_workLabel WHERE {
+  {
+    SELECT ?country (COUNT(DISTINCT ?work) AS ?number_of_publications) (SAMPLE(?work) AS ?example_work) (SAMPLE(?author) AS ?example_author) WHERE {
+      VALUES ?country { {% for q in qs %} wd:{{ q }} {% endfor %} }
+      OPTIONAL {
+        VALUES ?country { {% for q in qs %} wd:{{ q }} {% endfor %} }
+        ?organization wdt:P17 ?country .
+        ?author wdt:P108 | wdt:P463 | wdt:P1416/wdt:P361* ?organization .
+        ?work wdt:P50 ?author .
+      }
+    }
+    GROUP BY ?country
+  }
+  BIND (IF(BOUND (?example_author), ?example_author, <http://doesntexist.example.com/nexistepas>) AS ?example_authorLabel__)
+  OPTIONAL { ?example_authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_authorLabel. FILTER(LANG(?example_authorLabel) = "en") }
+  OPTIONAL { ?example_authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_authorLabel. FILTER(LANG(?example_authorLabel) = "mul") }
+  BIND (IF(BOUND (?country), ?country, <http://doesntexist.example.com/nexistepas>) AS ?countryLabel__)
+  OPTIONAL { ?countryLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?countryLabel. FILTER(LANG(?countryLabel) = "en") }
+  OPTIONAL { ?countryLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?countryLabel. FILTER(LANG(?countryLabel) = "mul") }
+  BIND (IF(BOUND (?example_work), ?example_work, <http://doesntexist.example.com/nexistepas>) AS ?example_workLabel__)
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "en") }
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "mul") }
+}
+ORDER BY DESC(?number_of_publications)

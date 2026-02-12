@@ -1,0 +1,22 @@
+# title: identifiers for this chemical class
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?IDpred ?IDpredLabel ?id ?idUrl ?IDpredDescription {
+  target: ?IDdir ?id .
+  ?IDpred wikibase:directClaim ?IDdir ;
+          wdt:P31 wd:Q19833835 .
+  OPTIONAL {
+    ?IDpred wdt:P1630 ?formatterurl .
+  }
+  BIND (IRI(REPLACE(?formatterurl, '\\\\$1', STR(?id))) AS ?idUrl) .
+  BIND (IF(BOUND (?IDpred), ?IDpred, <http://doesntexist.example.com/nexistepas>) AS ?IDpredLabel__)
+  OPTIONAL { ?IDpredLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?IDpredLabel. FILTER(LANG(?IDpredLabel) = "en") }
+  OPTIONAL { ?IDpredLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?IDpredLabel. FILTER(LANG(?IDpredLabel) = "mul") }
+  BIND (IF(BOUND (?IDpred), ?IDpred, <http://doesntexist.example.com/nexistepas>) AS ?IDpredDescription__)
+  OPTIONAL { ?IDpredDescription__ <http://schema.org/description> ?IDpredDescription. FILTER(LANG(?IDpredDescription) = "en") }
+  OPTIONAL { ?IDpredDescription__ <http://schema.org/description> ?IDpredDescription. FILTER(LANG(?IDpredDescription) = "mul") }
+}
+ORDER BY ASC(?IDpredLabel)
+LIMIT 500

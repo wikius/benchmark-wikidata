@@ -1,0 +1,64 @@
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+#defaultView:Graph
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?node ?nodeLabel ?nodeImage ?childNode ?childNodeLabel ?childNodeImage ?rgb WHERE {
+  {
+    {
+      SELECT DISTINCT ?node ?childNode WHERE {
+        BIND (target: AS ?node)
+        ?node ?p ?i .
+        ?childNode ?x ?p .
+        ?childNode rdf:type wikibase:Property.
+        FILTER (STRSTARTS(STR(?i),"http://www.wikidata.org/entity/Q"))
+        FILTER (STRSTARTS(STR(?childNode),"http://www.wikidata.org/entity/P"))
+      }
+      LIMIT 5000
+    }
+  }
+  UNION {
+    {
+      SELECT DISTINCT ?childNode ?node ?rgb WHERE {
+        BIND ("EFFBD8" AS ?rgb)
+        target: ?p ?childNode .
+        ?node ?x ?p .
+        ?node rdf:type wikibase:Property.
+        FILTER (STRSTARTS(STR(?childNode),"http://www.wikidata.org/entity/Q"))
+      }
+      LIMIT 5000
+    }
+  }
+  OPTIONAL {
+    {
+      SELECT DISTINCT ?property WHERE {
+        ?property a wikibase:Property ;
+                  wdt:P31 wd:Q18610173 ;
+                  wdt:P31 wd:Q26940804 .
+      }
+    }
+    ?property wikibase:directClaim ?nodeclaim .
+    ?node ?nodeclaim ?nodeImage .
+  }
+  OPTIONAL {
+    {
+      SELECT DISTINCT ?property WHERE {
+        ?property a wikibase:Property ;
+                  wdt:P31 wd:Q18610173 ;
+                  wdt:P31 wd:Q26940804 .
+      }
+    }
+    ?property wikibase:directClaim ?childNodeclaim .
+    ?childNode ?childNodeclaim ?childNodeImage .
+  }
+
+  BIND (IF(BOUND (?node), ?node, <http://doesntexist.example.com/nexistepas>) AS ?nodeLabel__)
+  OPTIONAL { ?nodeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?nodeLabel. FILTER(LANG(?nodeLabel) = "en") }
+  OPTIONAL { ?nodeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?nodeLabel. FILTER(LANG(?nodeLabel) = "mul") }
+  BIND (IF(BOUND (?childNode), ?childNode, <http://doesntexist.example.com/nexistepas>) AS ?childNodeLabel__)
+  OPTIONAL { ?childNodeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?childNodeLabel. FILTER(LANG(?childNodeLabel) = "en") }
+  OPTIONAL { ?childNodeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?childNodeLabel. FILTER(LANG(?childNodeLabel) = "mul") }
+}

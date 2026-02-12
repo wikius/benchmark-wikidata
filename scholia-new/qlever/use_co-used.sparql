@@ -1,0 +1,32 @@
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT
+  ?count
+  ?coused ?cousedLabel (CONCAT("/use/", SUBSTR(STR(?coused), 32)) AS ?cousedUrl)
+  ("🔎" AS ?zoom) (CONCAT("../uses/{{ q }},", SUBSTR(STR(?coused), 32)) AS ?zoomUrl)
+  ?cousedDescription
+  ?example_work ?example_workLabel (CONCAT("/work/", SUBSTR(STR(?example_work), 32)) AS ?example_workUrl)
+WHERE {
+  { # Find works that are using a specific software,
+    # and find other software used in the found works
+    SELECT ?coused (COUNT(DISTINCT ?work) AS ?count) (SAMPLE(?work) AS ?example_work) WHERE {
+      ?work wdt:P4510/wdt:P279* target: ;
+            wdt:P4510 ?coused .
+      FILTER (?coused != target:)
+    }
+    GROUP BY ?coused
+  }
+
+  # Label the result
+  BIND (IF(BOUND (?coused), ?coused, <http://doesntexist.example.com/nexistepas>) AS ?cousedLabel__)
+  OPTIONAL { ?cousedLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?cousedLabel. FILTER(LANG(?cousedLabel) = "en") }
+  OPTIONAL { ?cousedLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?cousedLabel. FILTER(LANG(?cousedLabel) = "mul") }
+  BIND (IF(BOUND (?example_work), ?example_work, <http://doesntexist.example.com/nexistepas>) AS ?example_workLabel__)
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "en") }
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "mul") }
+  BIND (IF(BOUND (?coused), ?coused, <http://doesntexist.example.com/nexistepas>) AS ?cousedDescription__)
+  OPTIONAL { ?cousedDescription__ <http://schema.org/description> ?cousedDescription. FILTER(LANG(?cousedDescription) = "en") }
+  OPTIONAL { ?cousedDescription__ <http://schema.org/description> ?cousedDescription. FILTER(LANG(?cousedDescription) = "mul") }
+}
+ORDER BY DESC(?count)

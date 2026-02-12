@@ -1,0 +1,22 @@
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT (COUNT(?middle) AS ?distance) (GROUP_CONCAT(DISTINCT ?_rankLabel; SEPARATOR=", ") AS ?rank) ?parent ?parentLabel ?parentDescription {
+  target: wdt:P171* ?middle .
+  ?middle wdt:P171+ ?parent .
+  ?parent wdt:P105 ?_rank .
+  BIND (IF(BOUND (?_rank), ?_rank, <http://doesntexist.example.com/nexistepas>) AS ?_rankLabel__)
+  OPTIONAL { ?_rankLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?_rankLabel. FILTER(LANG(?_rankLabel) = "en") }
+  OPTIONAL { ?_rankLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?_rankLabel. FILTER(LANG(?_rankLabel) = "mul") }
+  BIND (IF(BOUND (?parent), ?parent, <http://doesntexist.example.com/nexistepas>) AS ?parentLabel__)
+  OPTIONAL { ?parentLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?parentLabel. FILTER(LANG(?parentLabel) = "en") }
+  OPTIONAL { ?parentLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?parentLabel. FILTER(LANG(?parentLabel) = "mul") }
+  BIND (IF(BOUND (?parent), ?parent, <http://doesntexist.example.com/nexistepas>) AS ?parentDescription__)
+  OPTIONAL { ?parentDescription__ <http://schema.org/description> ?parentDescription. FILTER(LANG(?parentDescription) = "en") }
+  OPTIONAL { ?parentDescription__ <http://schema.org/description> ?parentDescription. FILTER(LANG(?parentDescription) = "mul") }
+}
+GROUP BY ?parent ?parentLabel ?parentDescription
+ORDER BY ?distance

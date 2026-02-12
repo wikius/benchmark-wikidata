@@ -1,0 +1,32 @@
+# title: list known allotropes
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX psv: <http://www.wikidata.org/prop/statement/value/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT DISTINCT ?allotrope ?allotropeLabel (SAMPLE(?density_) AS ?density) ?densityUnit ?densityUnitLabel {
+  {
+    SELECT DISTINCT ?allotrope ?allotropeLabel WHERE {
+      ?allotropeType wdt:P279 wd:Q21198401 ;
+                     wdt:P279 wd:Q623 .
+      { ?allotropeType ^wdt:P279* ?allotrope }
+      UNION
+      { ?allotropeType ^wdt:P279* ?allotrope ; ^wdt:P2054 [] }
+  BIND (IF(BOUND (?allotrope), ?allotrope, <http://doesntexist.example.com/nexistepas>) AS ?allotropeLabel__)
+  OPTIONAL { ?allotropeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?allotropeLabel. FILTER(LANG(?allotropeLabel) = "en") }
+  OPTIONAL { ?allotropeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?allotropeLabel. FILTER(LANG(?allotropeLabel) = "mul") }
+    }
+  }
+  OPTIONAL {
+    ?allotrope p:P2054 ?densityStat .
+    ?densityStat psv:P2054 ?densityValNode .
+    ?densityValNode wikibase:quantityAmount ?density_ ;
+                    wikibase:quantityUnit ?densityUnit .
+  BIND (IF(BOUND (?densityUnit), ?densityUnit, <http://doesntexist.example.com/nexistepas>) AS ?densityUnitLabel__)
+  OPTIONAL { ?densityUnitLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?densityUnitLabel. FILTER(LANG(?densityUnitLabel) = "en") }
+  OPTIONAL { ?densityUnitLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?densityUnitLabel. FILTER(LANG(?densityUnitLabel) = "mul") }
+  }
+} GROUP BY ?allotrope ?allotropeLabel ?densityUnit ?densityUnitLabel
+  ORDER BY DESC(?density) ASC(?allotropeLabel)

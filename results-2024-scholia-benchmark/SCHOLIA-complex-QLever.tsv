@@ -1,0 +1,25 @@
+1	QLever		 613198	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-by-year Q100146810
+2	QLever		 613495	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-recent Q100146810
+3	QLever		    116	      	Count= 2 	200		complex_identifiers Q100146810
+4	QLever		    711	      	Count= 2 	200		complex_participants Q100146810
+5	QLever		     75	      	Count= 2 	200		complex-index_statistics Q100146810
+6	QLever		 614010	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-by-year Q100146811
+7	QLever		 613787	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-recent Q100146811
+8	QLever		     39	      	Count= 2 	200		complex_identifiers Q100146811
+9	QLever		    699	      	Result=1.0 	200		complex_participants Q100146811
+10	QLever		      8	      	Count= 2 	200		complex-index_statistics Q100146811
+11	QLever		 613919	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-by-year Q100146812
+12	QLever		 614047	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-recent Q100146812
+13	QLever		     68	      	Count= 2 	200		complex_identifiers Q100146812
+14	QLever		    731	      	Count= 2 	200		complex_participants Q100146812
+15	QLever		      7	      	Count= 2 	200		complex-index_statistics Q100146812
+16	QLever		 613880	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-by-year Q100146813
+17	QLever		 613859	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-recent Q100146813
+18	QLever		     76	      	Count= 2 	200		complex_identifiers Q100146813
+19	QLever		    827	      	Count= 7 	200		complex_participants Q100146813
+20	QLever		      7	      	Count= 2 	200		complex-index_statistics Q100146813
+21	QLever		 613858	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-by-year Q100146821
+22	QLever		 613911	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-recent Q100146821
+23	QLever		     78	      	Count= 2 	200		complex_identifiers Q100146821
+24	QLever		    724	      	Count= 2 	200		complex_participants Q100146821
+25	QLever		      7	      	Count= 2 	200		complex-index_statistics Q100146821

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% set aspect = "cito" %}
+
+{% block in_ready %}
+
+{{ sparql_to_table('journals') }}
+{{ sparql_to_table('articles') }}
+{{ sparql_to_iframe('articles-by-year') }}
+
+{% endblock %}
+
+
+{% block page_content %}
+<h1 id="h1">Citation Typing Ontology (CiTO) Intention</h1>
+
+<div id="intro"></div>
+
+<div id="wembedder"></div>
+
+
+<h2 id="journals">Journals using this intention</h2>
+
+This table lists the journals with CiTO-annotated citations, sorted by decreasing number of articles
+making an citation for this intention.
+
+<table class="table table-hover" id="journals-table"></table>
+
+<h2 id="articles-by-year">Articles by year</h2>
+
+This plot shows the number of articles each year that use this citation intention.
+
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" id="articles-by-year-iframe"></iframe>
+</div>
+
+<h2 id="articles">Articles most cited for this intention</h2>
+
+This table lists the articles that are most cited for this intention.
+
+<table class="table table-hover" id="articles-table"></table>
+
+
+{% endblock %}
+    

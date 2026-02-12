@@ -1,0 +1,30 @@
+#defaultView:Table
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?count ?author ?authorLabel ?authorDescription (CONCAT("/author/", SUBSTR(STR(?author),32)) AS ?authorUrl) (COALESCE(?orcid_, CONCAT("orcid-search/search/?searchQuery=", ?authorLabel)) AS ?orcid) WHERE {
+  {
+    SELECT ?author (COUNT(?work) AS ?count) WHERE {
+      {
+        ?work wdt:P6104 target: .
+      }
+      UNION {
+        ?work wdt:P5008 target: .
+      }
+      ?work wdt:P50 ?author .
+    }
+    GROUP BY ?author
+    ORDER BY DESC(?count)
+    LIMIT 200
+  }
+  # Include optional ORCID iD
+  OPTIONAL {
+    ?author wdt:P496 ?orcid_ .
+  }
+  BIND (IF(BOUND (?author), ?author, <http://doesntexist.example.com/nexistepas>) AS ?authorLabel__)
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "en") }
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "mul") }
+  BIND (IF(BOUND (?author), ?author, <http://doesntexist.example.com/nexistepas>) AS ?authorDescription__)
+  OPTIONAL { ?authorDescription__ <http://schema.org/description> ?authorDescription. FILTER(LANG(?authorDescription) = "en") }
+  OPTIONAL { ?authorDescription__ <http://schema.org/description> ?authorDescription. FILTER(LANG(?authorDescription) = "mul") }
+}
+ORDER BY DESC(?count)

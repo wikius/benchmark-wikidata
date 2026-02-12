@@ -1,0 +1,21 @@
+#defaultView:Table
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?theme ?themeLabel ?example_work ?example_workLabel WHERE {
+  {
+    SELECT (COUNT(?work) AS ?count) ?theme (SAMPLE(?work) AS ?example_work) WHERE {
+      ?work wdt:P50 target: .
+      ?work wdt:P921 ?theme .
+    }
+    GROUP BY ?theme
+  }
+  BIND (IF(BOUND (?theme), ?theme, <http://doesntexist.example.com/nexistepas>) AS ?themeLabel__)
+  OPTIONAL { ?themeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?themeLabel. FILTER(LANG(?themeLabel) = "en") }
+  OPTIONAL { ?themeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?themeLabel. FILTER(LANG(?themeLabel) = "mul") }
+  BIND (IF(BOUND (?example_work), ?example_work, <http://doesntexist.example.com/nexistepas>) AS ?example_workLabel__)
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "en") }
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "mul") }
+}
+ORDER BY DESC(?count)

@@ -1,0 +1,21 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?author ?authorLabel (COUNT(DISTINCT ?work) AS ?count) WHERE {
+  {
+    ?work wdt:P31 wd:Q45182324 .
+  }
+  UNION {
+    ?work wdt:P793 wd:Q7316896 .
+  }
+  UNION {
+    ?work wdt:P5824 [] .
+  }
+  ?work wdt:P50 ?author .
+  BIND (IF(BOUND (?author), ?author, <http://doesntexist.example.com/nexistepas>) AS ?authorLabel__)
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "en") }
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "mul") }
+} GROUP BY ?author ?authorLabel
+  ORDER BY DESC(?count)
+  LIMIT 100

@@ -1,0 +1,34 @@
+# title: lists the taxons in which this chemical is found
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT DISTINCT ?taxon ?taxonLabel (CONCAT("/taxon/", SUBSTR(STR(?taxon),32)) AS ?taxonUrl) ?source ?sourceLabel (CONCAT("/work/", SUBSTR(STR(?source),32)) AS ?sourceUrl) ?doi WHERE {
+  {
+    SELECT DISTINCT ?taxon (SAMPLE (?source_) AS ?source) (SAMPLE (?doi_) AS ?doi) WHERE {
+      {
+        wd:{{ q }} p:P703 ?taxonStatement .
+        ?taxonStatement ps:P703 ?taxon .
+      } UNION {
+        wd:{{ q }} p:P703 ?taxonStatement .
+        ?taxonStatement ps:P703 ?taxon .
+        ?taxonStatement prov:wasDerivedFrom/pr:P248 ?source_ .
+      } UNION {
+        wd:{{ q }} p:P703 ?taxonStatement .
+        ?taxonStatement ps:P703 ?taxon .
+        ?taxonStatement prov:wasDerivedFrom/pr:P248 ?source_ .
+        ?source_ wdt:P356 ?doi_ .
+      } 
+    } GROUP BY ?taxon
+  }
+  BIND (IF(BOUND (?taxon), ?taxon, <http://doesntexist.example.com/nexistepas>) AS ?taxonLabel__)
+  OPTIONAL { ?taxonLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?taxonLabel. FILTER(LANG(?taxonLabel) = "en") }
+  OPTIONAL { ?taxonLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?taxonLabel. FILTER(LANG(?taxonLabel) = "mul") }
+  BIND (IF(BOUND (?source), ?source, <http://doesntexist.example.com/nexistepas>) AS ?sourceLabel__)
+  OPTIONAL { ?sourceLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?sourceLabel. FILTER(LANG(?sourceLabel) = "en") }
+  OPTIONAL { ?sourceLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?sourceLabel. FILTER(LANG(?sourceLabel) = "mul") }
+}
+ORDER BY ASC(?taxonLabel)
+LIMIT 250

@@ -1,0 +1,26 @@
+#defaultView:Map{"layer": "?counts"}
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?geo ?printer ?printerLabel ?printerDescription ?counts ?example_work ?example_workLabel WHERE {
+  # hint:Query hint:optimizer "None".
+  {
+    SELECT (COUNT(?work) AS ?count) ?printer (SAMPLE(?work) AS ?example_work) WHERE {
+      ?work wdt:P872 ?printer .
+    }
+    GROUP BY ?printer
+  }
+  BIND (IF(?count = 1,"1",IF(?count <= 5,"2-5",IF(?count <= 10,"6-10","10+"))) AS ?counts)
+  ?printer wdt:P159?/wdt:P625 ?geo
+  BIND (IF(BOUND (?printer), ?printer, <http://doesntexist.example.com/nexistepas>) AS ?printerLabel__)
+  OPTIONAL { ?printerLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?printerLabel. FILTER(LANG(?printerLabel) = "en") }
+  OPTIONAL { ?printerLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?printerLabel. FILTER(LANG(?printerLabel) = "mul") }
+  BIND (IF(BOUND (?example_work), ?example_work, <http://doesntexist.example.com/nexistepas>) AS ?example_workLabel__)
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "en") }
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "mul") }
+  BIND (IF(BOUND (?printer), ?printer, <http://doesntexist.example.com/nexistepas>) AS ?printerDescription__)
+  OPTIONAL { ?printerDescription__ <http://schema.org/description> ?printerDescription. FILTER(LANG(?printerDescription) = "en") }
+  OPTIONAL { ?printerDescription__ <http://schema.org/description> ?printerDescription. FILTER(LANG(?printerDescription) = "mul") }
+}
+ORDER BY DESC(?count)
+LIMIT 1000

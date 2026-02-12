@@ -1,0 +1,26 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?publication_date ?episode ?episodeLabel (CONCAT("/podcast-episode/", SUBSTR(STR(?episode),32)) AS ?episodeUrl) WHERE {
+  {
+    SELECT DISTINCT ?episode (MIN(?publication_date_) AS ?publication_date) WHERE {
+      ?episode wdt:P31 wd:Q61855877 ;
+               wdt:P179 target: .
+      OPTIONAL {
+        ?episode wdt:P577 ?publication_datetime .
+        BIND (xsd:date(?publication_datetime) AS ?publication_date_)
+      }
+    }
+    GROUP BY ?episode
+    ORDER BY DESC(?publication_date)
+    LIMIT 50
+  }
+  BIND (IF(BOUND (?episode), ?episode, <http://doesntexist.example.com/nexistepas>) AS ?episodeLabel__)
+  OPTIONAL { ?episodeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?episodeLabel. FILTER(LANG(?episodeLabel) = "en") }
+  OPTIONAL { ?episodeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?episodeLabel. FILTER(LANG(?episodeLabel) = "mul") }
+}
+GROUP BY ?publication_date ?episode ?episodeLabel
+ORDER BY DESC(?publication_date)

@@ -1,0 +1,23 @@
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?count ?use ?useLabel (CONCAT("/use/", SUBSTR(STR(?use), 32)) AS ?useUrl) ("🔎" AS ?zoom) (CONCAT(SUBSTR(STR(target:), 32), "/use/", SUBSTR(STR(?use), 32)) AS ?zoomUrl) ?useDescription ?example_work ?example_workLabel WHERE {
+  {
+    SELECT (COUNT(?work) AS ?count) ?use (SAMPLE(?work) AS ?example_work) {
+      ?work wdt:P921 target: ;
+            wdt:P4510 ?use .
+    }
+    GROUP BY ?use
+  }
+
+  BIND (IF(BOUND (?use), ?use, <http://doesntexist.example.com/nexistepas>) AS ?useLabel__)
+  OPTIONAL { ?useLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?useLabel. FILTER(LANG(?useLabel) = "en") }
+  OPTIONAL { ?useLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?useLabel. FILTER(LANG(?useLabel) = "mul") }
+  BIND (IF(BOUND (?example_work), ?example_work, <http://doesntexist.example.com/nexistepas>) AS ?example_workLabel__)
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "en") }
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "mul") }
+  BIND (IF(BOUND (?use), ?use, <http://doesntexist.example.com/nexistepas>) AS ?useDescription__)
+  OPTIONAL { ?useDescription__ <http://schema.org/description> ?useDescription. FILTER(LANG(?useDescription) = "en") }
+  OPTIONAL { ?useDescription__ <http://schema.org/description> ?useDescription. FILTER(LANG(?useDescription) = "mul") }
+}
+ORDER BY DESC(?count)

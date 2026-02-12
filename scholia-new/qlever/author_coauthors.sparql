@@ -1,0 +1,39 @@
+#defaultView:Graph
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+# Egocentric co-author graph for an author
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?author1 ?author1Label ?rgb ?author2 ?author2Label WHERE {
+  {
+    SELECT ?author1 ?author2 ?rgb WHERE {
+      {
+        SELECT (COUNT(?work) AS ?count) ?author1 ?author2 WHERE {
+          # Find co-authors
+          ?work wdt:P50 target:, ?author1, ?author2 .
+          # Filtering 
+          # Only journal and conference articles, books, not (yet?) software
+          # VALUES ?publication_type { wd:Q13442814 wd:Q571 wd:Q26973022}  
+          # ?work wdt:P31 ?publication_type .
+        }
+        GROUP BY ?author1 ?author2
+        ORDER BY DESC(?count)
+        # Limit the size of the graph, to avoid overburdening the browser
+        LIMIT 1000
+      }
+      # Exclude self-links
+      FILTER (?author1 != ?author2)
+      # Color according to gender
+      OPTIONAL {
+        ?author1 wdt:P21 ?gender1 .
+        BIND (IF(?gender1 = wd:Q6581097,"3182BD","E6550D") AS ?rgb)
+      }
+    }
+  }
+  # Label the results 
+  BIND (IF(BOUND (?author1), ?author1, <http://doesntexist.example.com/nexistepas>) AS ?author1Label__)
+  OPTIONAL { ?author1Label__ <http://www.w3.org/2000/01/rdf-schema#label> ?author1Label. FILTER(LANG(?author1Label) = "en") }
+  OPTIONAL { ?author1Label__ <http://www.w3.org/2000/01/rdf-schema#label> ?author1Label. FILTER(LANG(?author1Label) = "mul") }
+  BIND (IF(BOUND (?author2), ?author2, <http://doesntexist.example.com/nexistepas>) AS ?author2Label__)
+  OPTIONAL { ?author2Label__ <http://www.w3.org/2000/01/rdf-schema#label> ?author2Label. FILTER(LANG(?author2Label) = "en") }
+  OPTIONAL { ?author2Label__ <http://www.w3.org/2000/01/rdf-schema#label> ?author2Label. FILTER(LANG(?author2Label) = "mul") }
+}

@@ -1,0 +1,29 @@
+
+#defaultView:LineChart
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?year (?citation_count / ?work_count AS ?citations_to_works_ratio) ?venue ?venueLabel WHERE {
+  {
+    SELECT ?year (COUNT(?work) AS ?work_count) ?venue WHERE {
+      VALUES ?venue { {% for q in qs -%} wd:{{ q }} {% endfor -%} }
+      ?work wdt:P1433 ?venue .
+      ?work wdt:P577 ?publication_datetime .
+      BIND (STR(YEAR(?publication_datetime)) AS ?year)
+    }
+    GROUP BY ?year ?venue
+  }
+  {
+    SELECT ?year (COUNT(?work) AS ?citation_count) ?venue WHERE {
+      VALUES ?venue { {% for q in qs -%} wd:{{ q }} {% endfor -%} }
+      ?work wdt:P1433 ?venue .
+      ?citing_work wdt:P2860 ?work .
+      ?citing_work wdt:P577 ?publication_datetime .
+      BIND (STR(YEAR(?publication_datetime)) AS ?year)
+    }
+    GROUP BY ?year ?venue
+  }
+  BIND (IF(BOUND (?venue), ?venue, <http://doesntexist.example.com/nexistepas>) AS ?venueLabel__)
+  OPTIONAL { ?venueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?venueLabel. FILTER(LANG(?venueLabel) = "en") }
+  OPTIONAL { ?venueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?venueLabel. FILTER(LANG(?venueLabel) = "mul") }
+}
+ORDER BY ?year

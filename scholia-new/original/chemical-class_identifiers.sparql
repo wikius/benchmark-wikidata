@@ -1,0 +1,18 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+
+SELECT
+  ?IDpred ?IDpredLabel
+  ?id ?idUrl
+  ?IDpredDescription
+{
+  target: ?IDdir ?id .
+  ?IDpred wikibase:directClaim ?IDdir ;
+            wdt:P31 wd:Q19833835 .
+  OPTIONAL {
+    ?IDpred wdt:P1630 ?formatterurl .
+  }
+  BIND(IRI(REPLACE(?formatterurl, '\\\\$1', str(?id))) AS ?idUrl).
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en" . }
+}
+ORDER BY ASC(?IDpredLabel)
+LIMIT 500

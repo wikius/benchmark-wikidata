@@ -1,0 +1,31 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?publication_date ?work ?workLabel ?workDescription WHERE {
+  {
+    SELECT (xsd:date(MAX(?publication_date_)) AS ?publication_date) ?work WHERE {
+      {
+        SELECT ?publication_date_ ?work WHERE {
+          ?work wdt:P275 target: .
+          OPTIONAL {
+            ?work wdt:P577 ?publication_date_ .
+          }
+        }
+        ORDER BY DESC(?publication_date_)
+        LIMIT 1100
+      }
+    }
+    GROUP BY ?work
+    ORDER BY DESC(?publication_date)
+    LIMIT 1000
+  }
+  BIND (IF(BOUND (?work), ?work, <http://doesntexist.example.com/nexistepas>) AS ?workLabel__)
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "en") }
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "mul") }
+  BIND (IF(BOUND (?work), ?work, <http://doesntexist.example.com/nexistepas>) AS ?workDescription__)
+  OPTIONAL { ?workDescription__ <http://schema.org/description> ?workDescription. FILTER(LANG(?workDescription) = "en") }
+  OPTIONAL { ?workDescription__ <http://schema.org/description> ?workDescription. FILTER(LANG(?workDescription) = "mul") }
+}
+ORDER BY DESC(?publication_date)

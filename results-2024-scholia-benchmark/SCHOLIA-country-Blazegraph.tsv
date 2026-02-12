@@ -1,0 +1,25 @@
+1	Blazegraph		  46810	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=b1e3466f-76fe-4364-b42a-a105c7624c44,bopId=60,partitionId=-1,sinkId=58,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	country_authors Q1000
+2	Blazegraph		    544	      	Count= 556 	200		country_co-organizations Q1000
+3	Blazegraph		    472	      	Count= 1459 	200		country_locations-as-topics Q1000
+4	Blazegraph		     65	      	Count= 6 	200		country_narrative-locations Q1000
+5	Blazegraph		    221	      	Count= 10 	200		country_organizations Q1000
+6	Blazegraph		  42901	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=ae5f6298-cf2c-4007-89ab-b41d65740dff,bopId=60,partitionId=-1,sinkId=58,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	country_authors Q1005
+7	Blazegraph		    675	      	Count= 1121 	200		country_co-organizations Q1005
+8	Blazegraph		    561	      	Count= 4154 	200		country_locations-as-topics Q1005
+9	Blazegraph		     50	      	Count= 6 	200		country_narrative-locations Q1005
+10	Blazegraph		    230	      	Count= 8 	200		country_organizations Q1005
+11	Blazegraph		  39299	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=bb6e5f79-2512-41ba-9775-453e50f88fa5,bopId=61,partitionId=-1,sinkId=63,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Optional,joinVars=[],outputDistinctJVs=false,size=74,considered(left=11982,right=9001,joins=883869),joinSetSize=61}	country_authors Q1006
+12	Blazegraph		    374	      	Count= 36 	200		country_co-organizations Q1006
+13	Blazegraph		    250	      	Count= 557 	200		country_locations-as-topics Q1006
+14	Blazegraph		     72	      	Count= 6 	200		country_narrative-locations Q1006
+15	Blazegraph		    399	      	Count= 7 	200		country_organizations Q1006
+16	Blazegraph		  42095	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=0526129c-34f6-4ceb-9803-9ccd1c58de2c,bopId=60,partitionId=-1,sinkId=58,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	country_authors Q1007
+17	Blazegraph		    294	      	Count= 190 	200		country_co-organizations Q1007
+18	Blazegraph		    335	      	Count= 1245 	200		country_locations-as-topics Q1007
+19	Blazegraph		     43	      	Count= 4 	200		country_narrative-locations Q1007
+20	Blazegraph		    182	      	Count= 5 	200		country_organizations Q1007
+21	Blazegraph		  38664	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=957b91b8-64d2-4cce-b8bf-a75ab3a24b53,bopId=59,partitionId=-1,sinkId=60,altSinkId=58}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	country_authors Q1008
+22	Blazegraph		    704	      	Count= 932 	200		country_co-organizations Q1008
+23	Blazegraph		    698	      	Count= 2721 	200		country_locations-as-topics Q1008
+24	Blazegraph		     78	      	Count= 23 	200		country_narrative-locations Q1008
+25	Blazegraph		    360	      	Count= 32 	200		country_organizations Q1008

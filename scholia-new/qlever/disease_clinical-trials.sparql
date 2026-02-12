@@ -1,0 +1,23 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT DISTINCT ?start_date ?trial ?trialLabel ?intervention ?interventionLabel ?sponsor ?sponsorLabel WHERE {
+  ?trial wdt:P31 wd:Q30612 ;
+         wdt:P1050/wdt:P279* wd:{{ q }} .
+  OPTIONAL {
+    ?trial wdt:P580 ?starttime
+    BIND (SUBSTR(STR(?starttime),0,11) AS ?start_date)
+  }
+  OPTIONAL {
+    ?trial wdt:P4844 ?intervention
+  }
+  OPTIONAL {
+    ?trial wdt:P859 ?sponsor
+  }
+  BIND (IF(BOUND (?trial), ?trial, <http://doesntexist.example.com/nexistepas>) AS ?trialLabel__)
+  OPTIONAL { ?trialLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?trialLabel. FILTER(LANG(?trialLabel) = "en") }
+  OPTIONAL { ?trialLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?trialLabel. FILTER(LANG(?trialLabel) = "mul") }
+  BIND (IF(BOUND (?intervention), ?intervention, <http://doesntexist.example.com/nexistepas>) AS ?interventionLabel__)
+  OPTIONAL { ?interventionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?interventionLabel. FILTER(LANG(?interventionLabel) = "en") }
+  OPTIONAL { ?interventionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?interventionLabel. FILTER(LANG(?interventionLabel) = "mul") }
+}
+ORDER BY DESC(?starttime)

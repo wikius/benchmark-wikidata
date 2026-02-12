@@ -1,0 +1,15 @@
+1	Blazegraph		   9351	      	Count= 100 	200		property_item-counts subclass of
+2	Blazegraph		   1271	      	Count= 100 	200		property_property-value-counts subclass of
+3	Blazegraph		    279	      	Count= 500 	200		property_use subclass of
+4	Blazegraph		 623246	      	None 	500	ERROR java.util.concurrent.TimeoutException	property_item-counts instance of
+5	Blazegraph		 692741	      	None 	500	ERROR java.util.concurrent.TimeoutException	property_property-value-counts instance of
+6	Blazegraph		1229271	      	None 	500	ERROR java.util.concurrent.TimeoutException	property_use instance of
+7	Blazegraph		 231129	      	Count= 100 	200		property_item-counts publication date
+8	Blazegraph		  12081	      	Count= 100 	200		property_property-value-counts publication date
+9	Blazegraph		    358	      	Count= 500 	200		property_use publication date
+10	Blazegraph		    835	      	Count= 100 	200		property_item-counts start time
+11	Blazegraph		    244	      	Count= 100 	200		property_property-value-counts start time
+12	Blazegraph		    716	      	Count= 500 	200		property_use start time
+13	Blazegraph		   5423	      	Count= 100 	200		property_item-counts part of
+14	Blazegraph		   1596	      	Count= 100 	200		property_property-value-counts part of
+15	Blazegraph		    692	      	Count= 500 	200		property_use part of

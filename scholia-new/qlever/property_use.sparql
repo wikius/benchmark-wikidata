@@ -1,0 +1,13 @@
+PREFIX target: <http://www.wikidata.org/prop/direct/{{ p }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?item ?itemLabel ?property_value ?property_valueLabel WHERE {
+  ?item target: ?property_value .
+  BIND (IF(BOUND (?item), ?item, <http://doesntexist.example.com/nexistepas>) AS ?itemLabel__)
+  OPTIONAL { ?itemLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?itemLabel. FILTER(LANG(?itemLabel) = "en") }
+  OPTIONAL { ?itemLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?itemLabel. FILTER(LANG(?itemLabel) = "mul") }
+  BIND (IF(BOUND (?property_value), ?property_value, <http://doesntexist.example.com/nexistepas>) AS ?property_valueLabel__)
+  OPTIONAL { ?property_valueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?property_valueLabel. FILTER(LANG(?property_valueLabel) = "en") }
+  OPTIONAL { ?property_valueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?property_valueLabel. FILTER(LANG(?property_valueLabel) = "mul") }
+}
+LIMIT 500

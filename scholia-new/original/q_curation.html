@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+<h1 id="h1">Improve...</h1>
+
+<p>Our data source is <a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a>, a structured data project
+  similar to the encyclopedia project Wikipedia. Each item is identified by a Q number, and information can be added
+  directly to an item's page (in this case, <a
+    href='https://www.wikidata.org/entity/{{q}}'>https://www.wikidata.org/entity/{{q}}</a>). Some information however, like an
+  author's papers, are stored on the item for the paper itself. The "<a
+    href="https://www.wikidata.org/w/index.php?title=Special%3AWhatLinksHere&target={{q}}&namespace=0">What links
+    here</a>" link in the sidebar of an item can show these items.</p>
+
+<p>There are also various <a href="https://www.wikidata.org/wiki/Wikidata:Tools/Edit_items">tools</a> available which
+  can make editing Wikidata quicker and more rigorous.</p>
+
+<p>Most important for Scholia is the <a href="https://author-disambiguator.toolforge.org">Author
+    Disambiguator</a>, which can be used to quickly create new dedicated items for authors and find
+  existing papers which do not link to the author.</p>
+
+
+{% block curation_panels %}{% endblock %}
+
+<script>
+  function get_dois_from_crossref(query_string) {
+      const button = document.getElementById("check-crossref-button");
+      button.innerHTML = "Loading...";
+      button.classList.remove("d-block");
+      button.classList.add("d-none");
+      button.insertAdjacentHTML('beforebegin',
+        "<div id='check-crossref-loader' class='loader'><div></div><div></div><div></div></div>"
+      )
+      const currentDate = new Date().toISOString().split('T')[0];
+      const params = {
+        'query': query_string,
+        'select': 'DOI',
+        'filter': 'type:journal-article,until-issued-date:' + currentDate,
+        'rows': 20,
+        'sort': 'issued',
+        'order': 'desc',
+      };
+
+      // Create a URLSearchParams object to construct the query parameters
+      const searchParams = new URLSearchParams();
+
+      // Loop through the dictionary and add each key-value pair to the searchParams
+      for (const [key, value] of Object.entries(params)) {
+        searchParams.append(key, value);
+      }
+
+      // Construct the final URL by appending the search parameters
+      const url = `https://api.crossref.org/works/?${searchParams.toString()}`;
+      const error_message = "The API failed which could be due to a problem with your connection or with the upstream server. If the issue persists <a href='https://github.com/WDscholia/scholia/issues/new?assignees=&labels=bug&projects=&template=bug_report.md&title=''>submit a bug report on GitHub</a>"
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          if (data['status'] == 'ok') {
+            if (data["message"]["total-results"] > 0){
+              items = data.message?.items
+              if (items) {
+                dois = items.map(x => x.DOI).join(" ");
+                window.location.href = "/id-to-quickstatements?query=" + dois;
+              }
+            } else {
+              $('#check-crossref-loader').remove();
+              button.insertAdjacentHTML('afterend', `<div class="alert alert-secondary" role="alert">No results returned for ${data.message.query['status-terms']}</div>`);
+              button.innerHTML = "Check Crossref";
+              button.classList.remove("d-none");
+              button.classList.add("d-block");
+            }
+          } else {
+            console.error(`API status was ${data.status}`)
+            console.error(data)
+            $('#check-crossref-loader').remove();
+            button.insertAdjacentHTML('afterend', `<div class="alert alert-warning" role="alert">${error_message}</div>`);
+            button.innerHTML = "Check Crossref";
+            button.classList.remove("d-none");
+            button.classList.add("d-block");
+          }
+        })
+        .catch(error => {
+          console.error(error);
+          $('#check-crossref-loader').remove();
+          button.insertAdjacentHTML('afterend', `<div class="alert alert-warning" role="alert">${error_message}</div>`);
+          button.innerHTML = "Check Crossref";
+          button.classList.remove("d-none");
+          button.classList.add("d-block");
+        });
+  }
+</script>
+
+{% endblock %}

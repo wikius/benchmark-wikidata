@@ -1,3 +1,3 @@
 #!/bin/tcsh
-killall ServerMain
+killall qlever-server
 sleep 5s

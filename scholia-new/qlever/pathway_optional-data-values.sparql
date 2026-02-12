@@ -1,0 +1,17 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?wpid ?organism ?organismLabel ?pathwayDescription WHERE {
+  VALUES ?pathway { target: }
+  OPTIONAL {
+    target: wdt:P2410 ?wpid ;
+            wdt:P703 ?organism .
+  }
+  BIND (IF(BOUND (?organism), ?organism, <http://doesntexist.example.com/nexistepas>) AS ?organismLabel__)
+  OPTIONAL { ?organismLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?organismLabel. FILTER(LANG(?organismLabel) = "en") }
+  OPTIONAL { ?organismLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?organismLabel. FILTER(LANG(?organismLabel) = "mul") }
+  BIND (IF(BOUND (?pathway), ?pathway, <http://doesntexist.example.com/nexistepas>) AS ?pathwayDescription__)
+  OPTIONAL { ?pathwayDescription__ <http://schema.org/description> ?pathwayDescription. FILTER(LANG(?pathwayDescription) = "en") }
+  OPTIONAL { ?pathwayDescription__ <http://schema.org/description> ?pathwayDescription. FILTER(LANG(?pathwayDescription) = "mul") }
+}

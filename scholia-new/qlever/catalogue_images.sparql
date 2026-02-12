@@ -1,0 +1,12 @@
+#defaultView:ImageGrid
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?image ?item ?itemLabel WHERE {
+  ?item wdt:P972 target: ;
+        wdt:P18 ?image .
+  BIND (IF(BOUND (?item), ?item, <http://doesntexist.example.com/nexistepas>) AS ?itemLabel__)
+  OPTIONAL { ?itemLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?itemLabel. FILTER(LANG(?itemLabel) = "en") }
+  OPTIONAL { ?itemLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?itemLabel. FILTER(LANG(?itemLabel) = "mul") }
+}

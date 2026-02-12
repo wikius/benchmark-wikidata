@@ -1,0 +1,19 @@
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?citedArticle ?citedArticleLabel (CONCAT("/work/", SUBSTR(STR(?citedArticle),32), "#cito") AS ?citedArticleUrl) (COUNT(DISTINCT ?citingArticle) AS ?count) WHERE {
+  VALUES ?INTENTION { wd:Q96472102 wd:Q96471820 wd:Q101149476 }
+  ?citingArticle p:P2860 ?citationStatement .
+  ?citationStatement pq:P3712 ?INTENTION ;
+                     ps:P2860 ?citedArticle .
+  ?citedArticle wdt:P1433 target: .
+  BIND (IF(BOUND (?citedArticle), ?citedArticle, <http://doesntexist.example.com/nexistepas>) AS ?citedArticleLabel__)
+  OPTIONAL { ?citedArticleLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?citedArticleLabel. FILTER(LANG(?citedArticleLabel) = "en") }
+  OPTIONAL { ?citedArticleLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?citedArticleLabel. FILTER(LANG(?citedArticleLabel) = "mul") }
+}
+GROUP BY ?citedArticle ?citedArticleLabel
+ORDER BY DESC(?count)

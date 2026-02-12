@@ -1,0 +1,54 @@
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+# title: Articles in a specific venue citing retracted articles
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT DISTINCT ?retracted_work ?retracted_workLabel ?date ?citing_work ?citing_workLabel WHERE {
+  { # Find retracted papers indicated by instance of retracted paper,
+    # by retraction notice property or by significant event
+    SELECT DISTINCT ?retracted_work WHERE {
+      # articles marked as "retracted"
+      {
+        ?retracted_work wdt:P31 wd:Q45182324
+      }
+      UNION
+      # articles linked to a retraction notice
+      {
+        ?retracted_work wdt:P5824 []
+      }
+      UNION
+      # articles with a 'retraction' event
+      {
+        ?retracted_work wdt:P793 wd:Q45203135
+      }
+    }
+  }
+  ?citing_work wdt:P2860 ?retracted_work ;
+               wdt:P1433 target: .
+  OPTIONAL {
+    ?retracted_work wdt:P5824 ?retraction .
+    ?retraction wdt:P577 ?retraction_datetime
+    FILTER (?citing_work != ?retraction)
+  }
+  MINUS {
+    ?citing_work wdt:P31 wd:Q1348305
+  }
+  OPTIONAL {
+    ?retracted_work p:P793 [
+      ps:P793 wd:Q45203135 ;
+      pq:P585 ?keyevent_datetime
+    ]
+  }
+  BIND (COALESCE(xsd:date(COALESCE(?retraction_datetime, ?keyevent_datetime)), "Unknown date") AS ?date)
+  BIND (IF(BOUND (?retracted_work), ?retracted_work, <http://doesntexist.example.com/nexistepas>) AS ?retracted_workLabel__)
+  OPTIONAL { ?retracted_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?retracted_workLabel. FILTER(LANG(?retracted_workLabel) = "en") }
+  OPTIONAL { ?retracted_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?retracted_workLabel. FILTER(LANG(?retracted_workLabel) = "mul") }
+  BIND (IF(BOUND (?citing_work), ?citing_work, <http://doesntexist.example.com/nexistepas>) AS ?citing_workLabel__)
+  OPTIONAL { ?citing_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?citing_workLabel. FILTER(LANG(?citing_workLabel) = "en") }
+  OPTIONAL { ?citing_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?citing_workLabel. FILTER(LANG(?citing_workLabel) = "mul") }
+}
+ORDER BY DESC(?date)

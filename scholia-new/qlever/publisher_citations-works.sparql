@@ -1,0 +1,29 @@
+#defaultView:ScatterChart
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?work_count ?citation_count ?journal  ?journalLabel WHERE {
+  {
+    SELECT ?work_count ?citation_count ?journal {
+      {
+        SELECT ?journal (COUNT(?work) AS ?work_count) {
+          ?journal wdt:P123 target: .
+          ?work wdt:P1433 ?journal .
+        }
+        GROUP BY ?journal
+      }
+      {
+        SELECT ?journal (COUNT(?citing_work) AS ?citation_count) {
+          ?journal wdt:P123 target: .
+          ?work wdt:P1433 ?journal .
+          ?citing_work wdt:P2860 ?work .
+        }
+        GROUP BY ?journal
+      }
+    }
+  }
+  BIND (IF(BOUND (?journal), ?journal, <http://doesntexist.example.com/nexistepas>) AS ?journalLabel__)
+  OPTIONAL { ?journalLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?journalLabel. FILTER(LANG(?journalLabel) = "en") }
+  OPTIONAL { ?journalLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?journalLabel. FILTER(LANG(?journalLabel) = "mul") }
+}

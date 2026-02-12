@@ -1,0 +1,30 @@
+
+#title: Recent works published in venue
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?publication_date ?work ?workLabel (GROUP_CONCAT(DISTINCT ?authorLabel; SEPARATOR=", ") AS ?authors) (CONCAT("../authors/", GROUP_CONCAT(DISTINCT SUBSTR(STR(?author),32); SEPARATOR=",")) AS ?authorsUrl) WHERE {
+  {
+    SELECT DISTINCT ?work (MIN(?publication_date_) AS ?publication_date) WHERE {
+      ?work wdt:P1433 target: .
+      OPTIONAL {
+        ?work wdt:P577 ?publication_datetime .
+        BIND (xsd:date(?publication_datetime) AS ?publication_date_)
+      }
+    }
+    GROUP BY ?work
+    ORDER BY DESC(?publication_date)
+    LIMIT 1000
+  }
+  OPTIONAL {
+    ?work wdt:P50 ?author .
+  BIND (IF(BOUND (?author), ?author, <http://doesntexist.example.com/nexistepas>) AS ?authorLabel__)
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "en") }
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "mul") }
+  }
+  BIND (IF(BOUND (?work), ?work, <http://doesntexist.example.com/nexistepas>) AS ?workLabel__)
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "en") }
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "mul") }
+}
+GROUP BY ?publication_date ?work ?workLabel
+ORDER BY DESC(?publication_date)

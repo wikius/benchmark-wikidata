@@ -1,0 +1,16 @@
+The Scholia Benchmark uses query templates from Scholia plus category-based control files that tell which benchmarks to run and on what Wikidata items.  The benchmark.py script is used to run a category.  
+
+control contains the control files for the benchmarking
+original contains the original Scholia templates
+qlever contains the Scholia templates modified for use with QLever
+templates is a symbolic to link to one of the templates directories, used by benchmark.py
+
+The control files are for 34 different categories.
+The index category contains templates that are not instantiated with an item.
+The other categories each have five items that they are instaniated on.
+The <category>-queries.tsv files say what templates to run and where to find the items to run them on.
+The <category>-items.tsv files contain the items to run for the category.
+The <category>-generate-items.sparql files contain SPARQL queries to generate the items, but only if the <category>-items.tsv file is not present.  The results of the query are stored in the <category>-items.tsv file.
+Some categories have had their items generated manually and do not have the SPARQL query.
+
+Some templates are not in any category becuase they use multiple items or it was unclear what kind of items to use for them.

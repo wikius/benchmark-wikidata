@@ -1,0 +1,47 @@
+
+#title: Statements referencing the {{ q }} article
+#defaultView:Table
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?item ?itemLabel ?property ?propertyLabel ?value ?valueLabel ?unit ?unitLabel WHERE {
+  {
+    { SELECT ?statement WHERE { ?statement prov:wasDerivedFrom/pr:P248 target: . } }
+    ?item a wikibase:Item ; ?p ?statement .
+    ?property wikibase:claim ?p ; wikibase:statementProperty ?ps .
+    ?statement ?ps ?value .
+    FILTER NOT EXISTS {
+      ?property wikibase:statementValueNormalized ?pn .
+      FILTER (ISLITERAL(?value))
+    }
+  } UNION {
+    { SELECT ?statement WHERE { ?statement prov:wasDerivedFrom/pr:P248 target: . } }
+    ?item a wikibase:Item ; ?p ?statement .
+    ?property wikibase:claim ?p ; wikibase:statementValueNormalized ?pn .
+    ?statement ?pn ?value .
+    FILTER (ISLITERAL(?value))
+  }
+
+  OPTIONAL {
+    { SELECT ?statement WHERE { ?statement prov:wasDerivedFrom/pr:P248 target: . } }
+    ?item a wikibase:Item ; ?p ?statement .
+    ?property wikibase:claim ?p ; wikibase:statementProperty ?ps ; wikibase:statementValue ?psv .
+    ?statement ?psv [ wikibase:quantityUnit ?unit ]
+  BIND (IF(BOUND (?unit), ?unit, <http://doesntexist.example.com/nexistepas>) AS ?unitLabel__)
+  OPTIONAL { ?unitLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?unitLabel. FILTER(LANG(?unitLabel) = "en") }
+  OPTIONAL { ?unitLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?unitLabel. FILTER(LANG(?unitLabel) = "mul") }
+  }
+
+  BIND (IF(BOUND (?item), ?item, <http://doesntexist.example.com/nexistepas>) AS ?itemLabel__)
+  OPTIONAL { ?itemLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?itemLabel. FILTER(LANG(?itemLabel) = "en") }
+  OPTIONAL { ?itemLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?itemLabel. FILTER(LANG(?itemLabel) = "mul") }
+  BIND (IF(BOUND (?property), ?property, <http://doesntexist.example.com/nexistepas>) AS ?propertyLabel__)
+  OPTIONAL { ?propertyLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?propertyLabel. FILTER(LANG(?propertyLabel) = "en") }
+  OPTIONAL { ?propertyLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?propertyLabel. FILTER(LANG(?propertyLabel) = "mul") }
+  BIND (IF(BOUND (?value), ?value, <http://doesntexist.example.com/nexistepas>) AS ?valueLabel__)
+  OPTIONAL { ?valueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?valueLabel. FILTER(LANG(?valueLabel) = "en") }
+  OPTIONAL { ?valueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?valueLabel. FILTER(LANG(?valueLabel) = "mul") }
+}
+ORDER BY ?item ?property
+LIMIT 2000

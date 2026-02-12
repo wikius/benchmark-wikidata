@@ -1,0 +1,48 @@
+
+#defaultView:BarChart
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT
+  (STR(?year_) AS ?year)
+  (COUNT(?work) AS ?number_of_publications)
+  # Work type used to color the bar chart
+  (?article_typeLabel AS ?type)
+WHERE {
+  {
+    { # Find works with the topic. Also report the year
+      SELECT ?work (MIN(?years) AS ?year_) (SAMPLE(?article_type_) AS ?article_type) WHERE {
+        ?work wdt:P6104|wdt:P5008 target: ;
+              wdt:P50 [] ;
+              wdt:P31 ?article_type_ ;
+              wdt:P577 ?dates .
+        BIND (YEAR(?dates) AS ?years) .
+      }
+      GROUP BY ?work
+    }
+  BIND (IF(BOUND (?article_type), ?article_type, <http://doesntexist.example.com/nexistepas>) AS ?article_typeLabel__)
+  OPTIONAL { ?article_typeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?article_typeLabel. FILTER(LANG(?article_typeLabel) = "en") }
+  OPTIONAL { ?article_typeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?article_typeLabel. FILTER(LANG(?article_typeLabel) = "mul") }
+  }
+  UNION {
+    VALUES ?year_class { wd:Q577 wd:Q3186692 }
+    [] wdt:P31 ?year_class ;
+       wdt:P585 ?date .
+    BIND (YEAR(?date) AS ?year_)
+    BIND ("_" AS ?article_typeLabel)
+  }
+
+  { # Find earliest publication year
+    SELECT (MIN(?year_) AS ?earliest_year) WHERE {
+      ?work wdt:P6104|wdt:P5008 target: .
+      ?work wdt:P577 ?date .
+      BIND (YEAR(?date) AS ?year_) .
+      FILTER (ISLITERAL(?year_))
+    }
+  }
+
+  BIND (YEAR(NOW()) AS ?this_year)
+  FILTER (?year_ >= ?earliest_year && ?year_ <= ?this_year && ?year_ >= 1900)
+}
+GROUP BY ?year_ ?article_typeLabel
+ORDER BY ?year

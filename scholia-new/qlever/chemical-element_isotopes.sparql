@@ -1,0 +1,30 @@
+# title: list the isotopes for this chemical element
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX psv: <http://www.wikidata.org/prop/statement/value/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?isotope ?isotopeLabel ?protons ?neutrons ?mass ?massUnit ?massUnitLabel ?halflife ?halflifeUnit ?halflifeUnitLabel WHERE {
+  VALUES ?element { target: }
+  ?element wdt:P1086 ?protons .
+  ?isotope wdt:P279 ?element ;
+           wdt:P1148 ?neutrons ;
+           p:P2067 ?massStat ;
+           p:P2114 ?halflifeStat .
+  ?massStat psv:P2067 ?massValNode .
+  ?massValNode wikibase:quantityAmount ?mass ;
+               wikibase:quantityUnit ?massUnit .
+  ?halflifeStat psv:P2114 ?halflifeValNode .
+  ?halflifeValNode wikibase:quantityAmount ?halflife ;
+                   wikibase:quantityUnit ?halflifeUnit .
+  BIND (IF(BOUND (?isotope), ?isotope, <http://doesntexist.example.com/nexistepas>) AS ?isotopeLabel__)
+  OPTIONAL { ?isotopeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?isotopeLabel. FILTER(LANG(?isotopeLabel) = "en") }
+  OPTIONAL { ?isotopeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?isotopeLabel. FILTER(LANG(?isotopeLabel) = "mul") }
+  BIND (IF(BOUND (?massUnit), ?massUnit, <http://doesntexist.example.com/nexistepas>) AS ?massUnitLabel__)
+  OPTIONAL { ?massUnitLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?massUnitLabel. FILTER(LANG(?massUnitLabel) = "en") }
+  OPTIONAL { ?massUnitLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?massUnitLabel. FILTER(LANG(?massUnitLabel) = "mul") }
+  BIND (IF(BOUND (?halflifeUnit), ?halflifeUnit, <http://doesntexist.example.com/nexistepas>) AS ?halflifeUnitLabel__)
+  OPTIONAL { ?halflifeUnitLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?halflifeUnitLabel. FILTER(LANG(?halflifeUnitLabel) = "en") }
+  OPTIONAL { ?halflifeUnitLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?halflifeUnitLabel. FILTER(LANG(?halflifeUnitLabel) = "mul") }
+}
+ORDER BY ?neutrons

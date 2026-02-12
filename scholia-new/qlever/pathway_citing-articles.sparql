@@ -1,0 +1,25 @@
+#defaultView:Table
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?citations ?publication_date ?citing_work ?citing_workLabel WHERE {
+  {
+    SELECT (MIN(?date) AS ?publication_date) (COUNT(?citing_citing_work) AS ?citations) ?citing_work WHERE {
+      ?citing_work wdt:P2860 target: .
+      OPTIONAL {
+        ?citing_work wdt:P577 ?datetime .
+        BIND (xsd:date(?datetime) AS ?date)
+      }
+      OPTIONAL {
+        ?citing_citing_work wdt:P2860 ?citing_work
+      }
+    }
+    GROUP BY ?citing_work
+  }
+  BIND (IF(BOUND (?citing_work), ?citing_work, <http://doesntexist.example.com/nexistepas>) AS ?citing_workLabel__)
+  OPTIONAL { ?citing_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?citing_workLabel. FILTER(LANG(?citing_workLabel) = "en") }
+  OPTIONAL { ?citing_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?citing_workLabel. FILTER(LANG(?citing_workLabel) = "mul") }
+}
+ORDER BY DESC(?citations) DESC(?date)

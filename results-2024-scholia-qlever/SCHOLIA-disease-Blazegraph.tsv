@@ -1,0 +1,15 @@
+1	Blazegraph		   1160	      	Count= 3061 	200		disease_clinical-trials Q1001150
+2	Blazegraph		    867	      	Count= 86 	200		disease_publications-per-year Q1001150
+3	Blazegraph		     65	      	Count= 0 	200		disease_related-diseases Q1001150
+4	Blazegraph		    152	      	Count= 694 	200		disease_clinical-trials Q1016605
+5	Blazegraph		    221	      	Count= 58 	200		disease_publications-per-year Q1016605
+6	Blazegraph		     51	      	Count= 0 	200		disease_related-diseases Q1016605
+7	Blazegraph		     94	      	Count= 133 	200		disease_clinical-trials Q101896
+8	Blazegraph		    261	      	Count= 100 	200		disease_publications-per-year Q101896
+9	Blazegraph		    101	      	Count= 69 	200		disease_related-diseases Q101896
+10	Blazegraph		     74	      	Count= 34 	200		disease_clinical-trials Q1022718
+11	Blazegraph		    223	      	Count= 4 	200		disease_publications-per-year Q1022718
+12	Blazegraph		    139	      	Count= 361 	200		disease_related-diseases Q1022718
+13	Blazegraph		     58	      	Result=2018-10-01 	200		disease_clinical-trials Q1023604
+14	Blazegraph		    160	      	Count= 30 	200		disease_publications-per-year Q1023604
+15	Blazegraph		     60	      	Result=1 	200		disease_related-diseases Q1023604

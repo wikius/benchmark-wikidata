@@ -1,0 +1,8 @@
+podcast_data	podcast_data LABEL	QUERY	podcast
+podcast_listings	podcast_listings LABEL	QUERY	podcast
+podcast_recent-episodes	podcast_recent-episodes LABEL	QUERY	podcast
+podcast_seasons	podcast_seasons LABEL	QUERY	podcast
+podcast_topics	podcast_topics LABEL	QUERY	podcast
+podcast-index_languages	podcast-index_languages LABEL	QUERY	podcast
+podcast-language_podcast-list	podcast-language_podcast-list LABEL	QUERY	podcast
+podcast-language_recent-episodes	podcast-language_recent-episodes LABEL	QUERY	podcast

@@ -1,0 +1,17 @@
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?mol ?molLabel ?InChIKey ?CAS ?ChemSpider ?PubChem_CID {
+  ?mol wdt:P235 ?InChIKey .
+  FILTER (REGEX(?InChIKey,"^_shortkey_"))
+  OPTIONAL {
+    ?mol wdt:P231 ?CAS
+  }
+  OPTIONAL {
+    ?mol wdt:P661 ?ChemSpider
+  }
+  OPTIONAL {
+    ?mol wdt:P662 ?PubChem_CID
+  }
+  BIND (IF(BOUND (?mol), ?mol, <http://doesntexist.example.com/nexistepas>) AS ?molLabel__)
+  OPTIONAL { ?molLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?molLabel. FILTER(LANG(?molLabel) = "en") }
+  OPTIONAL { ?molLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?molLabel. FILTER(LANG(?molLabel) = "mul") }
+}

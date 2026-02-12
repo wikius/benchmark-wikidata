@@ -1,0 +1,35 @@
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT DISTINCT ?metabolite ?metaboliteLabel ?metaboliteChemicalStructure ?metaboliteDescription {
+  {
+    SELECT DISTINCT ?metabolite ?metaboliteChemicalStructure WHERE {
+      {
+        SELECT DISTINCT ?children WHERE {
+          ?children (wdt:P171*) target: .
+        }
+      }
+      {
+        ?metabolite wdt:P703 ?children
+      }
+      VALUES ?chemical { wd:Q113145171 wd:Q59199015 }
+      ?metabolite wdt:P31 ?chemical .
+      OPTIONAL {
+        ?metabolite wdt:P233 ?canSmiles
+      }
+      OPTIONAL {
+        ?metabolite wdt:P2017 ?isoSmiles
+      }
+      BIND (COALESCE(?isoSmiles, ?canSmiles) AS ?metaboliteChemicalStructure)
+    }
+  }
+  BIND (IF(BOUND (?metabolite), ?metabolite, <http://doesntexist.example.com/nexistepas>) AS ?metaboliteLabel__)
+  OPTIONAL { ?metaboliteLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?metaboliteLabel. FILTER(LANG(?metaboliteLabel) = "en") }
+  OPTIONAL { ?metaboliteLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?metaboliteLabel. FILTER(LANG(?metaboliteLabel) = "mul") }
+  BIND (IF(BOUND (?metabolite), ?metabolite, <http://doesntexist.example.com/nexistepas>) AS ?metaboliteDescription__)
+  OPTIONAL { ?metaboliteDescription__ <http://schema.org/description> ?metaboliteDescription. FILTER(LANG(?metaboliteDescription) = "en") }
+  OPTIONAL { ?metaboliteDescription__ <http://schema.org/description> ?metaboliteDescription. FILTER(LANG(?metaboliteDescription) = "mul") }
+}

@@ -1,0 +1,40 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?time ?short_name ?event ?eventLabel (CONCAT("/event/", SUBSTR(STR(?event),32)) AS ?eventUrl) ?location ?locationLabel (CONCAT("/location/", SUBSTR(STR(?location),32)) AS ?locationUrl) WHERE {
+  {
+    SELECT ?event (xsd:date(MIN(?times)) AS ?time) (SAMPLE(?locations) AS ?location) (SAMPLE(?short_names) AS ?short_name) WHERE {
+      {
+        SELECT DISTINCT ?event WHERE {
+          # This union seems to be faster than a VALUES-based query
+          {
+            ?event wdt:P31/wdt:P279* wd:Q52260246 .
+          }
+          UNION {
+            ?event wdt:P31/wdt:P279* wd:Q46855 .
+          }
+        }
+      }
+      ?event wdt:P580 | wdt:P585 ?times .
+      FILTER (?times < NOW
+      ())
+      OPTIONAL {
+        ?event wdt:P276 ?locations
+      }
+      OPTIONAL {
+        ?event wdt:P1813 ?short_names
+      }
+    }
+    GROUP BY ?event
+  }
+  BIND (IF(BOUND (?event), ?event, <http://doesntexist.example.com/nexistepas>) AS ?eventLabel__)
+  OPTIONAL { ?eventLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?eventLabel. FILTER(LANG(?eventLabel) = "en") }
+  OPTIONAL { ?eventLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?eventLabel. FILTER(LANG(?eventLabel) = "mul") }
+  BIND (IF(BOUND (?location), ?location, <http://doesntexist.example.com/nexistepas>) AS ?locationLabel__)
+  OPTIONAL { ?locationLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?locationLabel. FILTER(LANG(?locationLabel) = "en") }
+  OPTIONAL { ?locationLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?locationLabel. FILTER(LANG(?locationLabel) = "mul") }
+}
+ORDER BY DESC(?time)
+LIMIT 200

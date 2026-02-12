@@ -1,0 +1,29 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?organization ?organizationLabel ?organizationDescription ?location ?countryLabel WHERE {
+  {
+    SELECT ?organization (SAMPLE(?location_) AS ?location) (SAMPLE(?country_) AS ?country) WHERE {
+      VALUES ?organization { {% for q in qs %} wd:{{ q }} {% endfor %} }
+      OPTIONAL {
+        VALUES ?organization { {% for q in qs %} wd:{{ q }} {% endfor %} }
+        ?organization wdt:P131 | wdt:P159 ?location_
+      }
+      OPTIONAL {
+        VALUES ?organization { {% for q in qs %} wd:{{ q }} {% endfor %} }
+        ?organization wdt:P17 ?country_
+      }
+    }
+    GROUP BY ?organization
+  }
+  BIND (IF(BOUND (?organization), ?organization, <http://doesntexist.example.com/nexistepas>) AS ?organizationLabel__)
+  OPTIONAL { ?organizationLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?organizationLabel. FILTER(LANG(?organizationLabel) = "en") }
+  OPTIONAL { ?organizationLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?organizationLabel. FILTER(LANG(?organizationLabel) = "mul") }
+  BIND (IF(BOUND (?country), ?country, <http://doesntexist.example.com/nexistepas>) AS ?countryLabel__)
+  OPTIONAL { ?countryLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?countryLabel. FILTER(LANG(?countryLabel) = "en") }
+  OPTIONAL { ?countryLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?countryLabel. FILTER(LANG(?countryLabel) = "mul") }
+  BIND (IF(BOUND (?organization), ?organization, <http://doesntexist.example.com/nexistepas>) AS ?organizationDescription__)
+  OPTIONAL { ?organizationDescription__ <http://schema.org/description> ?organizationDescription. FILTER(LANG(?organizationDescription) = "en") }
+  OPTIONAL { ?organizationDescription__ <http://schema.org/description> ?organizationDescription. FILTER(LANG(?organizationDescription) = "mul") }
+}

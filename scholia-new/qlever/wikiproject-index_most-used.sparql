@@ -1,0 +1,24 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?wikiproject ?wikiprojectLabel (CONCAT("/wikiproject/", SUBSTR(STR(?wikiproject),32)) AS ?wikiprojectUrl) ?wikiprojectDescription ?example ?exampleLabel (CONCAT("/", SUBSTR(STR(?example),32)) AS ?exampleUrl) WHERE {
+  {
+    SELECT (COUNT(?item) AS ?count) ?wikiproject (SAMPLE(?item) AS ?example) WHERE {
+      ?wikiproject wdt:P31 wd:Q16695773 ;
+                   ^(wdt:P6104 | wdt:P5008) ?item .
+    }
+    GROUP BY ?wikiproject
+  }
+  BIND (IF(BOUND (?wikiproject), ?wikiproject, <http://doesntexist.example.com/nexistepas>) AS ?wikiprojectLabel__)
+  OPTIONAL { ?wikiprojectLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?wikiprojectLabel. FILTER(LANG(?wikiprojectLabel) = "en") }
+  OPTIONAL { ?wikiprojectLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?wikiprojectLabel. FILTER(LANG(?wikiprojectLabel) = "mul") }
+  BIND (IF(BOUND (?example), ?example, <http://doesntexist.example.com/nexistepas>) AS ?exampleLabel__)
+  OPTIONAL { ?exampleLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?exampleLabel. FILTER(LANG(?exampleLabel) = "en") }
+  OPTIONAL { ?exampleLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?exampleLabel. FILTER(LANG(?exampleLabel) = "mul") }
+  BIND (IF(BOUND (?wikiproject), ?wikiproject, <http://doesntexist.example.com/nexistepas>) AS ?wikiprojectDescription__)
+  OPTIONAL { ?wikiprojectDescription__ <http://schema.org/description> ?wikiprojectDescription. FILTER(LANG(?wikiprojectDescription) = "en") }
+  OPTIONAL { ?wikiprojectDescription__ <http://schema.org/description> ?wikiprojectDescription. FILTER(LANG(?wikiprojectDescription) = "mul") }
+}
+ORDER BY DESC(?count)
+LIMIT 1000

@@ -1,0 +1,14 @@
+# title: Scatterplot of project budgets associated with a funder
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+#defaultView:ScatterChart
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?start_time ?budget ?project ?projectLabel WHERE {
+  ?project wdt:P859+ target: .
+  ?project wdt:P2769 ?budget .
+  ?project (wdt:P580 | wdt:P571) ?start_time .
+  BIND (IF(BOUND (?project), ?project, <http://doesntexist.example.com/nexistepas>) AS ?projectLabel__)
+  OPTIONAL { ?projectLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?projectLabel. FILTER(LANG(?projectLabel) = "en") }
+  OPTIONAL { ?projectLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?projectLabel. FILTER(LANG(?projectLabel) = "mul") }
+}

@@ -1,0 +1,3 @@
+podcast-episode_data	podcast-episode_data LABEL	QUERY	podcast-episode
+podcast-episode_guests	podcast-episode_guests LABEL	QUERY	podcast-episode
+podcast-episode_listings	podcast-episode_listings LABEL	QUERY	podcast-episode

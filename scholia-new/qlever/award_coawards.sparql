@@ -1,0 +1,21 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?number_of_corecipients ?award ?awardLabel ?awardDescription WHERE {
+  {
+    SELECT DISTINCT ?award (COUNT(?recipient) AS ?number_of_corecipients) WHERE {
+      ?recipient wdt:P166 target: .
+      ?recipient wdt:P166 ?award .
+      FILTER (?award != target:)
+    }
+    GROUP BY ?award
+  }
+  BIND (IF(BOUND (?award), ?award, <http://doesntexist.example.com/nexistepas>) AS ?awardLabel__)
+  OPTIONAL { ?awardLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?awardLabel. FILTER(LANG(?awardLabel) = "en") }
+  OPTIONAL { ?awardLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?awardLabel. FILTER(LANG(?awardLabel) = "mul") }
+  BIND (IF(BOUND (?award), ?award, <http://doesntexist.example.com/nexistepas>) AS ?awardDescription__)
+  OPTIONAL { ?awardDescription__ <http://schema.org/description> ?awardDescription. FILTER(LANG(?awardDescription) = "en") }
+  OPTIONAL { ?awardDescription__ <http://schema.org/description> ?awardDescription. FILTER(LANG(?awardDescription) = "mul") }
+}
+ORDER BY DESC(?number_of_corecipients)

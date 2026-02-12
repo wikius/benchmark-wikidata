@@ -1,0 +1,25 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+# title: structural identifiers for this chemical structure
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?Structural_identifier ?Structural_identifierLabel ?idLit (SAMPLE(?idUrls) AS ?idUrl) {
+  {
+    SELECT ?Structural_identifier ?idLit ?formatterurl WHERE {
+      VALUES ?Structural_identifier { wd:P233 wd:P234 wd:P2017 }
+      target: ?IDdir ?idLit .
+      ?Structural_identifier wikibase:directClaim ?IDdir ;
+                             wdt:P31 wd:Q19833835 .
+      OPTIONAL {
+        ?Structural_identifier wdt:P1630 ?formatterurl .
+      }
+    }
+    LIMIT 500
+  }
+  BIND (IRI(REPLACE(?formatterurl, '\\\\$1', STR(?idLit))) AS ?idUrls) .
+  BIND (IF(BOUND (?Structural_identifier), ?Structural_identifier, <http://doesntexist.example.com/nexistepas>) AS ?Structural_identifierLabel__)
+  OPTIONAL { ?Structural_identifierLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?Structural_identifierLabel. FILTER(LANG(?Structural_identifierLabel) = "en") }
+  OPTIONAL { ?Structural_identifierLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?Structural_identifierLabel. FILTER(LANG(?Structural_identifierLabel) = "mul") }
+}
+GROUP BY ?Structural_identifier ?Structural_identifierLabel ?idLit
+ORDER BY ASC(?ID_TypeLabel)

@@ -1,0 +1,6 @@
+# Proteins
+protein_cofunctional-proteins	protein_cofunctional-proteins LABEL	QUERY	protein
+protein_cointeracting-proteins	protein_cointeracting-proteins LABEL	QUERY	protein
+protein_participates-in	protein_participates-in LABEL	QUERY	protein
+protein_publications-per-year	protein_publications-per-year LABEL	QUERY	protein
+protein_similar-proteins	protein_similar-proteins LABEL	QUERY	protein

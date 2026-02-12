@@ -1,0 +1,6 @@
+SELECT DISTINCT ?c WHERE { 
+  ?c wdt:P31/wdt:P279* wd:Q24634210 .
+  ?season wdt:P31 wd:Q69154911 ; wdt:P179 ?c .
+  ?c wdt:P921 ?topic .
+} 
+LIMIT 5

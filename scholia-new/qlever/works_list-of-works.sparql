@@ -1,0 +1,24 @@
+
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?work ?workLabel ?example_author ?example_authorLabel WHERE {
+  {
+    VALUES ?work { {% for q in qs -%} wd:{{ q }} {% endfor -%} }
+    FILTER NOT EXISTS { ?work wdt:P50 [] }
+  }
+  UNION {
+    {
+      SELECT ?work (SAMPLE(?author) AS ?example_author) WHERE {
+        VALUES ?work { {% for q in qs -%} wd:{{ q }} {% endfor -%} }
+        ?work wdt:P50 ?author
+      }
+      GROUP BY ?work
+    }
+  BIND (IF(BOUND (?work), ?work, <http://doesntexist.example.com/nexistepas>) AS ?workLabel__)
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "en") }
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "mul") }
+  BIND (IF(BOUND (?example_author), ?example_author, <http://doesntexist.example.com/nexistepas>) AS ?example_authorLabel__)
+  OPTIONAL { ?example_authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_authorLabel. FILTER(LANG(?example_authorLabel) = "en") }
+  OPTIONAL { ?example_authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_authorLabel. FILTER(LANG(?example_authorLabel) = "mul") }
+  }
+}

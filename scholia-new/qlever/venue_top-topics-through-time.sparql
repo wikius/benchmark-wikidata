@@ -1,0 +1,26 @@
+
+#defaultView:AreaChart
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?year (COUNT(?work) AS ?works) ?topic ?topicLabel WHERE {
+  # Find top 5 all time topics in venue
+  {
+    SELECT (COUNT(?work) AS ?count) ?topic WHERE {
+      ?work wdt:P1433 target: ;
+            wdt:P921 ?topic .
+    }
+    GROUP BY ?topic
+    ORDER BY DESC(?count)
+    LIMIT 5
+  }
+  # Find works per year
+  ?work wdt:P1433 target: ;
+        wdt:P921 ?topic ;
+        wdt:P577 ?publication_datetime .
+  BIND (STR(YEAR(?publication_datetime)) AS ?year)
+  BIND (IF(BOUND (?topic), ?topic, <http://doesntexist.example.com/nexistepas>) AS ?topicLabel__)
+  OPTIONAL { ?topicLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?topicLabel. FILTER(LANG(?topicLabel) = "en") }
+  OPTIONAL { ?topicLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?topicLabel. FILTER(LANG(?topicLabel) = "mul") }
+}
+GROUP BY ?year ?topic ?topicLabel
+ORDER BY ?year

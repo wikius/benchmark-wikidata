@@ -1,0 +1,27 @@
+
+#defaultView:Table
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?cited_work ?cited_workLabel (CONCAT("/work/", SUBSTR(STR(?cited_work), 32)) AS ?cited_workUrl) WHERE {
+  {
+    SELECT (COUNT(?work) AS ?count) ?cited_work WHERE {
+      {
+        ?work wdt:P921/wdt:P31*/wdt:P279* target: .
+      } UNION {
+        ?work wdt:P921/wdt:P361+ target: .
+      } UNION {
+        ?work wdt:P921/wdt:P1269+ target: .
+      }
+      ?work wdt:P2860 ?cited_work .
+    }
+    GROUP BY ?cited_work
+  }
+
+  BIND (IF(BOUND (?cited_work), ?cited_work, <http://doesntexist.example.com/nexistepas>) AS ?cited_workLabel__)
+  OPTIONAL { ?cited_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?cited_workLabel. FILTER(LANG(?cited_workLabel) = "en") }
+  OPTIONAL { ?cited_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?cited_workLabel. FILTER(LANG(?cited_workLabel) = "mul") }
+}
+ORDER BY DESC(?count)
+LIMIT 200

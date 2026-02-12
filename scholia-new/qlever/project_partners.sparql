@@ -1,0 +1,16 @@
+#defaultView:Map
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?partner ?partnerLabel ?location WHERE {
+  {
+    SELECT DISTINCT ?partner ?location WHERE {
+      target: (^wdt:P1344 | wdt:P710)*/(wdt:P527 | wdt:P710 | wdt:P1416) ?partner .
+      ?partner wdt:P159*/wdt:P625 ?location .
+    }
+  }
+  BIND (IF(BOUND (?partner), ?partner, <http://doesntexist.example.com/nexistepas>) AS ?partnerLabel__)
+  OPTIONAL { ?partnerLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?partnerLabel. FILTER(LANG(?partnerLabel) = "en") }
+  OPTIONAL { ?partnerLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?partnerLabel. FILTER(LANG(?partnerLabel) = "mul") }
+}

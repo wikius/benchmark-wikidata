@@ -1,0 +1,34 @@
+#description: Show software library, programming language and developer dependencies
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+#defaultView:Graph
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?resource1 ?resource1Label ?resource2 ?resource2Label ?image2 {
+  {
+    SELECT ?resource1 (SAMPLE(?image1_) AS ?image1) ?rgb ?resource2 (SAMPLE(?image2_) AS ?image2) {
+      {
+        # root node with coloring
+        BIND (target: AS ?resource1)
+        BIND ("3080BB" AS ?rgb)
+      }
+      UNION {
+        # dependencies, programming language, developer
+        target: (wdt:P1547 | wdt:P277 | wdt:P178 | wdt:P2283 | wdt:P275)+ ?resource1 .
+        OPTIONAL {
+          ?resource1 wdt:P18 ?image1_
+        }
+      }
+      target: (wdt:P1547 | wdt:P277 | wdt:P178 | wdt:P2283 | wdt:P275)+ ?resource2 .
+      OPTIONAL {
+        ?resource2 wdt:P18 ?image2_
+      }
+      ?resource1 (wdt:P1547 | wdt:P277 | wdt:P178 | wdt:P2283 | wdt:P275) ?resource2 .
+    }
+    GROUP BY ?resource1 ?resource2 ?rgb
+  }
+  BIND (IF(BOUND (?resource1), ?resource1, <http://doesntexist.example.com/nexistepas>) AS ?resource1Label__)
+  OPTIONAL { ?resource1Label__ <http://www.w3.org/2000/01/rdf-schema#label> ?resource1Label. FILTER(LANG(?resource1Label) = "en") }
+  OPTIONAL { ?resource1Label__ <http://www.w3.org/2000/01/rdf-schema#label> ?resource1Label. FILTER(LANG(?resource1Label) = "mul") }
+  BIND (IF(BOUND (?resource2), ?resource2, <http://doesntexist.example.com/nexistepas>) AS ?resource2Label__)
+  OPTIONAL { ?resource2Label__ <http://www.w3.org/2000/01/rdf-schema#label> ?resource2Label. FILTER(LANG(?resource2Label) = "en") }
+  OPTIONAL { ?resource2Label__ <http://www.w3.org/2000/01/rdf-schema#label> ?resource2Label. FILTER(LANG(?resource2Label) = "mul") }
+}

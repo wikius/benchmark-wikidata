@@ -1,0 +1,10 @@
+1	Blazegraph		     62	      	Count= 5 	200		clinical-trial_data Q100788294
+2	Blazegraph		   1261	      	Count= 327 	200		clinical-trial_related-trials Q100788294
+3	Blazegraph		     62	      	Count= 5 	200		clinical-trial_data Q100788300
+4	Blazegraph		    835	      	Count= 339 	200		clinical-trial_related-trials Q100788300
+5	Blazegraph		     64	      	Count= 6 	200		clinical-trial_data Q100788302
+6	Blazegraph		    838	      	Count= 499 	200		clinical-trial_related-trials Q100788302
+7	Blazegraph		     65	      	Count= 5 	200		clinical-trial_data Q100788304
+8	Blazegraph		    838	      	Count= 500 	200		clinical-trial_related-trials Q100788304
+9	Blazegraph		     65	      	Count= 6 	200		clinical-trial_data Q100788305
+10	Blazegraph		    966	      	Count= 499 	200		clinical-trial_related-trials Q100788305

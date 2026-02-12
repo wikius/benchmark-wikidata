@@ -1,0 +1,20 @@
+#defaultView:Timeline
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT DISTINCT ?datetime ?venue ?venueLabel WHERE {
+  # Publisher
+  ?venue wdt:P123 target: .
+  # Periodic literature
+  ?venue wdt:P31/wdt:P279* wd:Q1002697 .
+  # When the journal was started 
+  ?venue wdt:P571 ?datetime .
+  # Label the journal
+  BIND (IF(BOUND (?venue), ?venue, <http://doesntexist.example.com/nexistepas>) AS ?venueLabel__)
+  OPTIONAL { ?venueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?venueLabel. FILTER(LANG(?venueLabel) = "en") }
+  OPTIONAL { ?venueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?venueLabel. FILTER(LANG(?venueLabel) = "mul") }
+}
+ORDER BY DESC(?datetime)
+LIMIT 50

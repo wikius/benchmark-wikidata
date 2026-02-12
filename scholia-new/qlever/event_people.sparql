@@ -1,0 +1,70 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT (?number_of_publications AS ?works) ?person ?personLabel ?personDescription ?roles ?example_work ?example_workLabel WHERE {
+  {
+    SELECT (COUNT(?work) AS ?number_of_publications) ?roles ?person (SAMPLE(?work) AS ?example_work) WHERE {
+      {
+        SELECT (GROUP_CONCAT(DISTINCT ?role; SEPARATOR=", ") AS ?roles) ?person WHERE {
+          {
+            # speaker added directly in the target item
+            target: wdt:P823 ?person .
+            # BIND(wd:Q9379869 AS ?role)
+            BIND ("speaker" AS ?role)
+          }
+          UNION {
+            # speaker inferred from presentation items related to the event-target
+            ?presentation wdt:P823 ?person ;
+                          wdt:P5072 target:
+            BIND ("speaker" AS ?role)
+          }
+          UNION {
+            # organizer
+            target: wdt:P664 ?person .
+            #BIND(wd:Q2029941 AS ?role)
+            BIND ("organizer" AS ?role)
+          }
+          UNION {
+            # participant
+            ?person wdt:P1344 | ^wdt:P710 target: .
+            BIND ("participant" AS ?role)
+          }
+          UNION {
+            # editor
+            ?person ^wdt:P98/wdt:P4745 target: .
+            BIND ("editor of proceedings" AS ?role)
+          }
+          UNION {
+            # author
+            ?person ^wdt:P50/wdt:P1433/wdt:P4745 target: .
+            BIND ("author" AS ?role)
+          }
+          UNION {
+            # program committee member
+            target: wdt:P5804 ?person .
+            BIND ("program committee member" AS ?role)
+          }
+        }
+        GROUP BY ?person
+      } .
+      ?person wdt:P31 wd:Q5.
+      OPTIONAL {
+        ?work wdt:P50 ?person .
+      }
+    }
+    GROUP BY ?roles ?person
+  }
+  BIND (IF(BOUND (?example_work), ?example_work, <http://doesntexist.example.com/nexistepas>) AS ?example_workLabel__)
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "en") }
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "mul") }
+  BIND (IF(BOUND (?person), ?person, <http://doesntexist.example.com/nexistepas>) AS ?personLabel__)
+  OPTIONAL { ?personLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?personLabel. FILTER(LANG(?personLabel) = "en") }
+  OPTIONAL { ?personLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?personLabel. FILTER(LANG(?personLabel) = "mul") }
+  BIND (IF(BOUND (?person), ?person, <http://doesntexist.example.com/nexistepas>) AS ?personDescription__)
+  OPTIONAL { ?personDescription__ <http://schema.org/description> ?personDescription. FILTER(LANG(?personDescription) = "en") }
+  OPTIONAL { ?personDescription__ <http://schema.org/description> ?personDescription. FILTER(LANG(?personDescription) = "mul") }
+}
+ORDER BY DESC(?number_of_publications)
+LIMIT 10000

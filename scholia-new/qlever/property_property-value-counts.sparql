@@ -1,0 +1,18 @@
+#defaultView:BubbleChart
+PREFIX target: <http://www.wikidata.org/prop/direct/{{ p }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?o ?oLabel WHERE {
+  {
+    SELECT (COUNT(?s) AS ?count) ?o WHERE {
+      ?s target: ?o .
+    }
+    GROUP BY ?o
+    ORDER BY DESC(?count)
+    LIMIT 100
+  }
+  BIND (IF(BOUND (?o), ?o, <http://doesntexist.example.com/nexistepas>) AS ?oLabel__)
+  OPTIONAL { ?oLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?oLabel. FILTER(LANG(?oLabel) = "en") }
+  OPTIONAL { ?oLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?oLabel. FILTER(LANG(?oLabel) = "mul") }
+}
+ORDER BY DESC(?count)

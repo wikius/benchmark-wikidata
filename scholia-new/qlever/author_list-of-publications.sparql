@@ -1,0 +1,51 @@
+#defaultView:Table
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT (MIN(?dates) AS ?date) ?work ?workLabel (GROUP_CONCAT(DISTINCT ?type_label; SEPARATOR=", ") AS ?type) (SAMPLE(?pages_) AS ?pages) ?venue ?venueLabel (GROUP_CONCAT(DISTINCT ?author_label; SEPARATOR=", ") AS ?authors) (CONCAT("../authors/", GROUP_CONCAT(DISTINCT SUBSTR(STR(?author),32); SEPARATOR=",")) AS ?authorsUrl) WHERE {
+  ?work wdt:P50 wd:{{ q }} .
+  { # By standard GROUP_CONCAT does not sort, but BlazeGraph seems to sort.
+    SELECT ?work ?author ?author_label WHERE {
+      ?work wdt:P50 wd:{{ q }} .
+      ?work p:P50 [
+        ps:P50 ?author ;
+        pq:P1545 ?order
+      ] .
+      BIND (xsd:integer(?order) AS ?n)
+      OPTIONAL {
+        wd:{{ q }} ^wdt:P50 ?work .
+        ?work wdt:P50 ?author .
+        ?author rdfs:label ?author_label_ . FILTER (LANG(?author_label_) = 'en')
+      }
+      BIND (COALESCE(?author_label_, SUBSTR(STR(?author),32)) AS ?author_label)
+    }
+    ORDER BY ?n
+  }
+  OPTIONAL {
+    wd:{{ q }} ^wdt:P50 ?work .
+    ?work wdt:P31 ?type_ .
+    ?type_ rdfs:label ?type_label . FILTER (LANG(?type_label) = 'en')
+  }
+  ?work wdt:P577 ?datetimes .
+  BIND (xsd:date(?datetimes) AS ?dates)
+  OPTIONAL {
+    wd:{{ q }} ^wdt:P50 ?work .
+    ?work wdt:P1104 ?pages_
+  }
+  OPTIONAL {
+    wd:{{ q }} ^wdt:P50 ?work .
+    ?work wdt:P1433 ?venue
+  }
+  BIND (IF(BOUND (?work), ?work, <http://doesntexist.example.com/nexistepas>) AS ?workLabel__)
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "en") }
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "mul") }
+  BIND (IF(BOUND (?venue), ?venue, <http://doesntexist.example.com/nexistepas>) AS ?venueLabel__)
+  OPTIONAL { ?venueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?venueLabel. FILTER(LANG(?venueLabel) = "en") }
+  OPTIONAL { ?venueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?venueLabel. FILTER(LANG(?venueLabel) = "mul") }
+}
+GROUP BY ?work ?workLabel ?venue ?venueLabel
+ORDER BY DESC(?date)

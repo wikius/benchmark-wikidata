@@ -1,0 +1,20 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?language ?languageLabel (CONCAT("/language/", SUBSTR(STR(?language),32)) AS ?languageUrl) ?languageDescription WHERE {
+  {
+    SELECT (COUNT(*) AS ?count) ?language WHERE {
+      [] wdt:P407 ?language
+    }
+    GROUP BY ?language
+  }
+  # This is to get rid of a language number of unknown values
+  FILTER (! (STRSTARTS(STR(?language),"_")))
+  BIND (IF(BOUND (?language), ?language, <http://doesntexist.example.com/nexistepas>) AS ?languageLabel__)
+  OPTIONAL { ?languageLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?languageLabel. FILTER(LANG(?languageLabel) = "en") }
+  OPTIONAL { ?languageLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?languageLabel. FILTER(LANG(?languageLabel) = "mul") }
+  BIND (IF(BOUND (?language), ?language, <http://doesntexist.example.com/nexistepas>) AS ?languageDescription__)
+  OPTIONAL { ?languageDescription__ <http://schema.org/description> ?languageDescription. FILTER(LANG(?languageDescription) = "en") }
+  OPTIONAL { ?languageDescription__ <http://schema.org/description> ?languageDescription. FILTER(LANG(?languageDescription) = "mul") }
+}
+ORDER BY DESC(?count)

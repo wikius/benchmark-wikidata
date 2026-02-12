@@ -1,0 +1,23 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?number_of_citations ?publication_date ?work ?workLabel WHERE {
+  {
+    SELECT (MIN(?datetimes) AS ?publication_datetime) (COUNT(DISTINCT ?citing_work) AS ?number_of_citations) ?work WHERE {
+      ?collection wdt:P179 target: .
+      ?work wdt:P1433 ?collection .
+      OPTIONAL {
+        ?work wdt:P577 ?datetimes .
+      }
+      OPTIONAL {
+        ?citing_work wdt:P2860 ?work .
+      }
+    }
+    GROUP BY ?work
+  }
+  BIND (xsd:date(?publication_datetime) AS ?publication_date)
+  BIND (IF(BOUND (?work), ?work, <http://doesntexist.example.com/nexistepas>) AS ?workLabel__)
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "en") }
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "mul") }
+}
+ORDER BY DESC(?number_of_citations) DESC(?publication_date)

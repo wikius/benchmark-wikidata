@@ -1,0 +1,30 @@
+
+#defaultView:BubbleChart
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?score ?author ?authorLabel WHERE {
+  {
+    SELECT ?author (SUM(?score_) AS ?score) WHERE {
+      {
+        ?author wdt:P101/wdt:P279* target: .
+        BIND (20 AS ?score_)
+      }
+      UNION {
+        ?work wdt:P50 ?author ;
+              wdt:P921/wdt:P279* target: .
+        BIND (3 AS ?score_)
+      }
+      UNION {
+        ?citing_work wdt:P2860 ?work ;
+                     wdt:P921/wdt:P279* target: .
+        ?work wdt:P50 ?author .
+        BIND (1 AS ?score_)
+      }
+    } GROUP BY ?author
+  }
+
+  BIND (IF(BOUND (?author), ?author, <http://doesntexist.example.com/nexistepas>) AS ?authorLabel__)
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "en") }
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "mul") }
+} ORDER BY DESC(?score)
+  LIMIT 200

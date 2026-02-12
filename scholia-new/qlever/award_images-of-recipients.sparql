@@ -1,0 +1,26 @@
+#defaultView:ImageGrid
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?year ?recipient ?recipientLabel ?image WHERE {
+  {
+    SELECT ?recipient ?year (SAMPLE(?image_) AS ?image) WHERE {
+      ?recipient p:P166 ?award_statement .
+      ?award_statement ps:P166 target: .
+      OPTIONAL {
+        ?award_statement pq:P585 ?time .
+        BIND (YEAR(?time) AS ?year)
+      }
+      ?recipient wdt:P18 ?image_ .
+    }
+    GROUP BY ?recipient ?year
+  }
+  BIND (IF(BOUND (?recipient), ?recipient, <http://doesntexist.example.com/nexistepas>) AS ?recipientLabel__)
+  OPTIONAL { ?recipientLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?recipientLabel. FILTER(LANG(?recipientLabel) = "en") }
+  OPTIONAL { ?recipientLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?recipientLabel. FILTER(LANG(?recipientLabel) = "mul") }
+}
+ORDER BY DESC(?year)

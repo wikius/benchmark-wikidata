@@ -1,0 +1,43 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+# Inspired from LEGOLAS - http://abel.lis.illinois.edu/legolas/
+# Shubhanshu Mishra, Vetle Torvik
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?year (COUNT(?work) AS ?number_of_publications) WHERE {
+  {
+    SELECT (STR(?year_) AS ?year) (0 AS ?pages) WHERE {
+      # default values = 0
+      ?year_item wdt:P31 wd:Q577 .
+      ?year_item wdt:P585 ?date .
+      BIND (YEAR(?date) AS ?year_)
+      {
+        SELECT (MIN(?year_) AS ?earliest_year) WHERE {
+          {
+            ?work wdt:P921/(wdt:P361+ | wdt:P1269+ | (wdt:P31*/wdt:P279*)) target: .
+          }
+          UNION {
+            target: wdt:P2860 ?work .
+          }
+          ?work wdt:P577 ?publication_date .
+          BIND (YEAR(?publication_date) AS ?year_)
+        }
+      }
+      BIND (YEAR(NOW() 
+    ) AS ?next_year ) FILTER ( ?year_ >= ?earliest_year && ?year_ <= ?next_year )}
+  }
+  UNION {
+    SELECT ?work (MIN(?years) AS ?year) WHERE {
+      {
+        ?work wdt:P921/(wdt:P361+ | wdt:P1269+ | (wdt:P31*/wdt:P279*)) target: .
+      }
+      UNION {
+        target: wdt:P2860 ?work .
+      }
+      ?work wdt:P577 ?dates .
+      BIND (STR(YEAR(?dates)) AS ?years) .
+    }
+    GROUP BY ?work
+  }
+}
+GROUP BY ?year
+ORDER BY ?year

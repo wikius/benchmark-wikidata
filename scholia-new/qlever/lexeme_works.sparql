@@ -1,0 +1,13 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT DISTINCT ?work ?workLabel ?workDescription {
+  wd:{{ lexeme }} wdt:P1343 | ^wdt:P6254 ?work
+  BIND (IF(BOUND (?work), ?work, <http://doesntexist.example.com/nexistepas>) AS ?workLabel__)
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "en") }
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "mul") }
+  BIND (IF(BOUND (?work), ?work, <http://doesntexist.example.com/nexistepas>) AS ?workDescription__)
+  OPTIONAL { ?workDescription__ <http://schema.org/description> ?workDescription. FILTER(LANG(?workDescription) = "en") }
+  OPTIONAL { ?workDescription__ <http://schema.org/description> ?workDescription. FILTER(LANG(?workDescription) = "mul") }
+}

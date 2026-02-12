@@ -1,0 +1,23 @@
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+# title: Cited venues from specific journal
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?count ?short_name ?cited_journal ?cited_journalLabel WHERE {
+  {
+    SELECT (COUNT(?cited_work) AS ?count) ?cited_journal (SAMPLE(?short_name_) AS ?short_name) WHERE {
+      ?work wdt:P1433 target: .
+      ?work wdt:P2860 ?cited_work .
+      ?cited_work wdt:P1433 ?cited_journal .
+      OPTIONAL {
+        ?cited_journal wdt:P1813 ?short_name_ .
+      }
+    }
+    GROUP BY ?cited_journal
+  }
+  BIND (IF(BOUND (?cited_journal), ?cited_journal, <http://doesntexist.example.com/nexistepas>) AS ?cited_journalLabel__)
+  OPTIONAL { ?cited_journalLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?cited_journalLabel. FILTER(LANG(?cited_journalLabel) = "en") }
+  OPTIONAL { ?cited_journalLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?cited_journalLabel. FILTER(LANG(?cited_journalLabel) = "mul") }
+}
+ORDER BY DESC(?count)
+LIMIT 200

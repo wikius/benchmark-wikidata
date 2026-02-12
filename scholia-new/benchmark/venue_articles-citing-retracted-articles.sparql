@@ -1,0 +1,67 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX cc: <http://creativecommons.org/ns#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX pqn: <http://www.wikidata.org/prop/qualifier/value-normalized/>
+PREFIX pqv: <http://www.wikidata.org/prop/qualifier/value/>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX prn: <http://www.wikidata.org/prop/reference/value-normalized/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX prv: <http://www.wikidata.org/prop/reference/value/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX psn: <http://www.wikidata.org/prop/statement/value-normalized/>
+PREFIX psv: <http://www.wikidata.org/prop/statement/value/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdata: <http://www.wikidata.org/wiki/Special:EntityData/>
+PREFIX wdno: <http://www.wikidata.org/prop/novalue/>
+PREFIX wdref: <http://www.wikidata.org/reference/>
+PREFIX wds: <http://www.wikidata.org/entity/statement/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wdtn: <http://www.wikidata.org/prop/direct-normalized/>
+PREFIX wdv: <http://www.wikidata.org/value/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+
+# title: Articles in a specific venue citing retracted articles
+SELECT DISTINCT
+  ?retracted_work ?retracted_workLabel
+  ?date
+  ?citing_work ?citing_workLabel
+WHERE {
+  {
+  # Find retracted papers indicated by instance of retracted paper, 
+  # by retraction notice property or by significant event
+  SELECT DISTINCT ?retracted_work WHERE {
+    # articles marked as "retracted"
+    { ?retracted_work wdt:P31 wd:Q45182324 }
+    UNION
+    # articles linked to a retraction notice
+    { ?retracted_work wdt:P5824 [] }
+    UNION
+    # articles with a 'retraction' event
+    { ?retracted_work wdt:P793 wd:Q45203135 }
+  }
+} ?citing_work wdt:P2860 ?retracted_work ; wdt:P1433 target: .
+  OPTIONAL {
+    ?retracted_work wdt:P5824 ?retraction .
+    ?retraction wdt:P577 ?retraction_datetime
+    FILTER ( ?citing_work != ?retraction )
+  }
+  MINUS { ?citing_work wdt:P31 wd:Q1348305 }
+  OPTIONAL {
+    ?retracted_work p:P793 [ ps:P793 wd:Q45203135 ; pq:P585 ?keyevent_datetime ]
+  }
+  BIND(COALESCE((COALESCE(?retraction_datetime, ?keyevent_datetime)), "Unknown date") AS ?date)
+  OPTIONAL { ?retracted_work rdfs:label ?retracted_workLabel .  FILTER ( lang(?retracted_workLabel) = 'en' ) }
+  OPTIONAL { ?citing_work rdfs:label ?citing_workLabel .  FILTER ( lang(?citing_workLabel) = 'en' ) }
+}
+ORDER BY DESC(?date)

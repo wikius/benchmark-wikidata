@@ -1,0 +1,245 @@
+1	QLever	COUNTED	     32	      	Result=412 	200		
+2	QLever	COUNTED	     14	      	Result=0 	200		
+3	QLever	COUNTED	    166	      	Result=10000000 	200		
+4	QLever	COUNTED	 284081	      	Result=10000000 	200		
+5	QLever	COUNTED	    184	      	Result=10000000 	200		
+6	QLever	COUNTED	     90	      	Result=10000000 	200		
+7	QLever	COUNTED	     79	      	Result=10000000 	200		
+8	QLever	COUNTED	     85	      	Result=10000000 	200		
+9	QLever	COUNTED	    112	      	Result=10000000 	200		
+10	QLever	COUNTED	     94	      	Result=10000000 	200		
+11	QLever	COUNTED	     16	      	Result=71 	200		
+12	QLever	COUNTED	 618685	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x3	
+13	QLever	COUNTED	  93111	      	Result=10000000 	200		
+14	QLever	COUNTED	   2503	      	Result=10000000 	200		
+15	QLever	COUNTED	     47	      	Result=21865 	200		
+16	QLever	COUNTED	     77	      	Result=10000000 	200		
+17	QLever	COUNTED	   8016	      	Result=10000000 	200		
+18	QLever	COUNTED	    121	      	Result=427382 	200		
+19	QLever	COUNTED	 108487	      	Result=10000000 	200		
+20	QLever	COUNTED	     19	      	Result=0 	200		
+21	QLever	COUNTED	    338	      	Result=224399 	200		
+22	QLever	COUNTED	     26	      	Result=26362 	200		
+23	QLever	COUNTED	  19969	      	Result=10000000 	200		
+24	QLever	COUNTED	   5573	      	Result=10000000 	200		
+25	QLever	COUNTED	 431805	      	Result=10000000 	200		
+26	QLever	COUNTED	 246747	      	Result=10000000 	200		
+27	QLever	COUNTED	 618481	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+28	QLever	COUNTED	 627551	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+29	QLever	COUNTED	    137	      	Result=10000000 	200		
+30	QLever	COUNTED	    157	      	Result=10000000 	200		
+31	QLever	COUNTED	     64	      	Result=10000000 	200		
+32	QLever	COUNTED	     60	      	Result=10000000 	200		
+33	QLever	COUNTED	 641096	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1 ?x2	
+34	QLever	COUNTED	 616911	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+35	QLever	COUNTED	 618444	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+36	QLever	COUNTED	     81	      	Result=10000000 	200		
+37	QLever	COUNTED	 634163	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+38	QLever	COUNTED	  11091	      	Result=10000000 	200		
+39	QLever	COUNTED	    152	      	Result=39212 	200		
+40	QLever	COUNTED	  10872	      	Result=10000000 	200		
+41	QLever	COUNTED	 615392	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1 ?x2	
+42	QLever	COUNTED	     91	      	Result=966380 	200		
+43	QLever	COUNTED	     13	      	Result=902464 	200		
+44	QLever	COUNTED	     82	      	Result=1437094 	200		
+45	QLever	COUNTED	    332	      	Result=2202994 	200		
+46	QLever	COUNTED	    266	      	Result=10000000 	200		
+47	QLever	COUNTED	     32	      	Result=909821 	200		
+48	QLever	COUNTED	 622513	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+49	QLever	COUNTED	    111	      	Result=412662 	200		
+50	QLever	COUNTED	     62	      	Result=412802 	200		
+51	QLever	COUNTED	    117	      	Result=10000000 	200		
+52	QLever	COUNTED	    127	      	Result=10000000 	200		
+53	QLever	COUNTED	     44	      	Result=2057748 	200		
+54	QLever	COUNTED	 139762	      	Result=10000000 	200		
+55	QLever	COUNTED	 450126	      	Result=10000000 	200		
+56	QLever	COUNTED	    137	      	Result=10000000 	200		
+57	QLever	COUNTED	     39	      	Result=7440 	200		
+58	QLever	COUNTED	 140046	      	Result=10000000 	200		
+59	QLever	COUNTED	    113	      	Result=10000000 	200		
+60	QLever	COUNTED	 600028	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+61	QLever	COUNTED	  42154	      	Result=10000000 	200		
+62	QLever	COUNTED	  22586	      	None 	500	ERROR: Assertion `!ql::ranges::empty(metaBlockView)` failed. Please report this to the developers. In file "/home/local/qlever/qlever-current/src/engine/IndexScan.cpp " at line 638	
+63	QLever	COUNTED	 631470	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+64	QLever	COUNTED	 380115	      	Result=10000000 	200		
+65	QLever	COUNTED	 377847	      	Result=10000000 	200		
+66	QLever	COUNTED	 646160	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x3	
+67	QLever	COUNTED	     32	      	Result=10000000 	200		
+68	QLever	COUNTED	     11	      	Result=159 	200		
+69	QLever	COUNTED	    372	      	Result=10000000 	200		
+70	QLever	COUNTED	   1604	      	Result=10000000 	200		
+71	QLever	COUNTED	   4631	      	Result=10000000 	200		
+72	QLever	COUNTED	    153	      	Result=2428216 	200		
+73	QLever	COUNTED	     14	      	Result=1103 	200		
+74	QLever	COUNTED	      8	      	Result=1103 	200		
+75	QLever	COUNTED	    830	      	Result=10000000 	200		
+76	QLever	COUNTED	     12	      	Result=0 	200		
+77	QLever	COUNTED	     98	      	Result=10000000 	200		
+78	QLever	COUNTED	 648339	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+79	QLever	COUNTED	    991	      	Result=10000000 	200		
+80	QLever	COUNTED	 364480	      	Result=10000000 	200		
+81	QLever	COUNTED	  17327	      	Result=10000000 	200		
+82	QLever	COUNTED	   1430	      	Result=10000000 	200		
+83	QLever	COUNTED	 629800	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1 ?x3	
+84	QLever	COUNTED	    110	      	Result=10000000 	200		
+85	QLever	COUNTED	  11557	      	Result=10000000 	200		
+86	QLever	COUNTED	 111962	      	Result=10000000 	200		
+87	QLever	COUNTED	     22	      	Result=128 	200		
+88	QLever	COUNTED	 626222	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1 ?x2	
+89	QLever	COUNTED	 615757	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x3	
+90	QLever	COUNTED	     36	      	Result=10000000 	200		
+91	QLever	COUNTED	 623961	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x3	
+92	QLever	COUNTED	     35	      	Result=10000000 	200		
+93	QLever	COUNTED	    422	      	Result=301378 	200		
+94	QLever	COUNTED	     34	      	Result=998011 	200		
+95	QLever	COUNTED	    159	      	Result=344369 	200		
+96	QLever	COUNTED	     18	      	Result=408924 	200		
+97	QLever	COUNTED	    162	      	Result=1251702 	200		
+98	QLever	COUNTED	      9	      	Result=19936 	200		
+99	QLever	COUNTED	    103	      	Result=1169580 	200		
+100	QLever	COUNTED	    210	      	Result=10000000 	200		
+101	QLever	COUNTED	     66	      	Result=1267045 	200		
+102	QLever	COUNTED	     52	      	Result=400345 	200		
+103	QLever	COUNTED	   5518	      	Result=10000000 	200		
+104	QLever	COUNTED	 639909	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1 ?x4	
+105	QLever	COUNTED	     45	      	Result=10000000 	200		
+106	QLever	COUNTED	   4368	      	Result=10000000 	200		
+107	QLever	COUNTED	  11326	      	Result=10000000 	200		
+108	QLever	COUNTED	     27	      	Result=721 	200		
+109	QLever	COUNTED	 638784	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+110	QLever	COUNTED	    160	      	Result=2159514 	200		
+111	QLever	COUNTED	     14	      	Result=756 	200		
+112	QLever	COUNTED	      5	      	Result=0 	200		
+113	QLever	COUNTED	    285	      	Result=10000000 	200		
+114	QLever	COUNTED	 214986	      	Result=10000000 	200		
+115	QLever	COUNTED	     61	      	Result=6883445 	200		
+116	QLever	COUNTED	     42	      	Result=6718110 	200		
+117	QLever	COUNTED	     53	      	Result=43209 	200		
+118	QLever	COUNTED	     10	      	Result=0 	200		
+119	QLever	COUNTED	      8	      	Result=0 	200		
+120	QLever	COUNTED	      5	      	Result=0 	200		
+121	QLever	COUNTED	   3914	      	Result=10000000 	200		
+122	QLever	COUNTED	 640089	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x2	
+123	QLever	COUNTED	     34	      	Result=167 	200		
+124	QLever	COUNTED	     11	      	Result=262 	200		
+125	QLever	COUNTED	      6	      	Result=265 	200		
+126	QLever	COUNTED	      7	      	Result=124 	200		
+127	QLever	COUNTED	     74	      	Result=10000000 	200		
+128	QLever	COUNTED	   1002	      	Result=111 	200		
+129	QLever	COUNTED	      7	      	Result=115 	200		
+130	QLever	COUNTED	    378	      	Result=51 	200		
+131	QLever	COUNTED	     66	      	Result=51 	200		
+132	QLever	COUNTED	   1098	      	Result=7310022 	200		
+133	QLever	COUNTED	 108699	      	Result=10000000 	200		
+134	QLever	COUNTED	    143	      	Result=10000000 	200		
+135	QLever	COUNTED	     59	      	Result=10000000 	200		
+136	QLever	COUNTED	 640357	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+137	QLever	COUNTED	     38	      	Result=11310 	200		
+138	QLever	COUNTED	 638180	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1 ?x3	
+139	QLever	COUNTED	     83	      	Result=10000000 	200		
+140	QLever	COUNTED	     25	      	Result=1534 	200		
+141	QLever	COUNTED	     12	      	Result=223 	200		
+142	QLever	COUNTED	    103	      	None 	500	ERROR: Assertion `!ql::ranges::empty(metaBlockView)` failed. Please report this to the developers. In file "/home/local/qlever/qlever-current/src/engine/IndexScan.cpp " at line 638	
+143	QLever	COUNTED	 618952	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x2	
+144	QLever	COUNTED	 618265	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x2	
+145	QLever	COUNTED	 629862	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x2	
+146	QLever	COUNTED	    139	      	Result=10000000 	200		
+147	QLever	COUNTED	 641132	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x2	
+148	QLever	COUNTED	 638503	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1 ?x3	
+149	QLever	COUNTED	     27	      	Result=29 	200		
+150	QLever	COUNTED	      9	      	Result=29 	200		
+151	QLever	COUNTED	 614321	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x2	
+152	QLever	COUNTED	 611101	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x2	
+153	QLever	COUNTED	     26	      	Result=8082 	200		
+154	QLever	COUNTED	     74	      	Result=21959 	200		
+155	QLever	COUNTED	     12	      	Result=90 	200		
+156	QLever	COUNTED	 612976	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+157	QLever	COUNTED	  18125	      	Result=10000000 	200		
+158	QLever	COUNTED	  25828	      	Result=10000000 	200		
+159	QLever	COUNTED	  66931	      	Result=10000000 	200		
+160	QLever	COUNTED	     18	      	Result=0 	200		
+161	QLever	COUNTED	      5	      	Result=0 	200		
+162	QLever	COUNTED	     18	      	Result=499 	200		
+163	QLever	COUNTED	 623490	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+164	QLever	COUNTED	     35	      	Result=170 	200		
+165	QLever	COUNTED	     58	      	Result=10000000 	200		
+166	QLever	COUNTED	    106	      	Result=10000000 	200		
+167	QLever	COUNTED	     11	      	Result=0 	200		
+168	QLever	COUNTED	     19	      	Result=73 	200		
+169	QLever	COUNTED	     10	      	Result=246 	200		
+170	QLever	COUNTED	     20	      	Result=248 	200		
+171	QLever	COUNTED	     14	      	Result=235 	200		
+172	QLever	COUNTED	     29	      	Result=215 	200		
+173	QLever	COUNTED	     49	      	Result=10000000 	200		
+174	QLever	COUNTED	     40	      	Result=10000000 	200		
+175	QLever	COUNTED	 634711	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x2	
+176	QLever	COUNTED	 102067	      	Result=10000000 	200		
+177	QLever	COUNTED	    127	      	Result=10000000 	200		
+178	QLever	COUNTED	     58	      	Result=3186 	200		
+179	QLever	COUNTED	     71	      	Result=10000000 	200		
+180	QLever	COUNTED	     38	      	Result=13291 	200		
+181	QLever	COUNTED	  83822	      	Result=10000000 	200		
+182	QLever	COUNTED	 133987	      	Result=10000000 	200		
+183	QLever	COUNTED	  53193	      	Result=10000000 	200		
+184	QLever	COUNTED	 631915	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x3	
+185	QLever	COUNTED	     50	      	None 	500	ERROR: Assertion `!ql::ranges::empty(metaBlockView)` failed. Please report this to the developers. In file "/home/local/qlever/qlever-current/src/engine/IndexScan.cpp " at line 638	
+186	QLever	COUNTED	     74	      	None 	500	ERROR: Assertion `!ql::ranges::empty(metaBlockView)` failed. Please report this to the developers. In file "/home/local/qlever/qlever-current/src/engine/IndexScan.cpp " at line 638	
+187	QLever	COUNTED	     12	      	None 	500	ERROR: Assertion `!ql::ranges::empty(metaBlockView)` failed. Please report this to the developers. In file "/home/local/qlever/qlever-current/src/engine/IndexScan.cpp " at line 638	
+188	QLever	COUNTED	   5919	      	Result=10000000 	200		
+189	QLever	COUNTED	 276056	      	Result=10000000 	200		
+190	QLever	COUNTED	     52	      	Result=23473 	200		
+191	QLever	COUNTED	 193445	      	Result=10000000 	200		
+192	QLever	COUNTED	 619989	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1 ?x2	
+193	QLever	COUNTED	     44	      	Result=699 	200		
+194	QLever	COUNTED	      8	      	Result=700 	200		
+195	QLever	COUNTED	  44608	      	Result=10000000 	200		
+196	QLever	COUNTED	     22	      	None 	500	ERROR: Assertion `!ql::ranges::empty(metaBlockView)` failed. Please report this to the developers. In file "/home/local/qlever/qlever-current/src/engine/IndexScan.cpp " at line 638	
+197	QLever	COUNTED	    708	      	Result=6117336 	200		
+198	QLever	COUNTED	     65	      	Result=10000000 	200		
+199	QLever	COUNTED	      6	      	Result=2480 	200		
+200	QLever	COUNTED	 600003	      	None 	429	ERROR: Operation timed out. Last operation: GroupBy (implicit)	
+201	QLever	COUNTED	     94	      	Result=10000000 	200		
+202	QLever	COUNTED	     98	      	Result=1683836 	200		
+203	QLever	COUNTED	   1477	      	Result=7134174 	200		
+204	QLever	COUNTED	 605788	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1 ?x2	
+205	QLever	COUNTED	 157903	      	Result=10000000 	200		
+206	QLever	COUNTED	     91	      	Result=10000000 	200		
+207	QLever	COUNTED	    311	      	Result=728062 	200		
+208	QLever	COUNTED	    224	      	Result=3855279 	200		
+209	QLever	COUNTED	 637569	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+210	QLever	COUNTED	 632956	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x3	
+211	QLever	COUNTED	 620547	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+212	QLever	COUNTED	    354	      	Result=4927296 	200		
+213	QLever	COUNTED	     56	      	Result=60 	200		
+214	QLever	COUNTED	 614660	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1 ?x3	
+215	QLever	COUNTED	 640297	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1 ?x3	
+216	QLever	COUNTED	 621430	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+217	QLever	COUNTED	 638924	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1 ?x3	
+218	QLever	COUNTED	   2959	      	Result=10000000 	200		
+219	QLever	COUNTED	   2779	      	Result=10000000 	200		
+220	QLever	COUNTED	 615986	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x5	
+221	QLever	COUNTED	 639539	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+222	QLever	COUNTED	 638560	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+223	QLever	COUNTED	     41	      	Result=10000000 	200		
+224	QLever	COUNTED	     35	      	Result=10000000 	200		
+225	QLever	COUNTED	    491	      	Result=3091710 	200		
+226	QLever	COUNTED	    452	      	Result=3004503 	200		
+227	QLever	COUNTED	 502658	      	None 	500	ERROR: Assertion `!ql::ranges::empty(metaBlockView)` failed. Please report this to the developers. In file "/home/local/qlever/qlever-current/src/engine/IndexScan.cpp " at line 638	
+228	QLever	COUNTED	    172	      	Result=3650791 	200		
+229	QLever	COUNTED	      6	      	None 	500	ERROR: Assertion `!ql::ranges::empty(metaBlockView)` failed. Please report this to the developers. In file "/home/local/qlever/qlever-current/src/engine/IndexScan.cpp " at line 638	
+230	QLever	COUNTED	    358	      	Result=10000000 	200		
+231	QLever	COUNTED	   2693	      	Result=10000000 	200		
+232	QLever	COUNTED	 630649	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x3	
+233	QLever	COUNTED	   5104	      	Result=10000000 	200		
+234	QLever	COUNTED	  17505	      	Result=10000000 	200		
+235	QLever	COUNTED	     30	      	Result=0 	200		
+236	QLever	COUNTED	 612825	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+237	QLever	COUNTED	     85	      	Result=10000000 	200		
+238	QLever	COUNTED	    105	      	Result=10000000 	200		
+239	QLever	COUNTED	     39	      	Result=10000000 	200		
+240	QLever	COUNTED	 621178	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x7	
+241	QLever	COUNTED	 621747	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?x1	
+242	QLever	COUNTED	   9075	      	Result=10000000 	200		
+243	QLever	COUNTED	  12847	      	Result=10000000 	200		
+244	QLever	COUNTED	 178330	      	Result=10000000 	200		
+245	QLever	COUNTED	 618396	      	None 	800		

@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% set aspect = "organization" %}
+
+{% block in_ready %}
+
+{{ sparql_to_table('employees-and-affiliated') }}
+{{ sparql_to_table('topics') }}
+{{ sparql_to_table('uses') }}
+{{ sparql_to_table('recent-literature') }}
+{{ sparql_to_table('recent-citations') }}
+{{ sparql_to_table('awards') }}
+{{ sparql_to_table('gender-distribution') }}
+{{ sparql_to_iframe('co-author-graph') }}
+{{ sparql_to_iframe('advisor-graph') }}
+{{ sparql_to_iframe('page-production') }}
+{{ sparql_to_iframe('most-cited-papers') }}
+{{ sparql_to_iframe('co-author-normalized-citations') }}
+
+{% endblock %}
+
+
+{% block page_content %}
+
+<h1 id="h1">Organization</h1>
+
+<div id="intro"></div>
+
+<div id="wembedder"></div>
+
+<div id="details"></div>
+
+<h2 id="#employees-and-affiliated">Employees and affiliated</h2>
+
+Past and present employees, affiliated, and members<br/>
+
+<table class="table table-hover" id="employees-and-affiliated-table"></table>
+
+
+<h2 id="co-author-graph">Co-author graph</h2>
+
+<div class="embed-responsive embed-responsive-4by3">
+    <iframe loading="lazy" class="embed-responsive-item" id="co-author-graph-iframe"></iframe>
+</div>
+
+
+<h2 id="advisor-graph">Advisor graph</h2>
+
+<div class="embed-responsive embed-responsive-4by3">
+    <iframe class="embed-responsive-item" id="advisor-graph-iframe"></iframe>
+</div>
+
+
+<h2 id="topics">Topics that employees and affiliates have published on</h2>
+
+Topics of publications by past and present employees, affiliates, and members, ranked by number of individuals having published on the topic.<br/>
+
+<table class="table table-hover" id="topics-table"></table>
+
+<h2 id="recent-literature">Recent publications <a href="{{ url_for('app.show_organization_index') }}{{ q }}/latest-works/rss"><img height="24" width="48" src="{{ url_for('static', filename='images/rss-40674_320.png') }}" alt="RSS icon" /></a></h2>
+
+<table class="table table-hover" id="recent-literature-table"></table>
+
+<h2 id="uses">Uses</h3>
+
+Resources used in works with associated authors.
+
+<table class="table table-hover" id="uses-table"></table>
+
+<h2 id="page-production">Page production</h2>
+
+Page production per year per author.
+The number of pages for a multiple-author paper is distributed among
+the authors.
+The statistics is only for papers where the "number of pages" property
+has been set.
+
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" id="page-production-iframe"></iframe>
+</div>
+
+
+<h2 id="Citations">Citations</h2>
+
+<h3 id="recent-citations">Recent citations</h3>
+
+<table class="table table-hover" id="recent-citations-table"></table>
+
+<h3 id="most-cited-papers">Most cited papers with affiliated first author</h2>
+
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" id="most-cited-papers-iframe"></iframe>
+</div>
+
+<h3 id="co-author-normalized-citations">Co-author-normalized citations per year</h2>
+
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" id="co-author-normalized-citations-iframe"></iframe>
+</div>
+
+
+<h2 id="awards">Awards</h2>
+
+<table class="table table-hover" id="awards-table"></table>
+
+
+<h2 id="gender-distribution">Gender distribution</h2>
+
+Count of the number of researchers wrt. gender.
+
+<table class="table table-hover" id="gender-distribution-table"></table>
+
+Any information missing here? You can help curate the information contained in this profile via its <a href="{{ url_for('app.show_organization_index') }}{{ q }}/curation">curation</a> page.
+
+{% endblock %}

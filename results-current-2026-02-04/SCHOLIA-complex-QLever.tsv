@@ -1,0 +1,20 @@
+1	QLever		 612486	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-by-year Q100146810
+2	QLever		 613283	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-recent Q100146810
+3	QLever		    166	      	Result=P3937 	200		complex_identifiers Q100146810
+4	QLever		    883	      	Count= 2 	200		complex_participants Q100146810
+5	QLever		 613483	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-by-year Q100146811
+6	QLever		 613728	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-recent Q100146811
+7	QLever		     62	      	Result=P3937 	200		complex_identifiers Q100146811
+8	QLever		    695	      	Result=1.0 	200		complex_participants Q100146811
+9	QLever		 613553	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-by-year Q100146812
+10	QLever		 613909	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-recent Q100146812
+11	QLever		     81	      	Result=P3937 	200		complex_identifiers Q100146812
+12	QLever		    824	      	Count= 2 	200		complex_participants Q100146812
+13	QLever		 613616	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-by-year Q100146813
+14	QLever		 613816	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-recent Q100146813
+15	QLever		     82	      	Result=P3937 	200		complex_identifiers Q100146813
+16	QLever		    981	      	Count= 7 	200		complex_participants Q100146813
+17	QLever		 613768	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-by-year Q100146821
+18	QLever		 613508	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?complex	complex_articles-recent Q100146821
+19	QLever		     61	      	Result=P3937 	200		complex_identifiers Q100146821
+20	QLever		    829	      	Count= 2 	200		complex_participants Q100146821

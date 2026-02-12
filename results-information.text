@@ -1,0 +1,60 @@
+			Information on the results-* directories
+
+Engine Comparison			Wikidata
+
+results-original			2024-10		First results, used in project report
+results-clean				2024-10		... with failing service calls removed
+results-second/				2024-10	
+results-third/				2024-10	
+results-iswc/				2024-10		Results used in ISWC submission
+results-new/				2024-10	
+
+
+QLever Scaling				Wikidata	QLever	Notes
+
+results-2024-mar-single/		2024-10		2025-05	Wikidata as-is
+results-2024-mar-double-SS/		2024-10		2025-05	Simple doubling
+results-2024-mar-double-o1/		2024-10		2025-05	Simple doubling plus one-way ontology 
+results-2024-mar-double-o2/		2024-10		2025-05	Simple doubling plus two-way ontology 
+results-2024-mar-double-interleaved/	2024-10		2025-05	Interleaved doubling
+results-2024-mar-double-big/		2024-10		2025-05	Simple doubling and interleaved doubling
+
+results-2020-mar/			2020-10		2025-05	not used in reports?
+results-2020-oct/			2020-10		2025-10
+results-2024-oct-single/		2024-10		2025-10
+results-2025-oct-single/		2025-10		2025-10
+results-2025-oct-scholarly2/		2025-10		2025-10	Two copies of scholarly publications
+results-2025-oct-scholarly3/		2025-10		2025-10	Three copies of scholarly publications
+results-2025-oct-double-SS/		2025-10		2025-10	not used in reports?
+
+
+Effects of Simultaneous Updating 	Wikidata	QLever	Notes
+
+results-2025-nov-update/		2025		2025-11
+results-2025-nov-update-updating/	2025		2025-11	With update stream at about 1/2 maximum speed
+
+
+Effects of Large Memory			Wikidata	QLever
+
+results-aws-ebs/			2026-01		2026-01	QLever files on remote SSD
+results-aws-ssd/			2026-01		2026-01	QLever files on local SSD
+results-aws-ram/			2026-01		2026-01	QLever files on ramdisk
+
+
+Qlever Progression			Wikidata	QLever		Benchmarks
+
+results-current-2026-02-04/		2026-01		??		existing, scholia (old control)
+results-current-2026-02-06/		2026-01		f35a29		existing (partial WDbench opt), scholia (new control)
+results-current-2026-02-07/		2026-01		27ba97 p_2695	existing (partial WDbench opt), scholia (new control)
+results-current-2026-02-08/		2026-01		p_2699		existing, scholia (new control)
+
+SCHOLIA comparison			Wikidata	Queries	Control	QLever	Results
+
+results-2024-scholia-original/		2024-10		orig.	new		Blazegraph
+results-2024-scholia-benchmark/		2024-10		bench.	new		QLever (295)
+results-2024-scholia-qlever/		2024-10		qlever	new		Blazegraph, QLever (295)
+
+OTHER
+
+results-march-2025/			
+

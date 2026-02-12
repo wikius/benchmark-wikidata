@@ -1,0 +1,5 @@
+SELECT DISTINCT ?c WHERE {
+  ?c wdt:P31/wdt:P279* wd:Q8054 .
+  ?c wdt:P680 ?function .
+} 
+LIMIT 5

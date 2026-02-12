@@ -1,0 +1,4 @@
+Results on "current" version of Wikidata
+
+QLever pull 2695    improve big OPTIONAL with small LHS	speeds up things like asking for labels
+

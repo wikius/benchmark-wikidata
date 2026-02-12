@@ -1,0 +1,21 @@
+#defaultView:BubbleChart
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+# Count the number of time works by award recipients have set a main topic
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?topic ?topicLabel WHERE {
+  {
+    SELECT ?topic (COUNT(?work) AS ?count) WHERE {
+      ?recipient wdt:P166 target: .
+      ?work wdt:P50 ?recipient .
+      ?work wdt:P921 ?topic .
+    }
+    GROUP BY ?topic
+  }
+  BIND (IF(BOUND (?topic), ?topic, <http://doesntexist.example.com/nexistepas>) AS ?topicLabel__)
+  OPTIONAL { ?topicLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?topicLabel. FILTER(LANG(?topicLabel) = "en") }
+  OPTIONAL { ?topicLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?topicLabel. FILTER(LANG(?topicLabel) = "mul") }
+}
+ORDER BY DESC(?count)
+LIMIT 50

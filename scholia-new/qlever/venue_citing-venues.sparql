@@ -1,0 +1,24 @@
+
+# title: Venues citing articles from this specific journal
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+#defaultView:Table
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?count ?short_name ?citing_journal ?citing_journalLabel WHERE {
+  {
+    SELECT (COUNT(?citing_work) AS ?count) ?citing_journal (SAMPLE(?short_name_) AS ?short_name) WHERE {
+      ?work wdt:P1433 target: .
+      ?citing_work wdt:P2860 ?work .
+      ?citing_work wdt:P1433 ?citing_journal .
+      OPTIONAL {
+        ?citing_journal wdt:P1813 ?short_name_ .
+      }
+    }
+    GROUP BY ?citing_journal
+    ORDER BY DESC(?count)
+    LIMIT 1000
+  }
+  BIND (IF(BOUND (?citing_journal), ?citing_journal, <http://doesntexist.example.com/nexistepas>) AS ?citing_journalLabel__)
+  OPTIONAL { ?citing_journalLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?citing_journalLabel. FILTER(LANG(?citing_journalLabel) = "en") }
+  OPTIONAL { ?citing_journalLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?citing_journalLabel. FILTER(LANG(?citing_journalLabel) = "mul") }
+}
+ORDER BY DESC(?count)

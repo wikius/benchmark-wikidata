@@ -1,0 +1,8 @@
+SELECT DISTINCT ?c WHERE { 
+  ?c wdt:P31/wdt:P279* wd:Q11448906 .
+  ?recipient wdt:P166 ?c .
+  ?recipient wdt:P166 ?award .
+  FILTER (?award != ?c)
+
+} 
+LIMIT 5

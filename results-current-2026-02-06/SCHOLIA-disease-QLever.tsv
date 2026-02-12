@@ -1,0 +1,15 @@
+1	QLever		    594	      	Count= 3061 	200		disease_clinical-trials Q1001150
+2	QLever		    124	      	Count= 86 	200		disease_publications-per-year Q1001150
+3	QLever		    130	      	Count= 0 	200		disease_related-diseases Q1001150
+4	QLever		    553	      	Count= 694 	200		disease_clinical-trials Q1016605
+5	QLever		     59	      	Count= 58 	200		disease_publications-per-year Q1016605
+6	QLever		     12	      	Count= 0 	200		disease_related-diseases Q1016605
+7	QLever		    582	      	Count= 133 	200		disease_clinical-trials Q101896
+8	QLever		     53	      	Count= 100 	200		disease_publications-per-year Q101896
+9	QLever		    146	      	Count= 75 	200		disease_related-diseases Q101896
+10	QLever		    557	      	Count= 34 	200		disease_clinical-trials Q1022718
+11	QLever		     12	      	Count= 5 	200		disease_publications-per-year Q1022718
+12	QLever		    170	      	Count= 365 	200		disease_related-diseases Q1022718
+13	QLever		     99	      	Result=2018-10-01 	200		disease_clinical-trials Q1023604
+14	QLever		     21	      	Count= 30 	200		disease_publications-per-year Q1023604
+15	QLever		    151	      	Result=1 	200		disease_related-diseases Q1023604

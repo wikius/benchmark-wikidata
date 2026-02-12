@@ -1,0 +1,18 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?work ?workLabel ?topic ?topicLabel WHERE {
+  ?work wdt:P50 target: .
+  ?work wdt:P921 ?topic .
+  OPTIONAL {
+    ?work wdt:P577 ?publication_date
+  }
+  BIND (IF(BOUND (?work), ?work, <http://doesntexist.example.com/nexistepas>) AS ?workLabel__)
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "en") }
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "mul") }
+  BIND (IF(BOUND (?topic), ?topic, <http://doesntexist.example.com/nexistepas>) AS ?topicLabel__)
+  OPTIONAL { ?topicLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?topicLabel. FILTER(LANG(?topicLabel) = "en") }
+  OPTIONAL { ?topicLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?topicLabel. FILTER(LANG(?topicLabel) = "mul") }
+}
+ORDER BY ?publication_date

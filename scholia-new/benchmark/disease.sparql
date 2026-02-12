@@ -1,0 +1,6 @@
+SELECT DISTINCT ?c WHERE { 
+  ?c wdt:P31/wdt:P279* wd:Q12136 .
+  ?trial wdt:P31 wd:Q30612 ;
+  wdt:P1050 / wdt:P279* ?c .
+} 
+LIMIT 5

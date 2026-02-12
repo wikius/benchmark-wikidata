@@ -1,0 +1,27 @@
+
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?venue ?venueLabel ?publisher ?publisherLabel ?number_of_works ?number_of_citations WHERE {
+  {
+    SELECT ?venue (COUNT(DISTINCT ?work) AS ?number_of_works) (COUNT(?citing_work) AS ?number_of_citations) WHERE {
+      VALUES ?venue { {% for q in qs -%} wd:{{ q }} {% endfor -%} }
+      OPTIONAL {
+        ?work wdt:P1433 ?venue .
+        OPTIONAL {
+          ?citing_work wdt:P2860 ?work
+        }
+      }
+    }
+    GROUP BY ?venue
+  }
+  OPTIONAL {
+    ?venue wdt:P123 ?publisher
+  BIND (IF(BOUND (?publisher), ?publisher, <http://doesntexist.example.com/nexistepas>) AS ?publisherLabel__)
+  OPTIONAL { ?publisherLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?publisherLabel. FILTER(LANG(?publisherLabel) = "en") }
+  OPTIONAL { ?publisherLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?publisherLabel. FILTER(LANG(?publisherLabel) = "mul") }
+  }
+  BIND (IF(BOUND (?venue), ?venue, <http://doesntexist.example.com/nexistepas>) AS ?venueLabel__)
+  OPTIONAL { ?venueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?venueLabel. FILTER(LANG(?venueLabel) = "en") }
+  OPTIONAL { ?venueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?venueLabel. FILTER(LANG(?venueLabel) = "mul") }
+}
+ORDER BY ?venueLabel

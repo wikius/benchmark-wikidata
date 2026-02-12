@@ -1,0 +1,11 @@
+SELECT DISTINCT ?c WHERE {
+  ?c wdt:P31/wdt:P279* wd:Q10498148 .
+    ?work wdt:P859+ ?c .
+    ?work wdt:P921 ?topic .
+  ?project wdt:P859+ ?c .
+  ?project wdt:P2769 ?budget .
+  ?project (wdt:P580 | wdt:P571) ?start_time .
+} 
+LIMIT 5
+
+

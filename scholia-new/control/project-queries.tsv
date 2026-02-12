@@ -1,0 +1,8 @@
+project_citations-per-budget	project_citations-per-budget LABEL	QUERY	project
+project_partners	project_partners LABEL	QUERY	project
+project_prolific-authors	project_prolific-authors LABEL	QUERY	project
+project_publications-per-year	project_publications-per-year LABEL	QUERY	project
+project_recent-articles	project_recent-articles LABEL	QUERY	project
+project_statistics	project_statistics LABEL	QUERY	project
+project_timeline	project_timeline LABEL	QUERY	project
+project_topic-scores	project_topic-scores LABEL	QUERY	project

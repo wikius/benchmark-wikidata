@@ -1,0 +1,48 @@
+# Topics of works authored by people associated with an event
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?score ?topic ?topicLabel ?topicDescription (CONCAT("/topic/", STRAFTER(STR(?topic),"http://www.wikidata.org/entity/")) AS ?topicUrl) WHERE {
+  {
+    SELECT (SUM(?score_) AS ?score) ?topic WHERE {
+      {
+        target: wdt:P921 ?topic .
+        BIND (50 AS ?score_)
+      }
+      UNION {
+        {
+          SELECT DISTINCT ?person WHERE {
+            {
+              # speaker, organizer, program committee member
+              target: wdt:P823 | wdt:P664 | wdt:P5804 ?person .
+            }
+            UNION {
+              # participant
+              ?person wdt:P1344 | ^wdt:P710 target: .
+            }
+            UNION {
+              # author
+              ?person ^wdt:P50/wdt:P1433/wdt:P4745 target: .
+            }
+          }
+        }
+        ?person ^wdt:P50/wdt:P921 ?topic .
+        BIND (1 AS ?score_)
+      }
+      UNION {
+        target: ^wdt:P4745/^wdt:P1433/wdt:P921 ?topic .
+        BIND (7 AS ?score_)
+      }
+    }
+    GROUP BY ?topic
+  }
+  BIND (IF(BOUND (?topic), ?topic, <http://doesntexist.example.com/nexistepas>) AS ?topicLabel__)
+  OPTIONAL { ?topicLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?topicLabel. FILTER(LANG(?topicLabel) = "en") }
+  OPTIONAL { ?topicLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?topicLabel. FILTER(LANG(?topicLabel) = "mul") }
+  BIND (IF(BOUND (?topic), ?topic, <http://doesntexist.example.com/nexistepas>) AS ?topicDescription__)
+  OPTIONAL { ?topicDescription__ <http://schema.org/description> ?topicDescription. FILTER(LANG(?topicDescription) = "en") }
+  OPTIONAL { ?topicDescription__ <http://schema.org/description> ?topicDescription. FILTER(LANG(?topicDescription) = "mul") }
+}
+ORDER BY DESC(?score)
+LIMIT 200

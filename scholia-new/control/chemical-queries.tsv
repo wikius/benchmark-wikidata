@@ -1,0 +1,12 @@
+chemical_biological-processes	chemical_biological-processes LABEL	QUERY	chemical
+chemical_found-in-matrix-np	chemical_found-in-matrix-np LABEL	QUERY	chemical
+chemical_found-in-taxon	chemical_found-in-taxon LABEL	QUERY	chemical
+chemical_identifiers	chemical_identifiers LABEL	QUERY	chemical
+chemical_physchem-properties	chemical_physchem-properties LABEL	QUERY	chemical
+chemical_publications-per-year	chemical_publications-per-year LABEL	QUERY	chemical
+chemical_recent-literature	chemical_recent-literature LABEL	QUERY	chemical
+chemical_related	chemical_related LABEL	QUERY	chemical
+chemical_structural-identifiers	chemical_structural-identifiers LABEL	QUERY	chemical
+chemical-curation_missing-main-subjects	chemical-curation_missing-main-subjects LABEL	QUERY	chemical
+chemical-curation_missing-properties	chemical-curation_missing-properties LABEL	QUERY	chemical
+chemical-index_statistics	chemical-index_statistics LABEL	QUERY	chemical

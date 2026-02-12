@@ -1,0 +1,15 @@
+#defaultView:Map
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?event ?eventLabel ?geo ?image WHERE {
+  ?event (wdt:P179 | wdt:P31) target: .
+  ?event wdt:P276?/wdt:P625 ?geo .
+  OPTIONAL {
+    ?event wdt:P18 ?image .
+  }
+  BIND (IF(BOUND (?event), ?event, <http://doesntexist.example.com/nexistepas>) AS ?eventLabel__)
+  OPTIONAL { ?eventLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?eventLabel. FILTER(LANG(?eventLabel) = "en") }
+  OPTIONAL { ?eventLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?eventLabel. FILTER(LANG(?eventLabel) = "mul") }
+}

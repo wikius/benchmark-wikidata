@@ -1,0 +1,16 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT DISTINCT ?season ?seasonLabel (CONCAT("/podcast-season/", SUBSTR(STR(?season),32)) AS ?seasonUrl) (MAX(?count) AS ?episodeCount) WHERE {
+  ?season wdt:P31 wd:Q69154911 ;
+          wdt:P179 target: .
+  OPTIONAL {
+    ?season wdt:P1113 ?count .
+  }
+  BIND (IF(BOUND (?season), ?season, <http://doesntexist.example.com/nexistepas>) AS ?seasonLabel__)
+  OPTIONAL { ?seasonLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?seasonLabel. FILTER(LANG(?seasonLabel) = "en") }
+  OPTIONAL { ?seasonLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?seasonLabel. FILTER(LANG(?seasonLabel) = "mul") }
+}
+GROUP BY ?season ?seasonLabel

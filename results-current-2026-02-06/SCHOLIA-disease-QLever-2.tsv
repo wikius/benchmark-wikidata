@@ -1,0 +1,6 @@
+SKIPPING 10 queries
+11	QLever		    418	      	Count= 5 	200		disease_publications-per-year Q1022718
+12	QLever		    420	      	Count= 365 	200		disease_related-diseases Q1022718
+13	QLever		 607657	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?trial	disease_clinical-trials Q1023604
+14	QLever		     59	      	Count= 30 	200		disease_publications-per-year Q1023604
+15	QLever		     11	      	Result=1 	200		disease_related-diseases Q1023604

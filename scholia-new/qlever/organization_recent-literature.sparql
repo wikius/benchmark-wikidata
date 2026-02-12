@@ -1,0 +1,72 @@
+#defaultView:Table
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?publication_date ?work ?workLabel ?researchers ?researchersUrl WHERE {
+  {
+    SELECT ?work (MIN(?publication_datetime_) AS ?publication_datetime) WHERE {
+      {
+        SELECT DISTINCT ?researcher WHERE {
+          ?researcher (wdt:P108 | wdt:P463 | wdt:P1416)/wdt:P361* target: .
+        }
+      }
+      ?work wdt:P50 ?researcher ;
+            wdt:P577 ?publication_datetime_ .
+    }
+    GROUP BY ?work
+    ORDER BY DESC(?publication_datetime)
+    LIMIT 200
+  }
+  {
+    SELECT ?work (GROUP_CONCAT(?researcher_label; SEPARATOR=', ') AS ?researchers) (CONCAT("../authors/", GROUP_CONCAT(DISTINCT SUBSTR(STR(?researcher),32); SEPARATOR=",")) AS ?researchersUrl) WHERE {
+      {
+        SELECT DISTINCT ?researcher WHERE {
+          ?researcher (wdt:P108 | wdt:P463 | wdt:P1416)/wdt:P361* target: .
+        }
+      }
+      {
+        SELECT ?work (MIN(?publication_datetime_) AS ?publication_datetime) WHERE {
+          {
+            SELECT DISTINCT ?researcher WHERE {
+              ?researcher (wdt:P108 | wdt:P463 | wdt:P1416)/wdt:P361* target: .
+            }
+          }
+          ?work wdt:P50 ?researcher ;
+                wdt:P577 ?publication_datetime_ .
+        }
+        GROUP BY ?work
+        ORDER BY DESC(?publication_datetime)
+        LIMIT 200
+      }
+      {
+        # GROUP_CONCAT cannot honor sorting, but this was an attempt
+        SELECT ?work ?researcher ?researcher_label WHERE {
+      {
+        SELECT DISTINCT ?researcher WHERE {
+          ?researcher (wdt:P108 | wdt:P463 | wdt:P1416)/wdt:P361* target: .
+        }
+      }
+          ?work p:P50 [
+            ps:P50 ?researcher ;
+            pq:P1545 ?order
+          ] .
+          BIND (xsd:integer(?order) AS ?n)
+          ?researcher rdfs:label ?researcher_label . FILTER (LANG(?researcher_label) = 'en')
+        }
+        ORDER BY ?n
+      }
+    }
+    GROUP BY ?work
+  }
+  BIND (xsd:date(?publication_datetime) AS ?publication_date)
+  BIND (IF(BOUND (?work), ?work, <http://doesntexist.example.com/nexistepas>) AS ?workLabel__)
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "en") }
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "mul") }
+}
+ORDER BY DESC(?publication_date)

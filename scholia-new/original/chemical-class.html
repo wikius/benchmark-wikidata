@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% set aspect = "chemical-class" %}
+
+{% block in_ready %}
+
+{{ sparql_to_iframe('class-hierarchy') }}
+{{ sparql_to_table('identifiers') }}
+{{ sparql_to_table('related-chemicals') }}
+{{ sparql_to_table('recent-literature') }}
+{{ sparql_to_iframe('publications-per-year') }}
+{{ sparql_to_table('found-in-taxon') }}
+
+{% endblock %}
+
+{% block page_content %}
+<h1 id="h1">Chemical</h1>
+
+<div class="card-deck mb-3">
+    <div class="card mb-4 box-shadow">
+	<div class="card-body">
+	    <div id="intro"></div>
+	</div>
+    </div>
+
+    <div class="card mb-4 box-shadow">
+	<div class="card-body">
+	    <img src="https://cdkdepict.toolforge.org/depict/bow/svg?smi={{smiles|urlencode}}&abbr=on&hdisp=bridgehead&showtitle=false&zoom=2&annotate=cip" />
+	</div>
+    </div>
+</div>
+
+<h2 id="class-hierarchy">Class Hierarchy</h2>
+
+<div class="embed-responsive embed-responsive-4by3">
+  <iframe class="embed-responsive-item" id="class-hierarchy-iframe" ></iframe>
+</div>
+
+<h2 id="identifiers">Identifiers</h2>
+
+<table class="table table-hover" id="identifiers-table"></table>
+
+<h2 id="related-chemicals">Example Compounds</h2>
+
+<table class="table table-hover" id="related-chemicals-table"></table>
+
+<h2 id="recent-literature">Recently published works on the chemical class<a href="{{ url_for('app.show_topic_index') }}{{ q }}/latest-works/rss"><img height="24" width="48" src="{{ url_for('static', filename='images/rss-40674_320.png') }}" alt="RSS icon" /></a></h2>
+
+<table class="table table-hover" id="recent-literature-table"></table>
+
+<h2 id="publications-per-year">Publications per year</h2>
+
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" id="publications-per-year-iframe" ></iframe>
+</div>
+
+<h2 id="found-in-taxon">Taxa in which the chemical class was found</h2>
+
+<table class="table table-hover" id="found-in-taxon-table"></table>
+
+{% endblock %}
+    

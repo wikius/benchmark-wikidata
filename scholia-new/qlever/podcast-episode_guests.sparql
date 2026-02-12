@@ -1,0 +1,10 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT DISTINCT ?guest ?guestLabel (CONCAT("/", SUBSTR(STR(?guest),32)) AS ?guestUrl) WHERE {
+  target: wdt:P5030 ?guest .
+  BIND (IF(BOUND (?guest), ?guest, <http://doesntexist.example.com/nexistepas>) AS ?guestLabel__)
+  OPTIONAL { ?guestLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?guestLabel. FILTER(LANG(?guestLabel) = "en") }
+  OPTIONAL { ?guestLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?guestLabel. FILTER(LANG(?guestLabel) = "mul") }
+}

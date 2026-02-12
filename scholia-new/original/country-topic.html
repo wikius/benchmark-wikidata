@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% set aspect = "country-topic" %}
+
+{% block in_ready %}
+
+{{ sparql_to_table('organizations') }}
+
+{{ sparql_to_table('authors') }}
+
+{{ sparql_to_iframe('coauthors-graph') }}
+
+{{ sparql_to_iframe('cocitations-graph') }}
+
+{% endblock %}
+
+{% block page_content %}
+
+<h1 id="h1">Country-topic</h1>
+
+<div id="intro"></div>
+
+
+<h2 id="organizations">Organizations of the country who published on the topics</h2>
+
+<table class="table table-hover" id="organizations-table"></table>
+
+
+
+<h2 id="authors">Authors of the country who published on the topics</h2>
+
+<table class="table table-hover" id="authors-table"></table>
+
+
+<h2 id="coauthors-graph">Co-author graph</h2>
+
+<div class="embed-responsive embed-responsive-4by3">
+    <iframe class="embed-responsive-item" id="coauthors-graph-iframe"></iframe>
+</div>
+
+
+<h2 id="cocitations-graph">Co-citation graph</h2>
+
+Citations between authors of the country who published on the topic.
+
+<div class="embed-responsive embed-responsive-4by3">
+    <iframe class="embed-responsive-item" id="cocitations-graph-iframe"></iframe>
+</div>
+    
+{% endblock %}

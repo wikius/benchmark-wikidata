@@ -1,0 +1,18 @@
+#defaultView:BubbleChart
+
+PREFIX target: <http://www.wikidata.org/prop/direct/{{ p }}>
+
+SELECT ?count ?o ?oLabel 
+WITH {
+  SELECT (COUNT(?s) AS ?count) ?o WHERE {
+    ?s target: ?o .
+  }
+  GROUP BY ?o
+  ORDER BY DESC(?count)
+  LIMIT 100
+} AS %result
+WHERE {
+  INCLUDE %result
+  SERVICE wikibase:label { bd:serviceParam wikibase:language  "[AUTO_LANGUAGE],mul,en" . }
+}
+ORDER BY DESC(?count)

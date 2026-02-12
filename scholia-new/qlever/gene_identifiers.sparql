@@ -1,0 +1,32 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+# title: identifiers for this gene
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?Identifier ?IdentifierLabel ?Value (SAMPLE(?idUrls) AS ?ValueUrl) ?IdentifierDescription {
+  {
+    SELECT * WHERE {
+      {
+        SELECT ?Identifier ?Value ?formatterurl WHERE {
+          target: ?IDdir ?Value .
+          ?Identifier wikibase:directClaim ?IDdir ;
+                      wdt:P31 wd:Q42415497 .
+          OPTIONAL {
+            ?Identifier wdt:P1630 ?formatterurl .
+          }
+        }
+        LIMIT 500
+      }
+      BIND (IRI(REPLACE(?formatterurl, '\\\\$1', STR(?Value))) AS ?idUrls) .
+    }
+  }
+  BIND (IF(BOUND (?Identifier), ?Identifier, <http://doesntexist.example.com/nexistepas>) AS ?IdentifierLabel__)
+  OPTIONAL { ?IdentifierLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?IdentifierLabel. FILTER(LANG(?IdentifierLabel) = "en") }
+  OPTIONAL { ?IdentifierLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?IdentifierLabel. FILTER(LANG(?IdentifierLabel) = "mul") }
+  BIND (IF(BOUND (?Identifier), ?Identifier, <http://doesntexist.example.com/nexistepas>) AS ?IdentifierDescription__)
+  OPTIONAL { ?IdentifierDescription__ <http://schema.org/description> ?IdentifierDescription. FILTER(LANG(?IdentifierDescription) = "en") }
+  OPTIONAL { ?IdentifierDescription__ <http://schema.org/description> ?IdentifierDescription. FILTER(LANG(?IdentifierDescription) = "mul") }
+}
+GROUP BY ?Identifier ?IdentifierLabel ?IdentifierDescription ?Value
+ORDER BY ASC(?IdentifierLabel)

@@ -1,0 +1,22 @@
+#defaultView:Table
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?short_name ?venue ?venueLabel (CONCAT("/venue/", SUBSTR(STR(?venue),32)) AS ?venueUrl) WHERE {
+  {
+    SELECT (COUNT(DISTINCT ?work) AS ?count) ?venue (SAMPLE(?short_name_) AS ?short_name) WHERE {
+      ?work wdt:P6104|wdt:P5008 target: .
+      ?work wdt:P1433/wdt:P179* ?venue .
+      OPTIONAL {
+        ?venue wdt:P1813 ?short_name_ .
+      }
+    }
+    GROUP BY ?venue
+  }
+  BIND (IF(BOUND (?venue), ?venue, <http://doesntexist.example.com/nexistepas>) AS ?venueLabel__)
+  OPTIONAL { ?venueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?venueLabel. FILTER(LANG(?venueLabel) = "en") }
+  OPTIONAL { ?venueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?venueLabel. FILTER(LANG(?venueLabel) = "mul") }
+}
+ORDER BY DESC(?count)
+LIMIT 200

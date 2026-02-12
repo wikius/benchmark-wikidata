@@ -1,0 +1,74 @@
+		Tracking QLever updates
+
+Opening files on getafix
+	/ssh:pfps@getafix:/...
+
+Download QLever
+	git clone --recursive -j8 https://github.com/ad-freiburg/qlever qlever-current
+
+Update QLever
+	git pull origin master
+
+Use a PR
+	git fetch origin pull/2699/head:pull_2699
+	git checkout pull_2699
+
+Reload a PR
+	git checkout pull_2695
+	git fetch origin pull/2695/head
+	git reset --hard FETCH_HEAD
+
+Recompile QLever
+	rm -rf build
+	mkdir build
+	cd build
+	cmake -DCMAKE_BUILD_TYPE=Release .. && make -j 8
+
+Running benchmark
+	./run-existing QLever current-2026-mm-dd current
+	./run-scholia QLever current-2026-mm-dd current
+
+Showing results
+	./compare.py -s --penalty=0 results-current-2025 results-current-2026-02-04 results-current-2026-02-06n results-current-2026-02-07
+	./compare.py -s --penalty=0 results-current-2026-02-06n results-current-2026-02-07
+	./compare.py --penalty=0 results-original,qlever results-second results-third results-current-2026-01-31 results-current-2026-02-04 results-current-2026-02-05
+	./compare.py --penalty=0 results-current-2026-01-31 results-current-2026-02-04 results-current-2026-02-07 results-current-2026-02-08
+
+
+
+
+
+Results 
+
+results-current-2026-02-04	git hash f35a29	
+results-current-2026-02-06	git hash 6bb077
+results-current-2026-02-07	pull_2695	speeds up OPTIONALs with small LHS
+
+Results with new SCHOLIA
+
+results-current-2026-02-08	pull_2699	speeds up OPTIONALs under LIMIT
+
+results-2024-scholia-original			using queries tuned for Blazegraph
+results-2024-scholia-qlever			using SPARQL 1.1 queries tuned for QLever
+
+
+
+Current QLever versions, in qlever-current
+	Baseline
+	Better large OPTIONAL, e.g., labels	pull_2695	Good for SCHOLIA **
+	Better OPTIONAL under LIMIT 		pull_2699	Good for WDbench opt
+
+
+Engine		Wikidata	Queries		Control	Directory			Status	Notes
+
+Blazegraph	2024		blazegraph	new	results-2024-original		IP	index failed,  retraction templates added, redo
+Blazegraph	2024		scholia		new	results-2024-scholia		DONE
+QLever 595	2024		scholia 	new	results-2024-scholia
+QLever 599	2024		scholia 	new	results-2024-scholia		??
+
+QLever 595	2026		scholia		old	results-current-2026-02-07-old	DONE
+QLever 595	2026		scholia		new	results-current-2026-02-07
+QLever 599	2026		scholia		new	results-current-2026-02-08	DONE
+
+
+

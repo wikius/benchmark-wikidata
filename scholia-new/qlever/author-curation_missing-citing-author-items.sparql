@@ -1,0 +1,19 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?citing_author (CONCAT('https://author-disambiguator.toolforge.org/names_oauth.php?doit=Look+for+author&name=', ENCODE_FOR_URI(?citing_author)) AS ?resolver_url) ?example_citing_work ?example_citing_workLabel (CONCAT("/work/", SUBSTR(STR(?example_citing_work),32)) AS ?example_citing_workUrl) WHERE {
+  {
+    SELECT (COUNT(?work) AS ?count) ?citing_author (SAMPLE(?citing_work) AS ?example_citing_work) WHERE {
+      ?work wdt:P50 target: .
+      ?citing_work wdt:P2860 ?work .
+      ?citing_work wdt:P2093 ?citing_author .
+    }
+    GROUP BY ?citing_author
+  }
+  BIND (IF(BOUND (?example_citing_work), ?example_citing_work, <http://doesntexist.example.com/nexistepas>) AS ?example_citing_workLabel__)
+  OPTIONAL { ?example_citing_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_citing_workLabel. FILTER(LANG(?example_citing_workLabel) = "en") }
+  OPTIONAL { ?example_citing_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_citing_workLabel. FILTER(LANG(?example_citing_workLabel) = "mul") }
+}
+ORDER BY DESC(?count)
+LIMIT 1000

@@ -1,0 +1,27 @@
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?number_of_citations ?author ?authorLabel (CONCAT("/author/", SUBSTR(STR(?author),32)) AS ?authorUrl) ?cited_work_example ?cited_work_exampleLabel (CONCAT("/work/", SUBSTR(STR(?cited_work_example),32)) AS ?cited_work_exampleUrl) WHERE {
+  { # Find cited works
+    SELECT (COUNT(?work) AS ?number_of_citations) ?author (SAMPLE(?cited_work) AS ?cited_work_example) WHERE {
+      { # Find works about the topic
+        SELECT DISTINCT ?work WHERE {
+          ?work wdt:P921/(wdt:P361+ | wdt:P1269+ | (wdt:P31*/wdt:P279*)) target: .
+        }
+      }
+      ?cited_work wdt:P50 ?author .
+      ?work wdt:P2860 ?cited_work .
+    }
+    GROUP BY ?author
+  }
+
+  # Label the results
+  BIND (IF(BOUND (?author), ?author, <http://doesntexist.example.com/nexistepas>) AS ?authorLabel__)
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "en") }
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "mul") }
+  BIND (IF(BOUND (?cited_work_example), ?cited_work_example, <http://doesntexist.example.com/nexistepas>) AS ?cited_work_exampleLabel__)
+  OPTIONAL { ?cited_work_exampleLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?cited_work_exampleLabel. FILTER(LANG(?cited_work_exampleLabel) = "en") }
+  OPTIONAL { ?cited_work_exampleLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?cited_work_exampleLabel. FILTER(LANG(?cited_work_exampleLabel) = "mul") }
+}
+ORDER BY DESC(?number_of_citations)
+LIMIT 200

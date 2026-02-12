@@ -1,0 +1,23 @@
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?gene ?geneLabel ?geneDescription ?chromosome ?chromosomeLabel ?chromosomeDescription {
+  ?gene wdt:P31 wd:Q7187 ;
+        wdt:P703 target: ;
+        wdt:P1057 ?chromosome .
+  BIND (IF(BOUND (?gene), ?gene, <http://doesntexist.example.com/nexistepas>) AS ?geneLabel__)
+  OPTIONAL { ?geneLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?geneLabel. FILTER(LANG(?geneLabel) = "en") }
+  OPTIONAL { ?geneLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?geneLabel. FILTER(LANG(?geneLabel) = "mul") }
+  BIND (IF(BOUND (?chromosome), ?chromosome, <http://doesntexist.example.com/nexistepas>) AS ?chromosomeLabel__)
+  OPTIONAL { ?chromosomeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?chromosomeLabel. FILTER(LANG(?chromosomeLabel) = "en") }
+  OPTIONAL { ?chromosomeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?chromosomeLabel. FILTER(LANG(?chromosomeLabel) = "mul") }
+  BIND (IF(BOUND (?gene), ?gene, <http://doesntexist.example.com/nexistepas>) AS ?geneDescription__)
+  OPTIONAL { ?geneDescription__ <http://schema.org/description> ?geneDescription. FILTER(LANG(?geneDescription) = "en") }
+  OPTIONAL { ?geneDescription__ <http://schema.org/description> ?geneDescription. FILTER(LANG(?geneDescription) = "mul") }
+  BIND (IF(BOUND (?chromosome), ?chromosome, <http://doesntexist.example.com/nexistepas>) AS ?chromosomeDescription__)
+  OPTIONAL { ?chromosomeDescription__ <http://schema.org/description> ?chromosomeDescription. FILTER(LANG(?chromosomeDescription) = "en") }
+  OPTIONAL { ?chromosomeDescription__ <http://schema.org/description> ?chromosomeDescription. FILTER(LANG(?chromosomeDescription) = "mul") }
+}

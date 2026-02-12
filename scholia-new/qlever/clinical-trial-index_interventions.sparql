@@ -1,0 +1,28 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?intervention ?interventionLabel ?as_chemical ?as_chemicalLabel ?example_trial ?example_trialLabel WHERE {
+  {
+    SELECT (COUNT(?trial) AS ?count) ?intervention (SAMPLE(?trial) AS ?example_trial) WHERE {
+      ?trial wdt:P31 wd:Q30612 .
+      ?trial wdt:P4844 ?intervention
+    }
+    GROUP BY ?intervention
+    ORDER BY DESC(?count)
+    LIMIT 500
+  }
+  BIND (IF(EXISTS {
+    ?intervention wdt:P31 wd:Q11173
+  },?intervention,"") AS ?as_chemical)
+  BIND (IF(BOUND (?intervention), ?intervention, <http://doesntexist.example.com/nexistepas>) AS ?interventionLabel__)
+  OPTIONAL { ?interventionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?interventionLabel. FILTER(LANG(?interventionLabel) = "en") }
+  OPTIONAL { ?interventionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?interventionLabel. FILTER(LANG(?interventionLabel) = "mul") }
+  BIND (IF(BOUND (?as_chemical), ?as_chemical, <http://doesntexist.example.com/nexistepas>) AS ?as_chemicalLabel__)
+  OPTIONAL { ?as_chemicalLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?as_chemicalLabel. FILTER(LANG(?as_chemicalLabel) = "en") }
+  OPTIONAL { ?as_chemicalLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?as_chemicalLabel. FILTER(LANG(?as_chemicalLabel) = "mul") }
+  BIND (IF(BOUND (?example_trial), ?example_trial, <http://doesntexist.example.com/nexistepas>) AS ?example_trialLabel__)
+  OPTIONAL { ?example_trialLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_trialLabel. FILTER(LANG(?example_trialLabel) = "en") }
+  OPTIONAL { ?example_trialLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_trialLabel. FILTER(LANG(?example_trialLabel) = "mul") }
+}
+ORDER BY DESC(?count)

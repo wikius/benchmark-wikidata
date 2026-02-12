@@ -1,0 +1,17 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?type ?typeLabel ?count WHERE {
+  {
+    SELECT DISTINCT ?type (COUNT(?item) AS ?count) WHERE {
+      ?item wdt:P5008 target: .
+      ?item wdt:P31|wdt:P279 ?type .
+    }
+    GROUP BY ?type ?count
+    ORDER BY DESC(?count)
+  }
+  BIND (IF(BOUND (?type), ?type, <http://doesntexist.example.com/nexistepas>) AS ?typeLabel__)
+  OPTIONAL { ?typeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?typeLabel. FILTER(LANG(?typeLabel) = "en") }
+  OPTIONAL { ?typeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?typeLabel. FILTER(LANG(?typeLabel) = "mul") }
+}
+ORDER BY DESC(?count)

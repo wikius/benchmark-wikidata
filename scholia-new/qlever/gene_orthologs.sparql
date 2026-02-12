@@ -1,0 +1,26 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?ortholog ?orthologLabel ?orthologDescription ?taxon ?taxonLabel ?taxonDescription WHERE {
+  {
+    SELECT ?ortholog ?taxon WHERE {
+      target: wdt:P31 wd:Q7187 ;
+              wdt:P684 ?ortholog .
+      ?ortholog wdt:P703 ?taxon .
+    }
+  }
+  BIND (IF(BOUND (?ortholog), ?ortholog, <http://doesntexist.example.com/nexistepas>) AS ?orthologLabel__)
+  OPTIONAL { ?orthologLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?orthologLabel. FILTER(LANG(?orthologLabel) = "en") }
+  OPTIONAL { ?orthologLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?orthologLabel. FILTER(LANG(?orthologLabel) = "mul") }
+  BIND (IF(BOUND (?taxon), ?taxon, <http://doesntexist.example.com/nexistepas>) AS ?taxonLabel__)
+  OPTIONAL { ?taxonLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?taxonLabel. FILTER(LANG(?taxonLabel) = "en") }
+  OPTIONAL { ?taxonLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?taxonLabel. FILTER(LANG(?taxonLabel) = "mul") }
+  BIND (IF(BOUND (?taxon), ?taxon, <http://doesntexist.example.com/nexistepas>) AS ?taxonDescription__)
+  OPTIONAL { ?taxonDescription__ <http://schema.org/description> ?taxonDescription. FILTER(LANG(?taxonDescription) = "en") }
+  OPTIONAL { ?taxonDescription__ <http://schema.org/description> ?taxonDescription. FILTER(LANG(?taxonDescription) = "mul") }
+  BIND (IF(BOUND (?ortholog), ?ortholog, <http://doesntexist.example.com/nexistepas>) AS ?orthologDescription__)
+  OPTIONAL { ?orthologDescription__ <http://schema.org/description> ?orthologDescription. FILTER(LANG(?orthologDescription) = "en") }
+  OPTIONAL { ?orthologDescription__ <http://schema.org/description> ?orthologDescription. FILTER(LANG(?orthologDescription) = "mul") }
+}

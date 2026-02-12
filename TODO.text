@@ -1,0 +1,56 @@
+	copy to new area
+
+cd ~/research/wikidata/benchmark/project/queries
+cp -pr scholia scholia-new
+
+	move benchmark control files
+  
+cd ~/research/wikidata/benchmark/project/queries
+mv author/queries.tsv author-queries.tsv ; mv author/author.tsv author-items.tsv ; mv author/author.sparql author-generate-items.sparql
+mv award/queries.tsv award-queries.tsv ; mv award/award.tsv award-items.tsv ; mv award/award.sparql award-generate-items.sparql
+mv catalogue/queries.tsv catalogue-queries.tsv ; mv catalogue/catalogue.tsv catalogue-items.tsv ; mv catalogue/catalogue.sparql catalogue-generate-items.sparql
+mv chemical/queries.tsv chemical-queries.tsv ; mv chemical/chemical.tsv chemical-items.tsv ; mv chemical/chemical.sparql chemical-generate-items.sparql
+mv chemical-class/queries.tsv chemical-class-queries.tsv ; mv chemical-class/chemical-class.tsv chemical-class-items.tsv ; mv chemical-class/chemical-class.sparql chemical-class-generate-items.sparql
+mv chemical-element/queries.tsv chemical-element-queries.tsv ; mv chemical-element/chemical-element.tsv chemical-element-items.tsv ; mv chemical-element/chemical-element.sparql chemical-element-generate-items.sparql
+mv clinical_trial/queries.tsv clinical_trial-queries.tsv ; mv clinical_trial/clinical_trial.tsv clinical_trial-items.tsv ; mv clinical_trial/clinical_trial.sparql clinical_trial-generate-items.sparql
+mv complex/queries.tsv complex-queries.tsv ; mv complex/complex.tsv complex-items.tsv ; mv complex/complex.sparql complex-generate-items.sparql
+mv country/queries.tsv country-queries.tsv ; mv country/country.tsv country-items.tsv ; mv country/country.sparql country-generate-items.sparql
+mv dataset/queries.tsv dataset-queries.tsv ; mv dataset/dataset.tsv dataset-items.tsv ; mv dataset/dataset.sparql dataset-generate-items.sparql
+mv disease/queries.tsv disease-queries.tsv ; mv disease/disease.tsv disease-items.tsv ; mv disease/disease.sparql disease-generate-items.sparql
+mv event/queries.tsv event-queries.tsv ; mv event/event.tsv event-items.tsv ; mv event/event.sparql event-generate-items.sparql
+mv event-series/queries.tsv event-series-queries.tsv ; mv event-series/event-series.tsv event-series-items.tsv ; mv event-series/event-series.sparql event-series-generate-items.sparql
+mv gene/queries.tsv gene-queries.tsv ; mv gene/gene.tsv gene-items.tsv ; mv gene/gene.sparql gene-generate-items.sparql
+mv location/queries.tsv location-queries.tsv ; mv location/location.tsv location-items.tsv ; mv location/location.sparql location-generate-items.sparql
+mv ontology/queries.tsv ontology-queries.tsv ; mv ontology/ontology.tsv ontology-items.tsv ; mv ontology/ontology.sparql ontology-generate-items.sparql
+mv organization/queries.tsv organization-queries.tsv ; mv organization/organization.tsv organization-items.tsv ; mv organization/organization.sparql organization-generate-items.sparql
+mv pathway/queries.tsv pathway-queries.tsv ; mv pathway/pathway.tsv pathway-items.tsv ; mv pathway/pathway.sparql pathway-generate-items.sparql
+mv podcast/queries.tsv podcast-queries.tsv ; mv podcast/podcast.tsv podcast-items.tsv ; mv podcast/podcast.sparql podcast-generate-items.sparql
+mv podcast-episode/queries.tsv podcast-episode-queries.tsv ; mv podcast-episode/podcast-episode.tsv podcast-episode-items.tsv ; mv podcast-episode/podcast-episode.sparql podcast-episode-generate-items.sparql
+mv podcast-season/queries.tsv podcast-season-queries.tsv ; mv podcast-season/podcast-season.tsv podcast-season-items.tsv ; mv podcast-season/podcast-season.sparql podcast-season-generate-items.sparql
+mv project/queries.tsv project-queries.tsv ; mv project/project.tsv project-items.tsv ; mv project/project.sparql project-generate-items.sparql
+mv property/queries.tsv property-queries.tsv ; mv property/property.tsv property-items.tsv ; mv property/property.sparql property-generate-items.sparql
+mv protein/queries.tsv protein-queries.tsv ; mv protein/protein.tsv protein-items.tsv ; mv protein/protein.sparql protein-generate-items.sparql
+mv publisher/queries.tsv publisher-queries.tsv ; mv publisher/publisher.tsv publisher-items.tsv ; mv publisher/publisher.sparql publisher-generate-items.sparql
+mv series/queries.tsv series-queries.tsv ; mv series/series.tsv series-items.tsv ; mv series/series.sparql series-generate-items.sparql
+mv software/queries.tsv software-queries.tsv ; mv software/software.tsv software-items.tsv ; mv software/software.sparql software-generate-items.sparql
+mv sponsor/queries.tsv sponsor-queries.tsv ; mv sponsor/sponsor.tsv sponsor-items.tsv ; mv sponsor/sponsor.sparql sponsor-generate-items.sparql
+mv taxon/queries.tsv taxon-queries.tsv ; mv taxon/taxon.tsv taxon-items.tsv ; mv taxon/taxon.sparql taxon-generate-items.sparql
+mv topic/queries.tsv topic-queries.tsv ; mv topic/topic.tsv topic-items.tsv ; mv topic/topic.sparql topic-generate-items.sparql
+mv use/queries.tsv use-queries.tsv ; mv use/use.tsv use-items.tsv ; mv use/use.sparql use-generate-items.sparql
+mv venue/queries.tsv venue-queries.tsv ; mv venue/venue.tsv venue-items.tsv ; mv venue/venue.sparql venue-generate-items.sparql
+mv wikiproject/queries.tsv wikiproject-queries.tsv ; mv wikiproject/wikiproject.tsv wikiproject-items.tsv ; mv wikiproject/wikiproject.sparql wikiproject-generate-items.sparql
+mv work/queries.tsv work-queries.tsv ; mv work/work.tsv work-items.tsv ; mv work/work.sparql work-generate-items.sparql
+
+	expand label service macros
+
+cd ~/research/wikidata/benchmark/project/scholia-qlever/scholia/app/templates 
+foreach file ( *.sparql) 
+  ~/research/wikidata/benchmark/project/queries/scholia-expand.py $file
+end
+cp *.sparql ~/research/wikidata/benchmark/project/queries/scholia-new
+
+rewrite benchmark.py to use flattened structure
+	in progress
+
+
+

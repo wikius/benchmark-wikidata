@@ -1,0 +1,20 @@
+
+#defaultView:BarChart
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?year (COUNT(?work) AS ?number_of_works) ?useLabel WHERE {
+  {
+    SELECT (MIN(?year_) AS ?year) ?work ?use WHERE {
+      ?use wdt:P279* target: .
+      ?work wdt:P4510 ?use ;
+            wdt:P577 ?publication_datetime .
+      BIND (STR(YEAR(?publication_datetime)) AS ?year_)
+    }
+    GROUP BY ?work ?use
+  }
+  BIND (IF(BOUND (?use), ?use, <http://doesntexist.example.com/nexistepas>) AS ?useLabel__)
+  OPTIONAL { ?useLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?useLabel. FILTER(LANG(?useLabel) = "en") }
+  OPTIONAL { ?useLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?useLabel. FILTER(LANG(?useLabel) = "mul") }
+}
+GROUP BY ?year ?useLabel
+ORDER BY ?year

@@ -1,0 +1,24 @@
+
+# title: Most cited articles published in specific venue
+#defaultView:Table
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?count ?work ?workLabel ?example_citing_work ?example_citing_workLabel WHERE {
+  { # Count citations
+    SELECT (COUNT(?citing_work) AS ?count) ?work (SAMPLE(?citing_work) AS ?example_citing_work) WHERE {
+      ?work wdt:P1433 target: .
+      ?citing_work wdt:P2860 ?work .
+    }
+    GROUP BY ?work
+    ORDER BY DESC(?count)
+    LIMIT 1000
+  }
+  # Label results
+  BIND (IF(BOUND (?work), ?work, <http://doesntexist.example.com/nexistepas>) AS ?workLabel__)
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "en") }
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "mul") }
+  BIND (IF(BOUND (?example_citing_work), ?example_citing_work, <http://doesntexist.example.com/nexistepas>) AS ?example_citing_workLabel__)
+  OPTIONAL { ?example_citing_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_citing_workLabel. FILTER(LANG(?example_citing_workLabel) = "en") }
+  OPTIONAL { ?example_citing_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_citing_workLabel. FILTER(LANG(?example_citing_workLabel) = "mul") }
+}
+ORDER BY DESC(?count)

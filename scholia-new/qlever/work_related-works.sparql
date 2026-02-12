@@ -1,0 +1,26 @@
+
+#title: List of related works by co-citation analysis
+#defaultView:Table
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?count ?work ?workLabel WHERE {
+  {
+    SELECT ?work (COUNT(?work) AS ?count) WHERE {
+      { target: ^wdt:P2860/^wdt:P2860 ?work }
+      UNION
+      { target: wdt:P2860/^wdt:P2860 ?work }
+      UNION
+      { target: ^wdt:P2860/wdt:P2860 ?work }
+      UNION
+      { target: wdt:P2860/wdt:P2860 ?work }
+      FILTER (target: != ?work)
+    }
+    GROUP BY ?work
+    ORDER BY DESC(?count)
+    LIMIT 500
+  }
+  BIND (IF(BOUND (?work), ?work, <http://doesntexist.example.com/nexistepas>) AS ?workLabel__)
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "en") }
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "mul") }
+}
+ORDER BY DESC(?count)

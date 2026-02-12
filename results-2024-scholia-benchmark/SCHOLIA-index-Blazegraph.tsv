@@ -1,0 +1,48 @@
+1	Blazegraph		   2029	      	Count= 1908 	200		award-index_statistics
+2	Blazegraph		   4278	      	Count= 23 	200		chemical-index_statistics
+3	Blazegraph		   9268	      	Count= 103 	200		chemical-index-curation_missing-boiling-points
+4	Blazegraph		   5281	      	Count= 67 	200		chemical-index-curation_missing-chemical-structure
+5	Blazegraph		   5211	      	Count= 103 	200		chemical-index-curation_missing-combustion-enthalpy
+6	Blazegraph		   5230	      	Count= 102 	200		chemical-index-curation_missing-density
+7	Blazegraph		   5172	      	Count= 102 	200		chemical-index-curation_missing-enthalpy-of-formation
+8	Blazegraph		   5126	      	Count= 103 	200		chemical-index-curation_missing-flash-point
+9	Blazegraph		   5181	      	Count= 103 	200		chemical-index-curation_missing-idlh
+10	Blazegraph		   4374	      	Count= 12 	200		chemical-index-curation_missing-mass
+11	Blazegraph		   5269	      	Count= 100 	200		chemical-index-curation_missing-melting-points
+12	Blazegraph		   5205	      	Count= 102 	200		chemical-index-curation_missing-molar-entropy
+13	Blazegraph		   5188	      	Count= 101 	200		chemical-index-curation_missing-pKa
+14	Blazegraph		   5210	      	Count= 102 	200		chemical-index-curation_missing-solubility
+15	Blazegraph		   5195	      	Count= 103 	200		chemical-index-curation_missing-vapor-pressure
+16	Blazegraph		    158	      	Count= 36 	200		cito-index_article-counts
+17	Blazegraph		    287	      	Count= 59 	200		cito-index_articles-by-year
+18	Blazegraph		    267	      	Count= 233 	200		cito-index_cited-journal-counts
+19	Blazegraph		    171	      	Count= 466 	200		cito-index_journal-counts
+20	Blazegraph		    110	      	Count= 50 	200		cito-index_recent-articles
+21	Blazegraph		    262	      	Count= 12 	200		cito-index_statistics
+22	Blazegraph		   1419	      	Count= 500 	200		clinical-trial-index_interventions
+23	Blazegraph		   1593	      	Count= 500 	200		clinical-trial-index_medical-conditions
+24	Blazegraph		    643	      	Count= 205 	200		clinical-trial-index_phases
+25	Blazegraph		   1615	      	Count= 500 	200		clinical-trial-index_recent-clinical-trials
+26	Blazegraph		     49	      	Count= 4 	200		clinical-trial-index_statistics
+27	Blazegraph		   7355	      	Count= 2 	200		complex-index_statistics
+28	Blazegraph		    196	      	Count= 37 	200		event-series-index_acceptance-rate
+29	Blazegraph		    986	      	Count= 4429 	200		event-series-index_list
+30	Blazegraph		    224	      	Count= 28 	200		index-statistics_statistics
+31	Blazegraph		    130	      	Count= 22 	200		ontology-index_most-used-ontology
+32	Blazegraph		   1456	      	Count= 89 	200		podcast-index_languages
+33	Blazegraph		   3327	      	Count= 500 	200		software-index_most-used-software
+34	Blazegraph		   1236	      	Count= 1000 	200		wikiproject-index_most-used
+35	Blazegraph		   7169	      	Count= 2062 	200		language-index_works-written-in-the-language
+36	Blazegraph		   7950	      	Count= 628 	200		lexeme-index_lexemes
+37	Blazegraph		    798	      	Count= 538 	200		license-index_work-counts
+38	Blazegraph		    201	      	Count= 3 	200		pathway-index_statistics
+39	Blazegraph		  13503	      	Count= 636 	200		printer-index_map
+40	Blazegraph		    407	      	Count= 1000 	200		printer-index_printed-works-per-publisher
+41	Blazegraph		     29	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Service URI https://query.wikidata.org/subgraph/scholarly_articles is not allowed	retraction-index_authors_with_many_retractions
+42	Blazegraph		     19	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Service URI https://query.wikidata.org/subgraph/wikidata_main is not allowed	retraction-index_most-cited-retracted-works
+43	Blazegraph		    584	      	Count= 3 	200		retraction-index_retractions-per-year
+44	Blazegraph		  38942	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=dfbca77f-c521-44ba-bc4d-a51949dbbe49,bopId=8,partitionId=-1,sinkId=10,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[p, statement],outputDistinctJVs=true,size=6322009,considered(left=0,right=0,joins=0)}	retraction-index_statements-with-retracted-references
+45	Blazegraph		     31	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Service URI https://query.wikidata.org/subgraph/scholarly_articles is not allowed	retraction-index_venues_with_many_retractions
+46	Blazegraph		   4438	      	Count= 500 	200		use-index_most-used
+47	Blazegraph		    662	      	Count= 1000 	200		wikiproject-index_most-used
+48	Blazegraph		   2526	      	Count= 500 	200		work-index_recently-retracted-works

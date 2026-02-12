@@ -1,0 +1,27 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?protein ?proteinLabel (CONCAT("/protein/", SUBSTR(STR(?protein),32)) AS ?proteinUrl) ?species ?speciesLabel (CONCAT("/taxon/", SUBSTR(STR(?species),32)) AS ?speciesUrl) ?chemicals WHERE {
+  {
+    SELECT (COUNT(?chemical) AS ?count) ?protein (GROUP_CONCAT(?chemical_label; SEPARATOR=" // ") AS ?chemicals) WHERE {
+      target: wdt:P129 ?chemical .
+      FILTER (target: != ?protein)
+      ?protein wdt:P129 ?chemical .
+      ?chemical rdfs:label ?chemical_label FILTER (LANG(?chemical_label) = "en")
+    }
+    GROUP BY ?protein
+  }
+  OPTIONAL {
+    ?protein wdt:P703 ?species .
+  }
+  BIND (IF(BOUND (?protein), ?protein, <http://doesntexist.example.com/nexistepas>) AS ?proteinLabel__)
+  OPTIONAL { ?proteinLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?proteinLabel. FILTER(LANG(?proteinLabel) = "en") }
+  OPTIONAL { ?proteinLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?proteinLabel. FILTER(LANG(?proteinLabel) = "mul") }
+  BIND (IF(BOUND (?species), ?species, <http://doesntexist.example.com/nexistepas>) AS ?speciesLabel__)
+  OPTIONAL { ?speciesLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?speciesLabel. FILTER(LANG(?speciesLabel) = "en") }
+  OPTIONAL { ?speciesLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?speciesLabel. FILTER(LANG(?speciesLabel) = "mul") }
+}
+ORDER BY DESC(?count)
+LIMIT 500

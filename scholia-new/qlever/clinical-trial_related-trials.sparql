@@ -1,0 +1,32 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?score ?trial ?trialLabel WHERE {
+  {
+    SELECT (SUM(?score_) AS ?score) ?trial WHERE {
+      ?trial wdt:P31 wd:Q30612 .
+      {
+        target: wdt:P1050/^wdt:P1050 ?trial .
+        BIND (3 AS ?score_)
+      }
+      UNION {
+        target: wdt:P4844/^wdt:P4844 ?trial .
+        BIND (2 AS ?score_)
+      }
+      UNION {
+        target: wdt:P859/^wdt:P859 ?trial .
+        BIND (1 AS ?score_)
+      }
+    }
+    GROUP BY ?trial
+    ORDER BY DESC(?score)
+    LIMIT 500
+  }
+  FILTER (target: != ?trial)
+  BIND (IF(BOUND (?trial), ?trial, <http://doesntexist.example.com/nexistepas>) AS ?trialLabel__)
+  OPTIONAL { ?trialLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?trialLabel. FILTER(LANG(?trialLabel) = "en") }
+  OPTIONAL { ?trialLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?trialLabel. FILTER(LANG(?trialLabel) = "mul") }
+}
+ORDER BY DESC(?score)

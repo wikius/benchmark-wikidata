@@ -1,0 +1,14 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?sponsor ?sponsorLabel ?sponsorUrl ?sponsorDescription WHERE {
+  target: wdt:P859 ?sponsor .
+  BIND (CONCAT("/sponsor/", SUBSTR(STR(?sponsor),32)) AS ?sponsorUrl)
+  BIND (IF(BOUND (?sponsor), ?sponsor, <http://doesntexist.example.com/nexistepas>) AS ?sponsorLabel__)
+  OPTIONAL { ?sponsorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?sponsorLabel. FILTER(LANG(?sponsorLabel) = "en") }
+  OPTIONAL { ?sponsorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?sponsorLabel. FILTER(LANG(?sponsorLabel) = "mul") }
+  BIND (IF(BOUND (?sponsor), ?sponsor, <http://doesntexist.example.com/nexistepas>) AS ?sponsorDescription__)
+  OPTIONAL { ?sponsorDescription__ <http://schema.org/description> ?sponsorDescription. FILTER(LANG(?sponsorDescription) = "en") }
+  OPTIONAL { ?sponsorDescription__ <http://schema.org/description> ?sponsorDescription. FILTER(LANG(?sponsorDescription) = "mul") }
+}

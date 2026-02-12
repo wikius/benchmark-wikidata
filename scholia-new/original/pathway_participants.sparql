@@ -1,0 +1,20 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+
+SELECT ?part ?partLabel ?partDescription ?type
+WITH {
+  SELECT ?part (GROUP_CONCAT(DISTINCT ?type_label; separator=", ") AS ?type)
+  WHERE {
+    VALUES ?process { wd:Q4915012 wd:Q2996394 }
+    target: wdt:P31 ?process ;
+             wdt:P527 ?part .
+    OPTIONAL { 
+      ?part wdt:P31 ?type_ .
+      ?type_ rdfs:label ?type_label .
+      FILTER (LANG(?type_label) = 'en')
+    }
+  } GROUP BY ?part
+} AS %result
+WHERE {
+  INCLUDE %result
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en" . }
+} ORDER BY ASC(?partLabel)

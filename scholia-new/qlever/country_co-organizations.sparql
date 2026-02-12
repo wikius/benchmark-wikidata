@@ -1,0 +1,27 @@
+# title: Co-organizations for a specific country
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+#defaultView:Map
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?coorganization ?geocoordinates ?example_coauthorLabel ?example_workLabel WHERE {
+  {
+    SELECT ?coorganization (SAMPLE(?geocoordinates_) AS ?geocoordinates) (SAMPLE(?coauthor) AS ?example_coauthor) (SAMPLE(?work) AS ?example_work) WHERE {
+      ?organization wdt:P17 target: .
+      ?author wdt:P108 | wdt:P463 | wdt:P1416/wdt:P361* ?organization .
+      ?work wdt:P50 ?author, ?coauthor .
+      ?coauthor wdt:P108 | wdt:P463 | wdt:P1416/wdt:P361* ?coorganization .
+      FILTER NOT EXISTS {
+        ?coorganization wdt:P17 target:
+      }
+      ?coorganization wdt:P625 ?geocoordinates_ .
+    }
+    GROUP BY ?coorganization
+  }
+  BIND (IF(BOUND (?example_work), ?example_work, <http://doesntexist.example.com/nexistepas>) AS ?example_workLabel__)
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "en") }
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "mul") }
+  BIND (IF(BOUND (?example_coauthor), ?example_coauthor, <http://doesntexist.example.com/nexistepas>) AS ?example_coauthorLabel__)
+  OPTIONAL { ?example_coauthorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_coauthorLabel. FILTER(LANG(?example_coauthorLabel) = "en") }
+  OPTIONAL { ?example_coauthorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_coauthorLabel. FILTER(LANG(?example_coauthorLabel) = "mul") }
+}

@@ -1,0 +1,6 @@
+SELECT DISTINCT ?c WHERE { 
+  ?c wdt:P31/wdt:P279* wd:Q324254 .
+    ?source wdt:P2283 ?c .
+    ?c wdt:P2283 ?target .
+} 
+LIMIT 5

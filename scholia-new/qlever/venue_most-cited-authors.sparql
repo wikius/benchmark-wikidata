@@ -1,0 +1,29 @@
+
+# title: Most cited authors published in venue
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?count ?author ?authorLabel ?orcid ?example_cited_work ?example_cited_workLabel ?example_citing_work ?example_citing_workLabel WHERE {
+  { # Count the number of citations
+    SELECT ?author (COUNT(?cited_work) AS ?count) (SAMPLE(?cited_work) AS ?example_cited_work) (SAMPLE(?citing_work) AS ?example_citing_work) WHERE {
+      ?cited_work wdt:P1433 target: .
+      ?citing_work wdt:P2860 ?cited_work .
+      ?cited_work wdt:P50 ?author .
+    }
+    GROUP BY ?author
+  }
+  # Include optional ORCID iD
+  OPTIONAL {
+    ?author wdt:P496 ?orcid .
+  }
+  BIND (IF(BOUND (?author), ?author, <http://doesntexist.example.com/nexistepas>) AS ?authorLabel__)
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "en") }
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "mul") }
+  BIND (IF(BOUND (?example_cited_work), ?example_cited_work, <http://doesntexist.example.com/nexistepas>) AS ?example_cited_workLabel__)
+  OPTIONAL { ?example_cited_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_cited_workLabel. FILTER(LANG(?example_cited_workLabel) = "en") }
+  OPTIONAL { ?example_cited_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_cited_workLabel. FILTER(LANG(?example_cited_workLabel) = "mul") }
+  BIND (IF(BOUND (?example_citing_work), ?example_citing_work, <http://doesntexist.example.com/nexistepas>) AS ?example_citing_workLabel__)
+  OPTIONAL { ?example_citing_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_citing_workLabel. FILTER(LANG(?example_citing_workLabel) = "en") }
+  OPTIONAL { ?example_citing_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_citing_workLabel. FILTER(LANG(?example_citing_workLabel) = "mul") }
+}
+ORDER BY DESC(?count)
+LIMIT 100

@@ -1,0 +1,27 @@
+# title: taxons in which this chemical class is found
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?chemicals ?example_chemical ?example_chemicalLabel (CONCAT("/chemical/", SUBSTR(STR(?example_chemical),32)) AS ?example_chemicalUrl) ?taxon ?taxonLabel (CONCAT("/taxon/", SUBSTR(STR(?taxon),32)) AS ?taxonUrl) ?taxonDescription WHERE {
+  {
+    SELECT DISTINCT (COUNT(DISTINCT (?chemical)) AS ?chemicals) ?taxon (SAMPLE(?chemical) AS ?example_chemical) WHERE {
+      ?chemical wdt:P279* target: ;
+                p:P703 ?taxonStatement .
+      ?taxonStatement ps:P703 ?taxon .
+    }
+    GROUP BY ?taxon
+    ORDER BY DESC(?chemicals)
+    LIMIT 250
+  }
+  BIND (IF(BOUND (?example_chemical), ?example_chemical, <http://doesntexist.example.com/nexistepas>) AS ?example_chemicalLabel__)
+  OPTIONAL { ?example_chemicalLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_chemicalLabel. FILTER(LANG(?example_chemicalLabel) = "en") }
+  OPTIONAL { ?example_chemicalLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_chemicalLabel. FILTER(LANG(?example_chemicalLabel) = "mul") }
+  BIND (IF(BOUND (?taxon), ?taxon, <http://doesntexist.example.com/nexistepas>) AS ?taxonLabel__)
+  OPTIONAL { ?taxonLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?taxonLabel. FILTER(LANG(?taxonLabel) = "en") }
+  OPTIONAL { ?taxonLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?taxonLabel. FILTER(LANG(?taxonLabel) = "mul") }
+  BIND (IF(BOUND (?taxon), ?taxon, <http://doesntexist.example.com/nexistepas>) AS ?taxonDescription__)
+  OPTIONAL { ?taxonDescription__ <http://schema.org/description> ?taxonDescription. FILTER(LANG(?taxonDescription) = "en") }
+  OPTIONAL { ?taxonDescription__ <http://schema.org/description> ?taxonDescription. FILTER(LANG(?taxonDescription) = "mul") }
+}
+ORDER BY DESC(?chemicals)

@@ -1,0 +1,32 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?lexeme (?lexeme_label AS ?lexemeLabel) (CONCAT("/lexeme/", SUBSTR(STR(?lexeme),32)) AS ?lexemeUrl) ?language ?languageLabel ?example_work ?example_workLabel ?example_workDescription (CONCAT("/work/", SUBSTR(STR(?example_work),32)) AS ?example_workUrl) WHERE {
+  {
+    SELECT (COUNT(DISTINCT ?work) AS ?count) ?lexeme (SAMPLE(?language_) AS ?language) (SAMPLE(?work) AS ?example_work) WHERE {
+      {
+        ?work wdt:P6254 ?lexeme .
+      }
+      UNION {
+        ?lexeme wdt:P1343 ?work ;
+                dct:language [] .
+      }
+      ?lexeme dct:language ?language_ .
+    }
+    GROUP BY ?lexeme
+    ORDER BY DESC(?count)
+    LIMIT 500
+  }
+  ?lexeme wikibase:lemma ?lexeme_label
+  BIND (IF(BOUND (?language), ?language, <http://doesntexist.example.com/nexistepas>) AS ?languageLabel__)
+  OPTIONAL { ?languageLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?languageLabel. FILTER(LANG(?languageLabel) = "en") }
+  OPTIONAL { ?languageLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?languageLabel. FILTER(LANG(?languageLabel) = "mul") }
+  BIND (IF(BOUND (?example_work), ?example_work, <http://doesntexist.example.com/nexistepas>) AS ?example_workLabel__)
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "en") }
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "mul") }
+  BIND (IF(BOUND (?example_work), ?example_work, <http://doesntexist.example.com/nexistepas>) AS ?example_workDescription__)
+  OPTIONAL { ?example_workDescription__ <http://schema.org/description> ?example_workDescription. FILTER(LANG(?example_workDescription) = "en") }
+  OPTIONAL { ?example_workDescription__ <http://schema.org/description> ?example_workDescription. FILTER(LANG(?example_workDescription) = "mul") }
+}
+ORDER BY DESC(?count)

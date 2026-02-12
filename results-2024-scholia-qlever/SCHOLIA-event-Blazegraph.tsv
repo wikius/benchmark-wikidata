@@ -1,0 +1,75 @@
+1	Blazegraph		    100	      	Count= 22 	200		event_co-authors Q100741900
+2	Blazegraph		     68	      	Count= 2 	200		event_data Q100741900
+3	Blazegraph		   1047	      	Result=2026-07-06 	200		event_future-events Q100741900
+4	Blazegraph		  43548	      	Count= 200 	200		event_past-events Q100741900
+5	Blazegraph		   3076	      	Count= 22 	200		event_people Q100741900
+6	Blazegraph		     49	      	Count= 0 	200		event_presentations Q100741900
+7	Blazegraph		     28	      	Result=Q100899396 	200		event_proceedings Q100741900
+8	Blazegraph		 143996	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=fea3b89e-e1fb-4280-8d4f-1fff30fe52e0,bopId=14,partitionId=-1,sinkId=23,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[person],outputDistinctJVs=true,size=21865958,considered(left=0,right=0,joins=0)}	event_recent-publications Q100741900
+9	Blazegraph		    103	      	Count= 157 	200		event_related-events-people Q100741900
+10	Blazegraph		  19206	      	Count= 0 	200		event_related-events-timelocation Q100741900
+11	Blazegraph		     93	      	Count= 2 	200		event_sponsors Q100741900
+12	Blazegraph		     39	      	Count= 2 	200		event_timeline Q100741900
+13	Blazegraph		 600022	      	None 	500	ERROR java.util.concurrent.TimeoutException	event_topic-scores Q100741900
+14	Blazegraph		    154	      	Count= 0 	200		event_upcoming-deadlines Q100741900
+15	Blazegraph		  55978	      	Count= 158 	200		event_uses Q100741900
+16	Blazegraph		    179	      	Count= 1162 	200		event_co-authors Q105835556
+17	Blazegraph		     97	      	Count= 9 	200		event_data Q105835556
+18	Blazegraph		   1092	      	Result=2026-07-06 	200		event_future-events Q105835556
+19	Blazegraph		  41821	      	Count= 200 	200		event_past-events Q105835556
+20	Blazegraph		   2066	      	Count= 226 	200		event_people Q105835556
+21	Blazegraph		     45	      	Count= 0 	200		event_presentations Q105835556
+22	Blazegraph		     51	      	Count= 128 	200		event_proceedings Q105835556
+23	Blazegraph		 144925	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=091309d5-64c7-4bdb-84c0-51b4a710899d,bopId=14,partitionId=-1,sinkId=23,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[person],outputDistinctJVs=true,size=21894790,considered(left=0,right=0,joins=0)}	event_recent-publications Q105835556
+24	Blazegraph		    116	      	Count= 200 	200		event_related-events-people Q105835556
+25	Blazegraph		  19151	      	Count= 0 	200		event_related-events-timelocation Q105835556
+26	Blazegraph		     61	      	Count= 9 	200		event_sponsors Q105835556
+27	Blazegraph		     33	      	Count= 2 	200		event_timeline Q105835556
+28	Blazegraph		 600014	      	None 	500	ERROR java.util.concurrent.TimeoutException	event_topic-scores Q105835556
+29	Blazegraph		    145	      	Count= 0 	200		event_upcoming-deadlines Q105835556
+30	Blazegraph		  55578	      	Count= 156 	200		event_uses Q105835556
+31	Blazegraph		    124	      	Count= 212 	200		event_co-authors Q115781177
+32	Blazegraph		     76	      	Count= 8 	200		event_data Q115781177
+33	Blazegraph		   1052	      	Result=2026-07-06 	200		event_future-events Q115781177
+34	Blazegraph		  41851	      	Count= 200 	200		event_past-events Q115781177
+35	Blazegraph		   1968	      	Count= 64 	200		event_people Q115781177
+36	Blazegraph		     54	      	Count= 0 	200		event_presentations Q115781177
+37	Blazegraph		     64	      	Count= 39 	200		event_proceedings Q115781177
+38	Blazegraph		 145474	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=26a6b006-4cc3-4b24-a033-4e324c4f1d03,bopId=14,partitionId=-1,sinkId=23,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[person],outputDistinctJVs=true,size=21879101,considered(left=0,right=0,joins=0)}	event_recent-publications Q115781177
+39	Blazegraph		     95	      	Count= 200 	200		event_related-events-people Q115781177
+40	Blazegraph		     73	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=e050b997-494a-4204-b9d2-16ec4f042f4d,bopId=101,partitionId=-1,sinkId=103,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.UnsupportedOperationException: unknown function: http://www.opengis.net/def/function/geosparql/distance	event_related-events-timelocation Q115781177
+41	Blazegraph		     38	      	Count= 5 	200		event_sponsors Q115781177
+42	Blazegraph		     14	      	Count= 2 	200		event_timeline Q115781177
+43	Blazegraph		 600010	      	None 	500	ERROR java.util.concurrent.TimeoutException	event_topic-scores Q115781177
+44	Blazegraph		    163	      	Count= 0 	200		event_upcoming-deadlines Q115781177
+45	Blazegraph		  55652	      	Count= 151 	200		event_uses Q115781177
+46	Blazegraph		    131	      	Count= 570 	200		event_co-authors Q1159867
+47	Blazegraph		     83	      	Count= 2 	200		event_data Q1159867
+48	Blazegraph		   1104	      	Result=2026-07-06 	200		event_future-events Q1159867
+49	Blazegraph		  41934	      	Count= 200 	200		event_past-events Q1159867
+50	Blazegraph		   2028	      	Count= 60 	200		event_people Q1159867
+51	Blazegraph		     57	      	Count= 3 	200		event_presentations Q1159867
+52	Blazegraph		     49	      	Count= 27 	200		event_proceedings Q1159867
+53	Blazegraph		 145393	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=65ee9239-0a4a-4fcb-b4ee-82e2bb9f4cb2,bopId=14,partitionId=-1,sinkId=23,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[person],outputDistinctJVs=true,size=21874352,considered(left=0,right=0,joins=0)}	event_recent-publications Q1159867
+54	Blazegraph		     86	      	Count= 18 	200		event_related-events-people Q1159867
+55	Blazegraph		     57	      	Count= 0 	200		event_related-events-timelocation Q1159867
+56	Blazegraph		     32	      	Result=Q239221 	200		event_sponsors Q1159867
+57	Blazegraph		     28	      	Count= 0 	200		event_timeline Q1159867
+58	Blazegraph		 600016	      	None 	500	ERROR java.util.concurrent.TimeoutException	event_topic-scores Q1159867
+59	Blazegraph		    255	      	Count= 0 	200		event_upcoming-deadlines Q1159867
+60	Blazegraph		  55789	      	Count= 14 	200		event_uses Q1159867
+61	Blazegraph		     81	      	Count= 24 	200		event_co-authors Q119153952
+62	Blazegraph		     71	      	Count= 3 	200		event_data Q119153952
+63	Blazegraph		   1053	      	Result=2026-07-06 	200		event_future-events Q119153952
+64	Blazegraph		  41941	      	Count= 200 	200		event_past-events Q119153952
+65	Blazegraph		   2046	      	Count= 23 	200		event_people Q119153952
+66	Blazegraph		     45	      	Count= 0 	200		event_presentations Q119153952
+67	Blazegraph		     18	      	Count= 2 	200		event_proceedings Q119153952
+68	Blazegraph		 144870	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=01f5ce1b-8351-40cf-8aef-407acbe3f296,bopId=14,partitionId=-1,sinkId=23,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[person],outputDistinctJVs=true,size=21873846,considered(left=0,right=0,joins=0)}	event_recent-publications Q119153952
+69	Blazegraph		     95	      	Count= 129 	200		event_related-events-people Q119153952
+70	Blazegraph		     76	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=6668e916-e087-4ef0-861b-0ef1a935b286,bopId=101,partitionId=-1,sinkId=103,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.UnsupportedOperationException: unknown function: http://www.opengis.net/def/function/geosparql/distance	event_related-events-timelocation Q119153952
+71	Blazegraph		     32	      	Result=Q234021 	200		event_sponsors Q119153952
+72	Blazegraph		     31	      	Count= 2 	200		event_timeline Q119153952
+73	Blazegraph		 600013	      	None 	500	ERROR java.util.concurrent.TimeoutException	event_topic-scores Q119153952
+74	Blazegraph		    159	      	Count= 0 	200		event_upcoming-deadlines Q119153952
+75	Blazegraph		  55678	      	Count= 32 	200		event_uses Q119153952

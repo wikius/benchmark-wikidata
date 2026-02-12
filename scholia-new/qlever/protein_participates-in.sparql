@@ -1,0 +1,27 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?type ?complex_or_process ?complex_or_processLabel WHERE {
+  {
+    SELECT DISTINCT ?type ?complex_or_process WHERE {
+      VALUES ?part { target: }
+      VALUES ?process { wd:Q2996394 wd:Q4915012 }
+      {
+        ?part ^wdt:P527 ?complex_or_process .
+        ?complex_or_process wdt:P31 wd:Q22325163 ;
+        BIND ("complex" AS ?type)
+      }
+      UNION {
+        ?part ^wdt:P527 ?complex_or_process .
+        ?complex_or_process wdt:P31 ?process ;
+        BIND ("biological process" AS ?type)
+      }
+    }
+  }
+  BIND (IF(BOUND (?complex_or_process), ?complex_or_process, <http://doesntexist.example.com/nexistepas>) AS ?complex_or_processLabel__)
+  OPTIONAL { ?complex_or_processLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?complex_or_processLabel. FILTER(LANG(?complex_or_processLabel) = "en") }
+  OPTIONAL { ?complex_or_processLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?complex_or_processLabel. FILTER(LANG(?complex_or_processLabel) = "mul") }
+}
+ORDER BY ASC(?partLabel)

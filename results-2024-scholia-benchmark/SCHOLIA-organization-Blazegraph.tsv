@@ -1,0 +1,12 @@
+1	Blazegraph		     64	      	Count= 0 	200		organization_advisor-graph Q115723010
+2	Blazegraph		  61600	      	Count= 0 	200		organization_awards Q115723010
+3	Blazegraph		     75	      	Count= 0 	200		organization_co-author-graph Q115723010
+4	Blazegraph		  20593	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=63d613d3-3988-41e0-8d62-ac20a6a47b69,bopId=20,partitionId=-1,sinkId=25,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[researcher],outputDistinctJVs=true,size=21186722,considered(left=0,right=0,joins=0)}	organization_co-author-normalized-citations Q115723010
+5	Blazegraph		     56	      	Count= 0 	200		organization_employees-and-affiliated Q115723010
+6	Blazegraph		     70	      	Result=1 	200		organization_gender-distribution Q115723010
+7	Blazegraph		     72	      	Count= 7 	200		organization_most-cited-papers Q115723010
+8	Blazegraph		  72578	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=7108df26-328a-4fe3-8728-a6714611256d,bopId=20,partitionId=-1,sinkId=25,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[researcher],outputDistinctJVs=true,size=17631262,considered(left=0,right=0,joins=0)}	organization_page-production Q115723010
+9	Blazegraph		     71	      	Count= 75 	200		organization_recent-citations Q115723010
+10	Blazegraph		     59	      	Count= 86 	200		organization_recent-literature Q115723010
+11	Blazegraph		 600018	      	None 	500	ERROR java.util.concurrent.TimeoutException	organization_topics Q115723010
+12	Blazegraph		   7572	      	Result=1 	200		organization_uses Q115723010

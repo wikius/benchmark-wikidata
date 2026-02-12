@@ -1,0 +1,7 @@
+SELECT DISTINCT ?c WHERE { 
+  ?c wdt:P31/wdt:P279* wd:Q15275719 .
+  ?event wdt:P179 ?c ;
+         wdt:P1132 ?number_of_participants .
+    ?work wdt:P1433 / wdt:P4745 / (wdt:P179 | wdt:P31) ?c .
+} 
+LIMIT 5

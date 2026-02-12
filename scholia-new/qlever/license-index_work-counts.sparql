@@ -1,0 +1,18 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?license ?licenseLabel ?licenseDescription (CONCAT("/license/", SUBSTR(STR(?license),32)) AS ?licenseUrl) WHERE {
+  {
+    SELECT (COUNT(*) AS ?count) ?license WHERE {
+      [] wdt:P275 ?license .
+    }
+    GROUP BY ?license
+  }
+  BIND (IF(BOUND (?license), ?license, <http://doesntexist.example.com/nexistepas>) AS ?licenseLabel__)
+  OPTIONAL { ?licenseLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?licenseLabel. FILTER(LANG(?licenseLabel) = "en") }
+  OPTIONAL { ?licenseLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?licenseLabel. FILTER(LANG(?licenseLabel) = "mul") }
+  BIND (IF(BOUND (?license), ?license, <http://doesntexist.example.com/nexistepas>) AS ?licenseDescription__)
+  OPTIONAL { ?licenseDescription__ <http://schema.org/description> ?licenseDescription. FILTER(LANG(?licenseDescription) = "en") }
+  OPTIONAL { ?licenseDescription__ <http://schema.org/description> ?licenseDescription. FILTER(LANG(?licenseDescription) = "mul") }
+}
+ORDER BY DESC(?count)

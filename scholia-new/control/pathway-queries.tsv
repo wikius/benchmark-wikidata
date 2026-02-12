@@ -1,0 +1,5 @@
+pathway_citing-articles	pathway_citing-articles LABEL	QUERY	pathway
+pathway_optional-data-values	pathway_optional-data-values LABEL	QUERY	pathway
+pathway_participants	pathway_participants LABEL	QUERY	pathway
+pathway_publications-per-year	pathway_publications-per-year LABEL	QUERY	pathway
+pathway_recent-articles	pathway_recent-articles LABEL	QUERY	pathway

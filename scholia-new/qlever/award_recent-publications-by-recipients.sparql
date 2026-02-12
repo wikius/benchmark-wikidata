@@ -1,0 +1,26 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?publication_date ?work ?workLabel ?recipient ?recipientLabel WHERE {
+  {
+    SELECT (MAX(?publication_datetimes) AS ?publication_datetime) ?work ?recipient WHERE {
+      ?recipient wdt:P166 target: .
+      ?work wdt:P50 ?recipient .
+      OPTIONAL {
+        ?work wdt:P577 ?publication_datetimes .
+      }
+    }
+    GROUP BY ?work ?recipient
+  }
+  BIND (xsd:date(?publication_datetime) AS ?publication_date)
+  BIND (IF(BOUND (?recipient), ?recipient, <http://doesntexist.example.com/nexistepas>) AS ?recipientLabel__)
+  OPTIONAL { ?recipientLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?recipientLabel. FILTER(LANG(?recipientLabel) = "en") }
+  OPTIONAL { ?recipientLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?recipientLabel. FILTER(LANG(?recipientLabel) = "mul") }
+  BIND (IF(BOUND (?work), ?work, <http://doesntexist.example.com/nexistepas>) AS ?workLabel__)
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "en") }
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "mul") }
+}
+ORDER BY DESC(?publication_date)
+LIMIT 500

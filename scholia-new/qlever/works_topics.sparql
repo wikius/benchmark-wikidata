@@ -1,0 +1,14 @@
+
+#defaultView:BubbleChart
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT (COUNT(?work) AS ?count) ?topic ?topicLabel WHERE {
+  VALUES ?work { {% for q in qs -%} wd:{{ q }} {% endfor -%} }
+  ?work wdt:P921 ?topic .
+  BIND (IF(BOUND (?topic), ?topic, <http://doesntexist.example.com/nexistepas>) AS ?topicLabel__)
+  OPTIONAL { ?topicLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?topicLabel. FILTER(LANG(?topicLabel) = "en") }
+  OPTIONAL { ?topicLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?topicLabel. FILTER(LANG(?topicLabel) = "mul") }
+}
+GROUP BY ?topic ?topicLabel
+ORDER BY DESC(?count)
+LIMIT 200

@@ -105,12 +105,22 @@ def results_csv(reply, separator=','):
 def basic_eval(query, url, result_format="text/tab-separated-values"):
     headers={"Accept": result_format, "Content-type": "application/sparql-query", "user-agent": "wikidata-benchmark/0.0.1"}
     start_time = time.time()
-    reply = requests.get(url,
-                         headers=headers,
-                         params={"query": prefixes + query})
+    # use curl instead of request because request is currently very slow on large results
+    command = ["/usr/bin/curl",  "-D", "/tmp/cheaders", "-o", "/tmp/curl", "-s", f"{url}", "--header", f"Accept:{result_format}", "--data-urlencode", f"query={query}"]
+    subprocess.call(command)
     end_time = time.time()
+    with open('/tmp/curl', 'r') as f:
+        result = f.read()
+    with open('/tmp/cheaders', 'r') as f:
+        header = f.readline()
+    code = int(header.split()[1]) if len(header.split()) > 0 else 800
+    Object = lambda **kwargs: type("Object", (), kwargs)
+    reply = Object( text = result, status_code = code )
+#    reply = requests.get(url,
+#                         headers=headers,
+#                         params={"query": prefixes + query})
     etime = int((end_time - start_time) * 1000)
-    reply.encoding = 'utf-8'
+#    reply.encoding = 'utf-8'
     return reply, etime
 
 def generic_eval(query, url=None, separator='	'):
@@ -132,7 +142,7 @@ def generic_eval(query, url=None, separator='	'):
             while end < len(reply.text):
                 if reply.text[end] == '\n':
                     start = end + 1
-                    end += 1
+                end += 1
             error_text = reply.text[start:end]
         return etime, None, reply.status_code, error_text, "", ""
 
@@ -246,7 +256,6 @@ def process_queries_file(filename, description, counting, skip=0):
             process_query(index, query, counting, description=qdescription)
 
 def process(directory, query_file_name, description, alternatives=None, counting=False, replace=None, index=0):
-##    print("PRO", directory, query_file_name, description, alternatives, replace)
     alternatives = alternatives if alternatives is not None else {}
     if args.verbose:
         print("QUERY", query_file_name, description.strip())
@@ -276,14 +285,14 @@ def process(directory, query_file_name, description, alternatives=None, counting
 
 def query_values(parameter_file_name, directory):
     try:  # see if there are values stored
-        with open(directory + '/' + parameter_file_name + '.tsv', 'r') as values_file:
+        with open(directory + parameter_file_name + '-items.tsv', 'r') as values_file:
             rows = values_file.read().splitlines()
     except Exception:
-        with open(directory + '/' + parameter_file_name + '.sparql', 'r') as parameter_file:
+        with open(directory + parameter_file_name + '-generate-items.sparql', 'r') as parameter_file:
             parameter = parameter_file.read()
             reply, _ = basic_eval(parameter, 'https://qlever.cs.uni-freiburg.de/api/wikidata/')
             try:
-                with open(directory + '/' + parameter_file_name + '.tsv', 'w') as values_file:
+                with open(directory + parameter_file_name + '-items.tsv', 'w') as values_file:
                     values_file.write(reply.text)
             except Exception:
                 pass
@@ -336,18 +345,22 @@ def process_control_file(directory, control_file, skip=0):
             process(directory, query_file_name, description, alternatives, counting=args.count, index=index)
 
 
-def process_scholia_benchmark(directory, control_file):
+# New SCHOLIA organization - all in one directory - control files are <category>-queries.tsv <category>-items.tsv <category>-generate-items.sparql
+def process_scholia_benchmark(directory, control_filename, skip=0):
     index = 0
+    control_file = open(directory + "control/" + control_filename + '-queries.tsv', 'r')
     lines = control_file.readlines()
     i = 1
     rows = None
     while True:
-        qlever_clear_cache('http://getafix:7001')
         for line in lines:
             fields = line.rstrip().split('\t')
             if len(fields) < 2 or line.startswith("#"):
                 if args.verbose:
                     print(line)
+                continue
+            if index < skip:
+                index += 1
                 continue
             query_file_name = fields[0]
             description = fields[1]
@@ -357,18 +370,17 @@ def process_scholia_benchmark(directory, control_file):
                 if "QUERY" in alternatives:
                     parameter = alternatives["QUERY"]
                     del alternatives["QUERY"]
-                    with open(directory + '/' + parameter + '.tsv', 'r') as parameter_file:
+                    with open(directory + "control/" + control_filename + '-items.tsv', 'r') as parameter_file:
                         rows = [ row for row in csv.reader(parameter_file, delimiter="\t") ]
                     values = False
                 elif "VALUES" in alternatives:
                     parameter = alternatives["VALUES"]
                     del alternatives["VALUES"]
-                    rows = query_values(parameter, directory)
+                    rows = query_values(parameter, directory + "control/")
                     values = True
 ##                print("ROWS", rows)
             if rows is None or len(rows) <= i:
                 return
-##            print("QUERY", directory, query_file_name)
 
             if not values:
                 replace = unbox(rows[i][0])
@@ -379,13 +391,13 @@ def process_scholia_benchmark(directory, control_file):
                 replace = list(zip(rows[0].split('\t'), rows[i].split('\t')))
                 rdesc = description.replace(replace[0][0], replace[0][1])
 ##                print("REPLACE VALUES", replace)
-            process(directory, query_file_name, rdesc, replace=replace, index=index)
+            process(directory + "templates/", query_file_name, rdesc, replace=replace, index=index)
             index += 1
         i += 1
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("filename", nargs="?", default=None, help="Name of file containing queries")
+parser.add_argument("filename", nargs="?", default=None, help="Name of file containing queries, area for Scholia ")
 parser.add_argument("-D", "--description", action='store', default="", help="Description")
 parser.add_argument("-e", "--engine", action='append', type=str, choices=[engine[0] for engine in engines],
                     help="System to use (can be repeated)")
@@ -409,6 +421,11 @@ if args.directory:
 else:
     directory = ""
 
+if args.Scholia:
+    if True: #  args.filename is not None:
+        process_scholia_benchmark(directory, args.filename, skip=skip)
+    exit();
+
 if args.filename:
     filename = directory + args.filename
     control_file = None
@@ -419,9 +436,7 @@ else:
     except Exception:
         control_file = None
 
-if args.Scholia:
-    process_scholia_benchmark(directory, control_file)
-elif control_file is not None:
+if control_file is not None:
     if args.verbose: 
         print(f"Evaluating queries from {directory}")
         if args.description:

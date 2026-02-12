@@ -1,0 +1,34 @@
+#defaultView:Timeline
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?time ?item ?itemLabel ?image WHERE {
+  {
+    target: wdt:P580 | wdt:P585 ?time .
+    OPTIONAL {
+      target: wdt:P18 ?image .
+    }
+    BIND (wd:Q24575110 AS ?item)
+  }
+  UNION {
+    target: wdt:P582 ?time .
+    OPTIONAL {
+      target: wdt:P18 ?image .
+    }
+    BIND (wd:Q24575125 AS ?item)
+  }
+  UNION {
+    target: p:P793 [
+      ps:P793 ?item ;
+      pq:P585 ?time
+    ] .
+  }
+  BIND (IF(BOUND (?item), ?item, <http://doesntexist.example.com/nexistepas>) AS ?itemLabel__)
+  OPTIONAL { ?itemLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?itemLabel. FILTER(LANG(?itemLabel) = "en") }
+  OPTIONAL { ?itemLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?itemLabel. FILTER(LANG(?itemLabel) = "mul") }
+}

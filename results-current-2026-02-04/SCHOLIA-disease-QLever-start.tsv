@@ -1,0 +1,12 @@
+1	QLever		 608063	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?intervention	disease_clinical-trials Q1001150
+2	QLever		   1193	      	Count= 86 	200		disease_publications-per-year Q1001150
+3	QLever		   1629	      	Count= 0 	200		disease_related-diseases Q1001150
+4	QLever		 609311	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?intervention	disease_clinical-trials Q1016605
+5	QLever		    394	      	Count= 58 	200		disease_publications-per-year Q1016605
+6	QLever		    124	      	Count= 0 	200		disease_related-diseases Q1016605
+7	QLever		 605577	      	None 	429	ERROR: Operation timed out. Last operation: Sort (internal order) on ?intervention	disease_clinical-trials Q101896
+8	QLever		    406	      	Count= 100 	200		disease_publications-per-year Q101896
+9	QLever		    292	      	Count= 75 	200		disease_related-diseases Q101896
+10	QLever		 639603	      	None 	800		disease_clinical-trials Q1022718
+11	QLever		      3	      	None 	800		disease_publications-per-year Q1022718
+12	QLever		      2	      	None 	800		disease_related-diseases Q1022718

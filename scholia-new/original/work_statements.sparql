@@ -1,0 +1,32 @@
+#title: Statements referencing the {{ q }} article
+#defaultView:Table
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+
+SELECT ?item ?itemLabel ?property ?propertyLabel ?value ?valueLabel ?unit ?unitLabel
+WITH {
+  SELECT ?statement WHERE { 
+	  ?statement prov:wasDerivedFrom/pr:P248 target: .
+  }
+  LIMIT 2000
+} AS %statements 
+WITH {
+  SELECT distinct ?item ?property ?value ?unit
+  WHERE {
+    INCLUDE %statements
+    ?item ?p ?statement .
+    ?property wikibase:claim ?p . OPTIONAL { ?property wikibase:statementValueNormalized ?a1 }
+    ?statement ?a1 ?value1 ; ?a2 ?value2 . BIND (COALESCE(?value1, ?value2) AS ?value) BIND (COALESCE(?a1, ?a2) AS ?a)
+    FILTER (!STRSTARTS(LCASE(STR(?value)), "http://wikiba.se/ontology#"))
+    FILTER (!STRSTARTS(LCASE(STR(?value)), "http://www.wikidata.org/value/"))
+    FILTER (!STRSTARTS(LCASE(STR(?value)), "http://www.wikidata.org/reference/"))
+    OPTIONAL {?statement ?psv_statement_predicate ?psv_statement .
+    ?statement_predicate_property wikibase:statementValue ?psv_statement_predicate.
+    ?psv_statement wikibase:quantityUnit ?unit}
+  }
+} AS %result
+WHERE {
+  INCLUDE %result
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en" . } 
+} 
+ORDER BY DESC(?itemLabel)

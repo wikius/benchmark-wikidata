@@ -1,0 +1,33 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?researchers ?topic ?topicLabel (CONCAT("/topic/", SUBSTR(STR(?topic),32)) AS ?topicUrl) ("🔎" AS ?zoom)
+  (CONCAT("{{ q }}/topic/", SUBSTR(STR(?topic), 32)) AS ?zoomUrl)
+?topicDescription ?samplework ?sampleworkLabel (CONCAT("/work/", SUBSTR(STR(?samplework),32)) AS ?sampleworkUrl) WHERE {
+  {
+    SELECT DISTINCT ?topic (COUNT(DISTINCT ?researcher) AS ?researchers) (SAMPLE(?work) AS ?samplework) WHERE {
+      {
+        SELECT DISTINCT ?researcher WHERE {
+          ?researcher (wdt:P108 | wdt:P463 | wdt:P1416)/wdt:P361* target: .
+        }
+      }
+      ?work wdt:P50 ?researcher .
+      ?work wdt:P921 ?topic .
+    }
+    GROUP BY ?topic
+    ORDER BY DESC(?researchers)
+    LIMIT 500
+  }
+  BIND (IF(BOUND (?topic), ?topic, <http://doesntexist.example.com/nexistepas>) AS ?topicLabel__)
+  OPTIONAL { ?topicLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?topicLabel. FILTER(LANG(?topicLabel) = "en") }
+  OPTIONAL { ?topicLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?topicLabel. FILTER(LANG(?topicLabel) = "mul") }
+  BIND (IF(BOUND (?samplework), ?samplework, <http://doesntexist.example.com/nexistepas>) AS ?sampleworkLabel__)
+  OPTIONAL { ?sampleworkLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?sampleworkLabel. FILTER(LANG(?sampleworkLabel) = "en") }
+  OPTIONAL { ?sampleworkLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?sampleworkLabel. FILTER(LANG(?sampleworkLabel) = "mul") }
+  BIND (IF(BOUND (?topic), ?topic, <http://doesntexist.example.com/nexistepas>) AS ?topicDescription__)
+  OPTIONAL { ?topicDescription__ <http://schema.org/description> ?topicDescription. FILTER(LANG(?topicDescription) = "en") }
+  OPTIONAL { ?topicDescription__ <http://schema.org/description> ?topicDescription. FILTER(LANG(?topicDescription) = "mul") }
+}
+GROUP BY ?researchers ?topic ?topicLabel ?topicDescription ?samplework ?sampleworkLabel
+ORDER BY DESC(?researchers)

@@ -1,0 +1,30 @@
+
+#defaultView:Table
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?count ?short_name ?venue ?venueLabel (CONCAT("/venue/", SUBSTR(STR(?venue),32)) AS ?venueUrl) WHERE {
+  {
+    SELECT (COUNT(?work) AS ?count) ?venue (SAMPLE(?short_name_) AS ?short_name) WHERE {
+      {
+        ?work wdt:P921/wdt:P31*/wdt:P279* target: .
+      }
+      UNION {
+        ?work wdt:P921/wdt:P361+ target: .
+      }
+      UNION {
+        ?work wdt:P921/wdt:P1269+ target: .
+      }
+      ?work wdt:P1433/wdt:P179* ?venue .
+      OPTIONAL {
+        ?venue wdt:P1813 ?short_name_ .
+      }
+    }
+    GROUP BY ?venue
+  }
+
+  BIND (IF(BOUND (?venue), ?venue, <http://doesntexist.example.com/nexistepas>) AS ?venueLabel__)
+  OPTIONAL { ?venueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?venueLabel. FILTER(LANG(?venueLabel) = "en") }
+  OPTIONAL { ?venueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?venueLabel. FILTER(LANG(?venueLabel) = "mul") }
+}
+ORDER BY DESC(?count)
+LIMIT 200

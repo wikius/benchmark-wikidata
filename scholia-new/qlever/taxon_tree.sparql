@@ -1,0 +1,45 @@
+
+#defaultView:Graph
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT (?_child AS ?child) ?childLabel ?rgb (?_parent AS ?parent) ?parentLabel WHERE {
+  {
+    # Parent taxa
+    target: wdt:P171+ ?_child .
+    ?_child wdt:P171 ?_parent .
+    BIND ("FFFFFF" AS ?rgb)
+  } UNION {
+    # Child taxa
+    {SELECT ?_child ?_parent WHERE {
+      BIND (target: AS ?_parent) .
+      ?_child wdt:P171 ?_parent .
+    } LIMIT 100}
+    BIND ("DDDDDD" AS ?rgb)
+  } UNION {
+    BIND (target: AS ?_child) .
+    ?_child wdt:P171 ?_parent .
+    BIND ("FF0000" AS ?rgb)
+  }
+
+  OPTIONAL {
+    ?_child wdt:P105 ?_childRank .
+  BIND (IF(BOUND (?_childRank), ?_childRank, <http://doesntexist.example.com/nexistepas>) AS ?_childRankLabel__)
+  OPTIONAL { ?_childRankLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?_childRankLabel. FILTER(LANG(?_childRankLabel) = "en") }
+  OPTIONAL { ?_childRankLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?_childRankLabel. FILTER(LANG(?_childRankLabel) = "mul") }
+  }
+  OPTIONAL {
+    ?_parent wdt:P105 ?_parentRank .
+  BIND (IF(BOUND (?_parentRank), ?_parentRank, <http://doesntexist.example.com/nexistepas>) AS ?_parentRankLabel__)
+  OPTIONAL { ?_parentRankLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?_parentRankLabel. FILTER(LANG(?_parentRankLabel) = "en") }
+  OPTIONAL { ?_parentRankLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?_parentRankLabel. FILTER(LANG(?_parentRankLabel) = "mul") }
+  }
+  BIND (IF(BOUND (?_child), ?_child, <http://doesntexist.example.com/nexistepas>) AS ?_childLabel__)
+  OPTIONAL { ?_childLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?_childLabel. FILTER(LANG(?_childLabel) = "en") }
+  OPTIONAL { ?_childLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?_childLabel. FILTER(LANG(?_childLabel) = "mul") }
+  BIND (IF(BOUND (?_parent), ?_parent, <http://doesntexist.example.com/nexistepas>) AS ?_parentLabel__)
+  OPTIONAL { ?_parentLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?_parentLabel. FILTER(LANG(?_parentLabel) = "en") }
+  OPTIONAL { ?_parentLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?_parentLabel. FILTER(LANG(?_parentLabel) = "mul") }
+
+  BIND (CONCAT(?_childLabel, " - ", COALESCE(?_childRankLabel, "???")) AS ?childLabel)
+  BIND (CONCAT(?_parentLabel, " - ", COALESCE(?_parentRankLabel, "???")) AS ?parentLabel)
+}

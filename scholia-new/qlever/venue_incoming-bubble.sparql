@@ -1,0 +1,21 @@
+
+#defaultView:BubbleChart
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?intention ?intentionLabel (COUNT(DISTINCT ?citingArticle) AS ?count) WHERE {
+  ?citingArticle p:P2860 ?citationStatement .
+  ?citationStatement pq:P3712 ?intention ;
+                     ps:P2860 ?citedArticle .
+  ?citedArticle wdt:P1433 target: .
+  ?intention wdt:P31 wd:Q96471816 ;
+             wdt:P2888 ?cito .
+  BIND (IF(BOUND (?intention), ?intention, <http://doesntexist.example.com/nexistepas>) AS ?intentionLabel__)
+  OPTIONAL { ?intentionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?intentionLabel. FILTER(LANG(?intentionLabel) = "en") }
+  OPTIONAL { ?intentionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?intentionLabel. FILTER(LANG(?intentionLabel) = "mul") }
+}
+GROUP BY ?cito ?intention ?intentionLabel
+ORDER BY DESC(?count)

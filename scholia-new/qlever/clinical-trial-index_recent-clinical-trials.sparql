@@ -1,0 +1,22 @@
+# title: Clinical trials sorted according to date
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?start_date ?trial ?trialLabel WHERE {
+  {
+    SELECT * WHERE {
+      ?trial wdt:P31 wd:Q30612 .
+      ?trial wdt:P580 ?start_datetime .
+      # hint:Prior hint:rangeSafe true .
+    }
+    ORDER BY DESC(?start_datetime)
+    LIMIT 500
+  }
+  BIND (xsd:date(?start_datetime) AS ?start_date)
+  BIND (IF(BOUND (?trial), ?trial, <http://doesntexist.example.com/nexistepas>) AS ?trialLabel__)
+  OPTIONAL { ?trialLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?trialLabel. FILTER(LANG(?trialLabel) = "en") }
+  OPTIONAL { ?trialLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?trialLabel. FILTER(LANG(?trialLabel) = "mul") }
+}
+ORDER BY DESC(?start_datetime)

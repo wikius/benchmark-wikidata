@@ -1,0 +1,37 @@
+
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?count ?use ?useLabel (CONCAT("/use/", SUBSTR(STR(?use),32)) AS ?useUrl) ?described_by_example ?described_by_exampleLabel ?example_use ?example_useLabel WHERE {
+  {
+    {
+      SELECT (COUNT(DISTINCT ?work) AS ?count) ?use (SAMPLE(?work) AS ?example_use) (SAMPLE(?described_by) AS ?described_by_example) WHERE {
+        ?work wdt:P2283 | wdt:P4510 ?use .
+        ?use wdt:P31/wdt:P279* wd:Q7397 .
+        ?work wdt:P31/wdt:P279* wd:Q386724 .
+        ?use wdt:P1343 ?described_by .
+      }
+      GROUP BY ?use
+    }
+
+  BIND (IF(BOUND (?described_by_example), ?described_by_example, <http://doesntexist.example.com/nexistepas>) AS ?described_by_exampleLabel__)
+  OPTIONAL { ?described_by_exampleLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?described_by_exampleLabel. FILTER(LANG(?described_by_exampleLabel) = "en") }
+  OPTIONAL { ?described_by_exampleLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?described_by_exampleLabel. FILTER(LANG(?described_by_exampleLabel) = "mul") }
+  } UNION {
+    SELECT (COUNT(DISTINCT ?work) AS ?count) ?use (SAMPLE(?work) AS ?example_use) WHERE {
+      ?work wdt:P2283 | wdt:P4510 ?use .
+      ?use wdt:P31/wdt:P279* wd:Q7397 .
+      ?work wdt:P31/wdt:P279* wd:Q386724 .
+      FILTER NOT EXISTS { ?use wdt:P1343 ?described_by }
+    }
+    GROUP BY ?use
+  }
+
+  BIND (IF(BOUND (?use), ?use, <http://doesntexist.example.com/nexistepas>) AS ?useLabel__)
+  OPTIONAL { ?useLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?useLabel. FILTER(LANG(?useLabel) = "en") }
+  OPTIONAL { ?useLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?useLabel. FILTER(LANG(?useLabel) = "mul") }
+  BIND (IF(BOUND (?example_use), ?example_use, <http://doesntexist.example.com/nexistepas>) AS ?example_useLabel__)
+  OPTIONAL { ?example_useLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_useLabel. FILTER(LANG(?example_useLabel) = "en") }
+  OPTIONAL { ?example_useLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_useLabel. FILTER(LANG(?example_useLabel) = "mul") }
+}
+ORDER BY DESC(?count)
+LIMIT 500

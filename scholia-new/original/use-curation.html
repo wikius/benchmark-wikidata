@@ -1,0 +1,50 @@
+{% extends "q_curation.html" %}
+
+{% set aspect = "use-curation" %}
+
+{% block in_ready %}
+
+{{ sparql_to_table('missing-author-items') }}
+
+{{ sparql_to_table('missing-co-uses') }}
+
+{{ sparql_to_table('works-with-few-topics') }}
+
+
+
+{% endblock %}
+
+
+
+{% block curation_panels %}
+
+
+<h2 id="missing-author-items">Missing author items</h2>
+
+The authors listed below may only be represented as strings in Wikidata
+with no link to Wikidata items.
+Follow the link to use the Author disambiguator tool to try to resolve
+the authors.
+
+<table class="table table-hover" id="missing-author-items-table"></table>
+
+
+<h2 id="missing-co-uses">Missing-co-uses</h2>
+
+<table class="table table-hover" id="missing-co-uses-table"></table>
+
+
+<h2 id="works-with-few-topics">Works with few topics</h2>
+
+Works that use the resource, but are tagged with few (or no) topics,
+may indicate that the work is missing annotation for topics.
+
+<table class="table table-hover" id="works-with-few-topics-table"></table>
+
+
+
+
+<hr>
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+# title: Employees and affiliated with a specified organization
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT (SAMPLE(?number_of_works_) AS ?works) (SAMPLE(?wikis_) AS ?wikis) ?researcher ?researcherLabel ?researcherDescription (SAMPLE(?orcid_) AS ?orcid) WHERE {
+  {
+    SELECT (COUNT(?work) AS ?number_of_works_) ?researcher WHERE {
+      {
+        SELECT DISTINCT ?researcher WHERE {
+          ?researcher (wdt:P108 | wdt:P463 | wdt:P1416)/wdt:P361* target: .
+        }
+      }
+      # No biological pathways; they skew the statistics too much 
+      MINUS {
+        ?work wdt:P31 wd:Q4915012
+      }
+      # This OPTIONAL query should be after the MINUS query, otherwise
+      # researchers might not show if they do not have any papers.
+      OPTIONAL {
+        ?work wdt:P50 ?researcher .
+      }
+    }
+    GROUP BY ?researcher
+  }
+  OPTIONAL {
+    ?researcher wdt:P496 ?orcid_ .
+  }
+  OPTIONAL {
+    ?researcher wikibase:sitelinks ?wikis_
+  }
+  BIND (IF(BOUND (?researcher), ?researcher, <http://doesntexist.example.com/nexistepas>) AS ?researcherLabel__)
+  OPTIONAL { ?researcherLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?researcherLabel. FILTER(LANG(?researcherLabel) = "en") }
+  OPTIONAL { ?researcherLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?researcherLabel. FILTER(LANG(?researcherLabel) = "mul") }
+  BIND (IF(BOUND (?researcher), ?researcher, <http://doesntexist.example.com/nexistepas>) AS ?researcherDescription__)
+  OPTIONAL { ?researcherDescription__ <http://schema.org/description> ?researcherDescription. FILTER(LANG(?researcherDescription) = "en") }
+  OPTIONAL { ?researcherDescription__ <http://schema.org/description> ?researcherDescription. FILTER(LANG(?researcherDescription) = "mul") }
+}
+GROUP BY ?researcher ?researcherLabel ?researcherDescription
+ORDER BY DESC(?works)

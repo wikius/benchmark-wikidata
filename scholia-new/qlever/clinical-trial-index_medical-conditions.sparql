@@ -1,0 +1,22 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?medical_condition ?medical_conditionLabel (CONCAT("/disease/", SUBSTR(STR(?medical_condition),32)) AS ?medical_conditionUrl) ?example_trial ?example_trialLabel WHERE {
+  {
+    SELECT (COUNT(?trial) AS ?count) ?medical_condition (SAMPLE(?trial) AS ?example_trial) WHERE {
+      ?trial wdt:P31 wd:Q30612 .
+      ?trial wdt:P1050 ?medical_condition
+    }
+    GROUP BY ?medical_condition
+    ORDER BY DESC(?count)
+    LIMIT 500
+  }
+  BIND (IF(BOUND (?example_trial), ?example_trial, <http://doesntexist.example.com/nexistepas>) AS ?example_trialLabel__)
+  OPTIONAL { ?example_trialLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_trialLabel. FILTER(LANG(?example_trialLabel) = "en") }
+  OPTIONAL { ?example_trialLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_trialLabel. FILTER(LANG(?example_trialLabel) = "mul") }
+  BIND (IF(BOUND (?medical_condition), ?medical_condition, <http://doesntexist.example.com/nexistepas>) AS ?medical_conditionLabel__)
+  OPTIONAL { ?medical_conditionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?medical_conditionLabel. FILTER(LANG(?medical_conditionLabel) = "en") }
+  OPTIONAL { ?medical_conditionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?medical_conditionLabel. FILTER(LANG(?medical_conditionLabel) = "mul") }
+}
+ORDER BY DESC(?count)

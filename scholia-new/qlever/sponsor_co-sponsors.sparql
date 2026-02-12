@@ -1,0 +1,23 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+# title: Co-funders to a specific funder including an example funded work
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?sponsor ?sponsorLabel (CONCAT("/sponsor/", SUBSTR(STR(?sponsor),32)) AS ?sponsorUrl) ?example_work ?example_workLabel (CONCAT("/work/", SUBSTR(STR(?example_work),32)) AS ?example_workUrl) WHERE {
+  # Label the result
+  {
+    SELECT (COUNT(?work) AS ?count) ?sponsor (SAMPLE(?work) AS ?example_work) WHERE {
+      ?work wdt:P859+ target: .
+      ?work wdt:P859+ ?sponsor .
+      FILTER (target: != ?sponsor)
+    }
+    GROUP BY ?sponsor
+  }
+  BIND (IF(BOUND (?sponsor), ?sponsor, <http://doesntexist.example.com/nexistepas>) AS ?sponsorLabel__)
+  OPTIONAL { ?sponsorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?sponsorLabel. FILTER(LANG(?sponsorLabel) = "en") }
+  OPTIONAL { ?sponsorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?sponsorLabel. FILTER(LANG(?sponsorLabel) = "mul") }
+  BIND (IF(BOUND (?example_work), ?example_work, <http://doesntexist.example.com/nexistepas>) AS ?example_workLabel__)
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "en") }
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "mul") }
+}
+ORDER BY DESC(?count)

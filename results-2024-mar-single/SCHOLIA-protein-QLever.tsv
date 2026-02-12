@@ -1,25 +1,25 @@
-1	QLever		   1040	      	Count= 15 	200		protein_cofunctional-proteins Q101244282
-2	QLever		     17	      	Count= 0 	200		protein_cointeracting-proteins Q101244282
-3	QLever		    705	      	Count= 0 	200		protein_participates-in Q101244282
-4	QLever		    396	      	Count= 0 	200		protein_publications-per-year Q101244282
-5	QLever		   1168	      	Count= 500 	200		protein_similar-proteins Q101244282
-6	QLever		  44788	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.6 GB were available. Clear the cache or allow more memory for QLever during startup	protein_cofunctional-proteins Q1024612
-7	QLever		    328	      	Count= 0 	200		protein_cointeracting-proteins Q1024612
-8	QLever		    616	      	Count= 0 	200		protein_participates-in Q1024612
-9	QLever		    350	      	Count= 3 	200		protein_publications-per-year Q1024612
-10	QLever		  48606	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.5 GB were available. Clear the cache or allow more memory for QLever during startup	protein_similar-proteins Q1024612
-11	QLever		  36645	      	Count= 500 	200		protein_cofunctional-proteins Q1026649
-12	QLever		     15	      	Count= 0 	200		protein_cointeracting-proteins Q1026649
-13	QLever		    608	      	Count= 0 	200		protein_participates-in Q1026649
-14	QLever		    351	      	Count= 0 	200		protein_publications-per-year Q1026649
-15	QLever		  23651	      	Count= 500 	200		protein_similar-proteins Q1026649
-16	QLever		  45126	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.6 GB were available. Clear the cache or allow more memory for QLever during startup	protein_cofunctional-proteins Q1032902
-17	QLever		    324	      	Count= 0 	200		protein_cointeracting-proteins Q1032902
-18	QLever		    612	      	Count= 0 	200		protein_participates-in Q1032902
-19	QLever		    437	      	Count= 37 	200		protein_publications-per-year Q1032902
-20	QLever		  48545	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.5 GB were available. Clear the cache or allow more memory for QLever during startup	protein_similar-proteins Q1032902
-21	QLever		   1014	      	Result=1 	200		protein_cofunctional-proteins Q104586124
-22	QLever		     14	      	Count= 0 	200		protein_cointeracting-proteins Q104586124
-23	QLever		    610	      	Count= 0 	200		protein_participates-in Q104586124
-24	QLever		    351	      	Count= 0 	200		protein_publications-per-year Q104586124
-25	QLever		   1144	      	Count= 500 	200		protein_similar-proteins Q104586124
+1	QLever		   1036	      	Count= 15 	200		protein_cofunctional-proteins Q101244282
+2	QLever		  44800	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.5 GB were available. Clear the cache or allow more memory for QLever during startup	protein_cofunctional-proteins Q1024612
+3	QLever		  36617	      	Count= 500 	200		protein_cofunctional-proteins Q1026649
+4	QLever		  44655	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.5 GB were available. Clear the cache or allow more memory for QLever during startup	protein_cofunctional-proteins Q1032902
+5	QLever		    988	      	Result=1 	200		protein_cofunctional-proteins Q104586124
+6	QLever		     16	      	Count= 0 	200		protein_cointeracting-proteins Q101244282
+7	QLever		      8	      	Count= 0 	200		protein_cointeracting-proteins Q1024612
+8	QLever		      9	      	Count= 0 	200		protein_cointeracting-proteins Q1026649
+9	QLever		      8	      	Count= 0 	200		protein_cointeracting-proteins Q1032902
+10	QLever		      8	      	Count= 0 	200		protein_cointeracting-proteins Q104586124
+11	QLever		    702	      	Count= 0 	200		protein_participates-in Q101244282
+12	QLever		      6	      	Count= 0 	200		protein_participates-in Q1024612
+13	QLever		      4	      	Count= 0 	200		protein_participates-in Q1026649
+14	QLever		      4	      	Count= 0 	200		protein_participates-in Q1032902
+15	QLever		      4	      	Count= 0 	200		protein_participates-in Q104586124
+16	QLever		    393	      	Count= 0 	200		protein_publications-per-year Q101244282
+17	QLever		     45	      	Count= 3 	200		protein_publications-per-year Q1024612
+18	QLever		     39	      	Count= 0 	200		protein_publications-per-year Q1026649
+19	QLever		    117	      	Count= 37 	200		protein_publications-per-year Q1032902
+20	QLever		     40	      	Count= 0 	200		protein_publications-per-year Q104586124
+21	QLever		   1150	      	Count= 500 	200		protein_similar-proteins Q101244282
+22	QLever		  48136	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.4 GB were available. Clear the cache or allow more memory for QLever during startup	protein_similar-proteins Q1024612
+23	QLever		  24416	      	Count= 500 	200		protein_similar-proteins Q1026649
+24	QLever		  48538	      	None 	500	ERROR: Tried to allocate 26.2 GB, but only 22.4 GB were available. Clear the cache or allow more memory for QLever during startup	protein_similar-proteins Q1032902
+25	QLever		   1434	      	Count= 500 	200		protein_similar-proteins Q104586124

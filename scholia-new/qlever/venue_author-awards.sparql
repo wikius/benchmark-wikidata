@@ -1,0 +1,33 @@
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+# title: Author awards for a specific venue
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT DISTINCT ?year ?author ?authorLabel (CONCAT("/author/", SUBSTR(STR(?author), 32)) AS ?authorUrl) ?award ?awardLabel (CONCAT("/award/", SUBSTR(STR(?award), 32)) AS ?awardUrl) ?awardDescription WHERE {
+  [] wdt:P1433 target: ;
+     wdt:P50 ?author .
+  ?author p:P166 ?award_statement .
+  ?award_statement ps:P166 ?award .
+  OPTIONAL {
+    {
+      ?award_statement pq:P585 ?time
+    }
+    UNION {
+      ?award_statement pq:P580 ?time
+    }
+    BIND (YEAR(?time) AS ?year)
+  }
+  BIND (IF(BOUND (?author), ?author, <http://doesntexist.example.com/nexistepas>) AS ?authorLabel__)
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "en") }
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "mul") }
+  BIND (IF(BOUND (?award), ?award, <http://doesntexist.example.com/nexistepas>) AS ?awardLabel__)
+  OPTIONAL { ?awardLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?awardLabel. FILTER(LANG(?awardLabel) = "en") }
+  OPTIONAL { ?awardLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?awardLabel. FILTER(LANG(?awardLabel) = "mul") }
+  BIND (IF(BOUND (?award), ?award, <http://doesntexist.example.com/nexistepas>) AS ?awardDescription__)
+  OPTIONAL { ?awardDescription__ <http://schema.org/description> ?awardDescription. FILTER(LANG(?awardDescription) = "en") }
+  OPTIONAL { ?awardDescription__ <http://schema.org/description> ?awardDescription. FILTER(LANG(?awardDescription) = "mul") }
+}
+ORDER BY DESC(?year)
+LIMIT 500

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% set aspect = "index-statistics" %}
+{% block title %}Statistics - Scholia{% endblock %}
+
+{% block in_ready %}
+
+{{ sparql_to_table('statistics', options={"paging": false}) }}
+
+{% endblock %}
+
+{% block page_content %}
+
+<div class="container">
+
+    <h2 id="statistics">Statistics</h2>
+
+    Scholia uses Wikidata for all its data, which provides
+    <a href="https://www.wikidata.org/wiki/Wikidata:Statistics">more statistics</a>.
+    What is the size of the data corpus relevant to Scholia?
+
+    <table class="table table-hover" id="statistics-table"></table>
+    
+</div>    
+
+{% endblock %}
+
+  

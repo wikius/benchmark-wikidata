@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% set aspect = "gene" %}
+
+{% block in_ready %}
+
+{{ sparql_to_table('identifiers') }}
+{{ sparql_to_table('transcripts') }}
+{{ sparql_to_table('proteins') }}
+{{ sparql_to_table('orthologs') }}
+{{ sparql_to_table('variants') }}
+
+{% endblock %}
+
+
+{% block page_content %}
+<h1 id="h1">Gene</h1>
+<script type="application/ld+json" id="bioschemas"></script>
+
+<div id="intro"></div>
+
+<h2 id="identifiers">Identifiers</h2>
+
+<table class="table table-hover" id="identifiers-table"></table>
+
+<h2 id="transcripts">Transcripts</h2>
+
+Transcripts encoded by this gene.
+
+<table class="table table-hover" id="transcripts-table"></table>
+
+<h2 id="proteins">Proteins</h2>
+
+Proteins encoded by this gene.
+
+<table class="table table-hover" id="proteins-table"></table>
+
+<h2 id="orthologs">Orthologs</h2>
+
+Orthologs encoded by this gene.
+
+<table class="table table-hover" id="orthologs-table"></table>
+
+<h2 id="variants">Variants</h2>
+
+Variants encoded by this gene.
+
+<table class="table table-hover" id="variants-table"></table>
+
+{% endblock %}

@@ -1,0 +1,108 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX cc: <http://creativecommons.org/ns#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX pqn: <http://www.wikidata.org/prop/qualifier/value-normalized/>
+PREFIX pqv: <http://www.wikidata.org/prop/qualifier/value/>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX prn: <http://www.wikidata.org/prop/reference/value-normalized/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX prv: <http://www.wikidata.org/prop/reference/value/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX psn: <http://www.wikidata.org/prop/statement/value-normalized/>
+PREFIX psv: <http://www.wikidata.org/prop/statement/value/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdata: <http://www.wikidata.org/wiki/Special:EntityData/>
+PREFIX wdno: <http://www.wikidata.org/prop/novalue/>
+PREFIX wdref: <http://www.wikidata.org/reference/>
+PREFIX wds: <http://www.wikidata.org/entity/statement/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wdtn: <http://www.wikidata.org/prop/direct-normalized/>
+PREFIX wdv: <http://www.wikidata.org/value/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+#defaultView:Graph
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+
+SELECT
+  ?citing_work ?citing_workLabel ?rgb 
+  ?cited_work ?cited_workLabel
+WHERE {
+  { 
+  SELECT (COUNT(*) AS ?count) ?citing_work WHERE {
+    target: (^wdt:P2860 | wdt:P2860) / (^wdt:P2860 | wdt:P2860)? ?citing_work .
+  }
+  GROUP BY ?citing_work
+  ORDER BY DESC(?count)
+  LIMIT 40
+} {
+  SELECT (MAX(?count) AS ?max_count) WHERE {
+    { 
+  SELECT (COUNT(*) AS ?count) ?citing_work WHERE {
+    target: (^wdt:P2860 | wdt:P2860) / (^wdt:P2860 | wdt:P2860)? ?citing_work .
+  }
+  GROUP BY ?citing_work
+  ORDER BY DESC(?count)
+  LIMIT 40
+}   BIND(1 AS ?dummy)
+  } 
+  GROUP BY ?dummy
+} { 
+  SELECT (COUNT(*) AS ?count_) ?cited_work WHERE {
+    target: (^wdt:P2860 | wdt:P2860) / (^wdt:P2860 | wdt:P2860)? ?cited_work .
+  }
+  GROUP BY ?cited_work
+  ORDER BY DESC(?count_)
+  LIMIT 40
+} 
+  ?citing_work wdt:P2860 ?cited_work .
+  
+  BIND(STR(xsd:integer(99 * (1 - ?count / ?max_count))) AS ?grey)
+  BIND(CONCAT(SUBSTR("0", 1, 2 - STRLEN(?grey)), ?grey) AS ?padded_grey)
+  BIND(CONCAT(?padded_grey, ?padded_grey, ?padded_grey) AS ?rgb)
+
+  { 
+      ?citing_work (p:P50) ?citing_author_statement . 
+      ?citing_author_statement pq:P1545 "1" .
+      ?citing_author_statement ps:P50 ?citing_author .
+      ?citing_author rdfs:label ?citing_author_name .
+      filter(lang(?citing_author_name) = 'en')
+    }
+    union 
+  	{ 
+      ?citing_work (p:P2093) ?citing_author_statement . 
+      ?citing_author_statement pq:P1545 "1" .
+      ?citing_author_statement ps:P2093 ?citing_author_name .
+    }
+  
+    { 
+      ?cited_work (p:P50) ?cited_author_statement . 
+      ?cited_author_statement pq:P1545 "1" .
+      ?cited_author_statement ps:P50 ?cited_author .
+      ?cited_author rdfs:label ?cited_author_name .
+      filter(lang(?cited_author_name) = 'en')
+    }
+    union 
+  	{ 
+      ?cited_work (p:P2093) ?cited_author_statement . 
+      ?cited_author_statement pq:P1545 "1" .
+      ?cited_author_statement ps:P2093 ?cited_author_name .
+    }
+
+    ?citing_work wdt:P577 ?citing_date . 
+    ?cited_work wdt:P577 ?cited_date . 
+    bind(year(?citing_date) as ?citing_year)
+    bind(year(?cited_date) as ?cited_year)
+    bind(concat(?citing_author_name, ", ", str(?citing_year)) as ?citing_workLabel)
+    bind(concat(?cited_author_name, ", ", str(?cited_year)) as ?cited_workLabel)
+}
+ORDER BY DESC(?count)

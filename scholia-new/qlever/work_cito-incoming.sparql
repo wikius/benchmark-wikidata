@@ -1,0 +1,25 @@
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?intention ?intentionLabel (CONCAT("/cito/", SUBSTR(STR(?intention),32)) AS ?intentionUrl) ?count ?example_work_for_intention ?example_work_for_intentionLabel WHERE {
+  {
+    SELECT ?intention (COUNT(DISTINCT ?citingArticle) AS ?count) (SAMPLE(?citingArticle) AS ?example_work_for_intention) {
+      ?citingArticle p:P2860 ?citationStatement .
+      ?citationStatement pq:P3712 ?intention ;
+                         ps:P2860 target: .
+      ?intention wdt:P31 wd:Q96471816 .
+    }
+    GROUP BY ?intention
+  }
+  BIND (IF(BOUND (?intention), ?intention, <http://doesntexist.example.com/nexistepas>) AS ?intentionLabel__)
+  OPTIONAL { ?intentionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?intentionLabel. FILTER(LANG(?intentionLabel) = "en") }
+  OPTIONAL { ?intentionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?intentionLabel. FILTER(LANG(?intentionLabel) = "mul") }
+  BIND (IF(BOUND (?example_work_for_intention), ?example_work_for_intention, <http://doesntexist.example.com/nexistepas>) AS ?example_work_for_intentionLabel__)
+  OPTIONAL { ?example_work_for_intentionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_work_for_intentionLabel. FILTER(LANG(?example_work_for_intentionLabel) = "en") }
+  OPTIONAL { ?example_work_for_intentionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_work_for_intentionLabel. FILTER(LANG(?example_work_for_intentionLabel) = "mul") }
+}
+ORDER BY DESC(?count)

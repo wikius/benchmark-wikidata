@@ -1,0 +1,1025 @@
+{% extends "bootstrap-base.html" %}
+
+{% macro sparql_to_table_post(panel, options={}) -%}
+// {{ panel }} table
+sparqlToDataTablePost2("{{ sparql_endpoint }}", "{{ sparql_editURL }}",
+`# tool: scholia
+{% include aspect + '_' + panel + '.sparql' %}
+`,
+"#{{ panel }}-table", "{{ aspect }}_{{ panel }}.sparql",
+options={{ options | tojson }});
+{%- endmacro %}
+
+{% macro sparql_to_table(panel, options={}) -%}
+// {{ panel }} table
+sparqlToDataTable2("{{ sparql_endpoint }}", "{{ sparql_editURL }}",
+`# tool: scholia
+{% include aspect + '_' + panel + '.sparql' %}
+`,
+"#{{ panel }}-table", "{{ aspect }}_{{ panel }}.sparql",
+options={{ options | tojson }});
+{%- endmacro %}
+
+{% macro sparql_to_iframe(panel) -%}
+// {{ panel }} iframe
+sparqlToIframe2("{{ sparql_endpoint }}", "{{ sparql_editURL }}",
+"{{ sparql_embedURL }}", `# tool: scholia
+{% include aspect + '_' + panel + '.sparql' %}`,
+"#{{ panel }}-iframe", "{{ aspect }}_{{ panel }}.sparql");
+{%- endmacro %}
+
+{% macro sparql_to_matrix(panel) -%}
+// {{ panel }} matrix
+sparqlToMatrix(`# tool: scholia
+{% include aspect + '_' + panel + '.sparql' %}`,
+"#{{ panel }}", "{{ aspect }}_{{ panel }}.sparql");
+{%- endmacro %}
+
+{% macro sparql_to_pathway_viewer(panel) -%}
+// {{ panel }} optional viewer
+sparqlToPathWayPageViewer(`# tool: scholia
+{% include aspect + '_' + panel + '.sparql' %}`,
+"{{ aspect }}_{{ panel }}.sparql" );
+{%- endmacro %}
+
+{% macro sparql_to_404shortinchikey(panel) -%}
+// {{ panel }} short_inchikey
+sparqlToShortInchiKey(`# tool: scholia
+{% include aspect + '_' + panel + '.sparql' %}`,
+"{{inchikey}}",
+"#{{ panel }}-table", "{{ aspect }}_{{ panel }}.sparql" );
+{%- endmacro %}
+
+{% macro ask_query_callback(panel) -%}
+// {{ panel }} ask query
+askQuery("{{ panel }}", `# tool: scholia
+{% include 'ask_' + aspect + '_' + panel + '.sparql' %}`, 
+() => {
+    {{ caller() }};
+});
+{%- endmacro %}
+
+{% block metas %}
+<meta charset="UTF-8">
+<meta name="robots" content="index, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="og:url" content="{{ 'https://scholia.toolforge.org' + request.path }}" />
+<meta name="og:site_name" content="Scholia" />
+<meta name="og:image" content="{{ url_for('static', filename='images/scholia_social_media.png') }}" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@WDScholia" />
+{% endblock metas %}
+
+
+{% block head %}
+{{super()}}
+
+<link rel="canonical" href="{{ 'https://scholia.toolforge.org' + request.path }}">
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='jquery.dataTables.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/scholia.css') }}">
+<link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/nightmode.css') }}">
+{% include "favicon.html" %}
+
+{% endblock %}
+
+{% block title %}Scholia{% endblock %}
+
+{% block scripts %}
+{{super()}}
+
+<script type="text/javascript" src="{{ url_for('static', filename='d3.v5.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='d3-scale-chromatic.v1.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='jquery.dataTables.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='scholia.js') }}"></script>
+
+<script type="text/javascript" src="{{ url_for('static', filename='bootstrap-autocomplete.min.js')}}"></script>
+
+<script type="text/javascript">
+    {% if q %}
+    var url = 'https://www.wikidata.org/w/api.php?action=wbgetentities&ids=' +
+	       '{{ q }}' + 
+	       '&format=json&callback=?';
+    
+    const currentAspect = window.location.pathname.split("/")[1];
+     
+    $.getJSON(url, function (data) {
+	 var item = data.entities["{{ q }}"];
+	 if ('en' in item.labels) {
+	     var title = item.labels.en.value;
+	     var wdtitle = item.labels.en.value;
+	     $("#h1").text(title);
+	     $(".self").text(title);
+       $("title").text(title + " - Scholia");
+
+       var crossref_button = document.getElementById("check-crossref-button");
+       if (title && crossref_button) {
+        crossref_button.onclick = () => {get_dois_from_crossref(wdtitle)}
+        crossref_button.innerHTML = "Check Crossref"
+       }
+
+	     {% if request.path.endswith("curation") or request.path.endswith("curation/") %}
+	     $("#h1").text("Improve " + currentAspect + ": " + title);
+
+	     var linkedToFrom = "<p>A good starting point for improving content related to " + $('<div>').text(title).html() + " is to review recent changes to <ul><li><a href='https://www.wikidata.org/w/index.php?hidecategorization=1&target={{ q }}&showlinkedto=1&limit=500&days=7&enhanced=1&title=Special:RecentChangesLinked&urlversion=2' >";
+	     linkedToFrom += "pages that <b>link to</b> " + $('<div>').text(title).html() + "</a></li>";
+	     linkedToFrom += "<li><a href='https://www.wikidata.org/w/index.php?hidecategorization=1&target={{ q }}&showlinkedto=0&limit=500&days=7&enhanced=1&title=Special:RecentChangesLinked&urlversion=2' >";
+	     linkedToFrom += "pages that <em>are linked from</em> " + $('<div>').text(title).html() + "</a></li>";
+	     linkedToFrom += "<li><a href='https://wikidata-todo.toolforge.org/sparql_rc.php?sparql=%23+Up+to+100+entities+linked+to+a+random+set+of+101+entities+linked+to+the+target+item%0D%0APREFIX+target%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fentity%2F{{ q }}%3E%0D%0ASELECT+DISTINCT+%3Fq+WHERE+%7B%0D%0ASERVICE+bd%3Asample+%7B+++%3Fs+%3Fp1+target%3A+.+bd%3AserviceParam+bd%3Asample.limit+101+%7D+++%0D%0A++%3Fq+%3Fp2+%3Fs+.+%0D%0A++FILTER+%28REGEX%28LCASE%28STR%28IRI%28%3Fq%29%29%29%2C+%22http%3A%2F%2Fwww.wikidata.org%22%29%29%0D%0A++FILTER+%28%21REGEX%28LCASE%28STR%28IRI%28%3Fq%29%29%29%2C+%22%28qualifier%7Cstatement%7Creference%29%22%29%29%0D%0A%7D%0D%0ALIMIT+100&start=90+days+ago&end=&user_lang=&sort_mode=last_edit&no_bots=0&skip_unchanged=0'>";
+	     linkedToFrom += "entities <b>linked to</b> entities that <b>link to</b> " + $('<div>').text(title).html() + "</a></li>";
+	     linkedToFrom += "<li><a href='https://wikidata-todo.toolforge.org/sparql_rc.php?sparql=%23+Up+to+100+entities+linked+from+a+random+set+of+101+entities+linked+to+the+target+item%0D%0APREFIX+target%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fentity%2F{{ q }}%3E%0D%0ASELECT+DISTINCT+%3Fq+WHERE+%7B%0D%0ASERVICE+bd%3Asample+%7B+++%3Fs+%3Fp1+target%3A+.+bd%3AserviceParam+bd%3Asample.limit+101+%7D+++%0D%0A++%3Fs+%3Fp2+%3Fq+.+%0D%0A++FILTER+%28REGEX%28LCASE%28STR%28IRI%28%3Fq%29%29%29%2C+%22http%3A%2F%2Fwww.wikidata.org%22%29%29%0D%0A++FILTER+%28%21REGEX%28LCASE%28STR%28IRI%28%3Fq%29%29%29%2C+%22%28qualifier%7Cstatement%7Creference%29%22%29%29%0D%0A%7D%0D%0ALIMIT+100&start=90+days+ago&end=&user_lang=&sort_mode=last_edit&no_bots=0&skip_unchanged=0'>";
+	     linkedToFrom += "entities <em>linked from</em> entities that <b>link to</b> " + $('<div>').text(title).html() + "</a></li>";
+	     linkedToFrom += "<li><a href='https://wikidata-todo.toolforge.org/sparql_rc.php?sparql=%23+Up+to+100+entities+linked+to+a+random+set+of+101+entities+linked+from+the+target+item%0D%0APREFIX+target%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fentity%2F{{ q }}%3E%0D%0ASELECT+DISTINCT+%0D%0A%3Fq+%0D%0AWHERE+%7B%0D%0ASERVICE+bd%3Asample+%7B+++target%3A+%3Fp1+%3Fs+.+bd%3AserviceParam+bd%3Asample.limit+101+%7D+++%0D%0A++FILTER+%28REGEX%28STR%28IRI%28%3Fs%29%29%2C+%22http%3A%2F%2Fwww.wikidata.org%2F%22%29%29%0D%0A++%3Fq+%3Fp2+%3Fs+.+%0D%0A++FILTER+%28REGEX%28STR%28IRI%28%3Fq%29%29%2C+%22http%3A%2F%2Fwww.wikidata.org%2F%22%29%29%0D%0A++FILTER+%28%21REGEX%28STR%28IRI%28%3Fp2%29%29%2C+%22%28qualifier%7Cstatement%7Creference%29%22%29%29+%0D%0A++FILTER+%28%21REGEX%28STR%28IRI%28%3Fq%29%29%2C+%22%28qualifier%7Cstatement%7Creference%29%22%29%29%0D%0A%7D%0D%0ALIMIT+100&start=90+days+ago&end=&user_lang=&sort_mode=last_edit&no_bots=0&skip_unchanged=0'>";
+	     linkedToFrom += "entities <b>linked to</b> entities that <em>are linked from</em> " + $('<div>').text(title).html() + "</a></li>";
+	     linkedToFrom += "<li><a href='https://wikidata-todo.toolforge.org/sparql_rc.php?sparql=%23+Up+to+100+entities+linked+from+a+random+set+of+101+entities+linked+from+the+target+item%0D%0APREFIX+target%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fentity%2F{{ q }}%3E%0D%0ASELECT+DISTINCT+%0D%0A%3Fq+%0D%0AWHERE+%7B%0D%0ASERVICE+bd%3Asample+%7B+++target%3A+%3Fp1+%3Fs+.+bd%3AserviceParam+bd%3Asample.limit+101+%7D+++%0D%0A++FILTER+%28REGEX%28STR%28IRI%28%3Fs%29%29%2C+%22http%3A%2F%2Fwww.wikidata.org%2F%22%29%29%0D%0A++%3Fs+%3Fp2+%3Fq+.+%0D%0A++FILTER+%28REGEX%28STR%28IRI%28%3Fq%29%29%2C+%22http%3A%2F%2Fwww.wikidata.org%2F%22%29%29%0D%0A++FILTER+%28%21REGEX%28STR%28IRI%28%3Fp2%29%29%2C+%22%28qualifier%7Cstatement%7Creference%29%22%29%29+%0D%0A++FILTER+%28%21REGEX%28STR%28IRI%28%3Fq%29%29%2C+%22%28qualifier%7Cstatement%7Creference%29%22%29%29%0D%0A%7D%0D%0ALIMIT+100&start=90+days+ago&end=&user_lang=&sort_mode=last_edit&no_bots=0&skip_unchanged=0'>";
+	     linkedToFrom += "entities <em>linked from</em> entities that <em>are linked from</em> " + $('<div>').text(title).html() + "</a>.</li></ul></p>";
+
+	     $(linkedToFrom).insertAfter('h1:first');
+
+	     {% endif %}
+	 }
+	 $("#h1").append(' (<a href="https://www.wikidata.org/wiki/{{ q }}">{{ q }}</a>)');
+
+    {% if q2 %}
+
+    var url2 = 'https://www.wikidata.org/w/api.php?action=wbgetentities&ids=' +
+               '{{ q2 }}' +
+               '&format=json&callback=?';
+    $.getJSON(url2, function (data) {
+         var item = data.entities["{{ q2 }}"];
+         if ('en' in item.labels) {
+             $("#h1").append(' - '+item.labels.en.value);
+         }
+         $("#h1").append(' (<a href="https://www.wikidata.org/wiki/{{ q2 }}">{{ q2 }}</a>)');
+    });
+    {% endif %}
+
+	if ("P18" in item.claims) {
+        // Find P18 claim which is not deprecated
+        const p18Claim = item.claims.P18.find(function (claim) {
+            return claim.rank !== "deprecated";
+        });
+
+        if (undefined !== p18Claim) {
+            var imageName = p18Claim.mainsnak.datavalue.value;
+            // spaces must be replaced by underscores in the file name
+            imageName = imageName.replaceAll(" ", "_")
+            var imageNameMd5 = md5(imageName);
+            var imageURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/"
+            imageURL += imageNameMd5[0] + "/" + imageNameMd5.slice(0,2) + "/"
+            var filetype = imageName.match(/\.(\w+)$/);
+            var extension = filetype[1].toLowerCase()
+            if (extension === "tif" || extension === "tiff") {
+              imageURL += encodeURIComponent(imageName) + "/lossy-page1-500px-" + encodeURIComponent(imageName) + ".jpg";
+            } else if (extension === "svg") {
+              imageURL += encodeURIComponent(imageName) + "/500px-" + encodeURIComponent(imageName) + ".png";
+            } else {
+              imageURL += encodeURIComponent(imageName) + "/500px-" + encodeURIComponent(imageName);
+            }
+            var itemImage = document.getElementById("item-image");
+            if (itemImage) {
+              itemImage.src = imageURL;
+              itemImage.title = imageName.slice(0, imageName.lastIndexOf('.'));
+              itemImage.setAttribute('alt', imageName);
+
+              var link = document.createElement('a');
+              link.href = "https://commons.wikimedia.org/wiki/File:" + encodeURIComponent(imageName);
+              link.style = "max-width: 50%"
+              var parent = itemImage.parentNode;
+              parent.replaceChild(link, itemImage);
+              link.appendChild(itemImage);
+            }
+        }
+	}
+
+	if ("P10286" in item.claims) {
+	    var imageURL = item.claims.P10286[0].mainsnak.datavalue.value;
+	    var itemImage = document.getElementById("item-image");
+	    if (itemImage) {
+            itemImage.src = imageURL;
+        }
+    }
+
+	function socialMediaLink(detailsList, user, site, logo = '') {
+	     var html = '';
+	     if (logo) {
+	        html += '<a href="' + site.url + '"><img alt="' + site.name + ' logo" src="';
+	        html += logo.src + '" width="16" height="16" hspace="4" /></a> ';
+	     }
+	     html += '<a href="' + site.url + encodeURI(user.name) + '">';
+	     html += user.prefix + escapeHTML(user.name) + '</a>';
+	     detailsList.push(html);
+	 }
+
+	 function sortRank(a, b) {
+	  const aRank = a["rank"];
+	  const bRank = b["rank"];
+	  if (aRank == bRank) {
+	    return 0;
+	  }
+	  if (aRank == "preferred" || bRank == "deprecated") {
+	    return -1;
+	  }
+	  if (bRank == "preferred" || aRank == "deprecated") {
+	    return 1;
+	  }
+    return 0;
+	}
+
+	 var detailsList = Array();
+	 if ("P496" in item.claims) {
+	     var user = {name: item.claims.P496[0].mainsnak.datavalue.value, prefix: 'https://orcid.org/'};
+		   var site = {name: "ORCID", url: "https://orcid.org/"};
+		   var logo = {src: "{{ url_for('static', filename='images/orcid.svg') }}"};
+		   socialMediaLink(detailsList, user, site, logo);
+	 }
+
+	 if ("P4033" in item.claims) {
+	      var mastodonAccount = item.claims.P4033[0].mainsnak.datavalue.value;
+	      var mastodonComponents = mastodonAccount.split("@");
+	      if (mastodonComponents.length == 2) {
+	        // Mastodon user URLs start with @
+	        var user = { name: '@' + mastodonComponents[0], prefix: '' };
+	        var site = { name: "Mastodon", url: 'https://' + mastodonComponents[1] + '/' };
+	        var logo = { src: "{{ url_for('static', filename='images/mastodon.svg') }}" };
+	        socialMediaLink(detailsList, user, site, logo);
+	     }
+	 }
+
+	 if ("P2037" in item.claims) {
+	     var user = {name: item.claims.P2037[0].mainsnak.datavalue.value, prefix: "@"};
+	     var site = { name: "GitHub", url: "https://github.com/" };
+	     var logo = { src: "{{ url_for('static', filename='images/github.svg') }}" };
+	     socialMediaLink(detailsList, user, site, logo);
+	 }
+
+	 if ("P6782" in item.claims) {
+	     var user = { name: item.claims.P6782[0].mainsnak.datavalue.value, prefix: 'https://ror.org/' };
+	     var site = { name: "Research Organization Registry", url: 'https://ror.org/' };
+	     var logo = { src: "{{ url_for('static', filename='images/ror.svg') }}" };
+	     socialMediaLink(detailsList, user, site, logo);
+	 }
+
+	 if ("P2572" in item.claims) {
+	     var user = { name: item.claims.P2572[0].mainsnak.datavalue.value, prefix: '#' };
+	     var site = { name: "Hashtag hub", url: 'https://hashtags-hub.toolforge.org/' };
+	     socialMediaLink(detailsList, user, site);
+	 }
+
+	 /* Official homepage */
+	 if ("P856" in item.claims) {
+	     var homepage = item.claims.P856.sort(sortRank)[0]
+       var homepageURL = homepage.mainsnak.datavalue.value
+	     detailsList.push('&nbsp;<a href="' + homepageURL + '">' + homepageURL + '</a>');
+	 }
+
+	 if (detailsList.length > 0) {
+	     $('#details').append(detailsList.join(" | "));
+	 }
+
+	 try {
+	     var doi = item.claims.P356[0].mainsnak.datavalue.value;
+	     $("head").append( '<meta name="citation_doi" content="' + doi + '"/>' );
+	 }
+	 catch(e) {}
+	 
+	 /* BioSchemas annotation */
+	 if (item.claims.P31 &&
+	     ((item.claims.P31[0].mainsnak.datavalue.value.id == 'Q5'))) {
+	   try { /* Person */
+	       bioschemasAnnotation = {
+	          "@context" : "https://schema.org",
+	          "@type" : "Person" ,
+	          "http://purl.org/dc/terms/conformsTo": { "@type": "CreativeWork", "@id": "https://bioschemas.org/profiles/Person/0.2-DRAFT-2019_07_19/" },
+	          "description" : "A person" ,
+	          "identifier" : "{{ q }}" ,
+	          "mainEntityOfPage" : "http://www.wikidata.org/entity/{{ q }}"
+	       }
+	       if ('en' in item.labels) {
+	         bioschemasAnnotation.name = item.labels.en.value;
+	       }
+	       $( '#bioschemas' ).append( JSON.stringify(bioschemasAnnotation) );
+	    } catch(e) {}
+	 } else if (item.claims.P31 &&
+	     ((item.claims.P31[0].mainsnak.datavalue.value.id == 'Q47461491') ||
+	      (item.claims.P31[0].mainsnak.datavalue.value.id == 'Q967847'))) {
+	   try { /* ChemicalSubstance */
+	       bioschemasAnnotation = {
+	          "@context" : "https://schema.org",
+	          "@type" : "ChemicalSubstance" ,
+	          "http://purl.org/dc/terms/conformsTo": { "@type": "CreativeWork", "@id": "https://bioschemas.org/profiles/ChemicalSubstance/0.4-RELEASE/" },
+	          "identifier" : "{{ q }}" ,
+	          "url" : "http://www.wikidata.org/entity/{{ q }}"
+	       }
+	       if ('en' in item.labels) {
+	         bioschemasAnnotation.name = item.labels.en.value;
+	       }
+	       $( '#bioschemas' ).append( JSON.stringify(bioschemasAnnotation) );
+	    } catch(e) {}
+	 } else if (item.claims.P225) {
+             try { /* Taxon */
+		 var taxonName = item.claims.P225[0].mainsnak.datavalue.value;
+		 bioschemasAnnotation = {
+	             "@context" : "https://schema.org",
+	             "@type" : "Taxon" ,
+	             "http://purl.org/dc/terms/conformsTo": { "@type": "CreativeWork", "@id": "https://bioschemas.org/profiles/Taxon/0.6-RELEASE/" },
+	             "name" : taxonName ,
+	             "url" : "http://www.wikidata.org/entity/{{ q }}"
+		 }
+		 if (item.claims.P105) {
+	             var taxonRank = item.claims.P105[0].mainsnak.datavalue.value.id;
+	             bioschemasAnnotation.taxonRank = "http://www.wikidata.org/entity/" + taxonRank ;
+		 }
+		 if (item.claims.P171) {
+	             var parent = item.claims.P171[0].mainsnak.datavalue.value.id;
+	             bioschemasAnnotation.parentTaxon = "http://www.wikidata.org/entity/" + parent ;
+		 }
+		 $( '#bioschemas' ).append( JSON.stringify(bioschemasAnnotation) );
+		 // console.log(JSON.stringify(bioschemasAnnotation, "", 2))
+	     } catch(e) {}
+	 } else if (item.claims.P235) {
+	     try { /* Chemical Compound */
+		 var inchiKey = item.claims.P235[0].mainsnak.datavalue.value;
+		 bioschemasAnnotation = {
+	             "@context" : "https://schema.org",
+	             "@type" : "MolecularEntity" ,
+	             "http://purl.org/dc/terms/conformsTo": { "@type": "CreativeWork", "@id": "https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE/" },
+	             "identifier" : "{{ q }}" ,
+	             "inChIKey" : inchiKey ,
+	             "url" : "http://www.wikidata.org/entity/{{ q }}"
+		 }
+		 if ('en' in item.labels) {
+	         bioschemasAnnotation.name = item.labels.en.value;
+         }
+		 if (item.claims.P234 && item.claims.P234[0].mainsnak.datavalue) {
+	             var inchi = item.claims.P234[0].mainsnak.datavalue.value;
+	             bioschemasAnnotation.inChI = inchi ;
+		 }
+		 if (item.claims.P274 && item.claims.P274[0].mainsnak.datavalue) {
+	             var chemformula = item.claims.P274[0].mainsnak.datavalue.value;
+	             bioschemasAnnotation.molecularFormula = chemformula ;
+		 }
+		 if (item.claims.P2017 && item.claims.P2017[0].mainsnak.datavalue) {
+	             var smiles = item.claims.P2017[0].mainsnak.datavalue.value;
+	             bioschemasAnnotation.molecularFormula = smiles.replace("\"", "\'\'") ;
+		 } else if (item.claims.P233 && item.claims.P233[0].mainsnak.datavalue) {
+	             var smiles = item.claims.P233[0].mainsnak.datavalue.value;
+	             bioschemasAnnotation.smiles = smiles.replace("\"", "\'\'") ;
+		 }
+		 $( '#bioschemas' ).append( JSON.stringify(bioschemasAnnotation) );
+	     } catch(e) { console.error("Exception: " + e)
+	     }
+	 } else if (item.claims.P352) { // UniProt ID
+	     try { /* Protein */
+		 var uniprot = item.claims.P352[0].mainsnak.datavalue.value;
+		 bioschemasAnnotation = {
+	             "@context" : "https://schema.org",
+	             "@type" : "Protein" ,
+	             "http://purl.org/dc/terms/conformsTo": { "@type": "CreativeWork", "@id": "https://bioschemas.org/profiles/Protein/0.11-RELEASE/" },
+	             "identifier" : "{{ q }}" ,
+	             "url" : "http://www.wikidata.org/entity/{{ q }}" ,
+	             "sameAs": "https://www.uniprot.org/uniprot/" + uniprot
+		 }
+		 if ('en' in item.labels) {
+	       bioschemasAnnotation.name = item.labels.en.value;
+         }
+		 $( '#bioschemas' ).append( JSON.stringify(bioschemasAnnotation) );
+	     } catch(e) { console.error("Exception: " + e)
+	     }
+	 } else if (item.claims.P351 || item.claims.P594) { // NCBI Gene or Ensembl
+	     try { /* Gene */
+		 bioschemasAnnotation = {
+	             "@context" : "https://schema.org",
+	             "@type" : "Gene" ,
+	             "http://purl.org/dc/terms/conformsTo": { "@type": "CreativeWork", "@id": "https://bioschemas.org/profiles/Gene/0.7-RELEASE/" },
+	             "identifier" : "{{ q }}" ,
+	             "url" : "http://www.wikidata.org/entity/{{ q }}"
+		 }
+		 if ('en' in item.labels) {
+	       bioschemasAnnotation.name = item.labels.en.value;
+         }
+		 counter = 0
+		 bioschemasAnnotation.sameAs = []
+		 if (item.claims.P351 && item.claims.P351[0].mainsnak.datavalue) {
+	             var ncbi = item.claims.P351[0].mainsnak.datavalue.value;
+	             bioschemasAnnotation.sameAs[counter] = "https://www.ncbi.nlm.nih.gov/gene/" + ncbi;
+	             counter++
+		 }
+		 if (item.claims.P594 && item.claims.P594[0].mainsnak.datavalue) {
+	             var ensembl = item.claims.P594[0].mainsnak.datavalue.value;
+	             bioschemasAnnotation.sameAs[counter] = "http://identifiers.org/ensembl/" + ensembl;
+		 }
+		 $( '#bioschemas' ).append( JSON.stringify(bioschemasAnnotation) );
+	     } catch(e) { console.error("Exception: " + e)
+	     }
+	 }
+	 
+	 /* English Wikipedia */
+	 if ('enwiki' in item.sitelinks) {
+	     var title = item.sitelinks.enwiki.title;
+	     var wikipediaApiUrl = 'https://en.wikipedia.org/api/rest_v1/page/summary/' +
+				   encodeURIComponent(title);
+	     var wikipediaUrl = 'https://en.wikipedia.org/wiki/' + encodeURIComponent(title)
+
+	     var headers = new Headers({"Api-User-Agent": "https://github.com/WDscholia/scholia"});
+
+	     fetch(wikipediaApiUrl, {method: 'GET', headers: headers})
+	     .then(response => response.json())
+	     .then(data => {
+	       var html = " (<a href=\"" + wikipediaUrl + "\">Read more on English Wikipedia</a>)";
+		 $("#intro").text(data.extract).append(html);
+	     }).catch(error => {
+		 var html = "<a href=\"" + wikipediaUrl + "\">View on English Wikipedia</a>";
+         $("#intro").append(html);
+		 console.error('Could not get summary from enwiki: ', error);
+	     });
+	 }
+
+	 
+	 /* English Wikiversity */
+	 if ('enwikiversity' in item.sitelinks) {
+	     var enwikiversityTitle = item.sitelinks.enwikiversity.title;
+	     var wikiversityApiUrl = 'https://en.wikiversity.org/w/api.php?' +
+				     'action=query&prop=extracts&exsentences=3&exlimit=1&exintro=1&' + 
+				     'explaintext=1&callback=?&format=json&titles=' +
+				     encodeURIComponent(enwikiversityTitle);
+	     var wikiversityUrl = 'https://en.wikiversity.org/wiki/' + encodeURIComponent(enwikiversityTitle)
+
+	     $.getJSON(wikiversityApiUrl, function(data) {
+		 var pages = data.query.pages;
+		 var text = pages[Object.keys(pages)[0]].extract; 
+		 if (text) {
+		     var html = "... (from the <a href=\"" + wikiversityUrl + "\">English Wikiversity</a>)";
+		 }
+		 else {
+		     var html = "Read on the <a href=\"" + wikiversityUrl + "\">English Wikiversity</a>";
+		 }
+		 $("#wikiversity-extract").text(text).append(html);
+	     }).fail(function(d, textStatus, error) {
+		 var html = "Read on the <a href=\"" + wikiversityUrl + "\">English Wikiversity</a>";
+		 $("#wikiversity-extract").append(html);
+		 console.error("getJSON failed, status: " + textStatus + ", error: "+error)
+	     });
+	 }
+
+     });
+
+    var curationElement = document.getElementById("curation-link");
+
+    {% if request.path.endswith("curation") or request.path.endswith("curation/") %}
+      curationElement.innerText = "Back"
+      curationElement.href = "/" + currentAspect + "/{{ q }}";
+    {% else %}
+      curationElement.href = "/" + currentAspect + "/{{ q }}/curation";
+    {% endif %}
+    curationElement.classList.remove("d-none");
+
+     // this query opens the Wikidata item as a different aspect
+     var endpointUrl = '{{ sparql_endpoint }}';
+    if ("{{q2}}".length) {
+        var query = `
+    SELECT DISTINCT ?aspect 
+    WHERE {
+    { [] wdt:P17 wd:{{ q }} . BIND("country" AS ?aspect) }
+    UNION
+    { wd:{{ q }} wdt:P159? / wdt:P625 [] . BIND("location" AS ?aspect) } 
+    UNION 
+    { [] wdt:P1416 | wdt:P108 wd:{{ q }} . BIND("organization" AS ?aspect) }
+    }
+    `;
+    } else {
+     var query = `
+    SELECT DISTINCT ?aspect 
+    WHERE {
+    { [] wdt:P50 wd:{{ q }} . BIND("author" AS ?aspect) }
+    UNION 
+    { [] wdt:P166 wd:{{ q }} . BIND("award" AS ?aspect) }
+    UNION
+    { wd:{{ q }} wdt:P31 / wdt:P279?  wd:Q22325163 . BIND("complex" AS ?aspect) }
+    UNION 
+    { [] wdt:P17 wd:{{ q }} . BIND("country" AS ?aspect) }
+    UNION
+    { [] wdt:P972 wd:{{ q }} . BIND("catalogue" AS ?aspect) }
+    UNION
+    { wd:{{ q }} wdt:P235 [] . BIND("chemical" AS ?aspect) }
+    UNION
+    { wd:{{ q }} ^wdt:P31/wdt:P235 [] . BIND("chemical-class" AS ?aspect) }
+    UNION
+    { wd:{{ q }} wdt:P644 [] . BIND("gene" AS ?aspect) }
+    UNION
+    { wd:{{ q }} wdt:P159? / wdt:P625 [] . BIND("location" AS ?aspect) } 
+    UNION 
+    { [] wdt:P1416 | wdt:P108 wd:{{ q }} . BIND("organization" AS ?aspect) }
+    UNION
+    { wd:{{ q }} wdt:P31 wd:Q2996394 . BIND("pathway" AS ?aspect) }
+    UNION
+    { wd:{{ q }} wdt:P31 wd:Q4915012 . BIND("pathway" AS ?aspect) }
+    UNION 
+    { [] wdt:P872 wd:{{ q }} . BIND("printer" AS ?aspect) }
+    UNION
+    { wd:{{ q }} wdt:P31 wd:Q8054 . BIND("protein" AS ?aspect) }
+    UNION
+    { [] wdt:P123 wd:{{ q }} . BIND("publisher" AS ?aspect) }
+    UNION 
+    { [] wdt:P179 wd:{{ q }} . BIND("series" AS ?aspect) }
+    UNION 
+    { wd:{{ q }} wdt:P31 / wdt:P279* wd:Q7397 . BIND("software" AS ?aspect) }
+    UNION 
+    { [] wdt:P859 wd:{{ q }} . BIND("sponsor" AS ?aspect) }
+    UNION
+    { wd:{{ q }} wdt:P225 [] . BIND("taxon" AS ?aspect) }
+    UNION
+    { [] wdt:P921 wd:{{ q }} . BIND("topic" AS ?aspect) }
+    UNION
+    { [] wdt:P4510 wd:{{ q }} . BIND("use" AS ?aspect) } 
+    UNION
+    { [] wdt:P1433 wd:{{ q }} . BIND("venue" AS ?aspect) } 
+    UNION
+    { wd:{{ q }} wdt:P50 | wdt:P2093 [] . BIND("work" AS ?aspect) }
+    }
+    `;
+  }
+     settings = {
+	 headers: { Accept: 'application/sparql-results+json' },
+	 data: { query: query }
+     };
+     
+      $.ajax(endpointUrl, settings).then(function (data) {
+        createDropdownButton("aspect-chooser", 'aspectMenuButton', currentAspect, data, "{{q}}")
+
+        if (data.results.bindings.length > 1) {
+          addDropdownList("aspect-chooser", 'aspectMenuList', currentAspect, data)
+        }
+      }).then(function () {
+        if ("{{q2}}".length) {
+          var endpointUrl = '{{ sparql_endpoint }}';
+          var query = "SELECT DISTINCT ?aspect WHERE {"
+          query += '{ [] wdt:P921 wd:{{ q }} . BIND("topic" AS ?aspect) }    }';
+
+          settings = {
+            headers: { Accept: 'application/sparql-results+json' },
+            data: { query: query }
+          };
+
+          $.ajax(endpointUrl, settings).then(function (data) {
+            var aspectLabel = " / <a href='/" + currentAspect + "/{{q}}'>{{q}}</a> / "   
+            document.getElementById("aspect-chooser-label").innerHTML = aspectLabel;
+
+            var currentSubAspect = window.location.pathname.split("/")[3];
+            document.querySelectorAll("#aspectMenuList a").forEach((link) => link.href += "/" + currentSubAspect + "/{{q2}}")
+
+            createDropdownButton("aspect-chooser", 'aspectMenuButton', currentSubAspect, data, "{{q2}}")
+
+            if (data.results.bindings.length > 1) {
+              addDropdownList("aspect-chooser", 'aspectMenuList', currentSubAspect, data)
+            }
+          }).fail(function (jqXHR, textStatus, errorThrown) {
+            console.error("Subaspect chooser failed to generate. " + textStatus + " " + errorThrown)
+          });
+        }
+      }).fail(function (jqXHR, textStatus, errorThrown) {
+        console.error("Aspect chooser failed to generate. " + textStatus + " " + errorThrown)
+      });
+
+      function createDropdownButton(parent, id, currentAspect, data, q) {        
+        var aspectDropdown = document.createElement('button');
+        aspectDropdown.type = 'button';
+        aspectDropdown.id = id;
+        aspectDropdown.classList = 'btn btn-outline-secondary';
+
+        // only show aspects which have a curation page with author-disambig or wikidata links
+        var validCurationPages = ["author", "award", "organization", "topic", "venue"]
+        {% if request.path.endswith("curation") or request.path.endswith("curation/") %}
+          data.results.bindings = data.results.bindings.filter(elem => {
+            return validCurationPages.indexOf(elem.aspect.value) != -1
+          })
+        {% endif %}
+
+        if (data.results.bindings.length > 1) {
+          aspectDropdown.classList.add('dropdown-toggle');
+          aspectDropdown.setAttribute('data-toggle', 'dropdown');
+          aspectDropdown.setAttribute('aria-haspopup', 'true');
+          aspectDropdown.setAttribute('aria-expanded', 'false');
+        }
+        aspectDropdown.innerText = currentAspect;
+        document.getElementById(parent).append(aspectDropdown);
+
+        aspectDropdown.insertAdjacentHTML("afterend",
+          '<span id="aspect-chooser-label" style="color: #6C757D; vertical-align: middle;margin: 2px;"> / '+ q + '</span>')
+      }
+
+      function addDropdownList(parent, id, currentAspect, data) {        
+        var aspectDropdownMenu = document.createElement('div');
+        aspectDropdownMenu.classList = 'dropdown-menu';
+        aspectDropdownMenu.setAttribute('aria-labelledby', 'aspectMenuButton');
+        aspectDropdownMenu.id = id
+
+        data.results.bindings.forEach(function (entry) {
+          var aspect = entry.aspect.value;
+          if (aspect != currentAspect) {
+            var dropdownItem = document.createElement('a');
+            dropdownItem.classList = 'dropdown-item';
+            dropdownItem.href = "{{ url_for('app.index') }}" + aspect + '/{{ q }}';
+            {% if request.path.endswith("curation") or request.path.endswith("curation/") %}
+              dropdownItem.href += "/curation"
+            {% endif %}
+            dropdownItem.innerText = aspect;
+            aspectDropdownMenu.append(dropdownItem);
+          }
+        });
+
+        document.getElementById(parent).append(aspectDropdownMenu);
+      }
+
+
+     /* Wembedder */
+     var wembedderUrl = "https://wembedder.toolforge.org/api/most-similar/{{ q }}";
+     $.ajax({
+	 url: wembedderUrl,
+	 success: function (data) {
+	     var html = `<hr>` + 
+		 `<span data-toogle="tooltip" ` +
+		 `title="Related items from Wembedder knowledge graph embedding.">` +
+		 `<a alt="Wembedder about page" ` +
+		 `href="https://wembedder.toolforge.org/about">Related</a>:</span> `; 
+	     $( '#wembedder' ).append(html);
+
+	     // Make list with results
+	     data.most_similar.forEach(function(entry, idx, array) {
+		 var listed_q = entry.item;
+		 var language = 'en';
+
+		 if (idx !== 0) {
+		     $( '#wembedder' ).append( ' &middot; ');
+		 }
+
+		 var html = '<a href="../' + listed_q + '"><span id="wembedder-result-' + listed_q + '">' + listed_q + '</span></a> '
+		 $( '#wembedder' ).append( html );
+
+		 // Convert Q identifier to labels
+                 $.getJSON("https://www.wikidata.org/w/api.php?callback=?", {
+                     action: "wbgetentities",
+                     ids: listed_q,
+                     language: language,
+                     uselang: language,
+                     format: "json",
+                     strictlanguage: true,
+                 }, function (data) {
+                     if (listed_q in data.entities) {
+                         label = entityToLabel(data.entities[listed_q],
+                                               language=language);
+                         $('#wembedder-result-' + listed_q).empty();
+                         $('#wembedder-result-' + listed_q).text(label);
+                     }
+		 });
+	     });
+	     $( '#wembedder' ).append( '<hr>' );
+	 },
+	 error: function (jqXHR, textStatus, errorThrown) {
+         console.error("Wembedder failed. " + textStatus + " " + errorThrown)
+	 },
+     });
+  {% endif %}
+
+  {% if p %} 
+  var url = 'https://www.wikidata.org/w/api.php?action=wbgetentities&ids=' +
+      '{{ p }}' +
+      '&format=json&callback=?';
+    $.getJSON(url, function (data) {
+      var item = data.entities["{{ p }}"];
+      if ('en' in item.labels) {
+        $("h1").text("Property: " + item.labels.en.value);
+      }
+      if ('en' in item.descriptions) {
+        $("#intro").text(item.descriptions.en.value);
+      }
+      $("h1").append(' (<a href="https://www.wikidata.org/wiki/Property:{{ p }}">{{ p }}</a>)');
+    })
+  {% endif %}
+
+  $(document).ready(function () {
+    $('#searchterm').autoComplete({
+      minLength: 2,
+      resolver: 'custom',
+      events: {
+        search: debounce((searchTerm, callback) => {
+          var url = "https://www.wikidata.org/w/api.php?callback=?";
+          var settings = {
+            dataType: 'jsonp',
+            data: {
+              search: searchTerm,
+              action: "wbsearchentities",
+              language: "en",
+              uselang: "en",
+              format: "json",
+              strictlanguage: true
+            }
+          };
+
+          $.ajax(url, settings).then(function (data) {
+            if (data.search.length) {
+              let results = ['Show all results for "' + searchTerm + '"']
+              for (let item of data.search) {
+                results.push(item.label + " - " + item.description + " (" + item.title + ")");
+              }
+              callback(results)
+            } else {
+              callback([])
+            }
+          }).fail(function (jqXHR, textStatus, errorThrown) {
+            callback(["Search failed"])
+            console.error("Search failed. " + textStatus + " " + errorThrown)
+          });
+        }, 200)
+      }
+    });
+
+    $("#searchterm").on("autocomplete.select", (event, item) => { handleSearch(item) });
+
+    $("#searchterm").on("keydown", function (event) {
+      switch (event.key) {
+        case "Enter":
+          handleSearch(this.value);
+          break;
+        default:
+      }
+    });
+
+    $("#searchbutton").on("click", () => { handleSearch(document.getElementById("searchterm").value) })
+
+    function handleSearch(item) {
+      // headerSearch and authorIndexAutocomplete reference where the two formats come from
+      let headerSearch =  item.match(/ \((Q\d+)\)$/);
+      if (headerSearch) {
+        window.location.href = "/" + headerSearch[1];
+      } else {
+        let authorIndexAutocomplete = item.match(/\/\w+\/Q\d+$/);
+        if (authorIndexAutocomplete) {
+          window.location.href = item;
+        } else {
+          let search_text = item.match(/Show all results for "(.+)"$/)
+          if (search_text) {
+            window.location.href = "/search?q=" + search_text[1];
+          } else {
+            window.location.href = "/search?q=" + item;
+          }
+        }
+      }
+    }
+
+    function debounce(callback, wait) {
+      let timeout;
+      return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(function () {
+          callback.apply(this, args);
+        }, wait);
+      };
+    }
+
+     // Add table of content
+  var headings = document.querySelectorAll("h2,h3");
+  if (headings.length >= 3) {
+    var tocParent = document.createElement("div");
+    tocParent.className = "table-of-contents"
+
+    var toc = document.createElement("div");
+
+    tocTitle = document.createElement("b");
+    tocTitle.innerText = "Table of Contents"
+    toc.appendChild(tocTitle)
+
+    var tocList = document.createElement("ul");
+    var sublist = "";
+    for (let i = 0; i < headings.length; i++) {
+      const element = headings[i];
+      if (!element.id) {
+        element.id = element.innerText.replaceAll(" ", "-");
+      }
+      if (element.tagName === "H3" && !sublist) {
+        var sublist = document.createElement("ul");
+      }
+      tocListItem = document.createElement("li");
+
+      tocEntry = document.createElement("a");
+      tocEntry.setAttribute("href", "#" + element.id);
+      tocEntry.innerText = headings[i].innerText;
+
+      tocListItem.appendChild(tocEntry);
+
+      if (element.tagName === "H3") {
+        sublist.appendChild(tocListItem);
+        if (i == headings.length - 1) {
+          tocList.appendChild(sublist);
+        }
+      } else {
+        if (sublist) {
+          tocList.appendChild(sublist);
+          sublist = "";
+        }
+        tocList.appendChild(tocListItem);
+      }
+    }
+
+    toc.appendChild(tocList)
+
+    var itemImage = document.createElement("img");
+    itemImage.id = "item-image";
+    itemImage.alt = "";
+    itemImage.href = "";
+    itemImage.onclick = function () {
+            window.location.href = itemImage.href;
+    };	  
+
+    tocParent.appendChild(toc);
+    tocParent.appendChild(itemImage);
+    document.querySelector("h2").insertAdjacentElement("beforebegin", tocParent)
+    
+    itemImage.height = toc.clientHeight
+  }
+
+    // Add anchor links to all headings
+    var headers = document.querySelectorAll('h2[id], h3[id]')
+    if (headers) {
+      headers.forEach(element => {
+        var title = element.innerText;
+        element.removeChild(element.childNodes[0])
+        element.insertAdjacentHTML('afterbegin', `<a href="#${element.id}" class="hlink"  ariaLabel="Anchor">${title}</a>`)
+      })
+    }
+
+     {% block in_ready %}{% endblock %}
+ });
+
+</script>
+
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg" style="max-width: 1200px;">
+  <a class="navbar-brand" href="{{ url_for('app.index') }}"><img
+      src="{{ url_for('static', filename='images/scholia_wordmark.svg') }}" width="112px" height="24px"
+      alt="Scholia"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+	<li class="nav-item"><a class="nav-link" href="{{ url_for('app.show_author_index') }}">Author</a></li>
+	<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="workDropdown" role="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      Work
+    </a>
+    <div class="dropdown-menu" aria-labelledby="workDropdown">
+      <a class="dropdown-item" href="{{ url_for('app.show_work_index') }}">Work</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_venue_index') }}">Venue</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_series_index') }}">Series</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_catalogue_index') }}">Catalogue</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_publisher_index') }}">Publisher</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_printer_index') }}">Printer</a>
+    </div>
+	</li>
+	<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="organisationDropdown" role="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      Organization
+    </a>
+    <div class="dropdown-menu" aria-labelledby="organisationDropdown">
+      <a class="dropdown-item" href="{{ url_for('app.show_organization_index') }}">Organization</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_publisher_index') }}">Publisher</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_printer_index') }}">Printer</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_sponsor_index') }}">Sponsor</a>
+    </div>
+	</li>
+	<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="locationDropdown" role="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      Location
+    </a>
+    <div class="dropdown-menu" aria-labelledby="locationDropdown">
+      <a class="dropdown-item" href="{{ url_for('app.show_location_index') }}">Location</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_country_index') }}">Country</a>
+    </div>
+	</li>
+	<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="eventDropdown" role="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      Event
+    </a>
+    <div class="dropdown-menu" aria-labelledby="eventDropdown">
+      <a class="dropdown-item" href="{{ url_for('app.show_event_index') }}">Event</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_event_series_index') }}">Event series</a>
+    </div>
+	</li>
+	<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="projectDropdown" role="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      Project
+    </a>
+    <div class="dropdown-menu" aria-labelledby="projectDropdown">
+      <a class="dropdown-item" href="{{ url_for('app.show_clinical_trial_index') }}">Clinical trial</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_project_index') }}">Project</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_wikiproject_index') }}">WikiProject</a>
+    </div>
+
+	</li>
+	<li class="nav-item"><a class="nav-link" href="{{ url_for('app.show_award_index') }}">Award</a></li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="topicDropdown" role="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      Topic
+    </a>
+    <div class="dropdown-menu" aria-labelledby="projectDropdown">
+      <a class="dropdown-item" href="{{ url_for('app.show_topic_index') }}">General</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_disease_index') }}">Disease</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_taxon_index') }}">Taxon</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_gene_index') }}">Gene</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_protein_index') }}">Protein</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_pathway_index') }}">Pathway</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_chemical_index') }}">Chemical</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_chemical_element_index') }}">Chemical element</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_chemical_class_index') }}">Chemical class</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_lexeme_index') }}">Lexeme</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_ontology_index') }}">Ontology</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_software_index') }}">Software</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_use_index') }}">Use</a>
+    </div>
+  </li>
+	<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="toolsDropdown" role="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      Tools
+    </a>
+    <div class="dropdown-menu" aria-labelledby="toolsDropdown">
+      <a class="dropdown-item" href="{{ url_for('app.show_id_to_quickstatements') }}">Identifier to Quickstatements</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_q_to_bibliography_templates') }}">Q to Bibliography templates</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_text_to_topics') }}">Text to topics</a>
+    </div>
+	</li>
+	<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="helpDropdown" role="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      Help
+    </a>
+    <div class="dropdown-menu" aria-labelledby="helpDropdown">
+      <a class="dropdown-item" href="{{ url_for('app.show_about') }}">About</a>
+      <a class="dropdown-item" href="{{ url_for('app.index_statistics') }}">Statistics</a>
+      <a class="dropdown-item" href="{{ url_for('app.show_faq') }}">FAQ</a>
+    </div>
+	</li>
+    
+    </ul>
+    {% block nav_search %}
+    <div class='nav nav-search'>
+        <input class="form-control" type="text" id="searchterm" placeholder="Search..."/>
+    </div>
+    {% endblock %}
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="content">
+<div class="container d-flex justify-content-between">
+    <div class="dropdown" id="aspect-chooser">
+    </div>
+    <div>
+      {% block page_actions %}
+      <a id='curation-link' role="button" class="btn btn-outline-secondary d-none">Improve data</a>
+      {% endblock %}
+    </div>
+</div>
+<div class="container">
+    {% block page_content %}{% endblock %}
+</div>
+</div>
+<div class="container footer">
+    <hr>
+    Data from <a href="https://www.wikidata.org">Wikidata</a> and
+    <a href="https://en.wikipedia.org">English Wikipedia</a>
+    |
+    Code from
+    <a href="https://github.com/WDscholia/scholia">GitHub repository</a>
+    |
+    Hosted on   <a href="https://toolforge.org/">Wikimedia Toolforge</a>,
+    a <a href="https://wikimediafoundation.org">Wikimedia Foundation</a> service
+    |
+    License for content: CC0 for data, CC-BY-SA for text and media
+    |
+    Report technical problems at Scholia's
+    <a href="https://github.com/WDscholia/scholia/issues">Issues</a> GitHub page.
+    |
+    Follow us on <a href="https://wikis.world/@wdscholia">Mastodon</a>.
+    <hr>
+  </div>
+{% endblock %}
+
+<script type="text/javascript">
+    
+</script>

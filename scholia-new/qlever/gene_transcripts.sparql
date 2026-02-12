@@ -1,0 +1,25 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?transcript_ID ?reference ?referenceLabel ?referenceDescription WHERE {
+  {
+    SELECT ?transcript_ID ?reference WHERE {
+      target: wdt:P31 wd:Q7187 ;
+              p:P704 ?transcriptid_statement .
+      ?transcriptid_statement ps:P704 ?transcript_ID ;
+                              prov:wasDerivedFrom/pr:P248 ?reference .
+    }
+  }
+  BIND (IF(BOUND (?reference), ?reference, <http://doesntexist.example.com/nexistepas>) AS ?referenceLabel__)
+  OPTIONAL { ?referenceLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?referenceLabel. FILTER(LANG(?referenceLabel) = "en") }
+  OPTIONAL { ?referenceLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?referenceLabel. FILTER(LANG(?referenceLabel) = "mul") }
+  BIND (IF(BOUND (?reference), ?reference, <http://doesntexist.example.com/nexistepas>) AS ?referenceDescription__)
+  OPTIONAL { ?referenceDescription__ <http://schema.org/description> ?referenceDescription. FILTER(LANG(?referenceDescription) = "en") }
+  OPTIONAL { ?referenceDescription__ <http://schema.org/description> ?referenceDescription. FILTER(LANG(?referenceDescription) = "mul") }
+}

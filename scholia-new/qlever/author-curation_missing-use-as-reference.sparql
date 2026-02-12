@@ -1,0 +1,32 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?citations ?work ?workLabel (CONCAT("/work/", SUBSTR(STR(?work),32)) AS ?workUrl) WHERE {
+  {
+    SELECT (COUNT(?work1) AS ?citations) ?work WHERE {
+      {
+        SELECT ?work (COUNT(DISTINCT ?statement) AS ?count) WHERE {
+          ?work wdt:P50 target: .
+          OPTIONAL {
+            ?statement prov:wasDerivedFrom/pr:P248 ?work .
+          }
+        }
+        GROUP BY ?work
+      }
+      FILTER (?count = 0)
+      # Works cited
+      OPTIONAL {
+        ?work1 wdt:P2860 ?work
+      } .
+    }
+    GROUP BY ?work
+  }
+  BIND (IF(BOUND (?work), ?work, <http://doesntexist.example.com/nexistepas>) AS ?workLabel__)
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "en") }
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "mul") }
+}
+ORDER BY DESC(?citations)
+LIMIT 200

@@ -1,0 +1,55 @@
+1	Blazegraph		     48	      	Count= 3 	200		award_coawards Q100328361
+2	Blazegraph		     34	      	Result=2 	200		award_gender-distribution Q100328361
+3	Blazegraph		     33	      	Result=2020 	200		award_images-of-recipients Q100328361
+4	Blazegraph		     44	      	Count= 2 	200		award_list-of-recipients Q100328361
+5	Blazegraph		     43	      	Count= 15 	200		award_locations-of-recipients Q100328361
+6	Blazegraph		     46	      	Count= 15 	200		award_recent-publications-by-recipients Q100328361
+7	Blazegraph		     47	      	Count= 11 	200		award_topics-of-works-by-recipients Q100328361
+8	Blazegraph		  29937	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=86362bcf-f29e-4bb7-b604-115177e91059,bopId=82,partitionId=-1,sinkId=84,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[],outputDistinctJVs=false,size=30990336,considered(left=0,right=0,joins=0)}	award-curation_missing-author-items Q100328361
+9	Blazegraph		     61	      	Count= 13 	200		award-curation_missing-coauthor-items Q100328361
+10	Blazegraph		     54	      	Count= 7 	200		award-curation_missing-topics Q100328361
+11	Blazegraph		    333	      	Count= 1908 	200		award-index_statistics Q100328361
+12	Blazegraph		     25	      	Count= 3 	200		award_coawards Q100328630
+13	Blazegraph		     33	      	Result=2 	200		award_gender-distribution Q100328630
+14	Blazegraph		     33	      	Result=2008 	200		award_images-of-recipients Q100328630
+15	Blazegraph		     41	      	Count= 2 	200		award_list-of-recipients Q100328630
+16	Blazegraph		     41	      	Count= 15 	200		award_locations-of-recipients Q100328630
+17	Blazegraph		     40	      	Count= 15 	200		award_recent-publications-by-recipients Q100328630
+18	Blazegraph		     16	      	Count= 11 	200		award_topics-of-works-by-recipients Q100328630
+19	Blazegraph		  29857	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=1c19859a-ee72-4aae-8b6f-11cbf5725ad8,bopId=82,partitionId=-1,sinkId=84,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[],outputDistinctJVs=false,size=31001600,considered(left=0,right=0,joins=0)}	award-curation_missing-author-items Q100328630
+20	Blazegraph		     46	      	Count= 13 	200		award-curation_missing-coauthor-items Q100328630
+21	Blazegraph		     51	      	Count= 7 	200		award-curation_missing-topics Q100328630
+22	Blazegraph		    303	      	Count= 1908 	200		award-index_statistics Q100328630
+23	Blazegraph		     44	      	Count= 22 	200		award_coawards Q1003293
+24	Blazegraph		     46	      	Result=8 	200		award_gender-distribution Q1003293
+25	Blazegraph		     48	      	Count= 6 	200		award_images-of-recipients Q1003293
+26	Blazegraph		     44	      	Count= 8 	200		award_list-of-recipients Q1003293
+27	Blazegraph		     75	      	Count= 62 	200		award_locations-of-recipients Q1003293
+28	Blazegraph		   1349	      	Count= 0 	200		award_recent-publications-by-recipients Q1003293
+29	Blazegraph		     59	      	Count= 0 	200		award_topics-of-works-by-recipients Q1003293
+30	Blazegraph		  30414	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=2bb9cd46-1f42-4335-af1c-8c5d485a6eed,bopId=82,partitionId=-1,sinkId=84,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[],outputDistinctJVs=false,size=30972928,considered(left=0,right=0,joins=0)}	award-curation_missing-author-items Q1003293
+31	Blazegraph		     48	      	Count= 0 	200		award-curation_missing-coauthor-items Q1003293
+32	Blazegraph		     50	      	Count= 0 	200		award-curation_missing-topics Q1003293
+33	Blazegraph		    438	      	Count= 1908 	200		award-index_statistics Q1003293
+34	Blazegraph		     64	      	Count= 75 	200		award_coawards Q1004305
+35	Blazegraph		     47	      	Count= 2 	200		award_gender-distribution Q1004305
+36	Blazegraph		    211	      	Count= 21 	200		award_images-of-recipients Q1004305
+37	Blazegraph		     66	      	Count= 39 	200		award_list-of-recipients Q1004305
+38	Blazegraph		    318	      	Count= 255 	200		award_locations-of-recipients Q1004305
+39	Blazegraph		    233	      	Count= 500 	200		award_recent-publications-by-recipients Q1004305
+40	Blazegraph		    216	      	Count= 50 	200		award_topics-of-works-by-recipients Q1004305
+41	Blazegraph		  29650	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=27beace1-62f0-47f9-9138-658311dc71b6,bopId=82,partitionId=-1,sinkId=84,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[],outputDistinctJVs=false,size=30996480,considered(left=0,right=0,joins=0)}	award-curation_missing-author-items Q1004305
+42	Blazegraph		     66	      	Count= 419 	200		award-curation_missing-coauthor-items Q1004305
+43	Blazegraph		     33	      	Count= 200 	200		award-curation_missing-topics Q1004305
+44	Blazegraph		    316	      	Count= 1908 	200		award-index_statistics Q1004305
+45	Blazegraph		     46	      	Result=1 	200		award_coawards Q101001039
+46	Blazegraph		     47	      	Count= 2 	200		award_gender-distribution Q101001039
+47	Blazegraph		     36	      	Count= 0 	200		award_images-of-recipients Q101001039
+48	Blazegraph		     36	      	Count= 2 	200		award_list-of-recipients Q101001039
+49	Blazegraph		     35	      	Count= 6 	200		award_locations-of-recipients Q101001039
+50	Blazegraph		     50	      	Count= 0 	200		award_recent-publications-by-recipients Q101001039
+51	Blazegraph		     49	      	Count= 0 	200		award_topics-of-works-by-recipients Q101001039
+52	Blazegraph		  29864	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=12364557-642e-4d82-b5d6-3c810df568af,bopId=82,partitionId=-1,sinkId=84,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Normal,joinVars=[],outputDistinctJVs=false,size=31001600,considered(left=0,right=0,joins=0)}	award-curation_missing-author-items Q101001039
+53	Blazegraph		     50	      	Count= 0 	200		award-curation_missing-coauthor-items Q101001039
+54	Blazegraph		     49	      	Count= 0 	200		award-curation_missing-topics Q101001039
+55	Blazegraph		    342	      	Count= 1908 	200		award-index_statistics Q101001039

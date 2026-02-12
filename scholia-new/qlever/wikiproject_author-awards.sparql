@@ -1,0 +1,26 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT
+  (COUNT(?researcher) AS ?count)
+  ?award ?awardLabel (CONCAT("/award/", SUBSTR(STR(?award), 32)) AS ?awardUrl)
+  (GROUP_CONCAT(?researcherLabel; SEPARATOR=", ") AS ?recipients)
+  (CONCAT("../authors/", GROUP_CONCAT(SUBSTR(STR(?researcher), 32); SEPARATOR=",")) AS ?recipientsUrl)
+WHERE {
+  {
+    SELECT DISTINCT ?researcher ?award WHERE {
+      ?work wdt:P6104|wdt:P5008 target: ;
+            wdt:P50 ?researcher .
+      ?researcher wdt:P166 ?award .
+    }
+    LIMIT 100
+  }
+
+  BIND (IF(BOUND (?award), ?award, <http://doesntexist.example.com/nexistepas>) AS ?awardLabel__)
+  OPTIONAL { ?awardLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?awardLabel. FILTER(LANG(?awardLabel) = "en") }
+  OPTIONAL { ?awardLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?awardLabel. FILTER(LANG(?awardLabel) = "mul") }
+  BIND (IF(BOUND (?researcher), ?researcher, <http://doesntexist.example.com/nexistepas>) AS ?researcherLabel__)
+  OPTIONAL { ?researcherLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?researcherLabel. FILTER(LANG(?researcherLabel) = "en") }
+  OPTIONAL { ?researcherLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?researcherLabel. FILTER(LANG(?researcherLabel) = "mul") }
+}
+GROUP BY ?award ?awardLabel
+ORDER BY DESC(?count)

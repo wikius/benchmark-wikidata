@@ -1,0 +1,25 @@
+
+# title: Prolific authors for a specific journal
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?count ?author ?authorLabel ?orcid ?example_work ?example_workLabel WHERE {
+  { # Count the number of works author by the author publishing in the journal
+    SELECT ?author (COUNT(?work) AS ?count) (SAMPLE(?work) AS ?example_work) WHERE {
+      ?work wdt:P50 ?author ;
+            wdt:P1433 target: .
+    }
+    GROUP BY ?author
+  }
+  # Include optional ORCID iD
+  OPTIONAL {
+    ?author wdt:P496 ?orcid .
+  }
+  BIND (IF(BOUND (?author), ?author, <http://doesntexist.example.com/nexistepas>) AS ?authorLabel__)
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "en") }
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "mul") }
+  BIND (IF(BOUND (?example_work), ?example_work, <http://doesntexist.example.com/nexistepas>) AS ?example_workLabel__)
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "en") }
+  OPTIONAL { ?example_workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?example_workLabel. FILTER(LANG(?example_workLabel) = "mul") }
+}
+ORDER BY DESC(?count)
+LIMIT 50

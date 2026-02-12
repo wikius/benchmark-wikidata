@@ -1,0 +1,12 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT DISTINCT ?episode ?episodeLabel (CONCAT("/podcast-episode/", SUBSTR(STR(?episode),32)) AS ?episodeUrl) WHERE {
+  ?episode wdt:P31 wd:Q61855877 ;
+           wdt:P4908 target: .
+  BIND (IF(BOUND (?episode), ?episode, <http://doesntexist.example.com/nexistepas>) AS ?episodeLabel__)
+  OPTIONAL { ?episodeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?episodeLabel. FILTER(LANG(?episodeLabel) = "en") }
+  OPTIONAL { ?episodeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?episodeLabel. FILTER(LANG(?episodeLabel) = "mul") }
+}

@@ -1,0 +1,60 @@
+1	Blazegraph		     62	      	Count= 2 	200		chemical_biological-processes Q100146813
+2	Blazegraph		     46	      	Count= 0 	200		chemical_found-in-matrix-np Q100146813
+3	Blazegraph		     52	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146813
+4	Blazegraph		     48	      	Count= 0 	200		chemical_identifiers Q100146813
+5	Blazegraph		     61	      	Count= 0 	200		chemical_physchem-properties Q100146813
+6	Blazegraph		    240	      	Result=2017 	200		chemical_publications-per-year Q100146813
+7	Blazegraph		 600029	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical_recent-literature Q100146813
+8	Blazegraph		     58	      	Count= 0 	200		chemical_related Q100146813
+9	Blazegraph		     41	      	Count= 0 	200		chemical_structural-identifiers Q100146813
+10	Blazegraph		     40	      	Count= 0 	200		chemical-curation_missing-main-subjects Q100146813
+11	Blazegraph		     37	      	Count= 8 	200		chemical-curation_missing-properties Q100146813
+12	Blazegraph		   3831	      	Count= 23 	200		chemical-index_statistics Q100146813
+13	Blazegraph		     43	      	Result=Q100156056 	200		chemical_biological-processes Q100146817
+14	Blazegraph		     41	      	Count= 0 	200		chemical_found-in-matrix-np Q100146817
+15	Blazegraph		     47	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146817
+16	Blazegraph		     57	      	Count= 0 	200		chemical_identifiers Q100146817
+17	Blazegraph		     55	      	Count= 0 	200		chemical_physchem-properties Q100146817
+18	Blazegraph		    254	      	Count= 3 	200		chemical_publications-per-year Q100146817
+19	Blazegraph		 600013	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical_recent-literature Q100146817
+20	Blazegraph		     47	      	Count= 0 	200		chemical_related Q100146817
+21	Blazegraph		     40	      	Count= 0 	200		chemical_structural-identifiers Q100146817
+22	Blazegraph		     39	      	Count= 0 	200		chemical-curation_missing-main-subjects Q100146817
+23	Blazegraph		     29	      	Count= 8 	200		chemical-curation_missing-properties Q100146817
+24	Blazegraph		   3491	      	Count= 23 	200		chemical-index_statistics Q100146817
+25	Blazegraph		     42	      	Count= 3 	200		chemical_biological-processes Q100146821
+26	Blazegraph		     44	      	Count= 0 	200		chemical_found-in-matrix-np Q100146821
+27	Blazegraph		     45	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146821
+28	Blazegraph		     46	      	Count= 0 	200		chemical_identifiers Q100146821
+29	Blazegraph		     51	      	Count= 0 	200		chemical_physchem-properties Q100146821
+30	Blazegraph		    287	      	Count= 2 	200		chemical_publications-per-year Q100146821
+31	Blazegraph		 600030	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical_recent-literature Q100146821
+32	Blazegraph		     40	      	Count= 0 	200		chemical_related Q100146821
+33	Blazegraph		     43	      	Count= 0 	200		chemical_structural-identifiers Q100146821
+34	Blazegraph		     37	      	Count= 0 	200		chemical-curation_missing-main-subjects Q100146821
+35	Blazegraph		     38	      	Count= 8 	200		chemical-curation_missing-properties Q100146821
+36	Blazegraph		   3044	      	Count= 23 	200		chemical-index_statistics Q100146821
+37	Blazegraph		     49	      	Count= 2 	200		chemical_biological-processes Q100146822
+38	Blazegraph		     37	      	Count= 0 	200		chemical_found-in-matrix-np Q100146822
+39	Blazegraph		     45	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146822
+40	Blazegraph		     51	      	Count= 0 	200		chemical_identifiers Q100146822
+41	Blazegraph		     61	      	Count= 0 	200		chemical_physchem-properties Q100146822
+42	Blazegraph		    261	      	Result=2017 	200		chemical_publications-per-year Q100146822
+43	Blazegraph		 600022	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical_recent-literature Q100146822
+44	Blazegraph		     40	      	Count= 0 	200		chemical_related Q100146822
+45	Blazegraph		     44	      	Count= 0 	200		chemical_structural-identifiers Q100146822
+46	Blazegraph		     46	      	Count= 0 	200		chemical-curation_missing-main-subjects Q100146822
+47	Blazegraph		     33	      	Count= 8 	200		chemical-curation_missing-properties Q100146822
+48	Blazegraph		   3594	      	Count= 23 	200		chemical-index_statistics Q100146822
+49	Blazegraph		     47	      	Count= 2 	200		chemical_biological-processes Q100146823
+50	Blazegraph		     50	      	Count= 0 	200		chemical_found-in-matrix-np Q100146823
+51	Blazegraph		     51	      	Result=Q15978631 	200		chemical_found-in-taxon Q100146823
+52	Blazegraph		     53	      	Count= 0 	200		chemical_identifiers Q100146823
+53	Blazegraph		     52	      	Count= 0 	200		chemical_physchem-properties Q100146823
+54	Blazegraph		    247	      	Result=2017 	200		chemical_publications-per-year Q100146823
+55	Blazegraph		 600015	      	None 	500	ERROR java.util.concurrent.TimeoutException	chemical_recent-literature Q100146823
+56	Blazegraph		     43	      	Count= 0 	200		chemical_related Q100146823
+57	Blazegraph		     35	      	Count= 0 	200		chemical_structural-identifiers Q100146823
+58	Blazegraph		     41	      	Count= 0 	200		chemical-curation_missing-main-subjects Q100146823
+59	Blazegraph		     33	      	Count= 8 	200		chemical-curation_missing-properties Q100146823
+60	Blazegraph		   3079	      	Count= 23 	200		chemical-index_statistics Q100146823

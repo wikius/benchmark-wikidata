@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% set aspect = "lexeme-index" %}
+{% block title %}Lexeme - Scholia{% endblock %}
+
+{% block in_ready %}
+
+{{ sparql_to_table('lexemes')}}
+
+{% endblock %}
+
+
+{% block page_content %}
+
+<h1 id="lexemes"><a href="../topic/Q111352">Lexemes</a></h1>
+
+<table class="table table-hover" id="lexemes-table"></table>
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?type ?typeLabel ?typeDescription WHERE {
+  {
+    SELECT (COUNT(*) AS ?count) ?type WHERE {
+      [] wdt:P275 target: ;
+         wdt:P31 ?type .
+    }
+    GROUP BY ?type
+  }
+  BIND (IF(BOUND (?type), ?type, <http://doesntexist.example.com/nexistepas>) AS ?typeLabel__)
+  OPTIONAL { ?typeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?typeLabel. FILTER(LANG(?typeLabel) = "en") }
+  OPTIONAL { ?typeLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?typeLabel. FILTER(LANG(?typeLabel) = "mul") }
+  BIND (IF(BOUND (?type), ?type, <http://doesntexist.example.com/nexistepas>) AS ?typeDescription__)
+  OPTIONAL { ?typeDescription__ <http://schema.org/description> ?typeDescription. FILTER(LANG(?typeDescription) = "en") }
+  OPTIONAL { ?typeDescription__ <http://schema.org/description> ?typeDescription. FILTER(LANG(?typeDescription) = "mul") }
+}
+ORDER BY DESC(?count)

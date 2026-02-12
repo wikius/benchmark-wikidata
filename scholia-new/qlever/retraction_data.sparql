@@ -1,0 +1,106 @@
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX psv: <http://www.wikidata.org/prop/statement/value/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?description ?value ?valueUrl WHERE {
+  {
+    BIND (1 AS ?order)
+    BIND ("Title" AS ?description)
+    target: wdt:P1476 ?value .
+  }
+  UNION {
+    BIND (2 AS ?order)
+    BIND ("Reviewers" AS ?description)
+    {SELECT (GROUP_CONCAT(?value_; SEPARATOR=", ") AS ?value) (CONCAT("../authors/", GROUP_CONCAT(?q; SEPARATOR=",")) AS ?valueUrl) {
+      target: wdt:P4032 ?reviewer .
+  BIND (IF(BOUND (?reviewer), ?reviewer, <http://doesntexist.example.com/nexistepas>) AS ?reviewerLabel__)
+  OPTIONAL { ?reviewerLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?reviewerLabel. FILTER(LANG(?reviewerLabel) = "en") }
+  OPTIONAL { ?reviewerLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?reviewerLabel. FILTER(LANG(?reviewerLabel) = "mul") }
+      BIND (SUBSTR(STR(?reviewer), 32) AS ?q)
+      BIND (COALESCE(?reviewerLabel, ?q) AS ?value_)
+    }}
+  }
+  UNION {
+    BIND (3 AS ?order)
+    BIND ("Published in" AS ?description)
+    target: wdt:P1433 ?venue .
+  BIND (IF(BOUND (?venue), ?venue, <http://doesntexist.example.com/nexistepas>) AS ?venueLabel__)
+  OPTIONAL { ?venueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?venueLabel. FILTER(LANG(?venueLabel) = "en") }
+  OPTIONAL { ?venueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?venueLabel. FILTER(LANG(?venueLabel) = "mul") }
+    BIND (SUBSTR(STR(?venue), 32) AS ?q)
+    BIND (COALESCE(?venueLabel, ?q) AS ?value)
+    BIND (CONCAT("../venue/", ?q) AS ?valueUrl)
+  }
+  UNION {
+    BIND (4 AS ?order)
+    BIND ("Publication date" AS ?description)
+    target: p:P577/psv:P577 [
+      wikibase:timePrecision ?time_precision ;
+      wikibase:timeValue ?publication_date
+    ] .
+    BIND (IF(?time_precision = 9, YEAR(?publication_date), xsd:date(?publication_date)) AS ?value)
+  }
+  UNION {
+    BIND (5 AS ?order)
+    BIND ("Retraction date" AS ?description)
+    target: p:P31 [ ps:P31 wd:Q45182324 ; pq:P580 ?retraction_date_value ] .
+    BIND (xsd:date(?retraction_date_value) AS ?value)
+  }
+  UNION {
+    BIND (6 AS ?order)
+    BIND ("Publisher" AS ?description)
+    target: wdt:P123 ?publisher .
+  BIND (IF(BOUND (?publisher), ?publisher, <http://doesntexist.example.com/nexistepas>) AS ?publisherLabel__)
+  OPTIONAL { ?publisherLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?publisherLabel. FILTER(LANG(?publisherLabel) = "en") }
+  OPTIONAL { ?publisherLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?publisherLabel. FILTER(LANG(?publisherLabel) = "mul") }
+    BIND (SUBSTR(STR(?publisher), 32) AS ?q)
+    BIND (COALESCE(?publisherLabel, ?q) AS ?value)
+    BIND (CONCAT("../publisher/", ?q) AS ?valueUrl)
+  }
+  UNION {
+    BIND (7 AS ?order)
+    BIND ("DOI" AS ?description)
+    target: wdt:P356 ?doi .
+    BIND (CONCAT("https://doi.org/", ENCODE_FOR_URI(?doi)) AS ?valueUrl)
+    BIND (CONCAT(?doi, " ↗") AS ?value)
+  }
+  UNION {
+    BIND (8 AS ?order)
+    BIND ("🛑 Retracted by" AS ?description)
+    target: wdt:P5824 ?retraction .
+  BIND (IF(BOUND (?retraction), ?retraction, <http://doesntexist.example.com/nexistepas>) AS ?retractionLabel__)
+  OPTIONAL { ?retractionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?retractionLabel. FILTER(LANG(?retractionLabel) = "en") }
+  OPTIONAL { ?retractionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?retractionLabel. FILTER(LANG(?retractionLabel) = "mul") }
+    BIND (SUBSTR(STR(?retraction), 32) AS ?q)
+    BIND (COALESCE(?retractionLabel, ?q) AS ?value)
+    BIND (CONCAT("../work/", ?q) AS ?valueUrl)
+  }
+  UNION {
+    BIND (9 AS ?order)
+    BIND ("⚠️ Cites retracted article" AS ?description)
+    {
+      target: wdt:P2860 ?retracted .
+      ?retracted wdt:P31 wd:Q45182324 .
+    } UNION {
+      target: wdt:P2860 ?retracted .
+      ?retracted wdt:P793 wd:Q7316896 .
+    } UNION {
+      target: wdt:P2860 ?retracted .
+      ?retracted wdt:P5824 [] .
+    }
+  BIND (IF(BOUND (?retracted), ?retracted, <http://doesntexist.example.com/nexistepas>) AS ?retractedLabel__)
+  OPTIONAL { ?retractedLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?retractedLabel. FILTER(LANG(?retractedLabel) = "en") }
+  OPTIONAL { ?retractedLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?retractedLabel. FILTER(LANG(?retractedLabel) = "mul") }
+    BIND (SUBSTR(STR(?retracted), 32) AS ?q)
+    BIND (COALESCE(?retractedLabel, ?q) AS ?value)
+    BIND (CONCAT("../work/", ?q) AS ?valueUrl)
+  }
+} ORDER BY ?order

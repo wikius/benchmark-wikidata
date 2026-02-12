@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% set aspect = "software-index" %}
+{% block title %}Software - Scholia{% endblock %}
+
+{% block in_ready %}
+
+{{ sparql_to_table('most-used-software') }}
+
+{% endblock %}
+
+{% block page_content %}
+
+<h1><a href="../topic/Q7397">Softwares</a></h1>
+
+<h2>Examples</h2>
+
+<ul>
+  <li><a href="Q5140318">CodonCode Aligner</a></li>
+  <li><a href="Q1635410">NLTK</a></li>
+  <li><a href="Q32998961">Stanford CoreNLP</a></li>
+  <li><a href="Q1204300">STATA</a></li>
+  <li><a href="Q41566485">SPM</a> (statistical parametric mapping)</li>
+</ul>
+
+
+<h2>Overview</h2>
+
+<h3 id="most-used-software">Most used software</h3>
+
+<table class="table table-hover" id="most-used-software-table"></table>
+
+
+{% endblock %}
+
+  

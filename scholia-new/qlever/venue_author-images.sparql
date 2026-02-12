@@ -1,0 +1,22 @@
+
+# title: Author images for a specific venue
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+#defaultView:ImageGrid
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT (SAMPLE(?image_) AS ?image) ?author ?authorLabel ?count WHERE {
+  {
+    SELECT ?author (COUNT(?work) AS ?count) WHERE {
+      ?work wdt:P1433 target: ;
+            wdt:P50 ?author .
+    }
+    GROUP BY ?author
+  }
+  ?author wdt:P18 ?image_ .
+
+  BIND (IF(BOUND (?author), ?author, <http://doesntexist.example.com/nexistepas>) AS ?authorLabel__)
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "en") }
+  OPTIONAL { ?authorLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?authorLabel. FILTER(LANG(?authorLabel) = "mul") }
+}
+GROUP BY ?author ?authorLabel ?count
+ORDER BY DESC(?count)
+LIMIT 50

@@ -1,0 +1,30 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?events ?short_name ?event_series ?event_seriesLabel ?event_seriesDescription (CONCAT("/event-series/", SUBSTR(STR(?event_series),32)) AS ?event_seriesUrl) WHERE {
+  {
+    SELECT (COUNT(?event) AS ?events) ?event_series {
+      {
+        ?event_series wdt:P31 wd:Q47258130 .
+      }
+      UNION {
+        ?event_series wdt:P31 wd:Q47459256 .
+      }
+      OPTIONAL {
+        ?event_series ^wdt:P179 ?event
+      }
+    }
+    GROUP BY ?event_series
+  }
+  OPTIONAL {
+    ?event_series wdt:P1813 ?short_name
+  }
+  BIND (IF(BOUND (?event_series), ?event_series, <http://doesntexist.example.com/nexistepas>) AS ?event_seriesLabel__)
+  OPTIONAL { ?event_seriesLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?event_seriesLabel. FILTER(LANG(?event_seriesLabel) = "en") }
+  OPTIONAL { ?event_seriesLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?event_seriesLabel. FILTER(LANG(?event_seriesLabel) = "mul") }
+  BIND (IF(BOUND (?event_series), ?event_series, <http://doesntexist.example.com/nexistepas>) AS ?event_seriesDescription__)
+  OPTIONAL { ?event_seriesDescription__ <http://schema.org/description> ?event_seriesDescription. FILTER(LANG(?event_seriesDescription) = "en") }
+  OPTIONAL { ?event_seriesDescription__ <http://schema.org/description> ?event_seriesDescription. FILTER(LANG(?event_seriesDescription) = "mul") }
+}
+ORDER BY DESC(?events)

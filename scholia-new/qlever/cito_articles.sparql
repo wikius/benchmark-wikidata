@@ -1,0 +1,17 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT (COUNT(?citingArticle) AS ?count) ?citedArticle ?citedArticleLabel (CONCAT("/work/", SUBSTR(STR(?citedArticle),32)) AS ?citedArticleUrl) WHERE {
+  VALUES ?INTENTION { target: }
+  ?citingArticle p:P2860 ?citationStatement .
+  ?citationStatement ps:P2860 ?citedArticle ;
+                     pq:P3712 ?INTENTION .
+  BIND (IF(BOUND (?citedArticle), ?citedArticle, <http://doesntexist.example.com/nexistepas>) AS ?citedArticleLabel__)
+  OPTIONAL { ?citedArticleLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?citedArticleLabel. FILTER(LANG(?citedArticleLabel) = "en") }
+  OPTIONAL { ?citedArticleLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?citedArticleLabel. FILTER(LANG(?citedArticleLabel) = "mul") }
+}
+GROUP BY ?citedArticle ?citedArticleLabel
+ORDER BY DESC(?count)

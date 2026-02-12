@@ -1,0 +1,55 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+# title: identifiers for this chemical
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?Identifier ?IdentifierLabel ?Value (SAMPLE(?idUrls) AS ?ValueUrl) ?IdentifierDescription {
+  {
+    SELECT * WHERE {
+      {
+        SELECT ?Identifier ?Value ?formatterurl WHERE {
+          target: ?IDdir ?Value .
+          ?Identifier wikibase:directClaim ?IDdir ;
+                      wdt:P31 wd:Q19833835 .
+          OPTIONAL {
+            ?Identifier wdt:P1630 ?formatterurl .
+          }
+          FILTER (?Identifier != wd:P233)
+          FILTER (?Identifier != wd:P234)
+          FILTER (?Identifier != wd:P2017)
+        }
+        LIMIT 500
+      }
+      FILTER (?Identifier = wd:P234)
+      BIND (IRI(REPLACE(?formatterurl, '\\\\$1', ENCODE_FOR_URI(STR(?Value)))) AS ?idUrls) .
+    }
+  }
+  UNION {
+    SELECT * WHERE {
+      {
+        SELECT ?Identifier ?Value ?formatterurl WHERE {
+          target: ?IDdir ?Value .
+          ?Identifier wikibase:directClaim ?IDdir ;
+                      wdt:P31 wd:Q19833835 .
+          OPTIONAL {
+            ?Identifier wdt:P1630 ?formatterurl .
+          }
+          FILTER (?Identifier != wd:P233)
+          FILTER (?Identifier != wd:P234)
+          FILTER (?Identifier != wd:P2017)
+        }
+        LIMIT 500
+      }
+      FILTER (?Identifier != wd:P234)
+      BIND (IRI(REPLACE(?formatterurl, '\\\\$1', STR(?Value))) AS ?idUrls) .
+    }
+  }
+  BIND (IF(BOUND (?Identifier), ?Identifier, <http://doesntexist.example.com/nexistepas>) AS ?IdentifierLabel__)
+  OPTIONAL { ?IdentifierLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?IdentifierLabel. FILTER(LANG(?IdentifierLabel) = "en") }
+  OPTIONAL { ?IdentifierLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?IdentifierLabel. FILTER(LANG(?IdentifierLabel) = "mul") }
+  BIND (IF(BOUND (?Identifier), ?Identifier, <http://doesntexist.example.com/nexistepas>) AS ?IdentifierDescription__)
+  OPTIONAL { ?IdentifierDescription__ <http://schema.org/description> ?IdentifierDescription. FILTER(LANG(?IdentifierDescription) = "en") }
+  OPTIONAL { ?IdentifierDescription__ <http://schema.org/description> ?IdentifierDescription. FILTER(LANG(?IdentifierDescription) = "mul") }
+}
+GROUP BY ?Identifier ?IdentifierLabel ?IdentifierDescription ?Value
+ORDER BY ASC(?IdentifierLabel)

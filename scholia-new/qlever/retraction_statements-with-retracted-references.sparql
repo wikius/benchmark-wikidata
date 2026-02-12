@@ -1,0 +1,23 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT DISTINCT ?entity ?entityLabel ?entityUrl ?property ?propertyLabel ?value ?valueLabel WHERE {
+  ?entity ?p ?statement .
+  ?statement prov:wasDerivedFrom/pr:P248 target:  .
+
+  ?p ^wikibase:claim ?property .
+  ?statement ?ps ?value .
+  ?ps ^wikibase:statementProperty ?property .
+  BIND (?statement AS ?entityUrl)
+  BIND (IF(BOUND (?entity), ?entity, <http://doesntexist.example.com/nexistepas>) AS ?entityLabel__)
+  OPTIONAL { ?entityLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?entityLabel. FILTER(LANG(?entityLabel) = "en") }
+  OPTIONAL { ?entityLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?entityLabel. FILTER(LANG(?entityLabel) = "mul") }
+  BIND (IF(BOUND (?property), ?property, <http://doesntexist.example.com/nexistepas>) AS ?propertyLabel__)
+  OPTIONAL { ?propertyLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?propertyLabel. FILTER(LANG(?propertyLabel) = "en") }
+  OPTIONAL { ?propertyLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?propertyLabel. FILTER(LANG(?propertyLabel) = "mul") }
+  BIND (IF(BOUND (?value), ?value, <http://doesntexist.example.com/nexistepas>) AS ?valueLabel__)
+  OPTIONAL { ?valueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?valueLabel. FILTER(LANG(?valueLabel) = "en") }
+  OPTIONAL { ?valueLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?valueLabel. FILTER(LANG(?valueLabel) = "mul") }
+}

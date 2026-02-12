@@ -1,0 +1,28 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?count ?protein ?proteinLabel ?species ?speciesLabel ?functions WHERE {
+  {
+    SELECT ?protein (COUNT(?function) AS ?count) (GROUP_CONCAT(?function_label; SEPARATOR=" // ") AS ?functions) WHERE {
+      BIND (target: AS ?query_protein)
+      ?query_protein wdt:P680 ?function .
+      FILTER (?query_protein != ?protein)
+      ?protein wdt:P680 ?function .
+      ?function rdfs:label ?function_label FILTER (LANG(?function_label) = "en")
+    }
+    GROUP BY ?protein
+  }
+  OPTIONAL {
+    ?protein wdt:P703 ?species .
+  }
+  BIND (IF(BOUND (?protein), ?protein, <http://doesntexist.example.com/nexistepas>) AS ?proteinLabel__)
+  OPTIONAL { ?proteinLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?proteinLabel. FILTER(LANG(?proteinLabel) = "en") }
+  OPTIONAL { ?proteinLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?proteinLabel. FILTER(LANG(?proteinLabel) = "mul") }
+  BIND (IF(BOUND (?species), ?species, <http://doesntexist.example.com/nexistepas>) AS ?speciesLabel__)
+  OPTIONAL { ?speciesLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?speciesLabel. FILTER(LANG(?speciesLabel) = "en") }
+  OPTIONAL { ?speciesLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?speciesLabel. FILTER(LANG(?speciesLabel) = "mul") }
+}
+ORDER BY DESC(?count)
+LIMIT 500

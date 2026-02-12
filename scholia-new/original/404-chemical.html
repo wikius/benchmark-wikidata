@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% set aspect = "404-chemical" %}
+
+
+{% block in_ready %}
+
+{{ sparql_to_404shortinchikey('related') }}
+
+{% endblock %}
+
+{% block page_content %}
+
+
+<h2 id="related">Related</h2>
+
+There was no chemical found with InChIKey={{ inchikey }}. Maybe these related compounds are of interest:
+
+<table class="table table-hover" id="related-table"></table>
+
+{% endblock %}

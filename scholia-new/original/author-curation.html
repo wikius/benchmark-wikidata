@@ -1,0 +1,76 @@
+{% extends "q_curation.html" %}
+
+{% set aspect = "author-curation" %}
+
+{% block in_ready %}
+
+{{ sparql_to_table('missing-author-resolving') }}
+{{ sparql_to_table('missing-coauthor-items') }}
+{{ sparql_to_table('missing-citing-author-items') }}
+{{ sparql_to_table('missing-topic') }}
+{{ sparql_to_table('missing-use-as-reference') }}
+
+{% endblock %}
+
+
+{% block curation_panels %}
+
+
+<h2 id="external-tools">External tools</h2>
+
+<a class="btn btn-primary"
+   href="https://orcid-scraper.toolforge.org/results?qid={{ q }}"
+   role="button">Wikidata Orcid Scraper ↗</a>
+
+
+<h2 id="missing-author-resolving">Author name strings to be resolved</h2>
+
+The authorship may be represented as an author name string rather than a Wikidata item.
+To try to resolve the author name strings, follow the links below to use the Author disambiguator tool,
+which also has a <a href="https://author-disambiguator.toolforge.org/author_item_oauth.php?id={{ q }}">dedicated page for this author</a>.
+
+<table class="table table-hover" id="missing-author-resolving-table"></table>
+
+
+<h2 id="missing-coauthor-items">Missing coauthor items</h2>
+
+The coauthors listed below may only be represented as strings in Wikidata
+with no link to Wikidata items.
+Follow the link to use the Author disambiguator tool to try to resolve
+the authors.
+
+<table class="table table-hover" id="missing-coauthor-items-table"></table>
+
+
+<h2 id="missing-citing-author-items">Missing citing author items</h2>
+
+The citing authors below are only represented as strings in Wikidata and not linked to
+Wikidata items.
+Follow the link to use the Author disambiguator tool to try to resolve
+the authors.
+
+<table class="table table-hover" id="missing-citing-author-items-table"></table>
+
+
+<h2 id="missing-topic">Authored works with missing topics</h2>
+
+<p>Works authored by <span class="self">{{q}}</span> that do not have topics listed in Wikidata. You can improve the data by clicking the link
+  on the right, scrolling to "+ add statement" and adding a <a href="https://www.wikidata.org/wiki/Property:P921">"main subject" (P921)</a> if you know it:</p>
+
+<table class="table table-hover" id="missing-topic-table"></table>
+
+
+<h2 id="missing-use-as-reference">Articles not used as statement reference</h2>
+
+<p>Works authored by <span class="self">{{ q }}</span> that are not used as "stated in" reference
+to a statement. You can improve Wikidata by finding an unsourced statement
+in Wikidata that is supported by any of the listed articles by scrolling to that
+statement and clicking "+ add reference" and adding a <a href="https://www.wikidata.org/wiki/Property:P248">"stated in" (P248)</a>
+with the supporting article's Wikidata identifier (QID) as value.</p>
+
+<table class="table table-hover" id="missing-use-as-reference-table"></table>
+
+<hr>
+
+
+{% endblock %}

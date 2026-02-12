@@ -1,0 +1,17 @@
+
+PREFIX target1: <http://www.wikidata.org/prop/{{ q }}>
+PREFIX target2: <http://www.wikidata.org/prop/{{ q2 }}>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+SELECT ?citingArticle ?citingArticleLabel ?intention ?intentionLabel (CONCAT("/cito/", SUBSTR(STR(?intention),32)) AS ?intentionUrl) WHERE {
+  ?citingArticle p:P2860 ?citationStatement .
+  ?citationStatement pq:P3712 target2: ;
+                     ps:P2860 target1: .
+  BIND (IF(BOUND (?citingArticle), ?citingArticle, <http://doesntexist.example.com/nexistepas>) AS ?citingArticleLabel__)
+  OPTIONAL { ?citingArticleLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?citingArticleLabel. FILTER(LANG(?citingArticleLabel) = "en") }
+  OPTIONAL { ?citingArticleLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?citingArticleLabel. FILTER(LANG(?citingArticleLabel) = "mul") }
+  BIND (IF(BOUND (?intention), ?intention, <http://doesntexist.example.com/nexistepas>) AS ?intentionLabel__)
+  OPTIONAL { ?intentionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?intentionLabel. FILTER(LANG(?intentionLabel) = "en") }
+  OPTIONAL { ?intentionLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?intentionLabel. FILTER(LANG(?intentionLabel) = "mul") }
+}

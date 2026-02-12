@@ -1,0 +1,26 @@
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT DISTINCT ?work ?workLabel ?doi (COUNT(DISTINCT ?citing) AS ?citations) WHERE {
+  {
+    ?work wdt:P31 wd:Q45182324 .
+  }
+  UNION {
+    ?work wdt:P793 wd:Q7316896 .
+  }
+  UNION {
+    ?work wdt:P5824 [] .
+  }
+  OPTIONAL {
+    ?citing wdt:P2860 ?work .
+  }
+  ?work wdt:P1433 target: ;
+        wdt:P356 ?doi .
+  BIND (IF(BOUND (?work), ?work, <http://doesntexist.example.com/nexistepas>) AS ?workLabel__)
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "en") }
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "mul") }
+}
+GROUP BY ?work ?workLabel ?doi
+ORDER BY DESC(?citations)
+LIMIT 100

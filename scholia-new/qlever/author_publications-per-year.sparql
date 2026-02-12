@@ -1,0 +1,45 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+# Inspired from LEGOLAS - http://abel.lis.illinois.edu/legolas/
+# Shubhanshu Mishra, Vetle Torvik
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?year (COUNT(?work) AS ?number_of_publications) ?role WHERE {
+  {
+    SELECT (STR(?year_) AS ?year) (0 AS ?pages) ("_" AS ?role) WHERE {
+      # default values = 0
+      ?year_item wdt:P31 wd:Q577 .
+      ?year_item wdt:P585 ?date .
+      BIND (YEAR(?date) AS ?year_)
+      {
+        SELECT (MIN(?year_) AS ?earliest_year) (MAX(?year_) AS ?latest_year) WHERE {
+          ?work wdt:P50 target: .
+          ?work wdt:P577 ?publication_date .
+          BIND (YEAR(?publication_date) AS ?year_)
+        }
+      }
+      BIND (YEAR(NOW() 
+    ) + 1 AS ?next_year ) FILTER ( ?year_ >= ?earliest_year && ?year_ <= ?latest_year )}
+  }
+  UNION {
+    {
+      SELECT ?work (MIN(?years) AS ?year) (COUNT(?coauthors) AS ?number_of_authors) ?author_number WHERE {
+        ?work (p:P50 | p:P2093) ?author_statement .
+        ?author_statement ps:P50 target: .
+        OPTIONAL {
+          ?author_statement pq:P1545 ?author_number .
+        }
+        ?work (wdt:P50 | wdt:P2093) ?coauthors .
+        ?work wdt:P577 ?dates .
+        BIND (STR(YEAR(?dates)) AS ?years) .
+      }
+      GROUP BY ?work ?author_number
+    }
+    BIND (COALESCE(IF(?number_of_authors = 1,'Solo author',IF(xsd:integer(?author_number) = 1,'First author',IF(xsd:integer(?author_number) = ?number_of_authors,'Last author','Middle author'))), 'Unknown') AS ?role)
+  }
+}
+GROUP BY ?year ?role
+ORDER BY ?year

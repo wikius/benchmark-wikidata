@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% set aspect = "use" %}
+
+{% block in_ready %}
+
+{{ sparql_to_table('recent-work-using-the-used') }}
+{{ sparql_to_table('co-used') }}
+
+{{ sparql_to_iframe('topics-of-works-using-the-resource') }}
+{{ sparql_to_iframe('authors-of-works-using-the-resource') }}
+{{ sparql_to_iframe('usage-over-time') }}
+
+{% endblock %}
+
+{% block page_content %}
+<h1 id="h1">Use</h1>
+
+<div id="intro"></div>
+<br>
+<div id="wikiversity-extract"></div>
+
+<h2 id="recent-work-using-the-used">Recent work using the resource</h2>
+
+<table class="table table-hover" id="recent-work-using-the-used-table"></table>
+
+
+<h2 id="co-used">Co-usage</h2>
+
+Resources used together.
+
+<table class="table table-hover" id="co-used-table"></table>
+
+
+<h2 id="topics-of-works-using-the-resource">Topics of works using the resource</h2>  
+
+
+<div class="embed-responsive embed-responsive-4by3">
+  <iframe class="embed-responsive-item" id="topics-of-works-using-the-resource-iframe"></iframe>
+</div>
+
+<h2 id="authors-of-works-using-the-resource">Authors of works using the resource</h2> 
+
+<div class="embed-responsive embed-responsive-4by3">
+  <iframe class="embed-responsive-item" id="authors-of-works-using-the-resource-iframe"></iframe>
+</div>
+
+
+<h2 id="usage-over-time">Usage over time</h2>
+
+Works using the resource over time.
+
+<div class="embed-responsive embed-responsive-4by3">
+  <iframe class="embed-responsive-item" id="usage-over-time-iframe"></iframe>
+</div>
+
+
+{% endblock %}
+    

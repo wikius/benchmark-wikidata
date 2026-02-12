@@ -1,0 +1,24 @@
+# title: Organizations for a specific country
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+
+SELECT
+  ?number_of_authors
+  ?number_of_works
+  ?organization ?organizationLabel
+WITH {  
+  SELECT
+    ?organization
+    (COUNT(DISTINCT ?author) AS ?number_of_authors)
+    (COUNT(DISTINCT ?work) AS ?number_of_works)
+  WHERE {
+    ?organization wdt:P17 target: .
+    ?author wdt:P108 | wdt:P463 | wdt:P1416/wdt:P361* ?organization .
+    ?work wdt:P50 ?author .
+  }
+  GROUP BY ?organization 
+} AS %results
+WHERE {
+  INCLUDE %results
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en,da,es,fr,jp,nl,no,ru,sv,zh". }
+}
+ORDER BY DESC(?number_of_authors) DESC(?number_of_works)

@@ -1,0 +1,18 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?Identifier ?IdentifierLabel ?id (SAMPLE(?idUrls) AS ?idUrl) ?IdentifierDescription {
+  wd:{{ q }} ?IDdir ?id .
+  ?Identifier wikibase:directClaim ?IDdir ;
+              wdt:P31/wdt:P279* wd:Q19847637 .
+  OPTIONAL { ?Identifier wdt:P1630 ?formatterurl . }
+  BIND (IRI(REPLACE(?formatterurl, '\\\\$1', STR(?id))) AS ?idUrls) .
+  BIND (IF(BOUND (?Identifier), ?Identifier, <http://doesntexist.example.com/nexistepas>) AS ?IdentifierLabel__)
+  OPTIONAL { ?IdentifierLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?IdentifierLabel. FILTER(LANG(?IdentifierLabel) = "en") }
+  OPTIONAL { ?IdentifierLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?IdentifierLabel. FILTER(LANG(?IdentifierLabel) = "mul") }
+  BIND (IF(BOUND (?Identifier), ?Identifier, <http://doesntexist.example.com/nexistepas>) AS ?IdentifierDescription__)
+  OPTIONAL { ?IdentifierDescription__ <http://schema.org/description> ?IdentifierDescription. FILTER(LANG(?IdentifierDescription) = "en") }
+  OPTIONAL { ?IdentifierDescription__ <http://schema.org/description> ?IdentifierDescription. FILTER(LANG(?IdentifierDescription) = "mul") }
+}
+GROUP BY ?Identifier ?IdentifierLabel ?IdentifierDescription ?id
+ORDER BY ASC(?IdentifierLabel)

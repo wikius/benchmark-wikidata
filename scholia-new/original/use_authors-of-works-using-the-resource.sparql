@@ -1,0 +1,24 @@
+#defaultView:BubbleChart
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+
+SELECT
+  ?count
+  ?author ?authorLabel
+WITH{
+  SELECT
+    (COUNT(?work) AS ?count)
+    ?author
+  WHERE {
+    ?work wdt:P4510 / wdt:P279* target: ;
+          wdt:P50 ?author .
+  }
+  GROUP BY ?author
+  ORDER BY DESC(?count)
+  LIMIT 200
+} AS %result
+WHERE {
+  INCLUDE %result
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en" . }
+}
+ORDER BY DESC(?count)

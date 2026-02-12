@@ -1,0 +1,43 @@
+{% extends "q_curation.html" %}
+
+{% set aspect = "organization-curation" %}
+
+{% block in_ready %}
+
+{{ sparql_to_table('authors') }}
+{{ sparql_to_table('authors-no-initials') }}
+{{ sparql_to_table('authors-with-initials') }}
+
+{% endblock %}
+
+
+{% block curation_panels %}
+
+<h2 id="authors">Missing author items</h2>
+
+The authors listed below may only be represented as strings in Wikidata
+with no link to Wikidata items.
+Follow the link to use the Author disambiguator tool to try to resolve
+the authors.
+
+<table class="table table-hover" id="authors-table"></table>
+
+<h2 id="h3">Author name strings to be resolved</h2>
+
+
+<h3 id="authors-no-initials">Author name strings without initials</h3>
+
+The author may be represented as a string rather than a Wikidata item.
+Follow the link to use the Author disambiguator tool to try to resolve the author name.
+To facilitate curation, author name strings containing single-letter initials have been removed from this table.
+
+<table class="table table-hover" id="authors-no-initials-table"></table>
+
+<h3 id="authors-with-initials">Author name strings with initials</h3>
+
+This table shows author name strings that contain single-letter initials.
+
+<table class="table table-hover" id="authors-with-initials-table"></table> 
+
+
+{% endblock %}

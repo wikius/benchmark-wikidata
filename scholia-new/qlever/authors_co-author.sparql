@@ -1,0 +1,38 @@
+#defaultView:Graph
+PREFIX gas: <http://www.bigdata.com/rdf/gas#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?author ?workLabel WHERE {
+  {
+    SELECT ?work ?author WHERE {
+      {}
+      {% for q1 in qs %}
+      {% for q2 in qs %}
+      {% if q1 < q2 %}
+      UNION {
+        SERVICE <https://query.wikidata.org/sparql> {
+          SELECT ?work ?author WHERE {
+            SERVICE gas:service {
+              gas:program gas:gasClass "com.bigdata.rdf.graph.analytics.BFS" ;
+                          gas:in wd:{{ q1 }} ;
+                          gas:target wd:{{ q2 }} ;
+                          gas:traversalDirection "Undirected" ;
+                          gas:out ?work ;
+                          gas:linkType wdt:P50 ;
+                          gas:maxVisited 5000 .
+            }
+            ?work wdt:P50 ?author
+          }
+        }
+      } # UNION END
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    }
+  }
+  BIND (IF(BOUND (?work), ?work, <http://doesntexist.example.com/nexistepas>) AS ?workLabel__)
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "en") }
+  OPTIONAL { ?workLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?workLabel. FILTER(LANG(?workLabel) = "mul") }
+}

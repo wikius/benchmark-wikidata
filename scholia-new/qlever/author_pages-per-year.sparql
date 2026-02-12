@@ -1,0 +1,35 @@
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?year ?number_of_pages ?work_label WHERE {
+  {
+    SELECT ?year (SAMPLE(?pages) AS ?number_of_pages) ?work_label WHERE {
+      {
+        SELECT (STR(?year_) AS ?year) (0 AS ?pages) ("_" AS ?work_label) WHERE {
+          ?year_item wdt:P31 wd:Q577 .
+          ?year_item wdt:P585 ?date .
+          BIND (YEAR(?date) AS ?year_)
+          {
+            SELECT (MIN(?year_) AS ?earliest_year) (MAX(?year_) AS ?latest_year) WHERE {
+              ?work wdt:P50 target: .
+              ?work wdt:P577 ?publication_date .
+              BIND (YEAR(?publication_date) AS ?year_)
+            }
+          }
+          FILTER (?year_ >= ?earliest_year && ?year_ <= ?latest_year)
+        }
+      }
+      UNION {
+        ?work wdt:P50 target: .
+        ?work wdt:P1104 ?pages .
+        ?work wdt:P577 ?date .
+        ?work rdfs:label ?long_work_label . FILTER (LANG(?long_work_label) = 'en')
+        BIND (SUBSTR(?long_work_label,1,20) AS ?work_label)
+        BIND (STR(YEAR(?date)) AS ?year)
+      }
+    }
+    GROUP BY ?year ?work ?work_label
+    ORDER BY ?year
+  }
+}

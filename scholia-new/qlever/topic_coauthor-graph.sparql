@@ -1,0 +1,42 @@
+
+#defaultView:Graph
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?author1 ?author1Label ?rgb ?author2 ?author2Label WHERE {
+  {
+    SELECT ?author2 ?author1 (COUNT(?work) AS ?count2) WHERE {
+      # Find works with the topic
+      ?work wdt:P921/(wdt:P31*/wdt:P279* | wdt:P361+ | wdt:P1269+) target: .
+
+      {
+        SELECT (COUNT(?work) AS ?count1) ?author1 WHERE {
+          # Find works with the topic
+          ?work wdt:P921/(wdt:P31*/wdt:P279* | wdt:P361+ | wdt:P1269+) target: .
+          ?work wdt:P50 ?author1 .
+        }
+        GROUP BY ?author1
+        ORDER BY DESC(?count1)
+        LIMIT 25
+      }
+
+      ?work wdt:P50 ?author1, ?author2 .
+      FILTER (?author1 != ?author2)
+    }
+    GROUP BY ?author2 ?author1
+    ORDER BY DESC(?count2)
+    LIMIT 250
+  }
+
+  OPTIONAL {
+    ?author1 wdt:P21 ?gender1 .
+  }
+  BIND (IF(?gender1 = wd:Q6581097,"3182BD","E6550D") AS ?rgb)
+
+  BIND (IF(BOUND (?author1), ?author1, <http://doesntexist.example.com/nexistepas>) AS ?author1Label__)
+  OPTIONAL { ?author1Label__ <http://www.w3.org/2000/01/rdf-schema#label> ?author1Label. FILTER(LANG(?author1Label) = "en") }
+  OPTIONAL { ?author1Label__ <http://www.w3.org/2000/01/rdf-schema#label> ?author1Label. FILTER(LANG(?author1Label) = "mul") }
+  BIND (IF(BOUND (?author2), ?author2, <http://doesntexist.example.com/nexistepas>) AS ?author2Label__)
+  OPTIONAL { ?author2Label__ <http://www.w3.org/2000/01/rdf-schema#label> ?author2Label. FILTER(LANG(?author2Label) = "en") }
+  OPTIONAL { ?author2Label__ <http://www.w3.org/2000/01/rdf-schema#label> ?author2Label. FILTER(LANG(?author2Label) = "mul") }
+}

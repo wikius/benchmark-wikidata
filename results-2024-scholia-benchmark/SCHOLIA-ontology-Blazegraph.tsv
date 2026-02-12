@@ -1,0 +1,30 @@
+1	Blazegraph		    152	      	Count= 6 	200		ontology_data Q28729320
+2	Blazegraph		     47	      	Count= 0 	200		ontology_recent-works Q28729320
+3	Blazegraph		     35	      	Count= 8 	200		ontology_reuse-graph Q28729320
+4	Blazegraph		     24	      	Count= 7 	200		ontology_used-by-ontologies Q28729320
+5	Blazegraph		     22	      	Result=Basic Formal Ontology 	200		ontology_used-ontologies Q28729320
+6	Blazegraph		  18323	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=226dd1d5-2b84-4465-8f1d-2321dee6690d,bopId=35,partitionId=-1,sinkId=37,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Optional,joinVars=[ontology],outputDistinctJVs=true,size=4576001,considered(left=0,right=0,joins=0),joinSetSize=0}	ontology-index_most-used-ontology Q28729320
+7	Blazegraph		    137	      	Count= 6 	200		ontology_data Q31110555
+8	Blazegraph		     48	      	Count= 0 	200		ontology_recent-works Q31110555
+9	Blazegraph		     32	      	Count= 4 	200		ontology_reuse-graph Q31110555
+10	Blazegraph		     26	      	Count= 3 	200		ontology_used-by-ontologies Q31110555
+11	Blazegraph		     23	      	Result=Basic Formal Ontology 	200		ontology_used-ontologies Q31110555
+12	Blazegraph		  18567	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=dd6192e2-8d07-4af2-8cb7-baf68afb7d32,bopId=35,partitionId=-1,sinkId=37,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Optional,joinVars=[ontology],outputDistinctJVs=true,size=4575377,considered(left=0,right=0,joins=0),joinSetSize=0}	ontology-index_most-used-ontology Q31110555
+13	Blazegraph		    135	      	Count= 6 	200		ontology_data Q55118285
+14	Blazegraph		     43	      	Result=2019-10-20T00:00:00Z 	200		ontology_recent-works Q55118285
+15	Blazegraph		     32	      	Count= 8 	200		ontology_reuse-graph Q55118285
+16	Blazegraph		     28	      	Result=Cell line Ontology 	200		ontology_used-by-ontologies Q55118285
+17	Blazegraph		     12	      	Count= 7 	200		ontology_used-ontologies Q55118285
+18	Blazegraph		  18989	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=4174ca53-1b17-4b8b-8ac5-a93548eec619,bopId=33,partitionId=-1,sinkId=35,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Optional,joinVars=[],outputDistinctJVs=false,size=22,considered(left=416091,right=92281,joins=9153079),joinSetSize=11}	ontology-index_most-used-ontology Q55118285
+19	Blazegraph		    141	      	Count= 3 	200		ontology_data Q55118295
+20	Blazegraph		     53	      	Result=2022-08-24T00:00:00Z 	200		ontology_recent-works Q55118295
+21	Blazegraph		     31	      	Count= 2 	200		ontology_reuse-graph Q55118295
+22	Blazegraph		     15	      	Result=eNanoMapper ontology 	200		ontology_used-by-ontologies Q55118295
+23	Blazegraph		     25	      	Result=Basic Formal Ontology 	200		ontology_used-ontologies Q55118295
+24	Blazegraph		  18443	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=c291646c-72e3-445f-a68d-a28dddeb10a3,bopId=35,partitionId=-1,sinkId=37,altSinkId=null}, cause=java.util.concurrent.ExecutionException: java.lang.RuntimeException: cause=com.bigdata.btree.EvictionError: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory, state=HTreeHashJoinUtility{open=true,joinType=Optional,joinVars=[ontology],outputDistinctJVs=true,size=4575877,considered(left=0,right=0,joins=0),joinSetSize=0}	ontology-index_most-used-ontology Q55118295
+25	Blazegraph		    129	      	Count= 6 	200		ontology_data Q55118298
+26	Blazegraph		     85	      	Result=2022-08-24T00:00:00Z 	200		ontology_recent-works Q55118298
+27	Blazegraph		     31	      	Count= 2 	200		ontology_reuse-graph Q55118298
+28	Blazegraph		     27	      	Result=eNanoMapper ontology 	200		ontology_used-by-ontologies Q55118298
+29	Blazegraph		     24	      	Result=Basic Formal Ontology 	200		ontology_used-ontologies Q55118298
+30	Blazegraph		  18427	      	None 	500	ERROR java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: org.openrdf.query.QueryEvaluationException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: task=ChunkTask{query=1806f12e-67b8-4efd-9698-8d4523d935eb,bopId=32,partitionId=-1,sinkId=30,altSinkId=null}, cause=java.util.concurrent.ExecutionException: com.bigdata.rwstore.sector.MemoryManagerOutOfMemory	ontology-index_most-used-ontology Q55118298

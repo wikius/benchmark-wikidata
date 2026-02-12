@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% set aspect = "protein" %}
+
+{% block in_ready %}
+
+{{ sparql_to_table('participates-in') }}
+{{ sparql_to_table('cofunctional-proteins') }}
+{{ sparql_to_table('cointeracting-proteins') }}
+{{ sparql_to_iframe('publications-per-year') }}
+
+{% endblock %}
+
+{% block page_content %}
+<h1 id="h1">Protein</h1>
+<script type="application/ld+json" id="bioschemas"></script>
+
+<div id="intro"></div>
+
+<div id="wembedder"></div>
+
+
+<h2 id="participates-in">Participates in</h2>
+
+This protein participates in the following protein complexes and biological processes:
+
+<table class="table table-hover" id="participates-in-table"></table>
+
+
+<h2 id="cofunctional-proteins">Cofunctional proteins</h2>
+
+Proteins sharing molecular function(s).
+
+<table class="table table-hover" id="cofunctional-proteins-table"></table>
+
+
+<h2 id="cointeracting-proteins">Cointeracting proteins</h2>
+
+Proteins sharing physical interaction(s).
+
+<table class="table table-hover" id="cointeracting-proteins-table"></table>
+
+
+<h2 id="publications-per-year">Publications per year</h2>
+
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" id="publications-per-year-iframe"></iframe>
+</div>
+
+{% endblock %}

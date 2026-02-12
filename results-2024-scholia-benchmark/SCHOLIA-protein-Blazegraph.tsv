@@ -1,0 +1,10 @@
+1	Blazegraph		 895471	      	None 	None	ERROR Exception reading response	protein_cofunctional-proteins Q101244282
+2	Blazegraph		 637996	      	None 	None	ERROR Exception reading response	protein_cointeracting-proteins Q101244282
+3	Blazegraph		 332050	      	None 	None	ERROR Exception reading response	protein_participates-in Q101244282
+4	Blazegraph		 258032	      	None 	None	ERROR Exception reading response	protein_publications-per-year Q101244282
+5	Blazegraph		 691398	      	None 	None	ERROR Exception reading response	protein_similar-proteins Q101244282
+6	Blazegraph		 711774	      	None 	None	ERROR Exception reading response	protein_cofunctional-proteins Q1024612
+7	Blazegraph		 888943	      	None 	None	ERROR Exception reading response	protein_cointeracting-proteins Q1024612
+8	Blazegraph		 649696	      	None 	None	ERROR Exception reading response	protein_participates-in Q1024612
+9	Blazegraph		 328454	      	None 	None	ERROR Exception reading response	protein_publications-per-year Q1024612
+10	Blazegraph		 880082	      	None 	None	ERROR Exception reading response	protein_similar-proteins Q1024612

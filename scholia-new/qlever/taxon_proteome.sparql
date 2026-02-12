@@ -1,0 +1,20 @@
+
+PREFIX target: <http://www.wikidata.org/entity/{{ q }}>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?protein ?proteinLabel ?proteinDescription ?gene ?geneLabel {
+  ?protein wdt:P31 wd:Q8054 ;
+           wdt:P703 target: ;
+           wdt:P702 ?gene.
+  BIND (IF(BOUND (?protein), ?protein, <http://doesntexist.example.com/nexistepas>) AS ?proteinLabel__)
+  OPTIONAL { ?proteinLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?proteinLabel. FILTER(LANG(?proteinLabel) = "en") }
+  OPTIONAL { ?proteinLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?proteinLabel. FILTER(LANG(?proteinLabel) = "mul") }
+  BIND (IF(BOUND (?gene), ?gene, <http://doesntexist.example.com/nexistepas>) AS ?geneLabel__)
+  OPTIONAL { ?geneLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?geneLabel. FILTER(LANG(?geneLabel) = "en") }
+  OPTIONAL { ?geneLabel__ <http://www.w3.org/2000/01/rdf-schema#label> ?geneLabel. FILTER(LANG(?geneLabel) = "mul") }
+  BIND (IF(BOUND (?protein), ?protein, <http://doesntexist.example.com/nexistepas>) AS ?proteinDescription__)
+  OPTIONAL { ?proteinDescription__ <http://schema.org/description> ?proteinDescription. FILTER(LANG(?proteinDescription) = "en") }
+  OPTIONAL { ?proteinDescription__ <http://schema.org/description> ?proteinDescription. FILTER(LANG(?proteinDescription) = "mul") }
+}

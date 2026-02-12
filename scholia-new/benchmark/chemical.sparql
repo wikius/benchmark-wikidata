@@ -1,0 +1,6 @@
+SELECT DISTINCT ?c WHERE { 
+  ?c wdt:P31/wdt:P279* wd:Q11173 .
+  ?pathway wdt:P527 ?c ;
+           wdt:P31 wd:Q2996394 .
+} 
+LIMIT 5

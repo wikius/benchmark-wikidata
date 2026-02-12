@@ -1,0 +1,45 @@
+1	QLever		    551	      	Count= 500 	200		software_authors Q102537983
+2	QLever		    332	      	Count= 94 	200		software_coused Q102537983
+3	QLever		  17809	      	Count= 0 	200		software_data Q102537983
+4	QLever		    112	      	Result=0 	200		software_dependent-software Q102537983
+5	QLever		     62	      	Count= 500 	200		software_recent-works Q102537983
+6	QLever		    346	      	Count= 0 	200		software_software-dependencies Q102537983
+7	QLever		    175	      	Count= 100 	200		software_topics Q102537983
+8	QLever		      6	      	None 	500	ERROR: resolve: Host not found (non-authoritative), try again later [asio.netdb:2 at /usr/include/boost/asio/detail/resolver_service.hpp:84:5 in function 'boost::asio::detail::resolver_service<Protocol>::results_type boost::asio::detail::resolver_service<Protocol>::resolve(implementation_type&, const query_type&, boost::system::error_code&)']	software-curation_missing-describes-use Q102537983
+9	QLever		    773	      	Count= 500 	200		software-index_most-used-software Q102537983
+10	QLever		    500	      	Count= 500 	200		software_authors Q1026367
+11	QLever		    377	      	Count= 173 	200		software_coused Q1026367
+12	QLever		     14	      	Count= 6 	200		software_data Q1026367
+13	QLever		    340	      	Count= 79 	200		software_dependent-software Q1026367
+14	QLever		    219	      	Count= 500 	200		software_recent-works Q1026367
+15	QLever		    417	      	Count= 52 	200		software_software-dependencies Q1026367
+16	QLever		    192	      	Count= 100 	200		software_topics Q1026367
+17	QLever		      6	      	None 	500	ERROR: resolve: Host not found (non-authoritative), try again later [asio.netdb:2 at /usr/include/boost/asio/detail/resolver_service.hpp:84:5 in function 'boost::asio::detail::resolver_service<Protocol>::results_type boost::asio::detail::resolver_service<Protocol>::resolve(implementation_type&, const query_type&, boost::system::error_code&)']	software-curation_missing-describes-use Q1026367
+18	QLever		      7	      	Count= 500 	200		software-index_most-used-software Q1026367
+19	QLever		    361	      	Count= 8 	200		software_authors Q1036510
+20	QLever		    159	      	Count= 6 	200		software_coused Q1036510
+21	QLever		     10	      	Count= 4 	200		software_data Q1036510
+22	QLever		     88	      	Result=0 	200		software_dependent-software Q1036510
+23	QLever		     70	      	Count= 2 	200		software_recent-works Q1036510
+24	QLever		    241	      	Count= 6 	200		software_software-dependencies Q1036510
+25	QLever		    157	      	Count= 8 	200		software_topics Q1036510
+26	QLever		      6	      	None 	500	ERROR: resolve: Host not found (non-authoritative), try again later [asio.netdb:2 at /usr/include/boost/asio/detail/resolver_service.hpp:84:5 in function 'boost::asio::detail::resolver_service<Protocol>::results_type boost::asio::detail::resolver_service<Protocol>::resolve(implementation_type&, const query_type&, boost::system::error_code&)']	software-curation_missing-describes-use Q1036510
+27	QLever		      8	      	Count= 500 	200		software-index_most-used-software Q1036510
+28	QLever		    363	      	Count= 12 	200		software_authors Q105099901
+29	QLever		    227	      	Count= 24 	200		software_coused Q105099901
+30	QLever		     12	      	Count= 6 	200		software_data Q105099901
+31	QLever		    127	      	Count= 5 	200		software_dependent-software Q105099901
+32	QLever		     54	      	Count= 4 	200		software_recent-works Q105099901
+33	QLever		    300	      	Count= 15 	200		software_software-dependencies Q105099901
+34	QLever		    190	      	Count= 28 	200		software_topics Q105099901
+35	QLever		      6	      	None 	500	ERROR: resolve: Host not found (non-authoritative), try again later [asio.netdb:2 at /usr/include/boost/asio/detail/resolver_service.hpp:84:5 in function 'boost::asio::detail::resolver_service<Protocol>::results_type boost::asio::detail::resolver_service<Protocol>::resolve(implementation_type&, const query_type&, boost::system::error_code&)']	software-curation_missing-describes-use Q105099901
+36	QLever		      7	      	Count= 500 	200		software-index_most-used-software Q105099901
+37	QLever		    260	      	Count= 3 	200		software_authors Q106313302
+38	QLever		     10	      	Count= 0 	200		software_coused Q106313302
+39	QLever		      8	      	Count= 2 	200		software_data Q106313302
+40	QLever		     59	      	Result=0 	200		software_dependent-software Q106313302
+41	QLever		      7	      	Count= 0 	200		software_recent-works Q106313302
+42	QLever		    293	      	Count= 4 	200		software_software-dependencies Q106313302
+43	QLever		    139	      	Result=1 	200		software_topics Q106313302
+44	QLever		      6	      	None 	500	ERROR: resolve: Host not found (non-authoritative), try again later [asio.netdb:2 at /usr/include/boost/asio/detail/resolver_service.hpp:84:5 in function 'boost::asio::detail::resolver_service<Protocol>::results_type boost::asio::detail::resolver_service<Protocol>::resolve(implementation_type&, const query_type&, boost::system::error_code&)']	software-curation_missing-describes-use Q106313302
+45	QLever		      8	      	Count= 500 	200		software-index_most-used-software Q106313302
